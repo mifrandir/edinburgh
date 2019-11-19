@@ -545,4 +545,44 @@ m >> n = m >>= \() -> n
 A \emph{monoid} is a pair of an operator (\texttt{@@}) and a value $u$, where the operator has the value as identity and is associative.
 \subsubsection{Monads vs Monoids}
 We know that (\texttt{>>}) and \texttt{done} satisfy the laws of a \emph{monoid}.
+\subsection{Substitution}
+We write \texttt{n[x := v]} to stand for
+\begin{center}
+    term \texttt{m} with variable \texttt{x} replaced by value \texttt{v]}.
+\end{center}
+For example, in \texttt{n} is \texttt{x * x} and \texttt{x} is \texttt{x} and \texttt{v} is \texttt{3},
+\begin{center}
+    \texttt{(x * x) [x := 3] = (3 * 3)}
+\end{center}
+\subsection{The monad of lists}
+In the standard prelude:
+\begin{lstlisting}[language=haskell]
+    class Monad m where
+        return :: a -> m a
+        (>>=)  :: m a -> (a -> m b) -> m b
+    
+    instance Monad [] where
+        [] >>= k = []
+        m >> k   = concat (map k m)
+\end{lstlisting}
+\subsection{Monads with plus}
+\begin{lstlisting}[language=haskell]
+    class Monad m => MonadPlus m where
+        mzero :: m a
+        mplus :: m a -> m a -> m a
+    
+    instance MonadPlus [] where
+        mzero :: [a]
+        mzero =  []
+
+        mplus :: [a] -> [a] -> [a]
+        mplus = (++)
+
+        guard :: MonadPlus m => Bool -> m ()
+        guard False = mzero
+        guard True  = return ()
+
+        msum :: MonadPlus m => [m a] -> m a
+        msum = foldr mplus mzero
+\end{lstlisting}
 \end{document}
