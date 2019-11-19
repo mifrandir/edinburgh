@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{ILA: H2 (Workshop 08)}
+\author{Franz Miltz (UNN: s1971811)}
+\date{October 8, 2019}
+\begin{document}
+\maketitle
+This document will use the following notation:
+\begin{itemize}
+    \item $a$ may represent any scalar.
+    \item $A$ may represent or any matrix and $A^{-1}$ is its inverse.
+    \item $I_n$ is the $n\times n$ identity matrix and $I$ is the $n\times n$ identity matrix in the current context (mostly resulting from a multiplication of the form $AA^{-1}$).
+    \item $\begin{bmatrix}
+        a_{11} & a_{12}&\dots &a_{1n}\\
+        a_{21} & a_{22}&\dots &a_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        a_{m1} & a_{m2} &\dots &a_{mn}
+    \end{bmatrix}$ is another representation of $A$
+\end{itemize}
+\section*{Q26}
+Let $A_1$, $A_2$ and $B$ be the following $2\times 2$ matrices:
+\begin{align*}
+    A_1 = \begin{bmatrix}
+        1 &0 \\ 0 &0
+    \end{bmatrix}
+    \hspace{1cm} A_2 = \begin{bmatrix}
+        0 &0 \\ 0 &1
+    \end{bmatrix}
+    \hspace{1cm} B = \begin{bmatrix}
+        a &b \\ c &d
+    \end{bmatrix}
+\end{align*}
+Now we can calculate the following products:
+\begin{align*}
+    A_1B = \begin{bmatrix}
+        a &b \\0 &0
+    \end{bmatrix}\hspace{1cm}
+    BA_1 = \begin{bmatrix}
+        a &0\\
+        c &0
+    \end{bmatrix}\\
+    A_2B = \begin{bmatrix}
+        0 &0\\
+        c &d
+    \end{bmatrix}\hspace{1cm}
+    BA_2 = \begin{bmatrix}
+        0 &b\\
+        0 &d
+    \end{bmatrix}
+\end{align*}
+To satisfy $A_1B=BA_1$, we now need $b = c = 0$. As you can see, the same condition let's $A_2B=BA_2$ as well.\\
+Notice that there aren't any conditions for $a$ and $d$ because either they appear in both matrices in the same way or they don't appear at all.
+Therefore they do not have any effect on the equality of the two products.\\
+This condition includes all the values for $B$ that satisfy the given constraint. 
+Since the question only asks for conditions that imply the given relation is true, but does not explicitly say, that it has to include every single solution, a much easier condition would be the trivial one: $a=b=c=d=0$.\\
+This might not be, what the author of the question intended, though.
+\section*{Q22}
+Every line contains equivalent equations which can derived from it's predecessor by one multiplication and/or at most one expansion or reduction on each side.
+\begin{align*}
+    (A^{-1}X)^{-1} &= A(B^{-2}A)^{-1}\\
+    X^{-1}A &=AA^{-1}B^2 &(AA^{-1}B=IB^2=B^2)\\
+    X^{-1}A &=B^2\\
+    XX^{-1}A &=XB^2 &(XX^{-1}A=IA=A)\\
+    A &= XB^2\\
+    AB^{-2} &= XB^2B^{-2} &(XB^2B^{-2}=XBIB^{-1}=XBB^{-1}=XI=X)\\
+    AB^{-2} &= X
+\end{align*}
+Therefore $X=AB^{-2}$.
+\section*{Q44}
+\subsection*{a)}
+I can just write the three matrices down, as the equations to proof this would all have the form $A_iA_i=A_i$.
+\begin{align*}
+    A_1 = \begin{bmatrix}
+        0 &0\\0&0
+    \end{bmatrix}\hspace{1cm}
+    A_2 = \begin{bmatrix}
+        1 &0\\1&0
+    \end{bmatrix}\hspace{1cm}
+    A_3 = \begin{bmatrix}
+        1 &0\\0&0
+    \end{bmatrix}
+\end{align*}
+\subsection*{b)}
+Let $A$ be a $n\times n$ matrix which satisfies $A^2=A$ and is invertible. Then we can solve the equation in the following way:
+\begin{align*}
+    A^2 &= A\\
+    A^{-1}A^2&=A^{-1}A\\
+    IA&=I\\
+    A&=I\hspace{0.5cm}\square
+\end{align*}
+\end{document}

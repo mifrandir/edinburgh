@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{ILA: H3 (Workshop 08)}
+\author{Franz Miltz (UNN: S1971811)}
+\date{October 15, 2019}
+\begin{document}
+\maketitle
+This document will use the following notation:
+\begin{itemize}
+    \item $a$ may represent any scalar.
+    \item $\vec{a}=\begin{bmatrix}
+        a_1\\
+        \vdots\\
+        a_n
+    \end{bmatrix}$ may represent any vector.
+    \item $A=\begin{bmatrix}
+        a_{11} &\dots &a_{1n}\\
+        \vdots &\ddots &\vdots\\
+        a_{m1} &\dots &a_{mn}
+    \end{bmatrix}$ may represent any matrix.
+    \item $ab$ is a normal product of two scalars.
+    \item $a\vec{b}$ is a scalar multiplication of the vector $\vec{b}$ with the scalar $a$
+    \item $A\vec b$ is the matrix multiplication of the matrix $A$ with the vector $\vec b$
+\end{itemize}
+\section*{Q40}
+\subsection*{a)}
+We can just use $t=x_1$ to subsitute $t$ for $x_1$ in the equations for $x_2$ and $x_3$. Thus we get the following system:
+\begin{align*}
+    -x_1+x_2=1\\
+    x_1+x_3=2 
+\end{align*}
+\subsection*{b)}
+In the given equations we can subsitute $x_3$ for $s$ and $t$ for $x_1$.
+\begin{align*}
+    x_2 = 1 + x_1\\
+    s = 2 - x_1
+\end{align*}
+Using those and appending $x_3=s$ we get the following solution:
+\begin{align*}
+    x_1 &= 2-s\\ 
+    x_2 &= 3-s\\ 
+    x_3 &= s
+\end{align*}
+\section*{Q20}
+To see the effect of those row operations, let's define a matrix $A$ with two rows:
+\begin{align}
+    A = \begin{bmatrix}
+        \vec a\\
+        \vec b
+    \end{bmatrix}
+\end{align}
+Here $\vec a$ and $\vec b$ are row vectors of arbitrary size with arbitrary values. 
+(They might even be in one-dimensional, i.e. scalars.) Note as well, that the given operations do not influence any other row. Therefore we don't need to consider bigger matrices.\\
+If we write this transformation matrix into an equation, we can apply the given row operations:
+\begin{align}
+    \begin{bmatrix}
+        \vec a\\
+        \vec b
+    \end{bmatrix} \vec x &= \vec d\\
+    \Leftrightarrow\begin{bmatrix}
+        \vec a\\
+        \vec a + \vec b
+    \end{bmatrix} \vec x &= \vec d
+    & (R_2 + R_1)\\
+    \Leftrightarrow\begin{bmatrix}
+        -\vec b\\
+        \vec a + \vec b
+    \end{bmatrix} \vec x &= \vec d
+    & (R_1 - R_2)\\
+    \Leftrightarrow\begin{bmatrix}
+        -\vec b\\
+        \vec a
+    \end{bmatrix} \vec x &= \vec d
+    & (R_2 + R_1)\\
+    \Leftrightarrow\begin{bmatrix}
+        \vec b\\
+        \vec a
+    \end{bmatrix} \vec x &= \vec d
+    & (-R_1)
+\end{align}
+The net effect is obvious: the first two rows of the matrix are swapped.
+This is therefore an important sequence of operations because it shows, that moving rows is possible without any side effects, which is necessary for finding the REF and RREF.
+\section*{Q24}
+There are infinetly many RREFs of $3\times3$ matrices because there are infently many possible values. Yet, we can sort them into four categories, based on how many zero rows they contain: zero, one, two or three. \\
+The possiblilities for zero or three zero rows are very limited, the only possible matrices in these categories are
+\begin{align*}
+    \begin{bmatrix}
+        0 &0 &0\\
+        0 &0 &0\\
+        0 &0 &0
+    \end{bmatrix}\text{ and }
+    \begin{bmatrix}
+        1 &0 &0\\
+        0 &1 &0\\
+        0 &0 &1
+    \end{bmatrix}.
+\end{align*}
+For two zero rows, we have three possiblilities for where the first entry is in the row. With $s_i$ being arbitrary scalar entries, we get the following forms:
+\begin{align*}
+    \begin{bmatrix}
+        1 &s_1 &s_2\\
+        0 &0 &0\\
+        0 &0 &0
+    \end{bmatrix}\:
+    \begin{bmatrix}
+        0 &1 &s_1\\
+        0 &0 &0\\
+        0 &0 &0
+    \end{bmatrix}\:
+    \begin{bmatrix}
+        0 &0 &1\\
+        0 &0 &0\\
+        0 &0 &0
+    \end{bmatrix}
+\end{align*}
+From the first two matrices we can derive three general forms that contain two non-zero rows:
+\begin{align*}
+    \begin{bmatrix}
+        1 &s_1 &s_2\\
+        0 &1 &s_3\\
+        0 &0 &0
+    \end{bmatrix}\:
+    \begin{bmatrix}
+        1 &s_1 &s_2\\
+        0 &0 &1\\
+        0 &0 &0
+    \end{bmatrix}\:
+    \begin{bmatrix}
+        0 &1 &s_1\\
+        0 &0 &1\\
+        0 &0 &0
+    \end{bmatrix}
+\end{align*}
+Since there is neither another way of inserting a non-zero row into the $0$ matrix nor a way of adding a non-zero row to the second line of matrices while following the definition of the RREF, we can be sure that all of the RREFs of $3\times3$ matrices fit one of those eight patterns. 
+\end{document}

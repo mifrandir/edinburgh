@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{ILA: H8 (Workshop 08)}
+\author{Franz Miltz (UNN: s1971811)}
+\date{November 19, 2019}
+\begin{document}
+\maketitle
+This document will use the following notation:
+\begin{itemize}
+    \item $a$ may represent any scalar.
+    \item $\vec{a}$ may represent any vector.
+    \item $\begin{bmatrix}
+        a_1\\
+        \vdots\\
+        a_n
+    \end{bmatrix}$ is another representation of $\vec a$. 
+    \item $a_i$ is the $i$th component of the vector $a$.
+    \item $A$ may represent any matrix.
+    \item $ab$ is a product of two scalars.
+    \item $a\vec{b}$ is a scalar multiplication of the vector $\vec{b}$ with the scalar $a$
+    \item $A\vec b$ is the matrix multiplication of the matrix $A$ with the vector $\vec b$
+\end{itemize}
+\section*{Dec 13: A4}
+The given statement is true. Proof:\\
+Let $A$ be an $n\times n$ matrix where
+\begin{align*}
+    A&=\begin{bmatrix}
+        \vec a_1&\vec a_2&\cdots&\vec a_n
+    \end{bmatrix}
+\end{align*}
+and
+\begin{align*}
+    A\vec v &= \lambda\vec v.
+\end{align*}
+According to the definition of the matrix multiplication we get
+\begin{align*}
+    A\vec v &= \begin{bmatrix}
+        v_1a_{11} + v_2a_{12} + \cdots + v_na_{1n}\\
+        v_1a_{21} + v_2a_{22} + \cdots + v_na_{2n}\\
+        \vdots\\
+        v_1a_{n1} + v_2a_{n2} + \cdots + v_na_{nn}
+    \end{bmatrix}\\
+    &= v_1\vec a_1 + v_2\vec a_2 + \cdots + v_n\vec a_n = \lambda \vec v
+\end{align*}
+Therefore, with $\lambda\not=0$,
+\begin{align*}
+    \vec v = \sum_{i=1}^n \frac{v_i}{\lambda} \vec a_i
+\end{align*}
+which shows that the eigenvector $\vec v$ of $A$ is a linear combination of the rows $\vec a_1, \vec a_2, ..., \vec a_n$ of $A$. $\square$
+\section*{Dec 14: A4}
+\subsection*{(a)}
+The given statement is false. Proof:\\
+We know that, in general, 
+\begin{align*}
+    A\vec v = \lambda\vec v \Rightarrow A^2\vec v = \lambda^2\vec v
+\end{align*}
+for all $n\times n$ matrices $A$.\\
+Therefore we can let $B=A$ where the eigenvalues of the $n\times n$ matrix $A$ are $\lambda_1, \lambda_2, ..., \lambda_n$.
+Thus the eigenvalues of $AB=A^2$ are $\lambda_1^2, \lambda_2^2, ..., \lambda_n^2$. This should already make clear that the eigenvalues of $A$ are, in general, not equal to the eigenvalues of $A^2$. Let's look at an example:
+Let $A$ be the $2\times2$ matrix
+\begin{align*}
+    A = \begin{bmatrix}
+        2 &0\\ 0& 3
+    \end{bmatrix}.
+\end{align*}
+Therefore $\lambda_1=2$ and $\lambda_2=3$ are eigenvalues of $A$. You can see that the matrix $A^2$ only has the eigenvalues $\lambda_3=4$ and $\lambda_4=9$. Therefore neither $\lambda_1$ nor $\lambda_2$ are eigenvalues of $A^2=AB$ even though they are both eigenvalues of $A$ and $B$. $\square$
+\subsection*{(b)}
+The given statement is true. Proof:\\
+Let $A$ and $B$ be two $n\times n$ matrices and let
+\begin{align*}
+    A\vec v =\lambda_A \vec v \text{  and  } B\vec v =\lambda_B\vec v.
+\end{align*}
+Therefore
+\begin{align*}
+    AB\vec v &= A(B\vec v)\\
+    &= A(\lambda_B\vec v)\\
+    &= \lambda_B(A\vec v)\\
+    &=\lambda_A\lambda_B\vec v
+\end{align*}
+Therefore $\vec v$ is an eigenvector of $AB$ with eigenvalue $\lambda_{AB}=\lambda_A\lambda_B$. $\square$
+\end{document}

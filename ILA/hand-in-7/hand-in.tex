@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{ILA: H7 (Workshop 08)}
+\author{Franz Miltz (UNN: s1971811)}
+\date{November 12, 2019}
+\begin{document}
+\maketitle
+This document will use the following notation:
+\begin{itemize}
+    \item $a$ may represent any scalar.
+    \item $\vec{a}$ may represent any vector.
+    \item $\begin{bmatrix}
+        a_1\\
+        \vdots\\
+        a_n
+    \end{bmatrix}$ is another representation of $\vec a$. 
+    \item $a\vec{b}$ is a scalar multiplication of the vector $\vec{b}$ with the scalar $a$
+    \item $T:\mathbb{R}^n\to\mathbb{R}^m$ is a transformation from $\mathbb{R}^n$ to $\mathbb{R}^m$.
+\end{itemize}
+\section*{Q8}
+We know that for $T$ to be linear we need the following to be true for every $k\in\mathbb{R}$ and $\vec u \in\mathbb{R}^n$. 
+\begin{align*}
+    T(k\vec u) = k T(\vec u)
+\end{align*}
+Let $\vec u = \vec e_1$ and $k = -1$. Then
+\begin{align*}
+    T(k\vec u) = T\left(-\begin{bmatrix}
+        1\\ 0
+    \end{bmatrix}\right) = 
+    \begin{bmatrix}
+        |-1|\\ 0
+    \end{bmatrix} =
+    \begin{bmatrix}
+        1\\0
+    \end{bmatrix}.
+\end{align*}
+Now let's look at $kT(\vec u)$:
+\begin{align*}
+    kT(\vec u) = -T\left(\begin{bmatrix}
+        1\\ 0
+    \end{bmatrix}\right)
+    = \begin{bmatrix}
+        -1\\ 0
+    \end{bmatrix}.
+\end{align*}
+Therefore
+\begin{align*}
+    T(k\vec u) \not= kT(\vec u)
+\end{align*}
+and thus $T$ is not linear.
+\section*{Q53}
+A transformation $T:\mathbb{R}^n\to\mathbb{R}^m$ is linear iff
+\begin{enumerate}
+    \item $T(k\vec u) = kT(\vec u)$ for all $k\in R$ and $\vec u\in\mathbb{R}^n$
+    \item $T(\vec u + \vec v) = T(\vec u) + T(\vec v)$ for all $\vec u, \vec v \in\mathbb{R}^n$
+\end{enumerate}
+The given equation, 
+\begin{align*}
+    T(c_1\vec v_1 + c_2\vec v_2) = c_1T(\vec v_1) + c_2T(\vec v_2),
+\end{align*}
+seems to follow directly from that definition:
+\begin{align*}
+    T(c_1\vec v_1 + c_2\vec v_2) = T(c_1\vec v_1) + T(c_2\vec v_2)
+\end{align*}
+by the second part of the definition iff $T$ is linear and
+\begin{align*}
+    T(c_1\vec v_1) + T(c_2\vec v_2) = c_1T(\vec v_1) + c_2T(\vec v_2)
+\end{align*}
+by the first part of the definition iff $T$ is linear. $\square$\\\\
+Note that we used both conditions in the definition. Therefore we know that all the conditions posed by the definition are definetly held by any $T$ that satisfies our single new equation. Additionally we did not use anything else but the definition and therefore can be sure that any $T$ which satisfies the definition will satisfy our equation.
+\end{document}

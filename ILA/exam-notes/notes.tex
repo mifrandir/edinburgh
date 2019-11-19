@@ -1,0 +1,334 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\begin{document}
+\setcounter{section}{2}
+\section{Matrices}
+\setcounter{subsection}{5}
+\subsection{Linear Transformations}
+\begin{definition}
+    A \textbf{transformation} $T$ from $\mathbb{R}^n$ (\textbf{domain}) to $\mathbb{R}^m$ (\textbf{codomain}) is a rule which assigns to each vector $\vec v$ in $\mathbb{R}^n$ a unique vector $T(\vec v)$ (\textbf{image} of $\vec v$ under $T$) in $\mathbb{R}^m$. 
+    The \textbf{range} of $T$ is the set of all possible vectors $T(\vec v)$
+\end{definition}
+\begin{definition}
+   $T:\mathbb{R}^n \to \mathbb{R}^m$ is a \textbf{linear transformation} iff
+    \begin{align*}        
+        \forall \vec v_1, \vec v_2 \in \mathbb{R}^n.\:\forall c_1, c_2 \in \mathbb{R}.\: T(c_1\vec v_1 + c_2\vec v_2) = c_1T(\vec v_1) + c_2T(\vec v_2)
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    All matrix transformations $T_A:\mathbb{R}^n\to\mathbb{R}^m$ are linear transformations.
+\end{theorem}
+\begin{theorem}
+    Let $T:\mathbb{R}^n\to\mathbb{R}^m$ be a linear transformation. Then $T=T_A$ where $A$ (\textbf{the standard matrix} of $T$) is the $m\times n$ matrix 
+    \begin{align*}
+        A = \begin{bmatrix}
+            T(\vec e_1) & T(\vec e_2) & \cdots & T(\vec e_n)
+        \end{bmatrix}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $T:\mathbb{R}^m\to\mathbb{R}^n$ and $S:\mathbb{R}^n\to\mathbb{R}^p$ be linear transformations. Then $S\circ T:\mathbb{R}^m\to\mathbb{R}^p$ is a linear transformation. Their standard matrices are related by
+    \begin{align*}
+        \begin{bmatrix}
+            S\circ T
+        \end{bmatrix}
+        = \begin{bmatrix}
+            S
+        \end{bmatrix}
+        \begin{bmatrix}
+            T
+        \end{bmatrix}
+    \end{align*}
+\end{theorem}
+\section{Eigenvectors and Eigenvalues}
+\subsection{Introduction}
+\begin{definition}
+    Let $A$ be an $n\times n$ matrix. A scalar $\lambda$ is called an \textbf{eigenvalue} of $A$ if there is a nonzero vector $\vec x$ such taht $A\vec x=\lambda\vec x$. Such a vector $\vec x$ is called an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+\end{definition}
+\begin{definition}
+    Let $A$ be an $n\times n$ matrix and let $\lambda$ be an eigenvalue of $A$. The collection of all eigenvectors corresponding to $\lambda$, together with the zero vector, is called the \textbf{eigenspace} of $\lambda$ and is denoted by $E_\lambda$.
+\end{definition}
+\subsection{Determinants}
+\begin{definition}
+    Let $A=\begin{bmatrix}
+        a_{11} &a_{12} &a_{13}\\ 
+        a_{21} &a_{22} &a_{23}\\ 
+        a_{31} &a_{32} &a_{33}
+    \end{bmatrix}$.
+    Then the \textbf{determinant} of $A$ is the scalar
+    \begin{align*}
+        det A = |A| = a_{11}\left|\begin{array}{ccc}
+            a_{22} &a_{23}\\ 
+            a_{32} &a_{33}
+        \end{array}\right| -
+        a_{12}\left|\begin{array}{ccc}
+            a_{21} &a_{23}\\ 
+            a_{31} &a_{33}
+        \end{array}\right| +
+        a_{13}\left|\begin{array}{ccc}
+            a_{21} &a_{22}\\ 
+            a_{31} &a_{32}
+        \end{array}\right|
+    \end{align*}
+    For any matrix $A$, $A_{ij}$ is called the \textbf{(i,j)-minor} of $A$.
+\end{definition}
+\begin{definition}
+    Let $A=[a_{ij}]$ be an $n\times n$ matrix, where $n\geq 2$. Then the \textbf{determinant} of $A$ is the scalar
+    \begin{align*}
+        det A = \sum_{j=1}^n (-1)^{j+1}a_{1j}det A_{1j}
+    \end{align*}
+\end{definition}
+\begin{definition}
+    The \textbf{(i,j)-cofactor of A} is
+    \begin{align*}
+        C_{ij}=(-1)^{i+j}det A_{ij}
+    \end{align*}
+    With this notation the determinant becomes
+    \begin{align*}
+        det A = \sum^n_{j=1} a_{1j}C_{1j}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    The determinant of an $n\times n$ matrix $A=[a_{ij}]$, where $n\geq 2$, can be computed as
+    \begin{align*}
+        det A &= a_{i1}C_{i1}+a_{i2}C_{i2} + \cdots + a_{in}C_{in}\\
+        &= \sum_{j=1}^n a_{ij}C_{ij}
+    \end{align*}
+    (the \textbf{cofactor expansion along the $i$th row}) and also as
+    \begin{align*}
+        det A &= a_{1j}C_{1j}+a_{2j}C_{2j} + \cdots + a_{nj}C_{nj}\\
+        &= \sum_{i=1}^n a_{ij}C_{ij}
+    \end{align*}
+    (the \textbf{cofactor expansion along the $j$th column}).
+\end{theorem}
+\begin{theorem}
+    The determinant of a triangular matrix is the product of the entries on its main diagonal.
+    Specifically, if $A=[a_{ij}]$ is an $n\times n$ triangular matrix, then
+    \begin{align*}
+        det A = a_{11}a_{22}\cdots a_{nn}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A=[a_{ij}]$ be a square matrix.
+    \begin{enumerate}
+        \item If $A$ has a zero row (column), the $det A = 0$.
+        \item If $B$ is obtained by interchanging two rows (columns) of $A$, then $det B = -det A$.
+        \item If $A$ has two identical rows (columns), then $det A = 0$.
+        \item If $B$ is obtained by multiplying a row (column) of $A$ by $k$, then $det B = k det A$.
+        \item If $A$, $B$ and $C$ are identical except that the $i$th row (column) of $C$ is the sum of the $i$th rows (columns) of $A$ and $B$, then $det C = det A + det B$.
+        \item If $B$ is obtained by adding a multiple of one row (column) of $A$ to another row (column), then $det B = det A$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $E$ be an $n\times n$ elementary matrix.
+    \begin{enumerate}
+        \item If $E$ results from interchanging two rows of $I_n$, then $det E = -1$.
+        \item If $E$ results from multiplying one row of $I_n$ by $k$, then $det E = k$.
+        \item If $E$ results from adding a multiple of one row of $I_n$ to another row, then $det E = 1$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $B$ be an $n\times n$ matrix and let $E$ be an $n\times n$ elementary matrix. Then
+    \begin{align*}
+        det(EB) = (det E)(det B).
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    A square matrix $A$ is invertible iff $det A \not= 0$.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $n\times n$ matrix, then
+    \begin{align*}
+        det(kA) = k^n det A
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $A$ and $B$ are $n\times n$ matrices, then
+    \begin{align*}
+        det(AB) = (det A)(det B)
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $A$ is invertible, then
+    \begin{align*}
+        det(A^{-1})=\frac{1}{det A}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    For any square matrix $A$,
+    \begin{align*}
+        det A = det A^T
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an invertible $n\times n$ matrix and let $\vec b$ be a vector $\mathbb{R}^n$. Then the unique solution of $\vec x$ of the system $A\vec x$ is given by
+    \begin{align*}
+        x_i = \frac{det(A_i(\vec b))}{det A}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an invertible $n\times n$ matrix. Then
+    \begin{align*}
+        A^{-1}=\frac{1}{det A}adj A
+    \end{align*}
+    where
+    \begin{align*}
+        adj A = [C_{ji}] = [C_{ij}]^T.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix. Then
+    \begin{align*}
+        a_{11}C_{11}+a_{12}C_{12}+\cdots+a_{1n}C_{1n}= det A = a_{11}C_{11}+a_{21}C_{21} + \cdots + a_{n1}C_{n1}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $B$ be obtained by interchanging any two rows (columns) of $A$. Then
+    \begin{align*}
+        det B = - det A
+    \end{align*}
+\end{theorem}
+\subsection{Eigenvectors and Eigenvalues of $n\times n$ matrices}
+\setcounter{theorem}{14}
+\begin{theorem}
+    The eigenvalues of a triangular matrix are the entries on its main diagonal.
+\end{theorem}
+\begin{theorem}
+    A square matrix $A$ is invertible iff $0$ is not an eigenvalue of $A$.
+\end{theorem}
+\setcounter{theorem}{17}
+\begin{theorem}
+    Let $A$ be a square matrix with eigenvalue $\lambda$ and corresponding eigenvector $\vec x$.
+    \begin{enumerate}
+        \item For any positive integer $n$, $\lambda^n$ is an eingenvalue of $A^n$ with corresponding eigenvector $\vec x$.
+        \item If $A$ is invertible, then $\frac{1}{\lambda}$ is an eigenvalue of $A^{-1}$ with corresponding eigenvector $\vec x$.
+        \item If $A$ is invertible, then for any integer $n$, $\lambda^n$ is an eigenvalue of $A^n$ with corresponding eigenvector $\vec x$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Suppose the $n\times n$ matrix $A$ has eigenvectors $\vec v_1, \vec v2_, ..., \vec v_m$ with corresponding eigenvalues $\lambda_1, \lambda_2, ...,\lambda_m$. If $\vec x$ is a vector in $\mathbb{R}^n$ that can be expressed as a linear combination of these eigenvectors-say,
+    \begin{align*}
+        \vec x = c_1\vec v_1+c_2\vec v_2 +\cdots + c_m\vec v_m
+    \end{align*}
+    then, for any integer $k$,
+    \begin{align*}
+        A^k\vec x = c_1\lambda_1^k\vec v_1+c_2\lambda_2^k\vec v_2 + \cdots + c_m\lambda_m^k\vec v_m
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $\lambda_1, \lambda_2, ...,\lambda_m$ be distinct eigenvalues of $A$ with corresponding eigenvectors $\vec v_1, \vec v_2, ..., \vec v_m$. Then $\vec v_1, \vec v_2, ...,\vec v_m$ are linearly independent.
+\end{theorem}
+\subsection{Similarity and Diagonalization}
+\begin{definition}
+    Let $A$ and $B$ be $n\times n$ matrices. We say that $A$ \textbf{is similar to} $B$ if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP=B$. If $A$ is similar to $B$ we write $A\sim B$.
+\end{definition}
+\begin{theorem}
+    Let $A$, $B$, and $C$ be $n\times n$ matrices.
+    \begin{enumerate}
+        \item $A\sim A$.
+        \item If $A\sim B$, then $B\sim A$.
+        \item If $A\sim B$ and $B\sim C$, then $A\sim C$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $A$ and $B$ be $n\times n$ matrices with $A\sim B$. Then
+    \begin{enumerate}
+        \item $\det A = \det B$
+        \item $A$ is invertible iff $B$ is invertible.
+        \item $A$ and $B$ have the same rank.
+        \item $A$ and $B$ have the same characteristic polynomial.
+        \item $A$ and $B$ have the same eigenvalues.
+        \item $A^m\sim B^m$ for all integers $m\geq 0$.
+        \item If $A$ is invertible, then $A^m\sim B^m$ for all integers $m$
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    An $n\times n$ matrix $A$ is \textbf{diagonalizable} if there is a diagonal matrix $D$ such that $A$ is similar to $D$ - that is, if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP = D$.
+\end{definition}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix. Then $A$ is diagonalizable iff $A$ has $n$ linearly independent eigenvectors.\\
+    More precisely, there exist an invertible matrix $P$ and a diagonal matrix $D$ such that $P^{-1}AP=D$ iff the columns of $P$ are $n$ linearly independent eigenvectors of $A$ and the diagonal entries of $D$ are the eigenvalues of $A$ corresponding to the eigenvectors in $P$ in the same order.
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $\lambda_1, \lambda_2, ..., \lambda_k$ be distinct eigenvalues of $A$. If $\mathcal{B}_i$ is a basis for the eigenspace $E_{\lambda_i}$, then $\mathcal{B} = \mathcal{B}_1\cup\mathcal{B}_2\cup\cdots\cup\mathcal{B}_k$ (i.e., the total collection of basis vectors for all of the eigenspaces) is linearly independent.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $n\times n$ matrix with $n$ distinct eigenvalues, then $A$ is diagonalizable.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $n\times n$ matrix, then the geometric multiplicity of each eigenvalue is less than or equal to its algebraic multiplicity.
+\end{theorem}
+\begin{theorem}
+    \textbf{The Diagonalization Theorem}\\
+    Let $A$ be an $n\times n$ matrix whose distinct eigenvalues are $\lambda_1, \lambda_2, ...,\lambda_k$. The following statements are equivalent:
+    \begin{enumerate}
+        \item $A$ is diagonalizable.
+        \item The union of $\mathcal{B}$ of the bases of the eigenspaces of $A$ contains $n$ vectors.
+        \item The algebraic multiplicity of each eigenvalue equals its geometric multiplicity.
+    \end{enumerate}
+
+\end{theorem}
+\section{Orthogonality}
+\subsection{Orthogonality in $\mathbb{R}^n$}
+\begin{definition}
+    A set $S$ of vectors in $\mathbb{R}^n$ is called an orthogonal set iff
+    \begin{align*}
+        \forall \vec u, \vec v\in S.\: \vec u \not= \vec v \Rightarrow \vec u \cdot \vec v = 0
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    If $\{\vec v_1, \vec v_2, ...,\vec v_k\}$ is an orthogonal set of nonzero vectors in $\mathbb{R}^n$, then these vectors are linearly independent.
+\end{theorem}
+\begin{theorem}
+    Let $\{\vec v_1, \vec v_2, ..., \vec v_k\}$ be an orthogonal basis for a subspace $W$ of $\mathbb{R}^n$ and let $\vec w$ be any vector in $W$. Then the unique scalars $c_1, ..., c_k$ such that
+    \begin{align*}
+        \vec w = c_1\vec v_1 + \cdots + c_k\vec v_k
+    \end{align*}
+    are given by
+    \begin{align*}
+        c_i = \frac{\vec w \cdot \vec v_i}{\vec v_i \cdot \vec v_i}; \: i \in \{1, ..., k\}
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    A set of vectors in $\mathbb{R}^n$ is an \textbf{orthonormal set} if it is an orthogonal set of unit vectors. An \textbf{orthonormal basis} for a subspace $W$ of $\mathbb{R}^n$ is a basis of $W$ that is an orthonormal set. 
+\end{definition}
+\begin{theorem}
+    Let $\{\vec q_1, \vec q_2, ..., \vec q_k\}$ be an orthonormal basis for a subspace $W$ of $\mathbb{R}^n$ and let $\vec w\in W$. Then
+    \begin{align*}
+        \vec w = (\vec w \cdot \vec q_1)\vec q_1 + (\vec w\cdot\vec q_2)\vec q_2 + \cdots + (\vec w\cdot\vec q_k)\vec q_k
+    \end{align*}
+    and this representation is unique.
+\end{theorem}
+\begin{theorem}
+    The columns of an $m\times n$ matrix $Q$ form an orthonormal set iff $Q^TQ=I_n$.
+\end{theorem}
+\begin{definition}
+    An $n \times n$ matrix $Q$ whose columns form an orthonormal set is called an \linebreak \textbf{orthogonal matrix}.
+\end{definition}
+\begin{theorem}
+    A square matrix $Q$ is orthogonal iff $Q^{-1}=Q^T$.
+\end{theorem}
+\begin{theorem}
+    Let $Q$ be an $n\times n$ matrix. The following statements are equivalent:
+    \begin{enumerate}
+        \item $Q$ is orthogonal.
+        \item $\forall \vec x \in \mathbb{R}^n.\:|Q\vec x| = |\vec x|$.
+        \item $\forall \vec x, \vec y \in \mathbb{R}^n.\:Q\vec x\cdot Q\vec y = \vec x\cdot \vec y$.
+    \end{enumerate}
+\end{theorem}
+\end{document}

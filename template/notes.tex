@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{hyperref}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \LARGE Franz Miltz\\
+        \url{franz@miltz.me}\\
+        \vspace{5cm}
+        \LARGE\textbf{Introduction to Computation}\\
+        SEM1\\
+        \vspace{1cm}
+        Philip Wadler \& Micheal Fourman
+    \end{center}
+\end{titlepage}
+\tableofcontents
+\pagebreak
+\section{Lecture 1 (FP), September 17}
+\subsection{Prolog}
+\begin{itemize}
+    \item Tutorials start this week. (Thursday/Friday)
+    \item Everyone should install Haskell.
+    \item Get the Tutorial! (May involve extra steps. Sorry.)
+    \item You may read in before or after the lecture.
+\end{itemize}
+\subsection{Why FP first?}
+\begin{itemize}
+    \item Diversity is important.
+    \item Increasingly important.
+    \item Equality throughout the course.
+    \item Operate on data structure \emph{as a whole} rather than \emph{piecemeal}. $\Rightarrow$ higher level
+    \item Good for councurrency.
+    $\Leftarrow$ Everything is immutable.
+    You don't need to worry about different instances changing the data.
+\end{itemize}
+Quote of the day:
+\begin{quotation}
+    Premature optimization is the root of all evil.
+    (Philip Wadler)
+\end{quotation}
+\subsection{What is Haskell?}
+\begin{itemize}
+    \item A functional programming language
+    \item Designed by a committee 30 years ago.
+    \item Phil was part of it.
+\end{itemize}
+\subsection{What is Haskell for?}
+\begin{itemize}
+    \item Research
+    \item Teaching
+    \item Industry
+\end{itemize}
+\subsection{Families}
+\begin{itemize}
+    \item FP: Haskell, Erlang, Purescript, Racket, Scala
+    \item OO: C++, Java, C\#, Python
+\end{itemize}
+Ideas from FP have found their way into OOP. (GC, Higher-order functions, generics, list comprehension, ...)
+\subsection{Functions}
+\subsubsection{Definitions}
+\begin{itemize}
+    \item Recipe / Instructions
+    \item I/O pair set
+    \item equation
+    \item a graph
+\end{itemize}
+\subsubsection{Kinds of data}
+\begin{itemize}
+    \item integers
+    \item floats
+    \item characters
+    \item strings
+    \item booleans
+    \item pictures
+\end{itemize}
+\subsubsection{Applying a function}
+\begin{verbatim}
+invert :: Picture -> Picture
+knight :: Picture
+invert knight
+\end{verbatim}
+\subsubsection{Composing functions}
+\begin{verbatim}
+Picture 
+\end{verbatim}
+\end{document}
