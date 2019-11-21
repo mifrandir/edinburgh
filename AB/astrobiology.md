@@ -2303,3 +2303,60 @@ Testing technology.
 - use solar power
 - build launch pad
 - fuel collection: Sabatier reaction (Methane/Hydrogen)
+
+# Icy Moons
+
+## Energy of Jovian Moons
+
+Tidal heating because of eccentric orbit around Jupiter.
+
+- Io: about 100m, significant heating
+- Europa: about 50m, smaller but significant
+- Ganymede and Callisto significantly less ($\frac{1}{R^4}$)
+
+Tidal heating is due to eccentricity caused by resonance (4:2:1) with other moons.
+
+## Habitability of Europa
+
+- almost tidally locked
+- 3.5 day period
+- smaller and less dense than our moon
+- regular delivery of organic materials through comets because of Jupiter
+
+### Surface 
+
+- very flat, like a billard ball
+- few craters, suggest regular renewal
+- icy surface is covered with bands
+- 103K mean, min. 50K
+- bands probably caused by newer ice rising from below
+- flat region suggest local melting; local heating? thing layer?
+- raft depth: 470-2200m; ice sheet probably MUCH thicker
+
+### Subsurface Ocean
+
+- generates induced magnetic field
+- ice layer on top up to 100km thick
+- liquid water below
+
+### Other criteria
+
+CHNOPS
+- from comets, asteroids and the rocky core
+
+Energy
+- Radiation
+- Organics
+- Redox couples
+- Sunlight
+
+Nutrients
+- from bombardment
+- from the crust
+
+## Interest in other Jovian moons
+
+- human base on Callisto: staging, fuel depot, ...
+- Ganymede and Callisto may have subsurface oceans
+- Callisto most ancient surface; stable and low radiation -> good for humans
+- Io is too active; might give valuable insight in the Solar System
