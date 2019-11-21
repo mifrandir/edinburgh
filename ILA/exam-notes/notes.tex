@@ -4,6 +4,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{siunitx}
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
 {\upshape}        % Theorem body font % (default is "\upshape")
@@ -330,5 +331,101 @@
         \item $\forall \vec x \in \mathbb{R}^n.\:|Q\vec x| = |\vec x|$.
         \item $\forall \vec x, \vec y \in \mathbb{R}^n.\:Q\vec x\cdot Q\vec y = \vec x\cdot \vec y$.
     \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    If $Q$ is an orthogonal matrix, then its rows form an orthonormal set.
+\end{theorem}
+\begin{theorem}
+    Let $Q$ be an orthogonal matrix.
+    \begin{enumerate}
+        \item $Q^{-1}$ is orthogonal.
+        \item $\det Q = \pm 1$
+        \item If $\lambda$ is an eigenvalue of $Q$, then $|\lambda|=1$.
+        \item If $Q_1$ and $Q_2$ are orthogonal $n\times n$ matrices, then so is $Q_1Q_2$.
+    \end{enumerate}
+\end{theorem}
+\subsection{Orthogonal Complements and Orthogonal Projections}
+\begin{definition}
+    Let $W$ be a subspace of $\mathbb{R}^n$. We say that a vector $\vec v$ in $\mathbb{R}^n$ is \textbf{orthogonal to $W$} if $\vec v$ is orthogonal to every vector in $W$. The set of all vectors that are orthogonal to $W$ is called the \textbf{orthogonal complement of $W$}, denoted $W^{\perp}$. That is,
+    \begin{align*}
+        W^{\perp} = \{\vec v in \mathbb{R}^n:\vec v \cdot \vec w = 0 \text{ for all }\vec v\in W\}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $W$ be a subspace of $\mathbb{R}^n$.
+    \begin{enumerate}
+        \item $W^{\perp}$ is a subspace of $\mathbb{R}^n$.
+        \item $\left(W^{\perp}\right)^{\perp}=W$.
+        \item $W\cap W^{\perp}=\{\vec 0\}$.
+        \item If $W=span({\vec w_1, ..., \vec w_k})$, then $\vec v$ is in $W^{\perp}$ iff $v\cdot w_i=0$ for all $i=1,...,k$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $m\times n$ matrix. Then the orthogonal complement of the row space of $A$ is the null space of $A$, and the orthogonal complement of the column space of $A$ is the null space of $A^T$:
+    \begin{align*}
+        (row(A))^{\perp}&=null(A)\\
+        (col(A))^{\perp}&=null(A^T)
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    Let $W$ be a subspace of $\mathbb{R}^n$ and let $\{\vec u_1, ..., \vec u_k\}$ be an orthogonal basis for $W$.
+    For any vector $\vec v$ in $\mathbb{R}^n$, the \textbf{orthogonal projection of $\vec v$ onto $W$} is defined as
+    \begin{align*}
+        proj_W(\vec v)=proj_{\vec u_1}(\vec v) + \cdots + proj_{\vec u_k}(\vec v).
+    \end{align*}
+    The \textbf{component of $\vec v$ orthogonal to $W$} is the vector
+    \begin{align*}
+        perp_W(\vec v) = \vec v - proj_W(\vec v)
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    \textbf{The Orthogonal Decomposition Theorem}\\
+    Let $W$ be a subspace of $\mathbb{R}^n$ and let $\vec v$ be a vector in $\mathbb{R}^n$.
+    Then there are unique vectors $\vec w$ in $W$ and $\vec w^{\perp}$ in $W^{\perp}$ such that
+\begin{align*}
+    \vec v = \vec w + \vec w^{\perp}.
+\end{align*}
+\end{theorem}
+\setcounter{theorem}{12}
+\begin{theorem}
+    If $W$ is a subspace of $\mathbb{R}^n$, then
+    \begin{align*}
+        \dim W + \dim W^{\perp} = n        
+    \end{align*}
+\end{theorem}
+\setcounter{theorem}{14}
+\subsection{The Gram-Schmidt Process and the QR Factorization}
+\begin{theorem}
+    \textbf{The Gram-Schmidt Process}\\
+    Let $\{\vec x_1, ..., \vec x_k\}$ be a basis for a subspace $W$ of $\mathbb{R}^n$ and define the following for all $i\in\{1,...,k\}$:
+    \begin{align*}
+        \vec v_i &= \vec x_i - \sum^{i-1}_{j=1} proj_{\vec v_i}(\vec x_i)\\
+        W_i &= span(\vec x_1, ..., \vec x_i)
+    \end{align*}
+    Then for each $i=1, ..., k$, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W_i$. In particular, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W$.
+\end{theorem}
+\begin{theorem}
+    \textbf{The QR Factorization}\\
+    Let $A$ be an $m\times n$ matrix with linearly independent columns. Then $A$ can be factored as $A=QR$, where $Q$ is an $m\times n$ matrix with orthonormal columns and $R$ is an invertible upper triangular matrix.
+\end{theorem}
+\subsection{Orthogonal Diagonalization of Symmetric Matrices}
+\begin{theorem}
+    If $A$ is orthogonally diagonalizable, then $A$ is symmetric.
+\end{theorem}
+\begin{theorem}
+    If $A$ is a real symmetric matrix, then the eigenvalues of $A$ are real.
+\end{theorem}
+\begin{theorem}
+    If $A$ is a symmetric matrix, then any two eigenvectors corresponding to distinct eigenvalues of $A$ are orthogonal.
+\end{theorem}
+\paragraph*{Proof}
+\begin{enumerate}
+    \item Show that $\lambda_1(\vec v_1 \cdot \vec v_2)=\lambda_2(\vec v_1\cdot\vec v_2)$ by using $x\cdot y =x^Ty$ and $A^T=A$.
+    \item Therefore $(\lambda_1-\lambda_2)(\vec v_1 \cdot \vec v_2)=0$.
+    \item Since $\lambda_1\not=\lambda_2$, $\vec v_1 \cdot \vec v_2=0$. $\square$
+\end{enumerate}
+\begin{theorem}
+    \textbf{(Finite-dimensional) Spectral theorem"}\\
+    Let $A$ ben an $n\times n$ real matrix. Then $A$ is symmetric iff it is orthogonally diagonalizable.
 \end{theorem}
 \end{document}
