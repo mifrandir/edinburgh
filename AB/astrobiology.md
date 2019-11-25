@@ -2399,3 +2399,20 @@ Nutrients
 
 - difference between asteroids and comets
 - where does water come from
+
+# Seach for extraterrestrial Intelligence (SETI)
+
+To be scientifical, SETI must have a falsifiable hypothesis:
+
+1. There is intelligent life in the Universe
+   Problem: not very falisfiable
+2. There are signals from alien intelligences that we can detect
+   Testable; the current approach SETI takes
+
+## Main methods
+
+## Example of efforts to communicate with extraterrestrial intelligence
+
+## Fermi paradox + Answers
+
+## Drake equation + example
