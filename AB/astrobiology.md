@@ -2360,3 +2360,9 @@ Nutrients
 - Ganymede and Callisto may have subsurface oceans
 - Callisto most ancient surface; stable and low radiation -> good for humans
 - Io is too active; might give valuable insight in the Solar System
+
+## Comparison Europa and Enceladus
+
+## Comparison Earth and Titan
+
+## Interest in other bodies
