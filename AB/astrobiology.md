@@ -2325,7 +2325,7 @@ Tidal heating is due to eccentricity caused by resonance (4:2:1) with other moon
 
 ### Surface 
 
-- very flat, like a billard ball
+- very flat, like a billard ball; not very useful metric
 - few craters, suggest regular renewal
 - icy surface is covered with bands
 - 103K mean, min. 50K
@@ -2354,9 +2354,48 @@ Nutrients
 - from bombardment
 - from the crust
 
-## Interest in other Jovian moons
+### Problems with Jovian environment
 
-- human base on Callisto: staging, fuel depot, ...
-- Ganymede and Callisto may have subsurface oceans
-- Callisto most ancient surface; stable and low radiation -> good for humans
-- Io is too active; might give valuable insight in the Solar System
+- very large Jovian radiation field
+  - Jupiters magnetic field traps charged particles
+  - Io passes through very bad radiation; so does Europa
+- Jupiter attracts many comets & other bodies on collision courses
+  - might be bad for life
+  - might deliver organics for life as well
+
+## Enceladus
+
+- very small
+- northern hemisphere: heavily cratered, therefore less active than Europa
+- southern hemisphere: 
+    - basically no craters, as active as Europa
+    - cracks, less chaotic than Europa
+- jets of water and gas erupt from the south pole of the planet
+- plumes contain water, methane, carbon dioxide, organic carbons, salt
+
+### Where do plumes come from?
+
+- localized process for localized event
+- most likely explanation salty ocean or salty water pockets
+
+### Life or intersting chemistry
+
+- ingredients for origin of life present
+- could be giant organic chemistry reactor
+
+## Titan
+
+- one of the two largest moons in the Solar system
+- very thick atmosphere; 98% nitrogen
+- organic smog; therefore possibly photo-chemistry
+- vast plains below the clouds; band of dunes on the equator
+- surface looks like beach with pebbles and sand; made of very different materials though
+- methane cycle similar to Earths water cycle
+- not enough methane above the surface to sustain cycle
+- probably subsurface ocean
+- only other body with stratosphere
+
+## Interest in other bodies of the Solar System
+
+- difference between asteroids and comets
+- where does water come from
