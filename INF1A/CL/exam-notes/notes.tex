@@ -1,0 +1,192 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{xcolor}
+\usepackage[colorlinks=false]{hyperref}
+\hypersetup{
+    colorlinks = false,
+    linkbordercolor = {white}
+}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{proof}
+\newcounter{example}[section]\setcounter{example}{0}
+\newenvironment{example}{
+\noindent\refstepcounter{example}
+\paragraph*{Example}}{}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\begin{document}
+\section{Syllogisms \& Venn diagrams}
+\begin{definition}
+    A \textbf{predicate $p$} defines a subset $\{x\:|\:p x\}$ of the universe.
+\end{definition}
+\begin{definition}
+    An \textbf{Euler Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that no shown area is empty.
+\end{definition}
+\begin{definition}
+    A \textbf{Venn Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that all intersections are shown but they might be empty.
+\end{definition}
+\begin{theorem}
+    The first rule of boolean algebra:
+    \begin{gather*}
+        \neg\neg a = a.
+    \end{gather*}
+\end{theorem}
+\begin{theorem}
+    Contrapositions:
+    \begin{gather*}
+        \infer={\neg b\vDash\neg a}{a\vDash b}
+    \end{gather*}
+\end{theorem}
+\begin{theorem}
+    The immediate rule:
+    \begin{gather*}
+        \infer{a\vDash a}{}
+    \end{gather*}
+\end{theorem}
+\begin{theorem}
+    De Morgan's Laws:
+    \begin{gather*}
+        \neg(a\vee b) = \neg a \wedge \neg b\\
+        \neg(a\wedge b) = \neg a \vee \neg b
+    \end{gather*}
+\end{theorem}
+\begin{definition}
+    If 
+    \begin{gather*}
+        \Gamma, a \vDash b, \Delta
+    \end{gather*}
+    then 
+    \begin{gather*}
+        a\vDash b
+    \end{gather*} 
+    in the universe where every $g$ in $\Gamma$ is true 
+    and every $d$ in $\Delta$ is false.
+\end{definition}
+\section{Satisfiability}
+\begin{definition}
+    A \textbf{literal} is a predicate or a negated predicate.
+\end{definition}
+\begin{definition}
+    A \textbf{disjunctive normal from} is a formula that is a disjunction of conjunctions of literals.\\
+    It describes the evaluation that must be true to satisfy the formula.
+\end{definition}
+\begin{definition}
+    A \textbf{conjunctive normal from} is a formula that is a conjunction of disjunctions of literals.\\
+    It describes the evaluation that must not be true to satisfy the formula.
+\end{definition}
+\begin{theorem}
+    \begin{gather*}
+        \wedge \emptyset\vDash\vee\emptyset
+    \end{gather*}
+\end{theorem}
+\subsection{DPLL (1962)}
+How to find an evaluation that satisfies a given CNF.
+\begin{enumerate}
+    \item If there are no clauses, the solution is the empty valuation.
+    \item If there is a clause without literals, there is no solution.
+    \item If there is a clause with exactly one literal, we set this literal to true for the rest of the evaluation.
+    \item If there are only clauses with more than one literal, choose one and continue two evaluations with this literal as false and as true.
+\end{enumerate}
+\subsection{Tseytin Transformation}
+Convert any circuit to an equisatifiable 3-CNF.
+\begin{enumerate}
+    \item Get all the subformulas of the input.
+    \item For each subformula $s_i$ add a clause of the form $x_i \leftrightarrow s_i$ to the output where $x_i$ is a new variable.
+    \item Convert each of these clauses to CNF.
+    \item Finally set the output to true and simplify the formula.
+\end{enumerate}
+\subsection{Using implications to find a valuation}
+\begin{definition}
+    Propositions are \textbf{ordered} by $x\leq y$ iff $x\to y$.
+\end{definition}
+\begin{theorem}
+    Each binary constraint is equivalent to an implication:
+    \begin{align*}
+        A \vee B \equiv \neg A \to B \equiv \neg B \to A
+    \end{align*}
+\end{theorem}
+\noindent Find a line that separates all the predicates such that
+\begin{itemize}
+    \item Every arrow either goes from False to True or connects elements on the same side.
+    \item No atom and its negation are on the same side of the line.
+    \item Each cycle of implications is entirely below or above the line.
+\end{itemize}
+\section{Finite State Machines and Regular Expressions}
+\begin{definition}
+    \textbf{Regular expressions:}
+    \begin{itemize}
+        \item any character is a regex that matches itself
+        \item if $R$ and $S$ are regex, so is $RS$
+        \item if $R$ and $S$ are regex, so is $R|S$
+        \item if $R$ is a regex, so is $R^*$
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    An NFA is formally represented by a 5-tuple, consisting of
+    \begin{itemize}
+        \item \texttt{qs}, a finite set of states
+        \item \texttt{as}, a finite set of symbols
+        \item \texttt{ts}, a finite set of transitions \texttt{(q,a,q')}
+        \item \texttt{ss}, a finite set of starting states
+        \item \texttt{fs}, a finite set of finishing states
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    A DFA is formally represented by a 5-tuple, consisting of
+    \begin{itemize}
+        \item \texttt{qs}, a finite set of states
+        \item \texttt{as}, a finite set of symbols
+        \item \texttt{ts}, a finite set of transitions \texttt{(q,a,q')}
+        \item \texttt{s}, a starting state
+        \item \texttt{fs}, a finite set of finishing states
+    \end{itemize}
+\end{definition}
+\begin{theorem}
+    The complement of a DFA regular language is a DFA regular language.
+\end{theorem}
+\begin{definition}
+    Let $M=(Q,\Sigma,\Delta,B,A)$. Then a \textbf{trace} for $s=\langle x_0,...,x_{k-1}\rangle\in\Sigma^*$ is a sequence of $k+1$ states such that $\langle q_0, ...,q_k\rangle$ such that all $(q_i,x_i,q_{i+1})\in\Delta$
+\end{definition}
+\begin{definition}
+    An FSM \textbf{accepts a word} iff there is a trace from some start state $q_0$ to some finish state $q_n$ along transitions that spell out the word.
+\end{definition}
+\begin{definition}
+    If $R\subseteq(\Sigma\cup\{\epsilon\})^*$ is a regular language with the alphabet $\Sigma\cup\{\epsilon\}$ (where $\epsilon\not\in\Sigma$) then $R//\epsilon=\{s//\epsilon|s\in R\}$ is a regular language where $s//\epsilon$ is the result of removing every $\epsilon$ from $s$.
+\end{definition}
+\subsection{NFA to DFA}
+\begin{enumerate}
+    \item Find every reachable (super-)state of the NFA and make it a state of the DFA.
+    \item For every symbol in the alphabet of the NFA find the transitions from each state of the DFA.
+    \item Let the alphabet of the DFA be the alphabet of the NFA.
+    \item Let the starting state of the DFA be the super-state containing all the starting states of the NFA.
+    \item Let the finishing states be all those super-states that contain at least one finishing state of the NFA.
+\end{enumerate}
+\subsection{Combining NFA}
+\begin{theorem}
+    $R$ followed by $S$:\\
+    Introduce an epsilon transition from every finishing state of $R$ to every starting state of $S$ and make the finishing states of $S$ the only finishing states.
+\end{theorem}
+\begin{theorem}
+    Iteration $R^*$:\\
+    Introduce an epsilon transition from every finishing state of $R$ to every starting state of $R$.
+\end{theorem}
+\begin{theorem}
+    Alternation $R|S$:\\
+    The result is the union of the two NFA.
+\end{theorem}
+
+\end{document}
