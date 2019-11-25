@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
 \usepackage{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -425,7 +426,54 @@
     \item Since $\lambda_1\not=\lambda_2$, $\vec v_1 \cdot \vec v_2=0$. $\square$
 \end{enumerate}
 \begin{theorem}
-    \textbf{(Finite-dimensional) Spectral theorem"}\\
+    \textbf{(Finite-dimensional) Spectral theorem}\\
     Let $A$ ben an $n\times n$ real matrix. Then $A$ is symmetric iff it is orthogonally diagonalizable.
+\end{theorem}
+\subsection{Applications}
+\begin{definition}
+    A \textbf{quadratic form} in $n$ variables is a function $f:\mathbb{R}^n\to\mathbb{R}$ of the form
+    \begin{align*}
+        f(\vec x) = \vec x^TA\vec x
+    \end{align*}
+    where $A$ is a symmetric $n\times n$ matrix and $\vec x$ is in $\mathbb{R}^n$. We refer to $A$ as the \textbf{matrix associated with $f$}.
+\end{definition}
+\begin{theorem}
+    \textbf{The Principal Axes Theorem}\\
+    Every quadratic form can be diagonalized. Specifically, if $A$ is the $n\times n$ symmetric matrix associated with the quadratic form $\vec x^TA\vec x$ and if $Q$ is an orthogonal matrix such that $Q^TAQ=D$ is a diagonal matrix, then the change of variable $\vec x = Q\vec y$ transforms the quadratic form $\vec x^TA\vec x$ into the quadratic form $\vec y^TD\vec y$, which has no cross-product terms.
+    If the eigenvalues of $A$ are $\lambda_1, ...,\lambda_n$ and $y=\begin{bmatrix}
+        y_1 &\cdots &y_n
+    \end{bmatrix}^T$, then
+    \begin{align*}
+        \vec x^TA\vec x = \vec y^TD\vec y = \lambda_1 y_1^2+\cdots+\lambda_n y_n^2
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    A quadratic form $f(\vec x) = \vec x^TA\vec x$ is classified as one of the following:
+    \begin{enumerate}
+        \item \textbf{positive definite} if $f(\vec x)>0$ for all $\vec x \not= \vec 0$
+        \item \textbf{positive semidefinite} if $f(\vec x)\geq 0$ for all $\vec x$
+        \item \textbf{negative definite} if $f(\vec x)<0$ for all $\vec x \not= 0$
+        \item \textbf{negative semidefinite} if $f(\vec x)\leq 0$ for all $\vec x$
+        \item \textbf{indefinite} if $f(\vec x)$ takes on both positive and negative values
+    \end{enumerate}
+    These properties can be applied to symmetric matrices $A$ associated with $f(\vec x)=\vec x^TA\vec x$.
+\end{definition}
+\begin{theorem}
+    Let $A$ be an $n\times n$ symmetric matrix. The quadratic form $f(\vec x) = \vec x^TA\vec x$ is
+    \begin{enumerate}
+        \item positive definite iff all of the eigenvalues of $A$ are positive.
+        \item positive semidefinite iff all of the eigenvalues of $A$ are nonnegative.
+        \item negative definite iff all of the eigenvalues of $A$ are negative.
+        \item negative semidefinite iff all of the eigenvalues of $A$ are nonpositive.
+        \item indefinite iff $A$ has both positive and negative eigenvalues.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $f(\vec x) = \vec x^TA\vec x$ be a quadratic form with associated $n\times n$ symmetric matrix $A$. Let the eigenvalues of $A$ be $\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_n$. Then the following are true, subject to the constraint $|\vec x|=1$:
+    \begin{enumerate}
+        \item $\lambda_1\geq f(\vec x)\geq \lambda_n$
+        \item The maximum value of $f(\vec x)$ is $\lambda_1$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_1$.
+        \item The minimum value of $f(\vec x)$ is $\lambda_n$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_n$. 
+    \end{enumerate}
 \end{theorem}
 \end{document}
