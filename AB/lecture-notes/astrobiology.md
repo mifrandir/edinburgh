@@ -2411,8 +2411,73 @@ To be scientifical, SETI must have a falsifiable hypothesis:
 
 ## Main methods
 
+### Microwave observing window
+
+- early approach
+- interstellar noise in microwave signals
+- H/OH signals are in observing window
+- H/OH signals seem like a reasonable indicator for life
+- electron spin-flip on hydrogen
+
+### Optical SETI
+
+- we can build lasers that give out pulses that are brighter than the sun
+- problem: universe is very noisy in the optical
+
+### Seach for Extraterrestrial Artefacts (SETA) 
+
+- maybe aliens have sent a drone/probe
+- detecting probes is very complicated, they are very dark
+- will require intensive searching
+
 ## Example of efforts to communicate with extraterrestrial intelligence
+
+Radiotransmissions for 70-80 years; unintentional transmission.
+Leakage has gone down since the 60s.
+
+### The Arecibo message
+
+- Nov 16, 1974
+- 1000 kW sent to the globular star cluster 
+- problem: might be plotted the wrong way
+
+### The Pioneer plaques
+
+- humans
+- traingulation maps based on nearest pulsar
+- problem: cultural bias
 
 ## Fermi paradox + Answers
 
+- if there are other civilizations out there, they must be older
+- why do those more advanced civilizations dont meet us
+- explanations:
+  - all civilizations destroy themselves
+  - there could be evil civilizations out there, destroying others
+  - they are observing us from a far
+  - there are no other civilizations
+  - their entertainment is too good
+  - the Fermi paradox causes the Fermi paradox
+  - they are unrecognisable
+  - they are here
+  - they can't get here
+
 ## Drake equation + example
+
+Product of:
+- average rate of star formation
+- fraction of those stars that have planets
+- average number of planets that can potentially support life per star 
+- fraction of planets that could support life
+- the fraction of planets with life that go on to develop a civilization
+- fraction of civilizations that develop a technology that produces detectable signs of their existence
+- length of time for which such civilizations release these signals into space
+
+## Problem of distance
+
+- decades up to millenia (with speed of light)
+- solution: travel faster than speed of light
+  - wormholes
+  - Alcubierre drive
+- can human civilization survive on such a spacecraft? civilization tends to collapse into chaos
+- problems of isolation can be observed in Antarctica
