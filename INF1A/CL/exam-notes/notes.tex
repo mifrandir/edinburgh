@@ -13,6 +13,7 @@
 \usepackage{amsthm}
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{proof}
+\setlength{\inferLineSkip}{4pt}
 \newcounter{example}[section]\setcounter{example}{0}
 \newenvironment{example}{
 \noindent\refstepcounter{example}
@@ -31,7 +32,7 @@
 \begin{document}
 \section{Syllogisms \& Venn diagrams}
 \begin{definition}
-    A \textbf{predicate $p$} defines a subset $\{x\:|\:p x\}$ of the universe.
+    A \textbf{predicate $p$} defines a subset $\{x\in U\:|\:p\:x\}$ of the universe $U$.
 \end{definition}
 \begin{definition}
     An \textbf{Euler Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that no shown area is empty.
@@ -64,18 +65,74 @@
         \neg(a\wedge b) = \neg a \vee \neg b
     \end{gather*}
 \end{theorem}
+\section{Sequent Calculus}
 \begin{definition}
-    If 
     \begin{gather*}
-        \Gamma, a \vDash b, \Delta
+       \Gamma,a\vDash b,\Delta\text{ holds in }U\\
+       \Leftrightarrow\\
+       a\vDash b\text{ holds in }\{x\in U\:|\:\bigwedge\Gamma\:x, \neg\bigvee\Delta\:x\}
     \end{gather*}
-    then 
-    \begin{gather*}
-        a\vDash b
-    \end{gather*} 
-    in the universe where every $g$ in $\Gamma$ is true 
-    and every $d$ in $\Delta$ is false.
 \end{definition}
+\begin{theorem}
+    The following rules are sound:
+    \begin{center}
+        $\infer={\Gamma, a \vDash a, \Delta}{}$\\
+    {\renewcommand{\arraystretch}{3}
+    \begin{tabular}{c c c c}
+           $\vcenter{\infer={\Gamma,\neg a\vDash \Delta}{\Gamma\vDash a, \Delta}}$ 
+           &$\neg L$
+           &$\vcenter{\infer={\Gamma\vDash \neg a, \Delta}{\Gamma, a\vDash \Delta}}$ 
+           &$\neg R$\\
+           $\vcenter{\infer={\Gamma, a\wedge b\vDash \Delta}{\Gamma, a, b\vDash \Delta}}$ 
+           &$\wedge L$
+           &$\vcenter{\infer={\Gamma\vDash a\wedge b, \Delta}{\Gamma\vDash a, \Delta\:\: \Gamma\vDash b}}$ 
+           &$\wedge R$\\
+           $\vcenter{\infer={\Gamma, a\vee b\vDash \Delta}{\Gamma,a\vDash \Delta\:\:\Gamma,b\vDash\Delta}}$ 
+           &$\vee L$
+           &$\vcenter{\infer={\Gamma\vDash a\vee b,\Delta}{\Gamma\vDash a,b,\Delta}}$ 
+           &$\vee R$\\
+           $\vcenter{\infer={\Gamma, a\oplus b\vDash\Delta}{\Gamma, a\vDash b, \Delta\:\:\Gamma, b\vDash a,\Delta}}$
+           &$\oplus L$
+           &$\vcenter{\infer={\Gamma\vDash a\oplus b}{\Gamma\vDash a,b,\Delta\:\:\Gamma,a,b\vDash \Delta}}$
+           &$\oplus R$\\
+           $\vcenter{\infer={\Gamma, a\to b\vDash \Delta}{\Gamma\vDash a,\Delta\:\:\Gamma, b\vDash \Delta}}$
+           &$\to L$
+           &$\vcenter{\infer={\Gamma\vDash a\to b, \Delta}{\Gamma,a\vDash b,\Delta}}$
+           &$\to R$
+    \end{tabular}
+    }
+    \end{center}
+\end{theorem}
+\begin{theorem}
+    The following rules are complete:
+    \begin{center}
+        $\infer{\Gamma, a \vdash a, \Delta}{}$\\
+    {\renewcommand{\arraystretch}{3}
+    \begin{tabular}{c c c c}
+           $\vcenter{\infer{\Gamma,\neg a\vdash \Delta}{\Gamma\vdash a, \Delta}}$ 
+           &$\neg L$
+           &$\vcenter{\infer{\Gamma\vdash \neg a, \Delta}{\Gamma, a\vdash \Delta}}$ 
+           &$\neg R$\\
+           $\vcenter{\infer{\Gamma, a\wedge b\vdash \Delta}{\Gamma, a, b\vdash \Delta}}$ 
+           &$\wedge L$
+           &$\vcenter{\infer{\Gamma\vdash a\wedge b, \Delta}{\Gamma\vdash a, \Delta\:\: \Gamma\vdash b}}$ 
+           &$\wedge R$\\
+           $\vcenter{\infer{\Gamma, a\vee b\vdash \Delta}{\Gamma,a\vdash \Delta\:\:\Gamma,b\vdash\Delta}}$ 
+           &$\vee L$
+           &$\vcenter{\infer{\Gamma\vdash a\vee b,\Delta}{\Gamma\vdash a,b,\Delta}}$ 
+           &$\vee R$\\
+           $\vcenter{\infer{\Gamma, a\oplus b\vdash\Delta}{\Gamma, a\vdash b, \Delta\:\:\Gamma, b\vdash a,\Delta}}$
+           &$\oplus L$
+           &$\vcenter{\infer{\Gamma\vdash a\oplus b}{\Gamma\vdash a,b,\Delta\:\:\Gamma,a,b\vdash \Delta}}$
+           &$\oplus R$\\
+           $\vcenter{\infer{\Gamma, a\to b\vdash \Delta}{\Gamma\vdash a,\Delta\:\:\Gamma, b\vdash \Delta}}$
+           &$\to L$
+           &$\vcenter{\infer{\Gamma\vdash a\to b, \Delta}{\Gamma,a\vdash b,\Delta}}$
+           &$\to R$
+    \end{tabular}
+    }
+    \end{center}
+\end{theorem}
 \section{Satisfiability}
 \begin{definition}
     A \textbf{literal} is a predicate or a negated predicate.
@@ -133,6 +190,15 @@ Convert any circuit to an equisatifiable 3-CNF.
         \item if $R$ and $S$ are regex, so is $RS$
         \item if $R$ and $S$ are regex, so is $R|S$
         \item if $R$ is a regex, so is $R^*$
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    \textbf{Regular languages} over an alphabet $\Sigma$:
+    \begin{itemize}
+        \item $\emptyset$ and $\{\epsilon\}$ are regular languages.
+        \item $\{a\}$ is a regular language for all $a\in\Sigma$.
+        \item $A\cup B$, $A\bullet B$ and $A^*$ are regular for all regular languages over $\Sigma$.
+        \item No other languages over $\Sigma$ are regular.
     \end{itemize}
 \end{definition}
 \begin{definition}
