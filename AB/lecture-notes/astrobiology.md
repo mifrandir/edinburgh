@@ -69,7 +69,7 @@ $\Rightarrow$ All of this is universal.
 
 #### Dipole-dipole Forces
 
-- each molecule has a charge differences accros it's length
+- each molecule has a charge differences across its length
 
   $\Rightarrow$ small permanent dipole
   $\Rightarrow$ two dipoles attract each other
@@ -219,7 +219,7 @@ possibly: D-amino acids, L-sugar
 
 - used to store energy
 - structural support
-- build by dehydration reaction
+- built by dehydration reaction
 
 ##### Lipids
 
@@ -230,7 +230,7 @@ possibly: D-amino acids, L-sugar
 ##### Nucleic acids
 
 - stores information
-- made of ribose sugar, phosphate groub and base pairs
+- made of ribose sugar, phosphate group and base pairs
 - complicated molecules by simple chemistry
 
 > Meteorites contain amino acids and more...
@@ -463,7 +463,7 @@ Reverse engineering through observed rate of change with computer software.
 
 Multiple trees are generated and occurences of certain relations indicate our confidence in the structure.
 
-#### Sorting hormology from analogy
+#### Sorting homology from analogy
 
 e.g. AGA -> AAA -> AGA
 
@@ -1266,7 +1266,7 @@ Eccentricity    |
 ## Terrestrial planets
 
 - Mercury, Venus, Earth, Mars 
--located between 0.4 and 1.52 AU
+- located between 0.4 and 1.52 AU
 
 ## Interiors
 
@@ -1280,7 +1280,7 @@ Eccentricity    |
 
 - earthquakes produces two types of waves
     - P waves (longitudonal)
-    - S waves (transverse)
+    - S waves (transversal)
 - molten outer core stops S waves, but allows P waves through
 - analysis of seismic waves allows us to develop a model of the Earths interior 
 
@@ -1304,7 +1304,7 @@ Eccentricity    |
 ## Surface area to volume ratio
 
 - smaller r means more surface compared to volume
-- thus small planets cool slower
+- thus small planets cool faster
 
 ## Surface temperatures
 
@@ -2330,7 +2330,7 @@ Tidal heating is due to eccentricity caused by resonance (4:2:1) with other moon
 - icy surface is covered with bands
 - 103K mean, min. 50K
 - bands probably caused by newer ice rising from below
-- flat region suggest local melting; local heating? thing layer?
+- flat region suggest local melting; local heating? thin layer?
 - raft depth: 470-2200m; ice sheet probably MUCH thicker
 
 ### Subsurface Ocean
