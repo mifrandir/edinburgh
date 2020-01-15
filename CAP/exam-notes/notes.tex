@@ -1,0 +1,206 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\begin{document}
+\section{Functions and models}
+\subsection{Four ways to represent a function}
+\begin{definition}
+    A \textbf{function} $f$ is a rule that assigns to each element $x$ in a set $D$ exactly one element, called $f(x)$, in a set $E$.\\
+    $D$ is called the \textbf{domain}.\\
+    The set of all possible values of $f(x)$ as $x$ varies throughout the domain is called the \textbf{range}.\\
+\end{definition}
+\begin{definition}
+    A function $f$ that satisfies $f(-x)=f(x)$ for all $x$ in its domain is called an \textbf{even function}.
+\end{definition}
+\begin{definition}
+    A function $f$ that satisfies $f(-x)=-f(x)$ for all $x$ in its domain is called an \textbf{odd function}.
+\end{definition}
+\begin{definition}
+    A function $f$ is called \textbf{increasing} on an interval $I$ if
+    \begin{align*}
+        \forall x_1, x_2 \in I.\:x_1 < x_2 \Rightarrow f(x_1) < f(x_2).
+    \end{align*}
+    It is called \textbf{decreasing} on $I$ if
+    \begin{align*}
+        \forall x_1, x_2 \in I.\: x_1 < x_2 \Rightarrow f(x_1) > f(x_2).
+    \end{align*}
+\end{definition}
+\subsection{Mathematical models: Essential functions}
+\begin{definition}
+    A \textbf{linear function} is a function $f$ of the form
+    \begin{align*}
+        f(x) = mx + b
+    \end{align*}
+    where $m, b\in\R$.
+\end{definition}
+\begin{definition}
+    A function $P$ is called a \textbf{polynomial} if
+    \begin{align*}
+        P(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots +a_2x^2 + a_1x+a_0
+    \end{align*}
+    where $n\in\N$ is the \textbf{degree} and the $a_0, a_1, ..., a_n$ are constants called the \textbf{coefficients}.
+\end{definition}
+\begin{definition}
+    A function $f$ is called \textbf{rational function} if
+    \begin{align*}
+        f(x) = \frac{P(x)}{Q(x)}
+    \end{align*}
+    where $P$ and $Q$ are polynomials.
+\end{definition}
+\begin{definition}
+    A function $f$ is called an \textbf{algebraic function} if it can be constructed using algebraic operations starting with polynomials.
+\end{definition}
+\begin{definition}
+    A function $f$ is called an \textbf{exponential function} if it has the form
+    \begin{align*}
+        f(x) = a^x
+    \end{align*}
+\end{definition}
+\begin{definition}
+    The \textbf{logarithmic functions} $f(x) = \log_ax$ where the base $a$ is a positive constant, are the inverse functions of the exponential functions.
+\end{definition}
+\subsection{New functions from old functions}
+\begin{definition}
+    Shifting the graph of a function in a certain direction is called \textbf{translation}.
+    \begin{itemize}
+        \item $y = f(x) + c$ shifts the graph a distance $c$ upward.
+        \item $y= f(x - c)$ shifts the graph a distance $c$ to the right.
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    The graph of a function can be \textbf{stretched}. 
+    \begin{itemize}
+        \item $y=cf(x)$ stretches the graph vertically by a factor of $c$.
+        \item $y=f(x/c)$ stretches the graph horizontally by a factor of $c$.
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    The graph of a function can be \textbf{reflected}.
+    \begin{itemize}
+        \item $y=-f(x)$ reflects the graph about the $x$-axis.
+        \item $y=f(-x)$ reflects the graph about the $y$-axis.
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    Functions may be \textbf{combined}.
+    \begin{align*}
+        (f+g)(x) &:= f(x) + g(x)\\
+        (f-g)(x) &:= f(x) - g(x)\\
+        (fg)(x) &:= f(x)g(x)\\
+        (\frac{f}{g})(x)&:=\frac{f(x)}{g(x)}\\
+        (f\circ g)(x) &:= f(g(x))
+    \end{align*}
+\end{definition}
+\setcounter{subsection}{4}
+\subsection{Exponential functions}
+\begin{theorem}
+    Let $a$ and $b$ be positive numbers and $x$ and $y$ be any real numbers. Then
+    \begin{enumerate}
+        \item $a^{x+y}=a^xa^y$,
+        \item $a^{x-y}=\frac{a^x}{a^y}$,
+        \item $(a^x)^y=a^{xy}$,
+        \item $(ab)^x=a^xb^x$.
+    \end{enumerate}
+\end{theorem}
+\subsection{Inverse functions and logarithms}
+\begin{definition}
+    A function $f$ with the domain $D$ is called a \textbf{one-to-one function} if it never takes on the same value twice; that is
+    \begin{align*}
+        \forall x_1, x_2 \in D.\: x_1\not=x_2 \Rightarrow f(x_1)\not= f(x_2)
+    \end{align*}
+\end{definition}
+\begin{definition}
+    Let $f$ be a one-to-one function with domain $A$ and range $B$. Then its \textbf{inverse function} $f^{-1}$ has domain $B$ and range $A$ and is defined by
+    \begin{align*}
+        f^{-1}(y) = x \Leftrightarrow f(x) = y
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    The graph of $f^{-1}$ is obtained by reflecting the graph of $f$ about the line $y=x$.
+\end{theorem}
+\begin{theorem}
+    If $x$ and $y$ are positive numbers, then
+    \begin{enumerate}
+        \item $\log_a(xy)=\log_ax=\log_ay$
+        \item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
+        \item $\log_a(x^r)=r\log_ax$ where $r\in\R$
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    The \textbf{natural logarithm} $\ln x$ is defined as
+    \begin{align*}
+        \ln x := \log_e x
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    For any positive number $a$ ($a\not=1$), we have
+    \begin{align*}
+        \log_a x = \frac{\ln x}{\ln a}
+    \end{align*}
+\end{theorem}
+\section{Limits and derivatives}
+\setcounter{subsection}{1}
+\subsection{The limit of a function}
+\begin{definition}
+    We write
+    \begin{align*}
+        \lim_{x\to a} f(x) = L
+    \end{align*}
+    and say "the limit of $f(x)$, as $x$ approaches $a$, equals $L$" if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ to be sufficiently close to $a$, but not equal to $a$.
+\end{definition}
+\begin{definition}
+    We write
+    \begin{align*}
+        \lim_{x\to a^-}f(x) = L
+    \end{align*}
+    and say the \textbf{left-hand limit of $f(x)$ as x approachse $a$} is equal to $L$ if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ to be sufficiently close to $a$ and $x$ less than $a$. 
+\end{definition}
+\begin{theorem}
+    \begin{align*}
+        \lim_{x\to a}f(x) = L \text{ iff } \lim_{x\to a^-}f(x) = L \text{ and } \lim_{x\to a^+}f(x) = L
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    Let $f$ be a function defined on both sides of $a$, except possibly at $a$ itself. Then
+    \begin{align*}
+        \lim_{x\to a} f(x) = \infty
+    \end{align*}
+    means that the values of $f(x)$ can be made arbitrarily large by taking $x$ sufficiently close to $a$, but not equal to $a$.
+\end{definition}
+\begin{definition}
+    Let $f$ be a function defined on both sides of $a$, except possibly at $a$ itself. Then
+    \begin{align*}
+        \lim_{x\to a} f(x) = -\infty
+    \end{align*}
+    means that the values of $f(x)$ can be made arbitrarily large negative by taking $x$ sufficiently close to $a$, but not equal to $a$.
+\end{definition}
+\begin{definition}
+    The line $x=a$ is called a \textbf{vertical asymptote} of the curve $y=f(x)$ if at least one of the following statements is true:
+    \begin{align*}
+        \lim_{x\to a}f(x) = \infty\\
+        \lim_{x\to a^-}f(x) = \infty\\
+        \lim_{x\to a^+}f(x) = \infty\\
+        \lim_{x\to a}f(x) = -\infty\\
+        \lim_{x\to a^-}f(x) = -\infty\\
+        \lim_{x\to a^+}f(x) = -\infty
+    \end{align*}
+\end{definition}
+\end{document}
