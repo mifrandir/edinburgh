@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{siunitx}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\begin{document}
+\section{Logic and the reals}
+\begin{theorem}
+    If $A$ and $B$ are statements, then $A\Rightarrow B\equiv \bar{A}\vee B$.
+\end{theorem}
+\section{The reals}
+\begin{definition}
+    A \textbf{field} is a set $F$ along with operations $+$ and $\cdot$ so that the following hold:\\
+    Rules of Addition:
+    \begin{enumerate}
+        \item $a+b\in F$.
+        \item $a+b = b+a$.
+        \item $a+(b+c) = (a+b)+c$.
+        \item $\exists 0\in F.\: \forall a\in F.\: 0+a=a$.
+        \item $\forall a\in F.\: \exists -a\in F.\: a+(-a)=0$.
+    \end{enumerate}
+    Rules of Mulitplication:
+    \begin{enumerate}
+        \item $a\cdot b \in F$.
+        \item $a\cdot b = b\cdot a$.
+        \item $a\cdot(b\cdot c)=(a\cdot b)\cdot c$.
+        \item $\exists 1\in F.\: 1\cdot a = a$.
+        \item $a\not=0\Rightarrow\exists \nicefrac{1}{a}\in F.\: a\cdot\nicefrac{1}{a}=1$.
+        \item $a\cdot (b+c) = a\cdot b + a\cdot c$.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    The rules of addition above imply that, for $x,y,z\in \R$,
+    \begin{enumerate}
+        \item $x+y=x+z\Leftrightarrow y=z$.
+        \item $x+y=x\Rightarrow y=0$.
+        \item $x+y=0\Rightarrow y=-x$.
+        \item $-(-x)=x$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    The rules of multiplication above imply that, for $x, y, z \in \R$,
+    \begin{enumerate}
+        \item $xy=xz\Leftrightarrow y=z$.
+        \item $xy=x\Rightarrow y=1$.
+        \item $xy=1\Rightarrow y=\nicefrac{1}{x}$.
+        \item $\nicefrac{1}{\nicefrac{1}{x}}=x$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    For $x,y\in\R$,
+    \begin{enumerate}
+        \item $0\cdot x = 0$.
+        \item $x\not=0\not=y\Rightarrow xy\not=0$.
+        \item $(-x)y=-(xy)=x(-y)$.
+        \item $(-x)(-y)=xy$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Given $x>0$ and $n\in\N$, there is a unique $y>0$ so that $y^n=x$, and we write this nuber $y$ as $y^{\nicefrac{1}{x}}$.
+\end{theorem}
+\begin{theorem}
+    Given any two numbers $a<b$, there is $r\in\mathbb{Q}$ with $a<r<b$.
+\end{theorem}
+\begin{theorem}
+    The number $\sqrt{2}$ is irrational.
+\end{theorem}
+\begin{theorem}
+    Let $a$ be rational and $b$ be irrational.
+    \begin{enumerate}
+        \item $a+b$ is irrational.
+        \item If $a\not=0$, then $ab$ is irrational.
+    \end{enumerate}
+\end{theorem}
+\end{document}
