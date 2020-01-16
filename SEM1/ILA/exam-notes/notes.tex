@@ -1,0 +1,1011 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{siunitx}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\begin{document}
+\section{Vectors}
+\subsection{The Geometry and Algebra of Vectors}
+\begin{theorem}
+    \textbf{Algebraic Properties of Vectors in $\mathbb{R}^n$}\\
+    Let $\vec u$, $\vec v$, and $\vec w$ be vectors in $\mathbb{R}^n$ and let $c$ and $d$ be scalars. Then
+    \begin{enumerate}
+        \item $\vec u + \vec v = \vec v + \vec u$
+        \item $(\vec u + \vec v) + \vec w = \vec u + (\vec v + \vec w)$
+        \item $\vec u + \vec 0 = \vec u$
+        \item $\vec u + (- \vec u) = \vec 0$
+        \item $c(\vec u + \vec v) = c\vec u + c\vec v$
+        \item $(c+d)\vec u = c\vec u + d\vec u$
+        \item $c(d\vec u) = (cd)\vec u$
+        \item $1\vec u = \vec u$
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    A vector $\vec v$ is a \textbf{linear combination} of vectors $\vec v_1, \vec v_2, ...,\vec v_k$ if there are scalars $c_1, c_2, ..., c_k$ such that $\vec v = c_1 \vec v_1 + c_2 \vec v_2 + \cdots c_k\vec v_k$. The scalars $c_1, c_2, ..., c_k$ are called the \textbf{coefficients} of the linear combination.
+\end{definition}
+\subsection{Length and Angle: The Dot Product}
+\begin{definition}
+    If
+    \begin{gather*}
+        \vec u = \begin{bmatrix}
+            u_1\\u_2\\\vdots\\u_n
+        \end{bmatrix} \text{  and  }
+        \vec v = \begin{bmatrix}
+            v_1\\v_2\\\vdots\\v_n
+        \end{bmatrix}
+    \end{gather*}
+    then the \textbf{dot product $\vec u \cdot \vec v$} of $\vec u$ and $\vec v$ is defined by
+    \begin{gather*}
+        \vec u \cdot \vec v = u_1v_1 + u_2v_2 + \cdots + u_nv_n
+    \end{gather*} 
+\end{definition}
+\begin{theorem}
+    Let $\vec u$, $\vec v$ and $\vec w$ be vectors in $\mathbb{R}^n$ and let $c$ be a scalar. Then
+    \begin{enumerate}
+        \item $\vec u \cdot \vec v = \vec v \cdot \vec u$
+        \item $\vec u \cdot (\vec v + \vec w) = \vec u \cdot \vec v + \vec u \cdot \vec w$
+        \item $(c\vec u) \cdot \vec v = c(\vec u \cdot \vec v)$
+        \item $\vec u \cdot \vec u \geq 0$ and $\vec u \cdot \vec u = 0$ iff $\vec u = \vec 0$
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    The \textbf{length} of a vector $\vec v$ in $\mathbb{R}^n$ is the nonnegative scalar $\Vert\vec v\Vert$ defined by
+    \begin{gather*}
+        \Vert\vec v\Vert = \sqrt{\vec v \cdot \vec v}
+    \end{gather*}
+\end{definition}
+\begin{theorem}
+    Let $\vec v$ be a vector in $\mathbb{R}^n$ and let $c$ be a scalar. Then
+    \begin{enumerate}
+        \item $\Vert\vec v\Vert = 0$ iff$\vec v = \vec 0$
+        \item $\Vert\vec v\Vert = |c|\Vert v\Vert$
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    \textbf{The Cauchy-Schwarz Inequality}\\
+    For all vectors $\vec u$ and $\vec v$ in $\mathbb{R}^n$,
+    \begin{gather*}
+        |\vec u \cdot \vec v| \leq \Vert \vec u \Vert \Vert \vec v \Vert
+    \end{gather*}
+\end{theorem}
+\begin{theorem}
+    \textbf{The Triangle Inequality}\\
+    For all vecotrs $\vec u$ and $\vec v$ in $\mathbb{R}^n$,
+    \begin{gather*}
+        \Vert \vec u + \vec v \Vert \leq \Vert \vec u \Vert + \Vert \vec v \Vert
+    \end{gather*}
+\end{theorem}
+\begin{definition}
+    The \textbf{distance} $d(\vec u, \vec v)$ between vectors $\vec u$ and $\vec v$ in $\mathbb{R}^n$ is defined by
+    \begin{gather*}
+        d(\vec u, \vec v) = \Vert \vec u = \vec v \Vert
+    \end{gather*}
+\end{definition}
+\begin{definition}
+    For nonzero vectors $\vec u$ and $\vec v$ in $\mathbb{R}^n$,
+    \begin{gather*}
+        \cos\theta = \frac{\vec u \cdot \vec v}{\Vert \vec u \Vert \Vert \vec v\Vert}
+    \end{gather*}
+\end{definition}
+\begin{definition}
+    Two vectors $\vec u$ and $\vec v$ in $\mathbb{R}^n$ are \textbf{orthogonal} to each other if $\vec u \cdot \vec v = 0$.
+\end{definition}
+\begin{theorem}
+    \textbf{Pythagoras' Theorem}\\
+    For all vectors $\vec u$ and $\vec v$ in $\mathbb{R}^n$, $\Vert \vec u + \vec v\Vert^2 = \Vert \vec u \Vert^2 + \Vert \vec v \Vert ^2$ iff $\vec u$ and $\vec v$ are orthogonal.
+\end{theorem}
+\begin{definition}
+    If $\vec u$ and $\vec v$ are vectors in $\mathbb{R}^n$ and $\vec u \not= \vec 0$, then the \textbf{projection of $\vec v$ onto $\vec u$} is the vector $proj_{\vec u}(\vec v)$ defined by
+    \begin{gather*}
+        proj_{\vec u}(\vec v) = \left(\frac{\vec u \cdot \vec v}{\vec u \cdot \vec v}\right)\vec u
+    \end{gather*}
+\end{definition}
+\subsection{Lines and Planes}
+\begin{definition}
+    The \textbf{normal form of the equation of a line $l$} in $\mathbb{R}^2$ is
+    \begin{gather*}
+        \vec n \cdot (\vec v - \vec p) = 0 \text{  or  } \vec n \cdot \vec x = \vec n \cdot \vec p
+    \end{gather*}
+    where $\vec p$ is a specific point on $l$ and $\vec n \not= 0$ is a normal vector for $l$.\\
+    The \textbf{general form of the equation of $l$} is $ax+by=c$, where $\vec n = \begin{bmatrix}
+        a\\b    
+    \end{bmatrix}$ is a normal vector for $l$.
+\end{definition}
+\begin{definition}
+    The \textbf{vector form of the equation of a line} in $\mathbb{R}^2$ or $\mathbb{R}^3$ is
+    \begin{gather*}
+        \vec x = \vec p + t \vec d
+    \end{gather*}
+    where $\vec p$ is a specific point on $l$ and $d\not=\vec 0$ is a direction vector for $l$.\\
+    The equations corresponding to the components of the vectors form of the equation are called \textbf{parametric equations} of $l$.
+\end{definition}
+\begin{definition}
+    The \textbf{normal from of the equation of a plane $\mathcal{P}$} in $\mathbb{R}^3$ is
+    \begin{gather*}
+        \vec n \cdot (\vec x - \vec p) = 0 \text{  or  } \vec n \cdot \vec x = \vec n \cdot \vec p
+    \end{gather*}
+    where $\vec p$ is a specific point on $\mathcal{P}$ and $\vec n \not= 0$ is a normal vector for $\mathcal{P}$.\\
+    The \textbf{general form of the equation of $\mathcal{P}$} is $ax + by + cz = d$, where $\vec n = \begin{bmatrix}
+        a \\ b \\ c
+    \end{bmatrix}$ is a normal vector for $\mathcal{P}$.
+\end{definition}
+\begin{definition}
+    The \textbf{vector form of the equation of a plane $\mathcal{P}$} in $\mathbb{R}^3$ is
+    \begin{gather*}
+        \vec x = \vec p + s \vec u + t \vec v
+    \end{gather*}
+    where $\vec p$ is a point on $\mathcal{P}$ and $\vec u$ and $\vec v$ are direction vectors for $\mathcal{P}$ ($\vec u$ and $\vec v$ are non-zero and parallel to $\mathcal{P}$, but not parallel to each other).\\
+    The equations corresponding to the components of the vector form of the equation are called \textbf{parametric equations} of $\mathcal{P}$.
+\end{definition}
+\section{Systems of Linear Equations}
+\subsection{Introduction to Systems of Linear Equations}
+\begin{definition}
+    A \textbf{linear equation} in the $n$ variables $x_1, x_2, ..., x_n$ is an equations that can be written in the form
+    \begin{gather*}
+        a_1x_1+a_2x_2+\cdots+a_nx_n=b
+    \end{gather*}
+    where the \textbf{coefficients} $a_1, a_2, ..., a_n$ and the \textbf{constant term} $b$ are constants.
+\end{definition}
+\subsection{Direct Methods for Solving Linear Systems}
+\begin{definition}
+    A matrix is in \textbf{row echelon form (REF)} if it satisfies the following properties:
+    \begin{enumerate}
+        \item Any zero rows are at the bottom.
+        \item In each nonzero row, the first nonzero entry (the \textbf{leading entry}) is in a column to the left of any leading entries below it.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    The following \textbf{elementary row operations} can be performed on a matrix:
+    \begin{enumerate}
+        \item Interchange two rows.
+        \item Multiply a row by a nonzero constant.
+        \item Add a multiple of a row to another row.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    Matrices $A$ and $B$ are \textbf{row equivalent} if there is a sequence of elementary row operations that converts $A$ into $B$.
+\end{definition}
+\begin{theorem}
+    Matrices $A$ and $B$ are row equivalent iff they can be reduced to the same REF.
+\end{theorem}
+\begin{definition}
+    The \textbf{rank} of a matrix is the number of nonzero rows in its row echelon form.
+\end{definition}
+\begin{theorem}
+    \textbf{The Rank Theorem}\\
+    Let $A$ be the coefficient marix of a system of linear equations with $n$ variables. If the system is consistent, then
+    \begin{gather*}
+        \text{number of free variables}=n-\text{rank}(A)
+    \end{gather*}
+\end{theorem}
+\begin{definition}
+    A matrix is in \textbf{reduced row echelon form (RREF)} if it satisfies the following properties:
+    \begin{enumerate}
+        \item It is in REF. 
+        \item The leading entry in each nonzero row is a 1.
+        \item Each column containing a leading 1 has zeros everywhere else.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    A system of linear equations is called \textbf{homogeneous} if the constant term in each equation is zero.
+\end{definition}
+\begin{theorem}
+    If $[A\:|\:\vec 0]$ is a homogeneous system of $m$ linear equations with $n$ variables, where $m < n$, then the system has infinetly many solutions.
+\end{theorem}
+\subsection{Spanning Sets and Linear Independence}
+\begin{theorem}
+    A system of linear equations with augmented matrix $[A\:|\:\vec b]$ is consistent iff $\vec b$ is a linear combination of the columns of $A$.
+\end{theorem}
+\begin{definition}
+    If $S=\{\vec v_1, \vec v_2, ..., \vec v_k\}$ is a set of vectors in $\mathbb{R}^n$, then the set of all linear combinations of $\vec v_1, \vec v_2, ..., \vec v_k$ is called the \textbf{span} of $S$ and is denoted by $\text{span}(S)$. If $\text{span}(S)=\mathbb{R}^n$, then $S$ is called a \textbf{spanning set} for $\mathbb{R}^n$.
+\end{definition}
+\begin{definition}
+    A set of vectors $\vec v_1, \vec v_2, ..., \vec v_k$ is \textbf{linearly dependent} if there are scalars $c_1, c_2, ..., c_k$, at least one of which is not zero, such that
+    \begin{gather*}
+        c_1\vec v_1 + c_2\vec v_2 + \cdots + c_k\vec v_k = \vec 0
+    \end{gather*}
+    A set of vectors that is not linearly dependent is called \textbf{linearly independent}.
+\end{definition}
+\begin{theorem}
+    Vectors $\vec v_1, \vec v_2, ..., \vec v_m$ in $\mathbb{R}^n$ is linearly dependent iff at least one of the vectors can be expressed as a linear combination of the others.
+\end{theorem}
+\begin{theorem}
+    Let $\vec v_1, \vec v_2, ..., \vec v_m$ be (column) vectors in $\mathbb{R}^n$ and let $A$ be the $n\times m$ matrix with these vectors as its columns. Then $\vec v_1, \vec v_2, ..., \vec v_m$ are linearly dependent iff the homogeneous linear system with augmented matrix $[A\:|\:\vec 0]$ has a nontrivial solution.
+\end{theorem}
+\begin{theorem}
+    Let $\vec v_1, \vec v_2, ..., \vec v_m$ be (row) vectors in $\mathbb{R}^n$ and let $A$ be the $m\times n$ matrix with these vectors as its rows. Then $\vec v_1, \vec v_2, ..., \vec v_m$ are linearly dependent iff $\text{rank}(A) < m$.
+\end{theorem}
+\begin{theorem}
+    Any ste of $m$ vectors in $\mathbb{R}^n$ is linearly dependent if $m > n$.
+\end{theorem}
+\subsection{Iterative Methods for Solving Linear Systems}
+\begin{theorem}
+    If a system of $n$ linear equations in $n$ variables has a strictly diagonally dominant coefficient matrix, then it has a unique solution and both the Jacobi and the Gauss-Seidel method converge it.
+\end{theorem}
+\begin{theorem}
+    If the Jacobi or the Gauss-Seidel method converges for a system of $n$ linear equation in $n$ variables, then it must converge to the solution of the system.
+\end{theorem}
+\section{Matrices}
+\subsection{Matrix Operations}
+\begin{definition}
+    A \textbf{matrix} is a rectangular array of numbers called the \textbf{entries}, or \textbf{elements}, of the matrix.
+\end{definition}
+\begin{definition}
+    If $A$ is an $m\times n$ matrix and $B$ is an $n\times r$ matrix, then the \textbf{product} $C=AB$ is an $m\times r$ matrix. The $(i, j)$ entry of the product is computed as follows:
+    \begin{gather*}
+        c_{ij} = a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{in}b_{nj}
+    \end{gather*}
+\end{definition}
+\begin{theorem}
+    Let $A$ be an $m\times n$ matrix, $\vec e_i$ a $1\times m$ standard unit vector, and $\vec e_j$ an $n\times 1$ standard unit vector. Then
+    \begin{enumerate}
+        \item $\vec e_iA$ is the $i$th row of $A$ and
+        \item $A\vec e_j$ is the $j$th column of $A$.
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    The \textbf{transpose} of an $m\times n$ matrix $A$ is the $n\times m$ matrix $A^\intercal$ obtained by interchanging the rows and columns of $A$. That is, the $i$th column of $A^\intercal$ is the $i$th row of $A$ for all $i$.
+\end{definition}
+\begin{definition}
+    A square matrix $A$ is \textbf{symmetric} if $A^\intercal = A$.
+\end{definition}
+\subsection{Matrix Algebra}
+\begin{theorem}
+    \textbf{Algebraic Properties of Matrix Addition and Scalar Multiplication}\\
+    Let $A$, $B$ and $C$ be matrices of the same size and let $c$ and $d$ be scalars. Then
+    \begin{enumerate}
+        \item $A+B=B+A$
+        \item $(A+B)+C=A+(B+C)$
+        \item $A+O=A$
+        \item $A+(-A)=O$
+        \item $c(A+B)=cA + cB$
+        \item $(c+d)A = cA+dA$
+        \item $c(dA) = (cd)A$
+        \item $1A=A$
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    \textbf{Properties of Matrix Multiplication}\\
+    Let $A$, $B$ and $C$ be matrices and let $k$ be a scalar. Then
+    \begin{enumerate}
+        \item $A(BC) = (AB)C$
+        \item $A(B+C) = AB + AC$
+        \item $(A + B)C = AC + BC$
+        \item $k(AB) = (kA)B = A(kB)$
+        \item $I_mA=A=AI_n$ if $A$ is $m\times n$
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    \textbf{Properties of the Transpose}\\
+    Let $A$ and $B$ be matrices and let $k$ be a scalar. Then
+    \begin{enumerate}
+        \item $(A^\intercal)^\intercal = A$
+        \item $(A+B)^\intercal = A^\intercal + b^\intercal$
+        \item $(kA)^\intercal = k(A^\intercal)$
+        \item $(AB)^\intercal = B^\intercal A^\intercal$
+        \item $(A^r)^\intercal = (A^\intercal)^r$ for all nonnegative integers $r$
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    \begin{enumerate}
+        \item If $A$ is a square matrix then $A+A^\intercal$ is a symmetric matrix.
+        \item For any matrix $A$, $AA^\intercal$ and $A^\intercal A$ are symmetric matrices.
+    \end{enumerate}
+\end{theorem}
+\subsection{The Inverse of a Matrix}
+\begin{definition}
+    If $A$ is an $n\times n$ matrix, an \textbf{inverse} of $A$ is an $n\times n$ matrix $A'$ with the property that
+    \begin{gather*}
+        AA'=I\text{  and  } A'A = I 
+    \end{gather*}
+    where $I = I_n$ is the $n\times n$ identity matrix. If such an $A'$ exists, then $A$ is called \textbf{invertible}.
+\end{definition}
+\begin{theorem}
+    If $A$ is an invertible matrix, then its inverse is unique.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an invertible $n\times n$ matrix, then the system of linear equations given by $A\vec x = \vec b$ has the unique solution $\vec x = A^{-1}\vec b$ for any $\vec b$ in $\mathbb{R}^n$.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $2\times 2$ matrix, then $A$ is invertible iff $\det A \not= 0$.
+\end{theorem}
+\begin{theorem}
+    \begin{enumerate}
+        \item If $A$ is an invertible matrix, then $A^{-1}$ is invertible and
+        \begin{gather*}
+            (A^{-1})^{-1} = A
+        \end{gather*}
+        \item If $A$ is an invertible matrix and $c$ is a nonzero scalar, then $cA$ is an invertible matrix and \begin{gather*}
+            (cA)^{-1} = \frac{1}{c}A^{-1}
+        \end{gather*}
+        \item If $A$ and $B$ are invertible matrices of the same size, then $AB$ is invertible and \begin{gather*}
+            (AB)^{-1} = B^{-1} A^{-1}
+        \end{gather*}
+        \item If $A$ is an invertible matrix, then $A^\intercal$ is invertible and \begin{gather*}
+            (A^\intercal)^{-1}=(A^{-1})^\intercal
+        \end{gather*}
+        \item If $A$ is an invertible matrix, then $A^n$ is invertible for all nonnegative integers $n$ and \begin{gather*}
+            (A^n)^{-1} = (A^{-1})^n
+        \end{gather*}
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    If $A$ is an invertible matrix and $n$ is a positive integer, then $A^{-n}$ is defined by 
+    \begin{gather*}
+        A^{-n} = (A^{-1})^n = (A^n)^{-1}
+    \end{gather*}
+\end{definition}
+\begin{definition}
+    An \textbf{elementary matrix} is any matrix that can be obtained by performing an elementary row operation on an identity matrix. 
+\end{definition}
+\begin{theorem}
+    Let $E$ be the elementary matrix obtained by performing an elementary row operation on $I_n$. If the same elementary row operation is performed on a $n\times r$ matrix $A$ the result is the same as the matrix $EA$.
+\end{theorem}
+\begin{theorem}
+    Each elementary matrix is invertible, and its inverse is an elementary matrix of the same type.
+\end{theorem}
+\begin{theorem}
+    \textbf{The Fundamental Theorem of Invertible Matrices: V1}\\
+    Let $A$ be an $n\times n$ matrix. The following statements are equivalent:
+    \begin{enumerate}
+        \item $A$ is invertible.
+        \item $A\vec x = \vec b$ has a unique solution for every $\vec b\in\mathbb{R}^n$.
+        \item $A\vec x = 0$ has only the trivial solution.
+        \item The reduced row echelon form of $A$ is $I_n$.
+        \item $A$ is a product of elementary matrices.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be a square matrix. If $B$ is a square matrix such that either $AB=I$ or $BA=I$ then $A$ is invertible and $B=A^{-1}$.
+\end{theorem}
+\begin{theorem}
+    Let $A$ be a square matrix. If a sequence of elementary row operations reduces $A$ to $I$, then the same sequence of elementary row operation transforms $I$ into $A^{-1}$.
+\end{theorem}
+\subsection{The LU factorization}
+\begin{definition}
+    Let $A$ be a square matrix. A factorization of $A$ as $A=LU$, where $L$ is unit lower triangular and $U$ is upper triangular, is called an $\mathbf{LU\: factorization}$ of $A$.
+\end{definition}
+\begin{theorem}
+    If $A$ is a square matrix that can be reduced to REF without using any row interchanges, then $A$ has an $LU$ factorization.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an invertible matrix that has an $LU$ factorization, then $L$ and $U$ are unique.
+\end{theorem}
+\begin{theorem}
+    If $P$ is a permutation matrix, then $P^{-1}=P^\intercal$.
+\end{theorem}
+\begin{definition}
+    Let $A$ be a square matrix. A factorization of $A$ as $A=P^\intercal LU$, where $P$ is a permutation matrix, $L$ is unit lower triangular, and $U$ is upper triangular, is called a \textbf{$\mathbf{P^\intercal LU}$ factorization} of $A$.
+\end{definition}
+\begin{theorem}
+    Every square matrix has a $P^\intercal LU$ factorization.
+\end{theorem}
+\subsection{Subspaces, Basis, Dimension, and Rank}
+\begin{definition}
+    A \textbf{subspace} of $\mathbb{R}^n$ is any collection $S$ of vectors in $\mathbb{R}^n$ such that:
+    \begin{enumerate}
+        \item The zero vector $\vec 0$ is in $S$.
+        \item If $\vec u$ and $\vec v$ are in $S$, then $\vec u + \vec v$ is in $S$.
+        \item If $\vec u$ is in $S$ and $c$ is a scalar, then $c\vec u$ is in $S$.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    Let $\vec v_1, \vec v_2, ..., \vec v_k$ be vectors in $\mathbb{R}^n$. Then $\text{span}(\vec v_1, \vec v_2, ..., \vec v_k)$ is a subspace of $\mathbb{R}^n$.
+\end{theorem}
+\begin{definition}
+    Let $A$ be an $m\times n$ matrix.
+    \begin{enumerate}
+        \item The \textbf{row space} of $A$ is the subspace $\text{row}(A)$ of $\mathbb{R}^n$ spanned by the rows of $A$.
+        \item The \textbf{column space} of $A$ is the subspace $\text{col}(A)$ of $\mathbb{R}^m$ spanned by the column of $A$.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    Let $B$ be any matrix that is row equivalent to a matrix $A$. Then $\text{row}(B)=\text{row}(A)$.
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $m\times n$ matrix and let $N$ be the set of solutions of the homogeneous linear system $A\vec x=\vec 0$. Then $N$ is a subspace of $\mathbb{R}^n$.
+\end{theorem}
+\begin{definition}
+    Let $A$ be an $m\times n$ matrix. The \textbf{null space} of $A$ is the subspace of $\mathbb{R}^n$ consisting of solutions of the homogeneous linear system $A\vec x = \vec 0$. It is denoted by $\text{null}(A)$.
+\end{definition}
+\begin{theorem}
+    Let $A$ be a matrix whose entries are real numbers. For any system of linear equations $A\vec x =\vec b$, exactly one of the following is true:
+    \begin{enumerate}
+        \item There is no solution.
+        \item There is a unique solution.
+        \item There are infinitely many solutions.
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    A \textbf{basis} for a subspace $S$ of $\mathbb{R}^n$ is a sset of vectors in $S$ that
+    \begin{enumerate}
+        \item spans $S$ and
+        \item is linearly indepnedent.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    \textbf{The Basis Theorem}\\
+    Let $S$ be a subspace of $\mathbb{R}^n$. Then any two bases for $S$ have the same number of vectors.
+\end{theorem}
+\begin{definition}
+    If $S$ is a subspace of $\mathbb{R}^n$, then the number of vectors in a basis for $S$ is called the \textbf{dimension} of $S$, denoted $\dim S$.
+\end{definition}
+\begin{theorem}
+    Let $A$ be a matrix. Then
+    \begin{gather*}
+        \dim \text{row}(A) = \dim \text{col}(A)
+    \end{gather*}
+\end{theorem}
+\begin{definition}
+    The \textbf{rank} of a matrix $A$ is the dimension of its row and column spaces and is denoted by $\text{rank}(A)$.
+\end{definition}
+\begin{theorem}
+    For any matrix $A$,
+    \begin{gather*}
+        \text{rank}(A) = \text{rank}(A^\intercal)
+    \end{gather*}
+\end{theorem}
+\begin{definition}
+    The \textbf{nullity} of a matrix $A$ is the dimension of the null space and is denoted by $\text{nullity}(A)$.
+\end{definition}
+\begin{theorem}
+    \textbf{The Rank Theorem}\\
+    If $A$ is an $m\times n$ matrix, then
+    \begin{gather*}
+        \text{rank}(A) + \text{nullity}(A) = n
+    \end{gather*}
+\end{theorem}
+\begin{theorem}
+    \textbf{The Fundamental Theorem of Invertible Matrices: V2}\\
+    Let $A$ be an $n\times n$ matrix. The following statements are equivalent:
+    \begin{enumerate}
+        \item $A$ is invertible.
+        \item $A\vec x = \vec b$ has a unique solution for every $\vec b\in\mathbb{R}^n$.
+        \item $A\vec x = 0$ has only the trivial solution.
+        \item The reduced row echelon form of $A$ is $I_n$.
+        \item $A$ is a product of elementary matrices.
+        \item $\text{rank}(A)=n$.
+        \item $\text{nullity}(A)=0$.
+        \item The column vectors of $A$ are linearly independent.
+        \item The column vectors of $A$ span $\mathbb{R}^n$.
+        \item The column vectors of $A$ form a basis for $\mathbb{R}^n$.
+        \item The row vectors of $A$ are linearly independent.
+        \item The row vectors of $A$ span $\mathbb{R}^n$.
+        \item The row vectors of $A$ form a basis for $\mathbb{R}^n$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $m\times n$ matrix. Then:
+    \begin{enumerate}
+        \item $\text{rank}(A^\intercal A) = rank(A)$
+        \item The $n\times n$ matrix $A^\intercal A$ is invertible iff $\text{rank}(A)=n$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $S$ be a subspace of $\mathbb{R}^n$ and let $\mathcal{B}=\{\vec v_1, \vec v_2, ..., \vec v_k\}$ be a basis for $S$. For every vector $\vec v$ in $S$, there is exactly one way to write $\vec v$ as a linear combination of the basis vectors in $\mathcal{B}$:
+    \begin{gather*}
+        \vec v = c_1\vec v_1 + c_2\vec v_2 + \cdots + c_k\vec k
+    \end{gather*}
+\end{theorem}
+\begin{definition}
+    Let $S$ be a subspace of $\mathbb{R}^n$ and let $\mathcal{B}=\{\vec v_1, \vec v_2, ..., \vec v_k\}$ be a basis for $S$. Let $\vec v$ be a vector in $S$, and write $\vec v = c_1\vec v_1 + c_2\vec v_2 + \cdots + c_k\vec v_k$. Then $c_1, c_2, ..., c_k$ are called the \textbf{coordiantes of $v$ with respect to $\mathcal{B}$}, and the column vector
+    \begin{gather*}
+        [\vec v]_\mathcal{B} = \begin{bmatrix}
+            c_1\\c_2\\\vdots\\c_k
+        \end{bmatrix}
+    \end{gather*}
+    is called the \textbf{coordinate vector of $\vec v$ with respect to $\mathcal{B}$}.
+\end{definition}
+\setcounter{subsection}{5}
+\subsection{Linear Transformations}
+\begin{definition}
+    A \textbf{transformation} $T$ from $\mathbb{R}^n$ (\textbf{domain}) to $\mathbb{R}^m$ (\textbf{codomain}) is a rule which assigns to each vector $\vec v$ in $\mathbb{R}^n$ a unique vector $T(\vec v)$ (\textbf{image} of $\vec v$ under $T$) in $\mathbb{R}^m$. 
+    The \textbf{range} of $T$ is the set of all possible vectors $T(\vec v)$
+\end{definition}
+\begin{definition}
+   $T:\mathbb{R}^n \to \mathbb{R}^m$ is a \textbf{linear transformation} iff
+    \begin{align*}        
+        \forall \vec v_1, \vec v_2 \in \mathbb{R}^n.\:\forall c_1, c_2 \in \mathbb{R}.\: T(c_1\vec v_1 + c_2\vec v_2) = c_1T(\vec v_1) + c_2T(\vec v_2)
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    All matrix transformations $T_A:\mathbb{R}^n\to\mathbb{R}^m$ are linear transformations.
+\end{theorem}
+\begin{theorem}
+    Let $T:\mathbb{R}^n\to\mathbb{R}^m$ be a linear transformation. Then $T=T_A$ where $A$ (\textbf{the standard matrix} of $T$) is the $m\times n$ matrix 
+    \begin{align*}
+        A = \begin{bmatrix}
+            T(\vec e_1) & T(\vec e_2) & \cdots & T(\vec e_n)
+        \end{bmatrix}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $T:\mathbb{R}^m\to\mathbb{R}^n$ and $S:\mathbb{R}^n\to\mathbb{R}^p$ be linear transformations. Then $S\circ T:\mathbb{R}^m\to\mathbb{R}^p$ is a linear transformation. Their standard matrices are related by
+    \begin{align*}
+        \begin{bmatrix}
+            S\circ T
+        \end{bmatrix}
+        = \begin{bmatrix}
+            S
+        \end{bmatrix}
+        \begin{bmatrix}
+            T
+        \end{bmatrix}
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    Let $S$ and $T$ be linear transformations from $\mathbb{R}^n$ to $\mathbb{R}^n$.\\ 
+    Then $S$ and $T$ are \textbf{inverse transformations} if $S\circ T= I_n$ and $T\circ S=I_n$.
+\end{definition}
+\begin{theorem}
+    Let $T:\mathbb{R}^n\to\mathbb{R}^n$ be an invertible linear transformation. Then its standard matrix $[T]$ is an invertible matrix, and
+    \begin{gather*}
+        [T^{-1}] = [T]^{-1}
+    \end{gather*}
+\end{theorem}
+\subsection{Applications}
+\begin{definition}
+    A consumption matrix $C$ is called \textbf{productive} if $I-C$ is invertible and $(I-C)^{-1}\geq O$.
+\end{definition}
+\begin{theorem}
+    Let $C$ be a consumption matrix. Then $C$ is productive iff there exists a production vector $\vec x \geq \vec 0$ such that $\vec x > C\vec x$.
+\end{theorem}
+\begin{theorem}
+    Let $C$ be a consumption matrix. If the sum of each row of $C$ is less than $1$, then $C$ is productive.
+\end{theorem}
+\begin{theorem}
+    Let $C$ be a consumption matrix. If the sum of each column of $C$ is less than $1$, then $C$ is productive.
+\end{theorem}
+\begin{definition}
+    If $G$ is a graph with $n$ vertices, then its \textbf{adjacency matrix} is the $n\times n$ matrix $A$ defined by
+    \begin{gather*}
+        a_{ij} = \begin{cases}
+            1 &\text{if there is an edge between vertices $i$ and $j$}\\
+            0 &\text{otherwise}
+        \end{cases}
+    \end{gather*}
+\end{definition}
+\begin{definition}
+    If $G$ is a digraph with $n$ vertices, then its \textbf{adjacency matrix} is the $n\times n$ matrix $A$ defined by
+    \begin{gather*}
+        a_{ij} = \begin{cases}
+            1 &\text{if there is an edge from vertices $i$ and $j$}\\
+            0 &\text{otherwise}
+        \end{cases}
+    \end{gather*}
+\end{definition}
+\section{Eigenvectors and Eigenvalues}
+\subsection{Introduction}
+\begin{definition}
+    Let $A$ be an $n\times n$ matrix. A scalar $\lambda$ is called an \textbf{eigenvalue} of $A$ if there is a nonzero vector $\vec x$ such taht $A\vec x=\lambda\vec x$. Such a vector $\vec x$ is called an \textbf{eigenvector} of $A$ corresponding to $\lambda$.
+\end{definition}
+\begin{definition}
+    Let $A$ be an $n\times n$ matrix and let $\lambda$ be an eigenvalue of $A$. The collection of all eigenvectors corresponding to $\lambda$, together with the zero vector, is called the \textbf{eigenspace} of $\lambda$ and is denoted by $E_\lambda$.
+\end{definition}
+\subsection{Determinants}
+\begin{definition}
+    Let $A=\begin{bmatrix}
+        a_{11} &a_{12} &a_{13}\\ 
+        a_{21} &a_{22} &a_{23}\\ 
+        a_{31} &a_{32} &a_{33}
+    \end{bmatrix}$.
+    Then the \textbf{determinant} of $A$ is the scalar
+    \begin{align*}
+        det A = |A| = a_{11}\left|\begin{array}{ccc}
+            a_{22} &a_{23}\\ 
+            a_{32} &a_{33}
+        \end{array}\right| -
+        a_{12}\left|\begin{array}{ccc}
+            a_{21} &a_{23}\\ 
+            a_{31} &a_{33}
+        \end{array}\right| +
+        a_{13}\left|\begin{array}{ccc}
+            a_{21} &a_{22}\\ 
+            a_{31} &a_{32}
+        \end{array}\right|
+    \end{align*}
+    For any matrix $A$, $A_{ij}$ is called the \textbf{(i,j)-minor} of $A$.
+\end{definition}
+\begin{definition}
+    Let $A=[a_{ij}]$ be an $n\times n$ matrix, where $n\geq 2$. Then the \textbf{determinant} of $A$ is the scalar
+    \begin{align*}
+        det A = \sum_{j=1}^n (-1)^{j+1}a_{1j}det A_{1j}
+    \end{align*}
+\end{definition}
+\begin{definition}
+    The \textbf{(i,j)-cofactor of A} is
+    \begin{align*}
+        C_{ij}=(-1)^{i+j}det A_{ij}
+    \end{align*}
+    With this notation the determinant becomes
+    \begin{align*}
+        det A = \sum^n_{j=1} a_{1j}C_{1j}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    The determinant of an $n\times n$ matrix $A=[a_{ij}]$, where $n\geq 2$, can be computed as
+    \begin{align*}
+        det A &= a_{i1}C_{i1}+a_{i2}C_{i2} + \cdots + a_{in}C_{in}\\
+        &= \sum_{j=1}^n a_{ij}C_{ij}
+    \end{align*}
+    (the \textbf{cofactor expansion along the $i$th row}) and also as
+    \begin{align*}
+        det A &= a_{1j}C_{1j}+a_{2j}C_{2j} + \cdots + a_{nj}C_{nj}\\
+        &= \sum_{i=1}^n a_{ij}C_{ij}
+    \end{align*}
+    (the \textbf{cofactor expansion along the $j$th column}).
+\end{theorem}
+\begin{theorem}
+    The determinant of a triangular matrix is the product of the entries on its main diagonal.
+    Specifically, if $A=[a_{ij}]$ is an $n\times n$ triangular matrix, then
+    \begin{align*}
+        det A = a_{11}a_{22}\cdots a_{nn}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A=[a_{ij}]$ be a square matrix.
+    \begin{enumerate}
+        \item If $A$ has a zero row (column), the $det A = 0$.
+        \item If $B$ is obtained by interchanging two rows (columns) of $A$, then $det B = -det A$.
+        \item If $A$ has two identical rows (columns), then $det A = 0$.
+        \item If $B$ is obtained by multiplying a row (column) of $A$ by $k$, then $det B = k det A$.
+        \item If $A$, $B$ and $C$ are identical except that the $i$th row (column) of $C$ is the sum of the $i$th rows (columns) of $A$ and $B$, then $det C = det A + det B$.
+        \item If $B$ is obtained by adding a multiple of one row (column) of $A$ to another row (column), then $det B = det A$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $E$ be an $n\times n$ elementary matrix.
+    \begin{enumerate}
+        \item If $E$ results from interchanging two rows of $I_n$, then $det E = -1$.
+        \item If $E$ results from multiplying one row of $I_n$ by $k$, then $det E = k$.
+        \item If $E$ results from adding a multiple of one row of $I_n$ to another row, then $det E = 1$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $B$ be an $n\times n$ matrix and let $E$ be an $n\times n$ elementary matrix. Then
+    \begin{align*}
+        det(EB) = (det E)(det B).
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    A square matrix $A$ is invertible iff $det A \not= 0$.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $n\times n$ matrix, then
+    \begin{align*}
+        det(kA) = k^n det A
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $A$ and $B$ are $n\times n$ matrices, then
+    \begin{align*}
+        det(AB) = (det A)(det B)
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $A$ is invertible, then
+    \begin{align*}
+        det(A^{-1})=\frac{1}{det A}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    For any square matrix $A$,
+    \begin{align*}
+        det A = det A^\intercal
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an invertible $n\times n$ matrix and let $\vec b$ be a vector $\mathbb{R}^n$. Then the unique solution of $\vec x$ of the system $A\vec x$ is given by
+    \begin{align*}
+        x_i = \frac{det(A_i(\vec b))}{det A}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an invertible $n\times n$ matrix. Then
+    \begin{align*}
+        A^{-1}=\frac{1}{det A}adj A
+    \end{align*}
+    where
+    \begin{align*}
+        adj A = [C_{ji}] = [C_{ij}]^\intercal.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix. Then
+    \begin{align*}
+        a_{11}C_{11}+a_{12}C_{12}+\cdots+a_{1n}C_{1n}= det A = a_{11}C_{11}+a_{21}C_{21} + \cdots + a_{n1}C_{n1}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $B$ be obtained by interchanging any two rows (columns) of $A$. Then
+    \begin{align*}
+        det B = - det A
+    \end{align*}
+\end{theorem}
+\subsection{Eigenvectors and Eigenvalues of $n\times n$ matrices}
+\setcounter{theorem}{14}
+\begin{theorem}
+    The eigenvalues of a triangular matrix are the entries on its main diagonal.
+\end{theorem}
+\begin{theorem}
+    A square matrix $A$ is invertible iff $0$ is not an eigenvalue of $A$.
+\end{theorem}
+\setcounter{theorem}{17}
+\begin{theorem}
+    Let $A$ be a square matrix with eigenvalue $\lambda$ and corresponding eigenvector $\vec x$.
+    \begin{enumerate}
+        \item For any positive integer $n$, $\lambda^n$ is an eingenvalue of $A^n$ with corresponding eigenvector $\vec x$.
+        \item If $A$ is invertible, then $\frac{1}{\lambda}$ is an eigenvalue of $A^{-1}$ with corresponding eigenvector $\vec x$.
+        \item If $A$ is invertible, then for any integer $n$, $\lambda^n$ is an eigenvalue of $A^n$ with corresponding eigenvector $\vec x$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Suppose the $n\times n$ matrix $A$ has eigenvectors $\vec v_1, \vec v2_, ..., \vec v_m$ with corresponding eigenvalues $\lambda_1, \lambda_2, ...,\lambda_m$. If $\vec x$ is a vector in $\mathbb{R}^n$ that can be expressed as a linear combination of these eigenvectors-say,
+    \begin{align*}
+        \vec x = c_1\vec v_1+c_2\vec v_2 +\cdots + c_m\vec v_m
+    \end{align*}
+    then, for any integer $k$,
+    \begin{align*}
+        A^k\vec x = c_1\lambda_1^k\vec v_1+c_2\lambda_2^k\vec v_2 + \cdots + c_m\lambda_m^k\vec v_m
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $\lambda_1, \lambda_2, ...,\lambda_m$ be distinct eigenvalues of $A$ with corresponding eigenvectors $\vec v_1, \vec v_2, ..., \vec v_m$. Then $\vec v_1, \vec v_2, ...,\vec v_m$ are linearly independent.
+\end{theorem}
+\subsection{Similarity and Diagonalization}
+\begin{definition}
+    Let $A$ and $B$ be $n\times n$ matrices. We say that $A$ \textbf{is similar to} $B$ if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP=B$. If $A$ is similar to $B$ we write $A\sim B$.
+\end{definition}
+\begin{theorem}
+    Let $A$, $B$, and $C$ be $n\times n$ matrices.
+    \begin{enumerate}
+        \item $A\sim A$.
+        \item If $A\sim B$, then $B\sim A$.
+        \item If $A\sim B$ and $B\sim C$, then $A\sim C$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $A$ and $B$ be $n\times n$ matrices with $A\sim B$. Then
+    \begin{enumerate}
+        \item $\det A = \det B$
+        \item $A$ is invertible iff $B$ is invertible.
+        \item $A$ and $B$ have the same rank.
+        \item $A$ and $B$ have the same characteristic polynomial.
+        \item $A$ and $B$ have the same eigenvalues.
+        \item $A^m\sim B^m$ for all integers $m\geq 0$.
+        \item If $A$ is invertible, then $A^m\sim B^m$ for all integers $m$
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    An $n\times n$ matrix $A$ is \textbf{diagonalizable} if there is a diagonal matrix $D$ such that $A$ is similar to $D$ - that is, if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP = D$.
+\end{definition}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix. Then $A$ is diagonalizable iff $A$ has $n$ linearly independent eigenvectors.\\
+    More precisely, there exist an invertible matrix $P$ and a diagonal matrix $D$ such that $P^{-1}AP=D$ iff the columns of $P$ are $n$ linearly independent eigenvectors of $A$ and the diagonal entries of $D$ are the eigenvalues of $A$ corresponding to the eigenvectors in $P$ in the same order.
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $n\times n$ matrix and let $\lambda_1, \lambda_2, ..., \lambda_k$ be distinct eigenvalues of $A$. If $\mathcal{B}_i$ is a basis for the eigenspace $E_{\lambda_i}$, then $\mathcal{B} = \mathcal{B}_1\cup\mathcal{B}_2\cup\cdots\cup\mathcal{B}_k$ (i.e., the total collection of basis vectors for all of the eigenspaces) is linearly independent.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $n\times n$ matrix with $n$ distinct eigenvalues, then $A$ is diagonalizable.
+\end{theorem}
+\begin{theorem}
+    If $A$ is an $n\times n$ matrix, then the geometric multiplicity of each eigenvalue is less than or equal to its algebraic multiplicity.
+\end{theorem}
+\begin{theorem}
+    \textbf{The Diagonalization Theorem}\\
+    Let $A$ be an $n\times n$ matrix whose distinct eigenvalues are $\lambda_1, \lambda_2, ...,\lambda_k$. The following statements are equivalent:
+    \begin{enumerate}
+        \item $A$ is diagonalizable.
+        \item The union of $\mathcal{B}$ of the bases of the eigenspaces of $A$ contains $n$ vectors.
+        \item The algebraic multiplicity of each eigenvalue equals its geometric multiplicity.
+    \end{enumerate}
+
+\end{theorem}
+\section{Orthogonality}
+\subsection{Orthogonality in $\mathbb{R}^n$}
+\begin{definition}
+    A set $S$ of vectors in $\mathbb{R}^n$ is called an orthogonal set iff
+    \begin{align*}
+        \forall \vec u, \vec v\in S.\: \vec u \not= \vec v \Rightarrow \vec u \cdot \vec v = 0
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    If $\{\vec v_1, \vec v_2, ...,\vec v_k\}$ is an orthogonal set of nonzero vectors in $\mathbb{R}^n$, then these vectors are linearly independent.
+\end{theorem}
+\begin{theorem}
+    Let $\{\vec v_1, \vec v_2, ..., \vec v_k\}$ be an orthogonal basis for a subspace $W$ of $\mathbb{R}^n$ and let $\vec w$ be any vector in $W$. Then the unique scalars $c_1, ..., c_k$ such that
+    \begin{align*}
+        \vec w = c_1\vec v_1 + \cdots + c_k\vec v_k
+    \end{align*}
+    are given by
+    \begin{align*}
+        c_i = \frac{\vec w \cdot \vec v_i}{\vec v_i \cdot \vec v_i}; \: i \in \{1, ..., k\}
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    A set of vectors in $\mathbb{R}^n$ is an \textbf{orthonormal set} if it is an orthogonal set of unit vectors. An \textbf{orthonormal basis} for a subspace $W$ of $\mathbb{R}^n$ is a basis of $W$ that is an orthonormal set. 
+\end{definition}
+\begin{theorem}
+    Let $\{\vec q_1, \vec q_2, ..., \vec q_k\}$ be an orthonormal basis for a subspace $W$ of $\mathbb{R}^n$ and let $\vec w\in W$. Then
+    \begin{align*}
+        \vec w = (\vec w \cdot \vec q_1)\vec q_1 + (\vec w\cdot\vec q_2)\vec q_2 + \cdots + (\vec w\cdot\vec q_k)\vec q_k
+    \end{align*}
+    and this representation is unique.
+\end{theorem}
+\begin{theorem}
+    The columns of an $m\times n$ matrix $Q$ form an orthonormal set iff $Q^\intercal Q=I_n$.
+\end{theorem}
+
+\begin{definition}
+    An $n \times n$ matrix $Q$ whose columns form an orthonormal set is called an \linebreak \textbf{orthogonal matrix}.
+\end{definition}
+\begin{theorem}
+    A square matrix $Q$ is orthogonal iff $Q^{-1}=Q^\intercal $.
+\end{theorem}
+\begin{theorem}
+    Let $Q$ be an $n\times n$ matrix. The following statements are equivalent:
+    \begin{enumerate}
+        \item $Q$ is orthogonal.
+        \item $\forall \vec x \in \mathbb{R}^n.\:|Q\vec x| = |\vec x|$.
+        \item $\forall \vec x, \vec y \in \mathbb{R}^n.\:Q\vec x\cdot Q\vec y = \vec x\cdot \vec y$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    If $Q$ is an orthogonal matrix, then its rows form an orthonormal set.
+\end{theorem}
+\begin{theorem}
+    Let $Q$ be an orthogonal matrix.
+    \begin{enumerate}
+        \item $Q^{-1}$ is orthogonal.
+        \item $\det Q = \pm 1$
+        \item If $\lambda$ is an eigenvalue of $Q$, then $|\lambda|=1$.
+        \item If $Q_1$ and $Q_2$ are orthogonal $n\times n$ matrices, then so is $Q_1Q_2$.
+    \end{enumerate}
+\end{theorem}
+\subsection{Orthogonal Complements and Orthogonal Projections}
+\begin{definition}
+    Let $W$ be a subspace of $\mathbb{R}^n$. We say that a vector $\vec v$ in $\mathbb{R}^n$ is \textbf{orthogonal to $W$} if $\vec v$ is orthogonal to every vector in $W$. The set of all vectors that are orthogonal to $W$ is called the \textbf{orthogonal complement of $W$}, denoted $W^{\perp}$. That is,
+    \begin{align*}
+        W^{\perp} = \{\vec v in \mathbb{R}^n:\vec v \cdot \vec w = 0 \text{ for all }\vec v\in W\}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $W$ be a subspace of $\mathbb{R}^n$.
+    \begin{enumerate}
+        \item $W^{\perp}$ is a subspace of $\mathbb{R}^n$.
+        \item $\left(W^{\perp}\right)^{\perp}=W$.
+        \item $W\cap W^{\perp}=\{\vec 0\}$.
+        \item If $W=span({\vec w_1, ..., \vec w_k})$, then $\vec v$ is in $W^{\perp}$ iff $v\cdot w_i=0$ for all $i=1,...,k$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $A$ be an $m\times n$ matrix. Then the orthogonal complement of the row space of $A$ is the null space of $A$, and the orthogonal complement of the column space of $A$ is the null space of $A^\intercal $:
+    \begin{align*}
+        (row(A))^{\perp}&=null(A)\\
+        (col(A))^{\perp}&=null(A^\intercal )
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    Let $W$ be a subspace of $\mathbb{R}^n$ and let $\{\vec u_1, ..., \vec u_k\}$ be an orthogonal basis for $W$.
+    For any vector $\vec v$ in $\mathbb{R}^n$, the \textbf{orthogonal projection of $\vec v$ onto $W$} is defined as
+    \begin{align*}
+        proj_W(\vec v)=proj_{\vec u_1}(\vec v) + \cdots + proj_{\vec u_k}(\vec v).
+    \end{align*}
+    The \textbf{component of $\vec v$ orthogonal to $W$} is the vector
+    \begin{align*}
+        perp_W(\vec v) = \vec v - proj_W(\vec v)
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    \textbf{The Orthogonal Decomposition Theorem}\\
+    Let $W$ be a subspace of $\mathbb{R}^n$ and let $\vec v$ be a vector in $\mathbb{R}^n$.
+    Then there are unique vectors $\vec w$ in $W$ and $\vec w^{\perp}$ in $W^{\perp}$ such that
+\begin{align*}
+    \vec v = \vec w + \vec w^{\perp}.
+\end{align*}
+\end{theorem}
+\setcounter{theorem}{12}
+\begin{theorem}
+    If $W$ is a subspace of $\mathbb{R}^n$, then
+    \begin{align*}
+        \dim W + \dim W^{\perp} = n        
+    \end{align*}
+\end{theorem}
+\setcounter{theorem}{14}
+\subsection{The Gram-Schmidt Process and the QR Factorization}
+\begin{theorem}
+    \textbf{The Gram-Schmidt Process}\\
+    Let $\{\vec x_1, ..., \vec x_k\}$ be a basis for a subspace $W$ of $\mathbb{R}^n$ and define the following for all $i\in\{1,...,k\}$:
+    \begin{align*}
+        \vec v_i &= \vec x_i - \sum^{i-1}_{j=1} proj_{\vec v_i}(\vec x_i)\\
+        W_i &= span(\vec x_1, ..., \vec x_i)
+    \end{align*}
+    Then for each $i=1, ..., k$, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W_i$. In particular, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W$.
+\end{theorem}
+\begin{theorem}
+    \textbf{The QR Factorization}\\
+    Let $A$ be an $m\times n$ matrix with linearly independent columns. Then $A$ can be factored as $A=QR$, where $Q$ is an $m\times n$ matrix with orthonormal columns and $R$ is an invertible upper triangular matrix.
+\end{theorem}
+\subsection{Orthogonal Diagonalization of Symmetric Matrices}
+\begin{theorem}
+    If $A$ is orthogonally diagonalizable, then $A$ is symmetric.
+\end{theorem}
+\begin{theorem}
+    If $A$ is a real symmetric matrix, then the eigenvalues of $A$ are real.
+\end{theorem}
+\begin{theorem}
+    If $A$ is a symmetric matrix, then any two eigenvectors corresponding to distinct eigenvalues of $A$ are orthogonal.
+\end{theorem}
+\paragraph*{Proof}
+\begin{enumerate}
+    \item Show that $\lambda_1(\vec v_1 \cdot \vec v_2)=\lambda_2(\vec v_1\cdot\vec v_2)$ by using $x\cdot y =x^\intercal y$ and $A^\intercal =A$.
+    \item Therefore $(\lambda_1-\lambda_2)(\vec v_1 \cdot \vec v_2)=0$.
+    \item Since $\lambda_1\not=\lambda_2$, $\vec v_1 \cdot \vec v_2=0$. $\square$
+\end{enumerate}
+\begin{theorem}
+    \textbf{(Finite-dimensional) Spectral theorem}\\
+    Let $A$ ben an $n\times n$ real matrix. Then $A$ is symmetric iff it is orthogonally diagonalizable.
+\end{theorem}
+\subsection{Applications}
+\begin{definition}
+    A \textbf{quadratic form} in $n$ variables is a function $f:\mathbb{R}^n\to\mathbb{R}$ of the form
+    \begin{align*}
+        f(\vec x) = \vec x^\intercal A\vec x
+    \end{align*}
+    where $A$ is a symmetric $n\times n$ matrix and $\vec x$ is in $\mathbb{R}^n$. We refer to $A$ as the \textbf{matrix associated with $f$}.
+\end{definition}
+\begin{theorem}
+    \textbf{The Principal Axes Theorem}\\
+    Every quadratic form can be diagonalized. Specifically, if $A$ is the $n\times n$ symmetric matrix associated with the quadratic form $\vec x^\intercal A\vec x$ and if $Q$ is an orthogonal matrix such that $Q^\intercal AQ=D$ is a diagonal matrix, then the change of variable $\vec x = Q\vec y$ transforms the quadratic form $\vec x^\intercal A\vec x$ into the quadratic form $\vec y^\intercal D\vec y$, which has no cross-product terms.
+    If the eigenvalues of $A$ are $\lambda_1, ...,\lambda_n$ and $y=\begin{bmatrix}
+        y_1 &\cdots &y_n
+    \end{bmatrix}^\intercal $, then
+    \begin{align*}
+        \vec x^\intercal A\vec x = \vec y^\intercal D\vec y = \lambda_1 y_1^2+\cdots+\lambda_n y_n^2
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    A quadratic form $f(\vec x) = \vec x^\intercal A\vec x$ is classified as one of the following:
+    \begin{enumerate}
+        \item \textbf{positive definite} if $f(\vec x)>0$ for all $\vec x \not= \vec 0$
+        \item \textbf{positive semidefinite} if $f(\vec x)\geq 0$ for all $\vec x$
+        \item \textbf{negative definite} if $f(\vec x)<0$ for all $\vec x \not= 0$
+        \item \textbf{negative semidefinite} if $f(\vec x)\leq 0$ for all $\vec x$
+        \item \textbf{indefinite} if $f(\vec x)$ takes on both positive and negative values
+    \end{enumerate}
+    These properties can be applied to symmetric matrices $A$ associated with $f(\vec x)=\vec x^\intercal A\vec x$.
+\end{definition}
+\begin{theorem}
+    Let $A$ be an $n\times n$ symmetric matrix. The quadratic form $f(\vec x) = \vec x^\intercal A\vec x$ is
+    \begin{enumerate}
+        \item positive definite iff all of the eigenvalues of $A$ are positive.
+        \item positive semidefinite iff all of the eigenvalues of $A$ are nonnegative.
+        \item negative definite iff all of the eigenvalues of $A$ are negative.
+        \item negative semidefinite iff all of the eigenvalues of $A$ are nonpositive.
+        \item indefinite iff $A$ has both positive and negative eigenvalues.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $f(\vec x) = \vec x^\intercal A\vec x$ be a quadratic form with associated $n\times n$ symmetric matrix $A$. Let the eigenvalues of $A$ be $\lambda_1\geq\lambda_2\geq\cdots\geq\lambda_n$. Then the following are true, subject to the constraint $|\vec x|=1$:
+    \begin{enumerate}
+        \item $\lambda_1\geq f(\vec x)\geq \lambda_n$
+        \item The maximum value of $f(\vec x)$ is $\lambda_1$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_1$.
+        \item The minimum value of $f(\vec x)$ is $\lambda_n$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_n$. 
+    \end{enumerate}
+\end{theorem}
+\end{document}

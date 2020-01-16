@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\title{ILA: H4 (Workshop 08)}
+\author{Franz Miltz (UNN: s1971811)}
+\date{October 22, 2019}
+\begin{document}
+\maketitle
+This document will use the following notation:
+\begin{itemize}
+    \item $a$ may represent any scalar.
+    \item $\vec{a}$ may represent any vector.
+    \item $\begin{bmatrix}
+        a_1\\
+        \vdots\\
+        a_n
+    \end{bmatrix}$ is another representation of $\vec a$. 
+    \item $a_i$ is the $i$th component of the vector $a$.
+    \item $A$ may represent any $m\times n$ matrix.
+    \item $\begin{bmatrix}
+        a_{11} & a_{12}&\dots &a_{1n}\\
+        a_{21} & a_{22}&\dots &a_{2n}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        a_{m1} & a_{m2} &\dots &a_{mn}
+    \end{bmatrix}$ is another representation of $A$.
+    \item $a\vec{b}$ is a scalar multiplication of the vector $\vec{b}$ with the scalar $a$
+    \item $A\vec b$ is the matrix multiplication of the matrix $A$ with the vector $\vec b$
+    \item $I_n$ is the $n\times n$ identity matrix.
+\end{itemize}
+\section*{Q43 a}
+Let's suppose $S'=\{\vec u+\vec v, \vec u+\vec w, \vec v+\vec w\}$ is linearly dependent 
+while $S=\{\vec u, \vec v, \vec w\}$ isn't. Then there exists a solution to
+\begin{align}
+    a_1(\vec u+\vec v) + a_2(\vec u + \vec w) + a_3(\vec v + \vec w) = \vec 0
+\end{align}
+such that one $a_i\not=0$. Let's expand the brackets and rewrite the equation:
+\begin{align}
+    (a_1+a_2)\vec u + (a_1+a_3) \vec v + (a_2 + a_3) \vec w = \vec 0
+\end{align}
+Since we know the factors in front of the vectors have to be zero (otherwise $S$ would not be linearly independent), we get the following system of linear equations:
+\begin{align}
+    \begin{bmatrix}
+        1 &1 &0\\
+        1 &0 &1\\
+        0 &1 &1
+    \end{bmatrix}
+    \begin{bmatrix}
+        a_1\\a_2\\a_3
+    \end{bmatrix}
+    = \begin{bmatrix}
+        0 \\ 0 \\ 0
+    \end{bmatrix}
+\end{align}
+Since we can reduce the coefficient matrix to $I_3$ using elementary row operations which do not influence the vector on the right-hand side, we know the only solution to this system is the trivial one.\\
+This contraticts our assumption, that $S'$ is linearly dependent. Therefore, $S'$ has to be linearly independent as well.
+\section*{Q46}
+Let $S$ be a linearly independent set of vectors:
+\begin{align}
+    S=\{\vec v_0, \vec v_1, ..., \vec v_n\}.
+\end{align}
+Therefore
+\begin{align}
+    c_0\vec v_0 + c_1\vec v_1 + ... + c_n\vec v_n = \vec 0
+\end{align}
+iff
+\begin{align}
+    c_0 = c_1 = ... = c_n = 0.
+\end{align}
+Let's consider the subset $S'$:
+\begin{align}
+    S'={\vec v_1, \vec v_2, ..., \vec v_n}.
+\end{align}
+Suppose $S'$ is linearly dependent. Therefore there exists a solution to
+\begin{align}
+    a_1\vec v_1 + a_2\vec v_2 + ... + a_n\vec v_n = \vec 0
+\end{align}
+where at least one $a_i\not=0$. Now we add the vector $c_0\vec v_0$ to this equation and let $c_0 = 0$.
+Effectively, this is the same as adding $\vec 0$.
+Thus we get
+\begin{align}
+    0\vec v_0 + a_1\vec v_1 + a_2\vec v_2 + ... + a_n\vec v_n = \vec 0.
+\end{align}
+This is obviously true and therefore provides a non-trivial solution of the linear combination in $(5)$, making $S$ linearly dependent and contradicting our definition.
+Therefore $S'$ also has to be linearly independent. $\square$
+\end{document}
