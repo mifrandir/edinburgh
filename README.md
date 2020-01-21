@@ -15,3 +15,4 @@ Anything related to my time at the University of Edinburgh.
   - Object Oriented Programming (OOP)
   - Calculus and its Applications
   - Introductory Astrophysics
+  - Proofs and Problem Solving
