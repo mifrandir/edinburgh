@@ -89,4 +89,110 @@
         \item If $a\not=0$, then $ab$ is irrational.
     \end{enumerate}
 \end{theorem}
+\begin{theorem}
+    Given $x>0$ and $n\in\N$, there is a unique $y>0$ so that $y^n=x$, and we write this number as $y=x^{\nicefrac{1}{n}}$.
+\end{theorem}
+\begin{theorem}
+    Let $x>0$, $y>0$ and $p,q\in\mathbb{Q}$. Then
+    \begin{enumerate}
+        \item $x^px^q=x^{p+q}$.
+        \item $(x^p)^q=x^{pq}$.
+        \item $(xy)^p=x^py^p$.
+    \end{enumerate}
+\end{theorem}
+\section{Inequalities}
+\begin{definition}
+    Given $x, y \in \R$, we may write $x<y$, which we prononounce "$x$ is less than $y$". The symbol $<$ satisfies the following axioms:
+    \begin{enumerate}
+        \item If $x\in R$ then exactly one of the following is true: $x>0$, $x=0$ or $x<0$.
+        \item If $x>y$, then $-x<-y$.
+        \item If $x>y$ and $c\in\R$, then $x+c > y+c$.
+        \item If $x > 0$ and $y > 0$, then $xy > 0$.
+        \item If $x>y$ and $y>z$, then $x>z$.
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    If $x>0$, then $-x<0$.
+\end{theorem}
+\begin{theorem}
+    If $x\not=0$, then $x^2 > 0$.
+\end{theorem}
+\begin{theorem}
+    If $x>0$, then $\nicefrac{1}{x}>0$.
+\end{theorem}
+\begin{theorem}
+    If $x>0$, then $u>v$ iff $xu>xv$.
+\end{theorem}
+\begin{theorem}
+    If $u,v>0$, then $u^2>v^2$ iff $u>v$.
+\end{theorem}
+\begin{theorem}
+    For $u,v\in\R$,
+    \begin{align*}
+        uv\leq \frac{u^2+v^2}{2}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{AM-GM Inequality}\\
+    Let $n\in\N$ and $x_1, x_2, ..., x_n \geq 0$. Then 
+    \begin{align*}
+        (x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}\leq\frac{x_1+\cdots+x_n}{n}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{Cauchy-Schwartz Inequality}\\
+    Let $n\in\N$ and $x_1,...,x_n,y_1,...,y_n\in\R$. Then
+    \begin{align*}
+        x_1y_1+\cdots x_ny_n \leq \sqrt{x_1^2+\cdots+x_n^2}\sqrt{y_1^2+\cdots+y_n^2}.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    For $x\in\R$, we define the \textbf{absolute value} of $x$ to be
+    \begin{align*}
+        \vert x \vert = \begin{cases}
+            x &\text{if } x \geq 0\\
+            -x &\text{if } x < 0
+        \end{cases}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    For $x\in\R$, $-|x|\leq x \leq |x|$.
+\end{theorem}
+\begin{theorem}
+    For $x,y\in\R$, $|xy|=|x|\cdot |y|$.
+\end{theorem}
+\begin{theorem}
+    For $x,y\in\R$, $|x+y| \leq |x| + |y|$.
+\end{theorem}
+\begin{theorem}
+    For $x,y\in\R$, $|x|-|y|\leq |x+y|$.
+\end{theorem}
+\section{Induction}
+\begin{definition}
+    \textbf{The Principle of Mathematical Induction}\\
+    Given a list of statements $P(k)$, $P(k+1)$, ..., we know that $P(n)$ is true for every integer $n\geq k$ if
+    \begin{enumerate}
+        \item we know that $P(k)$ is true,
+        \item and we can prove that $P(n)\Rightarrow P(n+1)$ for any integer $n\geq k$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    \textbf{The Principle of Strong Mathematical Induction}\\
+    Let $k\in\N$ and let $P(k)$, $P(k+1)$, ..., be statements. Suppose that
+    \begin{enumerate}
+        \item $P(k)$ is true,
+        \item for any integer $n\geq k$, $P(k), P(k+1), P(k+2), ..., P(n)\Rightarrow P(n+1)$.
+    \end{enumerate}
+    Then $P(n)$ is true for all integer $n\geq k$.
+\end{definition}
+\begin{theorem}
+    Every integer $n\geq 2$ can be written as a product of primes $n=p_1\cdots p_k$.
+\end{theorem}
+\begin{theorem}
+    Suppose that $x,y>0$ and $n\in\N$.
+    \begin{enumerate}
+        \item $x^n>y^n\Leftrightarrow x>y$.
+        \item $x^{\nicefrac{1}{n}}>y^{\nicefrac{1}{n}}\Leftrightarrow x>y$.
+    \end{enumerate}
+\end{theorem}
 \end{document}
