@@ -1,4 +1,6 @@
 
+import java.io.EOFException;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 /**
@@ -45,29 +47,42 @@ public class FoxHoundGame {
      * @param dim the dimension of the game board
      * @param players current position of all figures on the board in board coordinates
      */
-    private static void gameLoop(int dim, String[] players) {
+    private static void gameLoop(int dim, String[] players) throws EOFException {
         // start each game with the Fox
         char turn = FoxHoundUtils.FOX_FIELD;
         boolean exit = false;
         while (!exit) {
             System.out.println("\n#################################");
             FoxHoundUI.displayBoard(players, dim);
+            FoxHoundUI.displayPositions(players, dim);
 
             int choice = FoxHoundUI.mainMenuQuery(turn, STDIN_SCAN);
 
             // handle menu choice
             switch (choice) {
                 case FoxHoundUI.MENU_MOVE:
-                    final String[] move = FoxHoundUI.nextMoveQuery(turn, STDIN_SCAN);
+                    String[] move;
+                    while (true) {
+                        move = FoxHoundUI.positionQuery(dim, STDIN_SCAN);
+                        try {
+                            if (FoxHoundUtils.isValidMove(dim, players, turn, move[0], move[1])) {
+                                break;
+                            }
+                        } catch (IllegalArgumentException e) {
+                        }
+                        System.out.println(FoxHoundUI.COORD_IN_ERROR);
+                    }
                     for (int i = 0; i < players.length; i++) {
                         if (players[i].equals(move[0])) {
                             players[i] = move[1];
                             break;
                         }
                     }
-                    // We don't need to check whether we actually moved something because
-                    // the error handling happens inside the nextMoveQuerry.
                     turn = swapPlayers(turn);
+                    break;
+                case FoxHoundUI.MENU_SAVE:
+                    Path file = FoxHoundUI.fileQuery(STDIN_SCAN);
+                    FoxHoundIO.saveGame(players, turn, file);
                     break;
                 case FoxHoundUI.MENU_EXIT:
                     exit = true;
@@ -102,7 +117,11 @@ public class FoxHoundGame {
         }
 
         String[] players = FoxHoundUtils.initialisePositions(dimension);
-        gameLoop(dimension, players);
+        try {
+            gameLoop(dimension, players);
+        } catch (EOFException e) {
+            System.err.println("Ran out of lines to read on stdin:\n" + e.getMessage());
+        }
 
         // Close the scanner reading the standard input stream
         STDIN_SCAN.close();

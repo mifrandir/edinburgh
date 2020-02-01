@@ -79,7 +79,7 @@ public class FoxHoundUtils {
                             + "(string=\"%s\", dim=%d)",
                     coords, dim));
         }
-        final int row = Integer.parseInt(coords.substring(1));
+        final int row = Integer.parseInt(coords.substring(1)) - 1;
         if (row >= dim) {
             throw new IllegalArgumentException(String.format(
                     "The given coordinate string does not contain a row within the given"
@@ -108,11 +108,11 @@ public class FoxHoundUtils {
 
     // toColLetter converts a given column index (zero-based) into the corresponding column letter.
     private static char toColLetter(final int col) {
-        return (char) (65 + col);
+        return (char) ('A' + col);
     }
     // toColIndex converts a given column letter into the corresponding column index (zero-based).
     private static int toColIndex(final char col) {
-        return ((int) col) - 65;
+        return (int) (col - 'A');
     }
 
     // padLeftZeros takes any integer and adds zeroes to the left to reach a certain length.
@@ -122,9 +122,17 @@ public class FoxHoundUtils {
         final String num = String.format("%d", val);
         final StringBuilder sb = new StringBuilder();
         for (int i = 0; i < len; i++) {
-            sb.append(' ');
+            sb.append('0');
         }
-        return sb.substring(num.length()) + num;
+        return sb.substring(num.length() + 1) + num;
+    }
+
+    public static String minCoord(final int __dim) {
+        return "A1";
+    }
+
+    public static String maxCoord(final int dim) {
+        return toBoardCoordinates(dim - 1, dim - 1);
     }
 
     // isValidMove checks whether a move is valid based on the given parameters. If the parameters
@@ -139,7 +147,7 @@ public class FoxHoundUtils {
         checkDim(dim);
         // Check whether given array is null.
         if (players == null) {
-            throw new IllegalArgumentException("Received null array.");
+            throw new NullPointerException();
         }
         // Check whether the given figure is valid.
         if (fig != 'F' && fig != 'H') {
@@ -150,19 +158,27 @@ public class FoxHoundUtils {
         // This checks for bound errors and allows for faster comparisons.
         int ogI = toBoardIndex(og, dim);
         int destI = toBoardIndex(dest, dim);
+        int d = ogI % dim - destI % dim;
+        if (d != 1 && d != -1) {
+            return false;
+        }
+        d = ogI / dim - destI / dim;
+        if (d != 1 && d != -1) {
+            return false;
+        } 
         int[] playersI = new int[players.length];
         for (int i = 0; i < players.length; i++) {
             playersI[i] = toBoardIndex(players[i], dim);
         }
         // Check whether fig is at og.
         if (fig == 'F') {
-            if (playersI[players.length] != ogI) {
+            if (playersI[players.length - 1] != ogI) {
                 return false;
             }
         } else {
             boolean found = false;
             for (int i = 0; i < players.length - 1; i++) {
-                if (playersI[i] != ogI) {
+                if (playersI[i] == ogI) {
                     found = true;
                     break;
                 }
@@ -173,10 +189,111 @@ public class FoxHoundUtils {
         }
         // Check whether dest is empty.
         for (int i = 0; i < players.length; i++) {
-            if (playersI[i] != destI) {
+            if (playersI[i] == destI) {
                 return false;
             }
         }
         return true;
+    }
+
+    public static boolean isFoxWin(String fox) {
+        if (fox == null) {
+            throw new NullPointerException();
+        }
+        if (fox.length() < 2) {
+            throw new IllegalArgumentException("Invalid coordinate: " + fox);
+        }
+        int row;
+        try {
+            row = Integer.parseInt(fox.substring(1));
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Invalid coordinate: " + fox);
+        }
+        return row == 1;
+    }
+
+    public static boolean isHoundWin(String[] players, int dim) {
+        if (players == null) {
+            throw new NullPointerException();
+        }
+        if (players.length == 0) {
+            throw new IllegalArgumentException("Received empty player array.");
+        }
+        checkDim(dim);
+        int[] positions = new int[players.length];
+        for (int i = 0; i < players.length; i++) {
+            positions[i] = toBoardIndex(players[i], dim);
+        }
+        int[] neighs = validNeighbours(positions[positions.length - 1], dim);
+        for (int i = 0; i < neighs.length; i++) {
+            boolean found = false;
+            for (int j = 0; j < positions.length - 1; j++) {
+                if (positions[j] == neighs[i]) {
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int minDim(String[] players) {
+        int dim = (players.length - 1) * 2;
+        for (int i = 0; i < players.length; i++) {
+            int d = minDim(players[i]);
+            if (d > dim) {
+                dim = d;
+            }
+        }
+        return dim;
+    }
+
+    private static int minDim(String player) {
+        if (player == null) {
+            throw new NullPointerException();
+        }
+        if (player.length() < 2) {
+            throw new IllegalArgumentException("Given coordinate too short: " + player);
+        }
+        int row = Integer.parseInt(player.substring(1));
+        int col = toColIndex(player.charAt(0)) + 1;
+        if (row > col) {
+            return row;
+        }
+        return col;
+    }
+
+    private static int[] validNeighbours(int pos, int dim) {
+        int row = pos % dim;
+        int col = pos / dim;
+        int[] neighs = new int[4];
+        int count = 0;
+        if (row > 0 && col > 0) {
+            neighs[count] = (col - 1) * dim + row - 1;
+            count++;
+        }
+        if (row > 0 && col < dim - 1) {
+            neighs[count] = (col - 1) * dim + row + 1;
+            count++;
+        }
+        if (row < dim - 1 && col > 0) {
+            neighs[count] = (col + 1) * dim + row - 1;
+            count++;
+        }
+        if (row < dim - 1 && col < dim - 1) {
+            neighs[count] = (col + 1) * dim + row + 1;
+            count++;
+        }
+        if (count < 4) {
+            int[] nn = new int[count];
+            for (int i = 0; i < count; i++) {
+                nn[i] = neighs[i];
+            }
+            return nn;
+        }
+        return neighs;
     }
 }

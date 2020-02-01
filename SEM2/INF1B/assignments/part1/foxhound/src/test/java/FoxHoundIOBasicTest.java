@@ -13,6 +13,8 @@ public class FoxHoundIOBasicTest {
     private static final char LOAD_ERROR = '#';
     private String[] defaultPlayers;
 
+    private static String PATH_PREFIX = "resources/";
+
     @Before
     public void setup() {
         defaultPlayers = new String[] {"B1", "D1", "F1", "H1", "E8"};
@@ -29,26 +31,27 @@ public class FoxHoundIOBasicTest {
         String[] players = defaultPlayers;
         char nextFigure = FoxHoundIO.loadGame(players, input);
 
+        assertEquals("Loaded next move not as expected.", expectedFigure, nextFigure);
+
         assertArrayEquals("Loaded player array not as expected.", expectedPlayers, players);
 
-        assertEquals("Loaded next move not as expected.", expectedFigure, nextFigure);
     }
 
     @Test
     public void testLoadGameValidInput() {
-        Path input = Paths.get("game01.txt");
+        Path input = Paths.get(PATH_PREFIX + "game01.txt");
         String[] expectedPlayers = {"C2", "D1", "F1", "H1", "D7"};
         char expectedFigure = FoxHoundUtils.FOX_FIELD;
 
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
-        input = Paths.get("game02.txt");
+        input = Paths.get(PATH_PREFIX + "game02.txt");
         expectedPlayers = new String[] {"B3", "E4", "C6", "E6", "D5"};
         expectedFigure = FoxHoundUtils.HOUND_FIELD;
 
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
-        input = Paths.get("game03.txt");
+        input = Paths.get(PATH_PREFIX + "game03.txt");
         expectedPlayers = new String[] {"B3", "D3", "F1", "H3", "A2"};
         expectedFigure = FoxHoundUtils.FOX_FIELD;
 
@@ -57,7 +60,7 @@ public class FoxHoundIOBasicTest {
 
     @Test
     public void testLoadGameInvalidFileContent() {
-        Path input = Paths.get("invalidGame01.txt");
+        Path input = Paths.get(PATH_PREFIX + "invalidGame01.txt");
         String[] expectedPlayers = defaultPlayers.clone();
         char expectedFigure = LOAD_ERROR;
 
@@ -65,23 +68,23 @@ public class FoxHoundIOBasicTest {
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
         // invalid number of elements
-        input = Paths.get("invalidGame02.txt");
+        input = Paths.get(PATH_PREFIX + "invalidGame02.txt");
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
         // invalid number of lines
-        input = Paths.get("invalidGame03.txt");
+        input = Paths.get(PATH_PREFIX + "invalidGame03.txt");
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
         // invalid coordinate format
-        input = Paths.get("invalidGame04.txt");
+        input = Paths.get(PATH_PREFIX + "invalidGame04.txt");
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
         // invalid next move format
-        input = Paths.get("invalidGame05.txt");
+        input = Paths.get(PATH_PREFIX + "invalidGame05.txt");
         checkLoadedData(input, expectedPlayers, expectedFigure);
 
         // coordinate out of range
-        input = Paths.get("invalidGame06.txt");
+        input = Paths.get(PATH_PREFIX + "invalidGame06.txt");
         checkLoadedData(input, expectedPlayers, expectedFigure);
     }
 
@@ -102,7 +105,7 @@ public class FoxHoundIOBasicTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testLoadGamePlayersNonDefaultDim() {
-        Path input = Paths.get("game01.txt");
+        Path input = Paths.get(PATH_PREFIX + "game01.txt");
         String[] players = {"B1", "D1", "F1", "H1", "J1", "E10"};
         FoxHoundIO.loadGame(players, input);
     }
