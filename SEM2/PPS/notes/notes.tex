@@ -20,6 +20,9 @@
 \newtheorem{theorem}{Theorem}[section]
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\st}{\text{ s.t }}
+\DeclareMathOperator{\lub}{LUB}
+\DeclareMathOperator{\glb}{GLB}
 \begin{document}
 \section{Logic and the reals}
 \begin{theorem}
@@ -195,4 +198,74 @@
         \item $x^{\nicefrac{1}{n}}>y^{\nicefrac{1}{n}}\Leftrightarrow x>y$.
     \end{enumerate}
 \end{theorem}
+\section{(Least) Upper Bounds}
+\begin{definition}
+    Let $A\subseteq\R$.
+    \begin{itemize}
+        \item $A$ is said to be \textbf{bounded above} if $\exists M\in\R\st\forall x\in A,x\leq M$.\\
+        The number $M$ is called an \textbf{upper bound} of $A$.
+        \item Similarly, $A$ is said to be \textbf{bounded below} if $\exists m\in\R\st\forall x\in A,x\geq m$.\\
+        The number $m$ is called a \textbf{lower bound} of $A$.
+        \item We say $A$ is \textbf{bounded} if it is bounded above and below.
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    Given a set $A\subseteq\R$, a number $L$ is a \textbf{least upper bound} (LUB) for $A$ if
+    \begin{enumerate}
+        \item $L$ is an upper bound for $A$, and
+        \item $\forall t<L$, $t$ is not an upper bound..
+    \end{enumerate}
+    Similarly, we say $L$ is a \textbf{greatest lower bound} (GLB) for $A$ if
+    \begin{enumerate}
+        \item $L$ is a lower bound for $A$, and
+        \item $\forall t>L$, $t$ is not a lower bound.
+    \end{enumerate}
+    If the LUB exists for a set $A$, we denote it by $\lub(A)$. Similarly, we denote the GLB of $A$ by $\glb(A)$.
+\end{definition}
+\section{Limits}
+\begin{definition}
+    \textbf{The $\varepsilon-N$ definition of a limit.} Let $(x_n)^\infty_{n=1}$ be a sequence of real numbers $x_1,x_2,...$ and let $L\in\R$. We say that $x_n$ \textbf{converges} to $L$ and write $\lim_{n\to\infty}x_n=L$ if for all $\varepsilon>0$, there is a number $N$ so that for $n>N$, we have
+    \begin{align*}
+        |x_n-L|<\varepsilon
+    \end{align*}
+    or equivalently, that
+    \begin{align*}
+        L-\varepsilon<x_n<L+\varepsilon.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    We say a sequence $(a_n)$ is \textbf{bounded} if the set of values $\{a_1, a_2, ...\}$ is a bounded set.
+\end{definition}
+\begin{theorem}
+    If $(a_n)$ converges, it is bounded.
+\end{theorem}
+\begin{theorem}
+    Let $a_n$ and $b_n$ converge to $a$ and $b$ respectively. Then
+    \begin{enumerate}
+        \item $a_n+b_n\to a+b$
+        \item $a_nb_n\to ab$
+        \item If $c\in\R$, then $ca_n\to ca$.
+        \item If $b\not=0$ and $b_n\not=0$ for all $n$, then $\frac{a_n}{b_n}\to\frac{a}{b}$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    For $k\geq2$ an integer, if $x_n\to L$, then $x^k_n\to L^k$.
+\end{theorem}
+\begin{theorem}
+    Let $(x_n)$ and $(y_n)$ be sequences.
+    \begin{enumerate}
+        \item If $x_n\to x$, $y_n\to y$, and $x_n\leq y_n$ for all $n\in\N$, then $x\leq y$.
+        \item If $x_n\to x$ and $x_n\leq y$ for all $n$, then $x\leq y$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Let $x>0$ and $k\in\N$. There is $y>0$ so that $y^k=x$.
+\end{theorem}
+\begin{definition}
+    Let $(x_n)$ be a sequence of real numbers.
+    \begin{enumerate}
+        \item We say $x_n\to \infty$ if, for all $M>0$, there is an $N$ so that $n\geq N$ implies $x_n\geq M$.
+        \item Similarly, we say $x_n\to-\infty$ if, for all $M<0$, there is an $N$ so that $n\geq N$ implies $x_n\leq M$.
+    \end{enumerate}
+\end{definition}
 \end{document}
