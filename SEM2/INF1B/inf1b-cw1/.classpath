@@ -1,0 +1,5 @@
+<classpathentry exported="true" kind="lib" path="/usr/share/java/junit.jar"/>
+<classpathentry exported="true" kind="lib" path="/usr/share/java/hamcrest-core.jar"/>
+<classpathentry exported="true" kind="lib" path="/usr/share/java/hamcrest-generator.jar"/>
+<classpathentry exported="true" kind="lib" path="/usr/share/java/hamcrest-integration.jar"/>
+<classpathentry exported="true" kind="lib" path="/usr/share/java/hamcrest-library.jar"/>
