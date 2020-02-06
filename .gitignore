@@ -243,3 +243,5 @@ TSWLatexianTemp*
 *_temp.*
 *build/
 *.gradle
+*.project
+*.settings/
