@@ -29,5 +29,4 @@ dependencies {
 }
 compileJava {
     options.compilerArgs << "-Werror"
-    options.compilerArgs << "-Wall"
 } 
