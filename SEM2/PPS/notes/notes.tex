@@ -7,6 +7,7 @@
 \usepackage{amsthm}
 \usepackage{nicefrac}
 \usepackage{siunitx}
+\usepackage{mathtools}
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
 {\upshape}        % Theorem body font % (default is "\upshape")
@@ -23,10 +24,11 @@
 \newcommand{\st}{\text{ s.t }}
 \DeclareMathOperator{\lub}{LUB}
 \DeclareMathOperator{\glb}{GLB}
+\newcommand*\lneg[1]{\overline{#1}}
 \begin{document}
 \section{Logic and the reals}
 \begin{theorem}
-    If $A$ and $B$ are statements, then $A\Rightarrow B\equiv \bar{A}\vee B$.
+    If $A$ and $B$ are statements, then $A\Rightarrow B\equiv \lneg{A}\vee B$.
 \end{theorem}
 \section{The reals}
 \begin{definition}
@@ -268,4 +270,83 @@
         \item Similarly, we say $x_n\to-\infty$ if, for all $M<0$, there is an $N$ so that $n\geq N$ implies $x_n\leq M$.
     \end{enumerate}
 \end{definition}
+\section{Convergence Theorem}
+\begin{definition}
+    A sequence $(a_n)^\infty_{n=1}$ is \textbf{increasing} if $a_n\leq a_n+1$ for all $n$ and \textbf{decreasing} if $a_n\geq a_{n+1}$ for all $n$. We say $a_n$ is \textbf{monotone} if it is either increasing or decreasing.
+\end{definition}
+\begin{theorem}
+    \textbf{The Monotone Convergence Theorem}\\
+    Let $(a_n)$ be an increasing sequence of real numbers that is bounded above (i.e. there is $M$ so that $a_n\leq M$ for all $n$). Then $(a_n)$ converges. Then $(a_n)$ converges. If $(a_n)$ is decreasing and is bounded below, then $(a_n)$ converges.
+\end{theorem}
+\begin{definition}
+    Given a sequence $(x_n)$, a \textbf{subsequence} is a sequence of the form $(x_{n_k})$ where $n_1<n_2<\cdots$ are positive integers.
+    A real number $x$ is a \textbf{limit point} of a sequence $(x_n)$ if there is a subsequence $(x_{n_k})$ so that $x_{n_k}\to x$.
+\end{definition}
+\begin{theorem}
+    Given a sequence $(x_n)$ and a number $L$, $L$ is a limit point iff for all $\varepsilon > 0$ and for all integers $N$, we can find $n>N$ such that $|x_n-L|<\varepsilon$.
+\end{theorem}
+\begin{theorem}
+    \textbf{Bolzano Weierstrass Theorem}. If $(x_n)$ is a bounded sequence then it has a limit point, that is, it has a convergent subsequence.
+\end{theorem}
+\section{Series and Decimals}
+\begin{definition}
+    Given a sequence $(a_n)$, we say that the series $\sum a_n$ converges if the sequence of partial sums
+    \begin{align*}
+        s_N=\sum_{n=1}^N a_n
+    \end{align*}
+    converges as $N\to\infty$. We denote its limit by $\sum_{n=1}^\infty a_n$.
+\end{definition}
+\begin{theorem}
+    Let $a_n$ and $b_n$ be sequences. If $\sum a_n$ and $\sum b_n$ are convergent, then so is $\sum (a_n+b_n)$, and
+    \begin{align*}
+        \sum_{n=1}^\infty (a_n+b_n) = \sum_{n=1}^\infty a_n+ \sum_{n=1}^\infty b_n.
+    \end{align*}
+    If $c\in\R$, then $\sum ca_n$ is convergent and
+    \begin{align*}
+        \sum_{n=1}^\infty ca_n = c\sum_{n=1}^\infty a_n.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{Comparison Test.} If $\sum b_n$ is convergent and $|a_n|\leq b_n$ for all $n$, then $\sum a_n$ is convergent.
+\end{theorem}
+\begin{theorem}
+    Let $x\in\R$. Then there is a sequence of integers $a_0\in\mathbb{Z}$ and $a_n\in\{0,1,...,9\}$ for $n\geq 1$ so that
+    \begin{align*}
+        \sum_{n=0}^\infty \frac{a_n}{10_n}=a_0+\frac{a_1}{10}+\cdots = x.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $x\geq 0$ is rational, then it has a periodic decimal expansion, that is,
+    \begin{align*}
+        x=a_0.a_1a_2\cdots a_k\lneg{b_1b_2\cdots b_l}.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    \textbf{Pigeonhole Principle}.\\
+    Suppose $k>n$, and we have $a_1,...,a_k\in S$, with $|S|=n$. Then there exists $i\not=j$ with $a_i=a_j$.
+\end{definition}
+\begin{theorem}
+    The period of the decimal expansion of $\frac{p}{q}$ is of length at most $q$.
+\end{theorem}
+\begin{theorem}
+    If $x\geq 0$ has periodic decimal expansion, then $x$ is rational.
+\end{theorem}
+\begin{theorem}
+    A number $x$ is irrational iff its decimal expansion is aperiodic.
+\end{theorem}
+\begin{theorem}
+    Let $x\geq 0$ and suppose $x=a_0.a_1a_2...=0.b_1b_2....$ Let $l$ be the first integer for which $a_l\not=b_l$. Then $b_k=0$ and $a_k=9$ for a $k>l$ and $b_l=a_l+1$.
+\end{theorem}
+\begin{theorem}
+    A number $x$ is irrational if, for all $c>0$, there is a rational number $\frac{p}{q}\not=x$ so that
+    \begin{align*}
+        \left|x-\frac{p}{q}\right|<\frac{c}{q}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Suppose $x=\lim_{n\to\infty}\frac{p_n}{q_n}$ and $\left|x-\frac{p_n}{q_n}\right|q_n \to 0$, then $x$ is irrational.
+\end{theorem}
+\begin{theorem}
+    The number $e$ is irrational.
+\end{theorem}
 \end{document}

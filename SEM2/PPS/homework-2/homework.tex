@@ -8,7 +8,7 @@
 \geometry{tmargin=2cm, bmargin=3cm}
 \DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
 \title{PPS: Homework 2 (Workshop 33)}
-\author{Franz Miltz (UNN: s1971811)}
+\author{Franz Miltz (UNN: S1971811)}
 \newcommand*\lneg[1]{\overline{#1}}
 \begin{document}
 \maketitle
@@ -21,7 +21,15 @@ Let $x,y\in\mathbb{R}$. Then
 \subsection*{Proof}
 Note that $|x|=\sqrt{x^2}$. Thus we can write
 \begin{align*}
-  |xy|=\sqrt{x^2y^2}=\sqrt{x^2}\sqrt{y^2}=|x||y|.\:\square
+  |xy|=\sqrt{x^2y^2}=(x^2y^2)^\frac{1}{2}.
+\end{align*}
+Using the fact that $(xy)^p=x^py^p$ for all $p\in\mathbb{Q}$ and $x,y\in\mathbb{R}$ (\emph{Liebeck, Proposition 4.2}) we may write
+\begin{align*}
+  |xy|=(x^2y^2)^\frac{1}{2}=(x^2)^\frac{1}{2}(y^2)^\frac{1}{2}.
+\end{align*}
+Thus
+\begin{align*}
+  |xy|=(x^2)^\frac{1}{2}(y^2)^\frac{1}{2}=\sqrt{x^2}\sqrt{y^2}=|x||y|.\:\square
 \end{align*}
 \section*{Task 2}
 \subsection*{Claim} 
@@ -43,9 +51,10 @@ Subsituting in the geometric series $\frac{r^2}{1-r}=\sum_{n=2}^\infty r^n$ we g
   (a^2+a^3+a^4+\cdots)+(b^2+b^3+b^4+\cdots)+(c^2+c^3+c^4+\cdots) &\geq \frac{1}{2}\\
   \Leftrightarrow (a^2+b^2+c^2)+(a^3+b^3+c^3)+(a^4+b^4+c^4)+\cdots &\geq \frac{1}{2}
 \end{align*}
-As proven below, the summands $(a^n+b^n+c^n)$ are minimal, if $a=b=c=\frac{1}{3}$. Since
+As proven below, the summands $(a^n+b^n+c^n)$ are minimal, if $a=b=c=\frac{1}{3}$. Since, with $a=b=c=
+\frac{1}{3}$,
 \begin{align*}
-  3\cdot\frac{1}{9}\cdot\frac{3}{2}=\frac{1}{2}\geq \frac{1}{2}
+  \frac{a^2}{1-a}+\frac{b^2}{1-b}+\frac{c^2}{1-c}=3\cdot\frac{1}{9}\cdot\frac{3}{2}=\frac{1}{2}\geq \frac{1}{2},
 \end{align*}
 we know that our inequality is true for all possible $a$, $b$ and $c$. $\square$\\
 \subsection*{Claim} Let $a,b,c>0$ such that $a+b+c=1$. Then the sum $a^n+b^n+c^n$ for any $n\in\mathbb{N}$ is minimal if $a=b=c$.
@@ -77,13 +86,65 @@ By $P(n)$ we know that the right side is minimal. Setting $a=b=c=\frac{1}{3}$ we
 \begin{align*}
   3\cdot\left(\frac{1}{3}\right)^{n+1}+\left(\frac{1}{3}\right)^{n+1}+\left(\frac{1}{3}\right)^{n+1}=3\cdot3\cdot\frac{1}{3^{n+1}}=3\cdot\frac{1}{3^n}=\left(\frac{1}{3}\right)^n+\left(\frac{1}{3}\right)^n+\left(\frac{1}{3}\right)^n
 \end{align*}
-Since $P(1)$ and $P(n)\Rightarrow P(n+1)$ we know that $P(n)$ for all $n\in\mathbb{N}$. $\square$
+Since $P(1)$ and $P(n)\Rightarrow P(n+1)$ we know that $P(n)$ for all $n\in\mathbb{N}$. $\square$\\\\
+NOTE: I know that this is not the intended solution for this task. 
+Yet, I prefer it. 
+But, since I don't want to lose any marks over preferences, here's what I think is the expected solution.
+\subsection*{Claim}
+Let $x,y,z>0$. Then
+\begin{align*}
+  \frac{x^2}{y+z}+\frac{y^2}{x+z}+\frac{z^2}{x+y}\geq\frac{1}{2}(x+y+z).
+\end{align*}
+\subsection*{Proof}
+This follows from the Cauchy-Schwartz-inequality with $n=3$:
+\begin{align*}
+  \sqrt{x^2_1+x^2_2+x^2_3}\sqrt{y^2_1+y^2_2+ y^2_3}\geq x_1y_1+x_2y_2+ x_3y_3.
+\end{align*}
+If $x_1,x_2,x_3,y_1,y_2,y_3\geq 0$, we can square both sides to get
+\begin{align*}
+  (x^2_1+x^2_2+x^2_3)(y^2_1+y^2_2+y^3_2) \geq (x_1y_1+x_2y_2+x_3y_3)^2.
+\end{align*}
+Now, let
+\begin{align*}
+  \begin{bmatrix}
+    x_1&x_2&x_3
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \frac{x}{\sqrt{y+z}}
+    &\frac{y}{\sqrt{x+z}}
+    &\frac{z}{\sqrt{x+y}}
+  \end{bmatrix}
+\end{align*}
+and
+\begin{align*}
+  \begin{bmatrix}
+    y_1&y_2&y_3
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \sqrt{y+z}
+    &\sqrt{x+z}
+    &\sqrt{x+y}
+  \end{bmatrix}.
+\end{align*}
+Since $x,y,z>0$, all the components of the vectors are positive. Thus we can use the squared Cauchy-Schwatz inequality.
+\begin{align*}
+  x^2_1+x^2_2+x^2_3&=\frac{x^2}{y+z}+\frac{y^2}{x+z}+\frac{x^2}{x+y},\\
+  y^2_1+y^2_2+y^2_3&=(2x+2y+2z),\\
+  (x_1y_1+x_2y_2+x_3y_3)^2 &= (x+y+z)^2
+\end{align*}
+and therefore
+\begin{align*}
+  \left(\frac{x^2}{y+z}+\frac{y^2}{x+z}+\frac{x^2}{x+y}\right)\left(2x+2y+2z\right)&\geq (x+y+z)^2\\
+  \Leftrightarrow \frac{x^2}{y+z}+\frac{y^2}{x+z}+\frac{x^2}{x+y}&\geq \frac{1}{2}(x+y+z).\:\square
+\end{align*}
 \section*{Task 3}
 \subsection*{Claim}
 For any $n\geq 1$, it is possible to tile a $2^n\times 2^n$  grid missing any one square with 'L'-shaped tiles composed of three squares.
 \subsection*{Proof}
 By induction. Let $P(n)$ be the statement that it is possible to tile a $2^n\times 2^n$ grid missing any one square with 'L'-shaped tiles composed of three squares.\\
-It is trivial to tile a $2\times 2$ square with a single such tile. Thus $P(1)$ is true.\\
+It is trivial to tile a $2\times 2$ grid missing one square with a single such tile. Thus $P(1)$ is true.\\
 Let's now prove $P(n)\Rightarrow P(n+1)$. 
 Assume $P(n)$.\\
 We can then split any $2^{n+1}\times 2^{n+1}$ grid into four $2^n\times 2^n$ grids. One of them is missing exactly one square. 

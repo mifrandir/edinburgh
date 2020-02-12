@@ -241,7 +241,9 @@ TSWLatexianTemp*
 # generated if using elsarticle.cls
 *.spl
 *_temp.*
+*bin/
 *build/
-*.gradle
-*.project
+*.gradle/
+*.vscode/
 *.settings/
+*.class

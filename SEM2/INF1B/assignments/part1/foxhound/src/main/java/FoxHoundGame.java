@@ -61,6 +61,9 @@ public class FoxHoundGame {
             // handle menu choice
             switch (choice) {
                 case FoxHoundUI.MENU_MOVE:
+                    // Careful now... this is most likely the ugliest part of the code.
+                    // But I don't really know how to make it better whithout wasting space
+                    // or variables.
                     String[] move;
                     while (true) {
                         move = FoxHoundUI.positionQuery(dim, STDIN_SCAN);
