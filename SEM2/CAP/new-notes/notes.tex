@@ -121,4 +121,64 @@
         \end{align*}
     \end{enumerate}
 \end{theorem}
+\subsection{Evaluating definite integrals}
+\begin{theorem}
+    \textbf{Net change theorem}. The integral of a rate of change is the net change:
+    \begin{align*}
+        \int_a^bF'(x)dx=F(b)-F(a)
+    \end{align*}
+\end{theorem}
+\subsection{The fundamental theorem of calculus}
+\begin{theorem}
+   Suppose $f$ is continuous on $[a,b]$.
+   \begin{enumerate}
+       \item If $g(x)=\int_a^x f(t)dt$, then $g'(x)=f(x)$.
+       \item $\int_a^b f(x)dx=F(b)-F(a)$, where $F$ is any antiderivative of $f$, that is $F'=f$.
+   \end{enumerate}
+\end{theorem}
+\begin{definition}
+    The \textbf{average value of $f$} on the interval $[a,b]$ is
+    \begin{align*}
+        f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    \textbf{The mean value theorem for integrals.} If $f$ is continuous on $[a,b]$, then there exists a number $c$ in $[a,b]$ such that
+    \begin{align*}
+        f(c)=f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx
+    \end{align*}
+    that is,
+    \begin{align*}
+        \int_a^b f(x)dx=f(x)(b-a).
+    \end{align*}
+\end{theorem}
+\subsection{The substitution rule}
+\begin{theorem}
+    \textbf{The substitution rule.}
+    If $u=g(x)$ is a differetiable function whose range is an interval $I$ and $f$ is continuous on $I$, then
+    \begin{align*}
+        \int f(g(x))g'(x)dx=\int f(u)du
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{The substitution rule for definite integrals.}
+    If $g'$ is continuous on $[a,b]$ and $f$ is continuous on the range of $u=g(x)$, then 
+    \begin{align*}
+        \int_a^b f(g(x))g'(x)dx=\int_{g(a)}^{g(b)}f(u)du.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{Integrals of symmetric functions.} Suppose $f$ is continuous on $[-a,a]$.
+    \begin{enumerate}
+        \item If $f$ is even, then $\int_{-a}^a f(x)dx= 2\int_0^a f(x)dx$.
+        \item If $f$ is odd, then $\int_{-a}^a f(x)dx = 0$.
+    \end{enumerate}
+\end{theorem}
+\section{Techniques of integration}
+\subsection{Integration by parts}
+\begin{theorem}
+    \begin{align*}
+        \int u dv = uv - \int v du
+    \end{align*}
+\end{theorem}
 \end{document}
