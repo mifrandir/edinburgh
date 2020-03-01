@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PPS: Homework 5 (Workshop 33)}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\begin{document}
+\maketitle
+\section*{Task 1}
+\begin{claim}
+  Let $x,y\in\C$. Then $|x+y|\leq |x|+|y|$.
+\end{claim}
+\begin{adjustwidth}{2em}{0pt}
+  \begin{lemma}
+    \label{l1}
+    Let $x,y\in\C$. Then $\lneg{x+y}=\lneg{x}+\lneg{y}$. 
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$ and $y=c+di$. Then
+    \begin{align*}
+      \lneg{x}+\lneg{y}=a+c-i(b+d)=\lneg{a+c+i(b+d)}=\lneg{x+y}.
+    \end{align*}
+  \end{proof}
+  \begin{lemma}
+    \label{l2}
+    Let $x,y\in\C$. Then $x\lneg{y}+\lneg{x}y=2\Re({x\lneg{y}})$.
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$ and $y=c+di$. Then
+    \begin{align*}
+      x\lneg{y}+\lneg{x}y&=(a+bi)(c-di)+(a-bi)(c+di)\\
+      &=(ac+bd-adi+bci)+(ac+bd+adi-bci)\\
+      &=2ac+2bd=2\Re(ac+bd)\\
+      &=2\Re((a+bi)(c-di))=2\Re(x\lneg{y}).
+    \end{align*}
+  \end{proof}
+  \begin{lemma}
+    \label{l3}
+    For all $x\in\C$, $\Re(x)\leq|x|$.
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$. Then
+    \begin{align*}
+      \Re(x)&\leq|x|\\
+      a&\leq \sqrt{a^2+b^2}.
+    \end{align*}
+    Observe now that if $a\leq0$, this is immediately true because $\forall x\in\C,\:|x|\geq 0$.\\
+    If $a>0$, we can apply $u>v>0\Rightarrow u^2>v^2$ (\emph{Liebeck, Example 5.4}):
+    \begin{align*}
+      a^2&\leq a^2+b^2\\
+      0&\leq b^2,
+    \end{align*}
+    which is obviously true.
+  \end{proof}
+  \begin{lemma}
+    \label{l4}
+    Let $x,y\in\C$. Then $|x\lneg{y}|=|x||y|$.
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$ and $y=c+di$. Then
+    \begin{align*}
+      |x\lneg{y}|&=|(a+bi)(c-di)|\\
+      &=|ac-bd-(ad+bc)i|\\
+      &=\sqrt{(ac-bd)^2-(ad+bc)^2}\\
+      &=\sqrt{(a^2+b^2)(c^2+d^2)}\\
+      &=\sqrt{a^2+b^2}\sqrt{c^2+d^2}=|x||y|.
+    \end{align*} 
+  \end{proof}
+\end{adjustwidth}
+\begin{proof}
+  Since $\forall x\in\C,\:|x|\geq0$ and $u>v>0\Rightarrow u^2>v^2$ (\emph{Liebeck, Example 5.4}), we can square both sides:
+  \begin{align*}
+    |x+y|^2\leq (|x|+|y|)^2.
+  \end{align*}
+  Let us now consider the left side.
+  \begin{align*}
+    |x+y|^2=(x+y)\lneg{(x+y)}
+  \end{align*}
+  By Lemma \ref{l1}, we get
+  \begin{align*}
+    (x+y)\lneg{(x+y)}&=(x+y)(\lneg{x}+\lneg{y})\\
+    &=x\lneg{x}+y\lneg{y}+x\lneg{y}+\lneg{x}y\\
+    &=|x|^2+|y|^2+x\lneg{y}+\lneg{x}y.
+  \end{align*}
+  Now we can use Lemma \ref{l2} to get
+  \begin{align*}
+    |x|^2+|y|^2+x\lneg{y}+\lneg{x}y&=|x|^2+|y|^2+2\Re(x\lneg{y}).
+  \end{align*}
+  With Lemma \ref{l3}:
+  \begin{align*}
+    |x|^2+|y|^2+2\Re(x\lneg{y})\leq |x|^2+|y|^2+2|x\lneg{y}|.
+  \end{align*}
+  Now we can use Lemma \ref{l4} to factorize:
+  \begin{align*}
+   |x|^2+|y|^2+2|x\lneg{y}| = |x|^2+|y|^2+2|x||y| = (|x|+|y|)^2.
+  \end{align*}
+  Thus we get
+  \begin{align*}
+    |x+y|^2\leq (|x|+|y|)^2.
+  \end{align*}
+\end{proof}
+\emph{Note: I know this proof uses a lot of lemmas and looks very complicated and non-linear, but if I had left out the lemmas and just used $x=a+bi$ and $y=c+di$, it would be really messy.}
+\section*{Task 2}
+\begin{claim}
+Let $n\in\N$. Then the $n$-th root of unity closest to $\nicefrac{1}{2}$ is $1$.
+\end{claim}
+\begin{proof}
+  Firstly, observe that $1^n=1$ for all $n\in\N$. Thus $1$ is an $n$-th root of unity for all $n$.\\
+  Secondly, note that $|x|=1$ for all solutions to the equation $x^n=1$. This comes from \emph{Liebeck, Theorem 6.3}, because all the roots of unity have the form $x=e^{i\theta}$ for some $\theta\in[0,2\pi)$ and
+  \begin{align*}
+    |x|=|e^{i\theta}|=\sqrt{\sin^2\theta+\cos^2\theta}=1.
+  \end{align*}
+  Let us now consider the distance $d$ between any complex number $x=e^{i\theta}$ on the unit circle and $\nicefrac{1}{2}$:
+  \begin{align*}
+    d&=\left|x-\frac{1}{2}\right|
+    =\left|\cos\theta-\frac{1}{2}+i\sin\theta\right|\\
+    &=\sqrt{\left(\cos\theta -\frac{1}{2}\right)^2+\sin^2\theta}\\
+    &=\sqrt{\cos^2\theta-\cos\theta+\frac{1}{4}+\sin^2\theta}\\
+    &=\sqrt{\frac{5}{4}-\cos\theta}.
+  \end{align*}
+  Therefore we want to minimize
+  \begin{align*}
+    d^2=\frac{5}{4}-\cos\theta.
+  \end{align*}
+  This is minimal when $\cos\theta$ is maximal and, because $\theta\in[0,2\pi)$, thus when $\theta=0$.\\
+  Using this, we get
+  \begin{align*}
+    x=e^{i\theta}=e^{0}=1.
+  \end{align*}
+\end{proof}
+\section*{Task 3}
+\begin{claim}
+  Suppose that the equation
+    $x^3-px+q=0$
+  only has integer roots. 
+  Then there is no assignment for $p$ and $q$ such that both are prime numbers.
+\end{claim}
+\begin{adjustwidth}{2em}{0pt}
+  \begin{lemma}
+    \label{l5}
+    Let $x\in\Z$ and let $p$ and $q$ be prime numbers.
+    Assume that the equality
+    \begin{align*}
+      x^3+px+q=0
+    \end{align*}
+    holds. Then $p=5$ and $q=2$.
+  \end{lemma}
+  \begin{proof}
+    Firstly, let's rewrite the equation:
+    \begin{align*}
+      x^3+px+q&=0\\
+      \Leftrightarrow x(x^2-p)&=-q.
+    \end{align*}
+    Thus $x|q$. Since $q$ is prime, we now know that $x=q$. 
+    Substituting that into the original equation, we get:
+    \begin{align*}
+      q^3-pq+q&=0\\
+      \Leftrightarrow q(q^2-p+1)&=0.
+    \end{align*}
+    Since $q\not=0$, we know that
+    \begin{align*}
+      q^2-p+1&=0\\
+      \Leftrightarrow q^2+1&=p.
+    \end{align*}
+    We can see that one solution to this equation is $q=2$ and $p=5$.\\
+    Let's assume $q>2$. Then, since $q$ is prime, it has to be odd. 
+    Let $q=2k+1$ for some $k\in\N$. (Note that this is always greater than $2$.) Now we get
+    \begin{align*}
+      (2k+1)^2+1&=p\\
+      \Leftrightarrow 4k^2+4k+2&=p\\
+      \Leftrightarrow 2(2k^2+2k+1)&=p.
+    \end{align*}
+    Thus $q>2\Rightarrow 2|p$. Since we know $p>q$ (by $p=q^2+1$) and $q>2$, $p$ would have to be an even prime number greater than $2$ to solve this equation. This is impossible, because such a prime number would, by definition, be divisible by $2$.\\
+    Therefore we can conclude that $q=2$ and thus $p=5$ is the only solution.
+  \end{proof}
+\end{adjustwidth}
+\begin{proof}
+By Lemma \ref{l5} we know that, in order to find any integer solution we have to set $p=5$ and $q=2$.
+Solving the equation
+\begin{align*}
+  x^3-5x+2=0
+\end{align*}
+we get $x\in\{2,\sqrt{2}+ 1, \sqrt{2}-1\}$. Thus the only configuration of $p$ and $q$, that yields an integer solution at all, does not give the property that all solutions are integers.\\
+By the \emph{Fundamental Theorem of Algebra (Liebeck, Theorem 7.1)} we know that $x^3-px+q$ will always have a root in $\C$ and thus there is no configuration for $p$ and $q$ such that all roots are integers.
+\end{proof}
+\end{document}
