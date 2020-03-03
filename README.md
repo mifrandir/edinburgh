@@ -13,6 +13,6 @@ Anything related to my time at the University of Edinburgh.
   - Astrobiology (AB), Mr Charles Cockell & Mr Ken Rice
 2. Semester
   - Object Oriented Programming (OOP), Mr Volker Seeker
-  - Calculus and its Applications (CAP), Mr Nikola Popovic, Mrs Heather Yorston, Mr Toby Bailey and Mr Carlos Zapata-Carratala
+  - Calculus and its Applications (CAP), Mr Nikola Popovic & Co.
   - Introductory Astrophysics (IAP), Mrs Chatherine Heymans and Mr Ross Galloway 
   - Proofs and Problem Solving (PPS), Mr Jonas Azzam and Mr Chris Sangwin
