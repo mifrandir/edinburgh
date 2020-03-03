@@ -36,7 +36,7 @@
   \begin{proof}
     Let $x=a+bi$ and $y=c+di$. Then
     \begin{align*}
-      \lneg{x}+\lneg{y}=a+c-i(b+d)=\lneg{a+c+i(b+d)}=\lneg{x+y}.
+      \lneg{x}+\lneg{y}=a-bi+c-di=a+c-i(b+d)=\lneg{a+c+i(b+d)}=\lneg{x+y}.
     \end{align*}
   \end{proof}
   \begin{lemma}
@@ -72,14 +72,14 @@
   \end{proof}
   \begin{lemma}
     \label{l4}
-    Let $x,y\in\C$. Then $|x\lneg{y}|=|x||y|$.
+    Let $x,y\in\C$. Then $|xy|=|x||y|$.
   \end{lemma}
   \begin{proof}
     Let $x=a+bi$ and $y=c+di$. Then
     \begin{align*}
-      |x\lneg{y}|&=|(a+bi)(c-di)|\\
-      &=|ac-bd-(ad+bc)i|\\
-      &=\sqrt{(ac-bd)^2-(ad+bc)^2}\\
+      |xy|&=|(a+bi)(c+di)|\\
+      &=|ac-bd+(ad+bc)i|\\
+      &=\sqrt{(ac-bd)^2+(ad+bc)^2}\\
       &=\sqrt{(a^2+b^2)(c^2+d^2)}\\
       &=\sqrt{a^2+b^2}\sqrt{c^2+d^2}=|x||y|.
     \end{align*} 
@@ -108,7 +108,7 @@
   \begin{align*}
     |x|^2+|y|^2+2\Re(x\lneg{y})\leq |x|^2+|y|^2+2|x\lneg{y}|.
   \end{align*}
-  Now we can use Lemma \ref{l4} to factorize:
+  Now we can use Lemma \ref{l4} and the fact that $|x|=|\lneg{x}|$ to factorize:
   \begin{align*}
    |x|^2+|y|^2+2|x\lneg{y}| = |x|^2+|y|^2+2|x||y| = (|x|+|y|)^2.
   \end{align*}
@@ -117,7 +117,7 @@
     |x+y|^2\leq (|x|+|y|)^2.
   \end{align*}
 \end{proof}
-\emph{Note: I know this proof uses a lot of lemmas and looks very complicated and non-linear, but if I had left out the lemmas and just used $x=a+bi$ and $y=c+di$, it would be really messy.}
+\emph{Note: I know this proof uses a lot of lemmas and looks very complicated and non-linear, but if I had left out the lemmas and just used $x=a+bi$ and $y=c+di$, it would be really messy. Additionally, I'd like to say that I felt like 1 and 4 are obvious but could not find them anywhere and 2 and 3 are just parts of the bigger proof.}
 \section*{Task 2}
 \begin{claim}
 Let $n\in\N$. Then the $n$-th root of unity closest to $\nicefrac{1}{2}$ is $1$.
@@ -140,65 +140,46 @@ Let $n\in\N$. Then the $n$-th root of unity closest to $\nicefrac{1}{2}$ is $1$.
   \begin{align*}
     d^2=\frac{5}{4}-\cos\theta.
   \end{align*}
-  This is minimal when $\cos\theta$ is maximal and, because $\theta\in[0,2\pi)$, thus when $\theta=0$.\\
+  This is minimal when $\cos\theta$ is maximal and, because $\theta\in[0,2\pi)$, thus only when $\theta=0$ and $\cos \theta = 1$.
   Using this, we get
   \begin{align*}
     x=e^{i\theta}=e^{0}=1.
   \end{align*}
+  Therefore $1$ is the number on the unit circle closest to $\nicefrac{1}{2}$. 
+  Since it is also a root of unity for all $n$ and all such roots are on the unit circle, it is the root of unity closest to $\nicefrac{1}{2}$.
 \end{proof}
 \section*{Task 3}
 \begin{claim}
   Suppose that the equation
     $x^3-px+q=0$
-  only has integer roots. 
-  Then there is no assignment for $p$ and $q$ such that both are prime numbers.
+  only has integer roots and $p$ and $q$ are prime.
+  Then $p=3$ and $p=2$.
 \end{claim}
-\begin{adjustwidth}{2em}{0pt}
-  \begin{lemma}
-    \label{l5}
-    Let $x\in\Z$ and let $p$ and $q$ be prime numbers.
-    Assume that the equality
-    \begin{align*}
-      x^3+px+q=0
-    \end{align*}
-    holds. Then $p=5$ and $q=2$.
-  \end{lemma}
-  \begin{proof}
-    Firstly, let's rewrite the equation:
-    \begin{align*}
-      x^3+px+q&=0\\
-      \Leftrightarrow x(x^2-p)&=-q.
-    \end{align*}
-    Thus $x|q$. Since $q$ is prime, we now know that $x=q$. 
-    Substituting that into the original equation, we get:
-    \begin{align*}
-      q^3-pq+q&=0\\
-      \Leftrightarrow q(q^2-p+1)&=0.
-    \end{align*}
-    Since $q\not=0$, we know that
-    \begin{align*}
-      q^2-p+1&=0\\
-      \Leftrightarrow q^2+1&=p.
-    \end{align*}
-    We can see that one solution to this equation is $q=2$ and $p=5$.\\
-    Let's assume $q>2$. Then, since $q$ is prime, it has to be odd. 
-    Let $q=2k+1$ for some $k\in\N$. (Note that this is always greater than $2$.) Now we get
-    \begin{align*}
-      (2k+1)^2+1&=p\\
-      \Leftrightarrow 4k^2+4k+2&=p\\
-      \Leftrightarrow 2(2k^2+2k+1)&=p.
-    \end{align*}
-    Thus $q>2\Rightarrow 2|p$. Since we know $p>q$ (by $p=q^2+1$) and $q>2$, $p$ would have to be an even prime number greater than $2$ to solve this equation. This is impossible, because such a prime number would, by definition, be divisible by $2$.\\
-    Therefore we can conclude that $q=2$ and thus $p=5$ is the only solution.
-  \end{proof}
-\end{adjustwidth}
 \begin{proof}
-By Lemma \ref{l5} we know that, in order to find any integer solution we have to set $p=5$ and $q=2$.
-Solving the equation
-\begin{align*}
-  x^3-5x+2=0
-\end{align*}
-we get $x\in\{2,\sqrt{2}+ 1, \sqrt{2}-1\}$. Thus the only configuration of $p$ and $q$, that yields an integer solution at all, does not give the property that all solutions are integers.\\
-By the \emph{Fundamental Theorem of Algebra (Liebeck, Theorem 7.1)} we know that $x^3-px+q$ will always have a root in $\C$ and thus there is no configuration for $p$ and $q$ such that all roots are integers.
+  Using the polynomial equation and \emph{Liebeck, Proposition 7.1}, we get three equations:
+  \begin{align}
+    a+b+c&=0,\label{eq:1}\\
+    ab+bc+ac&=-p, \label{eq:2}\\
+    abc&=-q. \label{eq:3}
+  \end{align}
+  Observe that, sice $a,b,c\in\Z$ and $q$ is prime, euqation \ref{eq:3} implies that the product $abc$ has one of the three forms $(1)(1)(-q)$, $(1)(-1)(q)$ or $(-1)(-1)(-q)$.
+  Those possiblilities may be checked using equation \ref{eq:1}:
+  \begin{align*}
+    1+1-q=0&\Leftrightarrow q=2,\\
+    -1+1+q=0&\Leftrightarrow q=0,\\
+    -1-1-q=0&\Leftrightarrow q=-2.
+  \end{align*}
+  Since $q$ has to be prime, we know that $abc$ has the form $(1)(1)(-q)$.
+  Without loss of generality, I will now assume $a=1$, $b=1$ and $c=-q=-2$.
+  Cycling $a$, $b$ and $c$ will not change the equation with respect to $p$ (or $q$).\\
+  Using equation \ref{eq:2}, we get $p$:
+  \begin{align*}
+    1-2-2=-p \Leftrightarrow p = 3.
+  \end{align*}
+  Thus, the only possible solution such is $p=3$ and $q=2$ and the roots are $1$, with multiplicity $2$, and $-2$.\\
+  We can check this:
+  \begin{align*}
+    (x-1)^2(x+2)=x^3-3x+2. 
+  \end{align*}
 \end{proof}
 \end{document}
