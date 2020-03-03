@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{CAP: Homework 6 (Workshop 71)}
+\author{Franz Miltz (UNN: S1971811)}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{rng}
+\DeclareMathOperator{\st}{s.t.}
+\begin{document}
+\maketitle
+\section*{Question 1}
+\section*{Question 2}
+\subsection*{a)}
+We will first evaluate the definite integral $I$:
+\begin{align*}
+  I(t)=\int \sqrt{t}\ln t\: dt.
+\end{align*}
+Using integration by parts with $u=\ln t$ and $dv=\sqrt{t}dt$, we get
+\begin{align*}
+  I(t)&=\frac{2}{3}t^{\nicefrac{3}{2}}\ln t - \frac{2}{3}\int \sqrt{t}dt\\
+  &=\frac{2}{3}t^{\nicefrac{3}{2}}(\ln t - \frac{2}{3}) + C.
+\end{align*}
+We can evaluate this at $t=1$ and $t=4$:
+\begin{align*}
+  I(1)&=\frac{2}{3}\cdot 1\cdot (0-\frac{2}{3})+C=-\frac{4}{9}+C,\\
+  I(4)&=\frac{2}{3}\cdot 8\cdot(\ln 4 - \frac{2}{3})+C=\frac{16}{3}(\ln 4 - \frac{2}{3})+C.
+\end{align*}
+Thus we can find the value of the original integral:
+\begin{align*}
+  \int_1^4 \sqrt{2}\ln t\:dt = I(4)-I(1) =\frac{16}{3}\ln 4 - \frac{28}{4}= \frac{4}{3}(8\ln 2 - \frac{7}{3})
+\end{align*}
+\subsection*{b)}
+At first, we can use the quality
+\begin{align*}
+  \tan^2 x = \sec^2 x - 1
+\end{align*}
+simplify the integral:
+\begin{align*}
+  I(x) &= \int \tan^2 x \sec x\:dx 
+  = \int (\sec^2 x - 1)\sec x\:dx \\
+  &= \int \sec^3 x\:dx  - \int \sec x\:dx
+\end{align*}
+We know 
+\begin{align}
+  \label{eq:1}
+  \int \sec x dx = \ln |\sec x + \tan x| + C_1.
+\end{align}
+Let's evaluate the other integral. We use integration by parts with
+\begin{align*}
+  u &= \sec x, \\
+  du &= \sec x \tan x\: dx,\\
+  dv &= \sec^2 x\: dx, \\
+  v &= \tan x
+\end{align*}
+to get
+\begin{align*}
+  I'(x)=\int \sec^3 x \: dx&=\sec x\tan x - \int \sec x \tan^2 x\: dx\\
+  &= \sec x \tan x - \int \sec x (\sec^2 x - 1)dx\\
+  &= \sec x \tan x - I'(x) + \int \sec x \: dx.
+\end{align*}
+Using equation \ref{eq:1}, we can solve for $I'$ to get
+\begin{align*}
+  I'(x)=\frac{1}{2}(\sec x \tan x + \ln |\sec x + \tan x|) + C_2.
+\end{align*}
+Thus we conclude that
+\begin{align*}
+  I(x)=\frac{1}{2}(\sec x \tan x -\ln |\sec x + \tan x|) + C.
+\end{align*}
+\subsection*{c)}
+The integral
+\begin{align*}
+  I(x) &= \int \frac{x^3}{\sqrt{4+x^2}}dx 
+\end{align*}
+may be solved using the trigonometric substitution $x = 4 \tan \theta$. Using this, we get
+\begin{align*}
+  I(x) 
+\end{align*}
+\end{document}
