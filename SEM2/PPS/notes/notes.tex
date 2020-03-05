@@ -21,6 +21,7 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\C}{\mathbb{C}}
@@ -30,6 +31,7 @@
 \DeclareMathOperator{\glb}{GLB}
 \DeclareMathOperator{\hcf}{hcf}
 \DeclareMathOperator{\lcm}{lcm}
+%\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
 \begin{document}
@@ -521,5 +523,49 @@
 \end{theorem}
 \begin{theorem}
       If $a,b\in\N$ are coprime, and $ab$ is an $n$th power, then so are $a$ and $b$.
+\end{theorem}
+\section{Modular Arithmetic}
+\begin{definition}
+    For $m\in\N$ and $a,b\in Z$, we write $a\equiv b \mod m$ if one of the following holds
+    \begin{itemize}
+        \item $m|(a-b)$,
+        \item $a$ and $b$ have same remainder when divided by $m$,
+        \item $b=qm+a$ for some $q\in\Z$.
+    \end{itemize}
+\end{definition}
+\begin{theorem}
+    We have the following properties for integers $a,b,c\in\Z$ and $m\in\N$:
+    \begin{enumerate}
+        \item $a\equiv a \mod m$.
+        \item If $a\equiv b \mod m$, then $b\equiv a \mod m$.
+        \item If $a\equiv b \mod m$ and $b\equiv c \mod m$, then $a\equiv c \mod m$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Suppose $a\equiv x \mod m$ and $b\equiv y \mod m$. Then
+    \begin{enumerate}
+        \item $a+b\equiv x+y \mod m$,
+        \item $ab \equiv xy \mod m$,
+        \item $a^k \equiv x^k \mod m$ for $k\in \N$.
+    \end{enumerate}
+\end{theorem}
+\begin{proposition}
+    Let $a$ and $m$ be coprime. If $x,y\in \Z$ and $xa\equiv ya \mod m$, then $x\equiv y \mod m$. In particular, if $p$ is prime, $p\not|a$, and $xa\equiv ya \mod p$, then $x\equiv y \mod p$. 
+\end{proposition}
+\begin{theorem}
+    The equation $ax\equiv b \mod m$ has a solution iff $hcf(a,m)|b$.
+\end{theorem}
+\begin{theorem}
+    \textbf{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
+    \begin{align*}
+        a^{p-1}\equiv 1 \mod p.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $n\in\N$ be a prime number. Assume $n$ and $p-1$ are coprime and $p\not|b$. Then the equation
+    \begin{align*}
+        x^n\equiv b \mod p
+    \end{align*}
+    has exactly one solution $x\in\{0, 1, ..., p-1\}$.
 \end{theorem}
 \end{document}
