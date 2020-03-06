@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PPS: Homework 3 (Workshop 33)}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\st}{\text{ s.t. }}
+\DeclareMathOperator{\lub}{\text{LUB}}
+\begin{document}
+\maketitle
+\section*{Task 1}
+\subsection*{Claim}
+\begin{align*}
+  \lim_{n\to\infty}\frac{n^2-5}{n^2+n+1}=1
+\end{align*}
+\subsection*{Proof}
+The claim is by definition equivalent to
+\begin{align*}
+  \forall \varepsilon > 0, \exists N>0 \st \forall n>N, \left|\frac{n^2-5}{n^2+n+1}-1\right|<\varepsilon.
+\end{align*}
+Observe that, with $n>0$,
+\begin{align*}
+  \varepsilon > \left|\frac{n^2-5}{n^2+n+1}-1\right|
+  =  \left|\frac{-n-6}{n^2+n+1}\right|
+  =  \frac{n+6}{n^2+n+1}.
+\end{align*}
+With $n\geq 1$, we also get
+\begin{align*}
+  \frac{n+6}{n^2+n+1}<\frac{n+6}{n^2+n+1}<\frac{7n}{n^2+n+1}<\frac{7}{n+1}<\frac{7}{n}.
+\end{align*}
+Now, let $N=\frac{7}{\varepsilon}$ and $n>N$. Then
+\begin{align*}
+  \frac{7}{n}<\frac{7}{N}=\varepsilon.
+\end{align*}
+Thus, if $N = \max\{1, \frac{7}{\varepsilon}\}$,
+\begin{align*}
+  \forall n > N, \left|\frac{n^2-5}{n^2+n+1}-1\right|<\varepsilon.\:\square  
+\end{align*}
+NOTE: Since the task does not specify anything about $n$, I assumed it to be any real number. If $n\in\N$, $N=\frac{7}{\varepsilon}$ is sufficient.
+\section*{Task 2}
+\subsection*{Claim}
+If $x_n\to\infty$ and $x_n>0$ for all $n\in\N$, then $\frac{1}{x_n}\to 0$.
+\subsection*{Proof}
+By definition of $x_n\to\infty$ we know
+\begin{align*}
+  \forall M > 0, \exists N> 0 \st \forall n > N, x_n > M.
+\end{align*}
+We need to prove
+\begin{align*}
+  \forall \varepsilon > 0, \exists N > 0\st \forall n > N, \left|\frac{1}{x_n}\right|<\varepsilon.
+\end{align*}
+Let $\varepsilon > 0$. Then
+\begin{align*}
+  \varepsilon > \left|\frac{1}{x_n}\right| = \frac{1}{x_n} \Leftrightarrow x_n > \frac{1}{\varepsilon}.
+\end{align*}
+With $x_n\to \infty$ and $M=\frac{1}{\varepsilon}$ it follows that
+\begin{align*}
+  \exists N > 0 \st \forall n > N, x_n > \frac{1}{\varepsilon}
+\end{align*}
+and thus
+\begin{align*}
+  \exists N > 0 \st \forall n > N, \left|\frac{1}{x_n}\right|>\varepsilon,
+\end{align*}
+which is equivalent to $\frac{1}{x_n}\to 0$. $\square$
+\section*{Task 3}
+\subsection*{Claim}
+Let $A\subseteq R$ be bounded and let $B=\{\frac{x+y}{2}\:|\:x,y\in A\}$. Then $\lub(A)=\lub(B)$.
+\subsection*{Proof}
+At first, we show that $\lub(A)$ is an upper bound for $B$:\\
+By definition $\forall x \in A, x \leq \lub(A)$. Additionally
+\begin{align*}
+  x,y\leq \lub(A) \Rightarrow x + y \leq 2\lub(A).
+\end{align*}
+With $x,y\in A$, we get
+\begin{align*}
+  x+y&\leq 2\lub(A)\\
+  \Leftrightarrow\frac{x+y}{2}&\leq \lub(A)
+\end{align*}
+and thus $\lub(A)$ is an upper bound for $B$.\\
+Now we use the fact, that $B\subseteq \R$ is bounded above by $\lub(A)$ and apply the \emph{Completeness Axiom (Liebeck, 201)}. Thus $B$ has a least upper bound $\lub(B)$. Therefore
+\begin{align*}
+  \forall x \in B, x \leq \lub(B)\\
+  \Leftrightarrow \forall x, y \in A, \frac{x+y}{2}\leq \lub(B).
+\end{align*}
+Thus
+\begin{align*}
+  \forall x \in A, \frac{x+x}{2}=x \leq \lub(B),
+\end{align*}
+making $\lub(B)$ an upper bound for $A$.\\
+Since $\lub(A)$ is an upper bound of $B$ and $\lub(B)$ is an upper bound of $A$, it follows that $\lub(A)=\lub(B)$. $\square$ 
+\end{document}
