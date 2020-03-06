@@ -38,7 +38,6 @@ public class FoxHoundUtils {
     public static String[] initialisePositions(final int dimension)
             throws IllegalArgumentException {
         checkDim(dimension);
-        // TODO test me
         final String[] positions = new String[dimension / 2 + 1];
         for (int i = 1; i < dimension; i += 2) {
             // i = 2k + 1. Thus i/2=(2k+1)/2=k.

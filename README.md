@@ -12,7 +12,7 @@ Anything related to my time at the University of Edinburgh.
      - Computation and Logic (CL), Mr Micheal Fourman
   - Astrobiology (AB), Mr Charles Cockell & Mr Ken Rice
 2. Semester
-  - Object Oriented Programming (OOP)
-  - Calculus and its Applications
-  - Introductory Astrophysics
-  - Proofs and Problem Solving
+  - Object Oriented Programming (OOP), Mr Volker Seeker
+  - Calculus and its Applications (CAP), Mr Nikola Popovic & Co.
+  - Introductory Astrophysics (IAP), Mrs Chatherine Heymans and Mr Ross Galloway 
+  - Proofs and Problem Solving (PPS), Mr Jonas Azzam and Mr Chris Sangwin

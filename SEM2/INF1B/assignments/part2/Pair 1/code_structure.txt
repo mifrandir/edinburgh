@@ -1,0 +1,22 @@
+To see why B has the better structured code, I will examine the function FoxHoundUtils.isValidMove from both implementations.
+
+
+While implementation B does a really good job of separating functionality by checking five different cirteria in five different functions that all seem to be somewhat readable and well-written, implementation A has a lot of issues. The function is significantly longer than 50 lines, it lacks documentation on behaviour and return values and it does not make use of any helper functions.
+
+
+The first check in A's implementation (valid1) seems to be equivalent to FoxHoundUtils.CorrectOrigin in B's code. While I think A's version for this specific check is better, both have their pros and cons. Firstly, A uses the String.equals function, as it should be. B on the other hand compares the first two characters of the relevant coordinates. This is bad practice for a multitude of reasons, e.g. readability ("str1.equals(str2)" vs "(str1.charAt(0)==str2.charAt(0))&&(str2.charAt(1)==str2.charAt(1)") and correctness (consider the coordinates "A10" and "A1").
+
+
+The second check in A's implementation (valid2) is supposed to be equivalent to FoxHoundUtils.FieldOnBoard. While B's code does not work properly, the idea is better. It's easy to see they are checking whether the column is within the boundaries and they meant to check whether the same is true for the column (even though they weren't quite able to figure out how to do it).
+
+A on the other hand uses various nested loops and conditions to do the same. While I think I figured out that they generated a two dimensional array containing all the possible coordinates, are running through it to find the destination and then check whether someone else is at that position, I am not entirely convinced that this is, what the code actually does. Since they are using the variable "valid2" to assign values of "true" and "false" at various points throughout the loop(s) and there aren't any break conditions immediately after those assignments, a lot could be going on here.
+
+B's approach is by far superior here, not only because of efficiency but also because of readability. 
+
+
+The third and last check in A's code seems to do what B has solved in FoxHoundUtils.OneDiagonal. Neither of those implementations are structured very well or particularly readable, but I prefer B's version. B's code is a sequence of more or less linear statements that get to a result. 
+
+B on the other hand uses a combination of seven nested loops and conditions to solve the problem. This does not help the reader to understand the code at all. And if something is wrong here, I would not know where to start fixing it. Additionally the two blocks for 'F' and 'H' are VERY similar. I am sure that, if you decided to stick with this approach, you could find a way to refactor this into a function which works for both cases with slightly different parameters. I don't think that any of that code is worth keeping though. A good inspiration on how to solve things differently may be found in B's code.
+
+
+The contrast between the two programs is not as stark in other parts of the code, which is partly the case because many essential features are missing.

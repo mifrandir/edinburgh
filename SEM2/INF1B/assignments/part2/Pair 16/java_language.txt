@@ -1,0 +1,36 @@
+A makes better use of the Java language. This is clearly visible throughout FoxHoundUtils and especially the isValidMove function and all associated parts of the code.
+
+
+The part I want to focus on in this comparison is control flow. A does a really good job at handling all the possible errors as soon as possible and throwing the associated exceptions. B on the other hand declares a lot of variables and assigns a lot of values, some of which are computationally expensive. Only after all the computation is done, B starts checking the results. The easiest way of avoiding this, would be what A did. Instead of doing all the calculation and checking the results afterwards, they declared certain functions that check for certain conditions and then they chained those functions together using the condtional AND operator ('&&'). Besides readability, this has the advantage that once one of the conditions fails, the rest aren't checked anymore and the function (isValidMove) immediately returns false. This is in stark contrast to B's version, as they only have a single return statement at the very end. Their use of the variable 'result' is completely unnecessary as they could just return false whenever they assign to the variable and put a 'return true' at the very end.
+
+
+Similar issues are visible in helper functions. B has several functions that create a 'boolean result = true' variable, check one condition, assign 'result = false' if the condition fails and then return 'result'. Instead they could just return the condition. A has made a similar mistake in FoxHoundUtils.isPlayers, but as far as I can tell that's the only case. For example in the functions 'FoxHoundUtils.inArray', 'FoxHoundUtils.checkValidMove' and 'FoxHoundUtils.isHoundWin' either true or false is returned immediately once it's clear which one is the case.
+
+
+Another big difference can be seen in the FoxHoundIO class where both read from a file. What A does in one line, using two library functions ("String content = new String(Files.readAllBytes(input));", B does in 20 lines in their own function:
+
+public static String readFile(File p, String path) {
+  StringBuilder content = new StringBuilder("");
+  InputStream in;
+  InputStreamReader is;
+  BufferedReader inTwo;
+  try {
+      String code = resolveCode(path);
+      in = new FileInputStream(p);
+      is = new InputStreamReader(in, code);
+      inTwo = new BufferedReader(is);
+      String str = "";
+      while (null != (str = inTwo.readLine())) {
+          content.append(str);
+      }
+  } catch (Exception e) {
+      System.out.println("Error");
+  }
+  String fin = content.toString();
+  return fin;
+}
+
+The problem with this is not only that it's not elegant, but that it's objectively worse. Since they implemented it themselves, they are now leaking FileInputStreams and InputStreamReaders as neither of them are closed properly.
+
+
+

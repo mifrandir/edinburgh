@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PPS: Homework 5 (Workshop 33)}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\begin{document}
+\maketitle
+\section*{Task 1}
+\begin{claim}
+  Let $x,y\in\C$. Then $|x+y|\leq |x|+|y|$.
+\end{claim}
+\begin{adjustwidth}{2em}{0pt}
+  \begin{lemma}
+    \label{l1}
+    Let $x,y\in\C$. Then $\lneg{x+y}=\lneg{x}+\lneg{y}$. 
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$ and $y=c+di$. Then
+    \begin{align*}
+      \lneg{x}+\lneg{y}=a-bi+c-di=a+c-i(b+d)=\lneg{a+c+i(b+d)}=\lneg{x+y}.
+    \end{align*}
+  \end{proof}
+  \begin{lemma}
+    \label{l2}
+    Let $x,y\in\C$. Then $x\lneg{y}+\lneg{x}y=2\Re({x\lneg{y}})$.
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$ and $y=c+di$. Then
+    \begin{align*}
+      x\lneg{y}+\lneg{x}y&=(a+bi)(c-di)+(a-bi)(c+di)\\
+      &=(ac+bd-adi+bci)+(ac+bd+adi-bci)\\
+      &=2ac+2bd=2\Re(ac+bd)\\
+      &=2\Re((a+bi)(c-di))=2\Re(x\lneg{y}).
+    \end{align*}
+  \end{proof}
+  \begin{lemma}
+    \label{l3}
+    For all $x\in\C$, $\Re(x)\leq|x|$.
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$. Then
+    \begin{align*}
+      \Re(x)&\leq|x|\\
+      a&\leq \sqrt{a^2+b^2}.
+    \end{align*}
+    Observe now that if $a\leq0$, this is immediately true because $\forall x\in\C,\:|x|\geq 0$.\\
+    If $a>0$, we can apply $u>v>0\Rightarrow u^2>v^2$ (\emph{Liebeck, Example 5.4}):
+    \begin{align*}
+      a^2&\leq a^2+b^2\\
+      0&\leq b^2,
+    \end{align*}
+    which is obviously true.
+  \end{proof}
+  \begin{lemma}
+    \label{l4}
+    Let $x,y\in\C$. Then $|xy|=|x||y|$.
+  \end{lemma}
+  \begin{proof}
+    Let $x=a+bi$ and $y=c+di$. Then
+    \begin{align*}
+      |xy|&=|(a+bi)(c+di)|\\
+      &=|ac-bd+(ad+bc)i|\\
+      &=\sqrt{(ac-bd)^2+(ad+bc)^2}\\
+      &=\sqrt{(a^2+b^2)(c^2+d^2)}\\
+      &=\sqrt{a^2+b^2}\sqrt{c^2+d^2}=|x||y|.
+    \end{align*} 
+  \end{proof}
+\end{adjustwidth}
+\begin{proof}
+  Since $\forall x\in\C,\:|x|\geq0$ and $u>v>0\Rightarrow u^2>v^2$ (\emph{Liebeck, Example 5.4}), we can square both sides:
+  \begin{align*}
+    |x+y|^2\leq (|x|+|y|)^2.
+  \end{align*}
+  Let us now consider the left side.
+  \begin{align*}
+    |x+y|^2=(x+y)\lneg{(x+y)}
+  \end{align*}
+  By Lemma \ref{l1}, we get
+  \begin{align*}
+    (x+y)\lneg{(x+y)}&=(x+y)(\lneg{x}+\lneg{y})\\
+    &=x\lneg{x}+y\lneg{y}+x\lneg{y}+\lneg{x}y\\
+    &=|x|^2+|y|^2+x\lneg{y}+\lneg{x}y.
+  \end{align*}
+  Now we can use Lemma \ref{l2} to get
+  \begin{align*}
+    |x|^2+|y|^2+x\lneg{y}+\lneg{x}y&=|x|^2+|y|^2+2\Re(x\lneg{y}).
+  \end{align*}
+  With Lemma \ref{l3}:
+  \begin{align*}
+    |x|^2+|y|^2+2\Re(x\lneg{y})\leq |x|^2+|y|^2+2|x\lneg{y}|.
+  \end{align*}
+  Now we can use Lemma \ref{l4} and the fact that $|x|=|\lneg{x}|$ to factorize:
+  \begin{align*}
+   |x|^2+|y|^2+2|x\lneg{y}| = |x|^2+|y|^2+2|x||y| = (|x|+|y|)^2.
+  \end{align*}
+  Thus we get
+  \begin{align*}
+    |x+y|^2\leq (|x|+|y|)^2.
+  \end{align*}
+\end{proof}
+\emph{Note: I know this proof uses a lot of lemmas and looks very complicated and non-linear, but if I had left out the lemmas and just used $x=a+bi$ and $y=c+di$, it would be really messy. Additionally, I'd like to say that I felt like 1 and 4 are obvious but could not find them anywhere and 2 and 3 are just parts of the bigger proof.}
+\section*{Task 2}
+\begin{claim}
+Let $n\in\N$. Then the $n$-th root of unity closest to $\nicefrac{1}{2}$ is $1$.
+\end{claim}
+\begin{proof}
+  Firstly, observe that $1^n=1$ for all $n\in\N$. Thus $1$ is an $n$-th root of unity for all $n$.\\
+  Secondly, note that $|x|=1$ for all solutions to the equation $x^n=1$. This comes from \emph{Liebeck, Theorem 6.3}, because all the roots of unity have the form $x=e^{i\theta}$ for some $\theta\in[0,2\pi)$ and
+  \begin{align*}
+    |x|=|e^{i\theta}|=\sqrt{\sin^2\theta+\cos^2\theta}=1.
+  \end{align*}
+  Let us now consider the distance $d$ between any complex number $x=e^{i\theta}$ on the unit circle and $\nicefrac{1}{2}$:
+  \begin{align*}
+    d&=\left|x-\frac{1}{2}\right|
+    =\left|\cos\theta-\frac{1}{2}+i\sin\theta\right|\\
+    &=\sqrt{\left(\cos\theta -\frac{1}{2}\right)^2+\sin^2\theta}\\
+    &=\sqrt{\cos^2\theta-\cos\theta+\frac{1}{4}+\sin^2\theta}\\
+    &=\sqrt{\frac{5}{4}-\cos\theta}.
+  \end{align*}
+  Therefore we want to minimize
+  \begin{align*}
+    d^2=\frac{5}{4}-\cos\theta.
+  \end{align*}
+  This is minimal when $\cos\theta$ is maximal and, because $\theta\in[0,2\pi)$, thus only when $\theta=0$ and $\cos \theta = 1$.
+  Using this, we get
+  \begin{align*}
+    x=e^{i\theta}=e^{0}=1.
+  \end{align*}
+  Therefore $1$ is the number on the unit circle closest to $\nicefrac{1}{2}$. 
+  Since it is also a root of unity for all $n$ and all such roots are on the unit circle, it is the root of unity closest to $\nicefrac{1}{2}$.
+\end{proof}
+\section*{Task 3}
+\begin{claim}
+  Suppose that the equation
+    $x^3-px+q=0$
+  only has integer roots and $p$ and $q$ are prime.
+  Then $p=3$ and $p=2$.
+\end{claim}
+\begin{proof}
+  Using the polynomial equation and \emph{Liebeck, Proposition 7.1}, we get three equations:
+  \begin{align}
+    a+b+c&=0,\label{eq:1}\\
+    ab+bc+ac&=-p, \label{eq:2}\\
+    abc&=-q. \label{eq:3}
+  \end{align}
+  Observe that, sice $a,b,c\in\Z$ and $q$ is prime, euqation \ref{eq:3} implies that the product $abc$ has one of the three forms $(1)(1)(-q)$, $(1)(-1)(q)$ or $(-1)(-1)(-q)$.
+  Those possiblilities may be checked using equation \ref{eq:1}:
+  \begin{align*}
+    1+1-q=0&\Leftrightarrow q=2,\\
+    -1+1+q=0&\Leftrightarrow q=0,\\
+    -1-1-q=0&\Leftrightarrow q=-2.
+  \end{align*}
+  Since $q$ has to be prime, we know that $abc$ has the form $(1)(1)(-q)$.
+  Without loss of generality, I will now assume $a=1$, $b=1$ and $c=-q=-2$.
+  Cycling $a$, $b$ and $c$ will not change the equation with respect to $p$ (or $q$).\\
+  Using equation \ref{eq:2}, we get $p$:
+  \begin{align*}
+    1-2-2=-p \Leftrightarrow p = 3.
+  \end{align*}
+  Thus, the only possible solution such is $p=3$ and $q=2$ and the roots are $1$, with multiplicity $2$, and $-2$.\\
+  We can check this:
+  \begin{align*}
+    (x-1)^2(x+2)=x^3-3x+2. 
+  \end{align*}
+\end{proof}
+\end{document}

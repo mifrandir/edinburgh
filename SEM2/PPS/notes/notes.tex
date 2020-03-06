@@ -19,12 +19,21 @@
 \theoremstyle{sltheorem}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
 \newcommand{\st}{\text{ s.t }}
 \DeclareMathOperator{\lub}{LUB}
 \DeclareMathOperator{\glb}{GLB}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+%\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
+\newcommand*\B[1]{\textbf{#1}}
 \begin{document}
 \section{Logic and the reals}
 \begin{theorem}
@@ -32,7 +41,7 @@
 \end{theorem}
 \section{The reals}
 \begin{definition}
-    A \textbf{field} is a set $F$ along with operations $+$ and $\cdot$ so that the following hold:\\
+    A \B{field} is a set $F$ along with operations $+$ and $\cdot$ so that the following hold:\\
     Rules of Addition:
     \begin{enumerate}
         \item $a+b\in F$.
@@ -138,21 +147,21 @@
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{AM-GM Inequality}\\
+    \B{AM-GM Inequality}\\
     Let $n\in\N$ and $x_1, x_2, ..., x_n \geq 0$. Then 
     \begin{align*}
         (x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}\leq\frac{x_1+\cdots+x_n}{n}.
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{Cauchy-Schwartz Inequality}\\
+    \B{Cauchy-Schwartz Inequality}\\
     Let $n\in\N$ and $x_1,...,x_n,y_1,...,y_n\in\R$. Then
     \begin{align*}
         x_1y_1+\cdots x_ny_n \leq \sqrt{x_1^2+\cdots+x_n^2}\sqrt{y_1^2+\cdots+y_n^2}.
     \end{align*}
 \end{theorem}
 \begin{definition}
-    For $x\in\R$, we define the \textbf{absolute value} of $x$ to be
+    For $x\in\R$, we define the \B{absolute value} of $x$ to be
     \begin{align*}
         \vert x \vert = \begin{cases}
             x &\text{if } x \geq 0\\
@@ -174,7 +183,7 @@
 \end{theorem}
 \section{Induction}
 \begin{definition}
-    \textbf{The Principle of Mathematical Induction}\\
+    \B{The Principle of Mathematical Induction}\\
     Given a list of statements $P(k)$, $P(k+1)$, ..., we know that $P(n)$ is true for every integer $n\geq k$ if
     \begin{enumerate}
         \item we know that $P(k)$ is true,
@@ -182,7 +191,7 @@
     \end{enumerate}
 \end{definition}
 \begin{definition}
-    \textbf{The Principle of Strong Mathematical Induction}\\
+    \B{The Principle of Strong Mathematical Induction}\\
     Let $k\in\N$ and let $P(k)$, $P(k+1)$, ..., be statements. Suppose that
     \begin{enumerate}
         \item $P(k)$ is true,
@@ -204,20 +213,20 @@
 \begin{definition}
     Let $A\subseteq\R$.
     \begin{itemize}
-        \item $A$ is said to be \textbf{bounded above} if $\exists M\in\R\st\forall x\in A,x\leq M$.\\
-        The number $M$ is called an \textbf{upper bound} of $A$.
-        \item Similarly, $A$ is said to be \textbf{bounded below} if $\exists m\in\R\st\forall x\in A,x\geq m$.\\
-        The number $m$ is called a \textbf{lower bound} of $A$.
-        \item We say $A$ is \textbf{bounded} if it is bounded above and below.
+        \item $A$ is said to be \B{bounded above} if $\exists M\in\R\st\forall x\in A,x\leq M$.\\
+        The number $M$ is called an \B{upper bound} of $A$.
+        \item Similarly, $A$ is said to be \B{bounded below} if $\exists m\in\R\st\forall x\in A,x\geq m$.\\
+        The number $m$ is called a \B{lower bound} of $A$.
+        \item We say $A$ is \B{bounded} if it is bounded above and below.
     \end{itemize}
 \end{definition}
 \begin{definition}
-    Given a set $A\subseteq\R$, a number $L$ is a \textbf{least upper bound} (LUB) for $A$ if
+    Given a set $A\subseteq\R$, a number $L$ is a \B{least upper bound} (LUB) for $A$ if
     \begin{enumerate}
         \item $L$ is an upper bound for $A$, and
         \item $\forall t<L$, $t$ is not an upper bound..
     \end{enumerate}
-    Similarly, we say $L$ is a \textbf{greatest lower bound} (GLB) for $A$ if
+    Similarly, we say $L$ is a \B{greatest lower bound} (GLB) for $A$ if
     \begin{enumerate}
         \item $L$ is a lower bound for $A$, and
         \item $\forall t>L$, $t$ is not a lower bound.
@@ -226,7 +235,7 @@
 \end{definition}
 \section{Limits}
 \begin{definition}
-    \textbf{The $\varepsilon-N$ definition of a limit.} Let $(x_n)^\infty_{n=1}$ be a sequence of real numbers $x_1,x_2,...$ and let $L\in\R$. We say that $x_n$ \textbf{converges} to $L$ and write $\lim_{n\to\infty}x_n=L$ if for all $\varepsilon>0$, there is a number $N$ so that for $n>N$, we have
+    \B{The $\varepsilon-N$ definition of a limit.} Let $(x_n)^\infty_{n=1}$ be a sequence of real numbers $x_1,x_2,...$ and let $L\in\R$. We say that $x_n$ \B{converges} to $L$ and write $\lim_{n\to\infty}x_n=L$ if for all $\varepsilon>0$, there is a number $N$ so that for $n>N$, we have
     \begin{align*}
         |x_n-L|<\varepsilon
     \end{align*}
@@ -236,7 +245,7 @@
     \end{align*}
 \end{definition}
 \begin{definition}
-    We say a sequence $(a_n)$ is \textbf{bounded} if the set of values $\{a_1, a_2, ...\}$ is a bounded set.
+    We say a sequence $(a_n)$ is \B{bounded} if the set of values $\{a_1, a_2, ...\}$ is a bounded set.
 \end{definition}
 \begin{theorem}
     If $(a_n)$ converges, it is bounded.
@@ -272,21 +281,21 @@
 \end{definition}
 \section{Convergence Theorem}
 \begin{definition}
-    A sequence $(a_n)^\infty_{n=1}$ is \textbf{increasing} if $a_n\leq a_n+1$ for all $n$ and \textbf{decreasing} if $a_n\geq a_{n+1}$ for all $n$. We say $a_n$ is \textbf{monotone} if it is either increasing or decreasing.
+    A sequence $(a_n)^\infty_{n=1}$ is \B{increasing} if $a_n\leq a_n+1$ for all $n$ and \B{decreasing} if $a_n\geq a_{n+1}$ for all $n$. We say $a_n$ is \B{monotone} if it is either increasing or decreasing.
 \end{definition}
 \begin{theorem}
-    \textbf{The Monotone Convergence Theorem}\\
+    \B{The Monotone Convergence Theorem}\\
     Let $(a_n)$ be an increasing sequence of real numbers that is bounded above (i.e. there is $M$ so that $a_n\leq M$ for all $n$). Then $(a_n)$ converges. Then $(a_n)$ converges. If $(a_n)$ is decreasing and is bounded below, then $(a_n)$ converges.
 \end{theorem}
 \begin{definition}
-    Given a sequence $(x_n)$, a \textbf{subsequence} is a sequence of the form $(x_{n_k})$ where $n_1<n_2<\cdots$ are positive integers.
-    A real number $x$ is a \textbf{limit point} of a sequence $(x_n)$ if there is a subsequence $(x_{n_k})$ so that $x_{n_k}\to x$.
+    Given a sequence $(x_n)$, a \B{subsequence} is a sequence of the form $(x_{n_k})$ where $n_1<n_2<\cdots$ are positive integers.
+    A real number $x$ is a \B{limit point} of a sequence $(x_n)$ if there is a subsequence $(x_{n_k})$ so that $x_{n_k}\to x$.
 \end{definition}
 \begin{theorem}
     Given a sequence $(x_n)$ and a number $L$, $L$ is a limit point iff for all $\varepsilon > 0$ and for all integers $N$, we can find $n>N$ such that $|x_n-L|<\varepsilon$.
 \end{theorem}
 \begin{theorem}
-    \textbf{Bolzano Weierstrass Theorem}. If $(x_n)$ is a bounded sequence then it has a limit point, that is, it has a convergent subsequence.
+    \B{Bolzano Weierstrass Theorem}. If $(x_n)$ is a bounded sequence then it has a limit point, that is, it has a convergent subsequence.
 \end{theorem}
 \section{Series and Decimals}
 \begin{definition}
@@ -307,7 +316,7 @@
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{Comparison Test.} If $\sum b_n$ is convergent and $|a_n|\leq b_n$ for all $n$, then $\sum a_n$ is convergent.
+    \B{Comparison Test.} If $\sum b_n$ is convergent and $|a_n|\leq b_n$ for all $n$, then $\sum a_n$ is convergent.
 \end{theorem}
 \begin{theorem}
     Let $x\in\R$. Then there is a sequence of integers $a_0\in\mathbb{Z}$ and $a_n\in\{0,1,...,9\}$ for $n\geq 1$ so that
@@ -322,7 +331,7 @@
     \end{align*}
 \end{theorem}
 \begin{definition}
-    \textbf{Pigeonhole Principle}.\\
+    \B{Pigeonhole Principle}.\\
     Suppose $k>n$, and we have $a_1,...,a_k\in S$, with $|S|=n$. Then there exists $i\not=j$ with $a_i=a_j$.
 \end{definition}
 \begin{theorem}
@@ -348,5 +357,215 @@
 \end{theorem}
 \begin{theorem}
     The number $e$ is irrational.
+\end{theorem}
+\section{Complex Numbers}
+\begin{definition}
+    \B{Complex Numbers.} Define $i$ to be a number such that $i^2 = -1$. 
+    The \B{complex numbers} are any number of the form
+    \begin{align*}
+        z = x+iy \text{ where } x,y\in\R.
+    \end{align*}
+    The set of all complex numbers is denoted $\mathbb{C}$. We define $\Re(z) = x$ and $\Im(z)=y$ to be the \B{real} and \B{imaginary parts} of $z$.
+\end{definition}
+\begin{definition}
+    \B{Modulus}. Given a complex number $z=x+iy$, the \B{modulus} of $z$ is
+    \begin{align*}
+        |z|=|x+iy|=\sqrt{x^2+y^2}.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    \B{Complex Conjugate}. Given a complex number $z=x+iy$, its \B{complex conjugate} is defined to be
+    \begin{align*}
+        \bar{z}=x-yi.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    For all $u,v\in\C$:
+    \begin{itemize}
+        \item $\lneg{u+v}=\lneg{u}+\lneg{v}$.
+        \item $\lneg{uv}=\lneg{u}\cdot\lneg{v}$.
+        \item $|uv|=|u|\cdot|v|$.
+    \end{itemize}
+\end{theorem}
+\begin{definition}
+    Let $z\not=0$ be a complex number. 
+    Let $r=|z|$ and let the \B{argument} of $z$ be the angle $\theta\in[0,2\pi)$ between the line from $0$ to $z$ and the positive $x$-axis. We can then write
+    \begin{align*}
+        z = r(\cos\theta+i\sin\theta)=re^{i\theta}.
+    \end{align*}
+    These are the \B{polar form} and \B{exponential form} of $z$.
+\end{definition}
+\begin{theorem}
+    \B{De Moivre's Theorem}. Let $z=re^{i\theta}$ and $w=se^{i\phi}$ then $zw=rse^{i(\theta+\phi)}$.
+\end{theorem}
+\begin{theorem}
+    \B{A very special case of DM's Theorem}. If we let $z=re^{i\theta}$, and $n\in\N$ then
+    \begin{align*}
+        z^n = r^ne^{in\theta},\\
+        z^{-n} = r^{-n}e^{-in\theta}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \B{Roots of Unity}. The solutions to $z^n=1$ are $1,w,...,w^{n-1}$ where $w=e^{\frac{2\pi i}{n}}$. That is, they are $e^{\frac{2\pi ki}{n}}$ for $k=0,1,...,n-1$.
+\end{theorem}
+\section{Polynomials}
+\begin{definition}
+    For $n\in\N$, an \B{$n$-degree complex polynomial} is a function of the form
+    \begin{align*}
+        p(z)=a_nz^n+a_{n-1}z^{n-1}+\cdots+a_0
+    \end{align*}
+    where $a_n\not=0$ and $a_i\in\C$ for all $i$. We say that $\alpha$ is a \B{root} of $p(z)$ if $p(\alpha)=0$, in other words, if $\alpha$ is a solution to the polynomial equation $p(z)=0$.
+\end{definition}
+\begin{theorem}
+    \B{Abel-Ruffini Theorem}. There is no formula for the roots of a polynomial of degree $\geq 5$.
+\end{theorem}
+\begin{theorem}
+    \B{Fundamental Theorem of Algebra}. Any complex polynomial has at least one root in $\C$.
+\end{theorem}
+\begin{theorem}
+    \B{Factorization Theorem}. If $p$ is a degree $n$ polynomial, then there are $n$ roots $r_1,...,r_n\in\C$ and a number of $a\in\C$ so that
+    \begin{align*}
+        p(z)=a(z-r_1)(z-r_2)\cdots(z-r_n).
+    \end{align*}
+    Some roots may repeat. If a root appears $m$ times in $r_1, ..., r_n$ it has a \B{multiplicty} m.
+\end{theorem}
+\begin{theorem}
+    \B{Real Polynomials hava conjugate roots}. If $p(x)$ has real coefficients and $r$ is a root, so is $\bar{r}$.
+\end{theorem}
+\begin{theorem}
+    \B{Root-Coefficient Theorem}. If $p(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$, has roots $r_1, ..., r_n$, then, if $s_j$ denotes the sum of all products of $j$-tuples of the roots,
+    \begin{align*}
+        s_j=(-1)^ja_{n-j}.
+    \end{align*}
+\end{theorem}
+\section{The Integers}
+\begin{theorem}
+    \textbf{The Remainder Theorem.} Let $a\in\N$ and $b\in\mathbb{Z}$.
+    There are unique integers $q\in\mathbb{Z}$ and $0\leq r<a$ s.t.
+    \begin{align*}
+        b=qa+r.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    For two integers $a$ and $b$ we say $a$ \textbf{divides} $b$, or write $a|b$, if there is an integer $c$ so that $b=ac$.
+\end{definition}
+\begin{lemma}
+    If $a|b$ and $b|a$, then $a=\pm b$.
+\end{lemma}
+\begin{lemma}
+    \textbf{The Easy Lemma.} Let $a$ and $b$ be integers and suppose $d|a$ and $d|b$. Then $d|ma+nb$ for all $m,n\in\N$.
+\end{lemma}
+\begin{definition}
+    Given two integers $a,b\in\mathbb{Z}$ that are not both zero, the \textbf{highest common factor} of $a$ and $b$ is the largest positive integer $d\in\N$ that divides both $a$ and $b$.
+    We denote this integer $d$ by $\hcf(a,b)$. If $\hcf(a,b)=1$, then we say that $a$ and $b$ are \textbf{coprime}.
+\end{definition}
+\begin{theorem}
+    \textbf{Bezout's Identity.} Let $a$ and $b$ be non-zero integers. Then there are integers $s$ and $t$ so that $\hcf(a,b)=sa+tb$.
+\end{theorem}
+\begin{corollary}
+    Let $a,b,c\in\Z$. Suppose $c\not=0$, $c|ab$ and $\hcf(a,c)=1$. Then $c|b$.
+\end{corollary}
+\begin{corollary}
+    Let $a,c\in\Z$ and let $d\in\Z$ be so that $d|a$ and $d|c$. Then $d|\hcf(a,c)$.
+\end{corollary}
+\begin{corollary}
+    Let $d$ be a common divisor of $a$ and $c$, which is divisible by all divisors of $a$ and $c$. Then $d=\pm\hcf(a,c)$.
+\end{corollary}
+\begin{corollary}
+    If $a,b\in\Z$, $p$ is prime, and $p|ab$, then either $p|a$ or $p|b$ (or both).
+\end{corollary}
+\begin{corollary}
+    If $n=p_1\cdots p_k$ is a product of primes, and if a prime $p$ divides $n$, then $p=p_i$ for some $i=1,...,k$.
+\end{corollary}
+\begin{theorem}
+    \textbf{The Fundamental Theorem of Arithmetic (FTA).} Let $n\geq 2$ be an integer.
+    \begin{itemize}
+        \item (Existence) Then $n$ is equal to a product $n=p_1^{r_1}\cdots p_k^{r_k}$ of powers of prime numbers where $p_1<...<p_k$ and $r_i>0$ for all $i$.
+        \item (Uniqueness) The factorization is unique: If we also have
+        \begin{align*}
+            p_1^{r_1}\cdots p_k^{r_k}=n=q_1^{s_1}\cdots q_l^{s_l}
+        \end{align*}
+        where $q_1<\cdots <q_l$ are primes and $s_i>0$, then $k=l$, $p_i=q_i$, and $r_i=s_i$ for all $i$.
+    \end{itemize}
+\end{theorem}
+\begin{lemma}
+    \textbf{Existence of prime decomposition, Part I.} Every integer $n\geq 2$ can be written as a product of primes $n=p_1\cdots p_k$.
+\end{lemma}
+\begin{lemma}
+    \textbf{Existence of prime decomposition, Part II.} Every integer $n\geq 2$ can be written as a product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$ and $r_i\geq 0$ for all $i$.
+\end{lemma}
+\begin{lemma}
+    \textbf{Uniqueness of prime decomposition.} Every integer $n$ can be written as a unique product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$.
+\end{lemma}
+\begin{theorem}
+    Let $n=p_1^{a_1}\cdots p_k^{a_k}$ be a prime decomposition (i.e. $p_i$s are prime, $p_1<\cdots<p_k$, and $a_i>0$). Then $m$ divides $n$ iff 
+    \begin{align*}
+        m=p_1^{b_1}\cdots p_k^{b_k}, \text{ with each }0\leq b_i \leq a.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    The least common multiple $\lcm(a,b)$ of positive integers $a$ and $b$ is the smalles positive integer divisible by both $a$ and $b$.
+\end{definition}
+\begin{theorem}
+    Let $a$ and $b$ have prime factorizations,
+    \begin{align*}
+        a=p_1^{r_1}\cdots p_m^{r_m}, \: b=p_1^{s_1}\cdots p_m^{s_m}.
+    \end{align*}
+    Here $p_i$'s are distinct, but $r_i$ and $s_i$ are allowed to be zero. Then:
+    \begin{itemize}
+        \item $\hcf(a,b) = p_1^{\min(r_1,s_1)}\cdots p_m^{\min(r_m,s_m)}$.
+        \item $\lcm(a,b) = p_1^{\max(r_1,s_1)}\cdots p_m^{\max(r_m,s_m)}$.
+        \item $\lcm(a,b) = ab / \hcf(a,b)$.
+    \end{itemize}
+\end{theorem}
+\begin{theorem}
+    Let $n$ be a positive integer. Then $\sqrt{n}\in\mathbb{Q}$ iff $n$ is a perfect square.
+\end{theorem}
+\begin{theorem}
+      If $a,b\in\N$ are coprime, and $ab$ is an $n$th power, then so are $a$ and $b$.
+\end{theorem}
+\section{Modular Arithmetic}
+\begin{definition}
+    For $m\in\N$ and $a,b\in Z$, we write $a\equiv b \mod m$ if one of the following holds
+    \begin{itemize}
+        \item $m|(a-b)$,
+        \item $a$ and $b$ have same remainder when divided by $m$,
+        \item $b=qm+a$ for some $q\in\Z$.
+    \end{itemize}
+\end{definition}
+\begin{theorem}
+    We have the following properties for integers $a,b,c\in\Z$ and $m\in\N$:
+    \begin{enumerate}
+        \item $a\equiv a \mod m$.
+        \item If $a\equiv b \mod m$, then $b\equiv a \mod m$.
+        \item If $a\equiv b \mod m$ and $b\equiv c \mod m$, then $a\equiv c \mod m$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Suppose $a\equiv x \mod m$ and $b\equiv y \mod m$. Then
+    \begin{enumerate}
+        \item $a+b\equiv x+y \mod m$,
+        \item $ab \equiv xy \mod m$,
+        \item $a^k \equiv x^k \mod m$ for $k\in \N$.
+    \end{enumerate}
+\end{theorem}
+\begin{proposition}
+    Let $a$ and $m$ be coprime. If $x,y\in \Z$ and $xa\equiv ya \mod m$, then $x\equiv y \mod m$. In particular, if $p$ is prime, $p\not|a$, and $xa\equiv ya \mod p$, then $x\equiv y \mod p$. 
+\end{proposition}
+\begin{theorem}
+    The equation $ax\equiv b \mod m$ has a solution iff $hcf(a,m)|b$.
+\end{theorem}
+\begin{theorem}
+    \textbf{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
+    \begin{align*}
+        a^{p-1}\equiv 1 \mod p.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $n\in\N$ be a prime number. Assume $n$ and $p-1$ are coprime and $p\not|b$. Then the equation
+    \begin{align*}
+        x^n\equiv b \mod p
+    \end{align*}
+    has exactly one solution $x\in\{0, 1, ..., p-1\}$.
 \end{theorem}
 \end{document}

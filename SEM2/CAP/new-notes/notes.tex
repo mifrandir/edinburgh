@@ -121,4 +121,133 @@
         \end{align*}
     \end{enumerate}
 \end{theorem}
+\subsection{Evaluating definite integrals}
+\begin{theorem}
+    \textbf{Net change theorem}. The integral of a rate of change is the net change:
+    \begin{align*}
+        \int_a^bF'(x)dx=F(b)-F(a)
+    \end{align*}
+\end{theorem}
+\subsection{The fundamental theorem of calculus}
+\begin{theorem}
+   Suppose $f$ is continuous on $[a,b]$.
+   \begin{enumerate}
+       \item If $g(x)=\int_a^x f(t)dt$, then $g'(x)=f(x)$.
+       \item $\int_a^b f(x)dx=F(b)-F(a)$, where $F$ is any antiderivative of $f$, that is $F'=f$.
+   \end{enumerate}
+\end{theorem}
+\begin{definition}
+    The \textbf{average value of $f$} on the interval $[a,b]$ is
+    \begin{align*}
+        f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    \textbf{The mean value theorem for integrals.} If $f$ is continuous on $[a,b]$, then there exists a number $c$ in $[a,b]$ such that
+    \begin{align*}
+        f(c)=f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx
+    \end{align*}
+    that is,
+    \begin{align*}
+        \int_a^b f(x)dx=f(x)(b-a).
+    \end{align*}
+\end{theorem}
+\subsection{The substitution rule}
+\begin{theorem}
+    \textbf{The substitution rule.}
+    If $u=g(x)$ is a differetiable function whose range is an interval $I$ and $f$ is continuous on $I$, then
+    \begin{align*}
+        \int f(g(x))g'(x)\:dx=\int f(u)\:du
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{The substitution rule for definite integrals.}
+    If $g'$ is continuous on $[a,b]$ and $f$ is continuous on the range of $u=g(x)$, then 
+    \begin{align*}
+        \int_a^b f(g(x))g'(x)\:dx=\int_{g(a)}^{g(b)}f(u)\:du.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{Integrals of symmetric functions.} Suppose $f$ is continuous on $[-a,a]$.
+    \begin{enumerate}
+        \item If $f$ is even, then $\int_{-a}^a f(x)\:dx= 2\int_0^a f(x)\:dx$.
+        \item If $f$ is odd, then $\int_{-a}^a f(x)\:dx = 0$.
+    \end{enumerate}
+\end{theorem}
+\section{Techniques of integration}
+\begin{theorem}
+    \begin{align*}
+        \int u dv = uv - \int v du
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    \textbf{of an improper integral of type 1.}
+    \begin{enumerate}
+        \item If $\int_a^t f(x)\:dx$ exists for every number $t\geq a$, then
+        \begin{align*}
+            \int_a^\infty f(x)\:dx = \lim_{t\to \infty}\int_a^t f(x)\:dx.
+        \end{align*}
+        provided this limit exists (as a finite number).
+        \item If $\int_t^b f(x)\:dx$ exists for every $t\leq b$, then
+        \begin{align*}
+            \int_{-\infty}^b f(x)\: dx = \lim_{t\to-\infty}\int_t^b f(x)\:dx
+        \end{align*}
+        provided this limit exists (as a finite number).
+    \end{enumerate}
+    The improper integrals $\int_a^\infty f(x)\:dx$ and $\int_{-\infty}^b f(x)\:dx$ are called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} otherwise.\\
+    If both  $\int_a^\infty f(x)\:dx$ and $\int_{-\infty}^a f(x)\:dx$ are convergent, then we define
+    \begin{align*}
+        \int_{-\infty}^\infty f(x)\:dx = \int_a^\infty f(x)\:dx + \int_{-\infty}^a f(x)\:dx
+    \end{align*}
+\end{definition}
+\begin{definition}
+    \textbf{of an improper integral of type 2.}
+    \begin{enumerate}
+        \item If $f$ is continuous on $[a,b)$ and discontinuous at $b$, then
+        \begin{align*}
+            \int_a^b f(x)\:dx = \lim_{t\to b^-}\int_a^t f(x)\: dx
+        \end{align*}
+        if this limit exists.
+        \item If $f$ is continuous on $(a,b]$ and discontinuous at $a$, then
+        \begin{align*}
+            \int_a^b f(x)\:dx = \lim_{t\to a^+}\int_t^b f(x)\: dx
+        \end{align*}
+        if this limit exists.
+    \end{enumerate}
+    The improer integral $\int_a^b f(x)\:dx$ is called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} otherwise.\\
+    If $f$ has a discontinuity at $c$, where $a<c<b$, and both $\int_a^c f(x)\:dx$ and $\int_c^b f(x)\:dx$ are convergent, then we define
+    \begin{align*}
+        \int_a^b f(x)\: dx = \int_a^c f(x)\:dx + \int_c^b f(x)\:dx.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    \textbf{The comparison theorem.} Suppose that $f$ and $g$ are continuous functions with $f(x)\geq g(x)\geq 0$ for $x\geq a$.
+    \begin{enumerate}
+        \item If $\int_a^\infty f(x)\:dx$ is convergent, then $\int_a^\infty g(x)\:dx$ is convergent.
+        \item If $\int_a^\infty f(x)\:dx$ is divergent, the $\int_a^\infty g(x)\:dx$ is divergent.
+    \end{enumerate}
+\end{theorem}
+\section{Applications}
+\begin{definition}
+    The area $A$ of the region bounded by the curves $y=f(x)$, $y=g(x)$, and the lines $x=a$, $x=b$, where $f$ and $g$ are continuous and $f(x)\geq g(x)$ for all $x\in[a,b]$, is
+    \begin{align*}
+        A=\int_a^b \left(f(x)-g(x)\right)\:dx.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    Let $S$ be a solid that lies between $x=a$ and $x=b$. If the cross-sectional area of $S$ in the plane $P_x$, through $x$ and perpendicular to the $x$-axis, is $A(x)$, where $A$ is an integrable function, then the \textbf{volume} of $S$ is
+    \begin{align*}
+        V=\int_a^b A(x)\:dx.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    \textbf{The arc length formula.} If $f'$ is continuous on $[a,b]$, then the length of the curve $y=f(x)$, $a\leq x \leq b$, is
+    \begin{align*}
+        L = \int_a^b \sqrt{1+\left(\frac{df}{dx}\right)^2}\:dx.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{of Pappus.} Let $R$ be a plane region that lies entirely on one side of a line $l$ in the plane. 
+    If $R$ is rotated about $l$, then the volume of the resulting solid is the product of the area $A$ of $R$ and the distance $d$ traveled by the centroid of $R$.
+\end{theorem}
 \end{document}
