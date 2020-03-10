@@ -31,6 +31,7 @@
 \DeclareMathOperator{\glb}{GLB}
 \DeclareMathOperator{\hcf}{hcf}
 \DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\cl}{cl}
 %\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
@@ -567,5 +568,125 @@
         x^n\equiv b \mod p
     \end{align*}
     has exactly one solution $x\in\{0, 1, ..., p-1\}$.
+\end{theorem}
+\section{More set theory and Equivalence relations}
+\begin{definition}
+    Let $A$ and $B$ be two sets.
+    \begin{enumerate}
+        \item We define the \textbf{union} of $A$ and $B$ to be the set of elements that are either in $A$ or in $B$. We write $A\cup B$.
+        \item We define the \textbf{intersection} of $A$ and $B$ to be the set of elements that are in $A$ and $B$. We write $A\cap B$.
+        \item $A$ \textbf{minus} $B$ is the set of things in $A$ that are not in $B$. We write $A-B$ or $A\setminus B$.
+        \item If $A\cap B=\emptyset$, we say $A$ and $B$ are \textbf{disjoint}.
+    \end{enumerate}
+\end{definition}
+\begin{proposition}
+    Let $A,B,C$ be sets. Then
+    \begin{align*}
+        A\cap(B\cup C) = (A\cap B)\cup(A\cap C).
+    \end{align*}
+\end{proposition}
+\begin{definition}
+    A \textbf{partition} of a set $S$ is a collection of nonempty subsets of $S$ so that for every $x\in S$, there is exactly one set $A$ in the collection so that $x\in A$.
+\end{definition}
+\begin{definition}
+    The \textbf{Cartesian} product of two sets $A$ and $B$ is the set of ordered pairs
+    \begin{align*}
+        A\times B = \{(x,y) | x\in A,\: y\in B\}.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    A \textbf{relation} $R$ on a set $S$ is just a subset of $S\times S$. Given $a,b\in S$, we write $a\sim b$ if $(a,b)\in R$.
+\end{definition}
+\begin{definition}
+    Let $S$ be a set. Let $\sim$ be a relation on $S$. We say $\sim$ is
+    \begin{itemize}
+        \item \textbf{reflexive} if $a\sim a$ for all $a\in S$,
+        \item \textbf{symmetric} if for all $a,b\in S$, we have $a\sim b \Leftrightarrow b\sim a$, and
+        \item \textbf{transitive} if for all $a,b,c\in S$, we have
+        \begin{align*}
+            a\sim b \sim c \Rightarrow a \sim c.
+        \end{align*}
+    \end{itemize}
+    If $\sim$ satisfies all three of these properties, we say $\sim$ is an \textbf{equivalence relation}.
+\end{definition}
+\begin{definition}
+    If $\sim$ is an equivalence relation on a set $S$ and $x\in S$, the \textbf{equivalence class} of $x$ is
+    \begin{align*}
+        \cl(x) = \{y\in S | x\sim y\}.
+    \end{align*}
+    The set of \textbf{equivalence classes} is the set $\{\cl(x) | x \in S\}$.
+\end{definition}
+\begin{proposition}
+    If $\sim$ is an equivalence relation on a set $S$, then the equivalence classes form a partition of $S$. 
+\end{proposition}
+\section{Functions}
+\begin{definition}
+    Given two sets $X$ and $Y$, a \textbf{function from $X$ to $Y$}, denoted $f:X\to Y$, is a relation pairing each $x\in X$ with an element in $Y$ which we denote $f(x)$. The set $X$ is called the \textbf{domain} of $f$ and $Y$ is the \textbf{codomain} or \textbf{range} of $Y$.
+\end{definition}
+\begin{definition}
+    Let $f:X\to Y$ be a function. We say
+    \begin{itemize}
+        \item $f$ is \textbf{surjective} if
+        \begin{align*}
+            \forall y \in Y,\: \exists x \in X \st f(x) = y,
+        \end{align*}
+        \item $f$ is \textbf{injective} if
+        \begin{align*}
+            \forall x,y \in X,\: f(x)=f(y) \Rightarrow x = y,
+        \end{align*}
+        \item $f$ is \textbf{bijective} if it is injective and surjective.
+    \end{itemize}
+\end{definition}
+\begin{theorem}
+    Let $X$ and $Y$ be finite sets and let $f:X\to Y$ be a function.
+    \begin{enumerate}
+        \item If $f$ is injective, then $|X|\leq |Y|$.
+        \item If $f$ is surjective, then $|X|\geq |Y|$.
+        \item If $f$ is bijective, then $|X|=|Y|$.
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    Let $f:X\to Y$ and $g:Y\to Z$ be functions. We define the \textbf{composition of $f$ and $g$}, denoted $g\circ f:X\to Z$, to be the function
+    \begin{align*}
+        g\circ f(x) = g(f(x)).
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $f:X\to Y$ and $g:Y\to Z$ be functions.
+    \begin{enumerate}
+        \item If $f$ and $g$ are injective, so is $g\circ f$.
+        \item If $f$ and $g$ are surjective, so is $g\circ f$.
+        \item If $f$ and $g$ are bijective, so is $g\circ f$.
+    \end{enumerate}
+\end{theorem}
+\begin{definition}
+    If $f:X\to Y$ is bijective, the \textbf{inverse} of $f$, denoted $f^{-1}:Y\to X$, is the function such that
+    \begin{align*}
+        f^{-1}(y) = x \Leftrightarrow f(x) = y.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $f:X\to Y$ and $g:Y\to X$ be functions. Then $f$ is bijective and $g=f^{-1}$ iff $f(g(y))= y$ for all $y\in Y$ and $g(f(x))=x$ for all $x\in X$.
+\end{theorem}
+\begin{definition}
+    If $f:X\to Y$ and $A\subseteq X$, the \textbf{image of $A$} under $f$ is
+    \begin{align*}
+        f(A) = \{f(x):x\in A\}\subseteq Y.
+    \end{align*}
+    If $B\subseteq Y$, the \textbf{preimage of $B$} under $f$ is
+    \begin{align*}
+        f^{-1}(B) = \{x\in X:f(x)\in B\}\subseteq X.
+    \end{align*}
+\end{definition}
+\section{Applications: What's bigger than $\infty$?}
+\begin{definition}
+    We say two sets $A$ and $B$ have the same \textbf{cardinality} if there is a bijective function $f:A\to B$, and we write $|A|=|B$ or $A\sim B$. If there is an injective map $f:A\to B$, we write $|A|\leq |B|$, and if $|A|\leq |B|$ and there is no injective map from $B$ to $A$, we write $|A|<|B|$.\\
+    When $A\sim\N$, we say $A$ is \textbf{countable}.
+\end{definition}
+\begin{theorem}
+    $\mathbb{Q}\sim\N$.
+\end{theorem}
+\begin{theorem}
+    Let $S$ be an infinite set and let $P(S)$ denote the \textbf{power set} consisting of the subsets of $S$, i.e. $P(S) = \{A\subseteq S\}$. Then $|S|<|P(S)|$.
 \end{theorem}
 \end{document}

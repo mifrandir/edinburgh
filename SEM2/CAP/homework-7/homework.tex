@@ -1,0 +1,158 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{CAP: Homework 7 (Workshop 71)}
+\author{Franz Miltz (UNN: S1971811)}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{rng}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\newtheorem{claim}[section]{Claim}
+\begin{document}
+\maketitle
+\section*{Question 1}
+\subsection*{a)}
+At first, we solve the indefinite integral
+\begin{align*}
+  I(x) = \int x^4e^{-x^5}dx.
+\end{align*}
+With $u=e^{-x^5}$ and $du=-5x^4e^{-x^5}dx$, we get
+\begin{align*}
+  I(x) = -\frac{1}{5}\int du = -\frac{1}{5}e^{-x^5} + C.
+\end{align*}
+Now we can calculate the improper integral
+\begin{align*}
+  \int_0^\infty x^4e^{-x^5}dx &= \lim_{x\to\infty}\left(I(x)-I(0)\right)
+  = \frac{1}{5}-\frac{1}{5}\lim_{x\to\infty}e^{-x^5}=\frac{1}{5}.
+\end{align*}
+Therefore the integral converges to $\frac{1}{5}$.
+\subsection*{b)}
+We can solve the indefinite integral
+\begin{align*}
+  I(t) = \int \cos(\pi t)\:dt
+\end{align*}
+by substituting $u=\pi t$ and $du=\pi dt$ to get
+\begin{align*}
+  I(t) = \frac{1}{\pi} \sin(\pi t) + C.
+\end{align*}
+Since $\sin x$ does not converge as $x\to-\infty$, the improper integral
+\begin{align*}
+  \int_{-\infty}^0\cos(\pi t)\:dt
+\end{align*}
+is divergent and may therefore not be evaluated.
+\subsection*{c)}
+We can solve the indefinite integral
+\begin{align*}
+  I(x)=\int_0^{\sqrt{3}}\frac{x}{\sqrt{9-x^4}}\:dx
+\end{align*}
+using the trigonometric substitution
+\begin{align*}
+  x^2 = 3\sin\theta \Rightarrow 2xdx = 3\cos \theta d\theta
+\end{align*}
+to get
+\begin{align*}
+  I(x)=\frac{3}{2}\int \frac{\cos\theta}{3\cos\theta}\:d\theta = \frac{1}{2}\int d\theta = \frac{1}{2}\theta + C.
+\end{align*}
+To revert the substitution, we use $\theta = \arcsin\left(\frac{x^2}{3}\right)$:
+\begin{align*}
+  I(x)=\frac{1}{2}\arcsin\left(\frac{x^2}{3}\right)+C.
+\end{align*}
+This lets us evaluate the improper integral
+\begin{align*}
+  \int_0^{\sqrt{3}}\frac{x}{\sqrt{9-x^4}}dx = I(\sqrt{3})-I(0)=\frac{1}{2}\left(\frac{\pi}{2}-0\right)=\frac{\pi}{4}.
+\end{align*}
+Since the integral is well-defined, it is also convergent.
+\section*{Question 2}
+\subsection*{a)}
+\begin{claim}
+  The improper integral $\int_0^{\infty}\frac{\arctan x}{2+e^x}\:dx$ is convergent.
+\end{claim}
+\begin{proof}
+  We will prove this by showing that
+  \begin{align*}
+    0\leq \frac{\arctan x}{2+e^x} < \frac{\pi}{2}e^{-x} \text{ for all } x \geq 0
+  \end{align*}
+  and then using the \emph{Comparison Theorem}.\\
+  Firstly, observe that since
+  \begin{align*}
+    &\forall x \geq 0,\: \arctan x \geq 0,\\
+    &\forall x \geq 0,\: e^x \geq 0,
+  \end{align*} 
+  and therefore $\forall x \geq 0,\: \frac{\arctan x}{2+e^x}\geq 0$.\\
+  Secondly, note that $\forall x \in \R,\: \arctan x < \frac{\pi}{2}$. Thus we can say that
+  \begin{align*}
+    \frac{\arctan x}{2+e^x}<\frac{\pi}{2}\left(\frac{1}{2+e^x}\right).
+  \end{align*}
+  Further, 
+  \begin{align*}
+    \frac{1}{2+e^x}<\frac{1}{e^x}
+  \end{align*} 
+  and thus
+  \begin{align*}
+    \frac{\arctan x}{2+e^x}<\frac{\pi}{2}e^{-x}.
+  \end{align*}
+  Since
+  \begin{align*}
+    \int_0^\infty \frac{\pi}{2}e^{-x}dx = \frac{\pi}{2}\int_0^\infty e^{-x}dx = -\frac{\pi}{2}\left[e^{-x}\right]^\infty_0=\frac{\pi}{2},
+  \end{align*}
+  the improper integral $\int_0^\infty \frac{\pi}{2}e^{-x}dx$ is convergent. Using the \emph{Comparison Theorem} with 
+  \begin{align*}
+    f(x)&=\frac{\pi}{2}e^{-x},\\
+    g(x)&=\frac{\arctan x}{2+e^x},
+  \end{align*}
+  we can conclude that
+  \begin{align*}
+    \int_0^\infty \frac{\arctan x}{2+e^x}\:dx
+  \end{align*}
+  has to be convergent, too.
+\end{proof}
+\subsection*{b)}
+\begin{claim}
+  The improper integral $\int_2^\infty \frac{dx}{(1+x^5)^{1/6}}$ is divergent.
+\end{claim}
+\begin{proof}
+  We will prove this by showing that
+  \begin{align*}
+    0\leq \frac{1}{x}<\frac{1}{(1+x^5)^{1/6}} \text{ for all } x \geq 2
+  \end{align*}
+  and then using the \emph{Comparison Theorem}.\\
+  Firstly, observe that for $x\geq 2$
+  \begin{align*}
+    0 \leq \frac{1}{x}.
+  \end{align*}
+  Secondly, note that
+  \begin{align*}
+    \frac{1}{x}&<\frac{1}{(1+x^5)^{1/6}}\\
+    \Leftrightarrow x &>(1+x^5)^{1/6}\\
+    \Leftrightarrow x^6 &> 1+x^5
+  \end{align*}
+  which is true for all $x\geq 2$, because $2^6 > 1 + 2^5$, both $x^6$ and $1+x^5$ are continuous on $\R$ and the points of intersection are at $x\approx -0.88$ and $x\approx 1.29$, both of which are less than $2$.\\
+  Since we know the improper integral $\int_2^\infty \frac{1}{x}\:dx$ is divergent, we can use the \emph{Comparison Theorem} with
+  \begin{align*}
+    g(x)&=\frac{1}{x},\\
+    f(x)&=\frac{1}{(1+x^5)^{1/6}},
+  \end{align*}
+  to show that $\int_2^\infty \frac{dx}{(1+x^5)^{1/6}}$ is divergent, too.
+\end{proof}
+\end{document}
