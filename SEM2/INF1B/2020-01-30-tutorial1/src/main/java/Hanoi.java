@@ -1,4 +1,3 @@
-package tutorial1;
 
 public class Hanoi {
   private int count;

@@ -1,4 +1,3 @@
-package tutorial1;
 
 public class Weekend {
   public static boolean isIt(String day, int delta) throws IllegalArgumentException {
