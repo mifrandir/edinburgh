@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PPS: Homework 7 (Workshop 33)}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+\begin{claim}
+  Any integer $x\in\Z$ is divisble by $11$ if, and only if, the alternating sum of its digits is divisble by $11$.
+\end{claim}
+\section*{Problem 2}
+\begin{claim}
+  Let $p$ be a prime. Then $(p-1)!\equiv (p-1) \mod p$.
+\end{claim}
+\section*{Problem 3}
+\begin{claim}
+  Let $p$ be a prime and $p\not=2,5$. Then there exists an integer $k$ such that $p|\sum_{i=0}^k 10^i$.
+\end{claim}
+\end{document}
