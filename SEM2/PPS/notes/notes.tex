@@ -35,6 +35,9 @@
 %\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
+\newcommand*\binco[2]{\begin{pmatrix}
+    #1\\#2
+\end{pmatrix}}
 \begin{document}
 \section{Logic and the reals}
 \begin{theorem}
@@ -688,5 +691,91 @@
 \end{theorem}
 \begin{theorem}
     Let $S$ be an infinite set and let $P(S)$ denote the \textbf{power set} consisting of the subsets of $S$, i.e. $P(S) = \{A\subseteq S\}$. Then $|S|<|P(S)|$.
+\end{theorem}
+\section{Counting}
+\begin{theorem}
+    \textbf{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome. 
+    Then after $n$ stages, the total number of outcomes is $a_1\cdot a_2\cdots a_n$.
+\end{theorem}
+\begin{proposition}
+    Let $S$ have $n$ elements. Then the number of subsets is $2^n$.    
+\end{proposition}
+\begin{definition}
+    Let $S$ be a set of $n$ objects. An \textbf{ordering} of $S$ is a sequence $a_1,...,a_n$ for which each element of $S$ appears exactly once in this sequence.
+\end{definition}
+\begin{theorem}
+    \textbf{Rearrangement Theorem.} Given a set $S$ of $n$ distinct objects, there are $n!$ ways of ordering them.
+\end{theorem}
+\begin{proposition}
+    Let $S$ be a set of $n$ elmeents and $0\leq k \leq n$.    
+    \begin{enumerate}
+        \item The number of ways of picking an ordered selection of $k$ elements from $S$ (i.e. an ordered list of elements $a_1, ..., a_k\in S$) is $n^k$.
+        \item The number of ways of picking an ordered selection of $k$ distinct elements from $S$ is $\frac{n!}{(n-k)!}$.
+    \end{enumerate}
+\end{proposition}
+\begin{definition}
+    Given a set $S$ of size $n$ and an integer $0\leq k \leq n$, we let
+    \begin{align*}
+        \begin{pmatrix}
+            n\\k
+        \end{pmatrix}
+    \end{align*}
+    denote the number of subsets of $S$ of size $k$. If $k>n$, we just set $\begin{pmatrix}
+        n\\k
+    \end{pmatrix}=0$.
+\end{definition}
+\begin{theorem}
+    For integers $0\leq k \leq n$, we have
+    \begin{align*}
+        \binco{n}{k}=\frac{n!}{k!(n-k)!}.
+    \end{align*}
+\end{theorem}
+\begin{corollary}
+    For $n\geq 0$, we have
+    \begin{align*}
+        2^n = \sum_{k=0}^n \binco{n}{k}.
+    \end{align*}
+\end{corollary}
+\begin{definition}
+    Let $S$ be a nonempty set.
+    \begin{itemize}
+        \item A \textbf{partition} of $S$ is a set $\{A_1,...,A_k\}$ of nonempty subsets of $S$ so that every $x\in\S$ is in exactly one $A_i$.
+        \item An \textbf{ordered partition} of $S$ is a sequence of sets $A_1,...,A_k$ that partition $S$.
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots + r_k=n$, we denote the number of \textbf{ordered} partitions $A_1,..., A_n$ of a set $S$ such that $|A_i=r_i$ as
+    \begin{align*}
+        \binco{n}{r_1,...,r_k}.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots r_k=n$ and $k\geq 2$, 
+    \begin{align*}
+        \binco{n}{r_1, ..., r_k}=\frac{n!}{r_1!r_2!\cdots r_k!}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{The Binomial Theorem.} Let $n\in\N$ and $a,b\in\C$. Then
+    \begin{align*}
+        (a+b)^n=\sum_{k=0}^n \binco{n}{k}a^kb^{n-k}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    \textbf{The Multinomial Theorem.} Let $n\in\N$ and $x_1, ..., x_k\in\C$. Then $(x_1+\cdots+x_k)^n$ is equal to the sum over all terms of the form
+    \begin{align*}
+        \binco{n}{r_1,...,r_k}x_1^{r_1}\cdots x_k^{r_k}
+    \end{align*}
+    where $r_i\in\{0,1,...,n\}$ and $r_1+\cdots r_k=n$.
+\end{theorem}
+\begin{theorem}
+    \textbf{Inclusion-Exclusion Principle.} Let $n\geq 2$ and suppose $A_1, A_2, ..., A_n$ are sets. Let
+    \begin{align*}
+        c_1=|A_1|+|A_2|+\cdots,\:c_2=|A_1\cap A_2|+|A_1\cap A_3|+|A_2\cap A_3|+\cdots,\:\cdots
+    \end{align*}
+    and similarly, let $c_k$ be the sum of the size of the intersections every subcollection of $k$ different $A_i$'s so $c_n=|\bigcap_{k=1}^n A_k|$. Then
+    \begin{align*}
+        |A_1\cup \cdots \cup A_n| = \sum_{k=1}^n c_k (-1)^{k+1}=c_1-c_2+\cdots +c_k (-1)^{n+1}.
+    \end{align*}
 \end{theorem}
 \end{document}
