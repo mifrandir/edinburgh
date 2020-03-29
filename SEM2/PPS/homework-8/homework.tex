@@ -1,0 +1,152 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PPS: Homework 8 (Workshop 33)}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\begin{document}
+\maketitle
+\section*{Problem 1}
+\begin{claim}
+  Let $S$ be the set of functions $f:\R\to\R$ and let $\sim$ be a relation on $S$ such that $f\sim g$ if $f(x)=g(x)$ except possibly at finitely many points. 
+  Then $\sim$ is an equivalence relation.
+\end{claim}
+\begin{proof}
+  The relation is reflexive since $f(x)=f(x)$ for all $x\in\R$.\\
+  Let $A$ be a finite set such that 
+  $
+    x \in A \Leftrightarrow f(x)\not= g(x)
+  $
+  for some $f,g\in S$.
+  Then 
+  $
+    x\in A \Leftrightarrow g(x)\not=f(x)
+  $
+  and therefore $\sim$ is symmetric.\\
+  Let $f,g,h \in S$ and let $A$ and $B$ be finite sets such that 
+  \begin{align*}
+    x\in A \Leftrightarrow f(x)\not= g(x),\\
+    x\in B \Leftrightarrow g(x)\not= h(x).
+  \end{align*}
+  This implies that $f\sim g$ and $g\sim h$. Since for all $x\not\in A\cup B$
+  \begin{align*}
+    f(x)=g(x)=h(x)
+  \end{align*}
+  we conclude that $C\subseteq A \cup B$ where $C$ is the set such that $x\in C \Leftrightarrow f(x)\not=h(x)$. 
+  Since $A$ and $B$ are finite, so is $C$ and thus $f\sim h$ which makes $\sim$ transitive.\\
+  Since $\sim$ is reflexive, symmetric and transitive, it is an equivalence relation.
+\end{proof}
+\section*{Problem 2}
+\begin{claim}
+  Let $f:X\to Y$ be a function. Then $f^{-1}(f(A))=A$ for all sets $A\subseteq X$ ($P$) if, and only if, $f$ is injective ($Q$).
+\end{claim}
+\begin{proof}
+  Assume $P$, i.e. $f^{-1}(f(A))$ for all $A\subseteq X$. Note that for all $x\in X$, $\{x\}\subseteq X$. Thus
+  \begin{align*}
+    \forall x \in X,\:f^{-1}\left(f\left(\{x\}\right)\right) = \{f(x)\}.
+  \end{align*}
+  Now assume for some $x,y\in X$ such that $x\not=y$, $f(x)=f(y)$. Then
+  \begin{align*}
+    f\left(\{x\}\right)=\{f(x)\},
+  \end{align*}
+  but 
+  \begin{align*}
+    f^{-1}\left(f(\{x\})\right)=f^{-1}\left(\{f(x)\}\right)=\{x,y\}\not=\{x\}.
+  \end{align*}
+  Therefore we conclude that $f(x)=f(y)\Rightarrow x=y$, i.e. $f$ is injective. This proves $P\Rightarrow Q$.\\
+  Assume $Q$, i.e. $f$ is injective. Let $A\subseteq X$. Then $f(A)$ is the image $A$ under $f$ and therefore
+  \begin{align*}
+    f(A) = \{f(x)\:|\:x \in A\}.
+  \end{align*}
+  Similarly, $f^{-1}(f(A))$ is the preimage of $f(A)$ under $f$ and therefore
+  \begin{align*}
+    f^{-1}(f(A)) = \{x\in X\:|\: f(x) \in f(A)\}.
+  \end{align*}
+  Since $f$ is injective, we know that $f(x)=f(y)\Rightarrow x=y$, i.e. for all $y\in Y$ there exists at most one $x\in X$ such that $f(x)=y$. Thus
+  \begin{align*}
+    f^{-1}(f(A)) = A.
+  \end{align*}
+  This proves $Q\Rightarrow P$.\\  
+  Since $P\Rightarrow Q$ and $Q\Rightarrow P$, $P\Leftrightarrow Q$.
+\end{proof}
+\section*{Problem 3}
+\begin{claim}
+  Let $f:X\to Y$ and $g:Y\to Z$ be functions such that $g$ is injective and $f\circ g$ is bijective. Then $f$ is bijective.
+\end{claim}
+\begin{adjustwidth}{2em}{0pt}
+  \begin{lemma}
+    \label{l1}
+    Let $f:X\to Y$ and $g:Y\to Z$ be functions such that $f\circ g$ is bijective. Then $f$ is injective.
+  \end{lemma}
+  \begin{proof}
+    By contradiction. Assume $f$ is not injective, i.e. 
+    \begin{align*}
+      \exists x,y \in X \st x \not= y \text{ and } f(x) = f(y).
+    \end{align*}
+    Then
+    \begin{align*}
+      \exists x,y \in X \st x \not= y \text{ and } \left(f\circ g\right)(x) = \left(f\circ g\right)(y),
+    \end{align*}
+    i.e. $f\circ g$ is not injective and therefore not bijective.
+    This contradicts the premise.
+    Thus the assumption has to be unsatisfiable.
+  \end{proof}
+  \begin{lemma}
+    \label{l2}
+    Let $f:X\to Y$ and $g:Y\to Z$ be functions such that $f\circ g$ is bijective. Then $g$ is surjective.
+  \end{lemma}
+  \begin{proof}
+    By contradiction. Assume $g$ is not surjective, i.e.
+    \begin{align*}
+      \exists z \in Z \st \forall y \in Y,\:g(y) \not= z.
+    \end{align*}
+    Then
+    \begin{align*}
+      \exists z \in Z \st \forall x \in X,\: \left(f\circ g\right)(x) \not= z,
+    \end{align*}
+    i.e. $f\circ g$ is not surjective and therefore not bijective.
+    This contradicts the premise.
+    Thus the assumption has to be unsatisfiable.
+  \end{proof}
+\end{adjustwidth}
+\begin{proof}
+  By contradiction.\\
+  Using Lemma \ref{l1} we know that $f$ is injective and using Lemma \ref{l2} we know that $g$ is surjective.
+  According to the premise $g$ is also injective, which makes $g$ bijective.\\
+  Now assume $f$ is not bijective which means it is not surjective, i.e.
+  \begin{align}
+    \label{eq1}
+    \exists y \in Y \st \forall x \in X,\: f(x)\not= y.
+  \end{align}
+  Then, since $g$ is bijective,
+  \begin{align}
+    \label{eq2}
+    \exists z \in Z \st \forall x \in X,\: \left(f\circ g\right)(x)\not= z,
+  \end{align}
+  i.e. $f\circ g$ is not surjective and therefore not bijective.
+  This contradicts the premise.
+  Thus the assumption has to be unsatisfiable and $f$ is always bijective.
+\end{proof}
+\emph{Note: The step between the statements \ref{eq1} and \ref{eq2} might seem arbitrary but you can see why it is true if you plug all of $Y$ into $g$.
+You then get $g(y)=z$, $g(f(x))=(f\circ g)(x)$ and $g(Y)=Z$. Since $y_1=y_2\Leftrightarrow g(y_1)=g(y_2)$, both statements are still equivalent after the transformation of $Y$ with $g$.}
+\end{document}
