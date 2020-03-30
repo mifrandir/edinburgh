@@ -33,7 +33,7 @@
 \end{claim}
 \begin{proof}
   The relation is reflexive since $f(x)=f(x)$ for all $x\in\R$.\\
-  Let $A$ be a finite set such that 
+  Let $A\subset \R$ be a finite set such that 
   $
     x \in A \Leftrightarrow f(x)\not= g(x)
   $
@@ -42,7 +42,7 @@
   $
     x\in A \Leftrightarrow g(x)\not=f(x)
   $
-  and therefore $\sim$ is symmetric.\\
+  and, since $A$ is still finite, $\sim$ is symmetric.\\
   Let $f,g,h \in S$ and let $A$ and $B$ be finite sets such that 
   \begin{align*}
     x\in A \Leftrightarrow f(x)\not= g(x),\\
@@ -54,7 +54,7 @@
   \end{align*}
   we conclude that $C\subseteq A \cup B$ where $C$ is the set such that $x\in C \Leftrightarrow f(x)\not=h(x)$. 
   Since $A$ and $B$ are finite, so is $C$ and thus $f\sim h$ which makes $\sim$ transitive.\\
-  Since $\sim$ is reflexive, symmetric and transitive, it is an equivalence relation.
+  Since $\sim$ is reflexive, symmetric and transitive, it is an equivalence relation. 
 \end{proof}
 \section*{Problem 2}
 \begin{claim}
