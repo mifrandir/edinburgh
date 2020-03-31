@@ -31,6 +31,7 @@
 \DeclareMathOperator{\glb}{GLB}
 \DeclareMathOperator{\hcf}{hcf}
 \DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\cl}{cl}
 %\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
@@ -39,11 +40,15 @@
     #1\\#2
 \end{pmatrix}}
 \begin{document}
-\section{Logic and the reals}
+\title{Proofs and Problem Solving Notes (SEM2)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\section{Logic}
 \begin{theorem}
     If $A$ and $B$ are statements, then $A\Rightarrow B\equiv \lneg{A}\vee B$.
 \end{theorem}
-\section{The reals}
+\section{The Real Line}
 \begin{definition}
     A \B{field} is a set $F$ along with operations $+$ and $\cdot$ so that the following hold:\\
     Rules of Addition:
@@ -681,7 +686,7 @@
         f^{-1}(B) = \{x\in X:f(x)\in B\}\subseteq X.
     \end{align*}
 \end{definition}
-\section{Applications: What's bigger than $\infty$?}
+\section*{Applications: What's bigger than $\infty$?}
 \begin{definition}
     We say two sets $A$ and $B$ have the same \textbf{cardinality} if there is a bijective function $f:A\to B$, and we write $|A|=|B$ or $A\sim B$. If there is an injective map $f:A\to B$, we write $|A|\leq |B|$, and if $|A|\leq |B|$ and there is no injective map from $B$ to $A$, we write $|A|<|B|$.\\
     When $A\sim\N$, we say $A$ is \textbf{countable}.
@@ -778,4 +783,106 @@
         |A_1\cup \cdots \cup A_n| = \sum_{k=1}^n c_k (-1)^{k+1}=c_1-c_2+\cdots +c_k (-1)^{n+1}.
     \end{align*}
 \end{theorem}
+\section{Permutations}
+\begin{definition}
+    Given $n\in\N$, denote by $S_n$ the set of all bijections
+    \begin{align*}
+        \{1,2,3,4,...,n\}\to\{1,2,3,4,...,n\}.
+    \end{align*}
+    We call elements in $S_n$ \textbf{permutations} of the set $\{1,2,3,4,...,n\}$.
+\end{definition}
+\begin{lemma}
+    The set $S-N$ consists of exactly $n!$ permutations.
+\end{lemma}
+\begin{lemma}
+    The set $S_n$ equipped with the composition rule $\circ$ has the following properties:
+    \begin{itemize}
+        \item for any $f,g\in S_n$, $f\circ g\in S_n$,
+        \item for any $f,g,h\in S_n$, one has
+        \begin{align*}
+            f\circ \left(g\circ h\right)=\left(f\circ g\right)\circ h,
+        \end{align*}
+        \item there is a unique permutation $\iota \in S_n$ such that for all $f\in S_n$
+        \begin{align*}
+            f\circ \iota = \iota \circ f = f,
+        \end{align*}
+        \item for any $f\in S_n$, there is a unique $f^{-1}\in S_n$ such that
+        \begin{align*}
+            f\circ f^{-1}=f^{-1}\circ f = \iota.
+        \end{align*}
+    \end{itemize}
+\end{lemma}
+\begin{definition}
+    Let $\{a_1, a_2, ...,a_r\}$ be a non-empty subset of the set $\{1,2,...,n\}$. The permutation of $f\in S_n$ such that
+    \begin{align*}
+        f(a_1)=a_2,\: f(a_2)=a_3,...,\: f(a_{r-1})=a_r,\: f(a_r)=a_1
+    \end{align*}
+    and 
+    \begin{align*}
+        f(k)=k \Leftrightarrow k\not\in \{a_1,a_2,...,a_r\}
+    \end{align*}
+    is denoted by
+    \begin{align*}
+        (a_1\:a_2\:\cdots\:a_r)
+    \end{align*}
+    and is called a \textbf{cycle} or \textbf{cyclic permutation}.
+\end{definition}
+\begin{corollary}
+    If $a_1, ..., a_r$ are distinct numbers in $\{1,2,...,n\}$ and $f=(a_1\: a_2\: \cdots \: a_r)$, then $r$ is the smalles positive integer such that $f^r=\iota$.
+\end{corollary}
+\begin{definition}
+    If $f=(a_1\:a_2\:\cdots\: a_r)$ and $g=(b_1\:b_2\:\cdots\:b_2)$ where $\{a_1,...,a_r\}$ and $\{b_1,..., b_n\}$ are disjoint sets, we say that $f$ and $g$ are \textbf{disjoint} in $S_n$.
+\end{definition}
+\begin{proposition}
+    If $f$ and $g$ are disjoint cycles in $S_n$, then $fg=gf$.    
+\end{proposition}
+\begin{theorem}
+    Any permutation $f\in S_n$ is a composition of disjoint cycles, that is, $f=f_1\cdots f_k$ where $f_1,...,f_k$ are disjoint cycles.
+\end{theorem}
+\begin{definition}
+    Let $f$ be a permutation in $S_n$. The smallest positive integer $m$ such that
+    \begin{align*}
+        f^m = \iota
+    \end{align*}
+    is called the \textbf{order} of the permutation $f$.
+\end{definition}
+\begin{lemma}
+    Let $f\in S_n$ have order $m$. If $f^k=\iota$ for some integer $k\in\N$, then $m|k$.
+\end{lemma}
+\begin{lemma}
+    Let $f\in S_n$ and let $m$ be its order. Write
+    \begin{align*}
+        f=\sigma_1\sigma_2\cdots \sigma_s
+    \end{align*}
+    where $\sigma_1,...,\sigma_s$ are disjoint cycles of lengths $r_1, ..., r_s$ respectively, Then
+    \begin{align*}
+        m=\lcm(r_1,r_2,...,r_s).
+    \end{align*}
+\end{lemma}
+\begin{lemma}
+    Every permutation in $S_n$ is a product of cycles of length $2$.
+\end{lemma}
+\begin{definition}
+    We say a permutation $f\in S_n$ is \textbf{even} if $\sgn(f)=1$ and \textbf{odd} if $\sgn(f) = -1$.
+\end{definition}
+\begin{lemma}
+    Let $n\in\N$.
+    \begin{enumerate}
+        \item The signature of $\iota$ is $1$ and any $2$-cycle is $-1$.
+        \item For any $f,g\in S_n$, we have $\sgn(fg)=\sgn(f)\sgn(g)$.
+        \item The signature of a cycle of length $r$ is $(-1)^{r-1}$.
+        \item For every permutation $f\in S_n$, let $f=\sigma_1\sigma_2\cdots \sigma_s$ where $\sigma_1,...,\sigma_s$ are disjoint cycles of lengths $r_1,...,r_s$. Then
+        \begin{align*}
+            \sgn(f)=(-1)^{r_1-1}(-1)^{r_2-1}(-1)^{r_3-1}\cdots(-1)^{r_s-1}.
+        \end{align*}
+        \item If $f\in S_n$, then $\sgn(f)=\sgn(f^{-1})$.
+    \end{enumerate}
+\end{lemma}
+\begin{corollary}
+    Let $f$ be a permutation in $S_n$.
+    \begin{enumerate}
+        \item $f$ is even iff it is a product of even numbers of cycles of order $2$.
+        \item $f$ is odd iff it is a product of odd numbers of cycles of order $2$.
+    \end{enumerate}
+\end{corollary}
 \end{document}
