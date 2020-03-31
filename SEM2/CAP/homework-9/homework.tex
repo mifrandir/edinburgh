@@ -1,0 +1,138 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{CAP: Homework 9 (Workshop 71)}
+\author{Franz Miltz (UNN: S1971811)}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{rng}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\newtheorem{claim}[section]{Claim}
+\begin{document}
+\maketitle
+\section*{Question 1}
+\subsection*{a)}
+You can find the sketch attached to this document.
+\subsection*{b)}
+\begin{align*}
+  \frac{dy}{dx}=\frac{xy}{\sqrt{1-x}}
+\end{align*}
+Rearranging gives
+\begin{align*}
+  \frac{dy}{y}=\frac{x\:dx}{\sqrt{1-x}}.
+\end{align*}
+Now we can integrate both sides to get
+\begin{align*}
+  \ln|y| = \int \frac{x}{\sqrt{1-x}}\:dx.
+\end{align*}
+We can use $u=1-x$ and $du=-dx$ to get
+\begin{align*}
+  \ln|y| = \int \frac{u-1}{\sqrt{u}}\:du=\int \sqrt{u}\:du - \int \frac{1}{\sqrt{u}}\:du.
+\end{align*}
+Solving both integrals, we get
+\begin{align*}
+  \ln|y|=\frac{2}{3}u^{2/3}-2\sqrt{u}+C=2\sqrt{u}\left(\frac{u}{3}-1\right)+C.
+\end{align*}
+Resubstituting $u$ gives the general solution
+\begin{align*}
+  \ln|y|=\frac{2}{3}(x+2)\sqrt{1-x}+C.
+\end{align*}
+This may be rewritten as a function of $y$ in terms of $x$:
+\begin{align*}
+  y(x)=  ae^{\frac{2}{3}(x+2)\sqrt{1-x}}
+\end{align*}
+where $a=\pm e^C$.
+\subsection*{c)}
+Since $1>0$, we know that we have to find a solution where $y(x)>0$.\\
+To satisfy $y(0)=1$, we need the exponent to be $0$, i.e.
+\begin{align*}
+  0&=\frac{2}{3}(0+2)\sqrt{1-0}+C\\
+  \Leftrightarrow C &= -\frac{4}{3}.
+\end{align*}
+Therefore the required particular solution is
+\begin{align*}
+  y(x)=e^{\frac{2}{3}(x+2)\sqrt{1-x}-\frac{4}{3}}.
+\end{align*}
+The domain of this function is only limited by the term $\sqrt{1-x}$, which implies \begin{align*}
+  \dom y(x) = \{x\in\R\:|\: x\leq 1\}.
+\end{align*}
+\section*{Question 2}
+Let the sequence $\{a_n\}$ be defined by
+\begin{align*}
+  a_n = \frac{1}{n+1}+\frac{1}{n+2}+\cdots+\frac{1}{2n} \text{ for } n\in\N.
+\end{align*}
+\begin{claim}
+  The sequence $a_n$ is bounded.
+\end{claim}
+\begin{proof}
+  Firstly, note that $a_n>0$ for all $n\in\N$.
+  Secondly, since for all $k\in\N$
+  \begin{align*}
+    \frac{1}{n+k}\leq \frac{1}{n+1},
+  \end{align*}
+  we know that
+  \begin{align*}
+    a_n = \sum_{k=1}^n \frac{1}{n+k} \leq \sum_{k=1}^n \frac{1}{n+1}=\frac{n}{n+1}.
+  \end{align*}
+  Further, we know that for all $n\in\N$
+  \begin{align*}
+    \frac{n}{n+1} < 1.
+  \end{align*}
+  Therefore
+  \begin{align*}
+    a_n \leq \frac{n}{n+1} < 1.
+  \end{align*}
+  Thus $a_n$ is bounded below by $0$ and above by $1$.
+\end{proof}
+\begin{claim}
+  The sequence $a_n$ is convergent.
+\end{claim}
+\begin{proof}
+  To show this, we need to find the difference between two consecutive terms $a_{n+1}-a_n$.
+  Since the first term of the sum is dropped in each step and two more are added to the end, this works out to be
+  \begin{align*}
+    a_{n+1}-a_n = \frac{1}{2n+1}+\frac{1}{2n+2}-\frac{1}{n+1}=\frac{1}{2n+1}-\frac{1}{2n+2}.
+  \end{align*}
+  Since 
+  \begin{align*}
+    \frac{1}{2n+1}>\frac{1}{2n+2}
+  \end{align*}
+  for all $n\in\N$, we know that
+  \begin{align*}
+    a_{n+1}-a_n > 0
+  \end{align*}
+  and therefore $a_n$ is strictly increasing. 
+  Using the \emph{Monotone Convergence Theorem} we know that, since $a_n$ is bounded and strictly increasing, it has to be convergent.
+\end{proof}
+\noindent We can now calculate the first five terms of the sequence to get
+\begin{align*}
+  a_1 = \frac{1}{2}&\approx 0.5,\\
+  a_2 = \frac{7}{12}&\approx 0.58333,\\
+  a_3 = \frac{37}{60}&\approx 0.61667,\\
+  a_4 = \frac{533}{840}&\approx 0.63452,\\
+  a_5 = \frac{1627}{2520}&\approx 0.64563.
+\end{align*}
+These approximations look like $a_n$ is converging to approximately $0.7$.
+Using bigger values for $n$, you can find out that the acutal limit is closer to $0.69315$.
+\end{document}
