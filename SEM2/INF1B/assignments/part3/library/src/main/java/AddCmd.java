@@ -30,7 +30,7 @@ public class AddCmd extends LibraryCommand {
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
-        Objects.requireNonNull(argumentInput, "Given argument must not be null.");
+        Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         // We are treating the entire argument as one path. This way
         // we do not need to handle any paths including spaces.
         if (!argumentInput.endsWith(DATA_FILE_SUFFIX)) {
@@ -49,7 +49,7 @@ public class AddCmd extends LibraryCommand {
      */
     @Override
     public void execute(LibraryData data) {
-        Objects.requireNonNull(data, "Given data must not be null.");
+        Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         data.loadData(this.path);
     }
 }

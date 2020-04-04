@@ -17,6 +17,18 @@ public class RemoveCmd extends LibraryCommand {
     /** The string that separates the criteria from the term. */
     protected static final String ARG_DELIM = " ";
 
+    /**
+     * Format to be used when displaying number of books removed for a certain
+     * author.
+     */
+    protected static final String AUTHOR_COUNT_FORMAT = "%d books removed for author: %s\n";
+
+    /** Format to be used when a book has been removed by title successfully. */
+    protected static final String TITLE_SUCCESS_FORMAT = "%s: removed successfully.\n";
+
+    /** Format to be used when a book could not be removed by title. */
+    protected static final String TITLE_NO_SUCCESS_FORMAT = "%s: not found.\n";
+
     /** The title/author to remove books by. */
     private String term;
 
@@ -43,7 +55,7 @@ public class RemoveCmd extends LibraryCommand {
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
-        Objects.requireNonNull(argumentInput, "Given argument must not be null.");
+        Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         var split = Utils.splitAtFirstOccurence(argumentInput, ARG_DELIM);
         switch (split[0]) {
             case TITLE_ARG:
@@ -72,7 +84,7 @@ public class RemoveCmd extends LibraryCommand {
      */
     @Override
     public void execute(LibraryData data) {
-        Objects.requireNonNull(data, "Given data must not be null.");
+        Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         if (this.matchAuthor) {
             this.executeAuthor(data);
         } else {
@@ -99,7 +111,7 @@ public class RemoveCmd extends LibraryCommand {
                 }
             }
         }
-        System.out.printf("%d books removed for author: %s\n", removed, this.term);
+        System.out.printf(AUTHOR_COUNT_FORMAT, removed, this.term);
     }
 
     /**
@@ -112,10 +124,10 @@ public class RemoveCmd extends LibraryCommand {
         for (int i = 0; i < books.size(); i++) {
             if (books.get(i).getTitle().equals(this.term)) {
                 books.remove(i);
-                System.out.printf("%s: removed successfully.\n", this.term);
+                System.out.printf(TITLE_SUCCESS_FORMAT, this.term);
                 return;
             }
         }
-        System.out.printf("%s: not found.\n", this.term);
+        System.out.printf(TITLE_NO_SUCCESS_FORMAT, this.term);
     }
 }

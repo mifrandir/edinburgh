@@ -13,15 +13,46 @@ public class BookEntry {
      */
     public static final float MAX_RATING = 5;
 
-    // Immutable fields:
+    /** The error to be displayed if the title is null. */
+    protected static final String TITLE_NULL_ERR = "The title must not be null.";
+
+    /** The error to be displayed if the authors array is null. */
+    protected static final String AUTHORS_NULL_ERR = "The array of authors must not be null.";
+
+    /** The error to be displayed if the authors array is empty. */
+    protected static final String AUTHORS_EMPTY_ERR = "There needs to be at least one author in the authors array.";
+
+    /** The error to be displaed if one of the authors is null. */
+    protected static final String AUTHOR_NULL_ERR = "Each individual author must not be null.";
+
+    /** The error to be displayed if the rating is negative. */
+    protected static final String RATING_NEGATIVE_ERR = "The rating must not be negative.";
+
+    /** The error to be displayed if the rating is too big. */
+    protected static final String RATING_EXCEEDED_MAX_ERR = "The rating must not be greater than "
+
+            + Float.toString(MAX_RATING) + ".";
+    /** The error to be displayed if the ISBN is null. */
+    protected static final String ISBN_NULL_ERR = "The ISBN must not be null.";
+
+    /** The error to be displayed if the page number is negative. */
+    protected static final String PAGES_NEGATIVE_ERR = "The number of pages must not be negative.";
+
+    protected static final String STRING_FORMAT = "%s\nby %s\nRating: %.2f\nISBN: %s\n%d pages";
+
+    /** The title of this book. */
     private final String title;
 
+    /** The authors of this book in an array. */
     private final String[] authors;
 
+    /** The rating of this book. Guranteed to be within [0, MAX_RATING]. */
     private final float rating;
 
+    /** The ISBN of this book as a string. */
     private final String ISBN;
 
+    /** The number of pages of this book. Guranteed to be non-negative. */
     private final int pages;
 
     // Getters for the instance fields:
@@ -119,27 +150,27 @@ public class BookEntry {
      */
     private static void checkArgs(String title, String[] authors, float rating, String ISBN, int pages) {
         // Checking title
-        Objects.requireNonNull(title, "The title must not be null.");
+        Objects.requireNonNull(title, TITLE_NULL_ERR);
         // Checking authors
-        Objects.requireNonNull(authors, "The array of authors must not be null.");
+        Objects.requireNonNull(authors, AUTHORS_NULL_ERR);
         if (authors.length == 0) {
-            throw new IllegalArgumentException("There needs to be at least one author in the authors array.");
+            throw new IllegalArgumentException(AUTHORS_EMPTY_ERR);
         }
         for (String author : authors) {
-            Objects.requireNonNull(author, "Each individual author must not be null.");
+            Objects.requireNonNull(author, AUTHOR_NULL_ERR);
         }
         // Checking rating
         if (rating < 0) {
-            throw new IllegalArgumentException("The rating must not be negative.");
+            throw new IllegalArgumentException(RATING_NEGATIVE_ERR);
         }
         if (rating > MAX_RATING) {
-            throw new IllegalArgumentException("The rating must not be greater than " + Float.toString(rating) + ".");
+            throw new IllegalArgumentException(RATING_EXCEEDED_MAX_ERR);
         }
         // Checking ISBN
-        Objects.requireNonNull(ISBN, "The ISBN must not be null.");
+        Objects.requireNonNull(ISBN, ISBN_NULL_ERR);
         // Checking pages
         if (pages < 0) {
-            throw new IllegalArgumentException("The number of pages must not be negative.");
+            throw new IllegalArgumentException(PAGES_NEGATIVE_ERR);
         }
     }
 
@@ -152,8 +183,8 @@ public class BookEntry {
      */
     @Override
     public String toString() {
-        return String.format("%s\nby %s\nRating: %.2f\nISBN: %s\n%d pages", this.title, String.join(", ", this.authors),
-                this.rating, this.ISBN, this.pages);
+        return String.format(STRING_FORMAT, this.title, String.join(", ", this.authors), this.rating, this.ISBN,
+                this.pages);
     }
 
     /**

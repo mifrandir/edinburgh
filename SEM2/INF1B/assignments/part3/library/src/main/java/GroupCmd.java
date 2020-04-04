@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
+
+import jdk.jshell.execution.Util;
+
 import java.util.List;
 import java.util.Arrays;
 
@@ -17,6 +20,7 @@ public class GroupCmd extends LibraryCommand {
 
     /** The argument that is passed to group by title. */
     protected static final String TITLE_ARG = "TITLE";
+
 
     /** The indent that is used for group contents. */
     protected static final String INDENT = "    ";
@@ -45,7 +49,7 @@ public class GroupCmd extends LibraryCommand {
      */
     @Override
     protected boolean parseArguments(final String argumentInput) {
-        Objects.requireNonNull(argumentInput, "Given argument must not be null.");
+        Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         switch (argumentInput) {
             case TITLE_ARG:
                 this.byAuthor = false;
@@ -68,9 +72,9 @@ public class GroupCmd extends LibraryCommand {
      */
     @Override
     public void execute(final LibraryData data) {
-        Objects.requireNonNull(data, "Given data must not be null.");
+        Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         if (data.getBookData().size() == 0) {
-            System.out.println("The library has no book entries.");
+            System.out.println(Utils.LIBRARY_EMPTY_MESSAGE);
             return;
         }
         if (this.byAuthor) {

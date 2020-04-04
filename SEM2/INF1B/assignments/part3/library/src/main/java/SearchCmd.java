@@ -7,6 +7,17 @@ import java.util.Objects;
  */
 public class SearchCmd extends LibraryCommand {
 
+    /**
+     * The format to be used when no matchin entries where found for a certain term.
+     */
+    protected static final String NO_MATCHES_FORMAT = "No hits found for search term: %s\n";
+
+    /**
+     * Regex that matches all strings containing some whitespace. "\\s" is any
+     * whitespace in regex.
+     */
+    protected static final String CONTAINS_WHITESPACE_REGEX = ".*\\s.*";
+
     /** The substring to find. */
     private String term;
 
@@ -30,14 +41,12 @@ public class SearchCmd extends LibraryCommand {
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
-        Objects.requireNonNull(argumentInput, "Given argument must not be null.");
+        Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         if (argumentInput.isEmpty()) {
             return false;
         }
-        // Only single words are allowed. ("\\s" is the regex term for whitespace)
-        // Source:
-        // https://howtodoinjava.com/java-programs/remove-all-white-spaces-from-string/
-        if (argumentInput.matches(".*\\s.*")) {
+        // Only single words are allowed.
+        if (argumentInput.matches(CONTAINS_WHITESPACE_REGEX)) {
             return false;
         }
         this.term = argumentInput;
@@ -53,7 +62,7 @@ public class SearchCmd extends LibraryCommand {
      */
     @Override
     public void execute(LibraryData data) {
-        Objects.requireNonNull(data, "Given data must not be null.");
+        Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         // Note: This would be a single, very simple line of code if I was allowed to
         // use lambdas and streams. Instead, we're goind to do it the hard way.
         var books = data.getBookData();
@@ -66,7 +75,7 @@ public class SearchCmd extends LibraryCommand {
             }
         }
         if (hits.isEmpty()) {
-            System.out.printf("No hits found for search term: %s\n", this.term);
+            System.out.printf(NO_MATCHES_FORMAT, this.term);
             return;
         }
         for (String title : hits) {

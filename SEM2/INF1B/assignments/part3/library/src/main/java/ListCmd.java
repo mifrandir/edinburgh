@@ -18,6 +18,9 @@ public class ListCmd extends LibraryCommand {
     /** The argument to pass if the long option is desired. */
     private static final String LONG_ARG = "long";
 
+    /** The format to be used when displaying the book count. */
+    protected static final String COUNT_FORMAT = "%d books in library:\n";
+
     /***
      * Create a list command.
      * 
@@ -39,7 +42,7 @@ public class ListCmd extends LibraryCommand {
      */
     @Override
     protected boolean parseArguments(String argumentInput) {
-        Objects.requireNonNull(argumentInput, "Given argument must not be null.");
+        Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         // We need to reset isLong to the default value here as
         // this method might be called multiple times with different
         // inputs (even though the reason for that is unclear).
@@ -66,13 +69,13 @@ public class ListCmd extends LibraryCommand {
      */
     @Override
     public void execute(LibraryData data) {
-        Objects.requireNonNull(data, "Given data must not be null.");
+        Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         var count = data.getBookData().size();
         if (count == 0) {
-            System.out.println("The library has no book entries.");
+            System.out.println(Utils.LIBRARY_EMPTY_MESSAGE);
             return;
         }
-        System.out.printf("%d books in library:\n", count);
+        System.out.printf(COUNT_FORMAT, count);
         if (this.isLong) {
             this.executeLong(data);
         } else {

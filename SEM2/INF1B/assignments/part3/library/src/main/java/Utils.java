@@ -1,6 +1,26 @@
 import java.util.Objects;
 
+/**
+ * A class containing utilities like constants and functions for the entire
+ * library.
+ */
 public class Utils {
+
+    /**
+     * Error message to be displayed when a null argument string is passed to a
+     * function.
+     */
+    public static final String ARG_NULL_ERR = "The given argument must not be null.";
+
+    /**
+     * Error message to be displayed when a null-object is passed as data to a
+     * function.
+     */
+    public static final String DATA_NULL_ERR = "The given data must not be null.";
+    
+    /** The message to be displayed if the given library is empty. */
+    protected static final String LIBRARY_EMPTY_MESSAGE = "The library has no book entries.";
+
     /**
      * Splits a given string at the first occurence of a given delimiter.
      * 
