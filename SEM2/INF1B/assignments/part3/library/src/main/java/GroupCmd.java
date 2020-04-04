@@ -69,7 +69,7 @@ public class GroupCmd extends LibraryCommand {
     @Override
     public void execute(final LibraryData data) {
         Objects.requireNonNull(data, "Given data must not be null.");
-        if (data.getBookCount() == 0) {
+        if (data.getBookData().size() == 0) {
             System.out.println("The library has no book entries.");
             return;
         }

@@ -14,6 +14,9 @@ public class RemoveCmd extends LibraryCommand {
     /** The argument that is passed to remove by title. */
     protected static final String TITLE_ARG = "TITLE";
 
+    /** The string that separates the criteria from the term. */
+    protected static final String ARG_DELIM = " ";
+
     /** The title/author to remove books by. */
     private String term;
 
@@ -41,7 +44,7 @@ public class RemoveCmd extends LibraryCommand {
     @Override
     protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, "Given argument must not be null.");
-        var split = Utils.splitAtFirstOccurence(argumentInput, LibraryCommand.ARGUMENT_DELIMITER);
+        var split = Utils.splitAtFirstOccurence(argumentInput, ARG_DELIM);
         switch (split[0]) {
             case TITLE_ARG:
                 this.matchAuthor = false;

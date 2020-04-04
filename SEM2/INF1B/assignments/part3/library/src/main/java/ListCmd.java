@@ -67,7 +67,7 @@ public class ListCmd extends LibraryCommand {
     @Override
     public void execute(LibraryData data) {
         Objects.requireNonNull(data, "Given data must not be null.");
-        var count = data.getBookCount();
+        var count = data.getBookData().size();
         if (count == 0) {
             System.out.println("The library has no book entries.");
             return;

@@ -6,8 +6,6 @@ import java.util.Objects;
  */
 public abstract class LibraryCommand {
 
-	protected static String ARGUMENT_DELIMITER = " ";
-
 	/** This commands specific type. */
 	private CommandType type;
 
