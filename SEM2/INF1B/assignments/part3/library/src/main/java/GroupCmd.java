@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.Arrays;
 
 /**
- * A command that groups commands either by title or by author and prints them
- * to the standard output.
+ * A command that groups books either by title or by author and prints them to
+ * the standard output.
  */
 public class GroupCmd extends LibraryCommand {
     /** The count of groups when grouping by title. */
@@ -29,7 +29,7 @@ public class GroupCmd extends LibraryCommand {
      * 
      * @param argumentInput argument input is expected to contain "TITLE" or
      *                      "AUTHOR"
-     * @throws IllegalArgumentException if given arguments are invalid
+     * @throws IllegalArgumentException if given arguments are not as expected.
      * @throws NullPointerException     if the given argumentInput is null.
      */
     public GroupCmd(final String argumentInput) {
@@ -37,10 +37,9 @@ public class GroupCmd extends LibraryCommand {
     }
 
     /**
-     * Parses the given command input and initialises necessary parameters.
+     * Parses the given argumentInput and initialises necessary parameters.
      * 
-     * @param argumentInput argument input is expected to contain AUTHOR_ARG or
-     *                      TITLE_ARG
+     * @param argumentInput is expected to contain AUTHOR_ARG or TITLE_ARG
      * @return true if the given argument could be parsed, false otherwise.
      * @throws NullPointerException if the given argumentInput is null.
      */
@@ -87,14 +86,21 @@ public class GroupCmd extends LibraryCommand {
      * @param data the data to display
      */
     private void executeTitle(final LibraryData data) {
+        // Accumulate all the titles.
         var titles = new ArrayList<String>();
         for (BookEntry book : data.getBookData()) {
             titles.add(book.getTitle());
         }
+        // We store the titles in an array of length 27. The first 26 are for all the
+        // letters and the last one contains the digits [0-9]. (Technically speaking,
+        // letters like Ä, Ö and Ü would also end up here. This has not been caught
+        // since the specification had us assume that only [A-Za-z] and [0-9] will
+        // occur.)
         var groups = new ArrayList<ArrayList<String>>(TITLE_GROUP_COUNT);
         for (int i = 0; i < TITLE_GROUP_COUNT; i++) {
             groups.add(new ArrayList<String>());
         }
+        // Inserting titles into groups
         for (String title : titles) {
             var c = title.charAt(0);
             if (Character.isLetter(c)) {
@@ -104,6 +110,7 @@ public class GroupCmd extends LibraryCommand {
                 groups.get(TITLE_GROUP_COUNT - 1).add(title);
             }
         }
+        // Outputting the final result.
         System.out.println("Grouped data by TITLE");
         for (int i = 0; i < TITLE_GROUP_COUNT - 1; i++) {
             // Since printGroup uses a String, we need to convert our character to one.
