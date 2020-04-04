@@ -165,12 +165,33 @@ public class BookEntry {
      */
     @Override
     public boolean equals(Object o) {
+        // Initial null and class checking.
+        if (o == null) {
+            return false;
+        }
         if (o.getClass() != this.getClass()) {
             return false;
         }
         var other = (BookEntry) o;
-        return this.title.equals(other.title) && this.authors.equals(other.authors) && this.rating == other.rating
-                && this.ISBN.equals(other.ISBN) && this.pages == other.pages;
+        // Checking all fields except authors.
+        // This might be hard to read but due to the conditional ORs (||) this ensures
+        // that only the necessary checks are run. I don't know whether the Java
+        // compiler would optimize this if I used variables, but in this case it's still
+        // quite readable, so it does not really hurt.
+        if (!this.title.equals(other.title) || !(this.rating == other.rating) || !this.ISBN.equals(other.ISBN)
+                || !(this.pages == other.pages)) {
+            return false;
+        }
+        // Checking authors (length + contents).
+        if (this.authors.length != other.authors.length) {
+            return false;
+        }
+        for (int i = 0; i < this.authors.length; i++) {
+            if (!this.authors[i].equals(other.authors[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -180,6 +201,12 @@ public class BookEntry {
      */
     @Override
     public int hashCode() {
-        return Objects.hash(this.title, this.authors, this.rating, this.ISBN, this.pages);
+        // We can't just hash the authors array, we need to make them into one object.
+        // In this case we just concatinate all the fields.
+        StringBuilder sb = new StringBuilder();
+        for (String author : this.authors) {
+            sb.append(author);
+        }
+        return Objects.hash(this.title, sb.toString(), this.rating, this.ISBN, this.pages);
     }
 }

@@ -30,12 +30,6 @@ public final class CommandFactory { // the final keyword prevents subclassing of
         try {
             System.err.println(cmdType.name());
             switch (cmdType) {
-                /*
-                 * TODO Implement individual commands and comment corresponding line back in
-                 * once you have a class in place Lastly, get rid of the unsupported Operation
-                 * exception.
-                 */
-
                 case HELP:
                     return new HelpCmd(argumentInput);
                 case EXIT:

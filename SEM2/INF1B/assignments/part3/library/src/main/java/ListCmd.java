@@ -36,7 +36,7 @@ public class ListCmd extends LibraryCommand {
             System.out.println("The library has no book entries.");
             return;
         }
-        System.out.printf("%d books in library\n", count);
+        System.out.printf("%d books in library:\n", count);
         if (this.isLong) {
             this.executeLong(data);
         } else {

@@ -69,12 +69,20 @@ public class LibraryFileLoader {
      * @throws UnsupportedOperationException Not implemented yet!
      */
     public List<BookEntry> parseFileContent() {
+        if (this.fileContent == null) {
+            System.err.println("ERROR: No content loaded before parsing.");
+            return new ArrayList<BookEntry>();
+        }
         var content = this.fileContent;
         var entries = new ArrayList<BookEntry>();
-        while (content.size() > 1) {
-            var args = content.remove(content.size() - 1).split(",");
-            entries.add(new BookEntry(args[0], args[1].split("-"), Float.parseFloat(args[2]), args[3],
-                    Integer.parseInt(args[4])));
+        for (int i = 1; i < content.size(); i++) {
+            var args = content.get(i).split(",");
+            entries.add(new BookEntry(args[0], // Title
+                    args[1].split("-"), // Authors
+                    Float.parseFloat(args[2]), // Rating
+                    args[3], // ISBN
+                    Integer.parseInt(args[4]) // Pages
+            ));
         }
         return entries;
     }
