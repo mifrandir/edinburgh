@@ -41,8 +41,9 @@ public class ListCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(final String argumentInput) {
+    protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
+        argumentInput = argumentInput.trim();
         // We need to reset isLong to the default value here as
         // this method might be called multiple times with different
         // inputs (even though the reason for that is unclear).

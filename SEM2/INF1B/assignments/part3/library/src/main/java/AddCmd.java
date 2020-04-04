@@ -16,7 +16,7 @@ public class AddCmd extends LibraryCommand {
      * @throws IllegalArgumentException if given arguments are not as expected.
      * @throws NullPointerException     if the given argumentInput is null.
      */
-    public AddCmd(final String argumentInput) {
+    public AddCmd(String argumentInput) {
         super(CommandType.ADD, argumentInput);
     }
 
@@ -29,8 +29,9 @@ public class AddCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(final String argumentInput) {
+    protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
+        argumentInput = argumentInput.trim();
         // We are treating the entire argument as one path. This way
         // we do not need to handle any paths including spaces.
         if (!argumentInput.endsWith(DATA_FILE_SUFFIX)) {

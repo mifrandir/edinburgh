@@ -54,8 +54,9 @@ public class RemoveCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(final String argumentInput) {
+    protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
+        argumentInput = argumentInput.trim();
         final var split = Utils.splitAtFirstOccurence(argumentInput, ARG_DELIM);
         switch (split[0]) {
             case TITLE_ARG:

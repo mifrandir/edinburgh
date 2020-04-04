@@ -46,8 +46,9 @@ public class GroupCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(final String argumentInput) {
+    protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
+        argumentInput = argumentInput.trim();
         switch (argumentInput) {
             case TITLE_ARG:
                 this.byAuthor = false;
@@ -76,9 +77,9 @@ public class GroupCmd extends LibraryCommand {
             return;
         }
         if (this.byAuthor) {
-            this.executeAuthor(data);
+            this.groupByAuthor(data);
         } else {
-            this.executeTitle(data);
+            this.groupByTitle(data);
         }
     }
 
@@ -87,7 +88,7 @@ public class GroupCmd extends LibraryCommand {
      * 
      * @param data the data to display
      */
-    private void executeTitle(final LibraryData data) {
+    private void groupByTitle(final LibraryData data) {
         // Accumulate all the titles.
         final var titles = new ArrayList<String>();
         for (final BookEntry book : data.getBookData()) {
@@ -143,7 +144,7 @@ public class GroupCmd extends LibraryCommand {
      * 
      * @param data the data to be displayed.
      */
-    private void executeAuthor(final LibraryData data) {
+    private void groupByAuthor(final LibraryData data) {
         final var books = data.getBookData();
         final var groups = new HashMap<String, List<String>>();
         for (final BookEntry book : books) {

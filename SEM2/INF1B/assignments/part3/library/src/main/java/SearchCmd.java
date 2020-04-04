@@ -40,8 +40,9 @@ public class SearchCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(final String argumentInput) {
+    protected boolean parseArguments(String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
+        argumentInput = argumentInput.trim();
         if (argumentInput.isEmpty()) {
             return false;
         }
