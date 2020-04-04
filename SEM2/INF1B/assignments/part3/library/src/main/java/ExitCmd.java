@@ -15,8 +15,8 @@ public class ExitCmd extends LibraryCommand {
     }
 
     /**
-     * Execute the exit command. This method is not actually
-     * required for the exit command and does nothing.
+     * Execute the exit command. This method is not actually required for the exit
+     * command and does nothing.
      *
      * @param data book data to be considered for command execution.
      */

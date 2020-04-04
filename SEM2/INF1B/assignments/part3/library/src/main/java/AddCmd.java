@@ -16,7 +16,7 @@ public class AddCmd extends LibraryCommand {
      * @throws IllegalArgumentException if given arguments are not as expected.
      * @throws NullPointerException     if the given argumentInput is null.
      */
-    public AddCmd(String argumentInput) {
+    public AddCmd(final String argumentInput) {
         super(CommandType.ADD, argumentInput);
     }
 
@@ -29,7 +29,7 @@ public class AddCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(String argumentInput) {
+    protected boolean parseArguments(final String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         // We are treating the entire argument as one path. This way
         // we do not need to handle any paths including spaces.
@@ -48,7 +48,7 @@ public class AddCmd extends LibraryCommand {
      * @throws NullPointerException if the given library is null.
      */
     @Override
-    public void execute(LibraryData data) {
+    public void execute(final LibraryData data) {
         Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         data.loadData(this.path);
     }

@@ -41,7 +41,7 @@ public class RemoveCmd extends LibraryCommand {
      * @throws IllegalArgumentException if given arguments are not as expected.
      * @throws NullPointerException     if the given argumentInput is null.
      */
-    public RemoveCmd(String argumentInput) {
+    public RemoveCmd(final String argumentInput) {
         super(CommandType.REMOVE, argumentInput);
     }
 
@@ -54,9 +54,9 @@ public class RemoveCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(String argumentInput) {
+    protected boolean parseArguments(final String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
-        var split = Utils.splitAtFirstOccurence(argumentInput, ARG_DELIM);
+        final var split = Utils.splitAtFirstOccurence(argumentInput, ARG_DELIM);
         switch (split[0]) {
             case TITLE_ARG:
                 this.matchAuthor = false;
@@ -83,7 +83,7 @@ public class RemoveCmd extends LibraryCommand {
      * @throws NullPointerException if the given data is null.
      */
     @Override
-    public void execute(LibraryData data) {
+    public void execute(final LibraryData data) {
         Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         if (this.matchAuthor) {
             this.executeAuthor(data);
@@ -98,12 +98,12 @@ public class RemoveCmd extends LibraryCommand {
      * 
      * @param data the data to remove books from.
      */
-    private void executeAuthor(LibraryData data) {
-        var books = data.getBookData();
+    private void executeAuthor(final LibraryData data) {
+        final var books = data.getBookData();
         var removed = 0;
         for (int i = 0; i < books.size(); i++) {
-            var authors = books.get(i).getAuthors();
-            for (String author : authors) {
+            final var authors = books.get(i).getAuthors();
+            for (final String author : authors) {
                 if (author.equals(this.term)) {
                     books.remove(i--);
                     removed++;
@@ -119,8 +119,8 @@ public class RemoveCmd extends LibraryCommand {
      * 
      * @param data the data to remove books from.
      */
-    private void executeTitle(LibraryData data) {
-        var books = data.getBookData();
+    private void executeTitle(final LibraryData data) {
+        final var books = data.getBookData();
         for (int i = 0; i < books.size(); i++) {
             if (books.get(i).getTitle().equals(this.term)) {
                 books.remove(i);

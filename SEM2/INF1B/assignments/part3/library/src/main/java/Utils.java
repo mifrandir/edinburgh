@@ -33,13 +33,13 @@ public class Utils {
      * @throws NullPointerException     if either argument is null
      * @throws IllegalArgumentException if the delimiter is empty.
      */
-    public static String[] splitAtFirstOccurence(String s, String d) {
+    public static String[] splitAtFirstOccurence(final String s, final String d) {
         Objects.requireNonNull(s, "Given string must not be null.");
         Objects.requireNonNull(d, "Given delimiter must not be null.");
         if (d.isEmpty()) {
             throw new IllegalArgumentException("Given delimiter must not be empty.");
         }
-        int firstSpaceIdx = s.indexOf(d);
+        final int firstSpaceIdx = s.indexOf(d);
         String first, rest;
         if (firstSpaceIdx == -1) {
             first = s.strip();

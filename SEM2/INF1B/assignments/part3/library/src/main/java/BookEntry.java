@@ -123,7 +123,8 @@ public class BookEntry {
      *                                  MAX_RATING or when the number of pages is
      *                                  negative.
      */
-    public BookEntry(String title, String[] authors, float rating, String ISBN, int pages) {
+    public BookEntry(final String title, final String[] authors, final float rating, final String ISBN,
+            final int pages) {
         BookEntry.checkArgs(title, authors, rating, ISBN, pages);
         this.title = String.valueOf(title);
         this.authors = authors.clone(); // Same here as in getAuthors.
@@ -148,7 +149,8 @@ public class BookEntry {
      *                                  MAX_RATING or when the number of pages is
      *                                  negative.
      */
-    private static void checkArgs(String title, String[] authors, float rating, String ISBN, int pages) {
+    private static void checkArgs(final String title, final String[] authors, final float rating, final String ISBN,
+            final int pages) {
         // Checking title
         Objects.requireNonNull(title, TITLE_NULL_ERR);
         // Checking authors
@@ -156,7 +158,7 @@ public class BookEntry {
         if (authors.length == 0) {
             throw new IllegalArgumentException(AUTHORS_EMPTY_ERR);
         }
-        for (String author : authors) {
+        for (final String author : authors) {
             Objects.requireNonNull(author, AUTHOR_NULL_ERR);
         }
         // Checking rating
@@ -195,7 +197,7 @@ public class BookEntry {
      * @return Whether the Object is equal to this BookEntry instance.
      */
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(final Object o) {
         // Initial null and class checking.
         if (o == null) {
             return false;
@@ -203,7 +205,7 @@ public class BookEntry {
         if (o.getClass() != this.getClass()) {
             return false;
         }
-        var other = (BookEntry) o;
+        final var other = (BookEntry) o;
         // Checking all fields except authors.
         // This might be hard to read but due to the conditional ORs (||) this ensures
         // that only the necessary checks are run. I don't know whether the Java
@@ -234,8 +236,8 @@ public class BookEntry {
     public int hashCode() {
         // We can't just hash the authors array, we need to make them into one object.
         // In this case we just concatinate all the fields.
-        StringBuilder sb = new StringBuilder();
-        for (String author : this.authors) {
+        final StringBuilder sb = new StringBuilder();
+        for (final String author : this.authors) {
             sb.append(author);
         }
         return Objects.hash(this.title, sb.toString(), this.rating, this.ISBN, this.pages);

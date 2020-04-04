@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
 
-import jdk.jshell.execution.Util;
-
 import java.util.List;
 import java.util.Arrays;
 
@@ -91,8 +89,8 @@ public class GroupCmd extends LibraryCommand {
      */
     private void executeTitle(final LibraryData data) {
         // Accumulate all the titles.
-        var titles = new ArrayList<String>();
-        for (BookEntry book : data.getBookData()) {
+        final var titles = new ArrayList<String>();
+        for (final BookEntry book : data.getBookData()) {
             titles.add(book.getTitle());
         }
         // We store the titles in an array of length 27. The first 26 are for all the
@@ -100,15 +98,15 @@ public class GroupCmd extends LibraryCommand {
         // letters like Ä, Ö and Ü would also end up here. This has not been caught
         // since the specification had us assume that only [A-Za-z] and [0-9] will
         // occur.)
-        var groups = new ArrayList<ArrayList<String>>(TITLE_GROUP_COUNT);
+        final var groups = new ArrayList<ArrayList<String>>(TITLE_GROUP_COUNT);
         for (int i = 0; i < TITLE_GROUP_COUNT; i++) {
             groups.add(new ArrayList<String>());
         }
         // Inserting titles into groups
-        for (String title : titles) {
-            var c = title.charAt(0);
+        for (final String title : titles) {
+            final var c = title.charAt(0);
             if (Character.isLetter(c)) {
-                int i = Character.toLowerCase(c) - 'a';
+                final int i = Character.toLowerCase(c) - 'a';
                 groups.get(i).add(title);
             } else {
                 groups.get(TITLE_GROUP_COUNT - 1).add(title);
@@ -130,12 +128,12 @@ public class GroupCmd extends LibraryCommand {
      * @param identifier The name to display for this particular group.
      * @param contents   The contents to display in this group, line by line.
      */
-    private void printGroup(String identifier, List<String> contents) {
+    private void printGroup(final String identifier, final List<String> contents) {
         if (contents.isEmpty()) {
             return;
         }
         System.out.printf("## %s\n", identifier);
-        for (String title : contents) {
+        for (final String title : contents) {
             System.out.printf("%s%s\n", INDENT, title);
         }
     }
@@ -146,23 +144,23 @@ public class GroupCmd extends LibraryCommand {
      * @param data the data to be displayed.
      */
     private void executeAuthor(final LibraryData data) {
-        var books = data.getBookData();
-        var groups = new HashMap<String, List<String>>();
-        for (BookEntry book : books) {
-            var title = book.getTitle();
-            var authors = book.getAuthors();
-            for (String author : authors) {
+        final var books = data.getBookData();
+        final var groups = new HashMap<String, List<String>>();
+        for (final BookEntry book : books) {
+            final var title = book.getTitle();
+            final var authors = book.getAuthors();
+            for (final String author : authors) {
                 // If the key is not yet present, we create a new ArrayList.
-                var group = groups.getOrDefault(author, new ArrayList<String>());
+                final var group = groups.getOrDefault(author, new ArrayList<String>());
                 group.add(title);
                 groups.put(author, group);
             }
         }
         System.out.println("Grouped data by AUTHOR");
         // Getting an ordered array of keys.
-        var keys = groups.keySet().toArray(new String[groups.size()]);
+        final var keys = groups.keySet().toArray(new String[groups.size()]);
         Arrays.sort(keys);
-        for (String key : keys) {
+        for (final String key : keys) {
             this.printGroup(key, groups.get(key));
         }
     }

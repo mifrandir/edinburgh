@@ -73,7 +73,7 @@ public class LibraryFileLoader {
             System.err.println("ERROR: No content loaded before parsing.");
             return new ArrayList<BookEntry>();
         }
-        var content = this.fileContent;
+        final var content = this.fileContent;
         var entries = new ArrayList<BookEntry>();
         for (int i = 1; i < content.size(); i++) {
             var args = content.get(i).split(",");

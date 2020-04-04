@@ -28,7 +28,7 @@ public class SearchCmd extends LibraryCommand {
      * @throws IllegalArgumentException if given argument is not as expected.
      * @throws NullPointerException     if given argumentInput is null.
      */
-    public SearchCmd(String argumentInput) {
+    public SearchCmd(final String argumentInput) {
         super(CommandType.SEARCH, argumentInput);
     }
 
@@ -40,7 +40,7 @@ public class SearchCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(String argumentInput) {
+    protected boolean parseArguments(final String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         if (argumentInput.isEmpty()) {
             return false;
@@ -61,15 +61,15 @@ public class SearchCmd extends LibraryCommand {
      * @throws NullPointerException if the given data is null.
      */
     @Override
-    public void execute(LibraryData data) {
+    public void execute(final LibraryData data) {
         Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
         // Note: This would be a single, very simple line of code if I was allowed to
         // use lambdas and streams. Instead, we're goind to do it the hard way.
-        var books = data.getBookData();
-        var hits = new ArrayList<String>();
-        var lower = this.term.toLowerCase();
-        for (BookEntry book : books) {
-            var title = book.getTitle();
+        final var books = data.getBookData();
+        final var hits = new ArrayList<String>();
+        final var lower = this.term.toLowerCase();
+        for (final BookEntry book : books) {
+            final var title = book.getTitle();
             if (title.toLowerCase().contains(lower)) {
                 hits.add(title);
             }
@@ -78,7 +78,7 @@ public class SearchCmd extends LibraryCommand {
             System.out.printf(NO_MATCHES_FORMAT, this.term);
             return;
         }
-        for (String title : hits) {
+        for (final String title : hits) {
             System.out.println(title);
         }
     }

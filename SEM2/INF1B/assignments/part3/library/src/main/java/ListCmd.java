@@ -29,7 +29,7 @@ public class ListCmd extends LibraryCommand {
      * @throws IllegalArgumentException if the given argumentInput is not as
      *                                  expected.
      */
-    public ListCmd(String argumentInput) {
+    public ListCmd(final String argumentInput) {
         super(CommandType.LIST, argumentInput);
     }
 
@@ -41,7 +41,7 @@ public class ListCmd extends LibraryCommand {
      * @throws NullPointerException if the given argumentInput is null.
      */
     @Override
-    protected boolean parseArguments(String argumentInput) {
+    protected boolean parseArguments(final String argumentInput) {
         Objects.requireNonNull(argumentInput, Utils.ARG_NULL_ERR);
         // We need to reset isLong to the default value here as
         // this method might be called multiple times with different
@@ -68,9 +68,9 @@ public class ListCmd extends LibraryCommand {
      * @throws NullPointerException if the given data is null.
      */
     @Override
-    public void execute(LibraryData data) {
+    public void execute(final LibraryData data) {
         Objects.requireNonNull(data, Utils.DATA_NULL_ERR);
-        var count = data.getBookData().size();
+        final var count = data.getBookData().size();
         if (count == 0) {
             System.out.println(Utils.LIBRARY_EMPTY_MESSAGE);
             return;
@@ -88,8 +88,8 @@ public class ListCmd extends LibraryCommand {
      * 
      * @param data the data to display.
      */
-    private void executeLong(LibraryData data) {
-        for (BookEntry book : data.getBookData()) {
+    private void executeLong(final LibraryData data) {
+        for (final BookEntry book : data.getBookData()) {
             System.out.println(book);
             System.out.println();
         }
@@ -100,8 +100,8 @@ public class ListCmd extends LibraryCommand {
      * 
      * @param data the data to display.
      */
-    private void executeShort(LibraryData data) {
-        for (BookEntry book : data.getBookData()) {
+    private void executeShort(final LibraryData data) {
+        for (final BookEntry book : data.getBookData()) {
             System.out.println(book.getTitle());
         }
     }
