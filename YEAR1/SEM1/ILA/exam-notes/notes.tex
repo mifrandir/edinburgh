@@ -375,24 +375,24 @@
 \begin{theorem}
     Let $A$ be a square matrix. If a sequence of elementary row operations reduces $A$ to $I$, then the same sequence of elementary row operation transforms $I$ into $A^{-1}$.
 \end{theorem}
-\subsection{The LU factorization}
+\subsection{The LU factorisation}
 \begin{definition}
-    Let $A$ be a square matrix. A factorization of $A$ as $A=LU$, where $L$ is unit lower triangular and $U$ is upper triangular, is called an $\mathbf{LU\: factorization}$ of $A$.
+    Let $A$ be a square matrix. A factorisation of $A$ as $A=LU$, where $L$ is unit lower triangular and $U$ is upper triangular, is called an $\mathbf{LU\: factorisation}$ of $A$.
 \end{definition}
 \begin{theorem}
-    If $A$ is a square matrix that can be reduced to REF without using any row interchanges, then $A$ has an $LU$ factorization.
+    If $A$ is a square matrix that can be reduced to REF without using any row interchanges, then $A$ has an $LU$ factorisation.
 \end{theorem}
 \begin{theorem}
-    If $A$ is an invertible matrix that has an $LU$ factorization, then $L$ and $U$ are unique.
+    If $A$ is an invertible matrix that has an $LU$ factorisation, then $L$ and $U$ are unique.
 \end{theorem}
 \begin{theorem}
     If $P$ is a permutation matrix, then $P^{-1}=P^\intercal$.
 \end{theorem}
 \begin{definition}
-    Let $A$ be a square matrix. A factorization of $A$ as $A=P^\intercal LU$, where $P$ is a permutation matrix, $L$ is unit lower triangular, and $U$ is upper triangular, is called a \textbf{$\mathbf{P^\intercal LU}$ factorization} of $A$.
+    Let $A$ be a square matrix. A factorisation of $A$ as $A=P^\intercal LU$, where $P$ is a permutation matrix, $L$ is unit lower triangular, and $U$ is upper triangular, is called a \textbf{$\mathbf{P^\intercal LU}$ factorisation} of $A$.
 \end{definition}
 \begin{theorem}
-    Every square matrix has a $P^\intercal LU$ factorization.
+    Every square matrix has a $P^\intercal LU$ factorisation.
 \end{theorem}
 \subsection{Subspaces, Basis, Dimension, and Rank}
 \begin{definition}
@@ -766,7 +766,7 @@
 \begin{theorem}
     Let $A$ be an $n\times n$ matrix and let $\lambda_1, \lambda_2, ...,\lambda_m$ be distinct eigenvalues of $A$ with corresponding eigenvectors $\vec v_1, \vec v_2, ..., \vec v_m$. Then $\vec v_1, \vec v_2, ...,\vec v_m$ are linearly independent.
 \end{theorem}
-\subsection{Similarity and Diagonalization}
+\subsection{Similarity and Diagonalisation}
 \begin{definition}
     Let $A$ and $B$ be $n\times n$ matrices. We say that $A$ \textbf{is similar to} $B$ if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP=B$. If $A$ is similar to $B$ we write $A\sim B$.
 \end{definition}
@@ -791,26 +791,26 @@
     \end{enumerate}
 \end{theorem}
 \begin{definition}
-    An $n\times n$ matrix $A$ is \textbf{diagonalizable} if there is a diagonal matrix $D$ such that $A$ is similar to $D$ - that is, if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP = D$.
+    An $n\times n$ matrix $A$ is \textbf{diagonalisable} if there is a diagonal matrix $D$ such that $A$ is similar to $D$ - that is, if there is an invertible $n\times n$ matrix $P$ such that $P^{-1}AP = D$.
 \end{definition}
 \begin{theorem}
-    Let $A$ be an $n\times n$ matrix. Then $A$ is diagonalizable iff $A$ has $n$ linearly independent eigenvectors.\\
+    Let $A$ be an $n\times n$ matrix. Then $A$ is diagonalisable iff $A$ has $n$ linearly independent eigenvectors.\\
     More precisely, there exist an invertible matrix $P$ and a diagonal matrix $D$ such that $P^{-1}AP=D$ iff the columns of $P$ are $n$ linearly independent eigenvectors of $A$ and the diagonal entries of $D$ are the eigenvalues of $A$ corresponding to the eigenvectors in $P$ in the same order.
 \end{theorem}
 \begin{theorem}
     Let $A$ be an $n\times n$ matrix and let $\lambda_1, \lambda_2, ..., \lambda_k$ be distinct eigenvalues of $A$. If $\mathcal{B}_i$ is a basis for the eigenspace $E_{\lambda_i}$, then $\mathcal{B} = \mathcal{B}_1\cup\mathcal{B}_2\cup\cdots\cup\mathcal{B}_k$ (i.e., the total collection of basis vectors for all of the eigenspaces) is linearly independent.
 \end{theorem}
 \begin{theorem}
-    If $A$ is an $n\times n$ matrix with $n$ distinct eigenvalues, then $A$ is diagonalizable.
+    If $A$ is an $n\times n$ matrix with $n$ distinct eigenvalues, then $A$ is diagonalisable.
 \end{theorem}
 \begin{theorem}
     If $A$ is an $n\times n$ matrix, then the geometric multiplicity of each eigenvalue is less than or equal to its algebraic multiplicity.
 \end{theorem}
 \begin{theorem}
-    \textbf{The Diagonalization Theorem}\\
+    \textbf{The Diagonalisation Theorem}\\
     Let $A$ be an $n\times n$ matrix whose distinct eigenvalues are $\lambda_1, \lambda_2, ...,\lambda_k$. The following statements are equivalent:
     \begin{enumerate}
-        \item $A$ is diagonalizable.
+        \item $A$ is diagonalisable.
         \item The union of $\mathcal{B}$ of the bases of the eigenspaces of $A$ contains $n$ vectors.
         \item The algebraic multiplicity of each eigenvalue equals its geometric multiplicity.
     \end{enumerate}
@@ -927,7 +927,7 @@
     \end{align*}
 \end{theorem}
 \setcounter{theorem}{14}
-\subsection{The Gram-Schmidt Process and the QR Factorization}
+\subsection{The Gram-Schmidt Process and the QR Factorisation}
 \begin{theorem}
     \textbf{The Gram-Schmidt Process}\\
     Let $\{\vec x_1, ..., \vec x_k\}$ be a basis for a subspace $W$ of $\mathbb{R}^n$ and define the following for all $i\in\{1,...,k\}$:
@@ -938,12 +938,12 @@
     Then for each $i=1, ..., k$, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W_i$. In particular, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W$.
 \end{theorem}
 \begin{theorem}
-    \textbf{The QR Factorization}\\
+    \textbf{The QR Factorisation}\\
     Let $A$ be an $m\times n$ matrix with linearly independent columns. Then $A$ can be factored as $A=QR$, where $Q$ is an $m\times n$ matrix with orthonormal columns and $R$ is an invertible upper triangular matrix.
 \end{theorem}
-\subsection{Orthogonal Diagonalization of Symmetric Matrices}
+\subsection{Orthogonal Diagonalistion of Symmetric Matrices}
 \begin{theorem}
-    If $A$ is orthogonally diagonalizable, then $A$ is symmetric.
+    If $A$ is orthogonally diagonalisable, then $A$ is symmetric.
 \end{theorem}
 \begin{theorem}
     If $A$ is a real symmetric matrix, then the eigenvalues of $A$ are real.
@@ -959,7 +959,7 @@
 \end{enumerate}
 \begin{theorem}
     \textbf{(Finite-dimensional) Spectral theorem}\\
-    Let $A$ ben an $n\times n$ real matrix. Then $A$ is symmetric iff it is orthogonally diagonalizable.
+    Let $A$ ben an $n\times n$ real matrix. Then $A$ is symmetric iff it is orthogonally diagonalisable.
 \end{theorem}
 \subsection{Applications}
 \begin{definition}
