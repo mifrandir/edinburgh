@@ -4,7 +4,7 @@ Anything related to my time at the University of Edinburgh.
 
 ## Courses
 
-2019/20:
+### 2019/20:
 
 Semester 1:
   - Introduction to Linear Algebra (ILA), Mr Chris Sangwin & Co.
@@ -19,7 +19,7 @@ Semester 2:
   - Introductory Astrophysics (IAP), Mrs Chatherine Heymans and Mr Ross Galloway 
   - Proofs and Problem Solving (PPS), Mr Jonas Azzam and Mr Chris Sangwin
   
-2020/21:
+### 2020/21:
 
 Full year:
   - Introduction to Algorithms and Data Structures (IADS)
