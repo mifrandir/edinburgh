@@ -22,15 +22,15 @@ Semester 2:
 2020/21:
 
 Full year:
-  - Introduction to Algorithms and Data Structures
-  - Foundations of Data Science
+  - Introduction to Algorithms and Data Structures (IADS)
+  - Foundations of Data Science (FDS)
   
 Semester 1:
-  - Several Variable Caculus and Differential Equations
-  - Probability
-  - Introduction to Computer Systems (INF2C)
+  - Several Variable Caculus and Differential Equations (SVCDE)
+  - Probability (PRB)
+  - Introduction to Computer Systems (ICS)
   
 Semester 2:
   - Fundamentals of Pure Mathematics (FPM)
-  - Computing and Numerics
-  - Reasoning and Agents (INF2D)
+  - Computing and Numerics (CN)
+  - Reasoning and Agents (RA)
