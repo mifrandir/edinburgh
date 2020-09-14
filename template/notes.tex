@@ -1,87 +1,62 @@
 \documentclass{article}
 \usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
 \usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{siunitx}
+\usepackage{mathtools}
 \usepackage{hyperref}
+\usepackage{newpxtext}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\st}{s.t.}
+\DeclareMathOperator{\sech}{sech}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}} % \C defined in `hyperref'
+\DeclareMathOperator{\lub}{LUB}
+\DeclareMathOperator{\glb}{GLB}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\cl}{cl}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand*\B[1]{\textbf{#1}}
 \begin{document}
-\begin{titlepage}
-    \begin{center}
-        \LARGE Franz Miltz\\
-        \url{franz@miltz.me}\\
-        \vspace{5cm}
-        \LARGE\textbf{Introduction to Computation}\\
-        SEM1\\
-        \vspace{1cm}
-        Philip Wadler \& Micheal Fourman
-    \end{center}
-\end{titlepage}
-\tableofcontents
-\pagebreak
-\section{Lecture 1 (FP), September 17}
-\subsection{Prolog}
-\begin{itemize}
-    \item Tutorials start this week. (Thursday/Friday)
-    \item Everyone should install Haskell.
-    \item Get the Tutorial! (May involve extra steps. Sorry.)
-    \item You may read in before or after the lecture.
-\end{itemize}
-\subsection{Why FP first?}
-\begin{itemize}
-    \item Diversity is important.
-    \item Increasingly important.
-    \item Equality throughout the course.
-    \item Operate on data structure \emph{as a whole} rather than \emph{piecemeal}. $\Rightarrow$ higher level
-    \item Good for councurrency.
-    $\Leftarrow$ Everything is immutable.
-    You don't need to worry about different instances changing the data.
-\end{itemize}
-Quote of the day:
-\begin{quotation}
-    Premature optimization is the root of all evil.
-    (Philip Wadler)
-\end{quotation}
-\subsection{What is Haskell?}
-\begin{itemize}
-    \item A functional programming language
-    \item Designed by a committee 30 years ago.
-    \item Phil was part of it.
-\end{itemize}
-\subsection{What is Haskell for?}
-\begin{itemize}
-    \item Research
-    \item Teaching
-    \item Industry
-\end{itemize}
-\subsection{Families}
-\begin{itemize}
-    \item FP: Haskell, Erlang, Purescript, Racket, Scala
-    \item OO: C++, Java, C\#, Python
-\end{itemize}
-Ideas from FP have found their way into OOP. (GC, Higher-order functions, generics, list comprehension, ...)
-\subsection{Functions}
-\subsubsection{Definitions}
-\begin{itemize}
-    \item Recipe / Instructions
-    \item I/O pair set
-    \item equation
-    \item a graph
-\end{itemize}
-\subsubsection{Kinds of data}
-\begin{itemize}
-    \item integers
-    \item floats
-    \item characters
-    \item strings
-    \item booleans
-    \item pictures
-\end{itemize}
-\subsubsection{Applying a function}
-\begin{verbatim}
-invert :: Picture -> Picture
-knight :: Picture
-invert knight
-\end{verbatim}
-\subsubsection{Composing functions}
-\begin{verbatim}
-Picture 
-\end{verbatim}
+\title{My Course Title (SEMX)}
+\author{Franz Miltz}
+\maketitle
 \end{document}
