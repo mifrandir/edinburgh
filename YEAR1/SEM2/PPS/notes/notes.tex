@@ -5,6 +5,15 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{hyperref}
+\usepackage{newpxtext}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 \usepackage{nicefrac}
 \usepackage{siunitx}
 \usepackage{mathtools}
@@ -24,7 +33,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\C}{\mathbb{C}}
+\renewcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\st}{\text{ s.t }}
 \DeclareMathOperator{\lub}{LUB}
@@ -33,7 +42,6 @@
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\cl}{cl}
-%\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
 \newcommand*\binco[2]{\begin{pmatrix}
@@ -42,6 +50,7 @@
 \begin{document}
 \title{Proofs and Problem Solving Notes (SEM2)}
 \author{Franz Miltz}
+\date{May 28, 2020}
 \maketitle
 \tableofcontents
 \section{Logic}

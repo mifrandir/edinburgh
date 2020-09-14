@@ -5,7 +5,30 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{nicefrac}
 \usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{newpxtext}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\st}{s.t.}
+\DeclareMathOperator{\sech}{sech}
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
 {\upshape}        % Theorem body font % (default is "\upshape")
@@ -17,7 +40,26 @@
 \theoremstyle{sltheorem}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\sC}{\mathbb{C}} % \C doesn't work for some reason
+\DeclareMathOperator{\lub}{LUB}
+\DeclareMathOperator{\glb}{GLB}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\cl}{cl}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand*\B[1]{\textbf{#1}}
 \begin{document}
+\title{Introduction to Linear Algebra (SEM1)}
+\author{Franz Miltz}
+\date{December 01, 2019}
+\maketitle
 \section{Vectors}
 \subsection{The Geometry and Algebra of Vectors}
 \begin{theorem}
