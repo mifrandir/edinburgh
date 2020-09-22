@@ -1,0 +1,236 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{newpxtext}
+\usepackage{minted}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\st}{s.t.}
+\DeclareMathOperator{\sech}{sech}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}} % \C defined in `hyperref'
+\DeclareMathOperator{\lub}{LUB}
+\DeclareMathOperator{\glb}{GLB}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\cl}{cl}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand*\B[1]{\textbf{#1}}
+\newcommand*\T[1]{\texttt{#1}}
+\usepackage{expl3}[2012-07-08]
+\ExplSyntaxOn
+\cs_new_eq:NN \fpeval \fp_eval:n
+\ExplSyntaxOff
+\begin{document}
+\title{Introduction to Computer Systems (SEM3)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\section{Design Principles}
+\begin{enumerate}
+	\item Simplicity favours regularity.
+	\item Smaller is faster.
+	\item Good design demands good compromises.
+	\item Make the common case fast.
+\end{enumerate}
+\section{MIPS}
+\subsection{Instructions}
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	Category & Instruction & Example & Meaning	\\
+	\hline
+	\hline
+	Arithmetic & add & \T{add \$s1,\$s2,\$s3} & \T{\$s1 = \$s2 + \$s3} \\
+	\hline
+	Arithmetic & sub & \T{sub \$s1,\$s2,\$s3} & \T{\$s1 = \$s2 - \$s3} \\
+	\hline
+\end{tabular}
+\subsection{Fields}
+\begin{itemize}
+	\item \B{op}: Basic operation of the instruction
+	\item \B{rs}: The first register source operand
+	\item \B{rt}: The second register source operand
+	\item \B{rd}: The register destination operand
+	\item \B{shamt}: Shift amount
+	\item \B{funct}: Function
+\end{itemize}
+\newcommand{\cellw}{1.2cm}	
+\begin{tabular}{l l}
+	\B{R-type:} &
+	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} |}
+		\hline
+		op & rs & rt & rd & shamt & funct \\
+		\hline 
+		6 bits & 5 bits & 5 bits & 5 bits & 5 bits & 6 bits\\
+		\hline	
+	\end{tabular}\\\\
+	\B{I-type:} &
+	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} p{\cellw} p{\cellw} |}
+		\hline
+		op & rs & rt & address & & \\
+		\hline
+		6 bits & 5 bits & 5 bits & 16 bits & & \\
+		\hline
+	\end{tabular}\\\\
+	\B{J-type:} &
+	\begin{tabular}{| p{\cellw} | p{\cellw} p{\cellw} p{\cellw} p{\cellw} p{\cellw} |}
+		\hline
+		op & address & & & & \\
+		\hline
+		6 bits & 26 bits & & & & \\
+		\hline
+	\end{tabular}
+\end{tabular}
+\subsection{Procedures}
+Should follow the following steps:
+\begin{enumerate}
+	\item Place parameters in a place where the procedure can access them.
+	\item Transfer control to the procedure.
+	\item Acquire the storage resources needed for the procedure.
+	\item Perform the desired task.
+	\item Place the result value in a place where the calling program can access it.
+	\item Return control to the point of origin.
+\end{enumerate}
+The allocated registers are:
+\begin{itemize}
+	\item \T{\$a0-\$a3}: argument registers to pass parameters
+	\item \T{\$v0-\$v1}: two value registers in which to return values
+	\item \T{\$ra}: return address register to return to the point of origin
+\end{itemize}
+\subsection{Addressing}
+\subsubsection{Register addressing}
+Operands are registers.\\ Example: \T{add \$v0,\$a0,\$a1}.
+\subsubsection{Base addressing}
+Operand is a memory location whose address is the sum of a register and a constant in the instruction.\\
+Example: \T{add 0(\$a0),4(\$a0),8(\$a0)}
+\subsubsection{Immediate addressing}
+Operand is a constant within the instruction.\\
+Example: \T{addi \$v0,\$v0,2}
+\subsubsection{PC-relative addressing}
+Address is the sum of the PC and a constant in the instruction.\\
+Example: \T{beq \$a0,\$a1,L1}
+\subsubsection{Pseudodirect addressing}
+The 26-bits of the address are concatenated with the upper 4 bits of the PC.\\
+Example: \T{j L1}
+\subsection{Idioms}
+\subsubsection{Conditionals}
+\B{Simple equality:}
+\begin{minted}{C}
+if (a == b) {
+	a = a + b
+}
+\end{minted}
+Assume \T{a} is in \T{\$t0} and \T{b} is in \T{\$t1}.
+\begin{verbatim}
+      bne      $t0,$t1,Exit
+      add      $t0,$t1,$t0
+Exit: # more code
+\end{verbatim}
+\B{\T{max(a,b)} function:}
+\begin{minted}{C}
+if (a > b) {
+	c = a
+} else {
+	c = b
+}
+\end{minted}
+Assume \T{a,b,c} are in \T{\$t0-\$t2}.
+\begin{verbatim}
+       slt $t3,$t1,$t0
+       beq $t3,$zero,ELSE
+       add $t2,$t0,$zero
+       j ENDIF
+ELSE:  add $t2,$t1,$zero
+ENDIF: 
+\end{verbatim}
+\subsubsection{Loops}
+\subsubsection{Procedures}
+\B{Pushing/Poppping values:}
+\begin{verbatim}
+push: li  $t0,4
+      sub $sp,$sp,$t0
+      sw  $v0,0($sp)
+pop:  lw  $v0,0($sp)
+      li  $t0,4
+      add $sp,$sp,$t0
+\end{verbatim}
+\section{Assembler, Linker and Loader}
+To run a set of \emph{pseudoinstructions}, you need three programs:
+\begin{enumerate}
+	\item Assembler: Turns human readable assembly into machine code.
+	\item Linker: Turns machine code module and library routines into executable.
+	\item Loader: Loads executable into memory and starts execution.
+\end{enumerate}
+\subsection{Assembler}
+\begin{enumerate}
+	\item expands syntactic sugar (e.g. \T{move}, \T{blt}, ...)
+	\item validates references (and replaces big branches)
+	\item converts instructions to binary
+\end{enumerate}
+The output of the assembler is called an \emph{object file}. A Unix object file contains
+\begin{enumerate}
+	\item object header
+	\item text segment
+	\item data segment
+	\item relocation information
+	\item symbol table
+	\item debugging information
+\end{enumerate}
+More info at \emph{P\&H, Section 3.9, Page 157}.
+\subsection{Linker}
+\begin{enumerate}
+	\item Places code and data modules symbolically in memory.
+	\item Determines the addresses of data and instruction labels.
+	\item Patches both the internal and external references.
+\end{enumerate}
+More info at \emph{P\&H, Section 3.9, Page 158}.
+\subsection{Loader}
+\begin{enumerate}
+	\item Reads header to determine size of text and data segments.
+	\item Creates address space large enough for the text and data.
+	\item Copies the instructions and data into memory.
+	\item Copies the parameters (if any) to the main program onto the stack.
+	\item Initialises machine registers and sets stack pointer.
+	\item Jumps to start-up routine. When \T{main} exits, returns with \T{exit} system call.
+\end{enumerate}
+\end{document}
