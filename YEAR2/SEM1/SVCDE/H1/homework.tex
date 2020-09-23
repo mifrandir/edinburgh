@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{SVCDE: Homework 1}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\begin{document}
+\date{27th September 2020}
+\maketitle
+\section*{Problem 1}
+Let $P$ be a plane given by the equation
+\begin{align*}
+  x - 2y + 4z = 5.
+\end{align*}
+Then the vector
+\begin{align*}
+  \vec n = \ih - 2 \jh + 4 \kh
+\end{align*}
+is normal to $P$. Thus a line $L$ perpendicular to $P$ has to be
+parallel to $\vec n$. The line parallel to $\vec n$ that goes through
+the point $(1,-2,3)$ with the position vector $\vec p$ is traced by the position vector
+\begin{align*}
+  \vec r(t) = \vec p + t \vec n
+  = (\ih - 2\jh + 3\kh) + t(\ih - 2\jh + 4\kh).
+\end{align*}
+Therefore we get
+\begin{align*}
+  \vec r (t) = f(t)\ih + g(t)\jh + h(t)\kh = (1+t)\ih+(-2-2t)\jh+(3+4t)\kh.
+\end{align*}
+\section*{Problem 2}
+The curve with the equation $y=f(x)$ has the parametrisation
+\begin{align*}
+  \vec r(x) = x \ih + f(x) \jh.
+\end{align*}
+Then the curvature $\K$ at a point $(x, f(x))$ is given by
+\begin{align*}
+  \K(x) = \frac{\left|\dv T(x)\right|}{\left|\dv r(x)\right|}.
+\end{align*}
+We know that 
+\begin{align}
+  \label{eq1}
+  \dv r (x) = \ih + \d f(x) \jh.
+\end{align}
+Further, the tangent unit vector $\vec T(x)$ is defined by
+\begin{align*}
+  \vec T(x) = \frac{\dv r(x)}{\left|\dv r(x)\right|}.
+\end{align*}
+Therefore we get
+\begin{align*}
+  \K(x) = \frac{\left|\frac{\dv r(x)}{\left|\dv r(x)\right|}\right|}{\left|\dv r(x)\right|}
+\end{align*}
+Using the fact that for all $\vec v \in \R^n$ and $r\in\R$
+\begin{align*}
+  \left|r\vec v\right| = r\left|\vec v\right|,
+\end{align*}
+we get
+\begin{align*}
+  \K(x) = \frac{\left|\dv r(x)\right|}{\left|\dv r(x)\right|^2} = \frac{1}{|\dv r(x)|}.
+\end{align*}
+With (\ref{eq1}) we get
+\begin{align*}
+  \K(x) = \frac{1}{\sqrt{1+\left(\d f(x)\right)^2}}.
+\end{align*}
+\section*{Problem 3}
+Let
+\begin{align*}
+  \dv r(t) = t\ih + \frac{4}{3}t^{3/2}\jh + \frac{1}{2}t^2\kh
+\end{align*}
+be a position vector function. 
+Then the length $L$ of the curve for $0\leq t \leq 2$ is given by
+\begin{align*}
+  L = \int_0^2 \left|\dv r(t)\right|dt.
+\end{align*}
+We find
+\begin{align*}
+  \dv r(t) = \ih + 2\sqrt{t}\:\jh + t^2\kh
+\end{align*}
+and thus
+\begin{align*}
+  |\dv r(t)| = \sqrt{1 + 4t + t^2}=|t+1|.
+\end{align*}
+Since for $t\in[0,2]$ the value $|\dv r(t)|=|t+1|$ is never
+negative, $L$ is given by
+\begin{align*}
+  L = \int_0^2 (t+1)dt = \left[\frac{1}{2}t^2+t\right]_0^2=4.
+\end{align*}
+\end{document}
