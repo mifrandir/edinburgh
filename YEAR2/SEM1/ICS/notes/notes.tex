@@ -66,6 +66,74 @@
 \author{Franz Miltz}
 \maketitle
 \tableofcontents
+\section{Data Representation}
+Data representation affects
+\begin{itemize}
+	\item complexity of circuits
+	\item cost
+	\item speed 
+	\item reliability
+\end{itemize}
+\subsection{The bit}
+Advantages:
+\begin{itemize}
+	\item easy to use
+	\item very reliable
+	\item simple \& reusable circuits
+\end{itemize}
+Downside: Low information density
+\subsection{Fixed bit-length arithmetic}
+Issue: Hardware cannot operate on infinitely big numbers.
+\begin{definition}
+	An \textbf{Overflow} happens when a result does not fit the representation.
+	Arithmetic therefore is module $2^N$, where $N$ is the number of bits.
+\end{definition}
+\subsection{Negative numbers}
+\subsubsection{Sign-magnitude representation}
+\begin{itemize}
+	\item use MSB as the sign
+	\item $1$ means negative, $0$ means positive
+\end{itemize}
+Problems: \begin{itemize}
+	\item Complicates addition and substraction
+	\item has positive and negative zero
+\end{itemize}
+\subsubsection{Two's complement representation}
+Idea:
+\begin{itemize}
+	\item Want: $X + (-X) = 0$
+	\item With fixed length arithmetic: $X + (-X) \equiv 0 \mod 2^N$
+	\item Approach:
+	\begin{itemize}
+		\item Represent $-X$ as $2^N-X$
+		\item Then $X + (-X) = X + (2^N - X) = 2^N$ and $2^N \equiv 0 \mod 2^N$
+	\end{itemize}
+\end{itemize}
+Properties:
+\begin{itemize}
+	\item The MSB is the sign
+	\item Change $X$ to $-X$ is easy: Flip the bits and add $1$
+	\item $A-B$ is the same as $A+(-B)$; same circuit
+	\item Operations do not depend on the operands' signs
+	\item Range is asymmetric: $[-2^{n-1}, 2^{n-1}-1]$
+	\item Two kinds of overflows 
+\end{itemize}
+\subsection{Sign extension}
+Process of converting from a smaller to a larger representation.
+MSB is extended to all the new bits.
+\subsection{Shifting}
+Moving the bits of a number left or right.
+\begin{itemize}
+	\item left shifts: \begin{itemize}
+		\item zeros fill in the empty bits
+		\item equivalent to multiplication by $2$
+	\end{itemize}
+	\item right shifts \begin{itemize}
+		\item logical shift: fill with zero, for non-numerical data
+		\item arithmetic shift: fill with MSB, for two's complement numbers
+		\item equivalent to integer division by $2$
+	\end{itemize}
+\end{itemize}
 \section{Design Principles}
 \begin{enumerate}
 	\item Simplicity favours regularity.
