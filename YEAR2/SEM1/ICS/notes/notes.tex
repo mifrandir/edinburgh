@@ -121,6 +121,24 @@ Properties:
 \subsection{Sign extension}
 Process of converting from a smaller to a larger representation.
 MSB is extended to all the new bits.
+\subsection{Overflow detection}
+\begin{enumerate}
+	\item If numbers with \B{opposite signs} are \B{added}, no overflow is possible.
+	\item If numbers with \B{identical signs} are \B{substracted}, no overflow is possible.
+\end{enumerate}
+\begin{tabular}{| c | c | c | c |}
+	\hline
+	Operation & Operand A & Operand B & Result of Overflow\\
+	\hline
+	$A + B$ & $\geq 0$ & $\geq 0$ & $<0$\\
+	\hline
+	$A + B$ & $< 0$    & $< 0$    & $\geq 0$\\
+	\hline
+	$A - B$ & $\geq 0$ & $< 0$    & $<0$\\
+	\hline
+	$A - B$ & $< 0$    & $\geq 0$ & $\geq 0$\\
+	\hline
+\end{tabular}
 \subsection{Shifting}
 Moving the bits of a number left or right.
 \begin{itemize}
