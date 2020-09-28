@@ -211,7 +211,30 @@ This results in the number
 	\item Make the common case fast.
 \end{enumerate}
 \section{MIPS}
+\begin{definition}
+	The \B{instruction set architecture} (ISA) is the interface between
+	the software and the hardware.
+	\begin{itemize}
+		\item Collection of all machine instructions recognised by
+					a particular processor.
+		\item privilege levels, memory managment, etc.
+		\item abstracts away implementation details away from the user
+		\item enables multiple implementations of the same ISA
+	\end{itemize}
+\end{definition}
+\begin{definition}
+	\B{Assembly language} is a symbolic representation of machine instructions
+	\begin{itemize}
+		\item makes it easy for humans to read and write machine code
+		\item 1-to-1 mapping between a machine instructions and a corresponding
+			    assembly instruction
+	\end{itemize}
+\end{definition}
 \subsection{Instructions}
+\begin{itemize}
+	\item Separate instructions to \B{access} data in memory \& operate on it.
+\end{itemize}
+
 \begin{tabular}{| l | l | l | l |}
 	\hline
 	Category & Instruction & Example & Meaning	\\
@@ -231,7 +254,7 @@ This results in the number
 	\item \B{shamt}: Shift amount
 	\item \B{funct}: Function
 \end{itemize}
-\newcommand{\cellw}{1.2cm}	
+\newcommand{\cellw}{1.3cm}	
 \begin{tabular}{l l}
 	\B{R-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} |}
