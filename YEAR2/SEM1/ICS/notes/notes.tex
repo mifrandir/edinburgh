@@ -118,10 +118,10 @@ Properties:
 	\item Range is asymmetric: $[-2^{n-1}, 2^{n-1}-1]$
 	\item Two kinds of overflows 
 \end{itemize}
-\subsection{Sign extension}
+\subsubsection{Sign extension}
 Process of converting from a smaller to a larger representation.
 MSB is extended to all the new bits.
-\subsection{Overflow detection}
+\subsubsection{Overflow detection}
 \begin{enumerate}
 	\item If numbers with \B{opposite signs} are \B{added}, no overflow is possible.
 	\item If numbers with \B{identical signs} are \B{substracted}, no overflow is possible.
@@ -150,6 +150,57 @@ Moving the bits of a number left or right.
 		\item logical shift: fill with zero, for non-numerical data
 		\item arithmetic shift: fill with MSB, for two's complement numbers
 		\item equivalent to integer division by $2$
+	\end{itemize}
+\end{itemize}
+\subsection{Floating point numbers}
+\subsubsection{Normalised scientific notation}
+All floating point binary numbers are represented in the form
+\begin{align*}
+	(-1)^S 1.a_1a_2\cdots a_n \cdot 2^E.
+\end{align*}
+Advantages:
+\begin{itemize}
+	\item Simplifies machine representation.
+	\item Simplifies comparisons.
+	\item More compact for very small/large numbers.
+\end{itemize}
+\subsubsection{IEEE 754 Floating Point standard}
+32 bit:
+\begin{tabular}{| l | l | l | l |}
+	\hline
+	word length & sign ($S$) & exponent ($E$) & mantissa ($M$)\\
+	\hline
+	\hline
+	32 bit & 1 bit & 8 bits & 23 bits\\
+	\hline
+	64 bit & 1 bit & 11 bits & 52 bits\\
+	\hline
+\end{tabular}\\\\
+This results in the number
+\begin{align*}
+	(-1)^S \times (1.M) \times 2^{E-127}.
+\end{align*}
+\subsection{Characters}
+\subsubsection{ASCII}
+\begin{itemize}
+	\item most common
+	\item each character is one byte (just 256 characters)
+\end{itemize}
+\subsubsection{Unicode}
+\begin{itemize}
+	\item used by Java
+	\item two bytes per character
+	\item enough for all languages on earth
+\end{itemize}
+\subsubsection{Length}
+\begin{itemize}
+	\item variable length
+	\item computer needs to know where it ends
+	\item options:
+	\begin{itemize}
+		\item last character is \T{NULL} (C)
+		\item length is stored with the string itself (Java)
+		\item stored in separate variable 
 	\end{itemize}
 \end{itemize}
 \section{Design Principles}
