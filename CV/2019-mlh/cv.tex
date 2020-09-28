@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Wenneker Resume/CV
+% LaTeX Template
+% Version 1.1 (19/6/2016)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Frits Wenneker (http://www.howtotex.com) with extensive modifications by 
+% Vel (vel@LaTeXTemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper,12pt]{memoir} % Font and paper size
+\input{structure.tex} % Include the file specifying document layout and packages
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION 
+%----------------------------------------------------------------------------------------
+
+\userinformation{ % Set the content that goes into the sidebar of each page
+\begin{flushright}
+% Comment out this figure block if you don't want a photo
+\includegraphics[width=\columnwidth]{photo.jpg}\\[\baselineskip] % Your photo
+\small % Smaller font size
+Franz Miltz \\ % Your name
+\url{franz@miltz.me} \\ % Your email address
++44 7493 992290 \\ % Your phone number
+GitHub: miltfra\\
+\Sep % Some whitespace
+\textbf{Address} \\
+8/6 Grindlay Street \\ % Address 3
+Edinburgh\\
+EH3 9AS\\
+United Kingdom
+\vfill % Whitespace under this block to push it up under the photo
+\end{flushright}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\userinformation % Print your information in the left column
+
+\framebreak % End of the first column
+
+%----------------------------------------------------------------------------------------
+%	HEADING
+%----------------------------------------------------------------------------------------
+
+\cvheading{Franz Miltz} % Large heading - your name
+
+\cvsubheading{Computer Science and Mathematics Student} % Subheading - your occupation/specialization
+
+%----------------------------------------------------------------------------------------
+%	ABOUT ME
+%----------------------------------------------------------------------------------------
+
+\aboutme{About Me}{
+	I was born on December 6th, 2001 and am currently studying at The University of Edinburgh in my first year.\\
+	I started programming in 2012 and have yet to stop learning.
+	My computer science lessons in school have taught be way more than I could have ever hoped for.\\
+	I believe that every human has something I can learn from them.
+}
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\CVSection{Education}
+
+%------------------------------------------------
+
+\CVItem{2019-present, The University of Edinburgh}{BSc Hons Computer Science and Mathematics}
+
+%------------------------------------------------
+
+\CVItem{2011-2019, Max-Steenbeck-Gymnasium Cottbus}{Abitur (final grade: 1.0)}
+
+%------------------------------------------------
+
+\Sep % Extra whitespace after the end of a major section
+
+%----------------------------------------------------------------------------------------
+%	EXPERIENCE
+%----------------------------------------------------------------------------------------
+
+\CVSection{Achievements}
+
+%------------------------------------------------
+
+\CVItem{Dr. Hans Riegel Fachpreis\\
+(Award for outstanding scientific papers in secondary school)}{1st prize of the University of Potsdam in Computer Science in 2019}
+
+
+\CVItem{Bundeswettbewerb Informatik\\
+(German programming competition)}{
+\begin{itemize}
+	\item 36th (2017/18): qualification for second round
+	\item 37th (2018/19): qualification for second round
+\end{itemize}
+}
+
+\CVItem{Mathematics Olympiad}{
+	\begin{itemize}
+		\item 2013, 2015-18: qualification for third round (state-wide)
+	\end{itemize}
+}
+
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+
+\Sep % Extra whitespace after the end of a major section
+
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+\CVSection{Skills}
+
+%------------------------------------------------
+
+\CVItem{Programming Languages}
+{\begin{itemize}
+	\item practical experience: Rust, C, Java, Go, Python
+	\item theoretical knowledge: C++, Haskell, Kotlin, C\#
+\end{itemize}}
+\CVItem{Languages}{
+	\begin{itemize}
+		\item German (native)
+		\item English (C1-C2)
+		\item French (B1-B2)
+	\end{itemize}
+}
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+
+\Sep % Extra whitespace after the end of a major section
+
+%----------------------------------------------------------------------------------------
+%	NEW PAGE DELIMITER
+%	Place this block wherever you would like the content of your CV to go onto the next page
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	AWARDS
+%----------------------------------------------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS
+%----------------------------------------------------------------------------------------
+
+\CVSection{Interests}
+
+%------------------------------------------------
+
+\CVItem{Technical}{
+	\begin{itemize}
+		\item algorithmic problem solving
+		\item open-source software
+		\item competetive programming
+		\item data analysis
+	\end{itemize}
+}
+\CVItem{Miscellaneous}{\begin{itemize}
+	\item e-sports
+	\item cooking
+	\item cycling
+\end{itemize}}
+
+%------------------------------------------------
+
+
+%------------------------------------------------
+
+\Sep % Extra whitespace after the end of a major section
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
