@@ -9,6 +9,14 @@
 \usepackage{siunitx}
 \usepackage{mathtools}
 \usepackage{fontspec}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 \setmainfont{arial}
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
@@ -26,12 +34,14 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\C}{\mathbb{C}}
+\renewcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\st}{\text{ s.t }}
 \newcommand{\ih}{\widehat i}
 \newcommand{\jh}{\widehat j}
 \newcommand{\kh}{\widehat k}
+\newcommand{\p}{\partial}
+\newcommand{\grad}{\vec\triangledown}
 \DeclareMathOperator{\lub}{LUB}
 \DeclareMathOperator{\glb}{GLB}
 \DeclareMathOperator{\hcf}{hcf}
@@ -143,6 +153,250 @@
     \begin{align*}
         \vec N(t) &= \vec B(t) \times \vec T(t)\\
         \vec T(t) &= \vec N(t) \times \vec B(t)
+    \end{align*}
+\end{theorem}
+\section{Partial differentiation}
+\subsection{Functions of several variables}
+\begin{definition}
+    A function of $n$ variables $f(x_1, x_2, ..., x_n)$ maps an $n$-tuple
+    of real numbers $(x_1, x_2, ..., x_n)$ in domain $D\subseteq\R^n$ to
+    a unique real number in the range
+    \begin{align*}
+        \{f(x_1, x_2, ..., x_n)|(x_1, x_2, ..., x_n)\in D\} \subseteq \R.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    The \B{level curves} of a function $f(x,y)$ are curves with equations
+    $f(x,y)=k$ where $k$ is a constant in the range of $f$.
+\end{definition}
+\begin{definition}
+    The \B{level surfaces} of a function $f(x,y,z)$ are surfaces with
+    equations $f(x,y,z)=k$ where $k$ is a constant in the range of $f$.
+\end{definition}
+\subsection{Limits \& continuity}
+\subsubsection{Limits}
+\begin{definition}
+    Suppose the domain $D$ of a function $f:D\to\R$ includes points
+    arbitrarily close to the point $P$ with position vector $\vec p$.
+    Then
+    \begin{align*}
+        \lim_{\vec x\to \vec p}f(\vec x)=L
+    \end{align*}
+    if for every $\epsilon>0$ there exists a $\delta > 0$ such that
+    \begin{align*}
+        0 < |\vec x - \vec p| < \delta \:\Rightarrow\: |f(\vec x)-L|<\epsilon
+    \end{align*}
+    for $\vec x \in D$.\\\\
+    Note: The definition is independent of the direction of approach to the
+    limit point $\vec p$. Thus, if
+    \begin{align*}
+        &f(\vec x)\to L_1 \text{ as } \vec x\to\vec p \text{ along a path } C_1, \text{ and}\\
+        &f(\vec x)\to L_2 \text{ as } \vec x\to\vec p \text{ along a path } C_2
+    \end{align*}
+    where $L_1 \not= L_2$, then $\lim_{\vec x\to\vec p} f(\vec x)$ does not exist.
+\end{definition}
+\begin{theorem}
+    The limit laws carry over from functions of one variable case:
+    \begin{enumerate}
+        \item $\lim_{\vec x\to\vec p}\left(f(\vec x)\pm g(\vec x)\right) =
+               \lim_{\vec x\to\vec p}f(\vec x)\pm\lim_{\vec x\to\vec p}g(\vec x)$.
+        \item $\lim_{\vec x\to\vec p}\left(cf(\vec x)\right) =
+              c\lim_{\vec x\to\vec p}f(\vec x)$ where $c$ is a constant.
+        \item $\lim_{\vec x\to\vec p}\left(f(\vec x)g(\vec x)\right) =
+               \left(\lim_{\vec x\to\vec p}f(\vec x)\right)
+               \left(\lim_{\vec x\to\vec p}g(\vec x)\right)$.
+        \item $\lim_{\vec x\to\vec p}\frac{f(\vec x)}{g(\vec x)}
+               =\frac{\lim_{\vec x\to\vec p}f(\vec x)}{\lim_{\vec x\to\vec p}g(\vec x)}$
+               provided that $\lim_{\vec x\to\vec p}g(\vec x)\not=0$.
+    \end{enumerate}
+\end{theorem}
+\subsubsection{Continuity}
+\begin{definition}
+    A function $f:D\to R$ with $D\subseteq\R^n$ and $R\subseteq\R$
+    is called \B{continuous} at a point $P$ with position vector $\vec p\in \R^n$
+    \begin{align*}
+        \lim_{\vec x\to \vec p}f(\vec x) = f(\vec p);
+    \end{align*}
+    and $f$ is \B{continuous on $S\subseteq D$} if it is continuous at 
+    every point in $S$.
+\end{definition}
+\subsection{Partial derivatives}
+\begin{definition}
+    Consider a function $f:\R^n\to\R$. The $n$ \B{partial derivatives} of
+    $f$ are defined by
+    \begin{align*}
+        f_{x_i}(\vec x)\equiv\frac{\p f}{\p x_i}=\lim_{\delta\to 0}\frac{f(\vec x + \delta \vec e_i)-f(\vec x)}{\delta}
+    \end{align*}
+    where $i\in[1,n]$, $x_i$ is the $i$th component of $\vec x$ and $\vec e_i$ is the
+    $i$th standard unit vector.
+\end{definition}
+Notation for higher derivatives:
+\begin{align*}
+    (f_x)_x \equiv f_{xx} \equiv f_{11} 
+    &\equiv \frac{\p}{\p x}\frac{\p f}{\p x} 
+    \equiv \frac{\p^2 f}{\p x^2}
+    \equiv \frac{\p^2 z}{\p x^2}\\
+    (f_x)_y \equiv f_{xy} \equiv f_{12} 
+    &\equiv \frac{\p}{\p y}\frac{\p f}{\p x} 
+    \equiv \frac{\p^2 f}{\p y \p x}
+    \equiv \frac{\p^2 z}{\p y \p x}\\
+\end{align*}
+\begin{theorem}
+    Suppose $f(x,y)$ is defined on a disk $D$ containing the point $(a,b)$.
+    If the partial derivatives $f_{xy}$ and $f_{yx}$ are both continuous
+    on $D$ then
+    \begin{align*}
+        f_{xy}(a,b)=f_{yx}(a,b).
+    \end{align*}
+\end{theorem}
+\subsection{Tangent planes and linear approximations}
+\subsubsection{Tangent planes}
+\begin{definition}
+    Consider a surface $S$ with equation $z=f(x,y)$ where $f_x$ and $f_y$
+    are both continuous. Then the \B{tangent plane} to the surface $S$
+    is given by the equation
+    \begin{align*}
+        z - z_0 = f_x(x_0, y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
+    \end{align*}
+\end{definition}
+\subsubsection{Linear approximation}
+\begin{definition}
+    The linear function
+    \begin{align*}
+        L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a),
+    \end{align*}
+    is called the \B{linearisation} of $f(x,y)$ at $(a,b)$, and the
+    approximation
+    \begin{align*}
+        f(x,y)\approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a)
+    \end{align*}
+    is called the \B{linear approximation} of $f(x,y)$ at $(a,b)$.\\
+    The graph of the linearisation is the tangent plane of $f(x,y)$ at
+    $(a,b)$.
+\end{definition}
+\begin{definition}
+    Consider the change in $z=f(x,y)$ as we move from the point
+    $(a,b)$ to the point $(a+\Delta x, b+\Delta y)$. The
+    corresponding \B{increment} in $z$ is
+    \begin{align*}
+        \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y 
+        + \epsilon_1\Delta x + \epsilon_2\Delta y.
+    \end{align*}
+    The function $f(x,y)$ is \B{differentiable} if $\Delta z$
+    may be expressed as
+    \begin{align*}
+        \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
+        + \epsilon_1\Delta x + \epsilon_2\Delta y
+    \end{align*}
+    where $\epsilon_1, \epsilon_2 \to 0$ as 
+    $(\Delta x, \Delta y)\to(0,0)$.
+\end{definition}
+\begin{theorem}
+    If the partial derivatives $f_x$ and $f_y$ exist near
+    $(a,b)$ and are continuous at $(a,b)$, then $f(x,y)$
+    is differentiable at $(a,b)$.
+\end{theorem}
+\subsubsection{Differentials}
+\begin{definition}
+    For the function $z=f(x,y)$, \B{differentials} $dx$ and $dy$ are
+    defined to be independent variables. The \B{total differential} $dz$
+    is then defined as
+    \begin{align*}
+        dz = f_x(x,y)dx + f_y(x,y)dy 
+        = \frac{\p z}{\p x}dx + \frac{\p z}{\p y}dy.
+    \end{align*}
+\end{definition}
+\subsection{The chain rule}
+\subsubsection{Formulations}
+\begin{theorem}[Chain rule - case 1]
+    Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
+    where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$.
+    Then $z$ is a differentiable function of $t$ and
+    \begin{align*}
+        \frac{dz}{dt}=
+        \frac{\p f}{\p x}\frac{dx}{dt}+\frac{\p f}{\p y}\frac{dy}{dt}
+        \equiv \frac{\p z}{\p x}\frac{dx}{dt}+\frac{\p z}{\p y}\frac{dy}{dt}
+    \end{align*}
+\end{theorem}
+\begin{theorem}[Chain rule - case 2]
+    Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
+    where $x=g(s,t)$ and $y=h(s,t)$ are both differentiable functions of
+    $s$ and $t$. Then
+    \begin{align*}
+        \frac{\p z}{\p s}=\frac{\p z}{\p x}\frac{\p x}{\p s}
+        + \frac{\p z}{\p y}\frac{\p y}{\p s}
+        \text{\hspace{1cm}and\hspace{1cm}}
+        \frac{\p z}{\p t}=\frac{\p z}{\p x}\frac{\p x}{\p t}
+        + \frac{\p z}{\p y}\frac{\p y}{\p t}.
+    \end{align*} 
+\end{theorem}
+\begin{theorem}[Chain rule - general case]
+    Suppose that $z$ is a differentiable function of the $n$ variables
+    $x_1, x_2, ..., x_n$, and each $x_j$ is a differentiable function of
+    the $m$ variables $t_1,t_2, ...,t_m$. Then
+    \begin{align*}
+        \frac{\p z}{\p t_i}=
+        \frac{\p z}{\p x_1}\frac{\p x_1}{\p t_i}
+        + \frac{\p z}{\p x_2}\frac{\p x_2}{\p t_i}
+        + \cdots
+        + \frac{\p z}{\p x_n}\frac{\p x_n}{\p t_i}
+    \end{align*} 
+\end{theorem}
+\subsubsection{Implicit differentiation}
+\begin{definition}
+    Suppose that $z$ is given implicitly as a function $z=f(x,y)$ by an
+    equation of the form
+    \begin{align*}
+        F(x,y,z)=0.
+    \end{align*}
+    Provided that $F$ and $f$ are differentiable, use the Chain rule to
+    differentiate paritally w.r.t. $x$:
+    \begin{align*}
+        \frac{\p F}{\p x}\frac{\p x}{\p x}+\frac{\p F}{\p y}\frac{\p y}{\p x}
+        + \frac{\p F}{\p z}\frac{\p z}{\p x} &= 0\\
+        \frac{\p F}{\p x} + \frac{\p F}{\p z}\frac{\p z}{\p x} &= 0
+    \end{align*}
+\end{definition}
+\begin{theorem}[Implicit Function Theorem]
+    If $F(x,y,z)$ is defined within a sphere containing $(a,b,c)$
+    where $F(a,b,c)=0, F_z(a,b,c)\not=0$ and $F_x,F_y$ and $F_z$ are
+    continuous inside the sphere, then
+    \begin{align*}
+        F(x,y,z)=0
+    \end{align*} 
+    defines $z$ as a differentiable function of $x$ and $y$ near the
+    point $(a,b,c)$.
+\end{theorem}
+\subsection{Directional derivatives and the gradient vector}
+\subsubsection{Directional derivatives}
+\begin{definition}
+    The \B{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
+    direction of a unit vector $\vec u=a\ih + b\jh$ is defined as
+    \begin{align*}
+        D_{\vec u}f(x_0, y_0)= \lim_{\delta \to 0}\frac{f(x_0+\delta a, y_0 + \delta b)-f(x_0, y_0)}{\delta}.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    If $f$ is a differentiable function of $x$ and $y$, then $f$
+    has a directional derivative in the direction of any unit vector
+    $\vec u=a\ih + b\jh$ and
+    \begin{align*}
+        D_{\vec u}f(x,y) = af_x(x,y) + bf_y(x,y).
+    \end{align*}
+\end{theorem}
+\subsubsection{Gradient vector}
+\begin{definition}
+    The \B{gradient} of the scalar function $f(x,y)$ is the vector
+    function defined as
+    \begin{align*}
+        \grad f(x,y)=\frac{\p f}{\p x}\ih + \frac{\p f}{\p y}\jh.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    The directional derivative may be expressed in terms of gradients
+    as 
+    \begin{align*}
+        D_{\vec u}f(x,y)=\grad f(x,y)\cdot \vec u
     \end{align*}
 \end{theorem}
 \end{document}
