@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{SVCDE: Hand-in 2}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\p}{\partial }
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\begin{document}
+\date{4th October 2020}
+\maketitle
+\section*{Problem 1}
+Since the plane $P$ is supposed to be parallel to the $yz$ plane, it
+has to have the form $x=a$ where $a\in\R$ is a constant.
+Additionally, both partial derivatives of $x$ need to be zero at the
+point $(a,b,c)$ that lies within the plane and the given surface.
+With
+\begin{align*}
+  x = y^2 - 4yz - 2z^2 + 8y + 2z -3
+\end{align*}
+we get the partial derivatives
+\begin{align*}
+  \frac{\p x}{\p y}&=2y - 4z + 8,\text{ and}\\
+  \frac{\p x}{\p z}&=-4y-4z+2.
+\end{align*}
+Since we require $\frac{\p x}{\p y}=\frac{\p x}{\p z}=0$ for
+some $y=b$ and $z=c$, we get
+\begin{align*}
+  2b - 4c + 8 &= 0,\\
+  4b + 4c - 2 &= 0.
+\end{align*}
+Adding these gives $6b + 6 = 0$ and thus $b=-1$.
+By inserting this solution we get $c=\nicefrac{3}{2}$. 
+To find $a$ we just need to evaluate $x$ for $y=b$ and $z=c$:
+\begin{align*}
+  a = x(b,c) = (-1)^2 - 4(-1)\frac{3}{2} - 2\left(\frac{3}{2}\right)^2
+      + 8(-1) + 2\left(\frac{3}{2}\right) - 3 = - \frac{11}{2}. 
+\end{align*}
+\section*{Problem 2}
+Let $ z = \ln\frac{x^2}{1-y^3}$. Then the partial derivatives are
+\begin{align*}
+  \frac{\p z}{\p x}
+  &=\frac{1-y^3}{x^2}\left(\frac{\p}{\p x}\frac{x^2}{1-y^3}\right)
+  =\frac{2x(1-y^3)}{x^2(1-y^3)}
+  =\frac{2}{x}, \text{ and}\\
+  \frac{\p z}{\p y}
+  &=\frac{1-y^3}{x^2}\left(\frac{\p}{\p y}\frac{x^2}{1-y^3}\right)
+  =\frac{3x^2(1-y^3)y^2}{x^2(1-y^3)^2}
+  =\frac{3y^2}{1-y^3}.
+\end{align*}
+\section*{Problem 3}
+We are looking for the differential $dQ$ where
+\begin{align*}
+  Q(p, \theta, R)=p^3\sin^2\theta R^{-2}.
+\end{align*}
+By definition, $dQ$ is
+\begin{align*}
+  dQ=\frac{\p Q}{\p p}dp + \frac{\p Q}{\p\theta}d\theta + \frac{\p Q}{\p R}dR.
+\end{align*}
+We find
+\begin{align*}
+  \frac{\p Q}{\p p}&= 3p^2\sin^2\theta R^{-2},\\
+  \frac{\p Q}{\p\theta}&= 2p^3R^{-2}\sin\theta\cos\theta,\\
+  \frac{\p Q}{\p R}&=-2p^3\sin^2\theta R^{-3}.
+\end{align*}
+With $p=1$, $\theta=\nicefrac{\pi}{2}$, $R=10$, $dp=0.01$,
+$d\theta = 0.002$ and $dR=0.05$ we get
+\begin{align*}
+  \frac{\p Q}{\p p}dp&=0.015\cdot0.01 = 1.5\cdot 10^{-4},\\
+  \frac{\p Q}{\p\theta}d\theta&=0.01\cdot 0.002=2\cdot 10^{-5},\\
+  \frac{\p Q}{\p R}dR&=-0.001\cdot 0.05=5\cdot 10^{-5}.
+\end{align*}
+Therefore the maximum error may be estimated as
+\begin{align*}
+  dQ=1.5\cdot 10^{-4}+2\cdot 10^{-5} - 5\cdot10^{-5}=1.2\cdot10^{-4}.
+\end{align*}
+With a value of $Q(1,\pi/4,10)=5\cdot10^{-3}$ we therefore get a
+relative error of approximately 
+\begin{align*}
+  \frac{1.2\cdot10^{-4}}{5\cdot 10^{-3}}=2.4\%.
+\end{align*}
+\end{document}
