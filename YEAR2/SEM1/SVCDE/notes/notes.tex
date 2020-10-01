@@ -48,6 +48,7 @@
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\cl}{cl}
+\newcommand{\dv}[1]{\vec #1\:'}
 %\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
@@ -129,11 +130,15 @@
 \end{definition}
 \begin{definition}
     For a smooth curved traced out by the position vector $\vec r(t)$ with the unit tangent vector 
-    $\vec T(t)$ the \B{curvature} $\mathcal{K}$ is defined as
+    $\vec T(t)$ the \B{curvature} $\kappa$ is defined as
     \begin{align*}
-        \mathcal{K} = \left|\frac{d\vec T}{ds}\right|=\frac{\left| \vec T'(t)\right|}{\left|\vec r'(t)\right|}
+        \kappa = \left|\frac{d\vec T}{ds}\right|=\frac{\left| \vec T'(t)\right|}{\left|\vec r'(t)\right|}
     \end{align*}
     where $s$ is the arc length.
+    Alternatively
+    \begin{align*}
+        \kappa = \frac{\left|\dv r(t) \times \dv r'(t)\right|}{|\dv r(t)|^3}
+    \end{align*}
 \end{definition}
 \subsection{Normal and binormal vectors}
 \begin{definition}
