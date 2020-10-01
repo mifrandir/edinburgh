@@ -9,6 +9,14 @@
 \usepackage{siunitx}
 \usepackage{mathtools}
 \usepackage{fontspec}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
 \setmainfont{arial}
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
@@ -26,9 +34,10 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
-\newcommand{\C}{\mathbb{C}}
+\renewcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
 \newcommand{\st}{\text{ s.t }}
 \newcommand{\ih}{\widehat i}
 \newcommand{\jh}{\widehat j}
@@ -140,4 +149,83 @@
         \P(A\cup B)=\P(A) + \P(B) - \P(A\cap B).
     \end{align*}
 \end{theorem}
+\section{Trees, Binomial random variables, independence}
+\subsection{The binomial distribution}
+\begin{definition}
+    Let $E$ be an experiment with a sample space $S$.
+    Let $P\subseteq S$ be the set of successful outcomes.
+    Then the event
+    \begin{align*}
+        A:\:\text{$E$ is performed $n$ times with exactly $k$ successes.}
+    \end{align*}
+    has the probability
+    \begin{align*}
+        \P(A) = \binom{n}{k}p^k (1-p)^{n-k}
+    \end{align*}
+    where $p$ is the probability of a successful outcome.
+\end{definition}
+\subsection{Independence}
+\begin{definition}
+    Two events $A,B\subseteq S$ are \B{independent} if
+    \begin{align*}
+        \P(A\cap B) = \P(A)\P(B).
+    \end{align*}
+    We say two events are \B{dependent} if they are not independent.
+\end{definition}
+\subsection{Random variables}
+\begin{definition}
+    A \B{random variable} is a function on the sample space.
+\end{definition}
+\begin{definition}
+    The \B{standard uniform random variable} on $\{1,2,...,n\}$ is a random variable $X$ such that
+    \begin{align*}
+        \P(X=k)=\frac{1}{k}\text{ for }k\in\N, k\leq n.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    A \B{Bernoulli random variable} with parameter $p$ (where $0\leq p\leq 1$) is a random variable
+    taking just the two values $0$ and $1$ such that $\P(X=1)=p$ and $\P(X=0)=q$ where $q=1-p$.
+\end{definition}
+\begin{definition}
+    A \B{Binomial random variable} with parameters $n\in\N$ and $p$ (where $0\leq p\leq 1$) is a
+    random variable taking values $\{0,1,...,n\}$ with
+    \begin{align*}
+        \P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    Let $X,Y$ be random variables defined on the same discrete sample space. 
+    Then $X$ and $Y$ are \B{independent} if for all values of $x,y$ we have
+    \begin{align*}
+        \P(X=x \text{ and } Y=y) = \P(X=x)\P(Y = y).
+    \end{align*}
+\end{definition}
+\subsection{Expected value}
+\begin{definition}
+    Let $X$ be a random variable that takes a countable number of different
+    numerical values $x_i$. Let the probability that $X$ takes the value $x_i$
+    be denoted $p_i$.\\
+    The \B{expected value $\E(X)$} of $X$ is defined to be
+    \begin{align*}
+        \E(X) = \sum_i p_i x_i.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    Let $X,Y,Z$ be random variables on the sample space $S$.
+    Then $Z$ is a linear combination of $X$ and $Y$ if
+    \begin{align*}
+        Z = sX + tY
+    \end{align*}
+    for some $s,t\in\R$.
+\end{definition}
+\begin{theorem}
+    Let $X,Y$ be discrete random variables and $r\in\R$. Then
+    \begin{itemize}
+        \item $\E(rX)=r\E(X)$.
+        \item $\E(X + Y) = \E(X) + \E(Y)$.
+    \end{itemize}
+\end{theorem}
+\begin{proposition}
+    Let $X\sim\text{Binom}(n,p)$. Then $\E(X)=np$.
+\end{proposition}
 \end{document}
