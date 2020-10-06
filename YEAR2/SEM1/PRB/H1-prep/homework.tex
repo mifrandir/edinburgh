@@ -1,0 +1,205 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PRB: Workshop 1 Solutions}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\renewcommand{\P}{\mathbb{P}}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand{\E}{\mathbb{E}}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\begin{document}
+\date{6th October 2020}
+\maketitle
+\section*{Problem 1}
+Let $X$ be the number of times that a run of 4 consecutive tosses
+contains an equal number of heads and tails when tossing a coin 99 times.
+Observe that
+\begin{align*}
+  X=X_1 + X_2 + \cdots X_{96}
+\end{align*}
+where each $X_i$ is a Bernoulli random variable that is $1$ if, 
+and only if, there are exactly two heads and two tails in the tosses
+$[i, i+3]$. Furthermore, we can define $Y_i$ as the number of heads
+in each of these intervalls. Since $Y_i\sim \text{Binom}(4,0.5)$,
+we get
+\begin{align*}
+  \E(X_i) = \P(Y=2) = \binom{4}{2}\left(\frac{1}{2}\right)^2\left(\frac{1}{2}\right)^2=\frac{3}{8}.
+\end{align*}
+Since all $X_i$ are discrete variables, we can apply \emph{Theorem 2.5.6}
+to get
+\begin{align*}
+  \E(X) = \E(X_1) + \E(X_2) + \cdots \E(X_{96}).
+\end{align*}
+Using the fact that all $\E(X_i)$ are equal, we can simplify this to get
+\begin{align*}
+  \E(X) = 96\cdot\E(X_1) = \frac{96\cdot3}{8}=36.
+\end{align*}
+\section*{Problem 2}
+Using the binomial distribution we get
+\begin{align*}
+  p_n = \binom{2n}{n}\left(\frac{1}{2}\right)^n\left(\frac{1}{2}\right)^n
+  =\binom{2n}{n}\frac{1}{2^{2n}}.
+\end{align*}
+We can rewrite this by inserting the definition of the binomial
+coefficient:
+\begin{align*}
+  p_n = \frac{(2n)!}{(n!)^2}\cdot\frac{1}{2^{2n}}=\frac{(2n)!}{(n!)^2\cdot 2^{2n}}.
+\end{align*}
+To approximate $p_n$ for large $n$, we use insert \emph{Stirlings formula}
+to get
+\begin{align*}
+  p_n \approx \frac{
+    \frac{(2n)^{2n}}{e^{2n}}\sqrt{4\pi n}
+  }{
+    \left(\frac{n^n}{e^n}\sqrt{2\pi n}\right)^2\cdot 2^{2n}}.
+\end{align*}
+Fortunately, we can simplify this to get
+\begin{align*}
+  p_n\approx \frac{
+    \frac{2^{2n}\cdot n^{2n}}{e^{2n}}\cdot2\sqrt{\pi n}
+  }{
+    \frac{n^{2n}}{e^{2n}}\cdot 2\pi n\cdot 2^{2n}}=\frac{1}{\sqrt{\pi n}}.
+\end{align*}
+Rewriting this into the desired form, we get
+\begin{align*}
+  p_n\approx C / n^\alpha = \pi^{-\nicefrac{1}{2}}/n^{\nicefrac{1}{2}}.
+\end{align*}
+So $C=\pi^{-\nicefrac{1}{2}}$ and $\alpha=\nicefrac{1}{2}$.
+\section*{Problem 3}
+Let $X$ be the number of points $A$ scores when playing five more points.
+For the probability of A winning the game in question
+to be $\nicefrac{1}{2}$, we equivalently require
+\begin{align*}
+  \P(X\geq 4) = \nicefrac{1}{2}.
+\end{align*}
+We can split this up to get
+\begin{align*}
+  \P(X = 5) + \P(X = 4) = \nicefrac{1}{2}.
+\end{align*}
+Since $X\sim\text{Binom(5,p)}$, we get
+\begin{align*}
+  \binom{5}{5}p^5q^0+\binom{5}{4}p^4q^1=\nicefrac{1}{2},
+\end{align*}
+which may be simplified to
+\begin{align*}
+  p^5+5p^4(1-p) &= \nicefrac{1}{2}\\
+  \Leftrightarrow 5p^4-4p^5&=\nicefrac{1}{2}
+\end{align*}
+Finding an exact solution to this polynomial is unrealistic.
+Therefore we can use Wolfram Alpha to compute three possible real solutions:
+\begin{align*}
+  p_n \in \{-0.516..., 0.686..., 1.187...\}.
+\end{align*}
+Since we also know $p\in[0,1]$ simply because we are dealing with a
+probability, we get
+\begin{align*}
+  p\in \{-0.516..., 0.686..., 1.187...\} \cap [0,1] \Rightarrow p \approx 0.686=68.6\%.
+\end{align*}
+\section*{Problem 4}
+Let there be two players: Alice and Bob. Let Alice be the one to pick
+a coin and let Bob be the one to guess. Then we define the following
+events:
+\begin{align*}
+  A:&\:\text{"Alice picks a 10 pence coin.", and}\\
+  B:&\:\text{"Bob guesses it's a 20 pence coin."}.
+\end{align*}
+Therefore $\P(A)=p$ and $\P(B)=s$. 
+Now, let $X$ be Bobs winnings. Then we find
+\begin{align*}
+  \P(X=10) &= \P(A\cap B^c) = \P(A)\P(B^c) = p(1-s),\text{ and}\\
+  \P(X=20) &= \P(A^c\cap B) = \P(A^c)\P(B) = (1-p)s.
+\end{align*}
+Thus the expected value of $X$ is
+\begin{align*}
+  \E(X) = 10p(1-s)+20(1-p)s = 10(p - 3ps + 2s).
+\end{align*}
+Note that we can omit the case where $X=0$ because it does
+not contribute anything to the weighted sum.
+\subsection*{Challenge}
+Let $f=\E(X)$ be a function of the independent variables $p$ and $s$.
+Then we get
+\begin{align*}
+  f_p(p,s)=\frac{\partial f(p,s)}{\partial p} = 10(1-3s)
+\end{align*}
+and
+\begin{align*}
+  f_s(p,s)=\frac{\partial f(p,s)}{\partial s} = 10(2-3p).
+\end{align*}
+This lets us observe some interesting properties:
+\begin{enumerate}
+  \item If $s=\nicefrac{1}{3}$, $f_p$ is $0$ which means the choice of
+        $p$ does not influence the value of $\E(X)$.
+  \item Similarly, if $p=\nicefrac{2}{3}$, $f_s$ is $0$.
+\end{enumerate}
+Therefore, for all $p$ and $s$, the extreme values lie on the boundaries
+of the intervall $[0,1]$. Thus we can classify the choices of $(p,s)$ with
+respect to $(\nicefrac{2}{3}, \nicefrac{1}{3}$). Since the extreme values
+in the quadrants around that point are at the corners of the range of
+$f$ and we assume that both players are trying to maximise their 
+winnings/minimise their losses it only makes sense to choose either
+$0$ or $1$ if they think their opponent is more likely to pick one of the
+sides (with respect to $\nicefrac{1}{3}$ or $\nicefrac{2}{3}$) for their
+probability. Let us therefore investigate the following values of $f$:
+\begin{align*}
+  f(0,0)&=0,\\
+  f(0,1)&=20,\\
+  f(1,0)&=10,\\
+  f(1,1)&=0.
+\end{align*}
+This shows that picking $p$ and $s$ is the same as picking either
+coin from both players point of view. Assuming that neither player
+can predict what the other will choose, this leaves us with the following
+suggestions, if we assume both players are aware of their sensible options.\\
+Alice should not pick $p=0$ as this gives her a $50\%$ chance of losing 
+(again, assuming both $p<\nicefrac{2}{3}$ and $p>\nicefrac{2}{3}$ 
+are equally likely values for $s$)
+which is the same for $p=1$ but here she only puts 10 pence on the line.
+We don't need to consider Bob picking $s=\nicefrac{1}{3}$ from Alices
+point of view because Alice cannot influence $\E(X)$ in that case anyways.
+This leaves the last option for Alice as $p=\nicefrac{2}{3}$. 
+By Choosing this, Alice can force $\E(X)=\nicefrac{20}{3}$. 
+We can see that this is worse than the expected value of the 
+expected value when choosing $p=1$ which is $10\cdot\nicefrac{1}{2}=5$. 
+Thus \emph{if Alice has no reason to believe that Bob is more likely 
+to choose either $p\leq\nicefrac{2}{3}$ or $p\leq\nicefrac{2}{3}$
+she should pick $s=1$}.\\
+Similarly, it does not make a lot of sense for Bob to choose $s=0$.
+From his point of view, it is not sensible to force 
+$\E(X)=\nicefrac{20}{3}$ with $s=\frac{1}{3}$ because he has to 
+assume that the expected value of the expected value 
+after choosing $s=1$ is $20\cdot \frac{1}{2}=10$.\\
+This line of thinking leads to the possibility that Alice \emph{and}
+Bob are equally as likely to choose either $0$ or $1$. This lets us
+estimate an expected value of the expected value as $7.5$. Interestingly
+this is greater than what Alice could have forced the expected value to 
+be.
+\end{document}
