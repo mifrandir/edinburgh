@@ -246,7 +246,7 @@ Notation for higher derivatives:
     \equiv \frac{\p^2 f}{\p y \p x}
     \equiv \frac{\p^2 z}{\p y \p x}\\
 \end{align*}
-\begin{theorem}
+\begin{theorem}[Clairaut's Theorem]
     Suppose $f(x,y)$ is defined on a disk $D$ containing the point $(a,b)$.
     If the partial derivatives $f_{xy}$ and $f_{yx}$ are both continuous
     on $D$ then
@@ -403,5 +403,156 @@ Notation for higher derivatives:
     \begin{align*}
         D_{\vec u}f(x,y)=\grad f(x,y)\cdot \vec u
     \end{align*}
+\end{theorem}
+\subsubsection{Functions of 3 variables}
+\begin{definition}
+    The gradient vector of $f(x,y,z)$ is
+    \begin{align*}
+        \vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih + \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
+    \end{align*}
+\end{definition}
+\subsubsection{Maximising the directional derivative}
+\begin{theorem}
+    Suppose $f$ is a differentiable function of two or three variables.
+    The maximum value of the directional derivative $D_{\vec u}f$ is
+    $|\grad f|$ and it occurs when $\vec u$ is aligned with the gradient
+    vector $\grad f$.
+\end{theorem}
+\subsubsection{Tangent planes to level surfaces}
+\begin{theorem}
+    Suppose $S$ is a surface described by the equation $F(x,y,z)=k$ where
+    $k\in\R$ is a constant. Let $C$ be any curve that lies on $S$, passing
+    through the point $(x_0,y_0,z_0)$. We describe $C$ by the position vector
+    function
+    \begin{align*}
+        \vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
+    \end{align*}
+    such that the parameter value $t=t_0$ corresponds to $(x_0, y_0, z_0)$.
+    Provided that $x,y,z$ are all differentiable functions of $t$ and $F$
+    is a differentiable function of $x,y,z$, it holds that
+    \begin{align*}
+        \grad F \cdot \dv r(t) = 0.
+    \end{align*}
+    In particular, at $t=t_0$ we have
+    \begin{align*}
+        \grad F(x_0, y_0, z_0)\cdot \dv r(t_0) = 0.
+    \end{align*}
+    Thus the gradient vector at $(x_0, y_0, z_0)$ is perpendicular to the
+    tangent vector $\dv r(t)$ for any curve $C$ that passes through 
+    $(x_0, y_0, z_0)$.
+\end{theorem}
+\begin{definition}
+    Provided that $\grad F(x_0, y_0, z_0)\not=\vec 0$, we define the
+    \B{tangent plane to the level surface} $F(x,y,z)=k$ at $(x_0, y_0, z_0)$
+    as the plane that passes through $(x_0, y_0, z_0)$ and has normal vector
+    $\grad F(x_0, y_0, z_0)$.
+\end{definition}
+\begin{theorem}
+    The equation of the tangent plane to the level surface may be written as
+    \begin{align*}
+        F_x(x_0, y_0, z_0)(x-x_0)+F_y(x_0, y_0, z_0)(y-y_0)+F_z(x_0, y_0, z_0)(z-z_0)=0.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    The \B{normal line} to surface $S$ at $(x_0, y_0, z_0)$ is the line
+    passing through $(x_0, y_0, z_0)$ that is perpendicular to the tangent
+    plane. Thus its direction is given by the gradient vector 
+    $\grad F(x_0, y_0, z_0)$.
+\end{definition}
+\begin{theorem}
+    The equation of the normal plane to the level surface may be written as
+    \begin{align*}
+        \frac{x-x_0}{F_x(x_0, y_0, z_0)}
+        =\frac{y-y_0}{F_y(x_0, y_0, z_0)}
+        =\frac{z-z_0}{F_z(x_0, y_0, z_0)}.
+    \end{align*}
+\end{theorem}
+\subsection{Maximum and minimum values}
+\subsubsection{Functions of 2 variables}
+\begin{definition}
+    A function $f(x,y)$ has a \B{local maximum} at $(a,b)$ if $f(x,y)\leq f(a,b)$
+    for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
+    is then called the \B{local maximum value}.
+\end{definition}
+\begin{definition}
+    A function $f(x,y)$ has a \B{local minimum} at $(a,b)$ if $f(x,y)\geq f(a,b)$
+    for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
+    is then called the \B{local minimum value}.
+\end{definition}
+\begin{definition}
+    If the inequalities in these two definitions hold for all points in the
+    domain of $f(x,y)$, then $f(x,y)$ has an \B{absolute maximum} or an
+    \B{absolute minimum} at $(a,b)$.
+\end{definition}
+\begin{theorem}
+    If $f(x,y)$ has a local maximum or minimum at $(a,b)$ and the first-order
+    partial derivatives of $f(x,y)$ exist there, then
+    \begin{align*}
+        f_x(a,b) = f_y(a,b) = 0.
+    \end{align*}
+\end{theorem}
+\begin{lemma}
+    If the graph of $f(x,y)$ has a tangent plane at a local maximum or minimum
+    then this tangent plane must be parallel to the $xy$ plane.
+\end{lemma}
+\begin{definition}
+    A point $(a,b)$ is called a \B{critical point} of $f(x,y)$ if
+    $f_x(a,b)=f_y(a,b)=0$, or if one of these partial derivatives does not exist.
+\end{definition}
+\begin{theorem}[Second Derivatives Test]
+    Suppose that the second partial derivatives of $f(x,y)$ are continuous
+    on a disk centred at a critical point $(a,b)$ Let
+    \begin{align*}
+        D = f_{xx}(a,b)f_{yy}(a,b) -\left(f_{xy}(a,b)\right)^2
+        = \det\begin{bmatrix}
+            f_{xx}(a,b) &f_{xy}(a,b)\\
+            f_{xy}(a,b) &f_{yy}(a,b) 
+        \end{bmatrix}
+    \end{align*}
+    \begin{enumerate}
+        \item If $D>0$ and $f_{xx}(a,b)>0$ then $f(a,b)$ is a local minimum.
+        \item If $D>0$ and $f_{xx}(a,b)<0$ then $f(a,b)$ is a local maximum.
+        \item If $D<0$ then $(a,b)$ is a saddle point.
+        \item If $D=0$ then the test is inconclusive.
+    \end{enumerate}
+\end{theorem}
+\subsubsection{Absolute maximum and minimum values}
+\begin{definition}
+    Properties of sets in $\R^2$:
+    \begin{itemize}
+        \item A point $(a,b)$ is a \B{boundary point} of a set $D$ if
+        every disk with centre $(a,b)$ contains points in $D$ and also points
+        not in $D$.
+        \item A \B{closed set} is one that contains all its boundary points.
+        \item A \B{bounded set} is one taht is contained within some disk, i.e.
+        one that is finite in extent.
+    \end{itemize}
+\end{definition}
+\begin{theorem}[Extreme Value Theorem]
+    If $f(x,y)$ is continuous on a closed, bounded set $D$ in $\R^2$, then
+    then $f(x,y)$ attains an absolute maximum value $f(x_1, y_1)$ and an
+    absolute minimum value $f(x_2, y_2)$ at some points $(x_1, y_1)$ and
+    $(x_2, y_2)$ in $D$. 
+\end{theorem}
+\subsection{Lagrange multipliers}
+\begin{theorem}
+    Suppose we seek the local maximum and minimum values of a differentiable
+    function $f(x,y)$ along the smooth curve $C$ given by $g(x,y)=0$ where
+    $\grad g(x,y)\not=\vec 0$.\\
+    If $f(x,y)$ has a local maximum or minumum along $C$ at the point
+    $(x_0, y_0)$ then there exists $\lambda\in\R$ such that
+    \begin{align*}
+        \grad f(x_0, y_0) + \lambda\grad g(x_0, y_0) = \vec 0.
+    \end{align*}
+\end{theorem}
+\begin{theorem}[Method of Lagrange Multipliers]
+    The local maximum and minimum values of the differentiable function
+    $f(x,y)$ subject to the constraint $g(x,y)=0$ (assuming that these
+    max/min values exist and $\grad g(x,y)\not=\vec 0$) are to be found
+    among the critical points of the \B{Lagrangian function}
+    \begin{align*}
+        L(x,y,\lambda)=f(x,y)+\lambda g(x,y).
+    \end{align*} 
+    The number $\lambda$ is called a \B{Lagrange multiplier}.
 \end{theorem}
 \end{document}
