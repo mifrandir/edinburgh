@@ -1,0 +1,282 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{SVCDE: Hand-in 3}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\p}{\partial }
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\newenvironment{itpars}{\par\itshape}{\par}
+\newenvironment{itquote}{\begin{quote}\itshape}{\end{quote}\ignorespacesafterend}
+\begin{document}
+\date{11th October 2020}
+\maketitle
+\section*{Problem 1}
+We have
+\begin{align*}
+  z &= f(x,y),\\
+  x &= r\cos t,\\
+  y &= r\sin t.
+\end{align*}
+We want to show that
+\begin{align*}
+  \frac{\p^2 z}{\p x^2}+\frac{\p^2 z}{\p y^2}
+  = \frac{\p^2 z}{\p r^2}+a(r)\frac{\p z}{\p r}+b(r)\frac{\p^2 z}{\p t^2},
+\end{align*}
+or equivalently
+\begin{align}
+  \label{eq1}
+  z_{xx} + z_{yy} = z_{rr} + a(r)z_r + b(r)z_{tt}.
+\end{align}
+To do that, we need to find $z_{xx}$ and $z_{yy}$ in terms 
+of $z_{rr}$, $z_r$, $z_{tt}$ and $r$.\\
+To do that, we determine $z_r$ and $z_t$:
+\begin{align*}
+  z_r &= z_x x_r + z_y y_r\\
+  z_t &= z_x x_t + z_y y_t.
+\end{align*}
+This follows directly from the \emph{Chain Rule}. Notice that these equations
+are linear with respect to $z_x$ and $z_y$. Solving for both of them gives
+\begin{align*}
+  z_x &= \frac{z_r y_t - z_t y_r}{r},\\
+  z_y &= \frac{z_r x_t - z_t x_r}{r}.
+\end{align*}
+To get $z_{xx}$ and $z_{yy}$ we can differentiate further. This leads to
+\begin{align*}
+  z_{xx} &= \frac{(z_r y_t-z_t y_r)_x r - (z_r y_t - z_t y_r)r_x}{r^2},\\
+  z_{yy} &= \frac{(z_r x_t - z_t x_r)_y r + (z_r x_t - z_t x_r)r_y}{r^2}.
+\end{align*}
+By adding this, we obtain
+\begin{align*}
+  z_{xx}+ z_{yy} =\frac{1}{r^2}( 
+   (z_r y_t-z_t y_r)_x r +(z_r x_t - z_t x_r)_y r - (z_r y_t - z_t y_r)r_x
+   + (z_r x_t - z_t x_r)r_y).
+\end{align*}
+We will now evaluate all the remaining derivatives. We get
+\begin{align*}
+  (z_r x - z_t y_r)_x &= (z_r y_t)_x - (z_t y_r)_x = z_{rx} y_t - z_{tx} y_r,\\
+  (z_r y - z_t x_r)_y &= (z_r x_t)_y - (z_t y_r)_y = z_{ry} x_t - z_{ty} x_r.
+\end{align*}
+Note that $x$ and $y$ are independent and therefore we do not need to apply the
+Chain Rule. If we did, we would get the same result as the summands containing
+$y_{rx}=(y_x)_r$ and $x_{ry}=(x_y)_r$ respectively would would be $0$.\\
+Furthermore, we know that
+\begin{align*}
+  r = \frac{x}{\cos t} &\Rightarrow r_x = \frac{1}{\cos t},\\
+  r = \frac{y}{\sin t} &\Rightarrow r_y = \frac{1}{\sin t}.
+\end{align*}
+Thus we get
+\begin{align}
+  \label{eq2}
+  z_{xx} + z_{yy} = \frac{1}{r^2}\left(
+    (z_{rx}y_t - z_{tx}y_r)r + (z_{ry}x_t-z_{ty}x_r)r
+    -\frac{z_r y_t -z_t y_r}{\cos t} - \frac{z_r x_t - z_t x_r}{\sin t}
+  \right).
+\end{align}
+This still contains many things we want to get rid off. Let's get rid off 
+the mixed second order partial derivatives $z_{rx}$, $z_{tx}$, $z_{ry}$ and $z_{ty}$. 
+Due to \emph{Clairaut's theorem} we know that
+\begin{align*}
+  z_{rx} &= (z_x)_r = \left(\frac{z_r y_t - z_t y_r}{r}\right)_r,\\
+  z_{ry} &= (z_y)_r = \left(\frac{z_r x_t - z_t x_r}{r}\right)_r.
+\end{align*}
+Applying the quotient rule we obtain
+\begin{align*}
+  z_{rx} &= \frac{1}{r^2}\left((z_r y_t - z_t y_r)_r r - (z_r y_t - z_t y_r)r_r\right),\\
+  z_{ry} &= \frac{1}{r^2}\left((z_r x_t - z_t x_r)_r r - (z_r x_t - z_t x_r)r_r\right).
+\end{align*}
+Further
+\begin{align*}
+  (z_r y_t - z_t y_r)_r 
+  &= (z_r y_t)_r - (z_t y_r)_r
+  = z_{rr}y_t + z_r y_{rt} - z_{rt} y_r - z_t y_{rr},\\ 
+  (z_r x_t - z_t x_r)_r
+  &= (z_r x_t)_r - (z_t x_r)_r
+  = z_{rr} x_t + z_r x_{rt} - z_{rt} x_r - z_t y_{rr}.
+\end{align*}
+With $r_r=1$ and $x_{rr}=y_{rr}=0$, we find
+\begin{align*}
+  z_{rx} &= \frac{1}{r^2}\left((z_{rr}y_t + z_r y_{rt} - z_{rt} y_r) r - z_r y_t + z_t y_r\right),\\
+  z_{ry} &= \frac{1}{r^2}\left((z_{rr} x_t + z_r x_{rt} - z_{rt} x_r) r - z_r x_t + z_t x_r\right).
+\end{align*}
+Similarly, we can evaluate
+\begin{align}
+  \label{eqztx}
+  z_{tx} &= \left(\frac{z_r y_t - z_t y_r}{r}\right)_t 
+  = \frac{(z_r y_t)_t - (z_t y_r)_t}{r}
+  = \frac{z_{rt}y_t + z_ry_{tt} - z_{tt}y_{r}}{r},\\
+  \label{eqzty}
+  z_{ty} &= \left(\frac{z_r x_t - z_t x_r}{r}\right)_t
+  = \frac{(z_r x_t)_t - (z_t x_r)_t}{r}
+  = \frac{z_{rt}x_t + z_r x_{tt} - z_{tt}x_r}{r}.
+\end{align}
+To evaluate equation \ref{eq2} further, we are going to have to insert our
+results into the summands to the left of the right-hand side. We get
+\begin{align*}
+  (z_{rx} y_t - z_{tx} y_r)r &= \left(
+    z_{rr}y_t + z_r y_{rt} - z_{rt} y_r - \frac{z_r y_t + z_t y_r}{r}\right) y_t
+    -\left(z_{rt}y_t + z_r y_{tt} - z_{tt} y_r\right)y_r\\
+    &= z_{rr}y^2_t + z_r y_{rt}y_r-z_{rt}y_ry_t - \frac{z_ry^2_t + z_t y_r y_t}{r} - z_{rt}y_t y_r + z_r y_{tt} y_r - z_{tt} y^2_r\\
+    &= z_{rr}y^2_t + z_r \left(y_{rt} y_r - \frac{y^2_t}{r}-y_{tt} y_r\right) - z_{rt} \left(y_r y_t + y_t y_r\right) 
+    + z_t \left(\frac{y_r y_t}{r}\right) - z_{tt} y^2_r
+\end{align*}
+By inserting $y_r = \sin t$, $y_t = r\cos t$, $y_{tt} = -r \sin t$ and $y_{rt} = \cos t$, we get
+\begin{align*}
+  (z_{rx} y_t - z_{tx} y_r)r &= z_{rr}(r^2 \cos^2 t) + z_r (r\sin^2 t) - z_{rt} (2r \sin t \cos t) + z_t (\sin t \cos t) - z_{tt} (\sin^2 t).
+\end{align*}
+Similarly
+\begin{align*}
+  (z_{ry}x_t - z_{ty}x_r)r &= \left(
+    z_{rr}x_t + z_r x_{rt} - z_{rt}x_r - \frac{z_r x_t + z_t x_r}{r}
+  \right) x_t 
+  -\left(z_{rt}x_t + z_r x_{tt} - z_{tt} x_r\right)x_r\\
+  &=z_{rr}x^2_t + z_r x_{rt} x_t - z_{rt}x_r x_t - \frac{z_r x^2_t + z_t x_r x_t}{r}-z_{rt}x_t x_r + z_r x_{tt} x_r - z_{tt} x^2_r\\
+  &=z_{rr} x^2_t + z_r \left(x_{rt}x_t - \frac{x^2_t}{r}+x_{tt} x_r\right) - z_{rt} (x_r x_t + x_t x_r) + z_t\left(\frac{x_r x_t}{r}\right)
+  - z_{tt} x^2_r.
+\end{align*}
+With $x_r = \cos t$, $x_t = -r \sin t$, $x_{tt}=-r\cos t$ and $x_{rt}=-\sin t$
+\begin{align*}
+  (z_{ry}x_t - z_{ty}x_r)r= z_{rr}(r^2 \sin^2 t) - z_r (r\cos^2 t) + z_{rt}(2r\sin t\cos t) - z_t(\sin t \cos t) - z_{tt}(\cos^2 t).
+\end{align*}
+Now we can add both of these expressions together:
+\begin{align*}
+  (z_{rx}y_t - z_{tx}y_r)r &+ (z_{ry}x_t-z_{ty}x_r)r\\
+  &= z_{rr}(r^2 \cos^2 t) + z_r (r\sin^2 t) - z_{rt} (2r \sin t \cos t) + z_t (\sin t \cos t) - z_{tt} (\sin^2 t)\\
+  &+z_{rr}(r^2 \sin^2 t) - z_r (r\cos^2 t) + z_{rt}(2r\sin t\cos t) - z_t(\sin t \cos t) - z_{tt}(\cos^2 t)\\
+  &=z_{rr}r^2+z_r r(\sin^2 t - \cos^2 t) - z_{tt}.
+\end{align*}
+We can plug that back into equation \ref{eq2} to get
+\begin{align*}
+  z_{xx} + z_{yy} &= \frac{1}{r^2}\left(
+    z_{rr}r^2+z_r r(\sin^2 t - \cos^2 t) - z_{tt}
+    -\frac{z_r y_t -z_t y_r}{\cos t} - \frac{z_r x_t - z_t x_r}{\sin t}
+  \right)\\
+  &= z_{rr} + \frac{z_r}{r^2}\left(r(\sin^2 t - \cos^2 t) - \frac{y_t}{\cos t} - \frac{x_t}{\sin t}\right)-\frac{z_{tt}}{r^2}
+  +\frac{z_t}{r^2}\left(\frac{y_r}{\cos t} + \frac{x_r}{\sin t}\right)\\
+  &= z_{rr} + z_r\left(\frac{\sin^2 t - \cos^2 t}{r}\right)-\frac{z_{tt}}{r^2}+\frac{z_t}{r^2\sin t\cos t}.
+\end{align*}
+As you can see this is not quite as required. Firstly, $a$ still depends on $t$ and secondly, $z_t$ should not appear whatsoever.
+Therefore, we need to try and write $z_{tt}$ in terms of $z_r$ and $z_t$ so that we can replace $z_t$. Note that
+\begin{align*}
+  z_{tt} = (z_t)_t = (z_x x_t)_t + (z_y y_t)_t = z_{tx}x_t + z_x x_{tt} + z_{ty}y_t + z_y y_{tt}.
+\end{align*}
+We can express $z_x$ and $z_y$ by using the Chain rule once again:
+\begin{align*}
+  z_x &= z_r r_x + z_t t_x\\
+  z_y &= z_r r_y + z_t t_y
+\end{align*}
+With $t=\cos^{-1}\left(\frac{x}{r}\right)$ and $t=\sin^{-1}\left(\frac{y}{r}\right)$, we find
+\begin{align*}
+  t_x &= -\frac{1}{r\sqrt{1-\left(\frac{x}{r}\right)^2}}  = - \frac{1}{r\sqrt{1-\cos^2 t}} = -\frac{1}{y},\\
+  t_y &= \frac{1}{r\sqrt{1-\left(\frac{y}{r}\right)^2}}  = \frac{1}{r\sqrt{1-\sin^2 t}} = -\frac{1}{y}.
+\end{align*}
+We can now write
+\begin{align*}
+  z_{tt} &=
+  \left(\frac{z_{rt}y_t + z_ry_{tt} - z_{tt}y_{r}}{r}\right)x_t + (z_r r_x + z_t t_x)x_{tt}\\
+  &+\left(\frac{z_{rt}x_t + z_r x_{tt} - z_{tt}x_r}{r}\right)y_t + (z_r r_y + z_t t_y)y_{tt}\\
+\end{align*}
+Reorganising gives
+\begin{align}
+  \label{eqztt}
+  z_{tt} =z_{rt}\left(\frac{2 x_t y_t}{r}\right)+z_r\left(\frac{y_{tt}x_t+x_{tt}y_t}{r}+r_x x_{tt}+r_y y_{tt}\right)
+  +z_t(t_x x_{tt} + t_y y_{tt})-z_{tt}\left(\frac{x_r+y_r}{r}\right).
+\end{align}
+We know that
+\begin{align*}
+  z_{rt} = z_{tx}x_r + z_x x_{rt} + z_{ty} y_r + z_y y_{rt}.
+\end{align*}
+Using equations \ref{eqztx} and \ref{eqzty} we get
+\begin{align*}
+  z_{rt} &= \left(\frac{z_{rt} y_t + z_r y_{tt} - z_{tt}y_r}{r}\right)x_r
+  + \left(z_r r_x + z_t t_x\right)x_{rt}\\
+  &+ \left(\frac{z_{rt}x_t + z_r x_{tt} - z_{tt}x_r}{r}\right)y_r
+  + \left(z_r r_y + z_t t_y\right)y_{rt}
+\end{align*}
+Let's evaluate the summands individually:
+\begin{align*}
+  \left(\frac{z_{rt} y_t + z_r y_{tt} - z_{tt}y_r}{r}\right)x_r
+  &= z_{rt}\left(\frac{x_r y_t}{r}\right) + z_r \left(\frac{y_{tt}x_r}{r}\right)-z_{tt}\left(\frac{x_r y_r}{r}\right)\\
+  &= z_{rt}\left(\cos^2 t\right) + z_r \left(-\sin t\cos t\right)-z_{tt}\left(\frac{\sin t\cos t}{r}\right),\\
+  \left(\frac{z_{rt}x_t + z_r x_{tt} - z_{tt}x_r}{r}\right)y_r
+  &= z_{rt}\left(\frac{x_t y_r}{r}\right)+z_r\left(\frac{x_{tt} y_r}{r}\right)-z_{tt}\left(\frac{x_r y_r}{r}\right)\\
+  &= z_{rt}\left(-\sin^2 t\right) + z_r \left(-\sin t\cos t\right) - z_{tt}\left(\frac{\sin t\cos t}{r}\right),\\
+  \left(z_r r_x + z_t t_x\right)x_{rt}
+  &=z_r (r_x x_{rt}) + z_t (t_x x_{rt})
+  =z_r \left(-\frac{\sin t}{\cos t}\right) + z_t \left(\frac{1}{r}\right),\\
+  \left(z_r r_y + z_t t_y\right)y_{rt}
+  &=z_r \left(r_y y_{rt}\right) + z_t \left(t_y y_{rt}\right)
+  =z_r \left(\frac{\cos t}{\sin t}\right) + z_t \left(\frac{1}{r}\right).
+\end{align*}
+Now we can add the two halves individually:
+\begin{align*}
+  \left(\frac{z_{rt} y_t + z_r y_{tt} - z_{tt}y_r}{r}\right)x_r
+  &+\left(\frac{z_{rt}x_t + z_r x_{tt} - z_{tt}x_r}{r}\right)y_r\\
+  &=z_{rt}\left(\cos^2 t - \sin^2 t\right) - z_r(2\sin t\cos t)-z_{tt}\left(\frac{2\sin t\cos t}{r}\right),\\
+  \left(z_r r_x + z_t t_x\right)x_{rt}
+  +\left(z_r r_y + z_t t_y\right)y_{rt} 
+  &=z_r\left(\frac{\cos^2 t - \sin^2 t}{\sin t \cos t}\right) - z_t\left(\frac{2}{r}\right).
+\end{align*}
+Therefore
+\begin{align*}
+  z_{rt} = z_r\left(\frac{\cos^2 t - \sin^2 t}{\sin t \cos t}-2\sin t\cos t\right)+ z_{rt}\left(\cos^2 t - \sin^2 t\right)-z_t\left(\frac{2}{r}\right)
+  -z_{tt}\left(\frac{2\sin t\cos t}{r}\right).
+\end{align*}
+Equivalently
+\begin{align*}
+  z_{rt}(2\sin^2 t) &= z_r\left(\frac{\cos^2 t - \sin^2 t}{\sin t \cos t}-2\sin t\cos t\right)-z_t\left(\frac{2}{r}\right)
+  -z_{tt}\left(\frac{2\sin t\cos t}{r}\right)\\
+  \Leftrightarrow z_{rt}&=z_r\left(\frac{\cos^2 t - \sin^2 t}{\sin^3 t \cos t}\right)
+  -z_t\left(\frac{1}{r\sin^2 t}\right)-z_{tt}\left(\frac{\cos t}{r\sin t}\right).
+\end{align*}
+To insert this back into equation \ref{eqztt} we need to evaluate
+\begin{align*}
+  z_{rt}\left(\frac{2x_t y_t}{r}\right)
+  &=z_{rt}\left(-2r\sin t\cos t\right)
+  =z_r\left(\frac{2r(\sin^2 t - \cos^2 t)}{\sin^2 t}\right)+z_t\left(\frac{2\cos t}{\sin t}\right)+z_{tt}\left(2\cos^2 t\right).
+\end{align*}
+Further, we need to evaluate the other summands of equation \ref{eqztt} in terms of $\sin$ and $\cos$:
+\begin{align*}
+  \frac{y_{tt}x_t+x_{tt}y_t}{r}+r_x x_{tt}+r_y y_{tt}&=r(\sin^2 t - \cos^2 t - 2),\\
+  t_x x_{tt} + t_y y_{tt}&=\frac{\cos^2 t-\sin^2 t}{\sin t\cos t},\\
+  \frac{x_r+y_r}{r}&=\frac{\cos t + \sin t}{r}.
+\end{align*}
+Inserting into equation \ref{eqztt} gives
+\begin{align*}
+  z_{tt} &= z_r\left(\frac{2r(\sin^2 t - \cos^2 t)}{\sin^2 t}\right)
+  +z_t\left(\frac{2\cos t}{\sin t}\right)+z_{tt}\left(2\cos^2 t\right)\\
+  &+z_r\left(r(\sin^2 t - \cos^2 t - 2)\right)+z_t\left(\frac{\cos^2 t-\sin^2 t}{\sin t\cos t}\right)-z_{tt}\left(\frac{\cos t + \sin t}{r}\right) \\
+  &=z_r\left(r\left(\sin^2 t - \cos^2 t - \frac{2\cos^2 t}{\sin^2 t}\right)\right)
+  +z_t\left(\frac{4\cos^2 t-1}{\sin t\cos t}\right)
+  - z_{tt}\left(\frac{2r\cos^2 t - \cos t + \sin t}{r}\right).
+\end{align*}
+\end{document}
