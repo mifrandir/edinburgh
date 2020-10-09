@@ -181,9 +181,13 @@ We can plug that back into equation \ref{eq2} to get
     -\frac{z_r y_t -z_t y_r}{\cos t} - \frac{z_r x_t - z_t x_r}{\sin t}
   \right)\\
   &= z_{rr} + \frac{z_r}{r^2}\left(r(\sin^2 t - \cos^2 t) - \frac{y_t}{\cos t} - \frac{x_t}{\sin t}\right)-\frac{z_{tt}}{r^2}
-  +\frac{z_t}{r^2}\left(\frac{y_r}{\cos t} + \frac{x_r}{\sin t}\right)\\
-  &= z_{rr} + z_r\left(\frac{\sin^2 t - \cos^2 t}{r}\right)-\frac{z_{tt}}{r^2}+\frac{z_t}{r^2\sin t\cos t}.
+  +\frac{z_t}{r^2}\left(\frac{y_r}{\cos t} + \frac{x_r}{\sin t}\right)
 \end{align*}
+This results in
+\begin{align}
+  \label{eq2z}
+  z_{xx} + z_{yy}= z_{rr} + z_r\left(\frac{\sin^2 t - \cos^2 t}{r}\right)-\frac{z_{tt}}{r^2}+\frac{z_t}{r^2\sin t\cos t}.
+\end{align}
 As you can see this is not quite as required. Firstly, $a$ still depends on $t$ and secondly, $z_t$ should not appear whatsoever.
 Therefore, we need to try and write $z_{tt}$ in terms of $z_r$ and $z_t$ so that we can replace $z_t$. Note that
 \begin{align*}
@@ -276,7 +280,63 @@ Inserting into equation \ref{eqztt} gives
   +z_t\left(\frac{2\cos t}{\sin t}\right)+z_{tt}\left(2\cos^2 t\right)\\
   &+z_r\left(r(\sin^2 t - \cos^2 t - 2)\right)+z_t\left(\frac{\cos^2 t-\sin^2 t}{\sin t\cos t}\right)-z_{tt}\left(\frac{\cos t + \sin t}{r}\right) \\
   &=z_r\left(r\left(\sin^2 t - \cos^2 t - \frac{2\cos^2 t}{\sin^2 t}\right)\right)
-  +z_t\left(\frac{4\cos^2 t-1}{\sin t\cos t}\right)
-  - z_{tt}\left(\frac{2r\cos^2 t - \cos t + \sin t}{r}\right).
+  +z_t\left(\frac{3\cos^2 t-\sin^2 t}{\sin t\cos t}\right)
+  + z_{tt}\left(\frac{2r\cos^2 t - \cos t + \sin t}{r}\right).
 \end{align*}
+This allows us to write $z_t$ in terms of $z_r$ and $z_{tt}$:
+\begin{align*}
+  z_t = z_{tt}\left(\frac{(2r\cos^2 t - \cos t + \sin t)\sin t\cos t}{r(3\cos^2 t - \sin^2 t)}\right)
+  + z_r \left(r\left(\frac{\sin^2 t\cos t(2\cos^2 -1)+2\cos^2 t}{\sin(3\cos^2 t - \sin^2 t)}\right)\right)
+\end{align*}
+To insert this back into equation \ref{eq2z} we need to evaluate
+\begin{align*}
+  \frac{z_t}{r^2\sin t\cos t}
+  =z_{tt}\left(\frac{(2r\cos^2 t - \cos t + \sin t)}{r^3(3\cos^2 t - \sin^2 t)}\right)
+  +z_{r}\left(\frac{2\sin^2 t\cos^2 t+2\cos t-\sin^2 t}{r\sin^2 t\left(3\cos^2 t - \sin^2 t\right)}\right)
+\end{align*}
+and then
+\begin{align*}
+  \frac{z_t}{r^2\sin t\cos t} - \frac{z_{tt}}{r^2}=
+  z_{tt}\left(\frac{1}{r^2}\left(\frac{2r\cos^2 t - \cos t + \sin t}{r(3\cos^2 t - \sin^2 t)}-1\right)\right)
+  +z_{r}\left(\frac{2\sin^2 t\cos^2 t+2\cos t-\sin^2 t}{r\sin^2 t\left(3\cos^2 t - \sin^2 t\right)}\right)
+\end{align*}
+and finally
+\begin{align*}
+  z_{xx}+z_{yy} &= z_{rr}+\frac{z_t}{r^2\sin t\cos t} - \frac{z_{tt}}{r^2}+ z_r\left(\frac{\sin^2 t - \cos^2 t}{r}\right)\\
+  &=z_{rr}+z_{tt}\left(\frac{1}{r^2}\left(\frac{2r\cos^2 t - \cos t + \sin t}{r(3\cos^2 t - \sin^2 t)}-1\right)\right)\\
+  &+z_r\left(\frac{2\sin^2 t\cos^2 t+2\cos t-\sin^2 t}{r\sin^2 t\left(3\cos^2 t - \sin^2 t\right)}+\frac{\sin^2 t - \cos^2 t}{2} \right)
+\end{align*}
+You can see that now we got rid of the summand containing $z_t$ but now both $a$ and $b$ depend on $t$.
+\pagebreak
+\section*{Question 2}
+Let $f(x,y)=x^2+y^2-2(x+y)$. Then we find its first order partial derivatives
+\begin{align*}
+  \frac{\p f}{\p x}=2x-2 \text{\hspace{0.5cm}and\hspace{0.5cm}}
+  \frac{\p f}{\p y}=2y-2
+\end{align*}
+as well as its second order partial derivatives
+\begin{align*}
+  \frac{\p^2 f}{\p x^2}=2\text{\hspace{0.5cm}and\hspace{0.5cm}}
+  \frac{\p^2 f}{\p y^2}=2\text{\hspace{0.5cm}and\hspace{0.5cm}}
+  \frac{\p^2 f}{\p y\p x}=0.
+\end{align*}
+We can see that
+\begin{align*}
+  \frac{\p f}{\p x} = \frac{\p f}{\p y} = 0
+\end{align*}
+if, and only if, $x=y=1$. Thus the only critical point is $(1,1)$.\\
+Further, observe that
+\begin{align*}
+  \frac{\p^2 f}{\p x^2}=2>0
+\end{align*}
+and
+\begin{align*}
+  D = \det \begin{pmatrix}
+    2 & 0\\
+    0 & 2
+  \end{pmatrix}
+  = 4 > 0.
+\end{align*}
+Applying the test from \emph{Section 2.7.1} of the notes, we find 
+that the function $f$ has a local minimum at $(1,1)$.
 \end{document}
