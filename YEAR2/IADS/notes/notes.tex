@@ -113,4 +113,28 @@
 \begin{theorem}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Theta(g)$ if, and only if, $g\in\Theta(f)$.
 \end{theorem}
+\section{Algorithms and cost models}
+\begin{definition}
+	The \B{cost} of an algorithm is a quantity to measure its performance.\\
+	The cost may be defined in different ways depending on
+	how in depth the analysis is supposed to be and what
+	is of interest in a particular situation.
+\end{definition}
+Note that the cost model needs to be specified when comparing algorithms.
+\begin{definition}
+	We considering the cost of an algorithm for a specific input size there are different cases to consider:
+	\begin{itemize}
+		\item \B{worst-case} cost: the single worst cost out of all possible inputs
+		\item \B{best-case} cost: the single best cost out of all possible inputs
+		\item \B{average-case} cost: the average over all the costs for all possible inputs
+	\end{itemize}
+\end{definition}
+\begin{theorem}
+	Let $A$ be an algorithm and let $T_w$ be its worst-case runtime. Then, if $T_w=O(g)$ for some function $g$,
+	we know that the runtime of $A$ \emph{in general} is $O(g)$.
+\end{theorem}
+\begin{theorem}
+	Let $A$ be an algorithm and let $T_b$ be its best-case runtime. Then, if $T_b=\Omega(g)$ for some function $g$,
+	we know that the runtime of $A$ \emph{in general} is $\Omega (g)$.
+\end{theorem}
 \end{document}
