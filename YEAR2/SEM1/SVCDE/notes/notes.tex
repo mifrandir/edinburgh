@@ -376,9 +376,10 @@ Notation for higher derivatives:
 \subsubsection{Directional derivatives}
 \begin{definition}
     The \B{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
-    direction of a unit vector $\vec u=a\ih + b\jh$ is defined as
+    direction of a \emph{unit vector} $\vec u=a\ih + b\jh$ is defined as
     \begin{align*}
-        D_{\vec u}f(x_0, y_0)= \lim_{\delta \to 0}\frac{f(x_0+\delta a, y_0 + \delta b)-f(x_0, y_0)}{\delta}.
+        D_{\vec u}f(x_0, y_0)=\lim_{\delta \to 0}
+        \frac{f(x_0+\delta a, y_0 + \delta b)-f(x_0, y_0)}{\delta}.
     \end{align*}
 \end{definition}
 \begin{theorem}
@@ -408,7 +409,8 @@ Notation for higher derivatives:
 \begin{definition}
     The gradient vector of $f(x,y,z)$ is
     \begin{align*}
-        \vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih + \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
+        \vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih 
+        + \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
     \end{align*}
 \end{definition}
 \subsubsection{Maximising the directional derivative}
