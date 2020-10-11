@@ -228,4 +228,42 @@
 \begin{proposition}
     Let $X\sim\text{Binom}(n,p)$. Then $\E(X)=np$.
 \end{proposition}
+\section{Conditional probabilities and results about natural numbers}
+\subsection{Conditional probability}
+\begin{definition}
+    Let $A,B\subseteq S$ be events with $\P(A)\not=0$. Then the 
+    \B{conditional probability of $B$ given $A$} is defined by
+    \begin{align*}
+        \P(B|A) = \frac{\P(B\cap A)}{\P(A)}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Suppose $\P(A)\not= 0$. Then $\P(B|A)=\P(B)$ if, and only if, $A$ and $B$ are independent.
+\end{theorem}
+\begin{theorem}[The law of total probability]
+    Suppose we partition a sample space $S$ into $n$ pairwise disjoint events $A_1, ..., A_n$.
+    Let $B\subseteq S$ be an event. Then
+    \begin{align*}
+        \P(B)=\P(B|A_1)\P(A_1)+ \cdots + \P(B|A_n)\P(A_n).
+    \end{align*} 
+    In the case of a partition of two sets $A$ and $A^c$, we get that for events $A,B$ we have
+    \begin{align*}
+        \P(B) = \P(B|A)\P(A)+\P(B|A^c)\P(A^c).
+    \end{align*}
+\end{theorem}
+\subsection{Conditional expectation}
+\begin{definition}
+    If $X$ is a random variable taking values $x_1, x_2, ...$ and $A$ is an event, we can
+    compute the \B{conditional expectation} $\E(X|A)$. The formula is
+    \begin{align*}
+        \E(X|A) = \sum_k \P(X=x_k|A)x_k.
+    \end{align*}
+\end{definition}
+\begin{proposition}[The law of total probability for expectations]
+    The law of total probability translates immediately also into expectations, for a random
+    variable and a partition of the samle space into disjoint events.
+    \begin{align*}
+        \E(X) = \E(X|A_1)\P(A_1)+\cdots\E(X|A_n)\P(A_n).
+    \end{align*} 
+\end{proposition}
 \end{document}
