@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\title{PRB: Week 3 Solutions}
+\author{Franz Miltz (UNN: S1971811)}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\renewcommand{\P}{\mathbb{P}}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand{\E}{\mathbb{E}}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\begin{document}
+\date{13th October, 2020}
+\maketitle
+\section*{Problem 1}
+Let $E$ be the experiment of rolling three D6 and let $X$ be the number of 6s rolled.
+Then let $A$ be the event that $X\geq 1$ and let $B$ be the event that $X=2$. 
+We are interested in $\P(A|B)$. By definition, we find
+\begin{align*}
+  \P(A|B) = \frac{\P(A\cap B)}{\P(A)}.
+\end{align*}
+Observe that 
+\begin{align*}
+  \P(A\cap B) = \P(X\geq 1 \text{ and } X = 2) = \P(X=2) = \P(B)
+\end{align*}
+and
+\begin{align*}
+  \P(B) = \binom{3}{2}\left(\frac{1}{6}\right)^2\frac{5}{6}=\frac{15}{216}.
+\end{align*}
+Further
+\begin{align*}
+  \P(A) = 1-\P(A^c) = 1-\binom{3}{0}\left(\frac{5}{6}\right)^3=\frac{91}{216}.
+\end{align*}
+Therefore
+\begin{align*}
+  \P(A\cap B) = \frac{\P(B)}{\P(A)}= \frac{15/216}{91/216} = \frac{15}{91}.
+\end{align*}
+\section*{Problem 2}
+Let the $X$ be as described in the problem. Let the events
+$A_i$ for $i\in[4,5,6]$ be that a specific D$i$ is chosen.
+Then we can use \emph{the law of total probability} to find
+\begin{align*}
+  \P(X=1)=\sum_{i=4}^6\P(A_i)\P(A_i|X=1).
+\end{align*}
+For each $i$ we know
+\begin{align*}
+  \P(A_i) = \frac{1}{3} 
+\end{align*}
+since there are three dice that are equally likely to be chosen and
+\begin{align*}
+  \P(A_i|X=1) = \frac{1}{i}
+\end{align*}
+by definition of D$i$.
+Thus 
+\begin{align*}
+  \P(X=1) = \frac{1}{3}\left(\frac{1}{4}+\frac{1}{5}+\frac{1}{6}\right)=\frac{37}{180}.
+\end{align*}
+Furthermore, we know from \emph{the law of total probability for expectations} that
+\begin{align*}
+  \E(X) = \sum_{i=4}^6 \E(X|A_i)\P(A_i) = \frac{1}{3}\sum_{i=4}^6\E(X|A_i).
+\end{align*}
+Inserting the expected values for each D$i$ we find
+\begin{align*}
+  \E(X) = \frac{1}{3}\left(\frac{5 + 6 + 7}{2}\right)=3.
+\end{align*}
+\section*{Problem 3}
+Let $X$ be a Bernoulli random variable for the state of the switch described in the
+problem and let $A$ be the event that $X=1$, i.e. the switch is "on". Lets consider 
+the transition between two days where $\P(E\to F)$ means the probability given $E$ 
+occurred on the first day that $F$ occurs on the second day. We find
+\begin{align*}
+  p = \P(A^c \to A)\P(A^c) + \P(A\to A)\P(A)
+\end{align*}
+where $p$ is the probability that $A$ occurs on the second day. Since all days are
+identical, $\P(A)=p$. Thus
+\begin{align*}
+  p = \P(A^c \to A)(1-p) + \P(A\to A)p.
+\end{align*}
+The remaining probabilities are given in the question. Inserting results in the equation
+\begin{align*}
+  p=\frac{1-p}{4} + \frac{p}{2}.
+\end{align*}
+We can solve for $p$ to find 
+\begin{align*}
+  p=\frac{1}{3}
+\end{align*}
+which shows that the observation in the question is indeed true.
+\section*{Problem 4}
+Let $A$ be the event that a person has the condition and let $B$ be the event that
+a person gets tested positive. Then we know from \emph{the law of total probability}
+that
+\begin{align*}
+  \P(B) = \P(A|B)\P(A) + \P(A^c|B)\P(A^c).
+\end{align*}
+Inserting the values from the problem gives
+\begin{align*}
+  \P(B) = \frac{99}{100}\frac{1}{1000}+\frac{1}{200}\frac{999}{1000}=\frac{1197}{2\cdot 10^5}\approx 0.599\%.
+\end{align*}
+Let $X$ be the number of people that get a positive result if $1000$ people are tested.
+Since the probability of getting a positive result is identical for all of them, we
+find that
+\begin{align*}
+  \E(X) = 1000 \P(B)=\frac{1197}{200}\approx 5.99
+\end{align*}
+but we only expect $1$ in $1000$ to actually have the condition. Thus
+we expect only $1/5.99\approx 16.7\%$ of the positive results to be correct.
+\end{document}
