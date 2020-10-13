@@ -92,18 +92,20 @@ Inserting the expected values for each D$i$ we find
 \end{align*}
 \section*{Problem 3}
 Let $X$ be a Bernoulli random variable for the state of the switch described in the
-problem and let $A$ be the event that $X=1$, i.e. the switch is "on". Lets consider 
-the transition between two days where $\P(E\to F)$ means the probability given $E$ 
-occurred on the first day that $F$ occurs on the second day. We find
+problem and let $A_i$ be the event that $X=1$ on the $i$th day, i.e. the switch is 
+"on" on that day. Lets consider the transition between two days where $\P(E\to F)$ 
+means the probability given $E$ occurred on the first day that $F$ occurs on the
+second day. We find for the probability of the switch being on on day $i$
 \begin{align*}
-  p = \P(A^c \to A)\P(A^c) + \P(A\to A)\P(A)
+  p=\P(A_{i+1}) = \P(A^c_i)\P(A^c_i | A_{i+1}) + \P(A_i)\P(A_i|A_{i+1})
 \end{align*}
-where $p$ is the probability that $A$ occurs on the second day. Since all days are
-identical, $\P(A)=p$. Thus
+where $p$ is the probability that $A$ occurs on any given day $i$. Since all days are
+identical, $\P(A_{i+1})=p=\P(A_i)$. Thus
 \begin{align*}
-  p = \P(A^c \to A)(1-p) + \P(A\to A)p.
+  p = (1-p)\P(A^c_i|A_{i+1}) + p\P(A_i|A_{i+1}).
 \end{align*}
-The remaining probabilities are given in the question. Inserting results in the equation
+The remaining probabilities, i.e. $\P(A^c_i|A_{i+1})=1/4$ and $\P(A_i|A_{i+1})=1/2$, 
+are given in the question. Inserting them results in the equation
 \begin{align*}
   p=\frac{1-p}{4} + \frac{p}{2}.
 \end{align*}
