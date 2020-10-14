@@ -16,6 +16,7 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\st}{\text{ s.t. }}
 \newcommand{\p}{\partial }
+\newcommand{\di}{\iint\limits}
 %newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
 \newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
 \newtheorem{claim}[section]{Claim}
@@ -84,7 +85,7 @@ Now we can add the limits to find
 \end{align*}
 Thus
 \begin{align*}
-  \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA&=\int_0^2\left(\frac{x}{8+x^2}+\frac{1}{4}\arctan\left(\frac{x}{2}\right)
+  \di_R\frac{xy^2}{(4x^2+y^2)^2}dA&=\int_0^2\left(\frac{x}{8+x^2}+\frac{1}{4}\arctan\left(\frac{x}{2}\right)
   -\frac{1-\pi}{8}\right)dx\\
   &=\int_0^2 \frac{x}{8+x^2}dx + \frac{1}{4}\int_0^2\arctan\left(\frac{x}{2}\right)dx-\frac{1}{8}\int_0^2 (1-\pi)dx.
 \end{align*}
@@ -106,7 +107,7 @@ Finally, we obtain
 by using $u=8+x^2$ as a substitution. We can combine those results
 to get
 \begin{align*}
-  \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA
+  \di_R\frac{xy^2}{(4x^2+y^2)^2}dA
   &=\frac{1}{2}\left(\ln(3)-\ln(2)\right)
   +\frac{1}{4}\left(\frac{\pi}{2}-3\ln(2)\right)
   +\frac{1}{8}(2 - 2\pi)\\

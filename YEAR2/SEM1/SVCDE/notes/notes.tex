@@ -42,6 +42,8 @@
 \newcommand{\kh}{\widehat k}
 \newcommand{\p}{\partial}
 \newcommand{\grad}{\vec\triangledown}
+\newcommand{\di}{\iint\limits}
+\newcommand{\ti}{\iiint\limits}
 \DeclareMathOperator{\lub}{LUB}
 \DeclareMathOperator{\glb}{GLB}
 \DeclareMathOperator{\hcf}{hcf}
@@ -556,5 +558,138 @@ Notation for higher derivatives:
         L(x,y,\lambda)=f(x,y)+\lambda g(x,y).
     \end{align*} 
     The number $\lambda$ is called a \B{Lagrange multiplier}.
+\end{theorem}
+\section{Multiple integrals}
+\subsection{Double integrals over rectangles}
+\subsubsection{Volumes}
+\begin{definition}
+    The \B{double integral} of $f(x,y)$ over the rectangle $R$ is defined as
+    \begin{align*}
+        \di_R f(x,y)dA = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(x_{ij}^*, y_{ij}^*)\Delta A
+    \end{align*}
+    and $f(x,y)$ is called \B{integrable} if this limit exists.
+\end{definition}
+\begin{lemma}
+    All continuous functions are integrable, and many bouned but
+    discontinuous functions are also integrable.
+\end{lemma}
+\subsubsection{Average value}
+\begin{definition}
+    The \B{average value} of a function $f(x,y)$ on a rectangle $R$
+    is defined as
+    \begin{align*}
+        f_{ave} = \frac{1}{A(R)}\di_R f(x,y)dA
+    \end{align*}
+    where $A(R)$ is the area of $R$.
+\end{definition}
+\subsubsection{Properties}
+\begin{theorem}[Sum of integrals]
+    \begin{align*}
+        \di_R\left[f(x,y)+g(x,y)\right]dA = \di_R f(x,y)dA + \di_R g(x,y)dA
+    \end{align*}
+\end{theorem}
+\begin{theorem}[Scaled integrals]
+    Let $c\in\R$ be a constant. Then
+    \begin{align*}
+        \di_R cf(x,y)dA = c\di_R f(x,y)dA.
+    \end{align*} 
+\end{theorem}
+\begin{theorem}
+    If $f(x,y)\geq g(x,y)$ for all $(x,y)\in R$ then 
+    \begin{align*}
+        \di_R f(x,y)dA \geq \di_R g(x,y) dA.
+    \end{align*}
+\end{theorem}
+\subsection{Iterated integrals}
+\begin{theorem}[Fubini's Theorem]
+    If $f(x,y)$ is continuous on the rectangle $R=[a,b]\times[c,d]$ then 
+    \begin{align*}
+        \di_r f(x,y)dA = \int_a^b \int_c^d f(x,y)\:dydx 
+        = \int_c^d \int_a^b f(x,y)\:dxdy.
+    \end{align*}
+    More generally, this holds if $f(x,y)$ is bounded on $R$ and is
+    discontinuous only on a finite number of smooth curves.
+\end{theorem}
+\begin{lemma}
+    Suppose that $f(x,y)$ can be written as $f(x,y)=g(x)h(y)$ 
+    on $R=[a,b]\times[c,d]$. Then
+    \begin{align*}
+        \di_R f(x,y)dA = \int_a^b g(x)dx \int_c^d h(y)dy.
+    \end{align*}
+\end{lemma}
+\subsection{Double integrals over general regions}
+\begin{definition}
+    Let $D$ be a region in the $xy$ plane of general shape.
+    Suppose that $D$ is bounded. Now let $R$ be a rectangle that
+    encloses $D$. Then we define a new function $F(x,y)$
+    with domain $R$ per
+    \begin{align*}
+        F(x,y)=\begin{cases}
+            f(x,y) &\text{if } (x,y)\in D\\
+            0      &\text{if } (x,y)\not\in D
+        \end{cases}
+    \end{align*}
+    Thus the double integral of $f(x,y)$ over $D$ is defined as
+    \begin{align*}
+        \di_D f(x,y)dA = \di_R F(x,y)dA.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Suppse that $D$ lies between the graphs of two continuous
+    functions of $x$, i.e.
+    \begin{align*}
+        D = \{(x,y) | a \leq x \leq b, g_1(x)\leq y\leq g_2(x)\}.
+    \end{align*}
+    Then
+    \begin{align*}
+        \di_D f(x,y)dA f(x,y)dA = \int_a^ b \int_{g_1(x)}^{g_2(x)} f(x,y)dy dx.
+    \end{align*}
+\end{theorem}
+\subsubsection{Properties}
+\begin{theorem}
+    If $D=D_1\cup D_2$ where $D_1$ and $D_2$ do not overlap
+    except perhaps on their boundaries, then
+    \begin{align*}
+        \di_D f(x,y) dA = \di_{D_1} f(x,y)dA + \di_{D_2}f(x,y)dA.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $f(x,y)=1$, then 
+    \begin{align*}
+        \di_D f(x,y)dA = A(D).
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $m\leq f(x,y) \leq M$ for all $(x,y)\in D$, then
+    \begin{align*}
+        mA(D) \leq \di_D f(x,y) dA \leq MA(D).
+    \end{align*}
+\end{theorem}
+\subsection{Double integrals in polar coordinates}
+\begin{theorem}
+    If $f(x,y)$ is continuous on the \B{polar rectangle} $R$
+    given by $a\leq r \leq b$, $\alpha \leq \theta\leq \beta$ where
+    $\beta-\alpha \in [0,2\pi)$, then
+    \begin{align*}
+        \di_R f(x,y)dA = \int_\alpha^\beta \int_a^b
+        f(r\cos\theta, r\sin\theta)r\:drd\theta
+    \end{align*}
+\end{theorem}
+\subsection{Triple integrals} 
+\begin{definition}
+    The \B{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
+    is defined as
+    \begin{align*}
+        \ti_B f(x,y,z)dV = \lim_{l,m,n\to\infty}=\sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n
+        f(x_i,y_j,z_k)\Delta V.
+    \end{align*}
+\end{definition}
+\begin{theorem}[Fubini's Theorem for triple integrals]
+    If $f(x,y,z)$ is continuous on the rectangular box $B=[a,b]\times[b,c]\times[w,v]$,
+    then 
+    \begin{align*}
+        \ti_B f(x,y,z) dV = \int_v^w\int_c^d \int_a^b f(x,y,z)\:dxdydx.
+    \end{align*} 
+    The iterated integrals can be evaluated in any order.
 \end{theorem}
 \end{document}
