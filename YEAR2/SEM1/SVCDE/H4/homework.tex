@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\p}{\partial }
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\newenvironment{itpars}{\par\itshape}{\par}
+\newenvironment{itquote}{\begin{quote}\itshape}{\end{quote}\ignorespacesafterend}
+\begin{document}
+\title{SVCDE: Hand-in 4}
+\author{Franz Miltz (UNN: S1971811)}
+\date{18th October 2020}
+\maketitle
+\section*{Question 2}
+To evaluate
+\begin{align*}
+  \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA
+\end{align*}
+where $R$ is the finite region enclosed by $y=x^2$ and $y=2x$,
+we need to find $R$ first. To do that we find the intersections between the
+two curves as follows
+\begin{align*}
+  y=x^2 \text{ and } y = 2x\\
+  \Leftrightarrow x(x-2)=0.
+\end{align*}
+Therefore the intersections are at $x=0$ and $x=2$. Observe that
+$\forall x\in[0,2], 2x\geq x^2$. Therefore
+\begin{align*}
+  \iint_R \frac{xy^2}{(4x^2+y^2)^2} dA
+  = \int_0^2\int_{x^2}^{2x} \frac{xy^2}{(4x^2+y^2)^2}dy\: dx.
+\end{align*}
+To solve these nested integrals, we first need to evaluate the
+indefinite integral
+\begin{align*}
+  I(x,y) = \int \frac{xy^2}{(4x^2+y^2)^2}dy.
+\end{align*}
+We can use $u=xy$ and $dv=y/(4x^2+y^2)^2$ and integration by
+parts to get
+\begin{align*}
+  I(x,y) = -\frac{xy}{2(4x^2+y^2)}-\frac{x}{2}\int \frac{1}{4x^2+y^2}dy.
+\end{align*}
+To solve the new integral we use $u=y/2x$ to find
+\begin{align*}
+  I(x,y) &= -\frac{xy}{2(4x^2+y^2)}-\frac{x}{2}\int \frac{2x}{4x^2(1+u^2)}du\\
+  &= -\frac{xy}{2(4x^2+y^2)}-\frac{1}{4}\arctan(u)\\
+  &= -\frac{xy}{2(4x^2+y^2)}-\frac{1}{4}\arctan\left(\frac{y}{2x}\right).
+\end{align*}
+Now we can add the limits to find
+\begin{align*}
+  \left[I(x,y)\right]^{y=2x}_{y=x^2}&=\frac{x^3}{2(4x^2+x^4)}
+  +\frac{1}{4}\arctan\left(\frac{x}{2}\right)-\frac{x^2}{4x^2+4x^2}
+  -\frac{1}{4}\arctan(1)\\
+  &=\frac{x}{8+x^2}+\frac{1}{4}\arctan\left(\frac{x}{2}\right)
+  -\frac{1-\pi}{8}.
+\end{align*}
+Thus
+\begin{align*}
+  \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA&=\int_0^2\left(\frac{x}{8+x^2}+\frac{1}{4}\arctan\left(\frac{x}{2}\right)
+  -\frac{1-\pi}{8}\right)dx\\
+  &=\int_0^2 \frac{x}{8+x^2}dx + \frac{1}{4}\int_0^2\arctan\left(\frac{x}{2}\right)dx-\frac{1}{8}\int_0^2 (1-\pi)dx.
+\end{align*}
+We find 
+\begin{align*}
+  \int_0^2 (1-\pi)dx = 2(1-\pi),
+\end{align*}
+and
+\begin{align*}
+  \int_0^2 \arctan\left(\frac{x}{2}\right)dx
+  =\left[x\arctan\left(\frac{x}{2}\right)
+  -\ln (x^2+4)\right]^2_0=
+  \frac{\pi}{2}-3\ln(2).
+\end{align*}
+Finally, we obtain
+\begin{align*}
+  \int_0^2\frac{x}{8+x^2}dx=\left[\frac{1}{2}\ln(x^2+8)\right]_0^2=\frac{1}{2}\left(\ln(3)-\ln(2)\right)
+\end{align*}
+by using $u=8+x^2$ as a substitution. We can combine those results
+to get
+\begin{align*}
+  \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA
+  &=\frac{1}{2}\left(\ln(3)-\ln(2)\right)
+  +\frac{1}{4}\left(\frac{\pi}{2}-3\ln(2)\right)
+  +\frac{1}{8}(2 - 2\pi)\\
+  &=\frac{1}{2}\ln(3)-\frac{5}{4}\ln(2)-\frac{3\pi}{8}+\frac{1}{4}
+  \approx -1.245.
+\end{align*}
+\end{document}
