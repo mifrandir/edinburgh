@@ -48,6 +48,12 @@
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\Geom}{Geom}
+\DeclareMathOperator{\Binom}{Binom}
+\DeclareMathOperator{\Bern}{Bernoulli}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\Exp}{Exponential}
+\DeclareMathOperator{\GD}{Gamma}
 \newcommand{\wbigcup}{\mathop{\bigcup}\displaylimits}
 \newcommand{\wbigcap}{\mathop{\bigcap}\displaylimits}
 %\DeclareMathOperator{\mod}{mod}
@@ -266,4 +272,101 @@
         \E(X) = \E(X|A_1)\P(A_1)+\cdots\E(X|A_n)\P(A_n).
     \end{align*} 
 \end{proposition}
+\section{Four new distributions}
+\subsection{Geometric random variables}
+\begin{definition}
+    A random variable $X$ is \B{geometric} with parameter $p$ and we write $X\sim \text{Geom}(p)$ if
+    \begin{align*}
+        \P(X=k)=q^{k-1}p
+    \end{align*}
+    where $p\in[0,1]$ and $q=1-p$.
+\end{definition}
+\begin{proposition}
+    The expected value of $X\sim\Geom(p)$ is $\E(X)=1/p$.
+\end{proposition}
+\subsection{Continuous random variables}
+\begin{definition}
+    A \B{probability density function} for a random variable $X$ on an
+    interval $I\subseteq\R$ is a piecewise continuous function $f_X:I\to\R$ satisfying
+    \begin{enumerate}
+        \item $f_X(x) \geq 0$ for all $x\in I$;
+        \item $\int_I f_X(x) dx =1$.
+    \end{enumerate}
+    The interpretation of $f_X$ is that for $a,b\in I$ with $a\leq b$ we have
+    \begin{align*}
+        \P(a\leq X\leq b)=\int_a^b f_X(x)dx.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    A continuous random variable $X\sim\Unif(a,b)$ if $X$ has a constant pdf
+    \begin{align*}
+        f_X(x) = \begin{cases}
+            \frac{1}{b-a}, &\text{for }a\leq x\leq b\\
+            0, &\text{otherwise.}
+        \end{cases}
+    \end{align*}
+\end{definition}
+\begin{definition}
+    A random variable $X$ on $[0,\infty]$ with pdf of the form
+    \begin{align*}
+        f_X(x) = \lambda e^{-\lambda x}
+    \end{align*}
+    is called an \B{exponential random variable}.
+    We write $X\sim\Exp(\lambda)$.
+\end{definition}
+\subsection{Properties of continuous random variables}
+\begin{definition}
+    Let $f_X$ be a pdf for a random variable. The \B{cumulative distribution
+    function} is defined by
+    \begin{align*}
+        F_X(x) = \P(X\leq x) = \int_{-\infty}^x f_X(u)du.
+    \end{align*}
+\end{definition}
+\begin{proposition}
+    Let $f_X$ be a pdf and $F_X$ the corresponding cdf. Then
+    \begin{itemize}
+        \item $F_X$ is differentiable and $F_X'(x) = f_X(x)$.
+        \item The cdf $F_X(x)$ is non-decreasing.
+        \item If $X$ takes values only in an interval $[a,b]$, so that
+              $f_X(x)=0$ outside that range, we have
+              $F_X(x)=0$ for $x\leq a$ and $F_X(x)=1$ for $x\geq b$.
+    \end{itemize}
+\end{proposition}
+\begin{definition}
+    The \B{expected value} of a random variable $X$ with pdf $f_X(x)$ 
+    is given by
+    \begin{align*}
+        \E(X) = \int_{-\infty}^\infty xf_X(x) dx.
+    \end{align*}
+    More generally, we can take the expected value of a function 
+    $g(X)$ of our random variable $X$:
+    \begin{align*}
+        \E(g(X)) = \int_{-\infty}^\infty g(x) f_X(x)dx.
+    \end{align*}
+    If the random variable $X$ takes values only in an interval
+    $[a,b]$ then the limits of the integral can and should be taken
+    to be $a$ and $b$.
+\end{definition}
+\begin{definition}
+    The \B{Gamma function} is a way of defining factorials for all
+    positive real numbers rather than just integers. We define
+    \begin{align*}
+        \Gamma(z) = \int_0^\infty x^{z-1}e^{-x}dx,
+    \end{align*}
+    where $z>0$.
+\end{definition}
+\begin{theorem}
+    For $\alpha,\lambda>0$ we have
+    \begin{align*}
+        \int_0^\infty x^{\alpha -1}e^{-\lambda x} dx = \frac{1}{\lambda^a}\Gamma(z).
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    Let $\alpha$ and $\lambda$ be positive constants. The random variable
+    $X$ taking values in $[0,\infty)$ has a \B{gamma distribution} and we 
+    write $X\sim\GD(\alpha, \lambda)$ if its pdf is
+    \begin{align*}
+        f_X(x) = \frac{\lambda^\alpha}{\Gamma(a)}x^{\alpha-1}e^{-\lambda x}.
+    \end{align*}
+\end{definition}
 \end{document}
