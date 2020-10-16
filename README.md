@@ -4,8 +4,6 @@ Anything related to my time at the University of Edinburgh.
 
 ## Courses
 
-### 2019/20:
-
 Year    | Span     | School | Short     | Title                                               | Organiser(s)                       | Mark | Grade | ECTS
 --------|----------|--------|-----------|-----------------------------------------------------|------------------------------------|------|-------|------
 2019/20 | SEM1     | MATH   | ILA       | Introduction to Linear Algebra                      | Chris Sangwin                      | 96   | A1    | 10
