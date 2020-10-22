@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\renewcommand{\P}{\mathbb{P}}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand{\E}{\mathbb{E}}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\begin{document}
+\title{PRB: Week 4 Solutions}
+\author{Franz Miltz (UNN: S1971811)}
+\date{13th October, 2020}
+\maketitle
+\section*{P 4.1} 
+Let $f_X$ be the pdf of a random variable $X$ with
+\begin{align*}
+  f_X(x) = k x^n \text{ for some } n\in\N.
+\end{align*}
+Then we require
+\begin{align*}
+  \int_0^1 f_X(x) dx = k\int_0^1 x^n dx = 1.
+\end{align*}
+We find
+\begin{align*}
+   k\int_0^1 x^n dx = k\left[\frac{1}{n+1}x^{n+1}\right]_0^1 = \frac{k}{n+1}.
+\end{align*}
+Therefore, $k=n+1$ is required to make $f_X$ a pdf.\\
+Now 
+\begin{align*}
+  \P(X\leq 1/2) = \int_0^{1/2} (n+1)x^n dx = \left[x^{n+1}\right]_0^{1/2} 
+  =\frac{1}{2^{n+1}},
+\end{align*}
+and
+\begin{align*}
+  \E(X) = \int_0^1 x f_X(x) dx = \int_0^1 (n+1)x^{n+1} dx
+  = \left[\frac{n+1}{n+2}x^{n+2}\right]_0^1 = \frac{n+1}{n+2}.
+\end{align*}
+We see that 
+\begin{align*}
+  \lim_{n\to\infty} \P(X\leq 1/2) = 0
+\end{align*}
+and
+\begin{align*}
+  \lim_{n\to\infty} \E(X) = 1.
+\end{align*}
+This is intuitively true because $f_X$ gets steeper with increasing
+$n$ and thus the fraction of the area under the graph to the left 
+gets smaller and smaller while the center of gravity moves closer to
+$x=1$.
+\section*{P 4.2}
+We know that
+\begin{align*}
+  \P(a \leq X \leq b) = \int_a^b f_X(x) dx 
+\end{align*}
+and therefore
+\begin{align*}
+  \P(a \leq X \leq b) = \left[F_X(x)\right]_a^b = F_X(b) - F_X(a).
+\end{align*}
+Addditionally, we know by definition that
+\begin{align*}
+  F_X(x) = \P(X \leq x).
+\end{align*}
+Therefore
+\begin{align*}
+  \P(a \leq X \leq b) = \P(x \leq b) - \P(x < a).
+\end{align*}
+Obsesrve that, since $X$ is continuous,
+\begin{align*}
+  \P(X \leq x) = \P(X < x). 
+\end{align*}
+Thus, by applying the definition, we find
+\begin{align*}
+  \P(a \leq X \leq b) = \P(x \leq b) - \P(x \leq a) = F_X(b) - F_X(b).
+\end{align*}
+\section*{P 4.3}
+Let $X$ be as described. Then for the event $X=k$ we know that
+the $k$th roll has to be a six. Further, for the $k-1$ rolls before
+that, there need to be exactly $r-1$ sixes. If and only if both of these
+conditions are met, $X=k$. Therefore, we can write
+\begin{align*}
+  \P(X=k) = \frac{1}{6}\P(Y=r-1)
+\end{align*}
+where $Y$ is the number of sixes in $k-1$ rolls. Using the binomial
+distribution, we find
+\begin{align*}
+  \P(X=k) = \frac{1}{6}\binom{k-1}{r-1}\left(\frac{1}{6}\right)^ {r-1}
+  \left(\frac{5}{6}\right)^{k-r}
+  = \frac{(k-1)!}{(r-1)!(k-r)!}\left(\frac{1}{6}\right)^r\left(\frac{5}{6}\right)^{k-r}
+\end{align*}
+as required.
+\section*{P 4.4}
+Let the random variables $X$, $Y$ and $Z$ have 
+the pdfs $f_X(x)=f_Y(x)=f_Z(x)=1$. Let $A$, $B$ and $C$
+be the same random variables but assigned in such a way that
+$A\leq B\leq C$ all the time. Then, since $X,Y,Z$ have identical pdfs,
+there are $6$ equally likely mappings to $A,B,C$.
+You can see that $B=W$ as specified in the question. For $f_W$, 
+we thus find
+\begin{align*}
+  f_W(x) = 6\left(\P(A \leq x)\P(x \leq C)\right).
+\end{align*}
+By definition, we get
+\begin{align*}
+  f_W(x) = 6\left(\int_0^x 1dx\right)\left(\int_x^1 1dx\right) = 6x(1-x).
+\end{align*}
+We can now determine
+\begin{align*}
+  F_W(x) = 6\int_0^x x - x^2 dx = 3x^2-2x^3.
+\end{align*}
+We can check $F_W(1) = 3\cdot 1^2 - 2 \cdot 1^3 = 1$. Further, we can
+calculate
+\begin{align*}
+  \P\left(\frac{1}{3}\leq W \leq \frac{2}{3}\right)
+  &= F_W\left(\frac{2}{3}\right) - F_W\left(\frac{1}{3}\right)
+  = 1 - \frac{14}{27} = \frac{13}{27}.
+\end{align*}
+\end{document}
