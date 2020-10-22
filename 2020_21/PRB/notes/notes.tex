@@ -38,6 +38,7 @@
 \newcommand{\Z}{\mathbb{Z}}
 \renewcommand{\P}{\mathbb{P}}
 \newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
 \newcommand{\st}{\text{ s.t }}
 \newcommand{\ih}{\widehat i}
 \newcommand{\jh}{\widehat j}
@@ -369,4 +370,120 @@
         f_X(x) = \frac{\lambda^\alpha}{\Gamma(a)}x^{\alpha-1}e^{-\lambda x}.
     \end{align*}
 \end{definition}
+\section{Generating functions and variance}
+\subsection{Products of random variables}
+\begin{theorem}
+    Let $X$ and $Y$ be \emph{independent} random variables with finite expected values.
+    Then
+    \begin{align*}
+        \E(XY) = \E(X)\E(Y)
+    \end{align*}
+    and more generally (assuming the expectations exist),
+    \begin{align*}
+        \E(f(X), g(Y)) = \E(f(X))\E(g(Y)).
+    \end{align*}
+\end{theorem}
+\subsection{Probability generating functions}
+\begin{definition}
+    For a random variable $X$ its \B{probability generating function} (pgf) is the function of a variable
+    $s$ defined by
+    \begin{align*}
+        G_X(s) = \E\left(s^X\right)
+    \end{align*}
+    for such values of $s$ for which the expectations exists.
+\end{definition}
+\begin{theorem}
+    The pgf $G_X(s)$ of the random variable $X$ has the properties:
+    \begin{itemize}
+        \item $G_X(1) = 1$
+        \item $G'_X(1)=E(X)$, the expected value of $X$.
+    \end{itemize}
+\end{theorem}
+\begin{lemma}
+    For a geometric random variable $X\sim \Geom(p)$
+    \begin{align*}
+        G_X(s) = \sum_{k=1}^\infty s^k q^{k-1}p
+        = \frac{ps}{1-qs}.
+    \end{align*}
+\end{lemma}
+\begin{theorem}
+    Let $X,Y$ be independent random variables both taking
+    non-negative integer values. Then
+    \begin{align*}
+        G_{X+Y}(s) = G_X(s)G_Y(s).
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    We define the \B{variance} of a random variable by
+    \begin{align*}
+        \V(X) = \E((X-\E(X))^2).
+    \end{align*}
+\end{definition}
+\begin{definition}
+    The \B{standard deviation} $\sigma_X$ of a random
+    variable $X$ with variance $\V(X)$ is given by
+    \begin{align*}
+        \sigma_X = \sqrt{\V(X)}.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $X$ be a random variable with variance $\V(X)$.
+    Let $Y= a X + b$ where $a,b$ are real numbers.
+    Then
+    \begin{align*}
+        \V(Y) = \V(aX+b) = a^2\V(X)
+    \end{align*}
+    and
+    \begin{align*}
+        \sigma_Y = |a|\sigma_X.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    The variance of $X$ is given by
+    \begin{align*}
+        \V(X) = \E(X^2) - \left(\E(X)\right)^2.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $X,Y$ are independent and the variances exist then
+    \begin{align*}
+        \V(X+Y) = \V(X) + \V(Y).
+    \end{align*}
+\end{theorem}
+\begin{lemma}
+    For a generating function $G_X(s)$ or a random variable
+    $X$ that takes values of non-negative integers
+    we find
+    \begin{align*}
+        \V(X) = G''_X(1) + G'_X(1) - \left(G'_X(1)\right)^2.
+    \end{align*}
+\end{lemma}
+\begin{theorem}
+    Let $X_1, X_2, ...$ be independent, identically
+    distributed random variables with $\E(X_j)=\mu$
+    and variance $\V(X_j)=\sigma^2$.\\
+    Let $n\in\N$ and consider the "average of the first $n$"
+    \begin{align*}
+        A_n = \frac{1}{n}\left(X_1 + X_2 + \cdots + X_n\right)
+    \end{align*}
+    Then we have
+    \begin{align*}
+        \E(A_n) = \mu\hspace{1cm} \V(A_n) = \frac{\sigma^2}{n}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let $X$ be a random variable with expected value $E(X)=\mu$
+    and finite variance $\V(X)$. Then for every positive number
+    $a$ we have
+    \begin{align*}
+        \P(|X-\mu|\geq a) \leq \frac{\V(X)}{a^2}.
+    \end{align*}
+\end{theorem}
+\begin{theorem}[The weak law of large numbers]
+    Consider an infinite sequence of independent, identically
+    distributed random variables. Then for any $a>0$ we have
+    \begin{align*}
+        \lim_{n\to\infty}\P(A_n - \mu \geq a) = 0.
+    \end{align*}
+\end{theorem}
 \end{document}
