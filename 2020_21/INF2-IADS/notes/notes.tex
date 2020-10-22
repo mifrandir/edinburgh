@@ -137,4 +137,113 @@ Note that the cost model needs to be specified when comparing algorithms.
 	Let $A$ be an algorithm and let $T_b$ be its best-case runtime. Then, if $T_b=\Omega(g)$ for some function $g$,
 	we know that the runtime of $A$ \emph{in general} is $\Omega (g)$.
 \end{theorem}
+\section{Collections}
+\subsection{Sets and dictionaries}
+\begin{definition}
+	A \B{finite set} containing values of type $X$ is a datastructure with the following interface
+	\begin{align*}
+		\textbf{contains} &: X\to \texttt{bool}\\
+		\textbf{insert} &: X \to \texttt{void}\\
+		\textbf{delete} &: X \to \texttt{void}\\
+		\textbf{isEmpty} &: \texttt{void} \to \texttt{bool}
+	\end{align*}
+\end{definition}
+\begin{definition}
+	A \B{dictionary} mapping keys of type $X$ to values of type $Y$
+	is a datastructure with the following interface
+	\begin{align*}
+		\textbf{lookup} &: X \to Y\\
+		\textbf{insert} &: X \to Y \to \texttt{void}\\
+		\textbf{delete} &: X \to \texttt{void}\\
+		\textbf{isEmpty} &: \texttt{void} \to \texttt{bool}
+	\end{align*}
+\end{definition}
+\begin{definition}
+	A \B{hash table} is a datastructure that uses a \B{hash function} $f: X \to [0,m-1]$
+	to store key value pairs $(X,Y)$ in an array of length $m$.\\
+	The \B{load factor} $\alpha$ is the average number of elements associated with each cell
+	of the underlying array. If $f$ is a perfect hash function, i.e. it maps all inputs uniformly
+	onto $[0,m-1]$, then $\alpha$ is given by 
+	\begin{align*}
+		\alpha = n / m.
+	\end{align*}
+\end{definition}
+\begin{proposition}
+	Using linked lists to manage the elements in each bucket of a hash table, then
+	\begin{itemize}
+		\item a lookup of a key $k$  takes on average $\Theta(\alpha)$ comparisons, and
+		\item a lookup of a key $k$ takes in the worst-case $\Theta(n)$ comparisons.
+	\end{itemize}
+\end{proposition}
+\begin{definition}
+	\B{Open addressing} is an algorithm to handle hash collisions within a hash table 
+	by using a hash function $f: (X, [0,m-1]) \to [0,m-1]$ that generates a permutation of all possible
+	hash codes for each possible input $X$. An element $x\in X$ is then stored the hash code $f(x, i)$
+	if and only if all $f(x,j)$ for $j < i$ are already occupied.
+\end{definition}
+\begin{proposition}
+	In a hash table with load factor $\alpha$ that uses open addressing requires, on average, $1/(1-\alpha)$ 
+	probes for an unsuccessful lookup and less for a successful one.
+\end{proposition}
+\begin{definition}
+	A \B{binary tree} consists of a value and at most one left child and at most one right child where
+	children are other binary trees.
+\end{definition}
+\begin{definition}
+	An \B{ordered binary tree} with a given ordering $(<) : X \to X \to \texttt{bool}$ is a binary tree 
+	with a root $x$ such that
+	\begin{align*}
+		\forall y \in L(x), y.\texttt{key} < x.\texttt{key} 
+		\text{ and } \forall y \in R(x), x.\texttt{key} < y.\texttt{key},
+	\end{align*}
+	and both $L(x)$ and $R(x)$ are ordered.
+\end{definition}
+\begin{proposition}
+	For a prefectly balanced ordered binary tree, the lookup time is be $O(\log n)$.\\
+	More generally, for any such tree with a maximum depth $d$ of at most $d=2 \lg n$ the
+	lookup time is $O(\log n)$.
+\end{proposition}
+\begin{center}
+	
+\begin{tabular}{| l | l |}
+	\hline
+	Type & \\
+	\hline
+	Set & \begin{tabular}{ l | l | l | l }
+		Implementation & \texttt{contains} & \texttt{insert} & \texttt{delete}\\
+		\hline
+		Linked List (simple) 
+		& $\Theta(n)$, $\Theta(n)$
+		& $\Theta(1)$, $\Theta(1)$
+		& $\Theta(n)$, $\Theta(n)$\\
+		\hline
+		Ordered Linked List (simple) 
+		& $\Theta(\lg n)$, $\Theta(\lg n)$
+		& $\Theta(\lg n)$, $\Theta(\lg n)$
+		& $\Theta(\lg n)$, $\Theta(\lg n)$\\
+		\hline
+		Hash Table (linked bucket list)
+		& $\Theta(\alpha)$, $\Theta(n)$
+		& $\Theta(1)$, $\Theta(1)$
+		& $\Theta(\alpha)$, $\Theta(n)$\\
+		\hline
+		Hash Table (open addressing)
+		& $\Theta(1/(1-\alpha))$, $\Theta(n)$
+		& $\Theta(1/(1-\alpha))$, $\Theta(n)$
+		& - \\
+		\hline
+		Ordered Binary Tree
+		& $\Theta(\lg n)$, $\Theta(n)$
+		& $\Theta(\lg n)$, $\Theta(n)$ 
+		& $\Theta(\lg n)$, $\Theta(n)$\\
+		\hline
+		Red-Black Tree
+		& $\Theta(\lg n)$, $\Theta(\lg n)$
+		& $\Theta(\lg n)$, $\Theta(\lg n)$
+		& $\Theta(\lg n)$, $\Theta(\lg n)$
+	\end{tabular} \\
+	\hline
+\end{tabular}
+
+\end{center}
 \end{document}
