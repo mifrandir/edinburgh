@@ -18,6 +18,14 @@
 	urlcolor=black
 }
 \setmainfont{arial}
+%\usepackage{lmodern}
+\DeclareSymbolFont{ops}{OML}{eur}{m}{n}
+\SetSymbolFont{ops}{bold}{OML}{eur}{b}{n}
+
+\makeatletter
+\renewcommand{\operator@font}{\mathgroup\symops}
+\makeatother
+
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
 {\upshape}        % Theorem body font % (default is "\upshape")
@@ -44,6 +52,7 @@
 \newcommand{\grad}{\vec\triangledown}
 \newcommand{\di}{\iint\limits}
 \newcommand{\ti}{\iiint\limits}
+\newcommand{\hs}{\hspace{0.7cm}}
 \DeclareMathOperator{\lub}{LUB}
 \DeclareMathOperator{\glb}{GLB}
 \DeclareMathOperator{\hcf}{hcf}
@@ -332,7 +341,7 @@ Notation for higher derivatives:
     \begin{align*}
         \frac{\p z}{\p s}=\frac{\p z}{\p x}\frac{\p x}{\p s}
         + \frac{\p z}{\p y}\frac{\p y}{\p s}
-        \text{\hspace{1cm}and\hspace{1cm}}
+        \text{\hs and\hs}
         \frac{\p z}{\p t}=\frac{\p z}{\p x}\frac{\p x}{\p t}
         + \frac{\p z}{\p y}\frac{\p y}{\p t}.
     \end{align*} 
@@ -691,5 +700,115 @@ Notation for higher derivatives:
         \ti_B f(x,y,z) dV = \int_v^w\int_c^d \int_a^b f(x,y,z)\:dxdydx.
     \end{align*} 
     The iterated integrals can be evaluated in any order.
+\end{theorem}
+\begin{definition}
+    The \B{average value} of a function $f(x,y,z)$ over a three-dimensional region $E$
+    is defined as
+    \begin{align*}
+        f_{ave} = \frac{1}{V(E)}\ti_E f(x,y,z)dV.
+    \end{align*} 
+\end{definition}21
+\subsection{Triple integrals in cylindrical coordinates}
+\begin{definition}
+    The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the
+    ordered triple $(\rho,\theta,z)$ in the \B{cylindrical coordinate system}. The
+    $z$ coordinate is the same in both systems, the other coordinates are related as
+    \begin{align*}
+        x=\rho\cos\theta,\hs y=\rho\sin\theta,\hs
+        \rho^2 = x^2+y^2,\hs\tan\theta = \frac{y}{x}.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Suppose the function $f(x,y,z)$ is continuous on the 3-dimensional region $E$, where $E$
+    may be expressed as
+    \begin{align*}
+        E=\{(x,y,z) : (x,y,z) \in D, u_1(x,y) \leq z \leq u_2(x,y)\}
+    \end{align*}
+    where $D$ is specified in therms of polar coordinates as
+    \begin{align*}
+        \alpha \leq \rho \leq \beta,\:\: h_1(\theta) \leq \rho \leq h_2(\theta).
+    \end{align*}
+    The formula for \B{triple integration in cylindrical coordinates} is
+    \begin{align*}
+        \ti_E f(x,y,z) dV = \int_\alpha^\beta \int_{h_1(\theta)}^{h_2(\theta)}
+        \int_{u_1(\rho\cos\theta,\rho\sin\theta)}^{u_2(\rho\cos\theta,\rho\sin\theta)}
+        f(\rho\cos\theta,\rho\sin\theta,z)\rho\,dz\,dp\,d\theta.
+    \end{align*}
+\end{theorem}
+\subsection{Triple integrals in spherical coordinates}
+\begin{definition}
+    The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the ordered
+    triple $(\rho,\theta,\phi)$ in the \B{spherical coordinate system}. The coordinates are
+    related as
+    \begin{align*}
+        x=\rho\sin\phi\cos\theta,\hs y = \rho \sin\phi\sin\theta,\hs z = \rho\cos\phi
+    \end{align*}
+    where the radial distance $\phi=\sqrt{x^2+y^2+z^2}$.
+\end{definition}
+\begin{theorem}
+    The formula for \B{triple integration in spherical coordinates} over a region $E$ 
+    given by
+    \begin{align*}
+        E=\{(\rho,\theta,\phi):a\leq\rho\leq b,\alpha\leq\theta\leq\beta, c\leq\phi\leq d\}
+    \end{align*}
+    is as follows:
+    \begin{align*}
+        \ti_E f(x,y,z)\:dV = \int_c^d \int_\alpha^\beta \int_a^b f(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi)\rho^2\sin\phi\:d\rho\,d\theta\,d\phi.
+    \end{align*}
+\end{theorem}
+\subsection{Change of variable in multiple integrals}
+\subsubsection{Double integrals}
+\begin{definition}
+    Consider the \B{transformation} from the points $(u,v)$ in the $uv$-plane to the points $(x,y)$
+    in the $xy$-plane, represented by
+    \begin{align*}
+        x = x(u,v),\hs y=y(u,v).
+    \end{align*}
+    The \B{Jacobian} for this transformation is defined as
+    \begin{align*}
+        \frac{\partial(x,y)}{\partial(u,v)}
+        =\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+        - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+        =\begin{vmatrix}
+            \frac{\partial x}{\partial u} &\frac{\partial x}{\partial v}\\
+            \frac{\partial y}{\partial u} &\frac{\partial y}{\partial v}
+        \end{vmatrix}.
+    \end{align*}
+    We regard $x$ and $y$ as independent functions of $u$ and $v$ if the Jacobian is nonzero.
+\end{definition}
+\begin{theorem}
+    Suppose that $x=x(u,v), y=y(u,v)$ is a one-to-one transformation that maps a region
+    $S$ in the $uv$-plane onto a region $D$ in the $xy$-plane. If the partial derivatives
+    of $x(u,v)$ and $y(u,v)$ are continuous in $S$ and the corresponding Jacobian is nonzero,
+    then
+    \begin{align*}
+        \di_D f(x,y)\:dx\,dy = \di_S f(x(u,v), y(u,v))\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\:du\,dv
+    \end{align*}
+    where $f$ is continuous on $D$.
+\end{theorem}
+\subsubsection{Triple integrals}
+\begin{definition}
+    Consider a transformation that maps a region $S$ in $uvw$-space onto a region $D$ in
+    $xyz$-space represented by
+    \begin{align*}
+        x=x(u,v,w),\hs y=y(u,v,w),\hs z=z(u,v,w).
+    \end{align*}
+    The Jacobian of this transformation is the $3\times3$ matrix determinant
+    \begin{align*}
+        \frac{\partial(x,y,z)}{\partial(u,v,w)}=\begin{vmatrix}
+            \frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}&\frac{\partial x}{\partial w}\\
+            \frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}&\frac{\partial y}{\partial w}\\
+            \frac{\partial z}{\partial u}&\frac{\partial z}{\partial v}&\frac{\partial z}{\partial w}
+        \end{vmatrix}.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Suppose that $x=x(u,v,w),y=y(u,v,w),z=z(u,v,w)$ is a one-to-one transformation that maps a
+    region $S$ in $uvw$-space onto a region $D$ in $xyz$-space. If the partial derivatives of
+    $x$, $y$ and $z$ are continuous in $S$ and the corresponding Jacobian is nonzero,
+    then
+    \begin{align*}
+       \ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw. 
+    \end{align*}
 \end{theorem}
 \end{document}
