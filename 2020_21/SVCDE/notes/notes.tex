@@ -19,12 +19,12 @@
 }
 \setmainfont{arial}
 %\usepackage{lmodern}
-\DeclareSymbolFont{ops}{OML}{eur}{m}{n}
-\SetSymbolFont{ops}{bold}{OML}{eur}{b}{n}
+%\DeclareSymbolFont{ops}{OML}{cmm}{m}{it}
+%\SetSymbolFont{ops}{bold}{OML}{cmm}{m}{it}
 
-\makeatletter
-\renewcommand{\operator@font}{\mathgroup\symops}
-\makeatother
+%\makeatletter
+%\renewcommand{\operator@font}{\mathgroup\symops}
+%\makeatother
 
 \newtheoremstyle{sltheorem} {}                % Space above
 {}                % Space below
@@ -59,6 +59,8 @@
 \DeclareMathOperator{\lcm}{lcm}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\curl}{curl}
+\renewcommand{\div}{\text{div}}
 \newcommand{\dv}[1]{\vec #1\:'}
 %\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
@@ -71,6 +73,7 @@
 \author{Franz Miltz}
 \maketitle
 \tableofcontents
+\pagebreak
 \section{Vectors and geometry}
 (see ILA notes)
 \setcounter{subsection}{4}
@@ -689,7 +692,7 @@ Notation for higher derivatives:
     The \B{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
     is defined as
     \begin{align*}
-        \ti_B f(x,y,z)dV = \lim_{l,m,n\to\infty}=\sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n
+        \ti_B f(x,y,z)dV = \lim_{l,m,n\to\infty}\sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n
         f(x_i,y_j,z_k)\Delta V.
     \end{align*}
 \end{definition}
@@ -809,6 +812,252 @@ Notation for higher derivatives:
     then
     \begin{align*}
        \ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw. 
+    \end{align*}
+\end{theorem}
+\section{Vectors and calculus}
+\subsection{Vector fields}
+\begin{definition}
+    Let $D\subseteq \R^n$. A \B{vector field on $\R^n$} is a function $\vec F$ that assigns
+    to each point $\vec p\in D$ a $n$-dimensional vector $\vec F(\vec p)$.
+\end{definition}
+\begin{definition}
+    A vector field $\vec F$ is called \B{conservative} if there exists some scalar function
+    $f$ such that
+    \begin{align*}
+        \vec F = \grad f.
+    \end{align*}
+    If $\vec F$ is conservative then $f$ is called a \B{potential function} of $\vec F$.
+\end{definition}
+\subsection{Line integrals}
+\subsubsection{Line inetrals in 2 dimension}
+\begin{definition}
+    Let $C$ be the curve in the $xy$-plane described by the position vector equation
+    \begin{align*}
+        \vec r(t) = x(t)\ih + y(t)\jh
+    \end{align*}
+    where the parameter $t\in[a,b]$. Assume that $C$ is smooth. 
+    If $f(x,y)$ is continuous on $C$, then the \B{line integral of $f$ along $C$} is
+    defined as
+    \begin{align*}
+        \int_C f(x,y) ds = \lim_{n\to\infty} \sum_{i=1}^n f(x(t_i^*), y(t_i^*))\Delta s_i.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    The line integral of $f$ along the curve $C$ may be caculated as
+    \begin{align*}
+        \int_C f(x,y)ds = \int_a^b f(x(t), y(t))\sqrt{\left(\frac{dx}{dt}\right)^2 + 
+        \left(\frac{dy}{dt}\right)^2}dt.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If $C$ is a \B{piecewise-smooth curve}, i.e. $C$ is a union of a finite number of smooth
+    curves $C_1, C_2, ..., C_n$ where the terminal point of $C_{i-1}$ is the starting point
+    of $C_i$, then the integral of $f(x,y)$ along $C$ is
+    \begin{align*}
+        \int_C f(x,y)ds = \sum_{i=1}^n \int_{C_i} f(x,y)ds.
+    \end{align*}
+\end{theorem}
+\begin{lemma}
+    If a curve $C$ is parameterised by $t\in[a,b]$ such that its start point is $A$
+    (at $t=a$) and its end point is $B$ (at $t=b$), then
+    \begin{align*}
+        \int_{-C} f(x,y)dx = -\int_C f(x,y)dx,\hs 
+        \int_{-C}f(x,y)dy = -\int_C f(x,y)dy
+    \end{align*}
+    This is not the case if we integrate with respect to the arc length, i.e.
+    \begin{align*}
+        \int_{-C}f(x,y)ds = \int_C f(x,y)ds.
+    \end{align*}
+\end{lemma}
+\subsubsection{Line integrals in 3 dimensions}
+\begin{definition}
+    If $f(x,y,z)$ is continuous on a smooth curve $C$ described by the
+    position vector equation
+    \begin{align*}
+        \vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
+    \end{align*}
+    wher the parameter $t\in[a,b]$, then the \B{line integral of $f$ along $C$}
+    is defined as
+    \begin{align*}
+        \int_C f(x,y,z)ds = \lim_{n\to\infty}\sum_{i=1}^n f(x(t_i^*), y(t_i^*), z(t_i^*))\Delta s_i
+    \end{align*}
+    which may be evaluated as
+    \begin{align*}
+        \int_C f(x,y,z)ds = \int_a^b f(x(t), y(t), z(t))\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}dt.
+    \end{align*}
+\end{definition}
+\begin{lemma}
+    More compactly,
+    \begin{align*}
+        \int_C f ds = \int_a^b f(\vec r(t))|\dv r(t)|dt.
+    \end{align*}
+\end{lemma}
+\subsubsection{Line integrals of vector fields}
+\begin{definition}
+    If the vecotr field $\vec F$ is continuous on $C$, then the
+    \B{line integral of $\vec F$ along $C$} is defined as
+    \begin{align*}
+        \int_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec r(t))\cdot \dv r(t)dt
+        = \int_C \vec F\cdot \vec T ds.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Suppse that the vector field $\vec F$ on $\R^3$ is given in component
+    form as
+    \begin{align*}
+        \vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh.
+    \end{align*}
+    Then
+    \begin{align*}
+        \int_C \vec F\cdot d\vec r = \int_C P\:dx + Q\:dy + R\:dz.
+    \end{align*}
+\end{theorem}
+\subsection{The Fundamental Theorem for line integrals}
+\begin{theorem}
+    Let $C$ be a smooth curve specified by the position vector function 
+    $\vec r(t)$, $t\in[a,b]$. If $f$ is a diffferentiable function
+    whose gradient vector $\grad f$ is continuous on $C$, then
+    \begin{align*}
+        \int_C \grad f\cdot d\vec r = f(\vec r(b)) - f(\vec r(a)).
+    \end{align*}
+\end{theorem}
+\begin{lemma}
+    Suppose that $C_\alpha$ and $C_\beta$ are two piecewise-smooth curves
+    - which are called \B{paths} - that have the same start point and end
+    point. Then
+    \begin{align*}
+        \int_{C_\alpha} \grad f \cdot d\vec r = \int_{C_\beta} \grad f \cdot d\vec r
+    \end{align*}
+    provided $\grad f$ is continuous.
+\end{lemma}
+\subsubsection{Independence of path}
+\begin{definition}
+    If $\vec F$ is a continous vector field with domain $D$, we say that the
+    line integral $\int_C\vec F\cdot d\vec r$ is
+    \B{independent of path} if
+    \begin{align*}
+        \int_{C_\alpha} \vec F\cdot d\vec r = \int_{C_\beta}\vec F\cdot d\vec r
+    \end{align*}
+    for any two paths $C_\alpha, C_\beta$ in $D$ that have the same start and
+    end points.
+\end{definition}
+\begin{definition}
+    A \B{closed} curve is one for which the start point coincides with the end point.
+\end{definition}
+\begin{theorem}
+    \begin{align*}
+        \int_C \vec F\cdot d\vec r \text{ is independent of path in $D$}
+        \Leftrightarrow
+        \int_C \vec F\cdot d\vec r = 0 \text{ for every closed path $C$ in $D$}
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    A set $D$ is \B{connected} if any two points in $D$ can be joined by a
+    path that lies in $D$.
+\end{definition}
+\begin{theorem}
+    Let $\vec F$ be a vector field that is continuous on an open connected
+    region $D$. If $\int_C\vec F\cdot d\vec r$ is independent of path in $D$
+    then $\vec F$ is a conservative vector field on $D$.
+\end{theorem}
+\begin{theorem}
+    If $\vec F(x,y) = P(x,y)\ih + Q(x,y)\jh$ is a conservative vector field,
+    where $P(x,y)$ and $Q(x,y)$ have continuous first-order partial derivatives
+    on a domain $D$, then throughout $D$
+    \begin{align*}
+        \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    \B{Simple} properties:
+    \begin{itemize}
+        \item A \B{simple curve} is one that does not intersect itself anywhere
+              between its start and end.
+        \item A \B{simply-connected region} in the plane is a connected region $D$
+              such that every simple closed curve in $D$ encloses only points that 
+              are in $D$.
+    \end{itemize}
+\end{definition}
+\begin{theorem}
+    If $\vec F(x,y)=P(x,y)\ih + Q(x,y)\jh$ is a vector field on an open simply-connected
+    region $D$, where $P(x,y)$ and $Q(x,y)$ have continuous first-order partial
+    derivatives and
+    \begin{align*}
+        \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}
+    \end{align*}
+    throughout $D$, then $\vec F(x,y)$ is conservative.
+\end{theorem}
+\subsection{Green's Theorem}
+\begin{theorem}[Green's Theorem in the plane]
+    Let $C$ be a positively-oriented, piecewise-smooth, simple closed curve in
+    the $xy$-plane and let $D$ be the region enclosed by $C$. If $P(x,y)$ and
+    $Q(x,y)$ have continuous partial derivatives on an open region that contains
+    $D$, then
+    \begin{align*}
+        \int_C P\:dx + Q\:dy = \di_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
+    \end{align*} 
+\end{theorem}
+\subsection{Curl and Divergence}
+\subsubsection{Curl}
+\begin{definition}
+    If $\vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field
+    on $\R^3$, then the \B{curl} of $\vec F$ is defined by the vector function
+    \begin{align*}
+        \curl\vec F = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\ih
+        +\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\jh
+        +\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\kh.
+    \end{align*} 
+    We can write curl as
+    \begin{align*}
+        \curl\vec F = \grad \times \vec F.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    If the scalar function $f(x,y,z)$ has continuous second order partial derivatives,
+    then
+    \begin{align*}
+        \curl(\grad f) = \vec 0.
+    \end{align*}
+\end{theorem}
+\begin{corollary}
+    If $\vec F$ is conservative then $\curl\vec F = \vec 0$. The converse is true
+    provided that $\vec F$ is defined on all $\R^3$.
+\end{corollary}
+\begin{theorem}[Laplace's equation]
+    \begin{align*}
+        \nabla^2 f = 0.
+    \end{align*}
+\end{theorem}
+\begin{definition}
+    The Laplace operator can be applied to a vector field $\vec F$ where 
+    \begin{align*}
+        \vec F(x,y,z) =P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh
+    \end{align*}
+    per 
+    \begin{align*}
+        \nabla^2 \vec F = \nabla^2 P\ih + \nabla^2 Q\jh + \nabla^2 R\kh.
+    \end{align*}
+\end{definition}
+\subsubsection{Vector form of Green's Theorem}
+\begin{theorem}
+    Suppose that the plane region $D$, its boundary cruve $C$, and the functions
+    $P(x,y)$ and $Q(x,y)$ satisfy the hypotheses of \emph{Green's Theorem}. Now
+    consider the vector field $\vec F = P\ih + Q\jh$ which has the line integral
+    \begin{align*}
+        \int_C\vec F \cdot d\vec r = \int_C Pdx + Qdy.
+    \end{align*}
+    If we regard $\vec F$ as a vector field on $\R^3$ with thrid component $0$, 
+    we can write Green's Theorem as
+    \begin{align*}
+        \int_C\vec F \cdot d\vec r = \di_D\left(\curl\vec F(x,y)\right)\cdot\kh dA.
+    \end{align*}
+    If the boundary curve $C$ is specified by the position vector function
+    \begin{align*}
+        \vec r(t) = x(t)\ih + y(t)\jh
+    \end{align*}
+    for $t\in[a,b]$, then Greens Theorem can be written as
+    \begin{align*}
+        \int_C \vec F\cdot \vec{\hat n} ds = \di_D \div\vec F(x,y)dA.
     \end{align*}
 \end{theorem}
 \end{document}
