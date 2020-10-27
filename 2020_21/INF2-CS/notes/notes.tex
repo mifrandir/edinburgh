@@ -394,4 +394,109 @@ More info at \emph{P\&H, Section 3.9, Page 158}.
 	\item Initialises machine registers and sets stack pointer.
 	\item Jumps to start-up routine. When \T{main} exits, returns with \T{exit} system call.
 \end{enumerate}
+\section{Logic design overview}
+\subsection{Binary digital logic circuits}
+\begin{itemize}
+	\item Two voltage levels \begin{itemize}
+		\item built from transistors
+		\item analog circuits not very suitable for generic computing
+		\item digital logic with more than two states is not practical 
+	\end{itemize}
+    \item types of circuits \begin{itemize}
+		\item combinational logic: outputs depend only on inputs
+		\item sequential logic: outputs depend on inputs and state
+	\end{itemize}
+\end{itemize}
+\subsection{Gates}
+\begin{itemize}
+	\item AND gate: $O = I_1 \wedge I_2$
+	\item OR gate: $O = I_1 \vee I_2$
+	\item NOT gate: $O = \neg I$
+	\item NOR gate: $O = \neg(I_1 \vee I_2) = \neg I_1 \wedge \neg I_2$
+	\item NAND gate: $O = \neg(I_1 \wedge I_2) = \neg I_1 \vee \neg I_2$.
+\end{itemize}
+Sets of functional complete gates
+\begin{itemize}
+	\item NOT, OR, AND
+	\item NAND
+	\item NOR
+\end{itemize}
+\begin{definition}
+	The multiplexer $z:\Z_2^3\to\Z_2$ is defined as
+	\begin{align*}
+		z(i_0,i_1,c) = \begin{cases}
+			i_0 &\text{iff }c=0\\
+			i_1 &\text{iff }c=1
+		\end{cases}
+	\end{align*}
+	In terms of boolean expression, $z$ is equivalent to the following 
+	\begin{align*}
+		z(i_0,i_1,c) = \neg c i_0 \vee ci_1.
+	\end{align*}
+\end{definition}
+\subsection{Modules}
+Because building circuits for many inputs is complicated, we need modules.
+\begin{itemize}
+	\item Full adder: $f:\Z_2^3\to\Z_2^2$\begin{itemize}
+		\item $f_s(a,b,c_{in})=\bar{a}\bar{b}c\vee \bar{a}b\bar{c} \vee a\bar{b}\bar{c} \vee abc$
+		\item $f_{c_{out}}(a,b,c_in)=bc\vee ac\vee ab$
+	\end{itemize}
+	\item Ripple carry adder (n-bit): Chain of n full adders
+\end{itemize}
+\subsection{Propagation delay}
+\begin{definition}
+	\B{Propagation delay} is the delay between input signal
+	change and output signal change at the other end.
+\end{definition}
+Delay depends on
+\begin{itemize}
+	\item technology,
+	\item delay through each gate,
+	\item number of gates driven by a gates output.
+\end{itemize}
+$\Rightarrow$ 65 gates are necessary to compute the final bit of the sum.
+\subsection{Sequential logic circus}
+\begin{itemize}
+	\item Output depends on current and (some of the) past inputs, i.e. the circuit has memory
+	\item sequences of inputs generate sequences of outputs $\Rightarrow$ \B{sequential logic}
+\end{itemize}
+Simplest memory element: $O_t = I_t \vee O_{t-1}$ where $O_{t-1}$ is the feedback from the last
+computation. 
+\subsection{Memory}
+SR Latch:
+\begin{itemize}
+	\item two NOR gates with each others outputs as input
+	\item two inputs: SET and RESET to change state
+	\item if neither SET nor RESET are set, the previous state is remembered
+\end{itemize}
+Problem: Different paths may have different delays. This leads to invalid outputs, i.e. glitches.
+\subsection{Timing of events}
+\begin{itemize}
+	\item State can only change at times synchronised to an external signal, the \B{clock}
+	\item clock signal is combined with circuit (AND) right before the output
+\end{itemize}
+\B{Writing SR latch (D latch)}:
+\begin{itemize}
+	\item single input $D$, $R=\neg D$ and $S=D$
+	\item clock before inputs to SR latch
+	\item behaviour: \begin{itemize}
+		\item $Q$ does not change when clock is $0$
+		\item $Q$ can change while clock is $1$
+	\end{itemize}
+\end{itemize}
+\B{Edge-triggered D flip-flop}:
+\begin{itemize}
+	\item on a \B{positive clock edge}, $D$ is propagated to $Q$
+\end{itemize}
+\B{Register}:
+\begin{itemize}
+	\item tie multiple $D$ flip-flops together using a common clock
+\end{itemize}
+\begin{definition}
+Difference between latch and flip flop:
+\begin{enumerate}
+	\item A latch is \B{level triggered}.
+	\item A flip flop is \B{edge triggered}.
+\end{enumerate}
+\end{definition}
 \end{document}
