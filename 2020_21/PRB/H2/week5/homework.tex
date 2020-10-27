@@ -42,11 +42,11 @@
 \newcommand{\dv}[1]{\vec #1\, '}
 \renewcommand{\d}[1]{#1'}
 \begin{document}
-\title{PRB: Week 4 Solutions}
+\title{PRB: Week 5 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
 \date{27th October, 2020}
 \maketitle
-\section{P 5.1}
+\section*{P 5.1}
 We know that, for our random variable $W$, the pdf is
 \begin{align*}
   f_W(x) = 6x(1-x).
@@ -65,21 +65,17 @@ Further, we know that
 \end{align*}
 Since we have determined $\E(W)=1/2$, we only need to find $\E(W^2)$. We know
 \begin{align*}
-  \E(W^2) = \int_0^1 x f_{W^2}(x)dx.
+  \E(W^2) = \int_0^1 x^2 f_{W}(x)dx.
 \end{align*}
-Further, observe that
+Thus
 \begin{align*}
-  f_{W^2}(x) = f_W\left(\sqrt{x}\right) = 6\sqrt{x}\left(1-\sqrt{x}\right)
-\end{align*}
-is the pdf of $W^2$. Thus
-\begin{align*}
-  \E(W^2) = \int_0^1 6 x^{3/2}-6x^2 dx = \left[\frac{12}{5}x^{5/2}-2x^3\right]_0^1=\frac{2}{5}.
+  \E(W^2) = \int_0^1 6 x^2 - 6x^3 dx = \left[\frac{12}{5}x^{5/2}-2x^3\right]_0^1=\frac{3}{10}.
 \end{align*}
 Now we know
 \begin{align*}
   \V(W) = \frac{2}{5}-\frac{1}{4} = \frac{3}{20}.
 \end{align*}
-\section{P 5.2}
+\section*{P 5.2}
 We have a random variable $X$ with a generating function 
 \begin{align*}
   G_X(s) = \frac{1}{2-s^2}.
@@ -117,7 +113,7 @@ and
 \begin{align*}
   \P(X=4) = 1/8.
 \end{align*}
-\section{P 5.3}
+\section*{P 5.3}
 We have a random variable $Y\sim\Geom(1/6)$. Therefore 
 \begin{align*}
   \P(Y=k) = \left(\frac{5}{6}\right)^{k-1}\left(\frac{1}{6}\right).
@@ -153,5 +149,14 @@ We solve
 and insert this result to find
 \begin{align*}
   \P(|X-6| \geq 6) \leq \frac{5}{6}.
+\end{align*}
+\section*{P 5.4}
+We have a random variable $X_n\sim\Binom(1/2,n)$. We know
+\begin{align*}
+  \V(X_n) = npq = \frac{n}{4}
+\end{align*}
+and 
+\begin{align*}
+  \sigma = \sqrt{\V(X_n)} = \frac{1}{2}\sqrt{n}.
 \end{align*}
 \end{document}
