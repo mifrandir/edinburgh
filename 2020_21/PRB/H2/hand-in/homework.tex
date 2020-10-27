@@ -42,10 +42,26 @@
 \newcommand{\dv}[1]{\vec #1\, '}
 \renewcommand{\d}[1]{#1'}
 \begin{document}
-\title{PRB: Week 5 Solutions}
+\title{PRB: Week 6 Hand-in}
 \author{Franz Miltz (UNN: S1971811)}
 \date{27th October, 2020}
 \maketitle
+\section*{P 4.3}
+Let $X$ be as described. Then for the event $X=k$ we know that
+the $k$th roll has to be a six. Further, for the $k-1$ rolls before
+that, there need to be exactly $r-1$ sixes. If and only if both of these
+conditions are met, $X=k$. Therefore, we can write
+\begin{align*}
+  \P(X=k) = \frac{1}{6}\P(Y=r-1)
+\end{align*}
+where $Y$ is the number of sixes in $k-1$ rolls, i.e. $Y\sim\Binom(k-1,1/6)$. Using the binomial
+distribution, we find
+\begin{align*}
+  \P(X=k) = \frac{1}{6}\binom{k-1}{r-1}\left(\frac{1}{6}\right)^ {r-1}
+  \left(\frac{5}{6}\right)^{k-r}
+  = \frac{(k-1)!}{(r-1)!(k-r)!}\left(\frac{1}{6}\right)^r\left(\frac{5}{6}\right)^{k-r}
+\end{align*}
+as required.
 \section*{P 5.1}
 We know that, for our random variable $W$, the pdf is
 \begin{align*}
@@ -82,81 +98,6 @@ it means that $W$ is most likely to be the closest to the middle of the interval
 a clue how it works or what its parameters $\alpha$ and $\beta$ are.
 As far as I can tell it hasn't been explained in the notes so I don't
 think it's required to do this.}
-\section*{P 5.2}
-We have a random variable $X$ with a generating function 
-\begin{align*}
-  G_X(s) = \frac{1}{2-s^2}.
-\end{align*}
-Observe that
-\begin{align*}
-  \frac{dG_X}{ds} = \frac{2s}{(2-s^2)^2}
-\end{align*}
-and thus
-\begin{align*}
-  \frac{dG_X}{ds}(1) = 2 = \E(X).
-\end{align*}
-Further
-\begin{align*}
-  \frac{d^2G_X}{ds^2}=\frac{6s^2+4}{(2-s^2)^3}
-\end{align*}
-and therefore
-\begin{align*}
-  \frac{d^2G_X}{ds^2}(1) = 10.
-\end{align*}
-We find
-\begin{align*}
-  \V(X) = \frac{d^2G_X}{ds}(1) + \frac{dG_X}{ds}(1) - \left(\frac{dG_X}{ds}(1)\right)^2
-  = 10 + 2 - 4 = 8.
-\end{align*}
-Since
-\begin{align*}
-  G_X(s) = \frac{1}{2-s^2} = \frac{1}{2} + \frac{s^2}{4} + \frac{s^4}{8} + \frac{s^6}{16} + \cdots
-\end{align*}
-we can observe
-\begin{align*}
-  \P(X=3) = 0
-\end{align*}
-and
-\begin{align*}
-  \P(X=4) = 1/8.
-\end{align*}
-\section*{P 5.3}
-We have a random variable $Y\sim\Geom(1/6)$. Therefore 
-\begin{align*}
-  \P(Y=k) = \left(\frac{5}{6}\right)^{k-1}\left(\frac{1}{6}\right).
-\end{align*}
-Also note
-\begin{align*}
-  \P(|Y-6|\geq 6) = \P(Y \geq 12) = \frac{1}{6}\sum_{i=1}^{11} \left(\frac{5}{6}\right)^i.
-\end{align*}
-We can compute this sum to find
-\begin{align*}
-  \P(|Y-6|\geq 6) = \frac{6069373681}{2176782336} \approx 0.279.
-\end{align*}
-We know the \emph{Chebyshev Inequality}
-\begin{align*}
-  \P(|X-\mu|\geq k\sigma) \leq \frac{1}{k^2}.
-\end{align*}
-The variance of a geometric random variable $X\sim\Geom(p)$ is given by
-\begin{align*}
-  \V(X) = \frac{1-p}{p^2}.
-\end{align*}
-Thus
-\begin{align*}
-  \V(X) = \V(Y) = \frac{1-1/6}{(1/6)^2} = 30
-\end{align*}
-and
-\begin{align*}
-  \sigma_X = \sqrt{30}.
-\end{align*}
-We solve
-\begin{align*}
-  6 = k\sqrt{30} \Leftrightarrow k = \sqrt{\frac{6}{5}}
-\end{align*}
-and insert this result to find
-\begin{align*}
-  \P(|X-6| \geq 6) \leq \frac{5}{6}.
-\end{align*}
 \section*{P 5.4}
 We have a random variable $X_n\sim\Binom(1/2,n)$. We define
 $A_n = X_n / n$ to be the average of all the $n$ coin flips. 
