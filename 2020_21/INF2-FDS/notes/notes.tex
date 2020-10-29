@@ -1,0 +1,318 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{nicefrac}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\setmainfont{arial}
+\usepackage{minted}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=black
+}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
+\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
+\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
+\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
+\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
+\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
+\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
+\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\st}{s.t.}
+\DeclareMathOperator{\sech}{sech}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
+\theoremstyle{sltheorem}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\C}{\mathbb{C}} % \C defined in `hyperref'
+\DeclareMathOperator{\lub}{LUB}
+\DeclareMathOperator{\glb}{GLB}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\cl}{cl}
+\DeclareMathOperator{\mse}{MSE}
+\DeclareMathOperator{\rmse}{RMSE}
+\DeclareMathOperator{\sst}{SST}
+\DeclareMathOperator{\sse}{SSE}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand*\B[1]{\textbf{#1}}
+\newcommand*\T[1]{\texttt{#1}}
+\usepackage{expl3}[2012-07-08]
+\ExplSyntaxOn
+\cs_new_eq:NN \fpeval \fp_eval:n
+\ExplSyntaxOff
+\begin{document}
+\title{Foundations of Data Science (YEAR2)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+\section{Statistical preliminaries}
+\begin{definition}
+	The \B{sample mean} $\bar{x}$ for sample $x_1, x_2, ..., x_n$
+	is defined as
+	\begin{align*}
+		\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{sample median} $\tilde x$ for a sample $x_1, x_2, ..., x_n$ is defined as 
+	\begin{align*}
+		\tilde x = \begin{cases}
+			x_{(n+1)/2} 				   &\text{if $n$ is odd},\\
+			\frac{1}{2}(x_{n/2}+x_{n/2+1}) &\text{otherwise}.
+		\end{cases}.
+	\end{align*}
+\end{definition}
+\begin{theorem}
+	The relation of the mean $\bar x$ and the median $\tilde x$ can be inferred as follows
+	\begin{enumerate}
+		\item If a distribution is \B{symmetric}, then $\bar x = \tilde x$
+		\item If a distribution is \B{positively skewed}, then $\bar x > \tilde x$
+		\item If a distribution is \B{negatively skewed}, then $\bar x < \tilde x$.
+	\end{enumerate}
+\end{theorem}
+\begin{definition}
+	The \B{sample variance} $s_x^2$ of a sample $x_1, x_2, ..., x_n$ is defined as
+	\begin{align*}
+		s_x^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{sample standard deviation} $s_x$ of a sample $x_1, x_2, ..., x_n$ is defined as
+	\begin{align*}
+		s_x = \sqrt{s_x^2}.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{population variance} $\sigma_x^2$ of a population $x_1, x_2, ..., x_N$ is defined as
+	\begin{align*}
+		\sigma_x^2 =\frac{1}{N}\sum_{i=1}^N (x_i-\bar x)^2.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{population standard deviation} $\sigma_x$ of a population $x_1, x_2, ..., x_N$ is defined as
+	\begin{align*}
+		\sigma_x = \sqrt{\sigma_x^2}.
+	\end{align*}
+\end{definition}
+\section{Linear Models}
+\begin{definition}
+	The \B{sample covariance} $s_{xy}$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$
+	is defined as
+	\begin{align*}
+		s_{xy} = \frac{1}{n}\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y).
+	\end{align*}
+\end{definition}
+Notes about the sample covariance:
+\begin{enumerate}
+	\item The units are $[x][y]$.
+	\item Scaling the units linearly scales $s_{xy}$ linearly.
+\end{enumerate}
+\begin{definition}
+	The \B{correlation coefiicient} $r$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$ is defined as
+	\begin{align*}
+		r = \frac{s_{xy}}{s_x s_y}.
+	\end{align*}
+\end{definition}
+Properties about the correlation coefiicient:
+\begin{enumerate}
+	\item $-1 \leq r \leq 1$
+	\item $y=cx \Rightarrow |r|=1$
+\end{enumerate}
+\begin{definition}
+	The standardised variable $z$ of the quantity $x$ is defined as
+	\begin{align*}
+		z_i = \frac{x_i-\bar x}{s_x}.
+	\end{align*}
+\end{definition}
+Properties of the standardised variable:
+\begin{enumerate}
+	\item $\bar z = 0$,
+	\item $s_z = 1$,
+	\item dimensionless,
+	\item covariance of two standardised variables is the same as correlation.
+\end{enumerate}
+\begin{definition}
+	Let $y$ be a variable dependent on $x$ with $y=\beta_0 + \beta_1 x$. Then
+	$\beta_0$ is the intercept and $\beta_1$ is the slope.
+\end{definition}
+\begin{definition}
+	The distance of the line $(\beta_0,\beta_1)$ to a sample $(x,y)$ is definend as
+	\begin{align*}
+		f(\beta_0, \beta_1) = \sum_{i=1}^n (y_i -(\beta_0 + \beta_1 x_i))^2.
+	\end{align*}
+	The line $(\hat\beta_0, \hat\beta_1)$ is the one that minimises $f$.
+\end{definition}
+\begin{theorem}
+	The closest line $(\hat\beta_0,\hat\beta_1)$ to a sample $(x,y)$ can be calculated with
+	\begin{align*}
+		\hat\beta_1&=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2},\\
+		\hat\beta_0&=\bar y - \hat\beta_1\bar x.
+	\end{align*}
+\end{theorem}
+Properties of the linear regression line:
+\begin{enumerate}
+	\item $(\bar x, \bar y)\in(\hat\beta_0, \hat\beta_1)$,
+	\item $\hat\beta_1 = \frac{s_y}{s_x}r$.
+\end{enumerate}
+Properties of the regression line of standardised variables:
+\begin{enumerate}
+	\item $(0,0)\in(\hat\beta_0,\hat\beta_1)$,
+	\item $\hat\beta_0=0,\hat\beta_1=r$,
+	\item the predicted standardised $y$ is always closer to the mean than the standardised $x$.
+\end{enumerate}
+\begin{definition}
+	Let $(\hat\beta_0,\hat\beta_1)$ be a regression line of $(x,y)$. Then the
+	\B{predicted value} $\hat y_i$ for each $x_i$ is defined as
+	\begin{align*}
+		\hat y_i = \hat\beta_0 + \hat\beta_1 x_i.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The differences $y_i - \hat y_i$ for each $i$ are called \B{residuals}.
+\end{definition}
+Note on residuals from linear regression:
+\begin{enumerate}
+	\item Zero mean
+	\item Zero correlation with independent variable $x$
+	\item Zero correlation with the predicted values $\hat y$
+\end{enumerate}
+\begin{definition}
+	The \B{mean square error} is defined by
+	\begin{align*}
+		\mse = \frac{1}{n}\sum_{i=1}^n (y-\hat y)^2
+	\end{align*}
+	and the \B{root mean square error} is given by $\rmse=\sqrt{\mse}$.
+\end{definition}
+\begin{definition}
+	A measure of the total variance in $y$ before we know anything
+	about $x$ is the \B{total sum of squares (SST)}, which we define
+	as the sum of squared deviations from the mean of $y$:
+	\begin{align*}
+		\sst = S_{yy} = \sum (y_i - \bar y)^2 = (n-1)s^2_y.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{sum of squared errors (SSE)} is defined
+	\begin{align*}
+		\sse = \sum (y_i -\hat y_i)^2.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{coeficient of determination} is defined
+	\begin{align*}
+		R^2 = 1-\frac{\sse}{\sst}.
+	\end{align*}
+\end{definition}
+Notes on $R^2$:
+\begin{itemize}
+	\item $R^2$ is a measure of "goodness of fit"
+	\item $R^2=1$ indicates that the model predicts the data perfectly
+	\item $R^2=0$ indicates no predictive value
+\end{itemize}
+\section{Multiple regression}
+\begin{definition}
+	The process of predicting a dependent variable from multiple independent variables is called \B{multiple regression}.
+\end{definition}
+\begin{definition}
+	Suppose we have two independent variables $x^{(1)}$ and $x^{(2)}$ and one dependent variable $y$.
+	The multiple regression model is then expressed as
+	\begin{align*}
+		y = \beta_0 + \beta_1 x^{(1)} + \beta_2 x^{(2)}.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	Let $x^*_{ik}=x^{(k)}_i - \bar x^{(k)}$. Then the \B{regressor matrix} $T$ is
+	the $n\times K$ matrix defined as
+	\begin{align*}
+		T = \begin{pmatrix}
+			x^*_{11} & x^*_{12} & \cdots & c^*_{1K}\\
+			x^*_{12} & x^*_{22} & \cdots & c^*_{2K}\\
+			\vdots & \vdots & \ddots & \vdots\\
+			x^*_{1n} & x^*_{2n} &\cdots & c^*_{nK}
+		\end{pmatrix}.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	Let $y^*_i=y_i-\bar y$. Then the \B{moment matrix} is defined as
+	\begin{align*}
+		X^T y = \begin{pmatrix}
+			\sum x^*_{i1} y^*_i\\
+			\vdots\\
+			\sum x^*_{iK} y^*_i
+		\end{pmatrix}
+	\end{align*}
+	where $y$ is the column vector containing all $y^*_i$.	
+\end{definition}
+\begin{definition}
+	The \B{covariance matrix} is defined as
+	\begin{align*}
+		S =\frac{1}{n-1}X^T X.
+	\end{align*}
+\end{definition}
+\begin{theorem}
+	To minimise
+	\begin{align*}
+		f(\beta_0, \beta_1, \beta_2) = \sum (y_i - (\beta_1 x_{i1}+\beta_2 x_{i2}))^2
+	\end{align*}
+	we require
+	\begin{align*}
+		\hat\beta_0 = \bar y - \beta_1\bar x^{(1)} - \beta_2\bar x^{(2)}
+	\end{align*}
+	and
+	\begin{align*}
+		\hat\beta = \begin{pmatrix}
+			\hat\beta_1\\
+			\hat\beta_2
+		\end{pmatrix}
+		= (X^T X)^{-1}X^T y.
+	\end{align*}
+\end{theorem}
+\begin{definition}
+	The \B{interaction term model} for two independent variables $x^{(1)}$ and $x^{(2)}$ and one dependent variable $y$
+	is defined as
+	\begin{align*}
+		y = \beta_0 + \beta_1 x^{(1)} + \beta_2 x^{(2)} + \beta_3 x^{(1)}x^{(2)}.
+	\end{align*}
+\end{definition}
+Notes:
+\begin{itemize}
+	\item for $x^{(2)}\in (0,1)$ this is equivalent to two separate linear regressions
+	\item we avoid having to create separate datasets
+	\item makes regression on two continuous variables more precise
+\end{itemize}
+\begin{definition}
+	If the number of variables is $k$ and the number of instances is $n$, the
+	\B{adjusted coefficient of determination} is given
+	\begin{align*}
+		R^2_a = 1 - \frac{n-1}{n-k-1}\frac{\sse}{\sst}.
+	\end{align*}
+\end{definition}
+Note: Adjustment is useful because finding a good fit becomes easier with more variables. We don't want this to affect $R^2$.
+\end{document}
