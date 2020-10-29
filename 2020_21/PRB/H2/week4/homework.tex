@@ -34,6 +34,12 @@
 \newcommand{\K}{\mathcal{K}}
 \newcommand{\dv}[1]{\vec #1\, '}
 \renewcommand{\d}[1]{#1'}
+\DeclareMathOperator{\Geom}{Geom}
+\DeclareMathOperator{\Binom}{Binom}
+\DeclareMathOperator{\Bern}{Bernoulli}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\Exp}{Exponential}
+\DeclareMathOperator{\GD}{Gamma}
 \begin{document}
 \title{PRB: Week 4 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
@@ -115,7 +121,16 @@ distribution, we find
   \left(\frac{5}{6}\right)^{k-r}
   = \frac{(k-1)!}{(r-1)!(k-r)!}\left(\frac{1}{6}\right)^r\left(\frac{5}{6}\right)^{k-r}
 \end{align*}
-as required.
+as required. \\
+We can write $X=X_1+X_2+\cdots X_r$ with $X_i\sim \Geom(r)$ for all $i$. 
+Using the \emph{Law of Total Probability for Expected Values}, we find
+\begin{align*}
+  \E(X) = \E(X_1) + \E(X_2) + \cdots + \E(X_r) = r\E(X_1).
+\end{align*}
+Using \emph{Proposition 4.1.3} from the nodes, we find $\E(X_1) = 1/p$ and thus
+\begin{align*}
+  \E(X) = r/p.
+\end{align*}
 \section*{P 4.4}
 Let the random variables $X$, $Y$ and $Z$ have 
 the pdfs $f_X(x)=f_Y(x)=f_Z(x)=1$. Let $A$, $B$ and $C$

@@ -61,7 +61,16 @@ distribution, we find
   \left(\frac{5}{6}\right)^{k-r}
   = \frac{(k-1)!}{(r-1)!(k-r)!}\left(\frac{1}{6}\right)^r\left(\frac{5}{6}\right)^{k-r}
 \end{align*}
-as required.
+as required. \\
+We can write $X=X_1+X_2+\cdots X_r$ with $X_i\sim \Geom(r)$ for all $i$. 
+Using the \emph{Law of Total Probability for Expected Values}, we find
+\begin{align*}
+  \E(X) = \E(X_1) + \E(X_2) + \cdots + \E(X_r) = r\E(X_1).
+\end{align*}
+Using \emph{Proposition 4.1.3} from the nodes, we find $\E(X_1) = 1/p$ and thus
+\begin{align*}
+  \E(X) = r/p.
+\end{align*}
 \section*{P 5.1}
 We know that, for our random variable $W$, the pdf is
 \begin{align*}
@@ -99,7 +108,7 @@ a clue how it works or what its parameters $\alpha$ and $\beta$ are.
 As far as I can tell it hasn't been explained in the notes so I don't
 think it's required to do this.}
 \section*{P 5.4}
-We have a random variable $X_n\sim\Binom(1/2,n)$. We define
+We have a random variable $X_n\sim\Binom(n,1/2)$. We define
 $A_n = X_n / n$ to be the average of all the $n$ coin flips. 
 We know
 \begin{align*}
