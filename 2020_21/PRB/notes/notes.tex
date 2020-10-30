@@ -54,6 +54,7 @@
 \DeclareMathOperator{\Bern}{Bernoulli}
 \DeclareMathOperator{\Unif}{Unif}
 \DeclareMathOperator{\Exp}{Exponential}
+\DeclareMathOperator{\Poiss}{Poiss}
 \DeclareMathOperator{\GD}{Gamma}
 \newcommand{\wbigcup}{\mathop{\bigcup}\displaylimits}
 \newcommand{\wbigcap}{\mathop{\bigcap}\displaylimits}
@@ -68,6 +69,7 @@
 \author{Franz Miltz}
 \maketitle
 \tableofcontents
+\pagebreak
 \section{Basic theory}
 \subsection{Assumptions}
 \begin{definition}
@@ -484,6 +486,52 @@
     distributed random variables. Then for any $a>0$ we have
     \begin{align*}
         \lim_{n\to\infty}\P(A_n - \mu \geq a) = 0.
+    \end{align*}
+\end{theorem}
+\section{Poisson and Bayes}
+\subsection{Poisson random variables}
+\begin{definition}
+    A random variable $X$ on $\{0,1,2,...\}$ such that
+    \begin{align*}
+        \P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}
+    \end{align*}
+    is called a \B{Poisson random variable with parameter $\lambda$}.
+    We write $X\sim\Poiss(\lambda)$.
+\end{definition}
+\begin{lemma}
+    The pgf of $X\sim\Poiss(\lambda)$ is
+    \begin{align*}
+        G_X(s) = e^{\lambda(s-1)}.
+    \end{align*}
+\end{lemma}
+\begin{lemma}
+    The expected an variance of $X\sim\Poiss(\lambda)$ are
+    \begin{align*}
+        \E(X) = \lambda \text{ and } \V(X) = \lambda.
+    \end{align*}
+\end{lemma}
+\begin{theorem}
+    Suppose that some event can be modelled by a Poisson random variable
+    with an average rate of $\lambda$ occurrences per unit time. Let $T$
+    be the time of the first occurence after $t=0$. Then $T\sim\Exp(\lambda)$.
+\end{theorem}
+\begin{theorem}
+    Let $X_1$ and $X_2$ be independent Poisson random variables with parameters
+    $\lambda_1, \lambda_2$ respectively. The $X=X_1 + X_2$ is a Poisson random
+    variable with parameter $\lambda=\lambda_1+\lambda_2$.
+\end{theorem}
+\subsection{Bayes theorem}
+\begin{theorem}[Bayes' Theorem]
+    Let $A,B$ be events with $\P(B)\not=0$. Then
+    \begin{align*}
+        \P(A|B)=\P(B|A)\frac{\P(A)}{\P(B)}
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Let our sample space $S$ be partitioned into disjoint events $A_k$,
+    $k=1,2,...,n$. Then for $1\leq j\leq n$,
+    \begin{align*}
+        \P(A_j|B)=\frac{\P(B|A_j)\P(A_j)}{\sum_{k=1}^n \P(B|A_k)\P(A_k)}.
     \end{align*}
 \end{theorem}
 \end{document}
