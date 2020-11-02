@@ -113,6 +113,24 @@
 \begin{theorem}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Theta(g)$ if, and only if, $g\in\Theta(f)$.
 \end{theorem}
+\subsection{Recurrence relations}
+\begin{theorem}[The Master Theorem]
+	Assume a recurrence relation $T$ has the form
+	\begin{align*}
+		T(n) = \begin{cases}
+			\Theta(1) &\text{if $n\leq n_0$}\\
+			aT(n/b) + \Theta(n^k) &\text{if $n>n_0$}
+		\end{cases}.
+	\end{align*}
+	Then, with $e=\log_b a$, 
+	\begin{align*}
+		T(n) = \begin{cases}
+			\Theta(n^e) &\text{if $e>k$}\\
+			\Theta(n^k\lg n) &\text{if $e=k$}\\
+			\Theta(n^k) &\text{if $e<k$}
+		\end{cases}
+	\end{align*}
+\end{theorem}
 \section{Algorithms and cost models}
 \begin{definition}
 	The \B{cost} of an algorithm is a quantity to measure its performance.\\
