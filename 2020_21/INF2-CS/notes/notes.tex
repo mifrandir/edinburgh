@@ -67,6 +67,7 @@
 \author{Franz Miltz}
 \maketitle
 \tableofcontents
+\pagebreak
 \section{Data Representation}
 Data representation affects
 \begin{itemize}
@@ -499,4 +500,65 @@ Difference between latch and flip flop:
 	\item A flip flop is \B{edge triggered}.
 \end{enumerate}
 \end{definition}
+\section{Processor Design}
+\subsection{Main processor functions}
+\begin{itemize}
+	\item Fetch instructions from \B{instruction memory}
+	\item Read the \B{register} operands
+	\item Use the \B{ALU} for computation
+	\item Acces \B{data memory} for load/store
+	\item Store the result of computation or loaded data into the destination \B{register}
+	\item Update the \B{Program Counter (PC)}
+\end{itemize}
+\subsection{Single-cycle}
+\subsubsection{Fetch}
+\begin{itemize}
+	\item PC value into \B{read address} of instruction memory
+	\item instruction value (32-bit word) out of instruction memory
+\end{itemize}
+\subsubsection{Update the PC}
+\begin{itemize}
+	\item actually the first step
+	\item write $\texttt{PC}=\texttt{PC}+4$ immediately
+	\item this is \B{concurrent} with everything else, but clock stops the PC output from changing 
+\end{itemize}
+\subsubsection{R-Format Instructions}
+\begin{enumerate}
+	\item Read two register operands
+	\item Perform arithmetic/logical operation
+	\item Write register result
+\end{enumerate}
+\subsubsection{Load/Store Instructions}
+\begin{enumerate}
+	\item Read register operands
+	\item Calculate address using 16-bit offset
+	\item Read (for load) or write (for store) the memory
+	\item Load only: update destination register
+\end{enumerate}
+\subsubsection{Branch Instructions}
+\begin{enumerate}
+	\item Read register operands
+	\item Compare operands \begin{itemize}
+		\item use ALU, subtract and check ALU's Zero output 
+	\end{itemize}
+	\item Calculate target address \begin{itemize}
+		\item sign-extend the immediate
+		\item shift left 2 places
+		\item add to $\texttt{PC}+4$
+	\end{itemize}
+\end{enumerate}
+\subsubsection{Handling Merging Wires}
+\begin{itemize}
+	\item splitting wires is fine, same voltage on both outputs
+	\item mergin wires is bad, different voltages \Rightarrow short circuit!
+	\item multiplexor required to choose between inputs
+	\item this requires a control input
+\end{itemize}
+\subsubsection{Control Unit}
+\begin{itemize}
+	\item controls all the multiplexors
+	\item not every instruction needs specific values for all control values
+	\item irrelevant states are called \B{Don't Care}
+	\item separate \B{ALU control} to handle ALU operation mode
+\end{itemize}
 \end{document}
