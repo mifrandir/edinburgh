@@ -315,4 +315,40 @@ Notes:
 	\end{align*}
 \end{definition}
 Note: Adjustment is useful because finding a good fit becomes easier with more variables. We don't want this to affect $R^2$.
+\section{Dealing with high dimensions}
+\begin{definition}
+	The \B{variance along the $i$th axis} is given by $S_{ii}$ where $S$ is the
+	covariance matrix.
+\end{definition}
+\begin{definition}
+	Given a unit vector $\vec p$ the \B{component score} $t_i$ of a data point
+	$\vec x_i$ is defined as
+	\begin{align*}
+		t_i = {\vec p}^{T} \vec x_i.
+	\end{align*}
+\end{definition}
+\begin{definition}
+	The \B{variance of a component score} $t^{(i)}$ is
+	\begin{align*}
+		s_t^2 = \frac{1}{n-1}\sum_{i=1}^n t_i^2.
+	\end{align*}
+	This can be rewritten as
+	\begin{align*}
+		s^2_t = \vec p^T S\vec p.
+	\end{align*}
+\end{definition}
+\begin{theorem}
+	The $i$th principal component of a dataset with the $D\times D$ covariance
+	matrix $S$ is the eigenvector corresponding to the $i$th largest eigenvalue 
+	of $S$.
+\end{theorem}
+\begin{proposition}
+	The fraction of the total variance explained by the $i$th principal component
+	is 
+	\begin{align*}
+		\frac{\lambda_i}{\sum_{j=1}^D \lambda_j}
+	\end{align*}
+	where $\lambda_j$ is the eigenvalue corresponding to the $j$th prinicipal
+	component.
+\end{proposition}
 \end{document}
