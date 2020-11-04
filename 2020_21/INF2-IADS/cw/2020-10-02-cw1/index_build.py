@@ -7,6 +7,9 @@
 
 # PART A: INDEXING A LARGE SET OF PLAINTEXT FILES
 
+import linecache
+import os
+import math
 import buffered_io
 from buffered_io import *
 
@@ -17,7 +20,7 @@ CorpusFiles = {
     'DCC': 'Dickens_Christmas_Carol.txt',
     'SJH': 'Stevenson_Jekyll_and_Hyde.txt',
     'SCW': 'Shakespeare_Complete_Works.txt',
-    'TWP': 'Tolstoy_War_and_Peace.txt',
+    #'TWP': 'Tolstoy_War_and_Peace.txt',
 }
 # each file should be identified by a three-letter code
 # CAA, DCC, SJH are small, SCW and TCP are larger
@@ -70,8 +73,6 @@ def getWords(s):
 
 # Generation of unsorted index entries for a given textfile
 
-import math
-
 
 def generateIndexEntries(filename, filecode, writer):
     numberOfLines = getNumberOfLines(filename)
@@ -108,8 +109,6 @@ def generateAllIndexEntries(entryfile):
 
 # Provide the following:
 
-import os
-
 
 def splitIntoSortedChunks(entryfile):
     reader = BufferedInput(entryfile, 0.3)
@@ -143,24 +142,23 @@ def mergeFiles(a, b, c):
     ab = reader_ab.readln()
     bc = reader_bc.readln()
     # Merging while neither file is empty
-    while ab != None and bc != None:
+    while ab and bc:
         if ab < bc:
             writer_ac.writeln(ab)
             ab = reader_ab.readln()
         else:
             writer_ac.writeln(bc)
             bc = reader_bc.readln()
-    # Normalise so that ab is never empty first
-    if ab == None:
-        reader_ab, reader_bc = reader_bc, reader_ab
-        ab = bc
-    # Dump the rest of the non-empty file
-    while ab != None:
+    while ab:
         writer_ac.writeln(ab)
         ab = reader_ab.readln()
+    while bc:
+        writer_ac.writeln(bc)
+        bc = reader_bc.readln()
     # Final clean-up
     reader_ab.close()
     reader_bc.close()
+    writer_ac.flush()
     os.remove(f_ab)
     os.remove(f_bc)
     # returning filename to be consistent with mergeFilesInRange
@@ -262,8 +260,6 @@ def buildIndex():
 
 
 # Accessing the index using 'linecache' (random access to text files by line)
-
-import linecache
 
 
 def indexEntryFor(key):

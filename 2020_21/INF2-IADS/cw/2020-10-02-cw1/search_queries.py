@@ -7,6 +7,7 @@
 
 # PART B: PROCESSING SEARCH QUERIES
 
+import linecache
 import index_build
 
 # We find hits for queries using the index entries for the search terms.
@@ -47,6 +48,7 @@ class ItemStream:
             # magically works even when comma == -1, thanks to \n
             return (self.doc, line)
         # else will return None
+
     def pop(self):
         e = self.peek()
         if self.comma == -1:
@@ -59,9 +61,82 @@ class ItemStream:
 # TODO
 # Add your code here.
 
-# Displaying hits as corpus quotations:
+class HitStream:
 
-import linecache
+    def __init__(self, itemStreams, lineWindow, minRequired):
+        self.itemStreams = itemStreams
+        self.lineWindow = lineWindow
+        self.minRequired = minRequired
+        self.last = 0
+        self.empty = False
+        self.min_s = None
+        self.num_empty = 0
+
+    def update_min_s(self):
+        self.min_s = self.itemStreams[0]
+        for s in self.itemStreams:
+            v = s.peek()
+            if not v:
+                continue
+            min_v = self.min_s.peek()
+            if not min_v or min_v > v:
+                self.min_s = s
+
+    def next_document(self):
+        doc = self.min_s.pop()
+        for s in self.itemStreams:
+            while (v := s.peek()) and v[0] == doc[0]:
+                s.pop()
+
+    def check_documents(self):
+        self.update_min_s()
+        min_v = self.min_s.peek()
+        if not min_v:
+            self.last = None
+            return True
+        num_right_document = 0
+        for s in self.itemStreams:
+            if s.peek() and s.peek()[0] == min_v[0]:
+                num_right_document += 1
+        if num_right_document < self.minRequired:
+            self.next_document()
+            return False
+        return True
+
+    def tentative_next(self):
+        # while we don't have enough streams with the same current
+        # docuemnt, keep updating
+        while not self.check_documents():
+            pass
+        # filter out empty streams
+        self.itemStreams = [s for s in self.itemStreams if s.peek()]
+
+    def next(self):
+        if self.last == None:
+            return None
+        while True:
+            if self.min_s:
+                # since the line number in the output is only dependent
+                # on the minimum line number, this is the only one we
+                # need to increase
+                self.min_s.pop()
+            self.tentative_next()
+            if len(self.itemStreams) < self.minRequired:
+                self.last = None
+                return None
+            min_v = self.min_s.peek()
+            num_matches = 0
+            for s in self.itemStreams:
+                v = s.peek()
+                if v[0] == min_v[0] and min_v[1] + self.lineWindow > v[1]:
+                    num_matches += 1
+            if num_matches >= self.minRequired:
+                return min_v
+        self.last = None
+        return self.last
+
+
+# Displaying hits as corpus quotations:
 
 
 def displayLines(startref, lineWindow):
