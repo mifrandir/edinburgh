@@ -262,6 +262,40 @@ Note that the cost model needs to be specified when comparing algorithms.
 	\end{tabular} \\
 	\hline
 \end{tabular}
-
 \end{center}
+\subsection{The Heap data structure}
+\begin{definition}
+	A heap is an \B{almost-complete} binary tree:
+	\begin{itemize}
+		\item All leaves are either at depth $h-1$ or $h$ (where $h$ is the height of the tree)
+		\item The depth-$h$ leaves all appear consecutively from left-to-right
+	\end{itemize}
+\end{definition}
+\begin{lemma}
+	The height $h$ of a heap with $n$ is in the range given by
+	\begin{align*}
+		\lg(n)-1 < h \leq \lg(n).
+	\end{align*}
+\end{lemma}
+\begin{theorem}
+	The heap operations have the following runtimes:
+	\\
+	\begin{center}
+	\begin{tabular}{| l | c |}
+		\hline
+		Operation & Asymptotic Runtime\\
+		\hline
+		Max & $\Theta(1)$\\
+		\hline
+		Heapify & $O(\lg(n))$\\
+		\hline
+		Extract-Max & $O(\lg(n))$\\
+		\hline
+		Insert & $O(\lg(n))$\\
+		\hline
+		Build & $O(n)$\\
+		\hline
+	\end{tabular}
+	\end{center}
+\end{theorem}
 \end{document}
