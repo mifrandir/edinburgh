@@ -5,11 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{nicefrac}
-\usepackage{siunitx}
-\usepackage{mathtools}
 \usepackage{hyperref}
-\usepackage{newpxtext}
 \hypersetup{
 	colorlinks,
 	citecolor=black,
@@ -17,6 +13,19 @@
 	linkcolor=black,
 	urlcolor=black
 }
+\usepackage{fontspec}
+\setmainfont{arial}
+\usepackage{nicefrac}
+\usepackage{siunitx}
+\usepackage{mathtools}
+\newtheoremstyle{sltheorem} {}                % Space above
+{}                % Space below
+{\upshape}        % Theorem body font % (default is "\upshape")
+{}                % Indent amount
+{\bfseries}       % Theorem head font % (default is \mdseries)
+{.}               % Punctuation after theorem head % default: no punctuation
+{ }               % Space after theorem head
+{}                % Theorem head spec
 \DeclareMathOperator{\csch}{csch}
 \DeclareMathOperator{\arccot}{\text{cot}^{-1}}
 \DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
@@ -61,6 +70,7 @@
 \date{December 01, 2019}
 \maketitle
 \tableofcontents
+\pagebreak
 \section{Vectors}
 \subsection{The Geometry and Algebra of Vectors}
 \begin{theorem}

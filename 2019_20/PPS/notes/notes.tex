@@ -6,7 +6,6 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{hyperref}
-\usepackage{newpxtext}
 \hypersetup{
 	colorlinks,
 	citecolor=black,
@@ -14,6 +13,8 @@
 	linkcolor=black,
 	urlcolor=black
 }
+\usepackage{fontspec}
+\setmainfont{arial}
 \usepackage{nicefrac}
 \usepackage{siunitx}
 \usepackage{mathtools}
@@ -53,6 +54,7 @@
 \date{May 28, 2020}
 \maketitle
 \tableofcontents
+\pagebreak
 \section{Logic}
 \begin{theorem}
     If $A$ and $B$ are statements, then $A\Rightarrow B\equiv \lneg{A}\vee B$.
