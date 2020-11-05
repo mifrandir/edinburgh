@@ -78,6 +78,35 @@ def miniHash(m, j):
 # TODO
 # Add your code here.
 
+
+def hashCompress(L, m):
+    R = [0 for _ in L]
+    L = sorted(enumerate(L), key=lambda x: len(x[1]), reverse=True)
+    T = [False for _ in range(m)]
+    for i, B in L:
+        j = 0
+        while True:
+            updated = []  # list of indices where we changed T
+            f = miniHash(m, j)  # get the hash function for the current j
+            for v in B:
+                h = f(v)
+                if not T[h]:
+                    # update T and note where we made the change
+                    T[h] = True
+                    updated.append(h)
+                else:
+                    # undo updates
+                    for u in updated:
+                        T[u] = False
+                    break
+            # if we managed to get to every element without breaking, we found j
+            if len(updated) == len(B):
+                break
+            j += 1  # try the next one
+        R[i] = j  # we
+    return R
+
+
 # Putting it all together:
 # compact data structure for representing a perfect hash function
 
