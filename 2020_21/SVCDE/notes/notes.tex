@@ -8,7 +8,6 @@
 \usepackage{nicefrac}
 \usepackage{siunitx}
 \usepackage{mathtools}
-\usepackage{fontspec}
 \usepackage{hyperref}
 \hypersetup{
 	colorlinks,
@@ -17,6 +16,7 @@
 	linkcolor=black,
 	urlcolor=black
 }
+\usepackage{fontspec}
 \setmainfont{arial}
 %\usepackage{lmodern}
 %\DeclareSymbolFont{ops}{OML}{cmm}{m}{it}
@@ -1058,6 +1058,164 @@ Notation for higher derivatives:
     for $t\in[a,b]$, then Greens Theorem can be written as
     \begin{align*}
         \int_C \vec F\cdot \vec{\hat n} ds = \di_D \div\vec F(x,y)dA.
+    \end{align*}
+\end{theorem}
+\subsection{Parametric descriptions of surfaces and their areas}
+\begin{definition}
+    A surface $S$ in $\R^3$ may be described by the position vector function
+    \begin{align*}
+        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh
+    \end{align*}
+    in terms of two parameters $u$ and $v$ which lie in a region $D$ in the $uv$-plane.
+    The \B{parametric equations}
+    \begin{align*}
+        x = x(u,v),\hs y=y(u,v),\hs z=z(u,v)
+    \end{align*}
+    describe all point on the surface $S$ as $(u,v)$ moves through $D$.
+\end{definition}
+\subsubsection{Tangent planes}
+\begin{definition}
+    Consider the point $P_0$ with position vector $\vec r(u_0, v_0)$. This point lies
+    on the surface traced out by the position vector function
+    \begin{align*}
+        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh.
+    \end{align*}
+    If $\vec r_u \times\vec r_v\not=\vec 0$ then the surface is called \B{smooth}.\\
+     For a smooth surface, the \B{tangent plane} at $P_0$ is the plane containing
+              $\vec r(u_0,v_0)+\vec r_u(u_0,v_0)$ and $\vec r(u_0,v_0)+\vec r_v(u_0,v_0)$ and the vector
+              $\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
+
+\end{definition}
+\subsubsection{Surface area}
+\begin{definition}
+    If a smooth surface $S$ is described by the position vector function
+    \begin{align*}
+        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D
+    \end{align*}
+    and $S$ is covered just once as $(u,v)$ ranges through the parameter domain $D$,
+    then the \B{surface area} of $S$ is defined as
+    \begin{align*}
+        A(S)=\di_D |\vec r_u \times \vec r_v|\:dA.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Consider the surface $S$ with equation $z=f(x,y)$ where $x,y$ lie in $D$ and $f$
+    has continuous partial derivatives. Then the surface area of $S$ is
+    \begin{align*}
+        A(S) = \di_D \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2}dA.
+    \end{align*}
+\end{theorem}
+\subsection{Surface integrals}
+\begin{definition}
+    \label{si_def}
+    Consider the function $f(x,y,z)$ defined on the surface $S$ which is described by the
+    position vector function
+    \begin{align*}
+        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D.
+    \end{align*}
+    Then the \B{surface integral} of $f(x,y,z)$ over the surface $S$ is defined as
+    \begin{align*}
+        \di_S f(x,y,z)dS = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(P_{ij}^*)\Delta S_{ij}.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    The surface integral in definition \ref{si_def} may be evaluated by
+    \begin{align*}
+        \di_S f(x,y,z)dS = \di_D f(\vec r(u,v)) |\vec r_u\times \vec r_v|dA.
+    \end{align*}
+\end{theorem}
+\subsubsection{Graphs}
+\begin{theorem}
+    Consider the surface $S$ which is given by $z=g(x,y)$. Then the surface integral 
+    of $f(x,y,z)$ has the formula
+    \begin{align*}
+        \di_S f(x,y,z)dS = \di_D f(x,y,g(x,y))\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\:dA
+    \end{align*}
+\end{theorem}
+\subsubsection{Oriented surfaces}
+\begin{definition}
+    A smooth surface $S$ in $\R^3$ is \B{orientable} if there exists a unit normal vector
+    field $\hat n(x,y,z)$ defined on $S$ that varies continuously as $(x,y,z)$ ranges over $S$
+    and is everywhere normal to $S$.\\
+    Any such unit nromal vector field $\hat n(x,y,z)$ determines an \B{orientation} of $S$.
+    The side which $\hat n(x,y,z)$ points to is called the \B{positive side}; the other side is the
+    \B{negative side}.
+\end{definition}
+\begin{definition}
+    An \B{oriented surface} is a smooth surface together with a particular choice of unit
+    normal vector field $\hat n(x,y,z)$.
+\end{definition}
+\begin{lemma}
+    For the surface described by the graph $z=g(x,y)$, a natural orientation is provided by
+    the unit normal fector field
+    \begin{align*}
+        \hat n(x,y,z)=\frac{-\frac{\partial g}{\partial x}\ih -\frac{\partial g}{\partial y}\jh + \kh}{\sqrt{1+\left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2}}.
+    \end{align*}
+\end{lemma}
+\begin{lemma}
+    For the surfaces described by the position vector function $\vec r(u,v)$ in parametric form,
+    a natural orientation is provided by the unit normal vector field
+    \begin{align*}
+        \hat n(u,v) = \frac{\vec r_u \times \vec r_v}{|\vec r_u \times \vec r_v|}.
+    \end{align*}
+\end{lemma}
+\begin{definition}
+    For a \B{closed surface} (i.e., a surface without boundary):
+    \begin{itemize}
+        \item the \B{positive orientation} is one for which the unit normal vectors point outwards;
+        \item the \B{negative orientation} is one for which the unit normal vector points inwards.
+    \end{itemize}
+\end{definition}
+\begin{definition}
+    A piecewise smooth surface is orientable if, whenever two smooth component surfaces join
+    at a boundary curve $C$, they induce opposite orientations along $C$.
+\end{definition}
+\subsubsection{Surface integrals of vector fields}
+\begin{definition}
+    If $\vec F(x,y,z)$ is a continuous vector field defined on an oriented surface $S$ with
+    unit normal vector field $\hat n(x,y,z)$, then the \B{surface integral of $\vec F$ over 
+    $S$} is
+    \begin{align*}
+        \di_S \vec F\cdot d\vec S = \di_S \vec F\cdot \hat n\:dS.
+    \end{align*}
+    This integral is also called the \B{flux} of $\vec F$ over $S$.
+\end{definition}
+\subsection{Stokes' Theorem}
+\begin{theorem}[Stokes' Theorem]
+    Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple closed
+    piecewise smooth boundary curve $C$ with orientation inherited from $S$. Let $\vec F$
+    be a vector field whose components have continuous partial derivatives on an open
+    region in $\R^3$ that contains $S$. Then
+    \begin{align*}
+        \int_C \vec F\cdot d\vec r = \di_S \curl \vec F\cdot d\vec S.
+    \end{align*} 
+\end{theorem}
+\begin{corollary}
+    If $S_1$ and $S_2$ are oriented surfaces with the same oriented boundary $C$ then
+    \begin{align*}
+        \di_{S_1}\curl \vec F\cdot d\vec S = \int_C \vec F\cdot d\vec r = \di_{S_2} \curl\vec F\cdot d\vec S
+    \end{align*}
+    where $S_{1,2}$ and $\vec F$ satisfy the hypotheses of Stokes' Theorem.
+\end{corollary}
+\subsection{The Divergence Theorem}
+\begin{definition}
+    A \B{simple} 3-dimensional region $E$ may be specified in three different ways:
+    \begin{align*}
+        E=\begin{cases}
+            \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\}\\
+            \{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\}\\
+            \{(x,y,z)|(x,z)\in D_{xz}, u_5(x,z)\leq y \leq u_6(x,z)\}
+        \end{cases}
+    \end{align*}
+    where $u_{1,2,3,4,5,6}$ are continuous functions and $D_{xy,yz,xz}$ are the projections
+    of $E$ onto the $xy$-,$yz$-,$xz$-planes repsectively.
+\end{definition}
+\begin{theorem}(The Diveregence Theorem)
+    Let $E$ be a simple 3-dimensional region whose boundary surface $S$ has positive
+    orientation. Let $\vec F$ be a vector field whose component functions have continuous
+    partial derivatives on an open region that contains $E$. Then
+    \begin{align*}
+        \di_S \vec F\cdot d\vec S = \ti_E \div\vec F\:dV.
     \end{align*}
 \end{theorem}
 \end{document}
