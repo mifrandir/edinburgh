@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage[a4paper]{geometry}
+\usepackage[british]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{nicefrac}
+\usepackage{amsthm}
+\usepackage{changepage}
+\geometry{tmargin=2cm, bmargin=3cm}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand*\lneg[1]{\overline{#1}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\p}{\partial }
+\newcommand{\di}{\iint\limits}
+\newcommand{\ti}{\iiint\limits}
+\newcommand{\grad}{\vec\nabla}
+\newcommand{\hs}{\hspace{0.7cm}}
+%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
+\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
+\newtheorem{claim}[section]{Claim}
+\newtheorem{lemma}{Lemma}[section]
+\DeclareMathOperator{\lub}{\text{LUB}}
+\DeclareMathOperator{\hcf}{hcf}
+\DeclareMathOperator{\lcm}{lcm}
+\setcounter{MaxMatrixCols}{20}
+\newcommand*\binco[2]{\begin{pmatrix}
+  #1\\#2
+\end{pmatrix}}
+\newcommand{\ih}{\widehat i}
+\newcommand{\jh}{\widehat j}
+\newcommand{\kh}{\widehat k}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\d}[1]{#1'}
+\renewcommand{\t}{\theta}
+\newenvironment{itpars}{\par\itshape}{\par}
+\newenvironment{itquote}{\begin{quote}\itshape}{\end{quote}\ignorespacesafterend}
+\begin{document}
+\title{SVCDE: Hand-in 7}
+\author{Franz Miltz (UNN: S1971811)}
+\date{8 November 2020}
+\maketitle
+\section*{Question 1}
+We have 
+\begin{align*}
+  \vec F = (1+2xy+y^2+yz^2)\ih + (x^2+e^y+2xy+xz^2)\jh + 2xyz\kh.
+\end{align*}
+\subsection*{(a) and (b)}
+Since finding a potential function $\phi$ such that $\vec F = \grad\phi$ 
+will show that $\vec F$ is conservative, we can solve (a) implicitly.
+To find a suitable $\phi$ we need to find anti-derivatives of all the components
+of $\vec F$. We find
+\begin{align*}
+  \int \vec F\cdot \ih\: dx &= x + x^2y + xy^2 + xyz^2 + C_x,\\
+  \int \vec F\cdot \jh\: dy &= x^2y+e^y+xy^2+xyz^2+C_y,\\
+  \int \vec F\cdot \kh\: dz &= xyz^2 + C_z.
+\end{align*}
+Notice how every summand that depends on more than one of $x,y,z$ appears 
+in all the relevant anti-derivatives. Thus we can inspect to find
+\begin{align}
+  \label{eqphi}
+  \phi(x,y,z) = x + x^2y + xy^2 + xyz^2 + e^y.
+\end{align}
+Partial differentiation shows that
+\begin{align*}
+  \grad \phi = (1+2xy+y^2+yz^2)\ih + (x^2+e^y+2xy+xz^2)\jh + 2xyz\kh = \vec F.
+\end{align*}
+Thus $\vec F$ is conservative and $\phi$ is a potential function.
+\subsection*{(c)}
+We observe that $\vec F$ is conservative and thus the integral is independent of
+path. We therefore let $P$ be some smooth curve from $(0,0,0)$ to $(2,0,2)$ with the
+position vector $\vec s:\R\to\R^3$ such that $\vec s(a)=\vec 0$ and $\vec s(b)=2\ih + 2\kh$
+and write
+\begin{align*}
+  I=\int_C \vec F \cdot d\vec r = \int_P \vec F \cdot d\vec s.
+\end{align*}
+Furthermore, we know $\vec F=\grad\phi$ for the function $\phi$ given in (\ref{eqphi}).
+Using this and applying the \emph{Fundamental Theorem of Line Integrals}, we find
+\begin{align*}
+  I &= \int_P \grad \phi\cdot d\vec s = \phi(\vec s(b))-\phi(\vec s(a)) \\
+  &= \phi(0,0,0)-\phi(2,0,2) = 3 - 1 = 2.
+\end{align*}
+\emph{Note: We don't specify all of $P$ because we're only interested in the start
+and end points. If required, we could define $P$ as the straight line between
+the two points of interest.}
+\section*{Question 2}
+Consider the plane $P$ where
+\begin{align*}
+  \frac{x}{a}+\frac{y}{b}+\frac{z}{c}=1.
+\end{align*}
+This may be rewritten as
+\begin{align*}
+  z=c\left(1-\frac{x}{a}-\frac{y}{b}\right).
+\end{align*}
+Therefore the area of the triangle described in the question is given by
+\begin{align*}
+  A = \di_D \sqrt{1 + \left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\:dA.
+\end{align*}
+We find the projection of $P$ onto the $xy$-plane, i.e. $D$, to be the right triangle
+given by the points $(0,0,0)$, $(a,0,0)$ and $(0,b,0)$.
+Thus $D$ may be described by the region between the $x$-axis and the line segment from $(0,b,0)$ to
+$(a,0,0)$ which is given by the equation
+\begin{align*}
+  y = b-\frac{b}{a}x
+\end{align*}
+in the interval $x\in[0,a]$.
+By inserting the partial derivatives and the correct boundaries with respect to
+$x$ and $y$, we find
+\begin{align*}
+  A = \int_0^a \int_0^{b-bx/a}u\:dy\,dx
+\end{align*}
+where $u$ is the constant
+\begin{align*}
+  u = \sqrt{1+\frac{c^2}{a^2}+\frac{c^2}{b^2}}.
+\end{align*}
+Thus 
+\begin{align*}
+  A &= u\int_0^a [y]_0^{b-bx/a}=u\int_0^a\left(b - \frac{b}{a}x\right)dx\\
+  &= bu \left[x-\frac{x^2}{2a}\right]_0^a = \frac{1}{2}abu.
+\end{align*}
+Re-inserting $u$ then yields
+\begin{align*}
+  A &= \frac{1}{2}ab\sqrt{1+\left(\frac{c^2}{a^2}\right)+\frac{c^2}{b^2}}\\
+  &= \frac{1}{2}\sqrt{a^2b^2+c^2b^2+c^2a^2}
+\end{align*}
+as required.
+\end{document}
