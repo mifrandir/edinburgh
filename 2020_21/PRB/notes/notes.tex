@@ -534,4 +534,23 @@
         \P(A_j|B)=\frac{\P(B|A_j)\P(A_j)}{\sum_{k=1}^n \P(B|A_k)\P(A_k)}.
     \end{align*}
 \end{theorem}
+\section{Conditioning, difference equations and random walks}
+\subsection{Difference equations}
+\begin{theorem}
+    For a difference equation
+    \begin{align*}
+        x_{k+1}+px_k+qx_{k-1}=0
+    \end{align*}
+    there exists a solution
+    \begin{align*}
+        x_k = a\lambda_1^k+b\lambda_2^k
+    \end{align*}
+    where $\lambda_1,\lambda_2$ are the distinct solutions of the associated quadratic equation.
+    If there is only one distinct solution $\lambda$, the general solution is
+    \begin{align*}
+        x_k = (ak + b)\lambda^k.
+    \end{align*}
+\end{theorem}
+\subsection{Conditioning on the first step}
+
 \end{document}
