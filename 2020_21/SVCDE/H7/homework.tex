@@ -35,7 +35,8 @@
 \newcommand{\jh}{\widehat j}
 \newcommand{\kh}{\widehat k}
 \newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
+\renewcommand{\vec}{\underline}
+\newcommand{\dv}[1]{\vec #1'}
 \renewcommand{\d}[1]{#1'}
 \renewcommand{\t}{\theta}
 \newenvironment{itpars}{\par\itshape}{\par}
@@ -83,7 +84,7 @@ Furthermore, we know $\vec F=\grad\phi$ for the function $\phi$ given in (\ref{e
 Using this and applying the \emph{Fundamental Theorem of Line Integrals}, we find
 \begin{align*}
   I &= \int_P \grad \phi\cdot d\vec s = \phi(\vec s(b))-\phi(\vec s(a)) \\
-  &= \phi(0,0,0)-\phi(2,0,2) = 3 - 1 = 2.
+  &= \phi(2,0,2)-\phi(0,0,0) = 3 - 1 = 2.
 \end{align*}
 \emph{Note: We don't specify all of $P$ because we're only interested in the start
 and end points. If required, we could define $P$ as the straight line between

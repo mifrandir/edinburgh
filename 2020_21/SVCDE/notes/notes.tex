@@ -61,7 +61,8 @@
 \DeclareMathOperator{\cl}{cl}
 \DeclareMathOperator{\curl}{curl}
 \renewcommand{\div}{\text{div}}
-\newcommand{\dv}[1]{\vec #1\:'}
+\renewcommand{\vec}{\underline}
+\newcommand{\dv}[1]{\vec #1'}
 %\DeclareMathOperator{\mod}{mod}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
@@ -79,31 +80,31 @@
 \setcounter{subsection}{4}
 \subsection{Vector functions}
 \begin{definition}
-    A function $\vec f$ of the form $\vec f: \R \to \R^3$ is called a \B{vector function}.
+    A function $\vec r$ of the form $\vec r: \R \to \R^3$ is called a \B{vector function}.
 \end{definition}
 \begin{definition}
-    The limit $\vec b$ of a vector function $\vec f$ at $a$ exists if, and only if,
+    The limit $\vec b$ of a vector function $\vec r$ at $a$ exists if, and only if,
     \begin{align*}
-        \forall \epsilon > 0,\: \exists \delta > 0 \st 0 < |t-a| < \delta \Rightarrow |\vec f(t) - \vec b|<\epsilon.
+        \forall \epsilon > 0,\: \exists \delta > 0 \st 0 < |t-a| < \delta \Rightarrow |\vec r(t) - \vec b|<\epsilon.
     \end{align*}
     This is the case if, and only if, the limits for all the components of $\vec f$ exist.\\
-    A vector function $\vec f(t)$ is \B{continuous} at $t=a$ if
+    A vector function $\vec r(t)$ is \B{continuous} at $t=a$ if
     \begin{align*}
-        \lim_{t\to a} \vec f (t) = \vec f (a). 
+        \lim_{t\to a} \vec r (t) = \vec r (a). 
     \end{align*}
 \end{definition}
 \subsection{Derivatives and integrals}
 \subsubsection{Derivatives}
 \begin{definition}
-    The \B{derivative of a vector function} $\vec f(t)$ is defined as
+    The \B{derivative of a vector function} $\vec r(t)$ is defined as
     \begin{align*}
-        \vec f(t) = \frac{d\vec f}{dt} = \lim_{\delta \to 0} \frac{\vec f(t+\delta)-\vec f(t)}{\delta}.
+        \vec r(t) = \frac{d\vec r}{dt} = \lim_{\delta \to 0} \frac{\vec r(t+\delta)-\vec r(t)}{\delta}.
     \end{align*}
 \end{definition}
 \begin{theorem}
     Let $\vec v = f(t)\ih + g(t)\jh + h(t)\kh$ where $f,g,h: \R\to\R$. Then
     \begin{align*}
-        \frac{d\vec v(t)}{dt} = \frac{d\vec f(t)}{dt}\ih + \frac{d\vec g(t)}{dt}\jh + \frac{d\vec h(t)}{dt}\kh.
+        \frac{d\vec v}{dt} = \frac{df}{dt}\ih + \frac{dg}{dt}\jh + \frac{dh}{dt}\kh.
     \end{align*}
 \end{theorem}
 \begin{definition}
