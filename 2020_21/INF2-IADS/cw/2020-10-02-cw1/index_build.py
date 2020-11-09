@@ -20,7 +20,7 @@ CorpusFiles = {
     'DCC': 'Dickens_Christmas_Carol.txt',
     'SJH': 'Stevenson_Jekyll_and_Hyde.txt',
     'SCW': 'Shakespeare_Complete_Works.txt',
-    #'TWP': 'Tolstoy_War_and_Peace.txt',
+    'TWP': 'Tolstoy_War_and_Peace.txt',
 }
 # each file should be identified by a three-letter code
 # CAA, DCC, SJH are small, SCW and TCP are larger
@@ -130,6 +130,8 @@ def splitIntoSortedChunks(entryfile):
 
 # TODO
 # Add your code here.
+
+
 def mergeFiles(a, b, c):
     # Preparation
     f_ab = f'temp_{a}_{b}'
@@ -138,7 +140,7 @@ def mergeFiles(a, b, c):
     reader_ab = BufferedInput(f_ab, 0.3)
     reader_bc = BufferedInput(f_bc, 0.3)
     writer_ac = BufferedOutput(f_ac, 0.3)
-    # Init both elements
+    # Initialise both elements
     ab = reader_ab.readln()
     bc = reader_bc.readln()
     # Merging while neither file is empty
@@ -149,6 +151,10 @@ def mergeFiles(a, b, c):
         else:
             writer_ac.writeln(bc)
             bc = reader_bc.readln()
+    # While the other stream is not empty, dump the contents
+    # into the output file.
+    # One of the files is empty for sure, so only one of
+    # these loops will actually run.
     while ab:
         writer_ac.writeln(ab)
         ab = reader_ab.readln()
@@ -165,16 +171,17 @@ def mergeFiles(a, b, c):
     return f_ac
 
 
-def mergeFilesInRange(a, c):
+def mergeFilesInRange(a, c):  # T(n) = 2T(n/2) + Theta(n)
     # base case, assuming a < c always holds
     if a + 1 == c:
         return f'temp_{a}_{c}'
-    # recursive calls
+    # recursive calls with most efficient setup,
+    # i.e. splitting the interval in the middle
     b = (a + c) // 2
-    mergeFilesInRange(a, b)
-    mergeFilesInRange(b, c)
+    mergeFilesInRange(a, b)  # T(n/2)
+    mergeFilesInRange(b, c)  # T(n/2)
     # final merge
-    return mergeFiles(a, b, c)
+    return mergeFiles(a, b, c)  # Theta(n)
 
 
 # Putting it all together:

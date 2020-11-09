@@ -61,79 +61,94 @@ class ItemStream:
 # TODO
 # Add your code here.
 
-class HitStream:
 
+class HitStream:
     def __init__(self, itemStreams, lineWindow, minRequired):
         self.itemStreams = itemStreams
         self.lineWindow = lineWindow
         self.minRequired = minRequired
-        self.last = 0
         self.empty = False
         self.min_s = None
         self.num_empty = 0
 
+    # find the minimum stream, i.e. the stream where the next value
+    # is smallest
     def update_min_s(self):
         self.min_s = self.itemStreams[0]
         for s in self.itemStreams:
             v = s.peek()
             if not v:
-                continue
+                continue  # we don't count empty streams
             min_v = self.min_s.peek()
-            if not min_v or min_v > v:
+            if not min_v or min_v > v:  # if min_s is empty we want to replace it asap
                 self.min_s = s
 
+    # Skips all elements in all streams that have the same document as
+    # the smallest current element.
     def next_document(self):
+        # cache the minimum to have stable reference to current document
         doc = self.min_s.pop()
+        # go through all streams
         for s in self.itemStreams:
+            # pop all elements that have the old document
             while (v := s.peek()) and v[0] == doc[0]:
                 s.pop()
 
+    # returns true iff there are enough streams with the same document as the minimum element
     def check_documents(self):
+        # find the minimum and cache the value
         self.update_min_s()
         min_v = self.min_s.peek()
+        # if there is no minimum, there are no values. we're done.
         if not min_v:
-            self.last = None
+            self.empty = True
             return True
+        # counts the number of streams that have the same document
+        # as the minimum element
         num_right_document = 0
         for s in self.itemStreams:
             if s.peek() and s.peek()[0] == min_v[0]:
                 num_right_document += 1
-        if num_right_document < self.minRequired:
-            self.next_document()
-            return False
-        return True
+        # are there enough streams with the same document?
+        return num_right_document >= self.minRequired
 
+    # reads from the streams long enough to have enough streams that
+    # are currently on the same document
     def tentative_next(self):
         # while we don't have enough streams with the same current
         # docuemnt, keep updating
         while not self.check_documents():
-            pass
+            self.next_document()
         # filter out empty streams
         self.itemStreams = [s for s in self.itemStreams if s.peek()]
 
     def next(self):
-        if self.last == None:
+        if self.empty:  # last time we check we were done...
             return None
+        # We keep trying until we get some definitive answer
         while True:
-            if self.min_s:
+            if self.min_s:  # for the first run of next(), min_s is None!
                 # since the line number in the output is only dependent
-                # on the minimum line number, this is the only one we
-                # need to increase
+                # on the minimum line number, that is the only one we
+                # definetly need to change
                 self.min_s.pop()
+            # synchronise documents
             self.tentative_next()
+            # if too many streams are empty, we stop
             if len(self.itemStreams) < self.minRequired:
-                self.last = None
+                self.empty = True
                 return None
             min_v = self.min_s.peek()
             num_matches = 0
+            # check how many elements from the document are within the window from min_v
             for s in self.itemStreams:
                 v = s.peek()
                 if v[0] == min_v[0] and min_v[1] + self.lineWindow > v[1]:
                     num_matches += 1
+            # If we've found a hit, return
             if num_matches >= self.minRequired:
                 return min_v
-        self.last = None
-        return self.last
+            # Else, continue the search...
 
 
 # Displaying hits as corpus quotations:

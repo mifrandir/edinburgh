@@ -80,11 +80,14 @@ def miniHash(m, j):
 
 
 def hashCompress(L, m):
+    # Initialise R, L and T as described
     R = [0 for _ in L]
+    # sorts L while maintaining original indices
     L = sorted(enumerate(L), key=lambda x: len(x[1]), reverse=True)
     T = [False for _ in range(m)]
+    # L is a list of (index, [key]) elements
     for i, B in L:
-        j = 0
+        j = 0  # iterate from 0 to find the smallest possible
         while True:
             updated = []  # list of indices where we changed T
             f = miniHash(m, j)  # get the hash function for the current j
@@ -94,8 +97,8 @@ def hashCompress(L, m):
                     # update T and note where we made the change
                     T[h] = True
                     updated.append(h)
-                else:
-                    # undo updates
+                else:  # there's a collision
+                    # undo updates by going reverting updates one by one
                     for u in updated:
                         T[u] = False
                     break
