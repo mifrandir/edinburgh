@@ -212,7 +212,7 @@ This results in the number
 	\item Good design demands good compromises.
 	\item Make the common case fast.
 \end{enumerate}
-\section{MIPS}
+\section{MIPS ISA}
 \begin{definition}
 	The \B{instruction set architecture} (ISA) is the interface between
 	the software and the hardware.
@@ -501,6 +501,15 @@ Difference between latch and flip flop:
 \end{enumerate}
 \end{definition}
 \section{Processor Design}
+\subsection{Measuring processor speed}
+\begin{theorem}
+	\label{exectime}
+	For any program we find 
+	\begin{align*}
+		\text{exectution time} 
+		= \frac{\text{instruction count} \times \text{cycle time}}{\text{clock frequency}}.
+	\end{align*}
+\end{theorem}
 \subsection{Main processor functions}
 \begin{itemize}
 	\item Fetch instructions from \B{instruction memory}
@@ -561,4 +570,76 @@ Difference between latch and flip flop:
 	\item irrelevant states are called \B{Don't Care}
 	\item separate \B{ALU control} to handle ALU operation mode
 \end{itemize}
+\subsection{Multi-cycle}
+\begin{itemize}
+	\item more than one cycle per instruction
+	\item generalise actions within each cycle
+	\item reuse common set of datapath and control components
+\end{itemize}
+Components:
+\begin{itemize}
+	\item single memory
+	\item single ALU
+	\item registers
+\end{itemize}
+\B{Data required in subsequent cycles must be stored somewhere.}
+\begin{itemize}
+	\item used by subsequent instructions: registers \& memory
+	\item used by current instruction: special registers (not visible to programmer) 
+\end{itemize}
+\subsubsection{Process}
+\B{Cycle 1:} Fetch (access memory)
+\begin{verbatim}
+	IR <= Mem[PC]
+	PC <= PC+4
+\end{verbatim}
+\B{Cycle 2:} Decode and read
+\begin{verbatim}
+	A      <= Reg[IR[25:21]]
+	B      <= Reg[IR[20:16]]
+	ALUOut <= PC+sgnext(IR[15:0]<<2)
+\end{verbatim}
+\B{Cycle 3:}
+\begin{enumerate}
+	\item R-type arithmetic/logical instruction \begin{verbatim}
+		ALUOut <= A op B
+	\end{verbatim}
+	\item Immediate arithmetic or memory access \begin{verbatim}
+		ALUOut <= A + sgnext(IR[15:0])
+	\end{verbatim}
+	\item Branch completion \begin{verbatim}
+		if (cond) PC <= ALUOut
+	\end{verbatim}
+	\item Jump completion \begin{verbatim}
+		PC <= {PC[31:28],IR[25:0],2'b00}
+	\end{verbatim}
+\end{enumerate}
+\B{Cycle 4:}
+\begin{enumerate}
+	\item R-type arithmetic/logical completion \begin{verbatim}
+		Reg[IR[15:11]] <= ALUOut
+	\end{verbatim}
+	\item Memory access (load) \begin{verbatim}
+		MDR <= Mem[ALUOut]
+	\end{verbatim}
+	\item Memory access (store) \& completion \begin{verbatim}
+		Mem[ALUOut] <= B
+	\end{verbatim}
+\end{enumerate}
+\B{Cycle 5:} Load completion
+\begin{verbatim}
+	Reg[IR[20:16]] <= MDR
+\end{verbatim}
+\subsubsection{Control Unit}
+FSM with state sequences based on op-code. (cf. slides)
+\subsubsection{Effect \& Limits}
+The multi-cycle processor has the following effects on the factors in \emph{\ref{exectime}}:
+\begin{itemize}
+	\item instruction count: unchanged
+	\item cycles per instruction: increased, 3-4 times (avg., depending on instruction)
+	\item clock frequency: increased, 5 times
+\end{itemize}
+$\Rightarrow$ Faster exectution time, especially with many short instructions.\\\\
+Problem: Atomic operations, i.e. operations that cannot be subdivided, exist and thus we cannot
+repeat this pattern infinitely. Number of cycles per instruction in modern processors: 20-30.
 \end{document}
