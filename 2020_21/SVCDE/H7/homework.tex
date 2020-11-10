@@ -96,7 +96,7 @@ Consider the plane $P$ where
 \end{align*}
 This may be rewritten as
 \begin{align*}
-  z=c\left(1-\frac{x}{a}-\frac{y}{b}\right).
+  z=c\left(1-\frac{x}{a}-\frac{y}{b}\right)=g(x,y).
 \end{align*}
 Therefore the area of the triangle described in the question is given by
 \begin{align*}
@@ -116,18 +116,19 @@ $x$ and $y$, we find
   A = \int_0^a \int_0^{b-bx/a}u\:dy\,dx
 \end{align*}
 where $u$ is the constant
-\begin{align*}
+\begin{align}
+  \label{equ}
   u = \sqrt{1+\frac{c^2}{a^2}+\frac{c^2}{b^2}}.
-\end{align*}
+\end{align}
 Thus 
 \begin{align*}
   A &= u\int_0^a [y]_0^{b-bx/a}=u\int_0^a\left(b - \frac{b}{a}x\right)dx\\
   &= bu \left[x-\frac{x^2}{2a}\right]_0^a = \frac{1}{2}abu.
 \end{align*}
-Re-inserting $u$ then yields
+Re-inserting the substitution (\ref{equ}) then yields
 \begin{align*}
-  A &= \frac{1}{2}ab\sqrt{1+\left(\frac{c^2}{a^2}\right)+\frac{c^2}{b^2}}\\
-  &= \frac{1}{2}\sqrt{a^2b^2+c^2b^2+c^2a^2}
+  A &= \frac{1}{2}ab\sqrt{1+\frac{c^2}{a^2}+\frac{c^2}{b^2}}
+  = \frac{1}{2}\sqrt{a^2b^2+c^2b^2+c^2a^2}
 \end{align*}
 as required.
 \end{document}
