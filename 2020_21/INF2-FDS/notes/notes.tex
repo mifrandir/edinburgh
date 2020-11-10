@@ -59,6 +59,9 @@
 \DeclareMathOperator{\rmse}{RMSE}
 \DeclareMathOperator{\sst}{SST}
 \DeclareMathOperator{\sse}{SSE}
+\renewcommand{\vec}{\underline}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\vabs}[1]{\left|#1\right|}
 \newcommand*\lneg[1]{\overline{#1}}
 \newcommand*\B[1]{\textbf{#1}}
 \newcommand*\T[1]{\texttt{#1}}
@@ -135,12 +138,12 @@ Notes about the sample covariance:
 	\item Scaling the units linearly scales $s_{xy}$ linearly.
 \end{enumerate}
 \begin{definition}
-	The \B{correlation coefiicient} $r$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$ is defined as
+	The \B{correlation coefficient} $r$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$ is defined as
 	\begin{align*}
 		r = \frac{s_{xy}}{s_x s_y}.
 	\end{align*}
 \end{definition}
-Properties about the correlation coefiicient:
+Properties about the correlation coefficient:
 \begin{enumerate}
 	\item $-1 \leq r \leq 1$
 	\item $y=cx \Rightarrow |r|=1$
@@ -351,4 +354,97 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 	where $\lambda_j$ is the eigenvalue corresponding to the $j$th prinicipal
 	component.
 \end{proposition}
+\section{Clustering, unsupervised and supervised learning}
+\begin{definition}
+	\B{Cluster analysis} aims to partition a data set into meaningful or useful
+	groups, based on distances between data points.
+\end{definition}
+\begin{definition}
+	Classification is a \B{supervised learining} process: there is a training
+	set in which each dat a item has a label.
+\end{definition}
+\begin{definition}
+	Clustering is an \B{unsupervised learning} process in which the training
+	set does not contain any labels. The aim of a clustering algorithm is to group
+	such a data set into clusters, based on the unlabelled data alone.
+\end{definition}
+\begin{definition}
+	Clustering may be used to compress data by representing each data itme
+	in a cluster by a single cluster \B{prototype}, typically at the centre
+	of the cluster.
+\end{definition}
+\subsection{Types of clustering}
+\begin{definition}
+	\B{Hierarchical clustering} forms a tree of nested clusters in which, at
+	each level in the tree, a cluster is the union of its children.
+\end{definition}
+\begin{definition}
+	\B{Partitional clustering} divides the data into a fixed number of
+	non-overlapping clusters, with each data point assigned to exactly one
+	cluster.
+\end{definition}
+\subsection{K-means}
+\subsubsection{Aim}
+Dividing a set of $D$-dimensional data points into $K$ clusters.
+\subsubsection{Algorithm}
+\begin{enumerate}
+	\item Initialise $K$ cluster centres, $\{\vec m_k\}^K_1$
+	\item While not converged: \begin{enumerate}
+		\item Assign each data vector $\vec x_i$ ($i\in[1,n]$) to the closest cluster centre
+		\item Recompute each cluster mean as the mean of the vectors assigned to that cluster
+	\end{enumerate}
+\end{enumerate}
+\begin{theorem}
+	Let $C_k$ be the set of points in cluster $k$. Then the mean of cluster $k$
+	is 
+	\begin{align*}
+		\vec m_k=\frac{1}{\abs{C_k}}\sum_{i\in C_k}\vec x_i.
+	\end{align*}
+\end{theorem}
+\begin{definition}
+	The distance between two points $\vec x$ and $\vec y$ in Euclidean space
+	is given by
+	\begin{align*}
+		d(\vec x, \vec y) = \vabs{\vec x - \vec y}=\sqrt{\sum_{j=1}^D(x_j-y_j)^2}.
+	\end{align*}
+\end{definition}
+There are several possible ways to \B{initialise} the cluster centres, including:
+\begin{itemize}
+	\item random data points
+	\item means of random partitions of the input
+	\item data points with extreme values
+	\item perturb mean of data set 
+\end{itemize}
+\begin{definition}
+	\B{Convergence} is reached when the assignment of points to clusters
+	does not change after an iteration.
+	\begin{itemize}
+		\item convergence is guranteed
+		\item number of iterations up to convergence is not guranteed
+		\item there may be \B{multiple converging solutions}
+	\end{itemize}
+\end{definition}
+\subsubsection{Evaluation}
+To find best solution: Repeat with different initialisations and pick solution
+with the lowest error.
+\begin{definition}
+	The \B{mean squared error function} may be used to compare two clusterings
+	each with $K$ clusters. Let $C_k$ be the set of points in the $k$th cluster.
+	Then the MSE is
+	\begin{align*}
+		E = \frac{1}{n}\sum_{k=1}^K \sum_{i\in C_k} \vabs{\vec x_i - \vec m_k}^2
+	\end{align*}
+	where $\vec m_k$ is the centre of cluster $k$ and $n$ is the number of data
+	points in total.
+\end{definition}
+\subsubsection{Shortcomings}
+\begin{itemize}
+	\item dependent on the scale of data
+	\item large clouds can pull small clusters off-centre
+\end{itemize}
+\subsubsection{Variants}
+\begin{itemize}
+	\item Batch: update centres after assigning all the values
+	\item Online: update centres after assigning individual values 
+\end{itemize}
 \end{document}
