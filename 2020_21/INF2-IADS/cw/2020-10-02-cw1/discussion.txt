@@ -1,0 +1,6 @@
+You can see that we are always iterating over all the non-empty input streams. This is inefficient once `minRequired << len(itemStream)` because most of the streams are going to be on another document already while the others still have plenty of results in the current one.
+To mitigate this we might want to maintain sets of streams with current documents. This could, for example, be done with a (hash) map containing references to sets (e.g. RB trees or hash sets). Once one of the streams reaches a new document, we could just move it to the appropriate set. This would allow us to only iterate over the relevant streams each time.
+
+Furthermore, we might want to store the streams in a priority queue where the root is the stream with the minium element. This would allow us to find the next minum more quickly and avoid having to iterate over the entire list of streams.
+
+I'd do the asymptotic analysis but I don't have the space for that.

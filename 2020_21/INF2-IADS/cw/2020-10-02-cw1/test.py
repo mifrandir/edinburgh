@@ -1,10 +1,10 @@
 from index_build import *
 from search_queries import *
-
-buildIndex()
+from perfect_hashing import *
+import time
+#buildIndex()
 generateMetaIndex('index.txt')
 
-print(indexEntryFor('very'))
 #A = ItemStream(indexEntryFor('pursued'))
 #B = ItemStream(indexEntryFor('exit'))
 #print(A.peek(), B.peek())
