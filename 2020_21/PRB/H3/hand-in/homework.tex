@@ -44,38 +44,45 @@
 \newcommand{\dv}[1]{\vec #1\, '}
 \renewcommand{\d}[1]{#1'}
 \begin{document}
-\title{Probability: Week 7 Solutions}
+\title{Probability: Week 8 Hand-in}
 \author{Franz Miltz (UNN: S1971811)}
 \date{10 November, 2020}
 \maketitle
-\section*{P7.1}
-Let $X_1,X_2,...$ be as described in the questions. We find 
+\section*{P6.2}
+Let $B$ be the even that the coin is biased. Then $\P(B)=1/1000$. Further,
+let $A_n$ be the event that a coin comes down heads $n$ times in a row.
+Then we want to find some $N\in\R$ such that
 \begin{align*}
-  \E(X) &= \P(X_1^c)(\E(X)+1)\\
-        &+\P(X_1\cap X_2^c)(\E(X)+2)\\
-        &+\P(X_1\cap X_2\cap X_3^c)(\E(X)=3)\\
-        &+3\P(X_1\cap X_2\cap X_3)
+  \forall n > N,\: \P(B|A_n)\geq 0.99.
 \end{align*}
-With $\E(X)=s$ and $q=1-p$ we find
+We can use \emph{Bayes' Theorem} to write
+\begin{align*}
+  \P(B|A_n) = \P(A_n|B)\frac{\P(B)}{\P(A_n)}.
+\end{align*}
+Since, by definition, $\P(A_n|B)=1$, this simplifies to
 \begin{align}
-  \label{eqs}
-  s = q(s+1) + pq(s+2) + p^2q(s+3) +3p^3
+  \label{ban}
+  \P(B|A_n) = \frac{\P(B)}{\P(A_n)}.
 \end{align}
-because after any of the first three starts to the sequence the chances 
-are the same as they were in the beginning.
-We can rewrite equation (\ref{eqs}) to find
+Further, we know $\P(B)=1/1000$. We can use the \emph{Law of Total
+Probability} to find
 \begin{align*}
-  s &= qs + q + pqs + 2pq + p^2qs + 3p^2q + 3p^3\\
-    &= s(q+pq+p^2q)+q + 2pq + 3p^2q + 3p^3.\\
+  \P(A_n)=\P(A_n|B)\P(B) + \P(A_n|B^c)\P(B^c)
+  =\frac{1}{1000}+\frac{999}{1000}\left(\frac{1}{2}\right)^n.
 \end{align*}
-This lets us write $s$ in terms of $p$ and $q$:
+By inserting both of these into (\ref{ban}) we obtain
 \begin{align*}
-  s &= \frac{q+2pq+3p^2q+3p^3}{1-q-pq-p^2q} =\frac{1+p+p^2}{p^3}.
+  \P(B|A_n) = \frac{1}{1+999\cdot 2^{-n}}.
 \end{align*}
-Thus the expected number of trials up to and including the first occurrence of
-three consecutive successes is
+This lets us solve
 \begin{align*}
-  \E(X) = \frac{1+p+p^2}{p^3}.
+  \frac{1}{1+999\cdot 2^{-N}} = 0.99
+\end{align*}
+to find $N\approx 16.59$. Therefore, Guildenstern can be certain after
+17 tosses.\\
+We can verify this:
+\begin{align*}
+  \P(B|A_{17}) \approx 0.992.
 \end{align*}
 \section*{P7.2}
 Observe that the the $i$th step $S_i=x_i-x_{i-1}$ for $i\in\N$ is either $-1$ or
@@ -129,25 +136,6 @@ we can write
   \P(X_{2n}=0) \approx \frac{1}{\sqrt{\pi n}}
 \end{align*}
 as well.
-\section*{P7.3}
-Let $X_k$ be the number of steps before a random walk starting at a node
-$k$ steps away from the desired target terminates. Then we find the following
-expected values for $k\in[1,3]$ with $E(X_k) = s_k$ and $s_0=0$:
-\begin{align}
-  \label{s1}
-  s_1 &= 1 + \frac{s_0}{2} + \frac{s_2}{2} = 1 + \frac{s_2}{2},\\
-  \label{s2}
-  s_2 &= 1 + \frac{s_1}{2} + \frac{s_3}{2},\\
-  \label{s3}
-  s_3 &= 1 + s_2.
-\end{align}
-By inserting (\ref{s3}) into (\ref{s2}) we find 
-\begin{align*}
-  s_2 = 3 + s_1.
-\end{align*}
-Using this in (\ref{s1}) gives $s_1=5$ and thus $s_2=8$ and $s_3=9$.
-By using the fact that $\sigma_{X_n}\to\infty$ as $n\to\infty$, we find that
-$\P(X_n)\to 0$ at the same time.
 \section*{P7.4}
 \begin{claim*}
   Consider a random walk on the integers in $[0,n]$ where on each move, one moves right with
