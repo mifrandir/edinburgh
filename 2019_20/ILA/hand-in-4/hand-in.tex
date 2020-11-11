@@ -1,36 +1,11 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\renewcommand{\vec}{\underline}
-\newcommand{\dv}[1]{\vec #1'}
+\usepackage{homework-preamble}
+
 \title{ILA: H4 (Workshop 08)}
 \author{Franz Miltz (UNN: s1971811)}
 \date{October 22, 2019}
 \begin{document}
 \maketitle
-This document will use the following notation:
-\begin{itemize}
-    \item $a$ may represent any scalar.
-    \item $\vec{a}$ may represent any vector.
-    \item $\begin{bmatrix}
-        a_1\\
-        \vdots\\
-        a_n
-    \end{bmatrix}$ is another representation of $\vec a$. 
-    \item $a_i$ is the $i$th component of the vector $a$.
-    \item $A$ may represent any $m\times n$ matrix.
-    \item $\begin{bmatrix}
-        a_{11} & a_{12}&\dots &a_{1n}\\
-        a_{21} & a_{22}&\dots &a_{2n}\\
-        \vdots & \vdots & \ddots & \vdots\\
-        a_{m1} & a_{m2} &\dots &a_{mn}
-    \end{bmatrix}$ is another representation of $A$.
-    \item $a\vec{b}$ is a scalar multiplication of the vector $\vec{b}$ with the scalar $a$
-    \item $A\vec b$ is the matrix multiplication of the matrix $A$ with the vector $\vec b$
-    \item $I_n$ is the $n\times n$ identity matrix.
-\end{itemize}
 \section*{Q43 a}
 Let's suppose $S'=\{\vec u+\vec v, \vec u+\vec w, \vec v+\vec w\}$ is linearly dependent 
 while $S=\{\vec u, \vec v, \vec w\}$ isn't. Then there exists a solution to
@@ -66,13 +41,13 @@ Therefore
 \begin{align}
     c_0\vec v_0 + c_1\vec v_1 + ... + c_n\vec v_n = \vec 0
 \end{align}
-iff
+if and only if
 \begin{align}
     c_0 = c_1 = ... = c_n = 0.
 \end{align}
 Let's consider the subset $S'$:
 \begin{align}
-    S'={\vec v_1, \vec v_2, ..., \vec v_n}.
+    S'=\{\vec v_1, \vec v_2, ..., \vec v_n\}.
 \end{align}
 Suppose $S'$ is linearly dependent. Therefore there exists a solution to
 \begin{align}

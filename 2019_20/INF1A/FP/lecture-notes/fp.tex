@@ -1,39 +1,14 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage{babel}
-\usepackage{xcolor}
-\usepackage[colorlinks=false]{hyperref}
-\hypersetup{
-    colorlinks = false,
-    linkbordercolor = {white}
-}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{proof}
-\usepackage{listings}
-\newtheorem{definition}{Definition}
+\usepackage{notes-preamble}
 \begin{document}
-\begin{titlepage}
-    \begin{center}        
-        \LARGE Franz Miltz\\
-        
-        \url{franz@miltz.me}\\
-        \vspace{5cm}
-        \LARGE\B{Introcution to Computation}\\
-        \vspace{1cm}
-        Philip Wadler (Functional Programming)
-    \end{center}
-\end{titlepage}
+\title{INF1A: Introduction to Computation (SEM1)}
+\author{Franz Miltz}
+\date{07 September 2019}
+\maketitle
 \tableofcontents
 \pagebreak
 \section{Lecture 0, September 16 (FP + CL)}
 \subsection{Reading}
-\begin{itemize}
-    \item Thompson: "Haskell: The Craft of Functional Porgramming"
-    \item Learn You a Haskell
-\end{itemize}
-Tip: Blackwell's\\
-\B{READ!}
 \subsection{Tutorial}
 \begin{itemize}
     \item do exercise before
@@ -107,42 +82,42 @@ Ideas from FP have found their way into OOP. (GC, Higher-order functions, generi
     \item pictures
 \end{itemize}
 \subsubsection{Applying a function}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 invert :: Picture -> Picture
 knight :: Picture
 invert knight
-\end{lstlisting}
+\end{minted}
 \subsubsection{Composing functions}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 beside :: Picture -> Picture -> Picture
 flipV  :: Picture -> Picture
 invert :: Picture -> Picture
 knight :: Picture -> Picture
 
 beside (invert knight) (flipV knight)
-\end{lstlisting}
+\end{minted}
 Composing: "Build bigger things out of littler things."\\
 (Use function outputs directly as inputs for other functions.)
 \section{Lecture 2 (FP), September 19}
 \subsubsection{Defining a new function}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 double :: Picture -> Picture
 double p = beside (invert p) (flipV p)
 
 double knight
-\end{lstlisting}
+\end{minted}
 $\Rightarrow$ Function abstraction: Define a function for an operation to reuse it.\\\\
 Phils definition of abstraction: Don't concern yourself with details you don't need to worry about yet.
 \subsubsection{Terminology}
 Type signature:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 double :: Picture -> Picture
-\end{lstlisting}
+\end{minted}
 Function declaration:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 double p = beside (invert p) (flipV p) -- function definition
 double knight                          -- expression
-\end{lstlisting}
+\end{minted}
 \begin{itemize}
     \item \texttt{double}: function name
     \item \texttt{p}: formal parameter
@@ -164,10 +139,10 @@ Tip: Always define types beforehand.
 \end{itemize}
 \section{Lecture 3 (FP), September 20}
 \subsubsection{Cons and append}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 (:)  :: a -> [a] -> [a]   -- cons
 (++) :: [a] -> [a] -> [a] -- append
-\end{lstlisting}
+\end{minted}
 \subsubsection{More Lists}
 A recursive defintion of lists:
 \begin{itemize}
@@ -181,52 +156,52 @@ You need:
     \item base case
     \item recursive case
 \end{itemize}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 sqauresRec :: [Int] -> [Int]
 sqauresRec [] = []
 squaresRec (x:xs) = x*x : squaresRec xs
-\end{lstlisting}
+\end{minted}
 \section{Lecture 4 (FP), September 30}
 Counting:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 enumFromTo :: Int -> Int -> [Int]
 enumFromTo m n
     | m > n = []
     | otherwise = m : enumFromTo (m+1) n
-\end{lstlisting}
+\end{minted}
 A trick with \texttt{zip}:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 *Main> zip [0..] "abcdef" = [(0, 'a'), (1, 'b'), ...]
-\end{lstlisting}
+\end{minted}
 \section{Lecture 5, October 01}
 \subsection{Select, take and drop}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 Prelude> "words" !! 3
 'd'
 Prelude> take 3 "words"
 "wor"
 Prelude> drop 3 "words"
 "ds"
-\end{lstlisting}
+\end{minted}
 Select with list comprehension:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 selectComp :: [a] -> Int -> a
 selectComp xs i = the [x | (j,x) <- zip [0..] xs, i==j]
   where
   the [x] = x
-\end{lstlisting}
+\end{minted}
 Take with list comprehension:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 takeComp :: Int -> [a] -> [a]
 takeComp i xs = [x | (j,x) <- zip [0..] xs, j<i]
-\end{lstlisting}
+\end{minted}
 Drop with list comprehension:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 dropComp :: Int -> [a] -> [a]
 dropComp i xs = [x | (j,x) <- zip [0..] xs, j>=i]
-\end{lstlisting}
+\end{minted}
 Select, take and drop using recursion:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 (!!) :: [a] -> Int -> a
 (x:xs) !! 0 = x
 (x:xs) !! i = xs !! (i-1)
@@ -240,10 +215,10 @@ drop :: Int -> [a] -> [a]
 drop 0 xs = xs
 drop i [] = []
 drop i (x:xs) = drop i-1 xs
-\end{lstlisting}
+\end{minted}
 \section{Lecture 6, October 07}
 \subsection{Map}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 squares :: [Int] -> [Int]
 squares xs = map sqr xs
     where sqr x = x * x
@@ -251,24 +226,24 @@ ords :: [Char] -> [Int]
 ords xs = map ord xs
 incs :: [Int] -> [Int]
 incs xs = map (5+) xs
-\end{lstlisting}
+\end{minted}
 \subsection{Filter}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 filter :: (a -> Bool) -> [a] -> [a]
 filter p xs = [x | x <- xs, p x]
 digits :: [Int] -> [Int]
 digits xs = filter isDigit xs
-\end{lstlisting}
+\end{minted}
 \subsection{Fold}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 foldr :: (a -> a -> a) -> a -> [a] -> a
 foldr f v [] = v
 foldr f v (x:xs) = f x (foldr f v xs)
-\end{lstlisting}
+\end{minted}
 \section{Lecture 7, October 14}
 \subsection{Algebraic types}
 \subsubsection{Boolean}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data Bool = False | True
 not :: Bool -> Bool
 not False = True
@@ -281,18 +256,18 @@ True  && q = q
 (||) :: Bool -> Bool -> Bool
 False || q = q
 True  || q = True
-\end{lstlisting}
+\end{minted}
 \subsubsection{Seasons}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data Season = Winter | Spring | Summer | Fall
 
 next       :: Season -> Season
 eqSeason   :: Season -> Season -> Bool
 showSeason :: Season -> String
 toInt      :: Season -> Int
-\end{lstlisting}
+\end{minted}
 \subsubsection{Components}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 type Radius = Float
 type Width  = Float
 type Height = Float
@@ -302,7 +277,7 @@ data Shape = Circle Radius | Rect Width Height
 area :: Shape -> Float
 area (Circle r) = pi*r*r
 area (Rect w h) = w*h
-\end{lstlisting}
+\end{minted}
 \begin{description}
     \item[Functions] can appear on the right of the equals sign.
     \item[Constructors] are special functions that can appear on the left of the equals sign.
@@ -313,31 +288,31 @@ isRect :: Shape -> Bool
 isRect (Circle r) = False
 isRect (Rect w h) = True
 \subsubsection{Lists}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data List a = Nil | Cons a (List a)
 
 append :: List a -> List a -> List a
 append Nil ys         = ys
 append (Cons x xs) ys = Const x (append xs ys)
-\end{lstlisting}
+\end{minted}
 \subsubsection{Natural Numbers}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data  Nat = Zero | Succ Nat
 
 power :: Float -> Nat -> Float
 power x Zero     = 1.0
 power x (Succ n) = x * power x n
-\end{lstlisting}
+\end{minted}
 \section{Lecture 9, October 15}
 \subsection{Expression Trees}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data Exp = Lit Int | Add Exp Exp | Mul Exp Exp
 
 evalExp :: Exp -> Int
 evalExp (Lit x) = x
 evalExp (Add x y) = evalExp x + evalExp y
 evalExp (Mul x y) = evalExp x * evalExp y
-\end{lstlisting}
+\end{minted}
 \section{Lecture 10, October 21}
 ... 
 \section{Lecture 12-13, October 28}
@@ -352,7 +327,7 @@ If you can make something parallel and have many computer, you should. You might
 \begin{definition}
     A closure is a bit of code, that still needs to be executed unless a return value is found before it's needed.
 \end{definition}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 ho :: Int -> [Int]
 ho n = (take 1 . filter odd) [0..n]
 
@@ -364,7 +339,7 @@ ho 1000000
 = take 1 (filter odd (1 : [2..1000000]))
 = take 1 (1 : (filter odd [2..1000000]))
 = 1
-\end{lstlisting}
+\end{minted}
 Haskell does not evaluate a data structure unless it needs it.\\
 This is not always helpful though, you should wirte your program in a way that makes use of this property.
 \subsection{HOF vs. List Comprehension vs. Recursion}
@@ -372,11 +347,11 @@ Higher-order functions are almost always faster than list comprehension and recu
 \section{Lecture 15}
 \subsection{Type classes}
 In
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 elem :: Eq a => a -> [a] -> Bool
-\end{lstlisting}
+\end{minted}
 \texttt{a} may be any type that implements equality (\texttt{Eq}).\\
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 class Eq a where
     (==) :: a -> a -> Bool
 
@@ -388,13 +363,13 @@ instance Eq Char where
 
 instance (Eq a, Eq b) => Eq (a, b) where
     (u,v) == (x,y) = (u == x) && (v == y)
-\end{lstlisting}
+\end{minted}
 You may also implement type classes:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 elem :: EqDict a -> a -> [a] -> Bool
-\end{lstlisting}
+\end{minted}
 \subsection{Eq, Ord, Show}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 class Eq a where
     (==) :: a -> a -> Bool
     (/=) :: a -> a -> Bool
@@ -411,17 +386,17 @@ instance Eq Bool where
 instance Show Bool where
     show True  = "True"
     show False = "False"
-\end{lstlisting}
+\end{minted}
 For Pairs:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 instance (Eq a, Eq b) => Eq (a,b) where
     (x,y) == (x',y') = x == x' && y == y'
 
 instance (Show a, Show b) => Show (a,b) where
     show (a,b) = "(" + show a + ", " + show b + ")"
-\end{lstlisting}
+\end{minted}
 \subsection{Numerical classes}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 class (Eq a, Show a) => Num a where
     (+), (-), (*)   :: a -> a -> a
     negate          :: a -> a
@@ -431,9 +406,9 @@ class (Num a) => Fractional a where
     (/)             :: a -> a -> a
     recip           :: a -> a
     fromRational    :: Rational -> a
-\end{lstlisting}
+\end{minted}
 Naturals:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data Nat = MkNat Integer
 
 invariant :: Nat -> Bool
@@ -444,31 +419,31 @@ instance Eq Nat where
 
 instance Ord Nat where
     MkNat x <= MkNat y == x <= y
-\end{lstlisting}
+\end{minted}
 \subsection{Shape}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 instance Eq Shape where
     Circle r == Circle r' = r == r'
     Rect w h == Rect w' h' = w == w'
-\end{lstlisting}
+\end{minted}
 \section{Lecture 16-17, November 11}
 \subsection{Combinatorics}
 \subsubsection{Sublists}
 Finding all the sublists of a string:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 subs :: [a] -> [[a]]
 subs []     = [[]]
 subs (x:xs) = subs xs ++ map (x:) (subs xs)
-\end{lstlisting}
+\end{minted}
 The length of subs grows with $O(2^n)$.
 \subsubsection{Cartesian Product}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 cp :: [[a]] -> [[a]]
 cp []       = [[]]
 cp (xs:xss) = [y:ys | y <- xs, ys <- cp xss]
-\end{lstlisting}
+\end{minted}
 \subsubsection{Permutations of a list}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 splits :: [a] -> [(a, [a])]
 splits xs = [(xs!!k, take k xs ++ drop (k+1) xs) | k <- [0..n-1]]
     where n = length xs
@@ -476,9 +451,9 @@ splits xs = [(xs!!k, take k xs ++ drop (k+1) xs) | k <- [0..n-1]]
 perms :: [a] -> [[a]]
 perms [] = [[]]
 perms (x:xs) = [y:zs | (y,ys) <- splits (x:xs), zs <- perms ys]
-\end{lstlisting}
+\end{minted}
 \subsubsection{Choose k elements from a list}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 choose :: Int -> [a] -> [[a]]
 choose 0 []    = [[]]
 choose k (x:xs)
@@ -486,60 +461,60 @@ choose k (x:xs)
     | k == n         = [x:xs]
     | 0 < k && k < n = choose k xs ++ map (x:) (choose (k-1) xs)
     where n = 1 + length xs
-\end{lstlisting}
+\end{minted}
 \section{IO and Monads}
 \subsection{Print a character}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 putChar :: Char -> IO ()
-\end{lstlisting}
+\end{minted}
 It returns the command which, \emph{if its ever performed}, prints the given character to the standard output.
 \subsection{Chain commands}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 (>>) :: IO () -> IO () -> IO ()
-\end{lstlisting}
+\end{minted}
 Returns the command that, \emph{if its ever performed}, does what the first command does and then what the second command does.
 \subsection{Do nothing}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 done :: IO ()
-\end{lstlisting}
+\end{minted}
 Returns the command that, \emph{if its ever performend}, does nothing.
 \subsection{Print a string}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 putStr :: String -> IO ()
 putStr []     = done
 putStr (x:xs) = putChar x >> putStr xs
-\end{lstlisting}
+\end{minted}
 So \texttt{putStr "?!"} is equivalent to \texttt{putChar '?' >> putChar '!'}.
 \subsection{Higher-order functions}
 We can write \texttt{putStr} more elegantly.
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 putStr xs = foldr (>>) done $ map putChar xs
-\end{lstlisting}
+\end{minted}
 \subsection{Main}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 main :: IO ()
 main = putStr "?!"
-\end{lstlisting}
+\end{minted}
 Main executes whatever commands it returns.
 \subsection{Read a character}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 getChar :: IO Char
-\end{lstlisting}
+\end{minted}
 which returns the command that returns a character.
 \subsection{Combining commands that have values}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 (>>=) :: IO a -> (a -> IO b) -> IO b
-\end{lstlisting}
+\end{minted}
 For example, performing the command
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 getChar >>= \x -> putChar (toUpper x)
-\end{lstlisting}
+\end{minted}
 whe the input is \texttt{"abc"} produces the output \texttt{"A"}, and the remaining input is \texttt{"bc"}.
 \subsection{Special cases}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 done = return ()
 m >> n = m >>= \() -> n
-\end{lstlisting}
+\end{minted}
 \subsection{Monads and Monoids}
 \subsubsection{Monoids}
 A \emph{monoid} is a pair of an operator (\texttt{@@}) and a value $u$, where the operator has the value as identity and is associative.
@@ -556,7 +531,7 @@ For example, in \texttt{n} is \texttt{x * x} and \texttt{x} is \texttt{x} and \t
 \end{center}
 \subsection{The monad of lists}
 In the standard prelude:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
     class Monad m where
         return :: a -> m a
         (>>=)  :: m a -> (a -> m b) -> m b
@@ -564,9 +539,9 @@ In the standard prelude:
     instance Monad [] where
         [] >>= k = []
         m >> k   = concat (map k m)
-\end{lstlisting}
+\end{minted}
 \subsection{Monads with plus}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
     class Monad m => MonadPlus m where
         mzero :: m a
         mplus :: m a -> m a -> m a
@@ -584,5 +559,5 @@ In the standard prelude:
 
         msum :: MonadPlus m => [m a] -> m a
         msum = foldr mplus mzero
-\end{lstlisting}
+\end{minted}
 \end{document}

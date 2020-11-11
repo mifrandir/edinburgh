@@ -277,34 +277,34 @@ We can use the rules to show this is universally valid, $\Gamma, \vee \Delta$ is
     \wedge \emptyset \vDash \vee \emptyset
 \end{align}
 \subsection{Quantifiers}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 every :: [t] -> (t -> Bool) -> Bool
 every xs p = and [ p x | x <- xs ]
-\end{lstlisting}
+\end{minted}
 \subsection{LAMBDA}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 square x = x * x
 square = (\x -> x * x)
-\end{lstlisting}
+\end{minted}
 $=\lambda x.x \times x$
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 hypotenuse a b = sqrt (square a + square b)
 hypotenuse = (\a b -> sqrt (square a) (square b))
-\end{lstlisting}
+\end{minted}
 Another example:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 EveryBodyLovesSomeBody = every body (\x -> some body (\y -> loves x y))
-\end{lstlisting}
+\end{minted}
 $\forall x $... \\ 
 \section{Lecture 7, October 11}
 \subsubsection{Evaluating lambda expression}
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 (\x -> x > 0) 3
 =
 3 > 0
 =
 True
-\end{lstlisting}
+\end{minted}
 \subsubsection{Why lamdas?}
 You don't need to give a name to a function you are only going to use once.
 \subsection{Sudoku}
@@ -312,24 +312,24 @@ Let's consider a simple language: CNF.\\
 Let \texttt{s i j k} be true iff the entry in the square $i$, $j$ is $k$.
 \subsubsection{Conditions}
 Every square is filled:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 and [ or [ s i j k | k <- [1..9]] | i <- [1..9], j <- [1..9]]
-\end{lstlisting}
+\end{minted}
 No square is filled twice:
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 and [ or [ not (s i j k), not (s i j k') ]
     | i <- [1..9], j <- [1..9], k <- [1..9],
       k' <- [1..9], k' < k]
-\end{lstlisting}
+\end{minted}
 All of this will give us a CNF we want to solve.
 \section{Lecture 8, October 17}
 \subsection{DPLL (1962)}
 Can solve 10 Ki clauses on modern hardware.
-\begin{lstlisting}[language=haskell]
+\begin{minted}{haskell}
 data Literal   a = P a | N a
 newtype Clause a = Or [ Literal a]
 newtype Form a   = And [ Clause a]
-\end{lstlisting}
+\end{minted}
 \subsubsection{Divided and conquer!}
 If you have a CNF, try taking some literals on the left as true. See what happens.
 Now we can solve a CNF with less literals and (hopefully) less clauses.\\ 

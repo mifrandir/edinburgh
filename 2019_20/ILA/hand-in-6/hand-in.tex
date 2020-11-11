@@ -1,45 +1,12 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\renewcommand{\vec}{\underline}
-\newcommand{\dv}[1]{\vec #1'}
+\usepackage{homework-preamble}
+
 \title{ILA: H6 (Workshop 08)}
 \author{Franz Miltz (UNN: s1971811)}
 \date{November 05, 2019}
-\newenvironment{amatrix}[1]{%
-  \left[\begin{array}{@{}*{#1}{c}|c@{}}
-}{%
-  \end{array}\right]
-}
+
 \begin{document}
 \maketitle
-This document will use the following notation:
-\begin{itemize}
-    \item $a$ may represent any scalar.
-    \item $\vec{a}$ may represent any vector.
-    \item $\begin{bmatrix}
-        a_1\\
-        \vdots\\
-        a_n
-    \end{bmatrix}$ is another representation of $\vec a$. 
-    \item $a_i$ is the $i$th component of the vector $\vec a$.
-    \item $A$ may represent any $m\times n$ matrix.
-    \item $\begin{bmatrix}
-        a_{11} & a_{12}&\dots &a_{1n}\\
-        a_{21} & a_{22}&\dots &a_{2n}\\
-        \vdots & \vdots & \ddots & \vdots\\
-        a_{m1} & a_{m2} &\dots &a_{mn}
-    \end{bmatrix}$ is another representation of $A$.
-    \item $a\vec{b}$ is a scalar multiplication of the vector $\vec{b}$ with the scalar $a$
-    \item $A\vec b$ is the matrix multiplication of the matrix $A$ with the vector $\vec b$
-    \item Let $P$ and $Q$ be any proposition, then
-    \begin{itemize}
-        \item $P\Rightarrow Q$ means "$P$ implies $Q$." or "If $P$ then $Q$."
-        \item $P\Leftrightarrow Q$ means "$P$ and $Q$ are equivalent." or "$P$ if and only if $Q$."
-    \end{itemize}
-\end{itemize}
 \section*{Q52}
 This question can be answered by finding a solution to the following system:
 \begin{align*}
