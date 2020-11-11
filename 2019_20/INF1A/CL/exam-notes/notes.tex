@@ -32,13 +32,13 @@
 \begin{document}
 \section{Syllogisms \& Venn diagrams}
 \begin{definition}
-    A \textbf{predicate $p$} defines a subset $\{x\in U\:|\:p\:x\}$ of the universe $U$.
+    A \B{predicate $p$} defines a subset $\{x\in U\:|\:p\:x\}$ of the universe $U$.
 \end{definition}
 \begin{definition}
-    An \textbf{Euler Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that no shown area is empty.
+    An \B{Euler Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that no shown area is empty.
 \end{definition}
 \begin{definition}
-    A \textbf{Venn Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that all intersections are shown but they might be empty.
+    A \B{Venn Diagram} shows all the subsets defined by all the predicates in a universe and their intersections in such a way that all intersections are shown but they might be empty.
 \end{definition}
 \begin{theorem}
     The first rule of boolean algebra:
@@ -135,14 +135,14 @@
 \end{theorem}
 \section{Satisfiability}
 \begin{definition}
-    A \textbf{literal} is a predicate or a negated predicate.
+    A \B{literal} is a predicate or a negated predicate.
 \end{definition}
 \begin{definition}
-    A \textbf{disjunctive normal from} is a formula that is a disjunction of conjunctions of literals.\\
+    A \B{disjunctive normal from} is a formula that is a disjunction of conjunctions of literals.\\
     It describes the evaluation that must be true to satisfy the formula.
 \end{definition}
 \begin{definition}
-    A \textbf{conjunctive normal from} is a formula that is a conjunction of disjunctions of literals.\\
+    A \B{conjunctive normal from} is a formula that is a conjunction of disjunctions of literals.\\
     It describes the evaluation that must not be true to satisfy the formula.
 \end{definition}
 \begin{theorem}
@@ -168,7 +168,7 @@ Convert any circuit to an equisatifiable 3-CNF.
 \end{enumerate}
 \subsection{Using implications to find a valuation}
 \begin{definition}
-    Propositions are \textbf{ordered} by $x\leq y$ iff $x\to y$.
+    Propositions are \B{ordered} by $x\leq y$ iff $x\to y$.
 \end{definition}
 \begin{theorem}
     Each binary constraint is equivalent to an implication:
@@ -184,7 +184,7 @@ Convert any circuit to an equisatifiable 3-CNF.
 \end{itemize}
 \section{Finite State Machines and Regular Expressions}
 \begin{definition}
-    \textbf{Regular expressions:}
+    \B{Regular expressions:}
     \begin{itemize}
         \item any character is a regex that matches itself
         \item if $R$ and $S$ are regex, so is $RS$
@@ -193,7 +193,7 @@ Convert any circuit to an equisatifiable 3-CNF.
     \end{itemize}
 \end{definition}
 \begin{definition}
-    \textbf{Regular languages} over an alphabet $\Sigma$:
+    \B{Regular languages} over an alphabet $\Sigma$:
     \begin{itemize}
         \item $\emptyset$ and $\{\epsilon\}$ are regular languages.
         \item $\{a\}$ is a regular language for all $a\in\Sigma$.
@@ -225,10 +225,10 @@ Convert any circuit to an equisatifiable 3-CNF.
     The complement of a DFA regular language is a DFA regular language.
 \end{theorem}
 \begin{definition}
-    Let $M=(Q,\Sigma,\Delta,B,A)$. Then a \textbf{trace} for $s=\langle x_0,...,x_{k-1}\rangle\in\Sigma^*$ is a sequence of $k+1$ states such that $\langle q_0, ...,q_k\rangle$ such that all $(q_i,x_i,q_{i+1})\in\Delta$
+    Let $M=(Q,\Sigma,\Delta,B,A)$. Then a \B{trace} for $s=\langle x_0,...,x_{k-1}\rangle\in\Sigma^*$ is a sequence of $k+1$ states such that $\langle q_0, ...,q_k\rangle$ such that all $(q_i,x_i,q_{i+1})\in\Delta$
 \end{definition}
 \begin{definition}
-    An FSM \textbf{accepts a word} iff there is a trace from some start state $q_0$ to some finish state $q_n$ along transitions that spell out the word.
+    An FSM \B{accepts a word} iff there is a trace from some start state $q_0$ to some finish state $q_n$ along transitions that spell out the word.
 \end{definition}
 \begin{definition}
     If $R\subseteq(\Sigma\cup\{\epsilon\})^*$ is a regular language with the alphabet $\Sigma\cup\{\epsilon\}$ (where $\epsilon\not\in\Sigma$) then $R//\epsilon=\{s//\epsilon|s\in R\}$ is a regular language where $s//\epsilon$ is the result of removing every $\epsilon$ from $s$.

@@ -1,53 +1,6 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
-\usepackage{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{hyperref}
-\hypersetup{
-	colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
-}
-\usepackage{fontspec}
-\setmainfont{arial}
-\usepackage{nicefrac}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\newtheoremstyle{sltheorem} {}                % Space above
-{}                % Space below
-{\upshape}        % Theorem body font % (default is "\upshape")
-{}                % Indent amount
-{\bfseries}       % Theorem head font % (default is \mdseries)
-{.}               % Punctuation after theorem head % default: no punctuation
-{ }               % Space after theorem head
-{}                % Theorem head spec
-\theoremstyle{sltheorem}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\renewcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\st}{\text{ s.t }}
-\DeclareMathOperator{\lub}{LUB}
-\DeclareMathOperator{\glb}{GLB}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\cl}{cl}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand*\B[1]{\textbf{#1}}
-\newcommand*\binco[2]{\begin{pmatrix}
-    #1\\#2
-\end{pmatrix}}
+\usepackage{notes-preamble}
+
 \begin{document}
 \title{Proofs and Problem Solving Notes (SEM2)}
 \author{Franz Miltz}
@@ -460,27 +413,27 @@
 \end{theorem}
 \section{The Integers}
 \begin{theorem}
-    \textbf{The Remainder Theorem.} Let $a\in\N$ and $b\in\mathbb{Z}$.
+    \B{The Remainder Theorem.} Let $a\in\N$ and $b\in\mathbb{Z}$.
     There are unique integers $q\in\mathbb{Z}$ and $0\leq r<a$ s.t.
     \begin{align*}
         b=qa+r.
     \end{align*}
 \end{theorem}
 \begin{definition}
-    For two integers $a$ and $b$ we say $a$ \textbf{divides} $b$, or write $a|b$, if there is an integer $c$ so that $b=ac$.
+    For two integers $a$ and $b$ we say $a$ \B{divides} $b$, or write $a|b$, if there is an integer $c$ so that $b=ac$.
 \end{definition}
 \begin{lemma}
     If $a|b$ and $b|a$, then $a=\pm b$.
 \end{lemma}
 \begin{lemma}
-    \textbf{The Easy Lemma.} Let $a$ and $b$ be integers and suppose $d|a$ and $d|b$. Then $d|ma+nb$ for all $m,n\in\N$.
+    \B{The Easy Lemma.} Let $a$ and $b$ be integers and suppose $d|a$ and $d|b$. Then $d|ma+nb$ for all $m,n\in\N$.
 \end{lemma}
 \begin{definition}
-    Given two integers $a,b\in\mathbb{Z}$ that are not both zero, the \textbf{highest common factor} of $a$ and $b$ is the largest positive integer $d\in\N$ that divides both $a$ and $b$.
-    We denote this integer $d$ by $\hcf(a,b)$. If $\hcf(a,b)=1$, then we say that $a$ and $b$ are \textbf{coprime}.
+    Given two integers $a,b\in\mathbb{Z}$ that are not both zero, the \B{highest common factor} of $a$ and $b$ is the largest positive integer $d\in\N$ that divides both $a$ and $b$.
+    We denote this integer $d$ by $\hcf(a,b)$. If $\hcf(a,b)=1$, then we say that $a$ and $b$ are \B{coprime}.
 \end{definition}
 \begin{theorem}
-    \textbf{Bezout's Identity.} Let $a$ and $b$ be non-zero integers. Then there are integers $s$ and $t$ so that $\hcf(a,b)=sa+tb$.
+    \B{Bezout's Identity.} Let $a$ and $b$ be non-zero integers. Then there are integers $s$ and $t$ so that $\hcf(a,b)=sa+tb$.
 \end{theorem}
 \begin{corollary}
     Let $a,b,c\in\Z$. Suppose $c\not=0$, $c|ab$ and $\hcf(a,c)=1$. Then $c|b$.
@@ -498,7 +451,7 @@
     If $n=p_1\cdots p_k$ is a product of primes, and if a prime $p$ divides $n$, then $p=p_i$ for some $i=1,...,k$.
 \end{corollary}
 \begin{theorem}
-    \textbf{The Fundamental Theorem of Arithmetic (FTA).} Let $n\geq 2$ be an integer.
+    \B{The Fundamental Theorem of Arithmetic (FTA).} Let $n\geq 2$ be an integer.
     \begin{itemize}
         \item (Existence) Then $n$ is equal to a product $n=p_1^{r_1}\cdots p_k^{r_k}$ of powers of prime numbers where $p_1<...<p_k$ and $r_i>0$ for all $i$.
         \item (Uniqueness) The factorization is unique: If we also have
@@ -509,13 +462,13 @@
     \end{itemize}
 \end{theorem}
 \begin{lemma}
-    \textbf{Existence of prime decomposition, Part I.} Every integer $n\geq 2$ can be written as a product of primes $n=p_1\cdots p_k$.
+    \B{Existence of prime decomposition, Part I.} Every integer $n\geq 2$ can be written as a product of primes $n=p_1\cdots p_k$.
 \end{lemma}
 \begin{lemma}
-    \textbf{Existence of prime decomposition, Part II.} Every integer $n\geq 2$ can be written as a product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$ and $r_i\geq 0$ for all $i$.
+    \B{Existence of prime decomposition, Part II.} Every integer $n\geq 2$ can be written as a product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$ and $r_i\geq 0$ for all $i$.
 \end{lemma}
 \begin{lemma}
-    \textbf{Uniqueness of prime decomposition.} Every integer $n$ can be written as a unique product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$.
+    \B{Uniqueness of prime decomposition.} Every integer $n$ can be written as a unique product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$.
 \end{lemma}
 \begin{theorem}
     Let $n=p_1^{a_1}\cdots p_k^{a_k}$ be a prime decomposition (i.e. $p_i$s are prime, $p_1<\cdots<p_k$, and $a_i>0$). Then $m$ divides $n$ iff 
@@ -576,7 +529,7 @@
     The equation $ax\equiv b \mod m$ has a solution iff $hcf(a,m)|b$.
 \end{theorem}
 \begin{theorem}
-    \textbf{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
+    \B{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
     \begin{align*}
         a^{p-1}\equiv 1 \mod p.
     \end{align*}
@@ -592,10 +545,10 @@
 \begin{definition}
     Let $A$ and $B$ be two sets.
     \begin{enumerate}
-        \item We define the \textbf{union} of $A$ and $B$ to be the set of elements that are either in $A$ or in $B$. We write $A\cup B$.
-        \item We define the \textbf{intersection} of $A$ and $B$ to be the set of elements that are in $A$ and $B$. We write $A\cap B$.
-        \item $A$ \textbf{minus} $B$ is the set of things in $A$ that are not in $B$. We write $A-B$ or $A\setminus B$.
-        \item If $A\cap B=\emptyset$, we say $A$ and $B$ are \textbf{disjoint}.
+        \item We define the \B{union} of $A$ and $B$ to be the set of elements that are either in $A$ or in $B$. We write $A\cup B$.
+        \item We define the \B{intersection} of $A$ and $B$ to be the set of elements that are in $A$ and $B$. We write $A\cap B$.
+        \item $A$ \B{minus} $B$ is the set of things in $A$ that are not in $B$. We write $A-B$ or $A\setminus B$.
+        \item If $A\cap B=\emptyset$, we say $A$ and $B$ are \B{disjoint}.
     \end{enumerate}
 \end{definition}
 \begin{proposition}
@@ -605,55 +558,55 @@
     \end{align*}
 \end{proposition}
 \begin{definition}
-    A \textbf{partition} of a set $S$ is a collection of nonempty subsets of $S$ so that for every $x\in S$, there is exactly one set $A$ in the collection so that $x\in A$.
+    A \B{partition} of a set $S$ is a collection of nonempty subsets of $S$ so that for every $x\in S$, there is exactly one set $A$ in the collection so that $x\in A$.
 \end{definition}
 \begin{definition}
-    The \textbf{Cartesian} product of two sets $A$ and $B$ is the set of ordered pairs
+    The \B{Cartesian} product of two sets $A$ and $B$ is the set of ordered pairs
     \begin{align*}
         A\times B = \{(x,y) | x\in A,\: y\in B\}.
     \end{align*}
 \end{definition}
 \begin{definition}
-    A \textbf{relation} $R$ on a set $S$ is just a subset of $S\times S$. Given $a,b\in S$, we write $a\sim b$ if $(a,b)\in R$.
+    A \B{relation} $R$ on a set $S$ is just a subset of $S\times S$. Given $a,b\in S$, we write $a\sim b$ if $(a,b)\in R$.
 \end{definition}
 \begin{definition}
     Let $S$ be a set. Let $\sim$ be a relation on $S$. We say $\sim$ is
     \begin{itemize}
-        \item \textbf{reflexive} if $a\sim a$ for all $a\in S$,
-        \item \textbf{symmetric} if for all $a,b\in S$, we have $a\sim b \Leftrightarrow b\sim a$, and
-        \item \textbf{transitive} if for all $a,b,c\in S$, we have
+        \item \B{reflexive} if $a\sim a$ for all $a\in S$,
+        \item \B{symmetric} if for all $a,b\in S$, we have $a\sim b \Leftrightarrow b\sim a$, and
+        \item \B{transitive} if for all $a,b,c\in S$, we have
         \begin{align*}
             a\sim b \sim c \Rightarrow a \sim c.
         \end{align*}
     \end{itemize}
-    If $\sim$ satisfies all three of these properties, we say $\sim$ is an \textbf{equivalence relation}.
+    If $\sim$ satisfies all three of these properties, we say $\sim$ is an \B{equivalence relation}.
 \end{definition}
 \begin{definition}
-    If $\sim$ is an equivalence relation on a set $S$ and $x\in S$, the \textbf{equivalence class} of $x$ is
+    If $\sim$ is an equivalence relation on a set $S$ and $x\in S$, the \B{equivalence class} of $x$ is
     \begin{align*}
         \cl(x) = \{y\in S | x\sim y\}.
     \end{align*}
-    The set of \textbf{equivalence classes} is the set $\{\cl(x) | x \in S\}$.
+    The set of \B{equivalence classes} is the set $\{\cl(x) | x \in S\}$.
 \end{definition}
 \begin{proposition}
     If $\sim$ is an equivalence relation on a set $S$, then the equivalence classes form a partition of $S$. 
 \end{proposition}
 \section{Functions}
 \begin{definition}
-    Given two sets $X$ and $Y$, a \textbf{function from $X$ to $Y$}, denoted $f:X\to Y$, is a relation pairing each $x\in X$ with an element in $Y$ which we denote $f(x)$. The set $X$ is called the \textbf{domain} of $f$ and $Y$ is the \textbf{codomain} or \textbf{range} of $Y$.
+    Given two sets $X$ and $Y$, a \B{function from $X$ to $Y$}, denoted $f:X\to Y$, is a relation pairing each $x\in X$ with an element in $Y$ which we denote $f(x)$. The set $X$ is called the \B{domain} of $f$ and $Y$ is the \B{codomain} or \B{range} of $Y$.
 \end{definition}
 \begin{definition}
     Let $f:X\to Y$ be a function. We say
     \begin{itemize}
-        \item $f$ is \textbf{surjective} if
+        \item $f$ is \B{surjective} if
         \begin{align*}
             \forall y \in Y,\: \exists x \in X \st f(x) = y,
         \end{align*}
-        \item $f$ is \textbf{injective} if
+        \item $f$ is \B{injective} if
         \begin{align*}
             \forall x,y \in X,\: f(x)=f(y) \Rightarrow x = y,
         \end{align*}
-        \item $f$ is \textbf{bijective} if it is injective and surjective.
+        \item $f$ is \B{bijective} if it is injective and surjective.
     \end{itemize}
 \end{definition}
 \begin{theorem}
@@ -665,7 +618,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{definition}
-    Let $f:X\to Y$ and $g:Y\to Z$ be functions. We define the \textbf{composition of $f$ and $g$}, denoted $g\circ f:X\to Z$, to be the function
+    Let $f:X\to Y$ and $g:Y\to Z$ be functions. We define the \B{composition of $f$ and $g$}, denoted $g\circ f:X\to Z$, to be the function
     \begin{align*}
         g\circ f(x) = g(f(x)).
     \end{align*}
@@ -679,7 +632,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{definition}
-    If $f:X\to Y$ is bijective, the \textbf{inverse} of $f$, denoted $f^{-1}:Y\to X$, is the function such that
+    If $f:X\to Y$ is bijective, the \B{inverse} of $f$, denoted $f^{-1}:Y\to X$, is the function such that
     \begin{align*}
         f^{-1}(y) = x \Leftrightarrow f(x) = y.
     \end{align*}
@@ -688,39 +641,39 @@
     Let $f:X\to Y$ and $g:Y\to X$ be functions. Then $f$ is bijective and $g=f^{-1}$ iff $f(g(y))= y$ for all $y\in Y$ and $g(f(x))=x$ for all $x\in X$.
 \end{theorem}
 \begin{definition}
-    If $f:X\to Y$ and $A\subseteq X$, the \textbf{image of $A$} under $f$ is
+    If $f:X\to Y$ and $A\subseteq X$, the \B{image of $A$} under $f$ is
     \begin{align*}
         f(A) = \{f(x):x\in A\}\subseteq Y.
     \end{align*}
-    If $B\subseteq Y$, the \textbf{preimage of $B$} under $f$ is
+    If $B\subseteq Y$, the \B{preimage of $B$} under $f$ is
     \begin{align*}
         f^{-1}(B) = \{x\in X:f(x)\in B\}\subseteq X.
     \end{align*}
 \end{definition}
 \section*{Applications: What's bigger than $\infty$?}
 \begin{definition}
-    We say two sets $A$ and $B$ have the same \textbf{cardinality} if there is a bijective function $f:A\to B$, and we write $|A|=|B$ or $A\sim B$. If there is an injective map $f:A\to B$, we write $|A|\leq |B|$, and if $|A|\leq |B|$ and there is no injective map from $B$ to $A$, we write $|A|<|B|$.\\
-    When $A\sim\N$, we say $A$ is \textbf{countable}.
+    We say two sets $A$ and $B$ have the same \B{cardinality} if there is a bijective function $f:A\to B$, and we write $|A|=|B$ or $A\sim B$. If there is an injective map $f:A\to B$, we write $|A|\leq |B|$, and if $|A|\leq |B|$ and there is no injective map from $B$ to $A$, we write $|A|<|B|$.\\
+    When $A\sim\N$, we say $A$ is \B{countable}.
 \end{definition}
 \begin{theorem}
     $\mathbb{Q}\sim\N$.
 \end{theorem}
 \begin{theorem}
-    Let $S$ be an infinite set and let $P(S)$ denote the \textbf{power set} consisting of the subsets of $S$, i.e. $P(S) = \{A\subseteq S\}$. Then $|S|<|P(S)|$.
+    Let $S$ be an infinite set and let $P(S)$ denote the \B{power set} consisting of the subsets of $S$, i.e. $P(S) = \{A\subseteq S\}$. Then $|S|<|P(S)|$.
 \end{theorem}
 \section{Counting}
 \begin{theorem}
-    \textbf{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome. 
+    \B{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome. 
     Then after $n$ stages, the total number of outcomes is $a_1\cdot a_2\cdots a_n$.
 \end{theorem}
 \begin{proposition}
     Let $S$ have $n$ elements. Then the number of subsets is $2^n$.    
 \end{proposition}
 \begin{definition}
-    Let $S$ be a set of $n$ objects. An \textbf{ordering} of $S$ is a sequence $a_1,...,a_n$ for which each element of $S$ appears exactly once in this sequence.
+    Let $S$ be a set of $n$ objects. An \B{ordering} of $S$ is a sequence $a_1,...,a_n$ for which each element of $S$ appears exactly once in this sequence.
 \end{definition}
 \begin{theorem}
-    \textbf{Rearrangement Theorem.} Given a set $S$ of $n$ distinct objects, there are $n!$ ways of ordering them.
+    \B{Rearrangement Theorem.} Given a set $S$ of $n$ distinct objects, there are $n!$ ways of ordering them.
 \end{theorem}
 \begin{proposition}
     Let $S$ be a set of $n$ elmeents and $0\leq k \leq n$.    
@@ -743,49 +696,49 @@
 \begin{theorem}
     For integers $0\leq k \leq n$, we have
     \begin{align*}
-        \binco{n}{k}=\frac{n!}{k!(n-k)!}.
+        \binom{n}{k}=\frac{n!}{k!(n-k)!}.
     \end{align*}
 \end{theorem}
 \begin{corollary}
     For $n\geq 0$, we have
     \begin{align*}
-        2^n = \sum_{k=0}^n \binco{n}{k}.
+        2^n = \sum_{k=0}^n \binom{n}{k}.
     \end{align*}
 \end{corollary}
 \begin{definition}
     Let $S$ be a nonempty set.
     \begin{itemize}
-        \item A \textbf{partition} of $S$ is a set $\{A_1,...,A_k\}$ of nonempty subsets of $S$ so that every $x\in\S$ is in exactly one $A_i$.
-        \item An \textbf{ordered partition} of $S$ is a sequence of sets $A_1,...,A_k$ that partition $S$.
+        \item A \B{partition} of $S$ is a set $\{A_1,...,A_k\}$ of nonempty subsets of $S$ so that every $x\in\S$ is in exactly one $A_i$.
+        \item An \B{ordered partition} of $S$ is a sequence of sets $A_1,...,A_k$ that partition $S$.
     \end{itemize}
 \end{definition}
 \begin{definition}
-    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots + r_k=n$, we denote the number of \textbf{ordered} partitions $A_1,..., A_n$ of a set $S$ such that $|A_i=r_i$ as
+    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots + r_k=n$, we denote the number of \B{ordered} partitions $A_1,..., A_n$ of a set $S$ such that $|A_i=r_i$ as
     \begin{align*}
-        \binco{n}{r_1,...,r_k}.
+        \binom{n}{r_1,...,r_k}.
     \end{align*}
 \end{definition}
 \begin{theorem}
     Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots r_k=n$ and $k\geq 2$, 
     \begin{align*}
-        \binco{n}{r_1, ..., r_k}=\frac{n!}{r_1!r_2!\cdots r_k!}.
+        \binom{n}{r_1, ..., r_k}=\frac{n!}{r_1!r_2!\cdots r_k!}.
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{The Binomial Theorem.} Let $n\in\N$ and $a,b\in\C$. Then
+    \B{The Binomial Theorem.} Let $n\in\N$ and $a,b\in\C$. Then
     \begin{align*}
-        (a+b)^n=\sum_{k=0}^n \binco{n}{k}a^kb^{n-k}.
+        (a+b)^n=\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}.
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{The Multinomial Theorem.} Let $n\in\N$ and $x_1, ..., x_k\in\C$. Then $(x_1+\cdots+x_k)^n$ is equal to the sum over all terms of the form
+    \B{The Multinomial Theorem.} Let $n\in\N$ and $x_1, ..., x_k\in\C$. Then $(x_1+\cdots+x_k)^n$ is equal to the sum over all terms of the form
     \begin{align*}
-        \binco{n}{r_1,...,r_k}x_1^{r_1}\cdots x_k^{r_k}
+        \binom{n}{r_1,...,r_k}x_1^{r_1}\cdots x_k^{r_k}
     \end{align*}
     where $r_i\in\{0,1,...,n\}$ and $r_1+\cdots r_k=n$.
 \end{theorem}
 \begin{theorem}
-    \textbf{Inclusion-Exclusion Principle.} Let $n\geq 2$ and suppose $A_1, A_2, ..., A_n$ are sets. Let
+    \B{Inclusion-Exclusion Principle.} Let $n\geq 2$ and suppose $A_1, A_2, ..., A_n$ are sets. Let
     \begin{align*}
         c_1=|A_1|+|A_2|+\cdots,\:c_2=|A_1\cap A_2|+|A_1\cap A_3|+|A_2\cap A_3|+\cdots,\:\cdots
     \end{align*}
@@ -800,7 +753,7 @@
     \begin{align*}
         \{1,2,3,4,...,n\}\to\{1,2,3,4,...,n\}.
     \end{align*}
-    We call elements in $S_n$ \textbf{permutations} of the set $\{1,2,3,4,...,n\}$.
+    We call elements in $S_n$ \B{permutations} of the set $\{1,2,3,4,...,n\}$.
 \end{definition}
 \begin{lemma}
     The set $S-N$ consists of exactly $n!$ permutations.
@@ -836,13 +789,13 @@
     \begin{align*}
         (a_1\:a_2\:\cdots\:a_r)
     \end{align*}
-    and is called a \textbf{cycle} or \textbf{cyclic permutation}.
+    and is called a \B{cycle} or \B{cyclic permutation}.
 \end{definition}
 \begin{corollary}
     If $a_1, ..., a_r$ are distinct numbers in $\{1,2,...,n\}$ and $f=(a_1\: a_2\: \cdots \: a_r)$, then $r$ is the smalles positive integer such that $f^r=\iota$.
 \end{corollary}
 \begin{definition}
-    If $f=(a_1\:a_2\:\cdots\: a_r)$ and $g=(b_1\:b_2\:\cdots\:b_2)$ where $\{a_1,...,a_r\}$ and $\{b_1,..., b_n\}$ are disjoint sets, we say that $f$ and $g$ are \textbf{disjoint} in $S_n$.
+    If $f=(a_1\:a_2\:\cdots\: a_r)$ and $g=(b_1\:b_2\:\cdots\:b_2)$ where $\{a_1,...,a_r\}$ and $\{b_1,..., b_n\}$ are disjoint sets, we say that $f$ and $g$ are \B{disjoint} in $S_n$.
 \end{definition}
 \begin{proposition}
     If $f$ and $g$ are disjoint cycles in $S_n$, then $fg=gf$.    
@@ -855,7 +808,7 @@
     \begin{align*}
         f^m = \iota
     \end{align*}
-    is called the \textbf{order} of the permutation $f$.
+    is called the \B{order} of the permutation $f$.
 \end{definition}
 \begin{lemma}
     Let $f\in S_n$ have order $m$. If $f^k=\iota$ for some integer $k\in\N$, then $m|k$.
@@ -874,7 +827,7 @@
     Every permutation in $S_n$ is a product of cycles of length $2$.
 \end{lemma}
 \begin{definition}
-    We say a permutation $f\in S_n$ is \textbf{even} if $\sgn(f)=1$ and \textbf{odd} if $\sgn(f) = -1$.
+    We say a permutation $f\in S_n$ is \B{even} if $\sgn(f)=1$ and \B{odd} if $\sgn(f) = -1$.
 \end{definition}
 \begin{lemma}
     Let $n\in\N$.

@@ -1,75 +1,13 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{nicefrac}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{fontspec}
-\usepackage{hyperref}
-\hypersetup{
-	colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
-}
-\setmainfont{arial}
-\newtheoremstyle{sltheorem} {}                % Space above
-{}                % Space below
-{\upshape}        % Theorem body font % (default is "\upshape")
-{}                % Indent amount
-{\bfseries}       % Theorem head font % (default is \mdseries)
-{.}               % Punctuation after theorem head % default: no punctuation
-{ }               % Space after theorem head
-{}                % Theorem head spec
-\theoremstyle{sltheorem}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\renewcommand{\C}{\mathbb{C}}
-\newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\P}{\mathbb{P}}
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\V}{\mathbb{V}}
-\newcommand{\st}{\text{ s.t }}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\DeclareMathOperator{\lub}{LUB}
-\DeclareMathOperator{\glb}{GLB}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\cl}{cl}
-\DeclareMathOperator{\Geom}{Geom}
-\DeclareMathOperator{\Binom}{Binom}
-\DeclareMathOperator{\Bern}{Bernoulli}
-\DeclareMathOperator{\Unif}{Unif}
-\DeclareMathOperator{\Exp}{Exponential}
-\DeclareMathOperator{\Poiss}{Poiss}
-\DeclareMathOperator{\GD}{Gamma}
-\newcommand{\wbigcup}{\mathop{\bigcup}\displaylimits}
-\newcommand{\wbigcap}{\mathop{\bigcap}\displaylimits}
-%\DeclareMathOperator{\mod}{mod}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand*\B[1]{\textbf{#1}}
-\newcommand*\binco[2]{\begin{pmatrix}
-    #1\\#2
-\end{pmatrix}}
+\usepackage{notes-preamble}
+
 \begin{document}
 \title{Probability (SEM3)}
 \author{Franz Miltz}
 \maketitle
 \tableofcontents
 \pagebreak
+
 \section{Basic theory}
 \subsection{Assumptions}
 \begin{definition}
@@ -88,7 +26,7 @@
 \end{definition}
 \subsection{Sample spaces}
 \begin{definition}
-    The \textbf{sample space $S$} of an experiment $E$ is the set of all possible outcomes for $E$.
+    The \B{sample space $S$} of an experiment $E$ is the set of all possible outcomes for $E$.
 \end{definition}
 \subsection{Events}
 \begin{definition}

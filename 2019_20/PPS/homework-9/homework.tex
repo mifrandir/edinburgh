@@ -1,34 +1,13 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage{homework-preamble}
+
 \title{PPS: Homework 9 (Workshop 33)}
 \author{Franz Miltz (UNN: S1971811)}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\newcommand*\binco[2]{\begin{pmatrix}
-    #1\\#2
-\end{pmatrix}}
+\date{6 April 2020}
+
 \begin{document}
 \maketitle
+
 \section*{Problem 1}
 \begin{claim}
   There are $120$ integers from $1$ to $200$ that are divisible by $3$, $4$ or $5$.
@@ -60,6 +39,7 @@
   \end{align*}
 \end{proof}
 \noindent\emph{Note: To find the number of integers in $[1,200]$ divisible by $x$, you can use integer division $200 / x$}.
+
 \section*{Problem 2}
 \begin{claim}
   Let $S$ be a set of size $n$ and $A\subseteq S$ of size $k$. Then there are $2^{n-k}$ subsets of $S$ that contain (all elements of) $A$.
@@ -72,19 +52,20 @@
   Therefore the number of subsets of $S$ that contain $A$ is equal to the number of subsets of $S$ that are disjoint to $A$, i.e. the number of subsets of $T$.
   Since $|S|=n$ and $|A|=k$, $|T| = n - k$. Using \emph{Liebeck, Proposition 17.4} we know that $T$ has $2^{n-k}$ subsets.
 \end{proof}
+
 \section*{Problem 3}
 \begin{claim}
   Let $S=\{1,...,50\}$ and let $W\subseteq S$ be a set with $6$ randomly selected elements. 
   Then the chance $p$ of a set $P\subseteq S$ with $10$ randomly selected elements containing $W$ is
   \begin{align*}
-    p = \frac{\binco{42}{4}}{\binco{50}{10}} = \frac{1}{75670} \approx 0.0013\%.
+    p = \frac{\binom{42}{4}}{\binom{50}{10}} = \frac{1}{75670} \approx 0.0013\%.
   \end{align*}
 \end{claim}
 \begin{proof}
   This is equivalent to a \emph{Hypergeometric Distribution} with $N=50$ as there are $50$ possible numbers, $K=6$ as there are $6$ correct numbers, $n=10$ as $10$ numbers are picked by the player and $k=6$ as we require the player to pick all the correct numbers in one draw.
   Using the formula for the \emph{Hypergeometric Distribution} we get
   \begin{align*}
-    p = \frac{\binco{6}{6}\binco{50-6}{10-6}}{\binco{50}{10}}= \frac{\binco{44}{4}}{\binco{50}{10}} = \frac{1}{75670} \approx 0.0013 \%.
+    p = \frac{\binom{6}{6}\binom{50-6}{10-6}}{\binom{50}{10}}= \frac{\binom{44}{4}}{\binom{50}{10}} = \frac{1}{75670} \approx 0.0013 \%.
   \end{align*}
 \end{proof}
 \noindent\emph{Note: I know we have not covered the Hypergeometric Distribution in this course but I don't think it makes any sense to reinvent the wheel in this case. 

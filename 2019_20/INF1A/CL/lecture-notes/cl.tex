@@ -35,7 +35,7 @@
         \LARGE Franz Miltz\\
         \url{franz@miltz.me}\\
         \vspace{5cm}
-        \LARGE\textbf{Introcution to Computation}\\
+        \LARGE\B{Introcution to Computation}\\
         \vspace{1cm}
         Michael Fourman (Computation and Logic)
     \end{center}
@@ -49,7 +49,7 @@
     \item Learn You a Haskell
 \end{itemize}
 Tip: Blackwell's\\
-\textbf{READ!}
+\B{READ!}
 \subsection{Tutorial}
 \begin{itemize}
     \item do exercise before
@@ -470,8 +470,8 @@ An FSM accepts a word iff there is a trace from some start state $q_0$ to some f
     \begin{align*}
         M=(Q,\Sigma, \Delta, B, A)
     \end{align*}
-    A \textbf{trace} for $s=<x_0,..., x_{k-1}>\in \Sigma^*$ (a string of length $k$) is a sequence of $k+1$ states $<q_0, ..., q_k>$ such that $(q_i, x_i, q_{i+1})\in\Delta$.\\
-    We say $s$ is \textbf{accepted} by $M$ iff there is a trace $<q_0, ..., q_k>$ for $s$ such that $q_0\in B$ and $q_k\in A$.
+    A \B{trace} for $s=<x_0,..., x_{k-1}>\in \Sigma^*$ (a string of length $k$) is a sequence of $k+1$ states $<q_0, ..., q_k>$ such that $(q_i, x_i, q_{i+1})\in\Delta$.\\
+    We say $s$ is \B{accepted} by $M$ iff there is a trace $<q_0, ..., q_k>$ for $s$ such that $q_0\in B$ and $q_k\in A$.
 \end{definition}
 \subsection{NFA to DFA}
 Every NFA can be represented as a DFA. Problem: This requires exponentially more states.
@@ -524,8 +524,8 @@ Two very important rules:
 \
 \end{gather*}
 \begin{theorem}
-    The inference rules are \textbf{sound}: $\Gamma\vdash\Delta \Rightarrow \Gamma\vDash \Delta$\\
-    The inference rules are \textbf{complete}: $\Gamma\vDash\Delta\Rightarrow\Gamma\vdash\Delta$
+    The inference rules are \B{sound}: $\Gamma\vdash\Delta \Rightarrow \Gamma\vDash \Delta$\\
+    The inference rules are \B{complete}: $\Gamma\vDash\Delta\Rightarrow\Gamma\vdash\Delta$
 \end{theorem}
 
 \end{document}

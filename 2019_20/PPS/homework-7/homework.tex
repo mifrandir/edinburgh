@@ -1,29 +1,10 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage{homework-preamble}
+
 \title{PPS: Homework 7 (Workshop 33)}
 \author{Franz Miltz (UNN: S1971811)}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
+\date{23 March 2020}
+
 \begin{document}
 \maketitle
 \section*{Problem 1}
@@ -53,7 +34,7 @@
 \begin{claim}
   Let $p$ be a prime. Then $(p-1)!\equiv p-1 \mod p$.
 \end{claim}
-\begin{adjustwidth}{2em}{2em}
+\begin{subproof}
   \begin{lemma}
     \label{l1}
     Let $p$ be a prime. Then for any $a\in\Z$ there is a unique $x\in\Z_p$ so that $ax\equiv 1 \mod p$.
@@ -71,7 +52,7 @@
     \end{align*}
     Thus there is a unique solution $x\in\Z_p$ where $x\equiv x_1\equiv x_2 \mod p$.
   \end{proof}
-\end{adjustwidth}
+\end{subproof}
 \begin{proof}
   According to Lemma \ref{l1}, for each of the factors $a$ in $(p-1)!$, there is another factor $b$ such that
   \begin{align*}
@@ -79,7 +60,7 @@
   \end{align*}
   Observe that $a=b$ if, and only if,
   \begin{align*}
-    a^2 \equiv 1 \mod p.
+    a^2 \equiv 1 \mod p. 
   \end{align*}
   This is the case if, and only if, $a\equiv 1 \mod p$ or $a\equiv -1 \equiv p-1 \mod p$. 
   For all other factors $a\in(1,p-1)$ the corresponding $b$ has to be in the product as well.
