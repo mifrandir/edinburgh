@@ -1356,4 +1356,231 @@ Notation for higher derivatives:
         \di_S \vec F\cdot d\vec S = \ti_E \div\vec F\:dV.
     \end{align*}
 \end{theorem}
+
+
+
+\section{Differential equation classifications}
+
+
+
+\begin{definition}
+    A \B{differential equation} is one invovling one or more derivatives of an unknown function.
+\end{definition}
+
+\begin{definition}
+    Any function which satisfies a differential equation on an interval is called a \B{soltution} on that interval.
+\end{definition}
+
+\begin{definition}
+    An \B{ordinary differential equation (ODE)} involves derivatives with respect to only one variable.
+\end{definition}
+
+\begin{definition}
+    A \B{partial differential equation (PDE)} involves derivatives with respect to more than one variable.
+\end{definition}
+
+\begin{definition}
+    The \B{order} of a differential equation is the order of the highest-order derivative present.
+\end{definition}
+
+\begin{definition}
+    A $n$th-order \B{linear} ODE has the general form
+    \begin{align*}
+        a_n(x) \frac{d^ny}{dx^n}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\cdots a_1(x)\frac{dy}{dx}+a_0(x)y(x)= f(x)
+    \end{align*}
+    where $a_n(x), a_{n-1}(x), ..., a_0(x), f(x)$ are functions of $x$.
+    \begin{itemize}
+        \item If $f(x)=0$ the ODE is \B{homogeneous},
+        \item if $f(x)\not=0$ the ODE is \B{nonhomogeneous}.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    An \B{initial-value problem} comprises
+    \begin{itemize}
+        \item a differential equation
+        \item prescribed values for the solution and enough of its derivatives at a paritcular point to yield a solution.
+    \end{itemize}
+\end{definition}
+
+
+
+\section{First-order ODEs}
+
+
+
+\setcounter{subsection}{1}
+\subsection{Linear equations}
+
+
+\begin{theorem}
+    The linear ODE
+    \begin{align*}
+        \frac{dy}{dx}+P(x)y = Q(x)
+    \end{align*}
+    may be solved by the \B{method of integrating factors}; i.e.
+    \begin{itemize}
+        \item multiply both sides of the ODE by the \B{integrating factor} $e^{\int P(x)dx}$ to give\begin{align*}
+            e^{\int P(x)dx}\left[\frac{dy}{dx}+P(x)y\right]&= e^{\int P(x)dx}Q(x)\\
+            \Leftrightarrow \frac{d}{dx}\left(e^{\int P(x)dx}y\right)&=e^{\int P(x)dx}Q(x)
+        \end{align*}
+        \item then integrating both sides w.r.t. $x$ yields \begin{align*}
+            y = \frac{1}{e^{\int P(x)dx}}\left[\int e^{\int P(x)dx}Q(x)dx + C\right].
+        \end{align*}
+    \end{itemize}
+\end{theorem}
+
+
+\subsection{Separable equations}
+
+
+\begin{theorem}
+    A \B{separable} first-order ODE can be written in the form
+    \begin{align*}
+        \frac{dy}{dx}=g(x)h(y)
+    \end{align*}
+    and its solution can be found by integrating per
+    \begin{align*}
+        \int \frac{1}{h(y)}\frac{dy}{dx}dx &= \int g(x)dx, \\
+        \int \frac{1}{h(y)}dy &= \int g(x)dx,
+    \end{align*}
+    if $h(y)\not=0$.
+\end{theorem}
+
+
+\subsection{Homogeneous equations}
+
+
+\begin{theorem}
+    A \B{homogeneous} first-order ODE can be written in the form
+    \begin{align*}
+        \frac{dy}{dx} = g\left(\frac{y}{x}\right)
+    \end{align*}
+    and its solution can be found by
+    \begin{itemize}
+        \item changing the dependent variable to $v(x)=\frac{y}{x}$,
+        \item then using separation of variables.
+    \end{itemize}
+\end{theorem}
+
+
+\subsection{Exact equations}
+
+
+\begin{definition}
+    The ODE
+    \begin{align*}
+        M(x,y)+N(x,y)\frac{dy}{dx}
+    \end{align*}
+    is called \B{exact} if there exists a function $\psi(x,y)$ such that
+    \begin{align*}
+        \frac{\p \psi}{\p x}=M(x,y)\hs\text{and}\hs\frac{\p\psi}{\p y}=N(x,y).
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    If an ODE is exact, then it may be written as
+    \begin{align*}
+        \frac{\p\psi}{\p x}+\frac{\p\psi}{\p y}\frac{dy}{dx}&=0\\
+        \Leftrightarrow \frac{d}{dx}\psi(x,y)&=0.
+    \end{align*}
+    Integrating gives the solution implicitly as
+    \begin{align*}
+        \psi(x,y)=C.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If $M,N$ and their partial derivatives w.r.t. $x,y$ are continuous
+    on a domain $R:\alpha<x<\beta$, $\gamma<y<\delta$, then the ODE is
+    exact on $R$ if and only if
+    \begin{align*}
+        \frac{\p M}{\p y}=\frac{\p N}{\p x}
+    \end{align*}
+    at each point in $R$.
+\end{theorem}
+
+
+\subsubsection{Integrating factors}
+
+
+\begin{theorem}
+    The ODE
+    \begin{align*}
+        \mu(x,y)M(x,y)+\mu(x,y)N(x,yu)\frac{dy}{dx}=0
+    \end{align*}
+    is exact if and only if
+    \begin{align*}
+        \frac{\p}{\p y}(\mu M)=\frac{\p}{\p x}(\mu N),
+    \end{align*}
+    i.e., if and only if
+    \begin{align*}
+        M\mu_y - N\mu_x + (M_y + N_x)\mu = 0.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    If 
+    \begin{align*}
+        \frac{M_y-N_x}{N}=f(x),
+    \end{align*}
+    then an integrating factor $\mu(x)$
+    can be found by solving the linear and separable ODE
+    \begin{align*}
+        \frac{d\mu}{dx}=\frac{M_y-N_x}{N}\mu.
+    \end{align*}
+\end{theorem}
+
+
+\subsection{Existence and uniqueness}
+
+
+\begin{theorem}
+    If the functions $P(t)$, $Q(t)$ are continuous on an open interval
+    $\alpha<t<\beta$ containing the point $t_0$, then there exists a
+    unique function $y=\phi(t)$ which satisfies the linear ODE
+    \begin{align*}
+        \frac{dy}{dt}+P(t)y=Q(t)
+    \end{align*}
+    for all $t\in(\alpha,\beta)$, and that satisfies the initial condition.
+\end{theorem}
+
+\begin{theorem}
+    Let $f(t,y)$ and $\p f/\p y$ be continuous on a domain $t\in(\alpha,\beta)$,
+    $y\in(\gamma,\delta)$ containing the point $(t_0, y_0)$. Then, in some
+    interval $(t_0-h, t_0+h)$ contained in $(\alpha, \beta)$, there exists
+    a unique solution $y=\phi(t)$ of the IVP
+    \begin{align*}
+        \frac{dy}{dx}=f(t,y),\hs y(t_0) = y_0.
+    \end{align*}
+\end{theorem}
+
+
+\subsection{Numerical approach}
+
+
+\begin{theorem}
+    Suppose we know that the IVP
+    \begin{align*}
+        \frac{dy}{dt} = f(t,y),\hs y(t_0) = y_0
+    \end{align*}
+    has a unique solution $y=\phi(t)$ on some interval containing $t_0$.\\
+    An approximate numerical solution ot the IVP can be found using
+    numerical methods, i.e., for a sequence of points
+    \begin{align*}
+        t_0,\hs t_1=t_0+h,\hs t_2=t_1+h,\hs...
+    \end{align*}
+    sparated by the \B{step size} $h>0$, we seek approximate values
+    $y_n$ for $\phi(t_n)$.
+\end{theorem}
+
+\begin{theorem}[Euler's method]
+    The solution curve $y=\phi(t)$ is approximated by a sequence
+    of straight line segments, joined end to end, where the gradient
+    of each segment is given by $f(t,y)$ at the end of the previous
+    segment, i.e.
+    \begin{align*}
+        y_1 = y_0+f(t_0, y_0)h,\hs y_2=y_1+f(t_1,y_1)h,\hs ...
+    \end{align*} 
+\end{theorem}
 \end{document}
