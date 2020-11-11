@@ -6,10 +6,20 @@
 \maketitle
 \tableofcontents
 \pagebreak
+
+
+
 \section{Vectors and geometry}
+
+
+
 (see ILA notes)
 \setcounter{subsection}{4}
+
+
 \subsection{Vector functions}
+
+
 \begin{definition}
     A function $\vec r$ of the form $\vec r: \R \to \R^3$ is called a \B{vector function}.
 \end{definition}
@@ -24,8 +34,13 @@
         \lim_{t\to a} \vec r (t) = \vec r (a). 
     \end{align*}
 \end{definition}
+
+
 \subsection{Derivatives and integrals}
+
+
 \subsubsection{Derivatives}
+
 \begin{definition}
     The \B{derivative of a vector function} $\vec r(t)$ is defined as
     \begin{align*}
@@ -46,7 +61,9 @@
     \end{align*}
     if $|\vec r'(a)| \not= 0$.
 \end{definition}
+
 \subsubsection{Integrals}
+
 \begin{definition}
     The \B{definite integral} of the continuous vector function $\vec v(t)=f(t)\ih + g(t)\jh + h(t)\kh$ is given by
     \begin{align*}
@@ -59,7 +76,11 @@
     \end{align*} 
     where $\vec V'(t) = \vec v(t)$.
 \end{theorem}
+
+
 \subsection{Arc Length}
+
+
 \begin{theorem}
     The length $L$ of the curve traced out by the position vector function $\vec r(t)$ in three-dimensional space ove the interval
     $[a,b]$ is given by
@@ -67,7 +88,11 @@
         L = \int_a^b \left|\frac{d\vec r(t)}{dt}\right| dt
     \end{align*}
 \end{theorem}
+
+
 \subsection{Curvature}
+
+
 \begin{definition}
     A parameterisation $\vec v(t)$ is \B{smooth} on an interval $I$ if $\vec v'(t)$ is continuous and $\vec v'(t) \not = \vec 0$ on $I$.
 \end{definition}
@@ -86,7 +111,11 @@
         \kappa = \frac{\left|\dv r(t) \times \dv r'(t)\right|}{|\dv r(t)|^3}
     \end{align*}
 \end{definition}
+
+
 \subsection{Normal and binormal vectors}
+
+
 \begin{definition}
     Let the \B{principal unit normal vector} of the curve traced out by the position vector $\vec r(t)$
     where $\vec r'(t)$ is smooth be defined as
@@ -106,8 +135,16 @@
         \vec T(t) &= \vec N(t) \times \vec B(t)
     \end{align*}
 \end{theorem}
+
+
+
 \section{Partial differentiation}
+
+
+
 \subsection{Functions of several variables}
+
+
 \begin{definition}
     A function of $n$ variables $f(x_1, x_2, ..., x_n)$ maps an $n$-tuple
     of real numbers $(x_1, x_2, ..., x_n)$ in domain $D\subseteq\R^n$ to
@@ -124,8 +161,13 @@
     The \B{level surfaces} of a function $f(x,y,z)$ are surfaces with
     equations $f(x,y,z)=k$ where $k$ is a constant in the range of $f$.
 \end{definition}
+
+
 \subsection{Limits \& continuity}
+
+
 \subsubsection{Limits}
+
 \begin{definition}
     Suppose the domain $D$ of a function $f:D\to\R$ includes points
     arbitrarily close to the point $P$ with position vector $\vec p$.
@@ -161,7 +203,9 @@
                provided that $\lim_{\vec x\to\vec p}g(\vec x)\not=0$.
     \end{enumerate}
 \end{theorem}
+
 \subsubsection{Continuity}
+
 \begin{definition}
     A function $f:D\to R$ with $D\subseteq\R^n$ and $R\subseteq\R$
     is called \B{continuous} at a point $P$ with position vector $\vec p\in \R^n$
@@ -171,7 +215,11 @@
     and $f$ is \B{continuous on $S\subseteq D$} if it is continuous at 
     every point in $S$.
 \end{definition}
+
+
 \subsection{Partial derivatives}
+
+
 \begin{definition}
     Consider a function $f:\R^n\to\R$. The $n$ \B{partial derivatives} of
     $f$ are defined by
@@ -200,8 +248,13 @@ Notation for higher derivatives:
         f_{xy}(a,b)=f_{yx}(a,b).
     \end{align*}
 \end{theorem}
+
+
 \subsection{Tangent planes and linear approximations}
+
+
 \subsubsection{Tangent planes}
+
 \begin{definition}
     Consider a surface $S$ with equation $z=f(x,y)$ where $f_x$ and $f_y$
     are both continuous. Then the \B{tangent plane} to the surface $S$
@@ -210,7 +263,9 @@ Notation for higher derivatives:
         z - z_0 = f_x(x_0, y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
     \end{align*}
 \end{definition}
+
 \subsubsection{Linear approximation}
+
 \begin{definition}
     The linear function
     \begin{align*}
@@ -247,7 +302,9 @@ Notation for higher derivatives:
     $(a,b)$ and are continuous at $(a,b)$, then $f(x,y)$
     is differentiable at $(a,b)$.
 \end{theorem}
+
 \subsubsection{Differentials}
+
 \begin{definition}
     For the function $z=f(x,y)$, \B{differentials} $dx$ and $dy$ are
     defined to be independent variables. The \B{total differential} $dz$
@@ -257,8 +314,13 @@ Notation for higher derivatives:
         = \frac{\p z}{\p x}dx + \frac{\p z}{\p y}dy.
     \end{align*}
 \end{definition}
+
+
 \subsection{The chain rule}
+
+
 \subsubsection{Formulations}
+
 \begin{theorem}[Chain rule - case 1]
     Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
     where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$.
@@ -293,7 +355,9 @@ Notation for higher derivatives:
         + \frac{\p z}{\p x_n}\frac{\p x_n}{\p t_i}
     \end{align*} 
 \end{theorem}
+
 \subsubsection{Implicit differentiation}
+
 \begin{definition}
     Suppose that $z$ is given implicitly as a function $z=f(x,y)$ by an
     equation of the form
@@ -318,8 +382,13 @@ Notation for higher derivatives:
     defines $z$ as a differentiable function of $x$ and $y$ near the
     point $(a,b,c)$.
 \end{theorem}
+
+
 \subsection{Directional derivatives and the gradient vector}
+
+
 \subsubsection{Directional derivatives}
+
 \begin{definition}
     The \B{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
     direction of a \emph{unit vector} $\vec u=a\ih + b\jh$ is defined as
@@ -336,7 +405,9 @@ Notation for higher derivatives:
         D_{\vec u}f(x,y) = af_x(x,y) + bf_y(x,y).
     \end{align*}
 \end{theorem}
+
 \subsubsection{Gradient vector}
+
 \begin{definition}
     The \B{gradient} of the scalar function $f(x,y)$ is the vector
     function defined as
@@ -351,7 +422,9 @@ Notation for higher derivatives:
         D_{\vec u}f(x,y)=\grad f(x,y)\cdot \vec u
     \end{align*}
 \end{theorem}
+
 \subsubsection{Functions of 3 variables}
+
 \begin{definition}
     The gradient vector of $f(x,y,z)$ is
     \begin{align*}
@@ -359,14 +432,18 @@ Notation for higher derivatives:
         + \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
     \end{align*}
 \end{definition}
+
 \subsubsection{Maximising the directional derivative}
+
 \begin{theorem}
     Suppose $f$ is a differentiable function of two or three variables.
     The maximum value of the directional derivative $D_{\vec u}f$ is
     $|\grad f|$ and it occurs when $\vec u$ is aligned with the gradient
     vector $\grad f$.
 \end{theorem}
+
 \subsubsection{Tangent planes to level surfaces}
+
 \begin{theorem}
     Suppose $S$ is a surface described by the equation $F(x,y,z)=k$ where
     $k\in\R$ is a constant. Let $C$ be any curve that lies on $S$, passing
@@ -415,8 +492,13 @@ Notation for higher derivatives:
         =\frac{z-z_0}{F_z(x_0, y_0, z_0)}.
     \end{align*}
 \end{theorem}
+
+
 \subsection{Maximum and minimum values}
+
+
 \subsubsection{Functions of 2 variables}
+
 \begin{definition}
     A function $f(x,y)$ has a \B{local maximum} at $(a,b)$ if $f(x,y)\leq f(a,b)$
     for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
@@ -464,7 +546,9 @@ Notation for higher derivatives:
         \item If $D=0$ then the test is inconclusive.
     \end{enumerate}
 \end{theorem}
+
 \subsubsection{Absolute maximum and minimum values}
+
 \begin{definition}
     Properties of sets in $\R^2$:
     \begin{itemize}
@@ -482,7 +566,11 @@ Notation for higher derivatives:
     absolute minimum value $f(x_2, y_2)$ at some points $(x_1, y_1)$ and
     $(x_2, y_2)$ in $D$. 
 \end{theorem}
+
+
 \subsection{Lagrange multipliers}
+
+
 \begin{theorem}
     Suppose we seek the local maximum and minimum values of a differentiable
     function $f(x,y)$ along the smooth curve $C$ given by $g(x,y)=0$ where
@@ -503,9 +591,18 @@ Notation for higher derivatives:
     \end{align*} 
     The number $\lambda$ is called a \B{Lagrange multiplier}.
 \end{theorem}
+
+
+
 \section{Multiple integrals}
+
+
+
 \subsection{Double integrals over rectangles}
+
+
 \subsubsection{Volumes}
+
 \begin{definition}
     The \B{double integral} of $f(x,y)$ over the rectangle $R$ is defined as
     \begin{align*}
@@ -517,7 +614,11 @@ Notation for higher derivatives:
     All continuous functions are integrable, and many bouned but
     discontinuous functions are also integrable.
 \end{lemma}
+
+
 \subsubsection{Average value}
+
+
 \begin{definition}
     The \B{average value} of a function $f(x,y)$ on a rectangle $R$
     is defined as
@@ -526,7 +627,11 @@ Notation for higher derivatives:
     \end{align*}
     where $A(R)$ is the area of $R$.
 \end{definition}
+
+
 \subsubsection{Properties}
+
+
 \begin{theorem}[Sum of integrals]
     \begin{align*}
         \di_R\left[f(x,y)+g(x,y)\right]dA = \di_R f(x,y)dA + \di_R g(x,y)dA
@@ -544,7 +649,9 @@ Notation for higher derivatives:
         \di_R f(x,y)dA \geq \di_R g(x,y) dA.
     \end{align*}
 \end{theorem}
+
 \subsection{Iterated integrals}
+
 \begin{theorem}[Fubini's Theorem]
     If $f(x,y)$ is continuous on the rectangle $R=[a,b]\times[c,d]$ then 
     \begin{align*}
@@ -561,7 +668,11 @@ Notation for higher derivatives:
         \di_R f(x,y)dA = \int_a^b g(x)dx \int_c^d h(y)dy.
     \end{align*}
 \end{lemma}
+
+
 \subsection{Double integrals over general regions}
+
+
 \begin{definition}
     Let $D$ be a region in the $xy$ plane of general shape.
     Suppose that $D$ is bounded. Now let $R$ be a rectangle that
@@ -589,7 +700,9 @@ Notation for higher derivatives:
         \di_D f(x,y)dA f(x,y)dA = \int_a^ b \int_{g_1(x)}^{g_2(x)} f(x,y)dy dx.
     \end{align*}
 \end{theorem}
+
 \subsubsection{Properties}
+
 \begin{theorem}
     If $D=D_1\cup D_2$ where $D_1$ and $D_2$ do not overlap
     except perhaps on their boundaries, then
@@ -609,7 +722,11 @@ Notation for higher derivatives:
         mA(D) \leq \di_D f(x,y) dA \leq MA(D).
     \end{align*}
 \end{theorem}
+
+
 \subsection{Double integrals in polar coordinates}
+
+
 \begin{theorem}
     If $f(x,y)$ is continuous on the \B{polar rectangle} $R$
     given by $a\leq r \leq b$, $\alpha \leq \theta\leq \beta$ where
@@ -619,7 +736,11 @@ Notation for higher derivatives:
         f(r\cos\theta, r\sin\theta)r\:drd\theta
     \end{align*}
 \end{theorem}
+
+
 \subsection{Triple integrals} 
+
+
 \begin{definition}
     The \B{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
     is defined as
@@ -642,8 +763,12 @@ Notation for higher derivatives:
     \begin{align*}
         f_{ave} = \frac{1}{V(E)}\ti_E f(x,y,z)dV.
     \end{align*} 
-\end{definition}21
+\end{definition}
+
+
 \subsection{Triple integrals in cylindrical coordinates}
+
+
 \begin{definition}
     The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the
     ordered triple $(\rho,\theta,z)$ in the \B{cylindrical coordinate system}. The
@@ -670,7 +795,11 @@ Notation for higher derivatives:
         f(\rho\cos\theta,\rho\sin\theta,z)\rho\,dz\,dp\,d\theta.
     \end{align*}
 \end{theorem}
+
+
 \subsection{Triple integrals in spherical coordinates}
+
+
 \begin{definition}
     The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the ordered
     triple $(\rho,\theta,\phi)$ in the \B{spherical coordinate system}. The coordinates are
@@ -691,8 +820,13 @@ Notation for higher derivatives:
         \ti_E f(x,y,z)\:dV = \int_c^d \int_\alpha^\beta \int_a^b f(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi)\rho^2\sin\phi\:d\rho\,d\theta\,d\phi.
     \end{align*}
 \end{theorem}
+
+
 \subsection{Change of variable in multiple integrals}
+
+
 \subsubsection{Double integrals}
+
 \begin{definition}
     Consider the \B{transformation} from the points $(u,v)$ in the $uv$-plane to the points $(x,y)$
     in the $xy$-plane, represented by
@@ -721,7 +855,9 @@ Notation for higher derivatives:
     \end{align*}
     where $f$ is continuous on $D$.
 \end{theorem}
+
 \subsubsection{Triple integrals}
+
 \begin{definition}
     Consider a transformation that maps a region $S$ in $uvw$-space onto a region $D$ in
     $xyz$-space represented by
@@ -746,8 +882,15 @@ Notation for higher derivatives:
        \ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw. 
     \end{align*}
 \end{theorem}
+
+
+
 \section{Vectors and calculus}
+
+
+
 \subsection{Vector fields}
+
 \begin{definition}
     Let $D\subseteq \R^n$. A \B{vector field on $\R^n$} is a function $\vec F$ that assigns
     to each point $\vec p\in D$ a $n$-dimensional vector $\vec F(\vec p)$.
@@ -760,8 +903,13 @@ Notation for higher derivatives:
     \end{align*}
     If $\vec F$ is conservative then $f$ is called a \B{potential function} of $\vec F$.
 \end{definition}
+
+
 \subsection{Line integrals}
+
+
 \subsubsection{Line inetrals in 2 dimension}
+
 \begin{definition}
     Let $C$ be the curve in the $xy$-plane described by the position vector equation
     \begin{align*}
@@ -801,7 +949,9 @@ Notation for higher derivatives:
         \int_{-C}f(x,y)ds = \int_C f(x,y)ds.
     \end{align*}
 \end{lemma}
+
 \subsubsection{Line integrals in 3 dimensions}
+
 \begin{definition}
     If $f(x,y,z)$ is continuous on a smooth curve $C$ described by the
     position vector equation
@@ -824,7 +974,9 @@ Notation for higher derivatives:
         \int_C f ds = \int_a^b f(\vec r(t))|\dv r(t)|dt.
     \end{align*}
 \end{lemma}
+
 \subsubsection{Line integrals of vector fields}
+
 \begin{definition}
     If the vecotr field $\vec F$ is continuous on $C$, then the
     \B{line integral of $\vec F$ along $C$} is defined as
@@ -844,7 +996,11 @@ Notation for higher derivatives:
         \int_C \vec F\cdot d\vec r = \int_C P\:dx + Q\:dy + R\:dz.
     \end{align*}
 \end{theorem}
+
+
 \subsection{The Fundamental Theorem for line integrals}
+
+
 \begin{theorem}
     Let $C$ be a smooth curve specified by the position vector function 
     $\vec r(t)$, $t\in[a,b]$. If $f$ is a diffferentiable function
@@ -862,7 +1018,9 @@ Notation for higher derivatives:
     \end{align*}
     provided $\grad f$ is continuous.
 \end{lemma}
+
 \subsubsection{Independence of path}
+
 \begin{definition}
     If $\vec F$ is a continous vector field with domain $D$, we say that the
     line integral $\int_C\vec F\cdot d\vec r$ is
@@ -922,7 +1080,11 @@ Notation for higher derivatives:
     \end{align*}
     throughout $D$, then $\vec F(x,y)$ is conservative.
 \end{theorem}
+
+
 \subsection{Green's Theorem}
+
+
 \begin{theorem}[Green's Theorem in the plane]
     Let $C$ be a positively-oriented, piecewise-smooth, simple closed curve in
     the $xy$-plane and let $D$ be the region enclosed by $C$. If $P(x,y)$ and
@@ -932,7 +1094,11 @@ Notation for higher derivatives:
         \int_C P\:dx + Q\:dy = \di_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
     \end{align*} 
 \end{theorem}
+
+
 \subsection{Curl and Divergence}
+
+
 \subsubsection{Curl}
 \begin{definition}
     If $\vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field
@@ -973,7 +1139,9 @@ Notation for higher derivatives:
         \nabla^2 \vec F = \nabla^2 P\ih + \nabla^2 Q\jh + \nabla^2 R\kh.
     \end{align*}
 \end{definition}
+
 \subsubsection{Divergencve}
+
 \begin{definition}
     If $\vec F(x,y,z)=P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field on $\R^3$, then
     the \B{divergence} of $\vec F$ is defined by the scalar function
@@ -981,7 +1149,9 @@ Notation for higher derivatives:
         \div \vec F = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}.
     \end{align*}
 \end{definition}
+
 \subsubsection{Vector form of Green's Theorem}
+
 \begin{theorem}
     Suppose that the plane region $D$, its boundary cruve $C$, and the functions
     $P(x,y)$ and $Q(x,y)$ satisfy the hypotheses of \emph{Green's Theorem}. Now
@@ -1003,7 +1173,11 @@ Notation for higher derivatives:
         \int_C \vec F\cdot \vec{\hat n} ds = \di_D \div\vec F(x,y)dA.
     \end{align*}
 \end{theorem}
+
+
 \subsection{Parametric descriptions of surfaces and their areas}
+
+
 \begin{definition}
     A surface $S$ in $\R^3$ may be described by the position vector function
     \begin{align*}
@@ -1016,7 +1190,9 @@ Notation for higher derivatives:
     \end{align*}
     describe all point on the surface $S$ as $(u,v)$ moves through $D$.
 \end{definition}
+
 \subsubsection{Tangent planes}
+
 \begin{definition}
     Consider the point $P_0$ with position vector $\vec r(u_0, v_0)$. This point lies
     on the surface traced out by the position vector function
@@ -1029,7 +1205,9 @@ Notation for higher derivatives:
               $\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
 
 \end{definition}
+
 \subsubsection{Surface area}
+
 \begin{definition}
     If a smooth surface $S$ is described by the position vector function
     \begin{align*}
@@ -1048,7 +1226,11 @@ Notation for higher derivatives:
         A(S) = \di_D \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2}dA.
     \end{align*}
 \end{theorem}
+
+
 \subsection{Surface integrals}
+
+
 \begin{definition}
     \label{si_def}
     Consider the function $f(x,y,z)$ defined on the surface $S$ which is described by the
@@ -1067,7 +1249,9 @@ Notation for higher derivatives:
         \di_S f(x,y,z)dS = \di_D f(\vec r(u,v)) |\vec r_u\times \vec r_v|dA.
     \end{align*}
 \end{theorem}
+
 \subsubsection{Graphs}
+
 \begin{theorem}
     Consider the surface $S$ which is given by $z=g(x,y)$. Then the surface integral 
     of $f(x,y,z)$ has the formula
@@ -1075,7 +1259,9 @@ Notation for higher derivatives:
         \di_S f(x,y,z)dS = \di_D f(x,y,g(x,y))\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\:dA
     \end{align*}
 \end{theorem}
+
 \subsubsection{Oriented surfaces}
+
 \begin{definition}
     A smooth surface $S$ in $\R^3$ is \B{orientable} if there exists a unit normal vector
     field $\hat n(x,y,z)$ defined on $S$ that varies continuously as $(x,y,z)$ ranges over $S$
@@ -1113,7 +1299,9 @@ Notation for higher derivatives:
     A piecewise smooth surface is orientable if, whenever two smooth component surfaces join
     at a boundary curve $C$, they induce opposite orientations along $C$.
 \end{definition}
+
 \subsubsection{Surface integrals of vector fields}
+
 \begin{definition}
     If $\vec F(x,y,z)$ is a continuous vector field defined on an oriented surface $S$ with
     unit normal vector field $\hat n(x,y,z)$, then the \B{surface integral of $\vec F$ over 
@@ -1123,7 +1311,10 @@ Notation for higher derivatives:
     \end{align*}
     This integral is also called the \B{flux} of $\vec F$ over $S$.
 \end{definition}
+
+
 \subsection{Stokes' Theorem}
+
 \begin{theorem}[Stokes' Theorem]
     Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple closed
     piecewise smooth boundary curve $C$ with orientation inherited from $S$. Let $\vec F$
@@ -1140,7 +1331,11 @@ Notation for higher derivatives:
     \end{align*}
     where $S_{1,2}$ and $\vec F$ satisfy the hypotheses of Stokes' Theorem.
 \end{corollary}
+
+
 \subsection{The Divergence Theorem}
+
+
 \begin{definition}
     A \B{simple} 3-dimensional region $E$ may be specified in three different ways:
     \begin{align*}
