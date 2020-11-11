@@ -147,4 +147,33 @@ as well.
     =\frac{\left(\frac{q}{p}\right)^k-\left(\frac{p}{q}\right)^n}{1-\left(\frac{p}{q}\right)^n}.
   \end{align*}
 \end{proof}
+
+\subsection*{Challenge}
+
+Let $r=q/p$. Then
+\begin{align*}
+  L = \lim_{n\to\infty} s_k =
+  \lim_{n\to\infty}\left(\frac{r^k-r^n}{1-r^n}\right).
+\end{align*}
+In the case $r<1$ we find
+\begin{align*}
+  L = \lim_{n\to\infty}\left(\frac{r^k-0}{1-0}\right) = r^k.
+\end{align*}
+In the case $r>1$ we can apply \emph{L'H\^opital's rule} as follows:
+\begin{align*}
+  L = \lim_{n\to\infty}\left(\frac{\frac{d}{dn}(r^k-r^n)}{\frac{d}{dn}(1-r^n)}\right)
+  = \lim_{n\to\infty}\left(\frac{-\ln(r)r^n}{-\ln(r)r^n}\right)=1.
+\end{align*}
+Thus, in general,
+\begin{align*}
+  L = \begin{cases}
+    r^k &\text{if }r<1\\
+    1 &\text{if }r>1
+  \end{cases}.
+\end{align*}
+Thus, if we were to remove the upper bound $n$ and extend the walk to the entirety
+of the non-negative integers, we would expect the probability of being
+absorbed at $0$ to be $1$ if $r>1$, i.e. we are more likely to go left
+than right, and to decrease the further we get a way from $0$ if $r<1$,
+i.e. we're more likely to go right than left.
 \end{document}
