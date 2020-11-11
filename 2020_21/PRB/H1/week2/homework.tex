@@ -1,45 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\renewcommand{\P}{\mathbb{P}}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand{\E}{\mathbb{E}}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
-\renewcommand{\d}[1]{#1'}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{Probability: Week 2 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
 \date{6th October 2020}
 \maketitle
+
+
 \section*{P 2.1}
+
+
 Let $X$ be the number of times that a run of 4 consecutive tosses
 contains an equal number of heads and tails when tossing a coin 99 times.
 Observe that
@@ -63,7 +34,11 @@ Using the fact that all $\E(X_i)$ are equal, we can simplify this to get
 \begin{align*}
   \E(X) = 96\cdot\E(X_1) = \frac{96\cdot3}{8}=36.
 \end{align*}
+
+
 \section*{P 2.2}
+
+
 Using the binomial distribution we get
 \begin{align*}
   p_n = \binom{2n}{n}\left(\frac{1}{2}\right)^n\left(\frac{1}{2}\right)^n
@@ -124,7 +99,11 @@ probability, we get
 \begin{align*}
   p\in \{-0.516..., 0.686..., 1.187...\} \cap [0,1] \Rightarrow p \approx 0.686=68.6\%.
 \end{align*}
+
+
 \section*{P 2.4}
+
+
 Let there be two players: Alice and Bob. Let Alice be the one to pick
 a coin and let Bob be the one to guess. Then we define the following
 events:
@@ -144,7 +123,9 @@ Thus the expected value of $X$ is
 \end{align*}
 Note that we can omit the case where $X=0$ because it does
 not contribute anything to the weighted sum.
+
 \subsection*{Challenge}
+
 Let $f=\E(X)$ be a function of the independent variables $p$ and $s$.
 Then we get
 \begin{align*}

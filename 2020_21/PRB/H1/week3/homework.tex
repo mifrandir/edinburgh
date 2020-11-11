@@ -1,45 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\renewcommand{\P}{\mathbb{P}}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand{\E}{\mathbb{E}}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
-\renewcommand{\d}[1]{#1'}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{Probability: Week 3 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
 \date{13th October, 2020}
 \maketitle
+
+
 \section*{P 3.1}
+
+
 Let $E$ be the experiment of rolling three D6 and let $X$ be the number of 6s rolled.
 Then let $A$ be the event that $X\geq 1$ and let $B$ be the event that $X=2$. 
 We are interested in $\P(A|B)$. By definition, we find
@@ -62,7 +33,11 @@ Therefore
 \begin{align*}
   \P(A\cap B) = \frac{\P(B)}{\P(A)}= \frac{15/216}{91/216} = \frac{15}{91}.
 \end{align*}
+
+
 \section*{P 3.2}
+
+
 Let the $X$ be as described in the problem. Let the events
 $A_i$ for $i\in[4,5,6]$ be that a specific D$i$ is chosen.
 Then we can use \emph{the law of total probability} to find
@@ -90,7 +65,11 @@ Inserting the expected values for each D$i$ we find
 \begin{align*}
   \E(X) = \frac{1}{3}\left(\frac{5 + 6 + 7}{2}\right)=3.
 \end{align*}
+
+
 \section*{P 3.3}
+
+
 Let $X$ be a Bernoulli random variable for the state of the switch described in the
 problem and let $A_i$ be the event that $X=1$ on the $i$th day, i.e. the switch is 
 "on" on that day. Lets consider the transition between two days where $\P(E\to F)$ 
@@ -114,7 +93,11 @@ We can solve for $p$ to find
   p=\frac{1}{3}
 \end{align*}
 which shows that the observation in the question is indeed true.
+
+
 \section*{P 3.4}
+
+
 Let $A$ be the event that a person has the condition and let $B$ be the event that
 a person gets tested positive. Then we know from \emph{the law of total probability}
 that

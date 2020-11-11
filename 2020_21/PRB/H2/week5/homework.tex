@@ -1,52 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\renewcommand{\P}{\mathbb{P}}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand{\E}{\mathbb{E}}
-\newcommand{\V}{\mathbb{V}}
-\DeclareMathOperator{\Geom}{Geom}
-\DeclareMathOperator{\Binom}{Binom}
-\DeclareMathOperator{\Bern}{Bernoulli}
-\DeclareMathOperator{\Unif}{Unif}
-\DeclareMathOperator{\Exp}{Exponential}
-\DeclareMathOperator{\GD}{Gamma}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
-\renewcommand{\d}[1]{#1'}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{Probability: Week 5 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
 \date{27th October, 2020}
 \maketitle
+
+
 \section*{P 5.1}
+
+
 We know that, for our random variable $W$, the pdf is
 \begin{align*}
   f_W(x) = 6x(1-x).
@@ -82,7 +46,11 @@ it means that $W$ is most likely to be the closest to the middle of the interval
 a clue how it works or what its parameters $\alpha$ and $\beta$ are.
 As far as I can tell it hasn't been explained in the notes so I don't
 think it's required to do this.}
+
+
 \section*{P 5.2}
+
+
 We have a random variable $X$ with a generating function 
 \begin{align*}
   G_X(s) = \frac{1}{2-s^2}.
@@ -120,7 +88,11 @@ and
 \begin{align*}
   \P(X=4) = 1/8.
 \end{align*}
+
+
 \section*{P 5.3}
+
+
 We have a random variable $Y\sim\Geom(1/6)$. Therefore 
 \begin{align*}
   \P(Y=k) = \left(\frac{5}{6}\right)^{k-1}\left(\frac{1}{6}\right).
@@ -157,7 +129,11 @@ and insert this result to find
 \begin{align*}
   \P(|X-6| \geq 6) \leq \frac{5}{6}.
 \end{align*}
+
+
 \section*{P 5.4}
+
+
 We have a random variable $X_n\sim\Binom(n,1/2)$. We define
 $A_n = X_n / n$ to be the average of all the $n$ coin flips. 
 We know

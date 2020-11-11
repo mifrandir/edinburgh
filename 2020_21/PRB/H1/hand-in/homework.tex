@@ -1,45 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\renewcommand{\P}{\mathbb{P}}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand{\E}{\mathbb{E}}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
-\renewcommand{\d}[1]{#1'}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{Probability: Week 4 Hand-in}
 \author{Franz Miltz (UNN: S1971811)}
 \date{6th October 2020}
 \maketitle
+
+
 \section*{P 2.2}
+
+
 Using the binomial distribution we get
 \begin{align*}
   p_n = \binom{2n}{n}\left(\frac{1}{2}\right)^n\left(\frac{1}{2}\right)^n
@@ -70,7 +41,11 @@ Rewriting this into the desired form, we get
   p_n\approx C / n^\alpha = \pi^{-\nicefrac{1}{2}}/n^{\nicefrac{1}{2}}.
 \end{align*}
 So $C=\pi^{-\nicefrac{1}{2}}$ and $\alpha=\nicefrac{1}{2}$.
+
+
 \section*{P 2.3}
+
+
 Let $X$ be the number of points $A$ scores when playing five more points.
 For the probability of A winning the game in question
 to be $\nicefrac{1}{2}$, we equivalently require
@@ -100,7 +75,11 @@ probability, we get
 \begin{align*}
   p\in \{-0.516..., 0.686..., 1.187...\} \cap [0,1] \Rightarrow p \approx 0.686=68.6\%.
 \end{align*}
+
+
 \section*{P 3.3}
+
+
 Let $X_i$ be a Bernoulli random variable for the state of the switch described in the
 problem on a given day $i$ and let $A_i$ be the event that $X_i=1$ on the $i$th day, 
 i.e. the switch is "on" on that day. 

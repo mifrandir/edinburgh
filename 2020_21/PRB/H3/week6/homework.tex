@@ -1,52 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\renewcommand{\P}{\mathbb{P}}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand{\E}{\mathbb{E}}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
-\renewcommand{\d}[1]{#1'}
-\DeclareMathOperator{\Geom}{Geom}
-\DeclareMathOperator{\Binom}{Binom}
-\DeclareMathOperator{\Bern}{Bernoulli}
-\DeclareMathOperator{\Unif}{Unif}
-\DeclareMathOperator{\Exp}{Exponential}
-\DeclareMathOperator{\GD}{Gamma}
-\DeclareMathOperator{\Poiss}{Poiss}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{Probability: Week 6 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
 \date{10 November, 2020}
 \maketitle
+
+
 \section*{P6.1}
+
+
 Let $X\sim\Poiss(1.5)$ be the number of patients that arrive in half an hour. Then
 \begin{align*}
   \P(X \geq 4) = 1 - \P(X \leq 3)
@@ -63,7 +27,11 @@ Thus
 \end{align*}
 There is a chance of about $6.6\%$ that four or more patients arrive in
 any given half hour period.
+
+
 \section*{P6.2}
+
+
 Let $B$ be the even that the coin is biased. Then $\P(B)=1/1000$. Further,
 let $A_n$ be the event that a coin comes down heads $n$ times in a row.
 Then we want to find some $N\in\R$ such that
@@ -99,7 +67,11 @@ We can verify this:
 \begin{align*}
   \P(B|A_{17}) \approx 0.992.
 \end{align*}
+
+
 \section*{P6.3}
+
+
 Let the number of occurrences be $X\sim\Poiss(\lambda t)$. Then
 \begin{align*}
   \P(X=0)&=e^{-\lambda t},\\
@@ -122,7 +94,11 @@ Let $g$ be the pdf of a random variable $Y\sim\Gamma(2,\lambda)$. Then
   g(t) = \frac{\lambda^2}{(2-1)!}te^{-\lambda t} = \lambda^2te^{-\lambda t} = f(t).
 \end{align*}
 Thus $T_2$ has a Gamma distribution.
+
+
 \section*{P6.4}
+
+
 Observe that we are only interested in the sequences containing even numbers.
 Therefore, there are three possible outcomes $S=\{2,4,6\}$. Further,
 we stop the experiment once we roll a six. Therefore we can model the 

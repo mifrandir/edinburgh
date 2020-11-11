@@ -1,51 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\renewcommand{\P}{\mathbb{P}}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand{\E}{\mathbb{E}}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\newcommand{\dv}[1]{\vec #1\, '}
-\renewcommand{\d}[1]{#1'}
-\DeclareMathOperator{\Geom}{Geom}
-\DeclareMathOperator{\Binom}{Binom}
-\DeclareMathOperator{\Bern}{Bernoulli}
-\DeclareMathOperator{\Unif}{Unif}
-\DeclareMathOperator{\Exp}{Exponential}
-\DeclareMathOperator{\GD}{Gamma}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{Probability: Week 4 Solutions}
 \author{Franz Miltz (UNN: S1971811)}
 \date{13th October, 2020}
 \maketitle
+
+
 \section*{P 4.1} 
+
+
 Let $f_X$ be the pdf of a random variable $X$ with
 \begin{align*}
   f_X(x) = k x^n \text{ for some } n\in\N.
@@ -81,7 +46,11 @@ This is intuitively true because $f_X$ gets steeper with increasing
 $n$ and thus the fraction of the area under the graph to the left 
 gets smaller and smaller while the center of gravity moves closer to
 $x=1$.
+
+
 \section*{P 4.2}
+
+
 We know that
 \begin{align*}
   \P(a \leq X \leq b) = \int_a^b f_X(x) dx 
@@ -106,7 +75,11 @@ Thus, by applying the definition, we find
 \begin{align*}
   \P(a \leq X \leq b) = \P(x \leq b) - \P(x \leq a) = F_X(b) - F_X(b).
 \end{align*}
+
+
 \section*{P 4.3}
+
+
 Let $X$ be as described. Then for the event $X=k$ we know that
 the $k$th roll has to be a six. Further, for the $k-1$ rolls before
 that, there need to be exactly $r-1$ sixes. If and only if both of these
@@ -131,7 +104,11 @@ Using \emph{Proposition 4.1.3} from the nodes, we find $\E(X_1) = 1/p$ and thus
 \begin{align*}
   \E(X) = r/p.
 \end{align*}
+
+
 \section*{P 4.4}
+
+
 Let the random variables $X$, $Y$ and $Z$ have 
 the pdfs $f_X(x)=f_Y(x)=f_Z(x)=1$. Let $A$, $B$ and $C$
 be the same random variables but assigned in such a way that
