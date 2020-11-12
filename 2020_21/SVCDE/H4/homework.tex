@@ -1,49 +1,16 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{mathtools}
-\usepackage{nicefrac}
-\usepackage{amsthm}
-\usepackage{changepage}
-\geometry{tmargin=2cm, bmargin=3cm}
-\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\newcommand{\C}{\mathbb{C}}
-\newcommand{\st}{\text{ s.t. }}
-\newcommand{\p}{\partial }
-\newcommand{\di}{\iint\limits}
-\newcommand{\grad}{\vec\nabla}
-%newenvironment{claim}[1]{\noindent\emph{Claim.}\space#1}{}
-\newenvironment{claimproof}[1]{\par\noindent\emph{Proof.}\space#1}{\hfill $\blacksquare$}
-\newtheorem{claim}[section]{Claim}
-\newtheorem{lemma}{Lemma}[section]
-\DeclareMathOperator{\lub}{\text{LUB}}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\setcounter{MaxMatrixCols}{20}
-\newcommand*\binco[2]{\begin{pmatrix}
-  #1\\#2
-\end{pmatrix}}
-\newcommand{\ih}{\widehat i}
-\newcommand{\jh}{\widehat j}
-\newcommand{\kh}{\widehat k}
-\newcommand{\K}{\mathcal{K}}
-\renewcommand{\vec}{\underline}
-\newcommand{\dv}[1]{\vec #1'}
-\renewcommand{\d}[1]{#1'}
-\newenvironment{itpars}{\par\itshape}{\par}
-\newenvironment{itquote}{\begin{quote}\itshape}{\end{quote}\ignorespacesafterend}
+\usepackage{homework-preamble}
+
 \begin{document}
 \title{SVCDE: Hand-in 4}
 \author{Franz Miltz (UNN: S1971811)}
 \date{18th October 2020}
 \maketitle
+
+
 \section*{Question 1}
+
+
 To find the minimum and maximum of
 \begin{align*}
   f(x,y,z)=x + y + z
@@ -107,7 +74,11 @@ where $x_0$, $y_0$ and $z_0$ are as defined above.\\\\
 \emph{Note: If we were interested in all critical points we would need to find
 $\lambda$ in terms of $a$, $b$ and $c$. Since we're only interested in maximum
 and minimum values, we can skip other potential solutions.}
+
+
 \section*{Question 2}
+
+
 To evaluate
 \begin{align*}
   \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA
