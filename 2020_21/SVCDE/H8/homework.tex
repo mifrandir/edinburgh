@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+
+\title{SVCDE: Hand-in 8}
+\author{Franz Miltz}
+\date{15 November 2020}
+\maketitle
+
+
+\section*{Question 1}
+
+
+We want to evaluate
+\begin{align*}
+    I = \di_S x^2y^2+y^2z^2+z^2x^2 dS
+\end{align*}
+where $S$ is the surface of the unit sphere around the origin. 
+We use the \emph{Divergence Theorem} to find
+\begin{align*}
+    I = \ti_E \grad\cdot\vec F\:dV = \ti_E 2xy^2 + 2yz^2 + 2xz^2\:dV
+\end{align*}
+where $E$ is the unit sphere around the origin. We can insert the limits to get
+\begin{align*}
+    I = \int_0^1 \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}} \int_{-\sqrt{1-x^2-y^2}}^{\sqrt{1-x^2-y^2}}
+    2xy^2 + 2yz^2 + 2zx^2\:dz\,dy\,dx.
+\end{align*}
+By evaluating the inner integral we obtain
+\begin{align*}
+    I &= \int_0^1 \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}
+    \left[\frac{2}{3}yx^3 + z^2x^2\right]_{-\sqrt{1-x^2-y^2}}^{\sqrt{1-x^2-y^2}}\:dy\,dx\\
+    &= \int_0^1 \int_{-\sqrt{1-x^2}}^{\sqrt{1-x^2}}
+    \frac{4}{3}y(1-x^2-y^2)^{3/2}\: dy\,dx.
+\end{align*}
+We can now convert this integral to polar coordinates:
+\begin{align*}
+    I &= \int_0^1 \int_0^{2\pi}\frac{4}{3}r^2\sin\theta (1-r^2)^{3/2}\:d\theta\,dr\\
+    &=\int_0^1\left[-\frac{4}{3}r^2\cos\theta(1-r^2)^{3/2}\right]_0^{2\pi}dr
+\end{align*}
+Note that $\theta$ only appears within the cosine. Since $\cos(0)=\cos(2\pi)=1$,
+we know that
+\begin{align*}
+    I = \int_0^1 0\:dr = 0.
+\end{align*}
+
+
+\section*{Question 2}
+
+
+We want to find an implicit solution of
+\begin{align*}
+    \frac{dy}{dx}=\frac{x+y}{x-y}.
+\end{align*}
+Firstly, observe that
+\begin{align}
+    \label{dydx}
+    \frac{dy}{dx}=\frac{1+\frac{y}{x}}{1-\frac{y}{x}} = g\left(\frac{y}{x}\right)
+\end{align}
+where
+\begin{align}
+    \label{g}
+    g(v) = \frac{1+v}{1-v}.
+\end{align}
+We let
+\begin{align*}
+    v(x)=\frac{y}{x}.
+\end{align*}
+Thus $y = v(x)x$ and via the \emph{Product Rule}
+\begin{align*}
+    \frac{dy}{dx}=v+x\frac{dv}{dx}.
+\end{align*}
+By inserting (\ref{dydx}) and (\ref{g}) we get
+\begin{align*}
+    v+x\frac{dv}{dx} &= \frac{1+v}{1-v}\\
+    \Leftrightarrow x\frac{dv}{dx} &= \frac{1+v^2}{1-v}
+\end{align*}
+Separating the variables leads us to
+\begin{align*}
+    \frac{1+v^2}{1-v}\frac{dv}{dx} = \frac{1}{x}.
+\end{align*}
+Integrating both sides w.r.t. $x$ gives
+\begin{align*}
+    \int \frac{1+v^2}{1-v}\:dv &= \int \frac{1}{x}\: dx\\
+    \Leftrightarrow -\frac{v^2}{2}-v-2\ln(v-1) &= \ln(x)+C
+\end{align*}
+By resubstituting $v$, we get the implicit expression
+\begin{align*}
+    \ln(x)-2\ln(y-x)-\frac{y^2+2xy}{2x^2} = C.
+\end{align*}
+\end{document}
