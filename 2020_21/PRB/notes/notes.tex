@@ -490,5 +490,62 @@
     \end{align*}
 \end{theorem}
 \subsection{Conditioning on the first step}
+\section{Everything's Normal}
+\subsection{The normal distribution}
+\begin{definition}
+    The random variable $X$ on $\R$ has a \B{standard normal distribution}
+    ($X\sim\Normal(0,1)$) if 
+    \begin{align*}
+        f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}.
+    \end{align*}
+    Then $\E(X)=0$ and $\V(X)=1$.
+\end{definition}
+\begin{definition}
+    Let $\mu,\sigma>0$ be constants. A random variable $X$ on $\R$ has
+    a \B{normal distribution with parameters $\mu,\sigma^2$}
+    ($X\sim\Normal(\mu,\sigma^2)$) if
+    \begin{align*}
+        f_X(x) =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2 }}.
+    \end{align*}
+    Then $\E(X)=\mu$ and $\V(X)=\sigma^2$.
+\end{definition}
+\begin{proposition}
+    Let $X$ be a continuous random variable and let $a,b$ be constants
+    with $a>0$. Then the pdf of $aX+b$ is given by the pdf of $X$ by
+    \begin{align*}
+        f_{aX+b}(x)=\frac{1}{a}f_X\left(\frac{1}{a}(x-b)\right).
+    \end{align*}
+\end{proposition}
+\begin{theorem}
+       If $X$ is normal, then so is $aX+b$ for $a\not=0$.
+\end{theorem}
 
+
+\subsection{The Central Limit Theorem}
+
+
+\begin{theorem}
+    Let $X_1,X_2,...$ be identically distributed random variables.
+    Then the average
+    \begin{align*}
+        A_n=\frac{1}{n}\left(X_1+X_2+\cdots+X_n\right)
+    \end{align*}
+    tends to a normal distribution.
+\end{theorem}
+
+
+\subsection{Computing probabilities}
+
+
+\begin{definition}
+    Let $Z\sim\Normal(0,1)$. Then we define the \B{cumulative distribution
+    function of $\Normal(0,1)$} as
+    \begin{align*}
+        \Phi(z)=F_Z(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{x^2}{2}}dx. 
+    \end{align*}
+    We calculate
+    \begin{align*}
+        \P(a\leq Z\leq b) = \Phi(b)-\Phi(a).
+    \end{align*}
+\end{definition}
 \end{document}
