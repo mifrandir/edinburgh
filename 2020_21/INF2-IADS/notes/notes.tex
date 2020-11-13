@@ -1,73 +1,18 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{nicefrac}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{hyperref}
-\usepackage{fontspec}
-\setmainfont{arial}
-\usepackage{minted}
-\hypersetup{
-	colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
-}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
-\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
-\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
-\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
-\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
-\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
-\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
-\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\st}{s.t.}
-\DeclareMathOperator{\sech}{sech}
-\newtheoremstyle{sltheorem} {}                % Space above
-{}                % Space below
-{\upshape}        % Theorem body font % (default is "\upshape")
-{}                % Indent amount
-{\bfseries}       % Theorem head font % (default is \mdseries)
-{.}               % Punctuation after theorem head % default: no punctuation
-{ }               % Space after theorem head
-{}                % Theorem head spec
-\theoremstyle{sltheorem}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\C}{\mathbb{C}} % \C defined in `hyperref'
-\DeclareMathOperator{\lub}{LUB}
-\DeclareMathOperator{\glb}{GLB}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\cl}{cl}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand*\B[1]{\B{#1}}
-\newcommand*\T[1]{\texttt{#1}}
-\usepackage{expl3}[2012-07-08]
-\ExplSyntaxOn
-\cs_new_eq:NN \fpeval \fp_eval:n
-\ExplSyntaxOff
+\usepackage{notes-preamble}
+
 \begin{document}
 \title{Introduction to Algorithms and Data Structures (YEAR2)}
 \author{Franz Miltz}
 \maketitle
 \tableofcontents  
+
+
+
 \section{Asymptotics Analysis}
+
+
+
 \B{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$ be functions. Then
@@ -118,7 +63,11 @@
 		\lg n! = \Theta(n \lg n).
 	\end{align*}
 \end{theorem}
+
+
 \subsection{Recurrence relations}
+
+
 \begin{theorem}[The Master Theorem]
 	Assume a recurrence relation $T$ has the form
 	\begin{align*}
@@ -136,7 +85,13 @@
 		\end{cases}
 	\end{align*}
 \end{theorem}
+
+
+
 \section{Algorithms and cost models}
+
+
+
 \begin{definition}
 	The \B{cost} of an algorithm is a quantity to measure its performance.\\
 	The cost may be defined in different ways depending on
@@ -160,8 +115,78 @@ Note that the cost model needs to be specified when comparing algorithms.
 	Let $A$ be an algorithm and let $T_b$ be its best-case runtime. Then, if $T_b=\Omega(g)$ for some function $g$,
 	we know that the runtime of $A$ \emph{in general} is $\Omega (g)$.
 \end{theorem}
+
+
+\subsection{Bubblesort}
+
+
+\subsection{Insertion Sort}
+
+
+\subsection{Mergesort}
+
+
+\subsection{Heapsort}
+
+
+\subsection{Quicksort}
+
+
+\subsubsection{Algorithm}
+
+Algorithm for input array $A$:
+\begin{enumerate}
+	\item If $|A|<2$, do nothing. Otherwise partition the array:
+	\begin{tabular}{|c|c|c|}
+		\hline
+		$\leq$ pivot & pivot & $\geq$pivot\\
+		\hline
+	\end{tabular}
+	\item Sort the resulting subarrays recursively.
+\end{enumerate}
+
+\noindent Main algorithm:
+\begin{minted}{python}
+def quick_sort(A, p, r):
+  if p < r:
+    split = partition(A, p, r)
+	quick_sort(A, p, split-1)
+	quick_sort(A, split+1, r)
+\end{minted}
+
+\noindent Partitioning algorithm:
+\begin{minted}{python}
+def partition(A, p, r):
+  pivot = A[r].key
+  i = p - 1
+  for j in range(p,r):
+    if A[j] <= pivot:
+      i += 1
+      exchange(A, i, j)
+  exchange(A, i+1, r)
+  return i+1
+\end{minted}
+
+\subsubsection{Analysis}
+
+\begin{center}
+	\begin{tabular}{| l | c |}
+		\hline
+		Worst Case & $\Theta(n^2)$\\
+		\hline
+		Average Case & $\Theta(n\lg n)$\\
+		\hline
+	\end{tabular}
+	\end{center}
+
+
 \section{Collections}
+
+
+
 \subsection{Sets and dictionaries}
+
+
 \begin{definition}
 	A \B{finite set} containing values of type $X$ is a datastructure with the following interface
 	\begin{align*}
@@ -268,7 +293,11 @@ Note that the cost model needs to be specified when comparing algorithms.
 	\hline
 \end{tabular}
 \end{center}
+
+
 \subsection{The Heap data structure}
+
+
 \begin{definition}
 	A heap is an \B{almost-complete} binary tree:
 	\begin{itemize}
