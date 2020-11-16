@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+
+\title{SVCDE: Hand-in 8}
+\author{Franz Miltz}
+\date{15 November 2020}
+\maketitle
+
+
+\section*{Question 1}
+
+
+We want to evaluate
+\begin{align*}
+    I = \di_S x^2y^2+y^2z^2+z^2x^2 dS
+\end{align*}
+where $S$ is the surface of the unit sphere around the origin. 
+By the definition of surface integrals, we know that
+\begin{align*}
+    I=\di_S \vec F \cdot \vec{\hat n}\:dS = \di_S \vec F \cdot d\vec S
+\end{align*}
+for some vector field $\vec F$. We know that
+\begin{align*}
+    \vec{\hat n} = x\ih + y\jh + z\kh
+\end{align*}
+by definition of $S$ (centered around the origin and radius $r=1$). 
+Let
+\begin{align*}
+    \vec F = xy^2\ih + yz^2\jh + zx^2\kh.
+\end{align*}
+Then
+\begin{align*}
+    \vec F \cdot \vec{\hat n} = x^2y^2+y^2z^2+z^2x^2
+\end{align*}
+and thus our $\vec F$ is valid.
+We use the \emph{Divergence Theorem} to find
+\begin{align*}
+    I = \di_S \vec F \cdot d\vec S=\ti_E \grad\cdot\vec F\:dV 
+    = \ti_E x^2 + y^2 + z^2\:dV
+\end{align*}
+where $E$ is the unit sphere around the origin. 
+By using spherical coordinates $(\rho, \theta, \phi)$ and inserting
+the limits we find 
+\begin{align*}
+    I = \int_0^{2\pi}\int_0^\pi\int_0^1 r^4\sin\phi\:dr\,d\phi\,d\theta.
+\end{align*}
+This lets us evaluate $I$ with relative ease:
+\begin{align*}
+    I &= \int_0^{2\pi}\int_0^\pi \left[\frac{r^5}{5}\sin\phi\right]_0^1\:d\phi\,d\theta
+    = \int_0^{2\pi}\int_0^\pi \frac{\sin\phi}{5}\:d\phi\,d\theta\\
+    &=\int_0^{2\pi} \left[-\frac{\cos\phi}{5}\right]_0^\pi\:d\theta
+    = \int_0^{2\pi} \frac{2}{5}\:d\theta = \frac{4\pi}{5}.
+\end{align*}
+
+\section*{Question 2}
+
+
+We want to find an implicit solution of
+\begin{align*}
+    \frac{dy}{dx}=\frac{x+y}{x-y}.
+\end{align*}
+Firstly, observe that
+\begin{align}
+    \label{dydx}
+    \frac{dy}{dx}=\frac{1+\frac{y}{x}}{1-\frac{y}{x}} = g\left(\frac{y}{x}\right)
+\end{align}
+where
+\begin{align}
+    \label{g}
+    g(v) = \frac{1+v}{1-v}.
+\end{align}
+We let
+\begin{align*}
+    v(x)=\frac{y}{x}.
+\end{align*}
+Thus $y = v(x)x$ and via the \emph{Product Rule}
+\begin{align*}
+    \frac{dy}{dx}=v+x\frac{dv}{dx}.
+\end{align*}
+By inserting (\ref{dydx}) and (\ref{g}) we get
+\begin{align*}
+    v+x\frac{dv}{dx} &= \frac{1+v}{1-v}\\
+    \Leftrightarrow x\frac{dv}{dx} &= \frac{1+v^2}{1-v}
+\end{align*}
+Separating the variables leads us to
+\begin{align*}
+    \frac{1-v}{1+v^2}\frac{dv}{dx} = \frac{1}{x}.
+\end{align*}
+Integrating both sides w.r.t. $x$ gives
+\begin{align*}
+    \int \frac{1-v}{1+v^2}\:dv &= \int \frac{1}{x}\: dx\\
+    \Leftrightarrow \int \frac{1}{1+v^2}\:dv - \int \frac{v}{1+v^2}\:dv &= \int \frac{1}{x}\:dx\\
+    \Leftrightarrow \arctan(v)-\frac{1}{2}\ln(1+v^2)&=\ln(x)+C
+\end{align*}
+By resubstituting $v$ and simplifying, we get the implicit expression
+\begin{align*}
+        \arctan\left(\frac{y}{x}\right)-\frac{1}{2}\ln\left(x^2+y^2\right)=C.
+\end{align*}
+\end{document}
