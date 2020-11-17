@@ -1,74 +1,6 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{nicefrac}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{hyperref}
-\usepackage{fontspec}
-\setmainfont{arial}
-\usepackage{minted}
-\hypersetup{
-	colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
-}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
-\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
-\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
-\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
-\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
-\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
-\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
-\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\st}{s.t.}
-\DeclareMathOperator{\sech}{sech}
-\newtheoremstyle{sltheorem} {}                % Space above
-{}                % Space below
-{\upshape}        % Theorem body font % (default is "\upshape")
-{}                % Indent amount
-{\bfseries}       % Theorem head font % (default is \mdseries)
-{.}               % Punctuation after theorem head % default: no punctuation
-{ }               % Space after theorem head
-{}                % Theorem head spec
-\theoremstyle{sltheorem}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\C}{\mathbb{C}} % \C defined in `hyperref'
-\DeclareMathOperator{\lub}{LUB}
-\DeclareMathOperator{\glb}{GLB}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\cl}{cl}
-\DeclareMathOperator{\mse}{MSE}
-\DeclareMathOperator{\rmse}{RMSE}
-\DeclareMathOperator{\sst}{SST}
-\DeclareMathOperator{\sse}{SSE}
-\renewcommand{\vec}{\underline}
-\newcommand{\abs}[1]{\left|#1\right|}
-\newcommand{\vabs}[1]{\left|#1\right|}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand*\B[1]{\B{#1}}
-\newcommand*\T[1]{\texttt{#1}}
-\usepackage{expl3}[2012-07-08]
-\ExplSyntaxOn
-\cs_new_eq:NN \fpeval \fp_eval:n
-\ExplSyntaxOff
+\usepackage{notes-preamble}
+
 \begin{document}
 \title{Foundations of Data Science (YEAR2)}
 \author{Franz Miltz}
@@ -447,4 +379,132 @@ with the lowest error.
 	\item Batch: update centres after assigning all the values
 	\item Online: update centres after assigning individual values 
 \end{itemize}
+
+
+
+\section{Introduction to supervised learning}
+
+
+
+\begin{definition}
+	A \B{classifier} is a function that takes a feature vector $\vec x$
+	and returns a class $c$ where $c$ is a member of a set $C$.
+\end{definition}
+\begin{definition}
+	A \B{decision boundary} partitions the input space between two
+	classifications.
+\end{definition}
+
+
+\subsection{Construction classifiers using unsupervised learning}
+
+
+To construct the classifier automatically we need
+\begin{enumerate}
+	\item a set of training data containing feature vectors and their labels
+	\item an algorithm that we train using the training data
+	\item \B{hyperparameters}, number that control how the algorithm learns and predicts
+\end{enumerate}
+This is referred to as \B{supervised learning}, since the label for a training
+vector acts as supervision for the classifier when it is learning from
+training data.
+
+
+\subsection{Regression as supervised learning}
+
+
+\begin{itemize}
+	\item labels are not categories but independent variable
+	\item tries to predict label for unknown input
+\end{itemize}
+
+
+\subsection{Nearest neighbour classification}
+
+
+\subsubsection{Procedure}
+
+\begin{itemize}
+	\item requires a distance measure
+	\item for each new input we return the label of the nearest point in the training data
+\end{itemize}
+
+\subsubsection{Decision boundaries}
+\begin{itemize}
+	\item \B{Voronoi diagram}
+	\item piecewise linear
+\end{itemize}
+
+\subsubsection{Evaluation}
+
+\begin{definition}
+	A suitable error function for classification is the number of items
+	that are misclassified. The classification error is often expressed 
+	as the percentage of the total number of items that is misclassified,
+	the \B{error rate}.
+\end{definition}
+\begin{theorem}
+	For one-nearest neighbour classification the error rate when we consider
+	members of the training sset is $0$.
+\end{theorem}
+\begin{definition}
+	To evaluate our algorithm, we split the available data into the
+	\B{training set} (70\%) and the \B{testing set} (30\%). No data points
+	from the testing set are used in training.
+\end{definition}
+\begin{definition}
+	The \B{training set error rate} is the percentage of misclassifications
+	that the classifier makes on the training set after the learning 
+	algorithm has been applied.\\
+	The \B{testing set error rate} refers to errors made by the classifier
+	on the testing set.
+\end{definition}
+
+
+\subsection{$k$-Nearest neighbour classification}
+
+
+\subsubsection{Principle}
+
+\begin{itemize}
+	\item We consider the $k$ closest points.
+	\item If the classification is tied, we choose randomly.
+\end{itemize}
+
+\subsubsection{Decision boundaries}
+
+\begin{itemize}
+	\item susceptible to noise for small $k$
+	\item smoother with large $k$
+\end{itemize}
+
+\subsubsection{Algorithm}
+
+For an unseen example $\vec x$:
+\begin{enumerate}
+	\item Compute the $n$ distances $d_i=d(\vec x, \vec x_i)$ and the features
+		  of each training example $x_i$, $i\in[0,n]$.
+    \item Sort the distances from lowest to highest and find the indices $i_1,...,i_k$ of the $k$ lowest values of $d_i$.
+    \item Find the classes that belong to the closest points.
+    \item Count the votes for each class and return the one with the largest number.
+    \item If there is a tie, choose randomly, or look at the $k+1$th neighbour to resolve it.
+\end{enumerate}
+
+\subsubsection{Choosing $k$}
+
+To find the hyperparameter $k$, we need a validation set. So we split
+the input data into three parts:
+\begin{enumerate}
+	\item training data (50\%)
+	\item validation data (25\%)
+	\item testing data (25\%)
+\end{enumerate}
+
+\subsubsection{Efficiency}
+\begin{itemize}
+	\item training is very efficient because no processing is done
+	\item testing is very inefficient and impractical for large data sets
+\end{itemize}
+
+Optimisation: Managing data better, e.g. $k$-d trees.
 \end{document}
