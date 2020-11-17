@@ -1583,4 +1583,113 @@ Notation for higher derivatives:
         y_1 = y_0+f(t_0, y_0)h,\hs y_2=y_1+f(t_1,y_1)h,\hs ...
     \end{align*} 
 \end{theorem}
+
+
+
+\section{Second-order linear ODEs}
+
+
+
+\subsection{General theory}
+
+
+\begin{theorem}[Existence and Uniqueness Theorem]
+    Consider the IVP
+    \begin{align*}
+        y'' + p(t)y'+q(t)y=g(t),\hs y(t_0)=\alpha,\hs y'(t_0)=\beta
+    \end{align*}
+    where $p$, $q$, $g$ are continuous on an open interval $I$ containing
+    the point $t_0$. There is a unique solution $y=\phi(t)$ of this IVP
+    and the solution exists throughout $I$.
+\end{theorem}
+\begin{definition}
+    Two functions $y_1$ and $y_2$ arre \B{linearly dependent} on an
+    interval $I$ if there exists two constants $C_1$ and $C_2$, not
+    both zero, such that
+    \begin{align*}
+        C_1y_1(t)+C_2y_2(t)=0
+    \end{align*}
+    for all $t\in I$.\\
+    The functions are \B{linearly independent} on $I$ if they are not
+    linearly dependent.
+\end{definition}
+\begin{definition}
+    The \B{Wronskian} of two functions $y_1$ and $y_2$ is defined as the
+    determinant
+    \begin{align*}
+        W(y_1, y_2) = \begin{vmatrix}
+            y_1 & y_2 \\
+            y'_1& y'_2\\
+        \end{vmatrix} = y_1y'_2 - y'_1y_2.
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $y_1(t)$ and $y_2(t)$ be differentiable functions on an open
+    interval $I$:
+    \begin{enumerate}
+        \item If $W(y_1,y_2)(t_0)\not=0$ at some point $t_0\in I$ then $y_1$, $y_2$ are linearly independent on $I$.
+        \item If $y_1$, $y_2$ are linearly dependent on $I$ then $W(y_1, y_2)(t)=0$ for all $t\in I$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}[Abel's Theorem]
+    Suppose that $y_1$, $y_2$ are two solutions to the homogeneous ODE
+    \begin{align*}
+        y'' + p(t)y' + q(t)y = 0
+    \end{align*} 
+    where $p$, $q$ are continuous on an open interval $I$. Then the
+    Wronskian
+    \begin{align*}
+        W(y_1, y_2) = C\exp \left[-\int p(t)\:dt\right]
+    \end{align*}
+    where the constant $C$ depends on $y_1$, $y_2$ but not $t$.
+    Furthermore, there are only two possibilities:
+    \begin{align*}
+        W(y_1,y_2)&=0\hs \forall t \in I, \text{ or}\\
+        W(y_1,y_2)&\not=0\hs \forall t \in I.
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    Suppose that $y_1$, $y_2$ are two solutions of the homogeneous ODE
+    \begin{align*}
+        y''+p(t)y'+q(t)y =0
+    \end{align*}
+    where $p$, $q$ are continuous on an open interval $I$. Then
+    \begin{enumerate}
+        \item $y_1$, $y_2$ are linearly dependent on $I$ $\Leftrightarrow$ $W(y_1,y_2)(t)=0$ for all $t\in I$,
+        \item $y_1$, $y_2$ are linearly independent on $I$ $\Leftrightarrow$ $W(y_1,y_2)(t)\not=0$ for all $t\in I$.
+    \end{enumerate}
+\end{theorem}
+\begin{theorem}
+    Suppse that $y_1$, $y_2$ are two \B{linearly independent} solutions to the
+    homogeneous ODE
+    \begin{align*}
+        y''+p(t)y'+q(t)y =0
+    \end{align*}
+    where $p$, $q$ are contiuous. Then every solution to the ODE has the
+    form
+    \begin{align*}
+        y = C_1y_1(t)+C_2y_2(t)
+    \end{align*}
+    where $C_1$, $C_2$ are constants.
+\end{theorem}
+\begin{definition}
+    The solution
+    \begin{align*}
+        y=C_1y_1(t)+C_2y_2(t)
+    \end{align*}
+    is called the \B{general solution}; every \B{particular solution}
+    to the homogeneous ODE can be found by assigning values to the 
+    constants $C_1$ and $C_2$.
+\end{definition}
+\begin{definition}
+    The functions $y_1$ and $y_2$ in the general solution $y=C_1y_2+C_2y_2$
+    are said to form a \B{fundamental set of solutions}.
+\end{definition}
+\begin{lemma}
+    If we know one solution $y_1(t)$ to a linear homogeneous ODE, another
+    linearly independent solution may be found by substituting $y=v(t)y_1(t)$.
+    This leads to a first-order seperable ODE for $v'(t)$ from which
+    $v(t)$ may be found.\\
+    This is called the \B{Method of Reduction of Order}.
+\end{lemma}
 \end{document}
