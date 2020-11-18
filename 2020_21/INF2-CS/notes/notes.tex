@@ -1,67 +1,7 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\geometry{tmargin=3cm, bmargin=3cm, lmargin=2cm, rmargin=2cm}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{nicefrac}
-\usepackage{siunitx}
-\usepackage{mathtools}
-\usepackage{hyperref}
-\usepackage{fontspec}
-\setmainfont{arial}
-\usepackage{minted}
-\hypersetup{
-	colorlinks,
-	citecolor=black,
-	filecolor=black,
-	linkcolor=black,
-	urlcolor=black
-}
-\DeclareMathOperator{\csch}{csch}
-\DeclareMathOperator{\arccot}{\text{cot}^{-1}}
-\DeclareMathOperator{\arccsc}{\text{csc}^{-1}}
-\DeclareMathOperator{\arccosh}{\text{cosh}^{-1}}
-\DeclareMathOperator{\arcsinh}{\text{sinh}^{-1}}
-\DeclareMathOperator{\arctanh}{\text{tanh}^{-1}}
-\DeclareMathOperator{\arcsech}{\text{sech}^{-1}}
-\DeclareMathOperator{\arccsch}{\text{csch}^{-1}}
-\DeclareMathOperator{\arccoth}{\text{coth}^{-1}} 
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\st}{s.t.}
-\DeclareMathOperator{\sech}{sech}
-\newtheoremstyle{sltheorem} {}                % Space above
-{}                % Space below
-{\upshape}        % Theorem body font % (default is "\upshape")
-{}                % Indent amount
-{\bfseries}       % Theorem head font % (default is \mdseries)
-{.}               % Punctuation after theorem head % default: no punctuation
-{ }               % Space after theorem head
-{}                % Theorem head spec
-\theoremstyle{sltheorem}
-\newtheorem{definition}{Definition}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{proposition}[theorem]{Proposition}
-\newcommand{\R}{\mathbb{R}}
-\newcommand{\N}{\mathbb{N}}
-\newcommand{\Z}{\mathbb{Z}}
-\renewcommand{\C}{\mathbb{C}} % \C defined in `hyperref'
-\DeclareMathOperator{\lub}{LUB}
-\DeclareMathOperator{\glb}{GLB}
-\DeclareMathOperator{\hcf}{hcf}
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\sgn}{sgn}
-\DeclareMathOperator{\cl}{cl}
-\newcommand*\lneg[1]{\overline{#1}}
-\newcommand*\B[1]{\B{#1}}
-\newcommand*\T[1]{\texttt{#1}}
-\usepackage{expl3}[2012-07-08]
-\ExplSyntaxOn
-\cs_new_eq:NN \fpeval \fp_eval:n
-\ExplSyntaxOff
+\usepackage{notes-preamble}
+
+\newcommand{\T}[1]{\texttt{#1}}
 \begin{document}
 \title{Introduction to Computer Systems (SEM3)}
 \author{Franz Miltz}
@@ -642,4 +582,167 @@ The multi-cycle processor has the following effects on the factors in \emph{\ref
 $\Rightarrow$ Faster exectution time, especially with many short instructions.\\\\
 Problem: Atomic operations, i.e. operations that cannot be subdivided, exist and thus we cannot
 repeat this pattern infinitely. Number of cycles per instruction in modern processors: 20-30.
+
+
+
+\section{Memory Hierarchy}
+
+
+
+\subsection{Requirements}
+
+
+Programmers want:
+\begin{itemize}
+	\item large
+	\item fast 
+	\item random access
+\end{itemize}
+\Rightarrow not with a single kind of memory.
+
+
+\subsection{Idea}
+
+
+Use a combination of memory kinds
+\begin{itemize}
+	\item Smaller amounts of expensive but fast memory closer to the processor
+	\item Larger amounts of cheaper but slower memory farther from the processor
+\end{itemize}
+
+
+\subsection{Why is it effective?}
+
+
+\begin{definition}[Temporal Locality]
+	A recently accessed memory location (instruction or data) is likely to be accessed again in the
+	near future.	
+\end{definition}
+\begin{definition}[Spatial Locality]
+	Memory locations (instructions or data) close to a recently accessed location are likely to be
+	accessed in the near future.	
+\end{definition}
+\begin{theorem}
+	Locality exists in programs because
+	\begin{itemize}
+		\item instructions are reused (loops, functions), and
+		\item the program only works on a limited set of data (arrays, temporary variables, objects).
+	\end{itemize}
+\end{theorem}
+
+
+\subsection{In a modern processor}
+
+
+Small, fast \B{cache} next to a processor backed up by larger \& slower chache(s) and main
+memory give the impression of a single, large, fast memory.
+
+Addresses temporal locality:
+\begin{itemize}
+	\item If access data from slower memory, move it to faster memory
+	\item If data in faster memory unused recently, move it to slower memory
+\end{itemize}
+
+
+\noindent Addresses spatial locality:
+\begin{itemize}
+	\item If need to move a word from slower to faster memory, move adjacent words.
+	\item \B{blocks} \& \B{pages}: units of storage within the caches
+\end{itemize}
+
+\noindent Storage units:
+\begin{itemize}
+	\item registers: words (4-8 bytes)
+	\item cache: blocks (16-128 bytes)
+	\item main memory: pages (1KB-2MB) 
+\end{itemize}
+
+\subsection{Data transfers}
+
+
+\begin{itemize}
+	\item Software (compiler): Between registers and cache/main memory
+	\item Software (OS): Between main memory and storage
+	\item Hardware: Between main memory and cache 
+\end{itemize}
+
+
+\subsubsection{Hardware-managed transfers between levels}
+
+
+\begin{itemize}
+	\item Occurs between cache memory and main memory levels
+	\item Programmer \& processor both oblivious to where data resides
+	\item cache hardware manages transfers between levels \begin{itemize}
+		\item automatic in response to memory accesses
+		\item memory always has a copy of cached data
+		\item cache data may be more recent
+	\end{itemize}
+\end{itemize}
+
+\subsection{Caches}
+
+
+\subsubsection{Terminology}
+
+\begin{definition}
+	A \B{block} is a unit of data stored in the cache. Typically 32-128 bytes.
+\end{definition}
+\begin{definition}
+	A \B{hit} occurs when the desired data is found in the cache.
+\end{definition}
+\begin{definition}
+	A \B{miss} occurs when the desired data cannot be found in the cache.
+	\Rightarrow search continues at the next level of the memory.
+\end{definition}
+\begin{definition}
+	The \B{hit rate} is the fraction of accesses that are hits at a given level of the memory hierarchy.
+\end{definition}
+\begin{definition}
+	The \B{miss rate} is the fraction of accesses that are misses at a given level of the memory hierarchy.
+\end{definition}
+\begin{definition}
+	\B{Allocation} is the placement of a new block into the cache, which typically results in an eviction
+	of another block.
+\end{definition}
+\begin{definition}
+	\B{Eviction} is the displacement of a block from the cache which commonly happens when a new block is
+	allocated in its place.
+\end{definition}
+
+\subsubsection{Basics}
+
+How to mapp 32-bit address to a much smaller memory?
+\begin{itemize}
+	\item a \B{tag} word, indicating the address of the main memory block it holds
+	\item a \B{valid bit}, indicating the block is in use
+\end{itemize}
+
+\subsubsection{Full-associative cache}
+
+\begin{itemize}
+	\item correct cache block identified by matching tags
+	\item byte offset selects word/byte within block
+	\item address tag can potentially match tag of any cache block
+\end{itemize}
+
+\subsubsection{Cache Replacement}
+
+\begin{definition}
+	\B{Least Recently Used} is a replacement strategy where the cached block that has not been accessed
+	for the longest time gets evicted.
+\end{definition}
+\begin{definition}
+	\B{FIFO} is a replacement strategy where the cached blocks get evicted in the same order they are 
+	allocated in.
+\end{definition}
+
+\subsubsection{Direct-mapped cache}
+
+\begin{itemize}
+	\item Problem of fully-associative cache: search is slow or requires expensive CAM
+	\item data can be store in \B{one location only}
+	\item uses last $n$ bits of word-address
+\end{itemize}
+
 \end{document}
