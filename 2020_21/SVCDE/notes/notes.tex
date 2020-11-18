@@ -1692,4 +1692,132 @@ Notation for higher derivatives:
     $v(t)$ may be found.\\
     This is called the \B{Method of Reduction of Order}.
 \end{lemma}
+
+
+\subsection{Linear homogeneous ODEs with constant coefficients}
+
+\begin{theorem}
+Consider the linear homogeneous ODE with constant coefficients
+\begin{align}
+    \label{linode}
+    ay'' + by' + cy = 0
+\end{align}
+where $a$, $b$, $c$ are real-valued constants and $a\not=0$.
+Then 
+\begin{align*}
+    y(t)=e^{rt}
+\end{align*}
+is a solution to (\ref{linode}) provided that $r$ is a root of the
+\B{characteristic equation}
+\begin{align*}
+    ar^2 + br + c = 0.
+\end{align*}
+\end{theorem}
+\begin{theorem}
+    If the characteristic equation has real-valued and distinct roots,
+    then the general solution to (\ref{linode}) is
+    \begin{align*}
+        y(t)=C_1\exp(r_1 t) + C_2 \exp(r_2 t).
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If the characteristic equation has equal roots, then $r=-b/2a$ and the
+    general solution to (\ref{linode}) is
+    \begin{align*}
+        y(t)=C_1\exp\left(rt\right)+C_2t\exp(rt).
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    If the characteristic equation has complex-valued roots, then the
+    roots must be the complex-conjugate pair
+    \begin{align*}
+        r_1 = \alpha + i\beta,\hs r_2 = \alpha - i\beta
+    \end{align*}
+    where $\alpha,\beta\in\R$ and $i=\sqrt{-1}$. The general soltuion
+    to (\ref{linode}) then is
+    \begin{align*}
+        y(t) = \exp(\alpha t)\left(C_1 \cos\left(\alpha t\right)+C_2\sin\left(\beta t\right)\right).
+    \end{align*}
+\end{theorem}
+
+
+\subsection{Linear nonhomogeneous ODEs with constant coefficients}
+
+
+\begin{definition}
+    Consider the linear nonhomogeneous ODE with constant coefficients
+    \begin{align}
+        \label{linoden}
+        ay'' + by' + cy = g(t)
+    \end{align}
+    where $a$, $b$, $c$ are real-valued constants and $a\not=0$. Then 
+    the corresponding homogeneous ODE (\ref{linode}) is called a
+    \B{complementary equation}.
+\end{definition}
+
+\begin{theorem}
+    If $Y_1$ and $Y_2$ are any two solutions of the nonhomogeneous ODE
+    (\ref{linoden}) then their difference $Y_1-Y_2$ is  a solution of the
+    corresponding complementary equation. Thus
+    \begin{align*}
+        Y_1(t) - Y_2(t) = C_1y_1(t) + C_2y_2(t)
+    \end{align*}
+    where $C_1$, $C_2$ are certain constants and $y_1$, $y_2$ are a
+    fundamental set of solutions of the corresponding complementary equation.
+\end{theorem}
+
+\begin{theorem}
+    Let $Y_1$ be an arbitrary solution $y(t)$ of the nonhomogeneous ODE
+    and let $Y_2$ be a particular soltuion $y_p(t)$ of the nonhomogeneous
+    ODE, then we see that the general solution of the nonhomogeneous ODE
+    may be epxressed as
+    \begin{align*}
+        y(t) = y_c(t) + y_p(t)
+    \end{align*}
+    where $y_c(t) = C_1y_1(t) + C_2y_2(t)$ is the general solution of the
+    corresponding complementary equation.\\
+    $y_c(t)$ is called the \B{complementary function}. 
+\end{theorem}
+
+\subsubsection{Method of undetermined coefficients}
+
+\begin{itemize}
+    \item Case 1: $g(t)=Me^{kt}$ \begin{itemize}
+        \item If $k$ is not a root of the characteristic equation, try $y_p(t)=Ce^{kt}$,
+        \item if $k$ is a root of the characteristic equation, try $y_p(t)=Cte^{kt}$,
+        \item if $k$ is a repeated root of the characteristic equation, try $y_p(t)=Ct^2e^{kt}$.
+    \end{itemize}
+    \item Case 2: $g(t)=M\cos(kt) + N\sin(kt)$ \begin{itemize}
+        \item If $\pm ik$ are not roots of the characteristic equation, try $y_p(t)=C\cos(kt)+D\sin(kt)$,
+        \item if $\pm ik$ are roots of the characteristic equation, try $y_p(t)=t(C\cos(kt)+D\sin(kt))$.
+    \end{itemize}
+    \item Case 3: $g(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots + a_1t+a_0$ \begin{itemize}
+        \item If $0$ is not a root of the characteristic equation, try $y_p(t)=b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1t+b_0$,
+        \item if $0$ is a root of the characteristic equation, try $y_p(t) = t(b_n t^n + b_{n-1}t^{n-1} + \cdots + b_1 t + b_0)$,
+        \item if $0$ is a repeated root of the characteristic equation, try $y_p(t)=t^2(b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1 t+b_0)$.
+    \end{itemize}
+    \item Case 4: $g(t)=\Pi_{i=0}^n g_i(t)$ where all $g_i$ are of the form in cases 1-3 \begin{itemize}
+        \item Try the product of the trial functions in the corresponding cases.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Method of variation of parameters}
+
+\begin{theorem}
+    If $g(t)$ for the nonhomogeneous ODE is a general function and we know
+    the general solution
+    \begin{align*}
+        y_c(t) = C_1y_1(t) + C_2y_2(t)
+    \end{align*}
+    to the corresponding homogeneous ODE, the general solution to the
+    nonhomogeneous ODE is
+    \begin{align*}
+        y(t) = y_c(t)+y_p(t)
+    \end{align*}
+    where
+    \begin{align*}
+        y_p(t) = -y_1(t)\int\frac{y_2(t)g(t)}{aW(y_1,y_2)}\:dt 
+        + y_2(t) \int \frac{y_1(t)g(t)}{aW(y_1,y_2)}\:dt.
+    \end{align*}
+\end{theorem}
 \end{document}
