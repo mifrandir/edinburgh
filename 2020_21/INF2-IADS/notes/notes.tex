@@ -332,4 +332,74 @@ def partition(A, p, r):
 	\end{tabular}
 	\end{center}
 \end{theorem}
+
+
+\subsection{Graphs}
+
+
+\subsubsection{Directed and Undirected Graphs}
+
+\begin{definition}
+	A graph $G$ is defined as
+	\begin{align*}
+		G = (V,E)
+	\end{align*}
+	where $V$ is the set of vertices and $E\subseteq V\times V$ is the set of edges.
+\end{definition}
+
+\begin{definition}
+	A graph $G$ is \B{undirected} if and only if
+	\begin{align*}
+		\forall v,w\in V,\: (v,w)\in E \Leftrightarrow (w,v)\in E.
+	\end{align*}
+	If a graph is not undirected, it is \B{directed}.
+\end{definition}
+
+\subsection{Adjacency Matrices vs Lists}
+
+\begin{definition}
+	Let $G=(V,E)$ be a graph with $n$ vertices $V=\{v_1, ..., v_n\}$.
+	Then the \B{adjacency matrix} of $G$ is the $n\times n$ matrix
+	$A=(a_{ij})_{i,j\in[1,n]}$ with 
+	\begin{align*}
+		a_{ij} = \begin{cases}
+			1 &\text{if } (v_i,v_j)\in E\\
+			0 &\text{otherwise}
+		\end{cases}.
+	\end{align*}
+\end{definition}
+
+\begin{theorem}
+	Let $G=(V,E)$ with $|V|=n$ and $|E|=m$. Then the following 
+	complexities apply:
+	\begin{center}
+	\begin{tabular}{| l | c | c |}
+		\hline
+		 Measure & Matrix & List\\
+		\hline
+		Space & $\Theta(n^2)$ & $\Theta(n+m)$ \\
+		\hline
+		Time to check if $w$ adjacent to $v$ & $\Theta(1)$ & $\Theta(\text{out}(v))$\\
+		\hline
+		Time to visit all $W$ adjacent to $v$ & $\Theta(n)$ & $\Theta(\text{out}(v))$\\
+		\hline
+		Time to visit all edges & $\Theta(n^2)$ & $\Theta(n+m)$\\
+		\hline
+	\end{tabular}
+\end{center}
+\begin{lemma}
+	A graph $G=(V,E)$ with $|V|=n$ and $|E|=m$ is
+	\begin{itemize}
+		\item \B{dense} if $m$ is close to $n^2$,
+		\item \B{sparse} if $m$ is much smaller than $n^2$. 
+	\end{itemize}
+\end{lemma}
+\end{theorem}
+
+\subsection{Graph traversal}
+
+\begin{definition}
+	A \B{traversal} is a strategy for visiting all vertices of a graph.
+\end{definition} 
+
 \end{document}
