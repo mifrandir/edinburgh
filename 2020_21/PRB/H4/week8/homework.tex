@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Probability: Week 8 Solutions}
+\author{Franz Miltz (UNN: S1971811)}
+\date{24 November, 2020}
+\maketitle
+
+\section*{P8.1}
+
+Let $H$ be the random variable describing the height of an adult in centimeters
+and let $F$ be the event that an adult is female. Further, let $X=H|F$ be the
+height of adult females. Then we know
+\begin{align*}
+  X \sim \Normal(164.7, \sqrt{7.1})
+  \text{\hs and\hs}
+  \P(F) = 1/2.
+\end{align*}
+The probability that a random adult female has height which is larger than
+the mean male height (178.4cm) the is
+\begin{align*}
+  \P(X>178.4) &= 1 - \P(X \leq 178.4) = 1 - \Phi\left(\frac{178.4-164.7}{\sqrt{7.1}}\right)
+  \approx 1-\Phi(5.142) \approx 1.362\times 10^{-7}.
+\end{align*}
+Further, the probability of an adult who has height greater than 178.4cm
+may be determined using \emph{Bayes Theorem}:
+\begin{align}
+  \label{p2}
+  \P(F|H>178.4) = \frac{\P(H>178.4|F)\P(F)}{\P(H>178.4)}.
+\end{align}
+The only probability we do not know yet is in the denominator. Using the
+\emph{Law of Total Probability} we find
+\begin{align*}
+  \P(H>178.4) = \P(F)\P(H>178.4|F) + \P(F^c)\P(H>178.4|F^c).
+\end{align*}
+Since, by definition, $178.4$ is the mean of the male heights and those
+have a normal distribution, we know that
+\begin{align*}
+  \P(H>178.4|F^c) = \P(H<178.4|F^c)=\frac{1}{2}.
+\end{align*}
+With $p=\P(H>178.4|F)$ and $\P(F)=\P(F^c)=1/2$, we have
+\begin{align*}
+  \P(H>178.4) = \frac{2p+1}{4}.
+\end{align*}
+We can insert this and the other values into (\ref{p2}) to find 
+\begin{align*}
+  \P(F|H>178.4)=\frac{p/2}{(2p+1)/4}=\frac{2p}{2p+1}.
+\end{align*}
+By inserting $p\approx 1.362\times 10^{-7}$ we get
+\begin{align*}
+  \P(F|H>178.4)\approx 2.730\times 10^{-7}.
+\end{align*}
+
+\section*{P8.2}
+
+Let $X_n$ be the position after $n$ moves. Then we know from \emph{P7.2}
+that
+\begin{align*}
+  X_n = 2B_n-n
+\end{align*}
+where $B_n\sim\Binom(n,1/2)$. Therefore
+\begin{align*}
+  \P(-20\leq X_{1000} \leq 20) = \P(490 \leq B_{1000} \leq 510).
+\end{align*}
+Using $\E(B_{1000})=500$ and $\V(B_{1000})=250$, we approximate this value
+by utilising $\Phi$:
+\begin{align*}
+  \P(-20\leq X_{1000} \leq 20) = \Phi\left(\frac{510-500}{\sqrt{250}}\right)
+  - \Phi\left(\frac{490-500}{\sqrt{250}}\right)
+  = 2\Phi\left(\frac{10}{\sqrt{250}}\right)-1\approx 0.473.
+\end{align*}
+
+\section*{P8.3}
+
+Let $X\sim\Binom(2n,1/2)$. Then we know that
+\begin{align*}
+  \P(a \leq X \leq b) \approx \Phi\left(\frac{b-n}{\sqrt{n/2}}\right)-\Phi\left(\frac{a-n}{\sqrt{n/2}}\right).
+\end{align*}
+To find $\P(X=k)$ we use $\P(|X-k|\leq 1/2)$. With $k=n$ we find
+\begin{align*}
+  \P(X=n) = \P(n-1/2\leq X \leq n+1/2) \approx \Phi\left(\frac{n+1/2-n}{\sqrt{n/2}}\right)-\Phi\left(\frac{n-1/2-n}{\sqrt{n/2}}\right).
+\end{align*}
+Through simplifications, we find
+\begin{align*}
+  \P(X=n) \approx \Phi\left(\frac{1}{\sqrt{2n}}\right)-\Phi\left(-\frac{1}{\sqrt{2n}}\right)
+  =2\Phi\left(\frac{1}{\sqrt{2n}}\right)-1. 
+\end{align*}
+
+\section*{P8.4}
+
+Since we do not know anything about the distribution that was chosen,
+it is irrelevant which option we choose.
+\end{document}
