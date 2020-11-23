@@ -548,4 +548,31 @@
         \P(a\leq Z\leq b) = \Phi(b)-\Phi(a).
     \end{align*}
 \end{definition}
+
+
+\section{Several Random Variables}
+
+
+\begin{definition}
+    Consider two discrete random variables $X,Y$ which take values in the non-negative
+    integers. The \B{joint probability mass function} of $X,Y$ is
+    \begin{align*}
+        p_{X,Y} (x,y) = \P(X=x\text{ and } Y = y).
+    \end{align*}
+    To be valid, we need only to know that
+    \begin{align*}
+        \forall x,y,\: 0\leq p_{X,Y}(x,y) \leq 1 
+    \end{align*}
+    and
+    \begin{align*}
+        \sum_x \sum_y p_{X,Y}(x,y) = 1.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    The \B{marginal mass functions} of $X,Y$ are defined by
+    \begin{align*}
+        p_X (x) = \sum_y p_{X,Y} (x,y) \text{ and } p_Y(y)=\sum_x p_{X,Y}(x,y).
+    \end{align*}
+\end{definition}
 \end{document}
