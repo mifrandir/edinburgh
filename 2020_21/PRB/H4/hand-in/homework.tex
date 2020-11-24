@@ -1,10 +1,126 @@
 \documentclass{article}
 \usepackage{homework-preamble}
+\usepackage{slashbox}
 
 \begin{document}
 \title{Probability: Week 10 Hand-in}
 \author{Franz Miltz (UNN: S1971811)}
 \date{24 November, 2020}
 \maketitle
+
+\section*{P8.2}
+
+Let $X_n$ be the position after $n$ moves. Then we know from \emph{P7.2}
+that
+\begin{align*}
+  X_n = 2B_n-n
+\end{align*}
+where $B_n\sim\Binom(n,1/2)$. By finding the appropriate interval $I$
+for $B_{1000}$ such that
+\begin{align*}
+    B_{1000}\in I\Rightarrow X_{1000}\in [-20, 20]
+\end{align*}
+we can use this to simplify:
+\begin{align*}
+  \P(-20\leq X_{1000} \leq 20) = \P(490 \leq B_{1000} \leq 510)
+\end{align*}
+where we used $I=[490, 510]$ which may be found by inspection.\\
+With $\E(B_{1000})=500$ and $\V(B_{1000})=250$, we can approximate this value
+by utilising $\Phi$:
+\begin{align*}
+  \P(-20\leq X_{1000} \leq 20) = \Phi\left(\frac{510.5-500}{\sqrt{250}}\right)
+  - \Phi\left(\frac{489.5-500}{\sqrt{250}}\right)
+  = 2\Phi\left(\frac{10.5}{\sqrt{250}}\right)-1\approx 0.493.
+\end{align*}
+
+\section*{P9.1}
+
+We find the following table:
+\begin{center}
+  \begin{tabular}{| c | c c c c c | c |}
+    \hline
+    \backslashbox{S}{D} & -2 & -1 & 0 & 1 & 2 & \\
+    \hline
+    2 & 0   & 0   & 1/9 & 0   & 0   & 1/9\\
+    3 & 0   & 1/9 & 0   & 1/9 & 0   & 2/9\\
+    4 & 1/9 & 0   & 1/9 & 0   & 1/9 & 3/9\\
+    5 & 0   & 1/9 & 0   & 1/9 & 0   & 2/9\\
+    6 & 0   & 0   & 1/9 & 0   & 0   & 1/9\\ 
+    \hline
+    & 1/9   & 2/9 & 3/9 & 2/9 & 1/9 & 1\\
+    \hline
+  \end{tabular}
+\end{center}
+For example, we observe that $D=-2$ can only ever occur when $(X,Y)=(1,3)$.
+Thus $D=-2\Rightarrow S=4$. Therefore the we find the probabilities of the first column:
+\begin{align*}
+  \P(D=-2 \text{ and } S=4) = 1/9 \text{ and }\forall k \not=4,\: \P(D=-2 \text{ and } S = k) = 0 .
+\end{align*}
+We get the value $1/9$ because $X$ and $Y$ can take $3$ values each, 
+thus there are $9$ values the pair $(X,Y)$
+can take and there is only one such pair that leads to $D=-2$.\\
+You can see that $\E(S)=4$ and $\E(D)=0$. We know that
+\begin{align*}
+  \E(S\:D) = \sum_{a\in [2,6]} \sum_{b\in[-2,2]} ab\P(S=a\text{ and }D=b).
+\end{align*}
+Using the symmetry of the table and the fact that all the summands
+where $b=0$ will end up being $0$, we find
+\begin{align*}
+  \E(S\:D)=0.
+\end{align*}
+Two random variables $X$ and $Y$ are, by definition, independent
+if and only if, for all $x,y$,
+\begin{align*}
+  F_{X,Y}(x,y)=F_X(x)F_Y(y).
+\end{align*}
+Since
+\begin{align*}
+  F_{D,S}(2,-2) = 0 \not= F_D(2)F_S(-2) = 1/81,
+\end{align*}
+we know that $D$ and $S$ are not independent.
+
+\section*{P9.2}
+
+Let the unit rod break in two places $X_1$ and $X_2$. Then there
+exist the following conditions that imply that at least one of the pieces is shorter
+than $a$:
+\begin{enumerate}
+  \item $A_1:X_1<a$,
+  \item $A_2:X_1>1-a$,
+  \item $B_1:X_2<a$,
+  \item $B_2:X_2>1-a$,
+  \item $C:|X_1-X_2|<a$.
+\end{enumerate}
+The cases 1 to 4 are the ones where at least one of the outer
+pieces is shorter than $a$. The fifth cases is where the middle section 
+is shorter than $a$. The probabilities of these events are
+\begin{align*}
+  \P(A) &= \P(A_1) + \P(A_2) = 2a,\\
+  \P(B) &= \P(B_1) + \P(B_2) = 2a,\\
+  \P(C) &= \P(X_1-a\leq X_2 \leq X_1+a) \approx 2a.
+\end{align*}
+Note that the probability for $C$ is only $2a$ if $X_2$ is not too close to
+either edge of the interval. Since $a\to 0$, we assume this is not the case.
+Also, that would imply $B$ which is a case that has already been included.
+Since the events $A,B,C$ are not pairwise mututally exclusive,
+we have to use the \emph{Inclusion-exclusion principle}
+to determine the total probability:
+\begin{align*}
+  \P(A\cup B\cup C) = \P(A) + \P(B) + \P(C) - \P(A \cap B) - \P(B\cap C) - \P(C\cap A) + \P(A\cap B\cap C).
+\end{align*}
+Notice that the probabilities will be, in terms of orders of magnitude,
+similar to $a$ to the power of the number of events involved. For example
+\begin{align*}
+    \log_{10}(\P(A\cap B)) = \log_{10}(4a^2) \approx \log_{10}(a^2).
+\end{align*}
+The argument is more complicated for the intersections involving $C$ but
+it works in a similar way.\\
+Since $a\to 0$, we can assume that $\forall k>1,\:a\gg a^k$ and thus
+approximate the probability by omiting all the intersection:
+\begin{align*}
+  \P(A\cup B\cup C) \approx \P(A) + \P(B) + \P(C) \approx 6a.
+\end{align*}
+Therefore the required constant is $k=6$.
+
 
 \end{document}

@@ -26,7 +26,14 @@ We find the following table:
     \hline
   \end{tabular}
 \end{center}
-EXAMPLE
+For example, we observe that $D=-2$ can only ever occur when $(X,Y)=(1,3)$.
+Thus $D=-2\Rightarrow S=4$. Therefore the we find the probabilities of the first column:
+\begin{align*}
+  \P(D=-2 \text{ and } S=2) = 1/9 \text{ and }\forall k \not=4,\: \P(D=-2 \text{ and } S = k) = 0 .
+\end{align*}
+We get the value $1/9$ because $X$ and $Y$ can take $3$ values each, 
+thus there are $9$ values the pair $(X,Y)$
+can take and there is only one such pair that leads to $D=-2$.\\
 You can see that $\E(S)=4$ and $\E(D)=0$. We know that
 \begin{align*}
   \E(S\:D) = \sum_{a\in [2,6]} \sum_{b\in[-2,2]} ab\P(S=a\text{ and }D=b).
