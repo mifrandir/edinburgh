@@ -20,8 +20,8 @@ height of adult females. Then we know
 The probability that a random adult female has height which is larger than
 the mean male height (178.4cm) the is
 \begin{align*}
-  \P(X>178.4) &= 1 - \P(X \leq 178.4) = 1 - \Phi\left(\frac{178.4-164.7}{\sqrt{7.1}}\right)
-  \approx 1-\Phi(5.142) \approx 1.362\times 10^{-7}.
+  \P(X>178.4) &= 1 - \P(X \leq 178.4) = 1 - \Phi\left(\frac{178.4-164.7}{7.1}\right)
+  \approx 1-\Phi(5.142) \approx 0.0268.
 \end{align*}
 Further, the probability of an adult who has height greater than 178.4cm
 may be determined using \emph{Bayes Theorem}:
@@ -47,9 +47,9 @@ We can insert this and the other values into (\ref{p2}) to find
 \begin{align*}
   \P(F|H>178.4)=\frac{p/2}{(2p+1)/4}=\frac{2p}{2p+1}.
 \end{align*}
-By inserting $p\approx 1.362\times 10^{-7}$ we get
+By inserting $p\approx 0.0268$ we get
 \begin{align*}
-  \P(F|H>178.4)\approx 2.730\times 10^{-7}.
+  \P(F|H>178.4)\approx 0.0509.
 \end{align*}
 
 \section*{P8.2}
@@ -66,9 +66,9 @@ where $B_n\sim\Binom(n,1/2)$. Therefore
 Using $\E(B_{1000})=500$ and $\V(B_{1000})=250$, we approximate this value
 by utilising $\Phi$:
 \begin{align*}
-  \P(-20\leq X_{1000} \leq 20) = \Phi\left(\frac{510-500}{\sqrt{250}}\right)
-  - \Phi\left(\frac{490-500}{\sqrt{250}}\right)
-  = 2\Phi\left(\frac{10}{\sqrt{250}}\right)-1\approx 0.473.
+  \P(-20\leq X_{1000} \leq 20) = \Phi\left(\frac{510.5-500}{\sqrt{250}}\right)
+  - \Phi\left(\frac{489.5-500}{\sqrt{250}}\right)
+  = 2\Phi\left(\frac{10.5}{\sqrt{250}}\right)-1\approx 0.493.
 \end{align*}
 
 \section*{P8.3}
