@@ -701,8 +701,6 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 
-\subsubsection{Properties}
-
 \begin{theorem}
     If $D=D_1\cup D_2$ where $D_1$ and $D_2$ do not overlap
     except perhaps on their boundaries, then
@@ -1470,7 +1468,7 @@ Notation for higher derivatives:
 \begin{definition}
     The ODE
     \begin{align*}
-        M(x,y)+N(x,y)\frac{dy}{dx}
+        M(x,y)+N(x,y)\frac{dy}{dx}=0
     \end{align*}
     is called \B{exact} if there exists a function $\psi(x,y)$ such that
     \begin{align*}
@@ -1499,10 +1497,6 @@ Notation for higher derivatives:
     \end{align*}
     at each point in $R$.
 \end{theorem}
-
-
-\subsubsection{Integrating factors}
-
 
 \begin{theorem}
     The ODE
@@ -1819,5 +1813,206 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
         y_p(t) = -y_1(t)\int\frac{y_2(t)g(t)}{aW(y_1,y_2)}\:dt 
         + y_2(t) \int \frac{y_1(t)g(t)}{aW(y_1,y_2)}\:dt.
     \end{align*}
+\end{theorem}
+
+
+
+\section{More general second-order ODEs}
+
+
+
+\subsection{Reducible ODEs}
+
+
+\begin{definition}
+    A general second-order ODE has the form
+    \begin{align}
+        F\left(y'',y',y,x\right)=0.
+    \end{align}
+\end{definition}
+\begin{lemma}
+    An ODE
+    \begin{align*}
+        F(y'',y',x)=0
+    \end{align*}
+    may be solved using the change of variable $v(x)=y'$.
+\end{lemma}
+\begin{lemma}
+    An ODE
+    \begin{align*}
+        F(y'', y', y) =0
+    \end{align*}
+    may be solved using the change of variable $v(y)=dy/dx$ wherein
+    $v$ is regarded as a function of $y$.
+\end{lemma}
+
+
+\subsection{Euler equation}
+
+
+\begin{definition}
+    An \B{Euler equation} has the form
+    \begin{align}
+        \label{euler}
+        ax^2\frac{d^2y}{dx^2} + bx\frac{dy}{dx} + cy = 0
+    \end{align}
+    where $a,b,c\in\R$ are constants and $a\not=0$.
+\end{definition}
+
+\begin{theorem}
+    By introducing the new dependent varaible
+    \begin{align*}
+        t=\ln x,\hs x>0
+    \end{align*}
+    the ODE (\ref{euler}) simplifies to a constant-coefficient ODE:
+    \begin{align*}
+        a\frac{d^2y}{dt^2}+(b-a)\frac{dy}{dt}+cy=0. 
+    \end{align*}
+\end{theorem}
+
+
+\subsection{Series solutions for homogeneous linear ODEs}
+
+
+\begin{lemma}
+    We can use \B{power series}, i.e.
+    \begin{align}
+        \label{pseries}
+        \sum_{n=0}^\infty a_n (x-b)^n
+    \end{align}
+    to construct fundamental sets of solutions.
+\end{lemma}
+
+\subsubsection{Useful properties of power series}
+
+\begin{definition}
+    The \B{radius of convergence}
+    \begin{align*}
+        \rho=\lim_{n\to\infty}\abs{\frac{a_n}{a_{n+1}}}\geq 0
+    \end{align*}
+    means that
+    \begin{enumerate}
+        \item (\ref{pseries}) converges absolutely for $\abs{x-b}<\rho$,
+        \item (\ref{pseries}) diverges for $\abs{x-b}>\rho$,
+        \item (\ref{pseries}) either converges or diverges for $|x-b=\rho$.
+    \end{enumerate}
+\end{definition}
+\begin{definition}
+    If the \B{Taylor series} expansion of $f$ about $x=b$, i.e.
+    \begin{align*}
+        f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(b)}{n!}(x-b)^n
+    \end{align*}
+    has $\rho>0$, then $f$ is said to be \B{analytic} at $x=b$.
+\end{definition}
+\begin{lemma}
+    If the functions $f,g$ are analytic at $x=b$ then so are
+    \begin{itemize}
+        \item $f+g$,
+        \item $fg$,
+        \item $f/g$ provided that $g(b)\not=0$.
+    \end{itemize}
+\end{lemma}
+\begin{theorem}
+    If the power series representation
+    \begin{align*}
+        f(x)=\sum_{n=0}^\infty a_n(x-b)^n
+    \end{align*}
+    of $f$ converges on an open interval $I$ centred on $x=b$, then $f$
+    is differentiable on $I$ and
+    \begin{align*}
+        f'(x)=\sum_{n=1}^\infty na_n(x-b)^{n-1}
+    \end{align*}
+    at each point of $I$.
+\end{theorem}
+\begin{theorem}[Identity Principle]
+    If
+    \begin{align*}
+        \sum_{n=0}^\infty a_n(x-b)^n = \sum_{n=0}^\infty c_n(x-b)^n
+    \end{align*} 
+    for every point $x$ in an open interval $I$ centred on $x=b$, then $a_n=c_n$
+    for all $n\geq 0$.
+\end{theorem}
+
+\subsubsection{Ordinary and singular points}
+
+Consider the homogeneous linear ODE
+\begin{align}
+    \label{shl}
+    P(x)\frac{d^2y}{dx^2}+Q(x)\frac{dy}{dx}+R(x)y(x)=0
+\end{align}
+where the functions $P(x)$, $Q(x)$, $R(x)$ are analytic at a point $x=a$.
+We can express (\ref{shl}) as
+\begin{align}
+    \label{shl2}
+    \frac{d^2y}{dx^2}+p(x)\frac{dy}{dx}+q(x)y(x)=0 
+\end{align} 
+where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
+\begin{definition}
+    The point $x=a$ is an \B{ordinary point} of (\ref{shl2}) provided that
+    $p(x)$ and $q(x)$ are both analytic at $x=a$; otherwise $x=a$ is a
+    \B{singular point}.
+\end{definition}
+\begin{lemma}
+    If $P(x)$, $Q(x)$, $R(x)$ in (\ref{shl}) are polynomials with no common
+    factors then $x=a$ is an ordinary point if and only if $P(a)\not=0$.
+\end{lemma}
+
+\subsubsection{Series solutions near an ordinary point}
+
+\begin{theorem}
+    If $x=b$ is an ordinary point of the ODE (\ref{shl2}) then the general
+    solution to (\ref{shl2}) may be expressed as
+    \begin{align*}
+        y(x) = \sum_{n=0}^\infty a_n(x-b)^n = a_0y_1(x)+a_1y_2(x)
+    \end{align*}
+    where $a_0,a_1$ are arbitrary constants and $y_1(x),y_2(x)$ are two
+    power series solutions.
+\end{theorem}
+
+\subsubsection{Series solutions near a regular singular point: Method of Frobenius}
+
+\begin{definition}
+    A \B{Frobenius series} is a power series of the form
+    \begin{align}
+        \label{frob}
+        y(x)=x^r\sum_{n=0}^\infty a_nx^n
+    \end{align}
+    for some $r,a_0,a_1,...\in\R$.
+\end{definition}
+
+\begin{theorem}
+    To be a solution to the ODE (\ref{shl2}) the series (\ref{frob}) must
+    have an exponent $r$ that satsifies the \B{indicial equation}
+    \begin{align}
+        \label{indic}
+        r(r-1) + p_0r + q_0 = 0
+    \end{align}
+    where $p_0$ and $q_0$ come from the power series expansions of $p$
+    and $q$:
+    \begin{align*}
+        xp(x) = \sum_{n=0}^\infty p_n x^n,\hs x^2q(x)=\sum_{n=0}^\infty q_nx^n.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Method of Frobenius]
+    Let $r_1\geq r_2$ be the roots of the indical equation (\ref{indic}).
+    Then, for $0<x<\rho$, there exists a solution of the ODE (\ref{shl2}) of the
+    form 
+    \begin{align*}
+        y_1(x)=x^{r_1} \sum_{n=0}^\infty a_nx^n,\hs(a\not=0).
+    \end{align*} 
+    A second linearly independent solution $y_2$ is given as follows:
+    \begin{itemize}
+        \item if $r_1-r_2$ is neither zero nor a positive integer then \begin{align*}
+            y_2(x) = x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b_0\not=0),
+        \end{align*}
+        \item if $r_1-r_2$ is a positive integer then \begin{align*}
+            y_2(x) = Dy_1(x)\ln x + x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b\not=0)
+        \end{align*}
+        where the constant $D$ may or may not be zero,
+        \item if $r_1-r_2=0$ then \begin{align*}
+            y_2(x) = y_1(x)\ln x + x^{r_1}\sum_{n=1}^\infty b_nx^n.
+        \end{align*}
+    \end{itemize}
 \end{theorem}
 \end{document}
