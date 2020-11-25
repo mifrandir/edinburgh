@@ -718,7 +718,7 @@ How to mapp 32-bit address to a much smaller memory?
 	\item a \B{valid bit}, indicating the block is in use
 \end{itemize}
 
-\subsubsection{Full-associative cache}
+\subsubsection{Fully Associative Cache}
 
 \begin{itemize}
 	\item correct cache block identified by matching tags
@@ -737,7 +737,7 @@ How to mapp 32-bit address to a much smaller memory?
 	allocated in.
 \end{definition}
 
-\subsubsection{Direct-mapped cache}
+\subsubsection{Direct Mapped Cache}
 
 \begin{itemize}
 	\item Problem of fully-associative cache: search is slow or requires expensive CAM
@@ -745,4 +745,143 @@ How to mapp 32-bit address to a much smaller memory?
 	\item uses last $n$ bits of word-address
 \end{itemize}
 
+\subsubsection{Set Associative Cache}
+
+\begin{itemize}
+	\item split the cache into groups of $m$ blocks each (\B{m-way set-associative})
+	\item a given block can only go into one set, but anywhere withing that set 
+	\item compromise between DM and FA caches
+	\item typical degree of associativity is 2-16
+\end{itemize}
+
+\subsubsection{Writing strategies}
+
+\begin{definition}
+	\B{Write through} is a strategy where both the memory and the cache
+	are updated on a hit.
+	\begin{itemize}
+		\item good: memory and cache always synchronised
+		\item bad: writes are slow
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	\B{Write back} is a strategy where a cache block gets flagged as
+	dirty once it has been written to. When a dirty block is replaced,
+	it is written to memory
+	\begin{itemize}
+		\item good: writes are fast and generate little traffic
+		\item bad: memory anc have stale data for some time
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	\B{Write allocate} is a strategy where on a cache miss a block 
+	is brought into the cache and written to.
+	\begin{itemize}
+		\item useful if no locality exists
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	\B{Write no-allocate} is a strategy on a cache miss the data is
+	written directly to memory and not brought to the cache.
+	\begin{itemize}
+		\item useful if no locality
+		\item guarantees that cache and memory are synchronised
+	\end{itemize}
+\end{definition}
+
+
+\subsection{Virtual Memory}
+
+
+\subsubsection{Motivations}
+
+\begin{enumerate}
+	\item Limited capacity of main memory
+	\item Safety of shared memory between applications
+\end{enumerate}
+
+\subsubsection{Idea}
+
+\begin{itemize}
+	\item each program thinks it owns the entire memory (\B{virtual address space})
+	\item actual main memory is \B{physical address space}
+	\item virtual addresses are translated on-the-fly to physical addresses
+	\item translation is done by OS and HW
+\end{itemize}
+
+\subsubsection{Physical memory as a cache for VM}
+
+\begin{itemize}
+	\item virtual memory space can be larger than physical memory
+	\item physical memory is a cache for virtual memory
+	\item secondary storage backs the physical memory
+\end{itemize}
+
+\subsubsection{Paging}
+
+\begin{definition}
+	A cache line or block of VM is called a \B{page}.
+	\begin{itemize}
+		\item Simply page or virtual page for VM
+		\item Page frame or physical page for physical memory
+	\end{itemize}
+\end{definition}
+\begin{itemize}
+	\item Typical page sizes are 4-16 KB
+	\item Mapping is done through a per-program \B{page table}
+\end{itemize}
+
+\subsubsection{Address Translation}
+
+\begin{itemize}
+	\item virtual addresses consist of page number ($V$) and page offset ($O$)
+	\item physical addresses consist of frame number ($F$) and page offset ($O$)
+	\item page table translates $V$ to $F$ by maintaining an entry for every value of $V$
+	\item a page table entry (PTE) for $V$ consists of status bits and $F$
+\end{itemize}
+
+\subsubsection{Moving pages to/from memory}
+
+\begin{itemize}
+	\item pages are allocated on demand 
+	\item pages are replaced and swapped to disk when system runs out of free page frames
+	\item access to a swapped-out page causes a \B{page-fault}
+\end{itemize}
+Status bits:
+\begin{itemize}
+	\item A: Access bit is set whenever a page is accessed and reset periodically
+	\item M: Modified bit is set when a page is modified so desynchronised from disk
+	\item R: Residence bit indicates whether the page is currently in physical memory
+\end{itemize}
+
+\subsubsection{Providing Protection}
+
+\begin{itemize}
+	\item each PTE can have permission bits \begin{itemize}
+		\item W: read \& write
+		\item R: read-only
+		\item E: execute-only
+	\end{itemize}
+	\item per-process memory protection
+	\item Important: Only OS can change page tables
+\end{itemize}
+
+\subsubsection{Translation Lookaside Buffer (TLB)}
+
+\begin{itemize}
+	\item small, fully-associative cache of PTEs \begin{itemize}
+		\item Each TLB entry holds translation info
+		\item Tag: $V$, Entry: $F$
+	\end{itemize}
+	\item small and fast table in hardware, located close to CPU
+	\item when page not in TLB: access the page table and save the translation
+	\item status bits: \begin{itemize}
+		\item V indicates a valid entry
+		\item D indicates whether page has been modified
+		\item R, W, X permission bits
+	\end{itemize} 
+\end{itemize}
 \end{document}
