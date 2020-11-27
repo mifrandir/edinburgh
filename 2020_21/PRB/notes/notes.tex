@@ -575,4 +575,77 @@
         p_X (x) = \sum_y p_{X,Y} (x,y) \text{ and } p_Y(y)=\sum_x p_{X,Y}(x,y).
     \end{align*}
 \end{definition}
+
+
+\section{Covariance and correlation}
+
+
+\subsection{Covariance}
+
+
+\begin{definition}
+    Let $X,Y$ be random variables. THen the \B{covariance} of $X$ and $Y$ is defined by
+    \begin{align*}
+        \Cov(X,Y) = \E(XY)-\E(X)\E(Y).
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    Suppose that $\E(X)=\mu_X, \E(Y)=\mu_Y$. Then the covariance may also
+    be expressed as
+    \begin{align*}
+        \Cov(X,Y)=\E((X-\mu_x)(Y-\mu_Y)).
+    \end{align*}
+\end{lemma}
+
+\begin{theorem}
+    Let $X,Y,Z$ be random variables and let $a,b\in\R$. Then
+    \begin{itemize}
+        \item $\Cov(X,Y)=\Cov(Y,X)$
+        \item $\Cov(X,X)=\V(x)$
+        \item $\Cov(aX+bY, Z)=a\Cov(X,Z)+b\Cov(Y,Z)$
+    \end{itemize}
+\end{theorem}
+
+
+\subsection{Correlation}
+
+
+\begin{definition}
+    Let $X,Y$ be random variables. Then we define the \B{correlation} of
+    $X,Y$ to be
+    \begin{align*}
+        \Cor(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\V(X)\V(Y)}}
+    \end{align*}
+\end{definition}
+\begin{theorem}
+    Let $X,Y$ be random variables and $a\not=0$ a constant. Then
+    \begin{align*}
+            \Cor(aX,Y)=\Cor(X,Y).
+    \end{align*}
+\end{theorem}
+
+
+\subsection{Additivity of variance}
+
+
+\begin{theorem}
+    Suppose $X,Y$ are random variables. Then
+    \begin{align*}
+        \V(X+Y)=\V(X)+\V(Y)+2\Cov(X,Y).
+    \end{align*}
+\end{theorem}
+\begin{theorem}
+    For random variables $X,Y$ of finite variance
+    \begin{align*}
+        (\Cov(X,Y))^2\leq \V(X)\V(Y).
+    \end{align*}
+\end{theorem}
+\begin{corollary}
+    For random variables $X,Y$ for which the variances and covariance
+    exist
+    \begin{align*}
+        -1 \leq \Cov(X,Y) \leq 1.
+    \end{align*}
+\end{corollary}
 \end{document}
