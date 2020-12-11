@@ -884,4 +884,138 @@ Status bits:
 		\item R, W, X permission bits
 	\end{itemize} 
 \end{itemize}
+
+\section{Exceptions \& Processor Management}
+
+\begin{definition}
+	An \B{exception} is an event that interrupts the normal program flow
+	and requires attention of the CPU outside of the running program.
+\end{definition}
+
+External:
+\begin{itemize}
+	\item not caused by program execution
+	\item e.g., I/O interrupt
+\end{itemize}
+
+Internal:
+\begin{itemize}
+	\item caused by program execution
+	\item e.g., \T{syscall}, TLB miss
+\end{itemize}
+
+\subsection{Intentional exceptions}
+
+\begin{itemize}
+	\item Use exception mechanism to requrest some OS functions
+	\item MIPS uses \T{syscall}
+	\item parameters are passed to the OS through registers
+\end{itemize}
+
+\subsection{Exception mechanism}
+
+\begin{enumerate}
+	\item Save the address of current instruction (into EPC)
+	\item Transfer control to the OS at a known address
+	\item Handle the exception
+	\item Return to user program execution (instruction \T{eret})
+\end{enumerate}
+
+\subsection{Finding the exception handler}
+
+Approach 1:
+\begin{itemize}
+	\item jump to predefined address
+	\item use the \B{Cause register} to branch to right handler
+	\item works well for \T{syscall}
+\end{itemize}
+
+Approach 2:
+\begin{itemize}
+	\item directly jump to a specific handler depending on the exception (\B{vectored interrupt})
+	\item the interrupt signal comes from the "outside" via CPU pins
+\end{itemize}
+
+\subsection{Handling the exception}
+
+\begin{itemize}
+	\item determine required action
+	\item if possible: take corrective action, use EPC to jump back
+	\item otherwise: terminate program, report error
+	\item \B{During the interrupt, not other interrupts should happen!}
+\end{itemize}
+
+\subsection{Protecting system resources}
+
+\begin{itemize}
+	\item OS mus guarantee safe and orderly accesses
+	\item OS decides what's allowed
+	\item exceptions are used to hand control over to the OS
+\end{itemize}
+
+\subsection{Kernel vs. User Mode Protection}
+
+\begin{itemize}
+	\item two CPU modes: \B{user} and \B{kernel}
+	\item privileged instructions only executed in kernel mode
+	\item kernel mode can only be entered through an exception
+	\item \T{eret} returns to previous mode
+\end{itemize}
+
+Advantages of Dual Mode architecture:
+\begin{itemize}
+	\item guarantees OS handles dangerous program behaviour
+	\item allows OS to stop interference between programs
+	\item allows OS to limit resource accesses
+	\item limits CPU time
+\end{itemize}
+
+\subsection{Time-Sharing the CPU}
+
+\begin{itemize}
+	\item Problem: I/O takes too long
+	\item Solution: share CPU among several user processes
+\end{itemize}
+
+Managing Processes:
+\begin{itemize}
+	\item processes are managed by the OS kernel 
+	\item scheduler chooses which process to run next
+\end{itemize}
+
+\subsection{Process States}
+
+States:
+\begin{itemize}
+	\item \B{RUNNING}: process is currently running
+	\item \B{READY}: process is not running, but could run if brought into CPU
+	\item \B{BLOCKED}: process is not able to run (i.e. waiting on I/O)
+\end{itemize}
+
+Transitions:
+\begin{itemize}
+	\item \B{I/O REQ}: process initiates I/O
+	\item \B{I/O COMP}: I/O finishes
+	\item \B{DISPATCH}: Os moves processes into CPU and it starts executing
+	\item \B{TIMEOUT}: process's \B{timeslice} is over
+\end{itemize}
+
+\begin{definition}
+	The \B{PCB} is an OS data structure containing each process's information:
+	\begin{itemize}
+		\item PID
+		\item state
+		\item priority
+		\item permissions
+		\item ...
+	\end{itemize}
+\end{definition}
+
+\subsection{Suspending and Resuming Processes}
+
+\begin{itemize}
+	\item Problem: Might not have enough physical memory for all processes
+	\item Solution: Processes can be swapped out from memory to disk
+\end{itemize}
+
 \end{document}
