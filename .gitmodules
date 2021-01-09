@@ -1,3 +1,6 @@
 [submodule "2020_21/INF2-CS/cw"]
 	path = 2020_21/INF2-CS/cw
 	url = https://git.ecdf.ed.ac.uk/s1971811/inf2c-cs-20
+[submodule "2020_21/INF2C/cw"]
+	path = 2020_21/INF2C/cw
+	url = https://git.ecdf.ed.ac.uk/s1971811/inf2c-cs-20
