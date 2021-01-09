@@ -56,7 +56,11 @@
 		\sigma_x = \sqrt{\sigma_x^2}.
 	\end{align*}
 \end{definition}
+
+
 \section{Linear Models}
+
+
 \begin{definition}
 	The \B{sample covariance} $s_{xy}$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$
 	is defined as
@@ -171,7 +175,11 @@ Notes on $R^2$:
 	\item $R^2=1$ indicates that the model predicts the data perfectly
 	\item $R^2=0$ indicates no predictive value
 \end{itemize}
+
+
 \section{Multiple regression}
+
+
 \begin{definition}
 	The process of predicting a dependent variable from multiple independent variables is called \B{multiple regression}.
 \end{definition}
@@ -250,7 +258,13 @@ Notes:
 	\end{align*}
 \end{definition}
 Note: Adjustment is useful because finding a good fit becomes easier with more variables. We don't want this to affect $R^2$.
-\section{Dealing with high dimensions}
+
+
+
+\section{Principle Component Analysis}
+
+
+
 \begin{definition}
 	The \B{variance along the $i$th axis} is given by $S_{ii}$ where $S$ is the
 	covariance matrix.
@@ -286,7 +300,21 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 	where $\lambda_j$ is the eigenvalue corresponding to the $j$th prinicipal
 	component.
 \end{proposition}
+
+\begin{theorem}
+	Given component scores $\vec t^{(i)}$ and a set of components $\vec p_j$,
+	the original data point $\vec x_i$ may be reconstructed as
+	\begin{align*}
+		\vec x_i = \sum_j t^{(i)}_j \vec p_j.
+	\end{align*}
+	Note: If only a subset of the principle components is chosen, this
+	reconstruction is likely to be in accurate.
+\end{theorem}
+
+
 \section{Clustering, unsupervised and supervised learning}
+
+
 \begin{definition}
 	\B{Cluster analysis} aims to partition a data set into meaningful or useful
 	groups, based on distances between data points.
@@ -305,7 +333,9 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 	in a cluster by a single cluster \B{prototype}, typically at the centre
 	of the cluster.
 \end{definition}
+
 \subsection{Types of clustering}
+
 \begin{definition}
 	\B{Hierarchical clustering} forms a tree of nested clusters in which, at
 	each level in the tree, a cluster is the union of its children.
@@ -315,10 +345,15 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 	non-overlapping clusters, with each data point assigned to exactly one
 	cluster.
 \end{definition}
+
 \subsection{K-means}
+
 \subsubsection{Aim}
+
 Dividing a set of $D$-dimensional data points into $K$ clusters.
+
 \subsubsection{Algorithm}
+
 \begin{enumerate}
 	\item Initialise $K$ cluster centres, $\{\vec m_k\}^K_1$
 	\item While not converged: \begin{enumerate}
@@ -356,7 +391,9 @@ There are several possible ways to \B{initialise} the cluster centres, including
 		\item there may be \B{multiple converging solutions}
 	\end{itemize}
 \end{definition}
+
 \subsubsection{Evaluation}
+
 To find best solution: Repeat with different initialisations and pick solution
 with the lowest error.
 \begin{definition}
@@ -369,12 +406,16 @@ with the lowest error.
 	where $\vec m_k$ is the centre of cluster $k$ and $n$ is the number of data
 	points in total.
 \end{definition}
+
 \subsubsection{Shortcomings}
+
 \begin{itemize}
 	\item dependent on the scale of data
 	\item large clouds can pull small clusters off-centre
 \end{itemize}
+
 \subsubsection{Variants}
+
 \begin{itemize}
 	\item Batch: update centres after assigning all the values
 	\item Online: update centres after assigning individual values 
