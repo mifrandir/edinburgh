@@ -1,45 +1,8 @@
 \documentclass{article}
-\usepackage[a4paper]{geometry}
-\usepackage{babel}
-\usepackage{xcolor}
-\usepackage[colorlinks=false]{hyperref}
-\hypersetup{
-    colorlinks = false,
-    linkbordercolor = {white}
-}
-\usepackage{amsmath}
-\usepackage{listings}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage[framemethod=TikZ]{mdframed}
-\usepackage{proof}
-\newcounter{example}[section]\setcounter{example}{0}
-\newenvironment{example}{
-\noindent\refstepcounter{example}
-\paragraph*{Example}}{}
-\newtheoremstyle{sltheorem} {}                % Space above
-{}                % Space below
-{\upshape}        % Theorem body font % (default is "\upshape")
-{}                % Indent amount
-{\bfseries}       % Theorem head font % (default is \mdseries)
-{.}               % Punctuation after theorem head % default: no punctuation
-{ }               % Space after theorem head
-{}                % Theorem head spec
-\theoremstyle{sltheorem}
-\newtheorem{definition}{Definition}
-\newtheorem{theorem}{Theorem}
+\usepackage{notes-preamble}
+\mkthms
 \begin{document}
-\begin{titlepage}
-    \begin{center}
-        
-        \LARGE Franz Miltz\\
-        \url{franz@miltz.me}\\
-        \vspace{5cm}
-        \LARGE\B{Introcution to Computation}\\
-        \vspace{1cm}
-        Michael Fourman (Computation and Logic)
-    \end{center}
-\end{titlepage}
+\title{INF1A: Computation \& Logic (SEM1)}
 \tableofcontents
 \pagebreak
 \section{Lecture 0, September 16}
