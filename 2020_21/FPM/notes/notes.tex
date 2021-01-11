@@ -1,0 +1,219 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\begin{document}
+\mkfpmthms
+\title{Fundamentals of Pure Mathematics (SEM4)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\setcounter{section}{-1}
+
+
+\section{Revision}
+
+
+\subsection{Functions}
+
+\begin{definition}
+    A function $f:X\to Y$ is called
+    \begin{itemize}
+        \item \emph{injective} if $f(x_1)=f(x_2)$ implies that $x_1=x_2$;
+        \item \emph{surjective} if for every $y\in Y$, there exists $x\in X$ such that $f(x)=y$;
+        \item \emph{bijective} if it is both injective and surjective.
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    Let $f,g,h$ be functions such that the composition $h \circ (g \circ f)$ exists. Then
+    \begin{align*}
+        h \circ (g \circ f) = (h \circ g) \circ f = h \circ g \circ f.
+    \end{align*}
+\end{lemma}
+
+\subsection{Making counting arguments rigorous}
+
+\begin{theorem}
+    Let $S$ and $T$ be two finite sets. Let $f:S\to T$ be a map.
+    Then the cardinality of $S$ is equal to the sum, over the elements
+    $t$ of $T$, of the cardinalities of the inverse images $f^{-1}(\{t\})\subseteq S$:
+    \begin{align*}
+        |S| = \sum_{t\in T}\abs{f^{-1}(\{t\})}
+    \end{align*}
+\end{theorem}
+
+\begin{corollary}
+    Let $S$ and $T$ be two finite sets. Then $\abs{S\times T}=\abs{S}\abs{T}$.
+\end{corollary}
+
+\begin{corollary}
+    Let $S$ and $T$ be two finite sets, and let $f:S\to T$ be a map. If $f$ is
+    an injection, then $\abs{S}\leq\abs{T}$. If $f$ is a surjection, then
+    $\abs{S}\geq\abs{T}$. If $f$ is a bijection, then $\abs{S}=\abs{T}$.
+\end{corollary}
+
+\begin{definition}
+    For any two sets $S$ and $T$, let us write $\sum(S,T)$ for the set of
+    bijections $S\to T$.
+\end{definition}
+
+\begin{theorem}
+    Let $S$ and $T$ be two finite sets, and assume that $\abs{S}=\abs{T}=n$.
+    Then there are $n!$ bijections $S\to T$. 
+\end{theorem}
+
+\subsection{Permutations}
+
+\begin{definition}
+    A \emph{permutation} of a finite set $X$ is a bijection $X\to X$. We
+    write $S_n$ for the set of permutations of $\{1,2,...,n\}$.
+\end{definition}
+
+\begin{definition}
+    More generally, if $\sigma : X\to X$ is a permutation, then the \emph{order}
+    of $\sigma$ is the smallest natural number $k>0$ such that $\sigma^k = e$.
+\end{definition}
+
+\begin{proposition}
+    Every element of $S_n$ has a finite order.
+\end{proposition}
+
+
+\section{Symmetries and groups}
+
+
+\subsection{Symmetries of graphs}
+
+\begin{definition}
+    A \emph{graph} is a finite set of vertices joined by edges. We will
+    assume that there is at most one edge joining two given vertices and
+    no edge joins a vertex to itself. The \emph{valency} of a vertex
+    is the number of edges emerging from it.
+\end{definition}
+
+\setcounter{theorem}{2}
+\begin{definition}
+    An \emph{isomorphism} between two graphs is a bijection between them
+    that preserves all edges. More precisely, if $\Gamma_1$ and $\Gamma_2$
+    are graphs, with sets of vertices $V_1$ and $V_2$, respectively, then
+    an \emph{isormorphism} from $\Gamma_1$ to $\Gamma_2$ is a bijection
+    \begin{align*}
+        f:V_1\to V_2
+    \end{align*}
+    such that $f(v_1)$ and $f(v_2)$ are joined by an edge if and only if
+    $v_1$ and $v_2$ are joined by an edge.\\
+    We say that $\Gamma_1$ and $\Gamma_2$ are \emph{isomorphic} if there
+    exists an isomorphism $f:\Gamma_1\to \Gamma_2$.
+\end{definition}
+
+\setcounter{theorem}{8}
+\begin{definition}
+    A \emph{symmetry} of a graph is an isormorphism from the graph to
+    itself, i.e. if the set of vertices is $V$, then a symmetry is a
+    bijection $f:V\to V$ that preserves edges. That is, a symmetry is
+    a bijection $f:V\to V$ such that $f(v_1)$ and $f(v_2)$ are joined
+    by an edge if and only if $v_1$ and $v_2$ are joined by an edge.
+\end{definition}
+
+\subsection{Groups and examples}
+
+\subsubsection{The definition of a group}
+
+\begin{definition}
+    Let $S$ be any nonempty set. An operation $\star$ on $S$ is a rule
+    which, for every ordered pair $(a,b)$ of elements of $S$, determines
+    a unique element $a\star b$ of $S$. Equivalently, if we recall that
+    \begin{align*}
+        S\times S := \{(a,b) | a,b\in S\}
+    \end{align*}
+    then an operation is a function $S\times S\to S$.
+\end{definition}
+
+\setcounter{theorem}{2}
+\begin{definition}
+    We say that a nonempty set $G$ is a \emph{group under $\star$} if
+    \begin{enumerate}
+        \item (Closure) $\star$ is an operation, so $g\star h\in G$ for all $g,h\in G$.
+        \item (Associativity) $g\star (h \star k)=(g\star h)\star k$ for all $g,h,k\in G$.
+        \item (Identity) There exists an \emph{identity element} $e\in G$ such $e\star g = g\star e = g$
+              for all $g\in G$.
+        \item (Inverses) Every element $g\in G$ has an \emph{inverse} $\inv g$ 
+              such that $g\star \inv g= \inv g \star g = e$.
+    \end{enumerate}
+    If $G$ is a finite group, the number of elements of $G$ is written $\abs{G}$, and is called the
+    \emph{order} of $G$. If $G$ is infinite then we say that $\abs{G}=\infty$ , ther order of $G$
+    is \emph{infinite}.
+\end{definition}
+
+\begin{theorem}
+    The set of symmetries of a graph forms a group (under composition).
+\end{theorem}
+
+\setcounter{theorem}{5}
+\begin{definition}
+    Suppose that $G$ is a group and $g,h\in G$. If $g\star h = h\star g$ then we say
+    that $g$ and $h$ \emph{commute}. If $g\star h=h\star g$ for all $g,h\in G$, then
+    we say $G$ is an \emph{abelian} group.
+\end{definition}
+
+\subsection{Symmetries give groups}
+
+\setcounter{theorem}{1}
+\begin{definition}
+    The set $S_n$ of all symmetries of $\{1,...,n\}$ is called the \emph{symmetric group}. 
+\end{definition}
+
+\begin{lemma}
+    The set $S_n$ is a group under composition of order $\abs{S_n}=n!$.
+\end{lemma}
+
+\setcounter{theorem}{4}
+\begin{definition}
+    The set of \emph{invertible $n\times n$} matrices with entries in $\R$ is denoted
+    $\GL(n,\R)$. Similarly, if $p$ is a prime, then the set of invertible $n\times n$
+    matrices with entries in $Z_p$ is denoted $\GL(n,\Z_p)$.
+\end{definition}
+
+\begin{theorem}
+    $\GL(n,\R)$ is a group under matrix multiplication.
+\end{theorem}
+
+\subsection{Product groups and first properties of groups}
+
+\begin{theorem}
+    Let $G,H$ be groups. The product
+    \begin{align*}
+        G\times H=\{(g,h)|g\in G, h\in H\}
+    \end{align*}
+    has the natrual structure of a group as follows:
+    \begin{itemize}
+        \item The group operation is $(g,h)\star(g',h'):=(g\star_G g', h\star_H h')$, 
+        where we write $\star_G$ and $\star_H$ for the group operations in $G$ and $H$, respectively.
+        \item The identity $e$ in $G\times H$ is $e:=(e_G, e_H)$, where $e_G$ and 
+        $e_H$ are the identity elements of $G$ and $H$, respectively.
+        \item The inverse of $(g,h)$ is $(\inv g, \inv h)$, where the inverse of $g$ is taken in $G$,
+        and the inverse of $h$ is taken in $H$.
+    \end{itemize}
+\end{theorem}
+
+\setcounter{theorem}{5}
+\begin{lemma}
+    Let $G$ be a group. If $g,h\in G$, then
+    \begin{enumerate}
+        \item There is one and only one element $k\in G$ such that $k\star g=h$.
+        \item There is one and only one elmenet $k\in G$ such that $g\star k=h$.
+    \end{enumerate}
+\end{lemma}
+
+\setcounter{theorem}{7}
+\begin{corollary}
+    The following statements are true:
+    \begin{enumerate}
+        \item In a group you can always cancel: if $g\star s=g\star t$ 
+        then $s=t$. Similarly, if $s\star g=t\star g$ then $s=t$.
+        \item Inversese are unique.
+        \item A group has only one identity.
+    \end{enumerate}
+\end{corollary}
+\end{document}
