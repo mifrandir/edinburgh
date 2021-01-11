@@ -9,14 +9,14 @@
 \pagebreak
 \section{Statistical preliminaries}
 \begin{definition}
-	The \B{sample mean} $\bar{x}$ for sample $x_1, x_2, ..., x_n$
+	The \emph{sample mean} $\bar{x}$ for sample $x_1, x_2, ..., x_n$
 	is defined as
 	\begin{align*}
 		\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{sample median} $\tilde x$ for a sample $x_1, x_2, ..., x_n$ is defined as 
+	The \emph{sample median} $\tilde x$ for a sample $x_1, x_2, ..., x_n$ is defined as 
 	\begin{align*}
 		\tilde x = \begin{cases}
 			x_{(n+1)/2} 				   &\text{if $n$ is odd},\\
@@ -27,31 +27,31 @@
 \begin{theorem}
 	The relation of the mean $\bar x$ and the median $\tilde x$ can be inferred as follows
 	\begin{enumerate}
-		\item If a distribution is \B{symmetric}, then $\bar x = \tilde x$
-		\item If a distribution is \B{positively skewed}, then $\bar x > \tilde x$
-		\item If a distribution is \B{negatively skewed}, then $\bar x < \tilde x$.
+		\item If a distribution is \emph{symmetric}, then $\bar x = \tilde x$
+		\item If a distribution is \emph{positively skewed}, then $\bar x > \tilde x$
+		\item If a distribution is \emph{negatively skewed}, then $\bar x < \tilde x$.
 	\end{enumerate}
 \end{theorem}
 \begin{definition}
-	The \B{sample variance} $s_x^2$ of a sample $x_1, x_2, ..., x_n$ is defined as
+	The \emph{sample variance} $s_x^2$ of a sample $x_1, x_2, ..., x_n$ is defined as
 	\begin{align*}
 		s_x^2 = \frac{1}{n-1}\sum_{i=1}^n (x_i-\bar x)^2.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{sample standard deviation} $s_x$ of a sample $x_1, x_2, ..., x_n$ is defined as
+	The \emph{sample standard deviation} $s_x$ of a sample $x_1, x_2, ..., x_n$ is defined as
 	\begin{align*}
 		s_x = \sqrt{s_x^2}.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{population variance} $\sigma_x^2$ of a population $x_1, x_2, ..., x_N$ is defined as
+	The \emph{population variance} $\sigma_x^2$ of a population $x_1, x_2, ..., x_N$ is defined as
 	\begin{align*}
 		\sigma_x^2 =\frac{1}{N}\sum_{i=1}^N (x_i-\bar x)^2.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{population standard deviation} $\sigma_x$ of a population $x_1, x_2, ..., x_N$ is defined as
+	The \emph{population standard deviation} $\sigma_x$ of a population $x_1, x_2, ..., x_N$ is defined as
 	\begin{align*}
 		\sigma_x = \sqrt{\sigma_x^2}.
 	\end{align*}
@@ -62,7 +62,7 @@
 
 
 \begin{definition}
-	The \B{sample covariance} $s_{xy}$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$
+	The \emph{sample covariance} $s_{xy}$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$
 	is defined as
 	\begin{align*}
 		s_{xy} = \frac{1}{n}\sum_{i=1}^n (x_i - \bar x)(y_i - \bar y).
@@ -74,7 +74,7 @@ Notes about the sample covariance:
 	\item Scaling the units linearly scales $s_{xy}$ linearly.
 \end{enumerate}
 \begin{definition}
-	The \B{correlation coefficient} $r$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$ is defined as
+	The \emph{correlation coefficient} $r$ of a sample $(x_1, y_1), (x_2, y_2), ..., (x_n, y_n)$ is defined as
 	\begin{align*}
 		r = \frac{s_{xy}}{s_x s_y}.
 	\end{align*}
@@ -128,13 +128,13 @@ Properties of the regression line of standardised variables:
 \end{enumerate}
 \begin{definition}
 	Let $(\hat\beta_0,\hat\beta_1)$ be a regression line of $(x,y)$. Then the
-	\B{predicted value} $\hat y_i$ for each $x_i$ is defined as
+	\emph{predicted value} $\hat y_i$ for each $x_i$ is defined as
 	\begin{align*}
 		\hat y_i = \hat\beta_0 + \hat\beta_1 x_i.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The differences $y_i - \hat y_i$ for each $i$ are called \B{residuals}.
+	The differences $y_i - \hat y_i$ for each $i$ are called \emph{residuals}.
 \end{definition}
 Note on residuals from linear regression:
 \begin{enumerate}
@@ -143,28 +143,28 @@ Note on residuals from linear regression:
 	\item Zero correlation with the predicted values $\hat y$
 \end{enumerate}
 \begin{definition}
-	The \B{mean square error} is defined by
+	The \emph{mean square error} is defined by
 	\begin{align*}
 		\mse = \frac{1}{n}\sum_{i=1}^n (y-\hat y)^2
 	\end{align*}
-	and the \B{root mean square error} is given by $\rmse=\sqrt{\mse}$.
+	and the \emph{root mean square error} is given by $\rmse=\sqrt{\mse}$.
 \end{definition}
 \begin{definition}
 	A measure of the total variance in $y$ before we know anything
-	about $x$ is the \B{total sum of squares (SST)}, which we define
+	about $x$ is the \emph{total sum of squares (SST)}, which we define
 	as the sum of squared deviations from the mean of $y$:
 	\begin{align*}
 		\sst = S_{yy} = \sum (y_i - \bar y)^2 = (n-1)s^2_y.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{sum of squared errors (SSE)} is defined
+	The \emph{sum of squared errors (SSE)} is defined
 	\begin{align*}
 		\sse = \sum (y_i -\hat y_i)^2.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{coeficient of determination} is defined
+	The \emph{coeficient of determination} is defined
 	\begin{align*}
 		R^2 = 1-\frac{\sse}{\sst}.
 	\end{align*}
@@ -181,7 +181,7 @@ Notes on $R^2$:
 
 
 \begin{definition}
-	The process of predicting a dependent variable from multiple independent variables is called \B{multiple regression}.
+	The process of predicting a dependent variable from multiple independent variables is called \emph{multiple regression}.
 \end{definition}
 \begin{definition}
 	Suppose we have two independent variables $x^{(1)}$ and $x^{(2)}$ and one dependent variable $y$.
@@ -191,7 +191,7 @@ Notes on $R^2$:
 	\end{align*}
 \end{definition}
 \begin{definition}
-	Let $x^*_{ik}=x^{(k)}_i - \bar x^{(k)}$. Then the \B{regressor matrix} $T$ is
+	Let $x^*_{ik}=x^{(k)}_i - \bar x^{(k)}$. Then the \emph{regressor matrix} $T$ is
 	the $n\times K$ matrix defined as
 	\begin{align*}
 		T = \begin{pmatrix}
@@ -203,7 +203,7 @@ Notes on $R^2$:
 	\end{align*}
 \end{definition}
 \begin{definition}
-	Let $y^*_i=y_i-\bar y$. Then the \B{moment matrix} is defined as
+	Let $y^*_i=y_i-\bar y$. Then the \emph{moment matrix} is defined as
 	\begin{align*}
 		X^T y = \begin{pmatrix}
 			\sum x^*_{i1} y^*_i\\
@@ -214,7 +214,7 @@ Notes on $R^2$:
 	where $y$ is the column vector containing all $y^*_i$.	
 \end{definition}
 \begin{definition}
-	The \B{covariance matrix} is defined as
+	The \emph{covariance matrix} is defined as
 	\begin{align*}
 		S =\frac{1}{n-1}X^T X.
 	\end{align*}
@@ -238,7 +238,7 @@ Notes on $R^2$:
 	\end{align*}
 \end{theorem}
 \begin{definition}
-	The \B{interaction term model} for two independent variables $x^{(1)}$ and $x^{(2)}$ and one dependent variable $y$
+	The \emph{interaction term model} for two independent variables $x^{(1)}$ and $x^{(2)}$ and one dependent variable $y$
 	is defined as
 	\begin{align*}
 		y = \beta_0 + \beta_1 x^{(1)} + \beta_2 x^{(2)} + \beta_3 x^{(1)}x^{(2)}.
@@ -252,7 +252,7 @@ Notes:
 \end{itemize}
 \begin{definition}
 	If the number of variables is $k$ and the number of instances is $n$, the
-	\B{adjusted coefficient of determination} is given
+	\emph{adjusted coefficient of determination} is given
 	\begin{align*}
 		R^2_a = 1 - \frac{n-1}{n-k-1}\frac{\sse}{\sst}.
 	\end{align*}
@@ -266,18 +266,18 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 
 
 \begin{definition}
-	The \B{variance along the $i$th axis} is given by $S_{ii}$ where $S$ is the
+	The \emph{variance along the $i$th axis} is given by $S_{ii}$ where $S$ is the
 	covariance matrix.
 \end{definition}
 \begin{definition}
-	Given a unit vector $\vec p$ the \B{component score} $t_i$ of a data point
+	Given a unit vector $\vec p$ the \emph{component score} $t_i$ of a data point
 	$\vec x_i$ is defined as
 	\begin{align*}
 		t_i = {\vec p}^{T} \vec x_i.
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \B{variance of a component score} $t^{(i)}$ is
+	The \emph{variance of a component score} $t^{(i)}$ is
 	\begin{align*}
 		s_t^2 = \frac{1}{n-1}\sum_{i=1}^n t_i^2.
 	\end{align*}
@@ -316,32 +316,32 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 
 
 \begin{definition}
-	\B{Cluster analysis} aims to partition a data set into meaningful or useful
+	\emph{Cluster analysis} aims to partition a data set into meaningful or useful
 	groups, based on distances between data points.
 \end{definition}
 \begin{definition}
-	Classification is a \B{supervised learining} process: there is a training
+	Classification is a \emph{supervised learining} process: there is a training
 	set in which each dat a item has a label.
 \end{definition}
 \begin{definition}
-	Clustering is an \B{unsupervised learning} process in which the training
+	Clustering is an \emph{unsupervised learning} process in which the training
 	set does not contain any labels. The aim of a clustering algorithm is to group
 	such a data set into clusters, based on the unlabelled data alone.
 \end{definition}
 \begin{definition}
 	Clustering may be used to compress data by representing each data itme
-	in a cluster by a single cluster \B{prototype}, typically at the centre
+	in a cluster by a single cluster \emph{prototype}, typically at the centre
 	of the cluster.
 \end{definition}
 
 \subsection{Types of clustering}
 
 \begin{definition}
-	\B{Hierarchical clustering} forms a tree of nested clusters in which, at
+	\emph{Hierarchical clustering} forms a tree of nested clusters in which, at
 	each level in the tree, a cluster is the union of its children.
 \end{definition}
 \begin{definition}
-	\B{Partitional clustering} divides the data into a fixed number of
+	\emph{Partitional clustering} divides the data into a fixed number of
 	non-overlapping clusters, with each data point assigned to exactly one
 	cluster.
 \end{definition}
@@ -375,7 +375,7 @@ Dividing a set of $D$-dimensional data points into $K$ clusters.
 		d(\vec x, \vec y) = \vabs{\vec x - \vec y}=\sqrt{\sum_{j=1}^D(x_j-y_j)^2}.
 	\end{align*}
 \end{definition}
-There are several possible ways to \B{initialise} the cluster centres, including:
+There are several possible ways to \emph{initialise} the cluster centres, including:
 \begin{itemize}
 	\item random data points
 	\item means of random partitions of the input
@@ -383,12 +383,12 @@ There are several possible ways to \B{initialise} the cluster centres, including
 	\item perturb mean of data set 
 \end{itemize}
 \begin{definition}
-	\B{Convergence} is reached when the assignment of points to clusters
+	\emph{Convergence} is reached when the assignment of points to clusters
 	does not change after an iteration.
 	\begin{itemize}
 		\item convergence is guranteed
 		\item number of iterations up to convergence is not guranteed
-		\item there may be \B{multiple converging solutions}
+		\item there may be \emph{multiple converging solutions}
 	\end{itemize}
 \end{definition}
 
@@ -397,7 +397,7 @@ There are several possible ways to \B{initialise} the cluster centres, including
 To find best solution: Repeat with different initialisations and pick solution
 with the lowest error.
 \begin{definition}
-	The \B{mean squared error function} may be used to compare two clusterings
+	The \emph{mean squared error function} may be used to compare two clusterings
 	each with $K$ clusters. Let $C_k$ be the set of points in the $k$th cluster.
 	Then the MSE is
 	\begin{align*}
@@ -428,11 +428,11 @@ with the lowest error.
 
 
 \begin{definition}
-	A \B{classifier} is a function that takes a feature vector $\vec x$
+	A \emph{classifier} is a function that takes a feature vector $\vec x$
 	and returns a class $c$ where $c$ is a member of a set $C$.
 \end{definition}
 \begin{definition}
-	A \B{decision boundary} partitions the input space between two
+	A \emph{decision boundary} partitions the input space between two
 	classifications.
 \end{definition}
 
@@ -444,9 +444,9 @@ To construct the classifier automatically we need
 \begin{enumerate}
 	\item a set of training data containing feature vectors and their labels
 	\item an algorithm that we train using the training data
-	\item \B{hyperparameters}, number that control how the algorithm learns and predicts
+	\item \emph{hyperparameters}, number that control how the algorithm learns and predicts
 \end{enumerate}
-This is referred to as \B{supervised learning}, since the label for a training
+This is referred to as \emph{supervised learning}, since the label for a training
 vector acts as supervision for the classifier when it is learning from
 training data.
 
@@ -472,7 +472,7 @@ training data.
 
 \subsubsection{Decision boundaries}
 \begin{itemize}
-	\item \B{Voronoi diagram}
+	\item \emph{Voronoi diagram}
 	\item piecewise linear
 \end{itemize}
 
@@ -482,7 +482,7 @@ training data.
 	A suitable error function for classification is the number of items
 	that are misclassified. The classification error is often expressed 
 	as the percentage of the total number of items that is misclassified,
-	the \B{error rate}.
+	the \emph{error rate}.
 \end{definition}
 \begin{theorem}
 	For one-nearest neighbour classification the error rate when we consider
@@ -490,14 +490,14 @@ training data.
 \end{theorem}
 \begin{definition}
 	To evaluate our algorithm, we split the available data into the
-	\B{training set} (70\%) and the \B{testing set} (30\%). No data points
+	\emph{training set} (70\%) and the \emph{testing set} (30\%). No data points
 	from the testing set are used in training.
 \end{definition}
 \begin{definition}
-	The \B{training set error rate} is the percentage of misclassifications
+	The \emph{training set error rate} is the percentage of misclassifications
 	that the classifier makes on the training set after the learning 
 	algorithm has been applied.\\
-	The \B{testing set error rate} refers to errors made by the classifier
+	The \emph{testing set error rate} refers to errors made by the classifier
 	on the testing set.
 \end{definition}
 
@@ -548,4 +548,70 @@ the input data into three parts:
 \end{itemize}
 
 Optimisation: Managing data better, e.g. $k$-d trees.
+
+
+\section{Randomness, Sampling and Simulation}
+
+
+\subsection{Statistical Inference}
+
+\begin{definition}
+	\emph{Inferential statistics} is the process of drawing conclusions
+	about quantities that are not observed.
+\end{definition}
+
+\subsection{Sampling, statistics and simulations}
+
+\begin{definition}
+	\emph{Sampling} from probability distributions and from sets of discrete
+	items is a prerequisite for statistical simulations.
+\end{definition}
+
+\begin{definition}
+	A \emph{random sample} of size $n$ from either a continuous probability
+	distribution or a finite population of $N$ items is comprised of
+	the independente, identically distributed random variables $X_1,...,X_n$.
+\end{definition}
+
+\begin{definition}
+	A \emph{statistic} is any quantity whose value can be calculated from
+	sample data.
+\end{definition}
+
+\subsection{The distribution of the sample mean of large samples}
+
+\begin{definition}
+	The \emph{standard error in the mean} (SEM) is the standard deviation
+	of the mean $\sigma_{\bar x}$. It may be calculated with
+	\begin{align*}
+		\sigma_{\bar x} = \sigma / \sqrt{n}.
+	\end{align*}
+\end{definition}
+
+\begin{theorem}[Central Limit Theorem]
+	Let $X_1,...,X_n$ be a random sample from a distribution with mean
+	$\mu$ and variance $\sigma^2$. Then, in the limit $n\to\infty$ the
+	standardised mean $((\bar X - \mu) / (\sigma / \sqrt{n}))$ and
+	standardised total $((T_0 - n\mu)/(\sqrt{n}\sigma))$ have a normal
+	distribution. That is
+	\begin{align*}
+		\lim_{n\to\infty}P\left(\frac{\bar X - \mu}{\sigma / \sqrt{n}}\leq z\right)
+		= P(Z\leq z) = \Phi(z)
+	\end{align*}
+	and
+	\begin{align*}
+		\lim_{n\to\infty}P\left(\frac{\bar T_0-n\mu}{\sqrt{n}\sigma\leq z}\right)
+		= P(Z\leq z) = \Phi(z)
+	\end{align*}
+	where $\Phi$ is the cumulative distribution function of a normal distribution
+	with mean $0$ and standard deviation $1$.
+\end{theorem}
+
+\begin{theorem}
+	Let $X_1, ..., X_n$ be a random sample from a distribution with mean
+	$\mu$ and variance $\sigma^2$. As the number of observations $n$
+	increases, the expected value of the sample mean remains $\E[\bar X]=\mu$,
+	but the expected variance $\V[\bar X]=\E[(\bar X - \mu)^2]\to 0$.
+\end{theorem}
+
 \end{document}
