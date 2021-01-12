@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\mkthms
+
+\title{INF2D: Reasoning and Agents (SEM4)}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Intelligent agents and their environments}
+
+\begin{definition}
+    An \emph{agent} is an entity that perceives and
+    acts based on a sequence of observations in a system.
+\end{definition}
+
+\begin{definition}
+    A \emph{rational agent} is an agent that acts to achieve
+    the best possible outcome or the best possible expected
+    outcome, if uncertainty is involved.
+\end{definition}
+
+\begin{definition}
+    The computing device an agent runs on combined with all sensors and actuators
+    is called the agents \emph{architecture}.
+\end{definition}
+
+\subsection{Types of intelligent agents}
+
+\begin{definition}
+    \emph{Simple reflex agents} are agents that only react to the immediate percepts
+    and ignore the entirety of their percept history.
+\end{definition}
+
+\begin{definition}
+    \emph{Model-based reflex agents} are agents whose actions may depend on the
+    percept history as well as unperceived aspects of the world. They need to
+    maintain an \emph{internal world model}.
+\end{definition}
+
+\begin{definition}
+    \emph{Goal-based agents} are agents that have variable goals depending on the
+    state of their environment.
+\end{definition}
+
+\begin{definition}
+    \emph{Utitlity-based agents} are agents that can prioritise between multiple, 
+    potentially conflicting goals at the same time.
+\end{definition}
+
+\subsection{Types of environments}
+
+\begin{definition}
+    If the agents sensors descirbe an environment fully, it is called
+    \emph{fully observable}. Otherwise, it is \emph{partially observable}.
+\end{definition}
+
+\begin{definition}
+    If the next state of an environment is fully determined by the current state
+    and the agents actions, it is called \emph{deterministic}. Otherwise, it is
+    \emph{stochastic}.
+\end{definition}
+
+\begin{definition}
+    If the next action within an environment does not depend on the previous actions
+    it is called \emph{episodic}. Otherwise, it is \emph{sequential}.
+\end{definition}
+
+\begin{definition}
+    If the an environment does not change while the agent determines his next action
+    it is called \emph{static}. Otherwise, it is \emph{dynamic}.
+\end{definition}
+
+\begin{definition}
+    If the percepts, actions and episodes within an environment are discrete, it is called
+    \emph{discrete}. Otherwise, it is \emph{continuous}.
+\end{definition}
+\end{document}
