@@ -4,3 +4,6 @@
 [submodule "2020_21/INF2C/cw"]
 	path = 2020_21/INF2C/cw
 	url = https://git.ecdf.ed.ac.uk/s1971811/inf2c-cs-20
+[submodule "2020_21/CNU/tutorial01"]
+	path = 2020_21/CNU/tutorial01
+	url = https://github.com/cnu-2021/cnu-w01-tutorial-MiltFra
