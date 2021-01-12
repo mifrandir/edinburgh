@@ -402,4 +402,53 @@ def partition(A, p, r):
 	A \B{traversal} is a strategy for visiting all vertices of a graph.
 \end{definition} 
 
+\section{Dynamic Programming}
+
+\subsection{Decorators in Python}
+
+\begin{minted}{python}
+def memoise(f):
+  memo = {}
+  def check(s):
+    if s not in memo:
+      memo[s] = f(s)
+    return memo[s]
+  return check
+\end{minted}
+\begin{example}
+Using the Fibonacci function:
+\begin{minted}{python}
+# inefficient fib function
+def fib(n):
+  if n == 0:
+    return 0
+  if n == 1:
+    return 1
+  return fib(n-1) + fib(n-2)
+
+# more efficient wrapper
+fib = memoise(fib)
+\end{minted}
+\end{example}
+
+\subsection{The coin-changing problem}
+
+\begin{definition}
+	Given a value $v\in\N_0$, plus a sequence of coin values $c_1,c_2,...,c_k\in\N_0$,
+	find a \emph{multiset} $S$ of coins whose values sum to $v$, whose cardinality
+	of $S$ is the minimum possible for $v$ is this coin system.
+\end{definition}
+
+\subsection{Principles}
+
+\begin{enumerate}
+	\item Need is to see that computing the optimum solution for our original instance
+		  can be achieved by finding solutions to problems of the same type, and combining
+		  them.
+    \item Solution needs to be expressible in terms of a \emph{recurrence}, where the RHS
+		  contains one or more recursive calls for smaller instances of the same problem.
+    \item We need to be able to organise storage for the results for all possible subproblems.
+    \item We need an algorithm to control the order in which subproblems are solved.
+\end{enumerate}
+
 \end{document}
