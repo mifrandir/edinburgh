@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \mkthms
+\renewcommand{\bar}{\overline}
 \begin{document}
 \title{Foundations of Data Science (YEAR2)}
 \author{Franz Miltz}
@@ -614,4 +615,109 @@ Optimisation: Managing data better, e.g. $k$-d trees.
 	but the expected variance $\V[\bar X]=\E[(\bar X - \mu)^2]\to 0$.
 \end{theorem}
 
+
+\section{Estimation}
+
+
+\subsection{Point estimation}
+
+\begin{definition}
+	Let $\vartheta$ be a parameter and $\hat\vartheta$ its estimator.
+	Then the \emph{bias} of a particular estimation as
+	\begin{align*}
+		\text{bias}=\E(\hat\vartheta-\vartheta)=\E(\hat\vartheta)-\vartheta.
+	\end{align*}
+	If for all values of $\vartheta$,
+	\begin{align*}
+		\E(\hat\vartheta)-\vartheta = 0
+	\end{align*}
+	the estimator is \emph{unbiased}.
+\end{definition}
+
+\begin{definition}
+	The \emph{mean sqaured error} of an estimator $\vartheta$
+	is defined as
+	\begin{align*}
+		\text{MSE} = \E((\hat\vartheta-\vartheta)^2).
+	\end{align*}
+\end{definition}
+
+\begin{theorem}
+	Let $\vartheta$ be a parameter and $\hat\vartheta$ its estimator.
+	Then
+	\begin{align*}
+		\text{MSE}=\text{variance}+(\text{bias})^2.
+	\end{align*}
+\end{theorem}
+
+\begin{definition}
+	The \emph{standard error of an estimator} $\sigma_{\hat\varepsilon}$
+	is defined as
+	\begin{align*}
+		\sigma_{\hat\varepsilon}=\sqrt{\V(\hat\vartheta)}
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	The \emph{standard error in the mean} is defined as
+	\begin{align*}
+		\hat\sigma_{\hat\mu}=
+		\begin{cases}
+			\sigma/\sqrt{n} &\text{if $\sigma$ is known},\\
+			S/\sqrt{n} &\text{otherwise}
+		\end{cases}
+	\end{align*}
+	where $S$ is the sample standard deviation.	
+\end{definition}
+
+\subsection{Confidence intervals}
+
+\begin{definition}
+	Let $\alpha\in(0,1)$. Then a corresponding \emph{confidence interval}
+	is an interval $(\hat\vartheta-a\hat\sigma_{\hat\vartheta}, \hat\vartheta+b\hat\sigma_{\hat\vartheta})$
+	that has the chance $1-\alpha$ of containing the parameter $\vartheta$.
+	I.e.
+	\begin{align*}
+		\P\left(-b < \frac{\hat\vartheta-\vartheta}{\hat\sigma_{\hat\vartheta}}<a\right) = 1-\alpha.
+	\end{align*}
+\end{definition}
+
+\subsection{Bootstrapping}
+
+\textbf{Bootstrap procedure for finding the mean}\\
+Consider a sample of $n$ data points with mean
+$\lneg x$. We take $B$ bootstrap samples.
+Then the procedure is
+\begin{enumerate}
+	\item For $j\in[1,B]$ \begin{enumerate}
+		\item Take sample $x^*$ of size $n$ from the sample \emph{with replacement}
+		\item Compute the sample mean of the new sample $\lneg{x_j^*}$
+	\end{enumerate} 
+	\item Find the centiles of the distribution at $100\alpha/2$ and $100(1-\alpha/2)$
+		  by arranging the sample means $\lneg x^*_j$ in ascending order and pick
+		  $\lneg x^*_j$ at $$k=\alpha(B+1)/2$$ to be the lower end of the CI and pick
+		  $\lneg x^*_j$ at $$k=B-\alpha(B+1)/2$$ to be the upper end of the CI.
+    \item We can compute the boostrap estimator fo the variance of the mean \begin{align*}
+		s^2_{\text{boot}} = \frac{\sum_{j=1}^B(\lneg x_j^*-\lneg x)^2}{B-1}
+	\end{align*}
+\end{enumerate}
+
+\subsection{Confidence intervals on the mean for small samples}
+
+\begin{definition}
+	The $t$ distribution with $v$ degrees of freedom is given by the
+	probability density function
+	\begin{align*}
+		p_v(t)=\frac{1}{\sqrt{\pi v}}\frac{\Gamma((v+1)/2)}{\Gamma(v/2)}\frac{1}{(1+t^2/v)^{(v+1)/2}}.
+	\end{align*}
+\end{definition}
+
+\begin{theorem}
+	Let $\lneg X$ be random sample of size $n$ from a normal distribution
+	with mean $\mu$. Then the random variable
+	\begin{align*}
+		T=\frac{\lneg X - \mu}{\hat\sigma_{\lneg X}}
+	\end{align*}
+	is distributed as a $t$-distribution with $n-1$ degrees of freedom.
+\end{theorem}
 \end{document}
