@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \mkthms
+\usepackage{pseudo}
 
 \title{INF2D: Reasoning and Agents (SEM4)}
 \author{Franz Miltz}
@@ -77,4 +78,73 @@
     If the percepts, actions and episodes within an environment are discrete, it is called
     \emph{discrete}. Otherwise, it is \emph{continuous}.
 \end{definition}
+
+
+\section{Problem solving and search}
+
+
+\subsection{Types of problems}
+
+\begin{definition}
+    If the environment is deterministic and fully observable
+    the problem is called a \emph{single-state problem}.
+    The agent knows exactly which state it will be in and the
+    solution is a \emph{sequence}.
+\end{definition}
+
+\begin{definition}
+    If the environment is non-observable the problem is called
+    \emph{sensorless}. The agent may have no information about
+    the state of the environment and the solution is a
+    \emph{sequence}.
+\end{definition}
+
+\begin{definition}
+    If the environment is non-deterministic and/or partially 
+    observable the problem is called a \emph{contingency problem}.
+\end{definition}
+
+\begin{definition}
+    If the state space is unknown to the agent, the problem is
+    called an \emph{exploration problem}.
+\end{definition}
+
+\subsection{Problem formulation}
+
+\begin{definition}[Problem formulation]
+    A single-state problem in state space $S$
+    and action space $A$ is defined by
+    \begin{enumerate}
+        \item \emph{initial state}
+        \item \emph{successor function}, $f:S\to A\times S$
+        \item \emph{goal test}, explicit or implicit
+        \item additive \emph{path cost}, $c:S\times A\times S\to\R_{\geq 0}$
+    \end{enumerate}
+\end{definition}
+
+\subsection{Selecting a state space}
+
+Complexity of real world needs to be abstracted away.
+\begin{itemize}
+    \item \emph{(abstract) state}: set of real states
+    \item \emph{(abstract) action}: complex combination of real actions
+    \item \emph{(abstract) solution}: set of real paths, solutions in the real world
+\end{itemize}
+
+\subsection{Tree search algorithms}
+
+\emph{Idea}: offline, simulated exploration of state space by generating successors of already
+explored states.
+
+\begin{pseudo}
+\textbf{function} TREE-SEARCH(problem) \textbf{returns} a solution or failure   \\+
+    initialise the frontier using the initial state of the problem              \\
+    \textbf{loop do}                                                            \\+
+        \textbf{if} the frontier is empy \textbf{then}                          \\+
+            \textbf{return} failure                                             \\-
+        choose a leaf node and remove it from the frontier                      \\
+        \textbf{if} the node contains a goal state \textbf{then}                \\+
+            \textbf{return} the corresponding solution                          \\-
+        expand the chosen node, adding the resulting nodes to the frontier
+\end{pseudo}
 \end{document}
