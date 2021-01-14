@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
-\mkthms
+\mkfpmthms
 \usepackage{pseudo}
 
 \title{INF2D: Reasoning and Agents (SEM4)}
@@ -147,4 +147,128 @@ explored states.
             \textbf{return} the corresponding solution                          \\-
         expand the chosen node, adding the resulting nodes to the frontier
 \end{pseudo}
+
+
+\section{Search strategies}
+
+
+\begin{definition}
+    A \emph{search strategy} defines the order of expansion in a tree search algorithm.
+\end{definition}
+
+\begin{definition}
+    Search strategies are \emph{evaluated} along the following
+    dimensions
+    \begin{itemize}
+        \item \emph{completeness}
+        \item \emph{time complexity}
+        \item \emph{space complexity}
+        \item \emph{optimality}
+    \end{itemize}
+\end{definition}
+
+\begin{pseudo}
+\textbf{function} GRAPH-SEARCH(problem) \textbf{returns} a solution or failure  \\+
+    initialise the frontier using the initial state of the problem              \\
+    \textbf{loop do}                                                            \\+
+        \textbf{if} the frontier is empy \textbf{then}                          \\+
+            \textbf{return} failure                                             \\-
+        choose a leaf node and remove it from the frontier                      \\
+        \textbf{if} the node contains a goal state \textbf{then}                \\+
+            \textbf{return} the corresponding solution                          \\-
+        \emph{add the node to the explored set}                                 \\
+        expand the chosen node, adding the resulting nodes to the frontier      \\+
+            \emph{\textbf{only if} not in the frontier or explored set}
+\end{pseudo}
+
+\subsection{Breadth-first search}
+
+\begin{definition}
+    \emph{Breadth-first search} is a search strategy where
+    the frontier is a FIFO queue.
+    \begin{pseudo}
+    \textbf{function} BREADTH-FIRST-SEARCH(problem) \textbf{returns} a solution or failure  \\+
+        \emph{node} $\leftarrow$ a node with STATE=\emph{problem}.INITIAL-STATE, PATH-COST=0\\
+        \textbf{if} \emph{problem}.GOAL-TEST(\emph{node}.STATE) \textbf{then}               \\+
+            \textbf{return} SOLUTION(\emph{node})                                           \\-
+        \emph{frontier} $\leftarrow$ FIFO queue only containing \emph{node}                 \\
+        \emph{explored} $\leftarrow \emptyset$                                              \\
+        \textbf{loop do}                                                                    \\+
+            \textbf{if} EMPTY?(\emph{frontier}) \textbf{then}                               \\+
+                \textbf{return} failure                                                     \\-
+            \emph{node} $\leftarrow$ POP(\emph{frontier})                                   \\
+            add \emph{node}.STATE to \emph{explored}                                        \\
+            \textbf{for each} \emph{action} $\in$ \emph{problem}.ACTIONS(\emph{node}.STATE) \textbf{do}             \\+
+                \emph{child} $\leftarrow$ CHILD-NODE(\emph{problem}, \emph{node}, \emph{action})                    \\
+                \textbf{if} \emph{child}.STATE $\not\in$ \emph{explored} $\cup$ \emph{frontier} \textbf{then}       \\+
+                \textbf{if} \emph{problem}.GOAL-TEST(\emph{child}.STATE) \textbf{then return} SOLUTION(\emph{child})\\
+                \emph{frontier} $\leftarrow$ INSERT(\emph{child}, \emph{frontier})
+    \end{pseudo}
+\end{definition}
+
+\begin{theorem}
+    The breadth-first search strategy on a problem with branching factor $b$,
+    depth $d$ and maximum depth $m$ may be evaluated as follows:
+    \begin{itemize}
+        \item complete: yes, if $b$ is finite
+        \item time complexity: $O(b^d)$
+        \item space complexity: $O(b^d)$
+        \item optimal: yes, if each step has equal cost
+    \end{itemize}
+\end{theorem}
+
+\subsection{Depth-first search}
+
+\begin{definition}
+    \emph{Depth-first search} is a search strategy where the frontier is
+    a LIFO queue.
+\end{definition}
+
+\begin{theorem}
+    The depth-first search strategy on a problem with branching factor $b$,
+    depth $d$ and maximum depth $m$ may be evaulated as follows:
+    \begin{itemize}
+        \item complete: no, fails for loops and infinite-depth spaces
+        \item time complexity: $O(b^m)$ 
+        \item space complexity: $O(bm)$
+        \item optimal: no
+    \end{itemize}
+\end{theorem}
+
+\subsection{Depth-limited search}
+
+\begin{definition}
+    \emph{Depth-limited search} is a search strategy where the frontier is
+    a LIFO queue and nodes at a given depth $l$ have no successors.
+\end{definition}
+
+\begin{theorem}
+    The depth-limited search strategy on a problem with branching factor $b$,
+    depth $d$, maximum depth $m$ and depth limit $l$ may be evaluated as follows:
+    \begin{itemize}
+        \item complete: yes, if $l\geq d$
+        \item time complexity: $O(b^l)$
+        \item space complexity: $O(bl)$
+        \item optimal: no
+    \end{itemize}
+\end{theorem}
+
+\subsection{Iterative deepening search}
+
+\begin{definition}
+    \emph{Iterative deepening search} is a search strategy where
+    depth-limited search is performed with increasing depth limit until
+    a solution is found.
+\end{definition}
+
+\begin{theorem}
+    The iterative deepening search strategy on a problem with branching factor
+    $b$, depth $d$ and maximum depth $m$ may be evaulated as follows:
+    \begin{itemize}
+        \item complete: yes
+        \item time complexity: $O(b^d)$
+        \item space complexity: $O(bd)$
+        \item optimal: yes, if each step has equal cost
+    \end{itemize}
+\end{theorem}
 \end{document}
