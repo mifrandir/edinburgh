@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkthms
+\usepackage{enumitem}
+\title{INF2D: Tutorial 1}
+\author{Franz Miltz}
+\date{18 January 2021}
+\begin{document}
+\maketitle
+
+
+\section{Agents and environments}
+
+
+\subsection{Vacuum cleaner}
+
+\begin{enumerate}[label=\alph*)]
+    \item model-based, because it needs to keep track of location and time
+    \item \begin{enumerate}[label=\arabic*.]
+        \item environment: \begin{itemize}
+            \item partially observable, only what's underneath
+            \item deterministic, unless malfunction or obstacles (humans, pets, ...) are taken into account
+            \item continuous, could potentially be modelled as discrete
+            \item single agent
+            \item sequential, location depends on previous actions
+            \item dynamic, it operates in the real world
+        \end{itemize}
+        \item percepts: image(s), if changing environment is taken into account, we need some form of navigation
+        \item actions: movement (forward, turn, idle) and vacuuming, depending on requirements this may be more complex
+        \item internal models: \begin{itemize}
+            \item location/route, based on past actions
+            \item time, based on past actions and their durations \emph{or} internal clock
+        \end{itemize}
+        \item goals: none
+        \item utilities: none
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Chess player}
+
+\begin{enumerate}[label=\alph*)]
+    \item model-based, at least; only needs a function evaluating positions
+    \item \begin{enumerate}[label=\arabic*.]
+        \item environment: \begin{itemize}
+            \item fully observable, part of the game
+            \item stochastic, opponents moves are not predefined
+            \item discrete, move-based game
+            \item single agent (?)
+            \item sequential, board position based on previous actions
+            \item static, unless a chess-clock is used
+        \end{itemize}
+        \item percepts: board-position \emph{or} opponents moves
+        \item actions: legal chess moves
+        \item internal models: move history
+        \item goals: none
+        \item utilities: none
+    \end{enumerate}
+\end{enumerate}
+
+\subsection{Football player}
+
+\begin{enumerate}[label=\alph*)]
+    \item utility based, many different goals
+    \item \begin{enumerate}[label=\arabic*.]
+        \item environment: \begin{itemize}
+            \item partially observable, only POV of robot
+            \item stochastic, other players move independently, weather conditions
+            \item continuous
+            \item single agent (?)
+            \item sequential, everything depends on the history of actions
+            \item dynamic, the world does not just stop
+        \end{itemize}
+        \item percepts: images, sounds (if communication is possible), self-diagnostic data
+        \item actions: very complex, depends heavily on design of the robot
+        \item internal models: physics simulation of ball and other players, state of own body
+        \item goals: scoring/stopping opponents, energy conservation, damage control, following rules
+        \item utilities: win chance
+    \end{enumerate}
+\end{enumerate}
+
+\section{The Sticks Problem}
+
+\begin{enumerate}
+    \item 7-digit binary string, referring to the spaces in between the sticks ($0$: no space, i.e. stacked, $1$: space)
+    \item initial state: $1111111$ ($127$ in decimal), goal state: $0101010$ ($42$ in decimal)
+    \item \begin{enumerate}
+        \item given string $A$, move $n$th stick left \begin{itemize}
+            \item $n\leq|A|$
+            \item $n\geq 4$
+            \item $S_{n-1}=S_n=1$, the stick can be moved
+            \item $S_{n-3}=1$, the target stick is not stacked to the right
+            \item $n\geq 5 \Rightarrow S_{n-4}=1$, if not at the edge, the target stick is not stacked to the left
+        \end{itemize}
+        \item given string $A$, move $n$th stick right \begin{itemize}
+            \item $n>1$
+            \item $n\leq 5$
+            \item $S_{n-1}=S_n=1$, the stick can be moved
+            \item $S_{n+2}=1$, the target stick is not stacked to the left
+            \item $n\leq 4 \Rightarrow S_{n+3}=1$, if not at the edge, the target stick is not sticked to the right
+        \end{itemize}
+    \end{enumerate}
+    \item DFS seems better, similar to DLS \begin{itemize}
+        \item max depth is $4$, less in many cases
+        \item requires less space
+    \end{itemize}
+\end{enumerate}
+
+\end{document}
