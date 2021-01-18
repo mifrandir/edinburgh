@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{FPM: Hand-in 1}
+\author{Franz Miltz (UNN: S1971811)}
+\date{25 January 2020}
+\maketitle
+
+\section*{Problem 1}
+\begin{claim}
+  Consider the graph $G$ described in the question. Then
+  let $F$ be the set of symmetries of $G$. Then $|F|=20$.
+\end{claim}
+\begin{proof}
+   Note that there exist two disconnected components
+   $G_1$ and $G_2$ where $G_1$ contains $10$ vertices
+   and $G_2$ contains $2$ vertices. \\
+   Consider $G_1$ and its symmetries $F_1$. There are $5$ vertices with valency
+   $3$, call them $c_1, ..., d_5$. Further, there are 
+   five nodes with valency $2$, call them $d_1, ..., c_5$
+   such that
+   \begin{align*}
+      \forall i\in[1,5],\: c_i \text{ is connected to } d_i.
+   \end{align*}
+   Let $f$ be a symmetry of $G_1$. Then notice that
+   \begin{align*}
+      \forall i\in[1,5],\: f(c_i)=c_j \Rightarrow f(d_i)=d_j
+   \end{align*}
+   in order to preserve the edge between $c_i$ and $d_i$.
+   Therefore, the mapping of the inner vertices fully
+   determines the symmetry. It follows that there are as
+   many symmetries of $G_1$ as there are elements in the
+   dihedgral group $D_5$, i.e.
+   \begin{align}
+      \label{f1}
+      |F_1|=|D_5|. 
+   \end{align}
+   Consider the subgraph $G_2$ and its symmetries $F_2$.
+   Notice that $G_2$ is a graph with $2$ vertices and
+   no edges. By \emph{Lemma 1.3.3} in the notes, and the
+   proof thereof, it follows that
+   \begin{align}
+      \label{f2}
+      |F_2|=|S_2|
+   \end{align}
+   where $S_2$ is a symmetric group.\\
+   Now consider the entire graph $G$. Since every symmetry may
+   only map a vertex to another vertex of the same subgraph
+   (due $G_1$ and $G_2$ not being isomorphic),
+   each symmetry $f\in F$ of $G$ is fully determined by
+   a pair of symmetries $(f_1, f_2)\in F_1\times F_2$ of
+   the subgraphs $G_1$ and $G_2$. Thus
+   \begin{align*}
+      |F| = |F_1\times F_2| = |F_1||F_2|.
+   \end{align*}
+   Using (\ref{f1}) and (\ref{f2}) we get
+   \begin{align*}
+      |F| = |D_5||S_2|.
+   \end{align*}
+   Here we can use the formulas given in \emph{Sections 1.3.3
+   and 1.3.4} of the notes to get
+   \begin{align*}
+      |F| = 2\cdot 5\cdot 2! = 20.
+   \end{align*}
+\end{proof}
+
+\section*{Problem 2}
+
+\begin{claim}
+   Consider the graph $G$ described in the question. Then
+   let $F$ be the set of symmetries of $G$. Then
+   $|F|=28800$.
+\end{claim}
+
+\begin{proof}
+   Note that $G$ consists of two disconnected components.
+   Both of those subgraphs contain $5$ vertices and are
+   fully connected. Let the vertices of one component be
+   $V=\{v_1, ..., v_5\}$ and the vertices of the other be
+   $U=\{u_1, ..., u_5\}$. Consider a bijection $f: V\to U$, e.g.
+   \begin{align*}
+      \forall i\in[1,5],\: f(v_i) = u_i.
+   \end{align*}
+   Since all the nodes $V$ and $U$ are pairwise connected by an edge, for
+   all $i,j\in[1,5]$,
+   \begin{align*}
+      v_i \text{ is connected to } v_j \Leftrightarrow f(v_i) \text{ is connected to } f(v_j)
+   \end{align*}
+   holds. Thus $f$ is an isomorphism between the two components and
+   hence the components are isomorphic.\\
+   Consider either one of the subgraphs $G'$ with vertices $V'$ and
+   symmetries $F'$. Since $G'$
+   is fully connected, every bijection $f:V'\to V'$ is a symmetry (the argument
+   is analogous to the one above). Thus 
+   \begin{align}
+      \label{f'} 
+      |F'| = |S_5| = 5!.
+   \end{align}
+   Consider the entire graph $G$ with vertices $V\cup U$, where
+   $V$ and $U$ are as above, and symmetries $F$. Then, since the
+   two subgraphs are disconnected, we know
+   \begin{align*}
+      f(v_1)\in V \hs \Leftrightarrow \hs \forall v\in V,\: f(v)\in V \text{ and } \forall u\in U,\: f(u_i)\in U
+   \end{align*}
+   and, conversely,
+   \begin{align*}
+      f(v_1)\in U \hs \Leftrightarrow \hs \forall v\in V,\: f(v)\in U \text{ and } \forall u\in U,\: f(u)\in V
+   \end{align*}
+   where $v_1\in V$ and $f\in F$.
+   In other words, the mapping of $v_1$ to either $V$ or $U$ fully
+   determines which subgraph each vertex gets mapped to. This only leaves
+   the mapping within each subgraph undecided. Therefore
+   \begin{align*}
+      |F| = 2|F'\times F'|.
+   \end{align*}
+   Applying (\ref{f'}) yields
+   \begin{align*}
+      |F| = 2|F'|^2 = 2(5!)^2 = 28800.
+   \end{align*}
+\end{proof}
+\end{document}
