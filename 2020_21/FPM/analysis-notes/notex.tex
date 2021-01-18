@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
+\usepackage{enumitem}
 \begin{document}
 \mkfpmthms
 \title{Fundamentals of Pure Mathematics - Analysis (SEM4)}
@@ -8,5 +9,364 @@
 \tableofcontents
 \pagebreak
 
+\section{The Real Numbers}
 
+
+\subsection{Algebraic structure of real numbers}
+
+\begin{definition*}
+    The set $\R$ has the following \emph{field properties}
+    under addition ($+$) and multiplication ($\cdot$):
+    \begin{enumerate}[label=F\arabic*]
+        \item \emph{Closure}: $a+b, a\cdot b\in\R$.
+        \item \emph{Associativity}: $(a+b)+c=a+(b+c)$ and $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
+        \item \emph{Commutativity}: $a+b=b+a$ and $a\cdot b=b\cdot a$.
+        \item \emph{Additive Identity}: There exists a unique element $0\in\R$ such that $0+a=a$ for all $a\in\R$.
+        \item \emph{Multiplicative Identity}: There exists a uniqeue element 
+              $1\in\R$ such that $1\not=0$ and $1\cdot a=a$ for all $a\in\R$
+        \item \emph{Additive Inverses}: For every $a\in\R$ there is a unique
+              element $-a\in\R$ such that $a+(-a)=0$.
+        \item \emph{Multiplicative Inverses}: For every $a\in\R$ and $a\not=0$ there exists a unique 
+              element $\inv a\in\R$ such that $a\cdot(\inv a) = 1$.
+        \item \emph{Distributivity}: For all $a,b,c\in\R$, $a\cdot(b+c)=a\cdot b +a\cdot c$.
+    \end{enumerate}
+\end{definition*}
+
+\begin{definition*}
+    There exists a relation $<$ on $\R$ which has the following properties:
+    \begin{enumerate}[label=O\arabic*]
+        \item \emph{Trichotomy}: Given $a,b\in\R$ one and only one of the following statements hold \begin{align*}
+            a<b,\hs b>a,\hs a=b.
+        \end{align*}
+        \item \emph{Transitivity}: If $a<b$ and $b<c$, then $a<c$.
+        \item \emph{Additivity}: If $a<b$ and $c\in\R$, then $a+c<b+c$.
+        \item \emph{Multiplicativity}: \begin{align*}
+            a < b \text{ and } c > 0 \hs \Rightarrow \hs ac < bc
+        \end{align*}
+        and \begin{align*}
+            a < b \text{ and } c < 0 \hs \Rightarrow \hs bc < ac.
+        \end{align*}
+    \end{enumerate} 
+\end{definition*}
+
+\setcounter{theorem}{3}
+\begin{definition}
+    We shall call a real number $a\in\R$ \emph{positive} if $a>0$. We shall call $a\in\R$
+    \emph{nonnegative} if $a\geq 0$.
+\end{definition}
+
+\begin{definition*}
+    The set $\N_0\subset\R$ has the following properties
+    \begin{enumerate}[label=N\arabic*]
+        \item $0\in\N_0$.
+        \item For any $n\in\N_0$ there exists $s(n)\in\N_0$.
+        \item If $s(n)=s(m)$ then $n=m$.
+        \item There does not exists $n\in\N_0$ with $s(n)=0$.
+        \item If $0\in A\subset \N$ and if $n\in A$ implies $s(n)\in A$ then $A=\N_0$.
+    \end{enumerate} 
+\end{definition*}
+
+\begin{definition*}
+    The set $\Z\supset\N_0$ satisfies the following axioms:
+    \begin{enumerate}[label=Z\arabic*]
+        \item Given $n\in\Z$ then there exists $p(n)\in\Z$ such that $s(p(n))=n$.
+        \item If $n\in A\subset\Z$ and $s(n)\in A$ if and only if $n\in A$ then $A=\Z$.
+    \end{enumerate}
+\end{definition*}
+
+\setcounter{theorem}{5}
+\begin{theorem}
+    Suppose for each $n\in\N_0$ that $P(n)$ is a proposition that satisfies the following
+    properties:
+    \begin{enumerate}
+        \item $P(0)$ is true.
+        \item For everey $k\in\N_0$ for which $P(k)$ is true, $P(k+1)$ is also true.
+    \end{enumerate}
+    Then for every integer $n\in\N_0$ the proposition $P(n)$ is true.
+\end{theorem}
+
+\subsection{The absolute value}
+
+\begin{definition}
+    Let $a\in\R$. The \emph{absolute value} of $a$ is the number $|a|$ defined by
+    \begin{align*}
+        |a|=\begin{cases}
+            a,&\text{if } a\geq 0,\\
+            -a,&\text{if } a < 0.
+        \end{cases}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    The following statements are true:
+    \begin{itemize}
+        \item The absolute value is multiplicative, i.e. $|ab|=|a||b|$ for all $a,b\in\R$.
+        \item Let $a\in\R$ and $M\geq 0$. Then $|a|\leq M$ if and only if $-M\leq a\leq M$.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}
+    The absoluste value satisfies the following three properties:
+    \begin{enumerate}
+        \item \emph{Positive definite}: $|a|\geq 0$. $|a|=0$ if and only if $a=0$.
+        \item \emph{Symmetry}: $|a-b|=|b-a|$.
+        \item \emph{Triangle inequality}: $|a+b|\geq |a|+|b|$ and $||a|-|b||\leq |a-b|$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    Let $x,y\in\R$.
+    \begin{enumerate}
+        \item $x<y+\e$ for all $\e>0$ if and only if $x\leq y$.
+        \item $x>y-\e$ for all $\e>0$ if and only if $x\geq y$.
+        \item $|x|<\e$ for all $\e>0$ if and only if $x=0$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{The completeness axiom}
+
+\begin{definition}
+    Let $S\subset\R$.
+    \begin{enumerate}
+        \item If there exists $s'\in S$ such that $s\leq s'$ for all $s\in S$ we say $S$ has a
+              \emph{maximum} which is given by $s'$.
+        \item If there exists $s'\in S$ such that $s\geq s'$ for all $s\in S$ we say $S$ has a
+              \emph{minimum} which is given by $s'$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    Let $E\subset\R$ be nonempty.
+    \begin{itemize}
+        \item The set $E$ is said to be bounded above if there is $M\in\R$ such that $a\leq M$ for all $a\in E$.
+        \item A real number $M$ is called an upper bound of the set $E$ if $a\leq M$ for all $a\in E$.
+        \item A real number $s$ is called the \emph{suprenum} of the set $E$ if \begin{itemize}
+            \item $s$ is an upper bound of $E$
+            \item $s\leq M$ for all upper bounds $M$ of the set $E$.
+        \end{itemize}
+        If such a number $s$ exists, we write $s=\sup E$.
+    \end{itemize}
+\end{definition}
+
+\setcounter{theorem}{3}
+\begin{lemma}
+    If a set has a supremum, it only has one supremum.    
+\end{lemma}
+
+\begin{theorem}[Approximation Property for Suprema] 
+    If the set $E\subset\R$ has a supremum then for any positive number $\e>0$ there exists $a\in E$
+    such that
+    \begin{align*}
+        \sup E -\e < a \leq \sup E.
+    \end{align*}
+\end{theorem}
+
+\begin{lemma}
+    If $E\subset\N$ has a supremum then $\sup E\in E$.
+\end{lemma}
+
+\begin{definition*}[Completeness Axiom]
+    If $E\subset\R$ is nonempty and bounded above, then $E$ has a supremum. 
+\end{definition*}
+
+\begin{theorem}[Archimedean Principle]
+    Given positive real numbers $a,b\in\R$ there is an integer $n\in\N$ such that $b<na$. 
+\end{theorem}
+
+\setcounter{theorem}{8}
+\begin{theorem}[Density of rational numbers]
+    Let $a<b$ be real numbers. Then there exists $q\in\Q$ such that $q\in(a,b)$. 
+\end{theorem}
+
+\begin{definition}
+    Let $E\subset\R$ be nonempty.
+    \begin{itemize}
+        \item The set $E$ is said to be bounded below if there is $m\in\R$ such that $m\leq a$ for all $a\in E$.
+        \item A number $m$ is called a lower bound of the set $E$ if $m\leq a$ for all $a\in E$.
+        \item A number $t$ is called an \emph{infimum} of the set $E$ if \begin{itemize}
+            \item $t$ is a lower bound of $E$,
+            \item $m\leq t$ for all lower bounds $m$ of the set $E$.
+        \end{itemize}
+        If the number $t$ exists we write $t=\inf E$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Let $E\subset\R$ be nonempty.
+    \begin{itemize}
+        \item Set $E$ has a supremum if and only if the set $-E$ has an infimum. Also \begin{align*}
+            \inf(-E) = -\sup E.
+        \end{align*}
+        \item Set $E$ has an infimum if and only if the set $-E$ has a supremum. Also \begin{align*}
+            \sup(-E) = -\inf E.
+        \end{align*}
+    \end{itemize}
+\end{theorem}
+
+\begin{lemma}
+    Let $A\subset B$ be two nonempty subsets of $\R$. Then
+    \begin{itemize}
+        \item if $B$ is bounded above then $\sup A\leq\sup B$.
+        \item if $B$ is bounded below then $\inf A\geq\inf B$.
+    \end{itemize} 
+\end{lemma}
+
+
+\section{Real sequences}
+
+
+\subsection{Introduction}
+
+\begin{definition}
+    A sequence of real numbers $(x_n)$ is said to converge to a real number $a$
+    if for every $\e>0$ there is $N\in\N$ such that
+    \begin{align*}
+        \forall n\geq N,\: |x_n-a|<\e.
+    \end{align*}
+\end{definition}
+
+\setcounter{theorem}{5}
+\begin{lemma}
+    A sequence has at most one limit.
+\end{lemma}
+
+\begin{lemma}
+    Let $(x_n)$ be a sequence of real numbers. If $\lim_{n\to\infty}$ exists then so does
+    $\lim_{n\to\infty}\abs x_n$ and $\lim_{n\to\infty}\abs x_n=\abs{\lim_{n\to\infty}x_n}$.
+\end{lemma}
+
+\begin{lemma}
+    If $(x_n)$ is a real sequence then $\lim_{n\to\infty}x_n=0$ if and only if $\lim_{n\to\infty}\abs x_n = 0$.
+\end{lemma}
+
+\begin{definition}
+    Let $(x_n)$ be a sequence of real numbers.
+    \begin{itemize}
+        \item $(x_n)_{n\in\N}$ is \emph{bounded above} if $x_n\leq M$ for some $M\in\R$ and all $n\in\N$.
+        \item $(x_n)_{n\in\N}$ is \emph{bounded below} if $x_n\geq m$ for some $m\in\R$ and all $n\in\N$.
+        \item $(x_n)_{n\in\N}$ is \emph{bounded} if it is bounded above and bounded below.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Every convergent sequence is bounded.
+\end{theorem}
+
+\subsection{Limit theorems}
+
+\begin{theorem}
+    Suppose that $(x_n)$, $(y_n)$ and $(w_n)$ are real sequences.
+    \begin{itemize}
+        \item If both $x_n\to a$ and $y_n\to a$ as $n\to \infty$ and if \begin{align*}
+            x_n\leq w_n\leq y_n,\hs \forall n\geq N_0,
+        \end{align*}
+        then $w_n\to a$ as $n\to\infty$.
+        \item if $x_n\to0$ and $(y_n)$ is bounded then the product $x_ny_n\to 0$ as $n\to\infty$.
+    \end{itemize}
+\end{theorem}
+
+\setcounter{theorem}{2}
+\begin{theorem}
+    Let $E\subset\R$. If $E$ has a finite supremum, i.e., $E$ is non-empty and bounded above,
+    then there is a sequence $(x_n)$ with each $x_n\in\E$ such that $x_n\to\sup E$ as $n\to\infty$.
+    An analogous statement holds if $E$ has a finite infimum.
+\end{theorem}
+
+\begin{theorem}
+    Suppose that $(x_n)$, $(y_n)$ are real sequences and $\alpha\in\R$. If both $(x_n), (y_n)$ are
+    convergent then
+    \begin{enumerate}
+        \item \begin{align*}
+            \lim_{n\to\infty}(x_n+y_n=\lim_{n\to\infty}x_n + \lim_{n\to\infty}y_n.
+        \end{align*}
+        \item \begin{align*}
+            \lim_{n\to\infty}(\alpha x_n) = \alpha\lim_{n\to\infty}x_n.
+        \end{align*}
+        \item \begin{align*}
+            \lim_{n\to\infty}(x_n\cdot y_n) = \left(\lim_{n\to\infty}x_n\right)\cdot\left(\lim_{n\to\infty}y_n\right).
+        \end{align*}
+        \item If in addition $\lim_{n\to\infty}y_n\not=0$ and $y_n\not=0$ for all $n\in\N$ then \begin{align*}
+            \lim_{n\to\infty}\frac{x_n}{y_n}=\frac{\lim_{n\to\infty x_n}}{\lim_{n\to\infty}y_n}.
+        \end{align*}
+    \end{enumerate}
+\end{theorem}
+
+\setcounter{theorem}{5}
+\begin{definition}
+    Let $(x_n)$ be a sequence of real numbers.
+    \begin{enumerate}
+        \item $(x_n)$ is said to diverge to $\infty$ if for each $M\in\R$ there is $N\in\N$ such that
+              for all $n\geq N$ we have $x_n>M$.
+        \item $(x_n)$ is said to diverge to $-\infty$ if for each $m\in\R$ there is $N\in\N$ such that
+              for all $n\geq N$ we have $x_n<m$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    Suppose that $(x_n), (y_n)$ are real sequences. If both $\lim_{n\to\infty}x_n$, $\lim_{n\to\infty}y_n$
+    exist and belong to the set of extended real numbers $\R^*$, then
+    \begin{align*}
+        \lim_{n\to\infty}(x_n+y_n)=\lim_{n\to\infty}x_n+\lim_{n\to\infty}y_n,
+    \end{align*}
+    provided the forbidden algebraic operation $\infty-\infty$ does not occur.
+\end{theorem}
+
+\begin{theorem}[Comparison theorem for sequences]
+    Suppose that $(x_n),(y_n)$ are real sequences. If both $\lim_{n\to\infty}x_n$, $\lim_{n\to\infty}y_n$
+    exist and if
+    \begin{align*}
+        x_n\leq y_n \hs \text{for all } n\geq N \hs \text{for some }N\in\N
+    \end{align*} 
+    then
+    \begin{align*}
+        \lim_{n\to\infty}x_n\leq \lim_{n\to\infty}y_n.
+    \end{align*}
+\end{theorem}
+
+\subsection{Monotone sequences}
+
+\begin{definition}
+    Let $(x_n)$ be a sequence of real numbers.
+    \begin{enumerate}
+        \item $(x_n)$ is \emph{increasing} if $\forall i,j\in\N,\: i>j \Rightarrow x_i \geq x_j$.
+        \item $(x_n)$ is \emph{decreasing} if $\forall i,j\in\N,\: i>j \Rightarrow x_i \leq x_j$.
+        \item $(x_n)$ is \emph{monotone} if it is either increasing or decreasing.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Monotone convergence]
+    If $(x_n)$ is increasing and bounded above or if it is decreasing and bounded below, then
+    $(x_n)$ is convergent.
+\end{theorem}
+
+\setcounter{theorem}{3}
+\begin{theorem}
+    Let $(x_n)$ be an unbounded monotone sequence of real numbers.
+    \begin{enumerate}
+        \item If $(x_n)$ is an unbounded and increasing sequence then $\lim_{n\to\infty} x_n = \infty$.
+        \item If $(x_n)$ is an unbounded and decreasing sequence then $\lim_{n\to\infty} x_n = -\infty$. 
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Subsequences}
+
+\begin{definition}
+    A subsequence of a sequence $(x_n)_{n\in\N}$ is a sequence of the form $x_{n_1}, x_{n_2}, x_{n_3}, ...$
+    where $n_1<n_2<n_3<...$ is an increasing sequence of natural numbers.
+\end{definition}
+
+\begin{lemma}
+    Any subsequence of a convergent sequence is also convergent and has the same limit.
+\end{lemma}
+
+\begin{theorem}
+    Let $(x_n)$ be sequence of real numbers.
+    \begin{itemize}
+        \item There exists $t\in\R$ such that for any $\e>0$ there exists infinitely many $n\in\N$
+              for which $\abs{x_n-t}<\e$, if and only if there exists a subsequence of $(x_n)$
+              converging to $t$.
+        \item The sequence $(x_n)$ is not bounded above if and only if there exists a subsequence
+              diverging to $\infty$.
+    \end{itemize}
+\end{theorem}
 \end{document}
