@@ -451,4 +451,102 @@ fib = memoise(fib)
     \item We need an algorithm to control the order in which subproblems are solved.
 \end{enumerate}
 
+\subsection{Seam Carving}
+
+\begin{definition}
+	Given an $m\times n$ matrix $A$, a \emph{vertical seam} is sequence $(s_k)_{k\in\N}$
+	of natural numbers such that
+	\begin{align*}
+		\forall i\leq m,\: s_i\in(1,n)\hs\text{and}\hs\forall i<m,\: \abs{s_i - s_{i+1}} \leq 1.
+	\end{align*}
+	A \emph{horizontal seam} of $A$ is a sequence $(s_n)_{n\in\N}$ of natural numbers
+	such that
+	\begin{align*}
+		\forall j\leq n,\: s_j\in(1,m)\hs\text{and}\hs\forall j<n,\: \abs{s_j - s_{j+1}} \leq 1.
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	Let $A$ be an $m\times n$ matrix and let $e_A:[1,m]\times[1,n]\to\R$ be an
+	energy function. Then the \emph{energy} of a seam $s=(s_k)_{k\in\N}$ is defined as
+	\begin{align*}
+		e(s) := \begin{cases}
+			\sum_{i=1}^m e_A(i,s_i) &\text{if } s \text{ is a vertical seam},\\
+			\sum_{j=1}^m e_A(s_j,j) &\text{if } s \text{ is a horizontal seam}.
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	$L_1$ gradient scoring can be written as
+	\begin{align*}
+		e_A(i,j) := \abs{\frac{\p}{\p x} A}_{ij} + \abs{\frac{\p}{\p y} A}_{ij}
+	\end{align*}
+	where $\p/\p x$ and $\p/\p y$ are gradient functions defined in the image
+	processing context.
+\end{definition}
+
+\begin{definition}
+	Let $A$ be an $m\times n$ matrix. 
+	For every $(i,j)\in[1,m]\times[1,n]$, the minimum cost of a vertical seam 
+	ending in $(i,j)$ is given by $c_A(i,j)$.
+\end{definition}
+
+\begin{theorem}
+	Let $A$ be an $m\times n$ matrix and let $e_A$ be an energy function for
+	$A$ such that
+	\begin{align*}
+		\forall i \leq m,\: e_A(i,1) = e_A(i,n) = \infty.
+	\end{align*}
+	Then $c_A$ is given by
+	\begin{align*}
+		c_A(i,j) = e_A(i,j) + \begin{cases}
+			0 &\text{if }i=1,\\
+			m_{i-1,j} &\text{if }i>1
+		\end{cases}
+	\end{align*}
+	where $m_{i,j}$ is
+	\begin{align*}
+		m_{i,j} = \min\{c_A(i,j-1), c_A(i,j), c_A(i,j+1)\}.
+	\end{align*}
+\end{theorem}
+
+\subsection{Edit distance}
+
+\begin{definition}
+	An \emph{alignment} of two sequences $s\in\Sigma^m$, $t\in\Sigma^n$ is
+	any padding (with some $-$ insertions) $s'$ of $s$, and $t'$ of $t$ such that
+	\begin{align*}
+		\abs{s'}&=\abs{t'},\\
+		(s'_i\not=-)&\text{ or }(t'_i\not=-)\hs\text{for all }i\in[1,|s'|].
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	The score of an alignment is the total number of \emph{insertions},
+	\emph{deletions} and \emph{substitutions}.
+\end{definition}
+
+\begin{definition}
+	The \emph{edit distance} $d(s,t)$ between two strings $s,t\in\Sigma^*$ is the
+	minimum number of operations possible for an alignment of those strings.
+\end{definition}
+
+\begin{theorem}
+	The edit distance $d$ between two strings $s_m=(s_k)_{k\leq m}$ 
+	and $t_n=(t_k)_{k\leq n}$ is given by 
+	\begin{align*}
+		d(s_m,t_n) = \begin{cases}
+			m &\text{if }n=0,\\
+			n &\text{if }m=0,\\
+			d(s_{m-1}, t_{n-1}) &\text{if }s_m=t_n,\\
+			1 + h_{m,n} &\text{if }s_m\not=t_n
+		\end{cases}
+	\end{align*}
+	where $h$ is given as
+	\begin{align*}
+		h_{m,n}= 1 + \min\{d(s_{m-1},t_{n-1}), d(s_{m-1}, t_n), d(s_m, t_{n-1})\}.	
+	\end{align*}
+\end{theorem}
+
 \end{document}
