@@ -47,7 +47,7 @@
 \end{definition}
 
 \begin{definition}
-    \emph{Utitlity-based agents} are agents that can prioritise between multiple, 
+    \emph{Utility-based agents} are agents that can prioritise between multiple, 
     potentially conflicting goals at the same time.
 \end{definition}
 
@@ -161,9 +161,9 @@ explored states.
     dimensions
     \begin{itemize}
         \item \emph{completeness}
+        \item \emph{optimality}
         \item \emph{time complexity}
         \item \emph{space complexity}
-        \item \emph{optimality}
     \end{itemize}
 \end{definition}
 
@@ -211,9 +211,9 @@ explored states.
     depth $d$ and maximum depth $m$ may be evaluated as follows:
     \begin{itemize}
         \item complete: yes, if $b$ is finite
+        \item optimal: yes, if each step has equal cost
         \item time complexity: $O(b^d)$
         \item space complexity: $O(b^d)$
-        \item optimal: yes, if each step has equal cost
     \end{itemize}
 \end{theorem}
 
@@ -229,9 +229,9 @@ explored states.
     depth $d$ and maximum depth $m$ may be evaulated as follows:
     \begin{itemize}
         \item complete: no, fails for loops and infinite-depth spaces
+        \item optimal: no
         \item time complexity: $O(b^m)$ 
         \item space complexity: $O(bm)$
-        \item optimal: no
     \end{itemize}
 \end{theorem}
 
@@ -247,9 +247,9 @@ explored states.
     depth $d$, maximum depth $m$ and depth limit $l$ may be evaluated as follows:
     \begin{itemize}
         \item complete: yes, if $l\geq d$
+        \item optimal: no
         \item time complexity: $O(b^l)$
         \item space complexity: $O(bl)$
-        \item optimal: no
     \end{itemize}
 \end{theorem}
 
@@ -266,9 +266,9 @@ explored states.
     $b$, depth $d$ and maximum depth $m$ may be evaulated as follows:
     \begin{itemize}
         \item complete: yes
+        \item optimal: yes, if each step has equal cost
         \item time complexity: $O(b^d)$
         \item space complexity: $O(bd)$
-        \item optimal: yes, if each step has equal cost
     \end{itemize}
 \end{theorem}
 
@@ -331,9 +331,9 @@ explored states.
     $d$ and maximum depth $m$ may be evaluated as follows:
     \begin{itemize}
         \item complete: no, can get stuck in loops
+        \item optimal: no
         \item time complexity: $O(b^m)$
         \item space complexity: $O(b^m)$
-        \item optimal: no
     \end{itemize}
 \end{theorem}
 
@@ -361,9 +361,9 @@ explored states.
     and maximum depth $m$ may be evaluated as follows:
     \begin{itemize}
         \item complete: yes, unless there are infinitely many nodes $n$ with $f(n) \leq f(G)$.
+        \item optimal: yes
         \item time complexity: $O(b^d)$
         \item space complexity: $O(b^d)$
-        \item optimal: yes
     \end{itemize}
 \end{theorem}
 
@@ -379,5 +379,91 @@ explored states.
     the cost of an optimal solution of $P'$ is a admissible heuristic
     for $P$.
 \end{theorem}
+
+
+\section{Adversarial search}
+
+
+\begin{definition}
+    \emph{Adversarial serach} is required when multiple agents work to achieve 
+    opposing goals. Its purpose is to ensure the best possible outcome for the
+    agent applying it, taking into account all possible actions by other agents.
+\end{definition}
+
+\subsection{Minimax}
+
+\begin{definition}
+    \emph{Minimax} is an adversarial search strategy in deterministic, perfect
+    information games, where the agent chooses the action that guarantees the
+    highest lower bound for the utility value of the final state.
+
+    \begin{pseudo}
+        \textbf{function} MINIMAX-DECISION(\emph{state}) \textbf{returns} \emph{an action}\\+
+            \textbf{return} $\text{argmax}_{a\in\text{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
+        \\
+        \textbf{function} MAX-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
+            \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+                \textbf{return} UTILITY(\emph{state})\\-
+            $v\leftarrow-\infty$\\
+            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \text{MAX}(v, \text{MIN-VALUE}(\text{RESULT}(s, a)))$\\-
+            \textbf{return} $v$\\-
+        \\
+        \textbf{function} MIN-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
+            \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+                \textbf{return} UTILITY(\emph{state})\\-
+            $v\leftarrow\infty$\\
+            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \text{MIN}(v, \text{MAX-VALUE}(\text{RESULT}(s, a)))$\\-
+            \textbf{return} $v$
+    \end{pseudo}
+\end{definition}
+
+\begin{theorem}
+    The minimax search strategy on a problem with branching
+    factor $b$, depth $d$ and maximum depth $m$ may be evaluated
+    as follows:
+    \begin{itemize}
+        \item complete: yes, if tree is finite
+        \item optimal: yes, against optimal opponent
+        \item time complexity: $O(b^m)$
+        \item space complexity: $O(bm)$
+    \end{itemize}
+\end{theorem}
+
+\subsection{Alpha-beta pruning}
+
+\begin{definition}
+    \emph{\alpha-\beta pruning} is a minimax-like adversarial search
+    strategy, where upper and lower bounds are used to identify
+    sub-trees that do not affect the solution.
+    \begin{pseudo}
+        \textbf{function} ALPHA-BETA-SEARCH(\emph{state}) \textbf{returns} \emph{an action}\\+
+            $v\leftarrow$MAX-VALUE(\emph{state}, $-\infty$, $+\infty$)\\
+            \textbf{return} the \emph{action} in ACTIONS(\emph{state}) with value $v$\\-
+        \\
+        \textbf{function} MAX-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
+            \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+                \textbf{return} UTILITY(\emph{state})\\-
+            $v\leftarrow-\infty$\\
+            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \text{MAX}(v, \text{MIN-VALUE}(\text{RESULT}(\text{\emph{state}}, a), \alpha, \beta))$\\
+                \textbf{if} $v\geq \beta$ \textbf{then}\\+
+                    \textbf{return} $v$\\-
+                $\alpha\leftarrow\text{MAX}(\alpha, v)$\\-
+            \textbf{return} $v$\\-
+        \\
+        \textbf{function} MIN-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
+            \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+                \textbf{return} UTILITY(\emph{state})\\-
+            $v\leftarrow\infty$\\
+            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \text{MIN}(v, \text{MAX-VALUE}(\text{RESULT}(\text{\emph{state}}, a), \alpha, \beta))$\\
+                \textbf{if} $v\leq \alpha$ \textbf{then}\\+
+                    \textbf{return} $v$\\-
+                $\beta\leftarrow\text{MIN}(\beta, v)$\\-
+            \textbf{return} $v$\\-
+    \end{pseudo}
+\end{definition}
 
 \end{document}
