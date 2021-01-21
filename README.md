@@ -19,5 +19,5 @@ Year    | Span     | School | Short     | Title                                 
 2020/21 | SEM1     | MATH   | PRB       | Probability                                         | Toby Bailey                        | 86   | A2    |  5
 2020/21 | SEM1     | INF    | INF2-CS   | Introduction to Computer Systems                    | Boris Grot                         | 96   | A1    | 10
 2020/21 | SEM2     | MATH   | FPM       | Fundamentals of Pure Mathematics                    | Nikolaos Bournaveas                |      |       | 10
-2020/21 | SEM2     | MATH   | CN        | Computing and Numerics                              | Charlotte Desvages                 |      |       |  5
+2020/21 | SEM2     | MATH   | CNU       | Computing and Numerics                              | Charlotte Desvages                 |      |       |  5
 2020/21 | SEM2     | INF    | INF2D     | Reasoning and Agents                                | Claudia Chiritia & Alex Lascarides |      |       | 10
