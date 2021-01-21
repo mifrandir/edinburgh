@@ -720,4 +720,164 @@ Then the procedure is
 	\end{align*}
 	is distributed as a $t$-distribution with $n-1$ degrees of freedom.
 \end{theorem}
+
+
+\section{Hypothesis Testing}
+
+
+\begin{definition}
+	The claim we initially assume to be true, formalised as a satistical
+	model, is called the \emph{null hypothesis} and is denoted $H_0$.
+\end{definition}
+
+\begin{definition}
+	The procedure to carry out a hypothesis test, which we call the
+	\emph{test procedure} consists of:
+	\begin{enumerate}
+		\item Deciding on a \emph{test statistic}, which is a function
+			  of the sample data.
+		\item Determining what the distribution of the test statistic would
+			  be if it arose from the null hypothesis statistical model.k
+		\item Either \begin{enumerate}
+			\item Deciding on a \emph{rejection region}, i.e. regions of
+				  the distribution of the test statistic under $H_0$ in
+				  which we should ject $H_0$. Typically, there are extremities
+				  of the distribution. If our test statistic falls in to the
+				  rejection region, reject $H_0$; otherwise, don't reject it.
+			\item Returning a \emph{$p$-value}, which tells us how compatible
+				  the test statistic is with the distribution predicted by chance
+				  from $H_0$.
+		\end{enumerate}
+	\end{enumerate}
+\end{definition}
+
+\begin{definition}
+	The $p$-value is the probability, calculated assuming the null
+	hypothesis $H_0$ is true, of obtaining a value of the test statistic
+	at least as contradictory to $H_0$ as the value calculated from
+	the available sample.
+\end{definition}
+
+\begin{definition}
+	Let there be $k$ groups of outcomes. Let $n_1,...,n_k$ be the observed
+	number of occurences in each group and let $p_1,...,p_k$ be the
+	expected proportion of the population in each group. Then the
+	\emph{chi-squared} statistic is defined as
+	\begin{align*}
+		\chi^2 = \sum_{i=1}^k \frac{(n_i-np_i)^2}{np_i}
+	\end{align*}
+	where $n$ is the total number of observations, i.e. $n=n_1+\cdots+n_k$.
+\end{definition}
+
+\begin{theorem}
+	A higher $\chi^2$ statistic indicates a poor \emph{goodness-of-fit}
+	between the assumed model and the observed data. An extremely low
+	$\chi^2$ value may, however, indicate that the integrity of the data
+	has been compromised.
+\end{theorem}
+
+
+\section{Logistic Regression}
+
+
+\subsection{Odds and odds ratios}
+
+\begin{definition}
+	The \emph{odds} of an event $A$ are defined as
+	\begin{align*}
+		\text{Odds}(A) = \frac{\P(A)}{1-\P(A)}.
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	The \emph{odds ratio} of an event $A$ with respect to another event
+	$B$ is given by 
+	\begin{align*}
+		\text{OR}(x) = \frac{\text{Odds}(A|B)}{\text{Odds}\left(A|\lneg B\right)}.
+	\end{align*}
+\end{definition}
+
+\subsection{Logistic regression model}
+
+\begin{definition}
+	The \emph{logistic function} $\sigma:\R\to\R$ is defined as
+	\begin{align*}
+		\sigma(x) = \frac{1}{1+e^{-x}}.	
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	A variable $x$ that can take the two values $1$ and $-1$ is called a
+	\emph{dichotomous variable}.
+\end{definition}
+
+\begin{theorem}
+	Let $Y$ be a dichotomous variable dependent on $x$. Then the probability
+	$\P(Y=1|x)$ may be approximated as
+	\begin{align*}
+		\P(Y=1|x)=\sigma(\beta_0+\beta_1 x) = \frac{1}{1+e^{-\beta_0-\beta_1 x}}.	
+	\end{align*}
+\end{theorem}
+
+\begin{definition}
+	The \emph{logit} function is defined as
+	\begin{align*}
+		\logit(p) = \ln\frac{p}{1-p}.
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	The \emph{log odds} of an event $A$ are defined as
+	\begin{align*}
+		\text{Log Odds}(A)=\logit(\P(A)).
+	\end{align*}
+\end{definition}
+
+\begin{corollary}
+	The logistic prediction model with dependent variable $Y$ and
+	independent variable $x$ and parameters $\beta_0,\beta_1\in\R$
+	may be expressed as 
+	\begin{align*}
+		\logit(\P(Y=1|x)) = \beta_0 + \beta_1 x.
+	\end{align*}
+\end{corollary}
+
+\subsection{Multiple logistic regression}
+
+\begin{definition}
+	The logistic regression model for the $n$ independent variables $x^{(1)},
+	..., x^{(n)}$ and dependent variable $Y$ with $n$ parameters
+	$\beta_0,\beta_1, ..., \beta_n$ is given by
+	\begin{align*}
+		\P(Y=1|x^{(1)},...,x^{(n)})=\sigma(\beta_0+\beta_1 x^{(1)}+\cdots + \beta_n x^{(n)}).
+	\end{align*}
+\end{definition}
+
+\paragraph{Comparison between logistic regression and $k$-NN}
+\begin{enumerate}
+	\item \emph{decision boundary} is a straight line
+	\item less \emph{flexibility} but less \emph{over-fitting}
+	\item more \emph{transparent}
+	\item \emph{no standardisation} required
+\end{enumerate}
+
+\subsection{Maximum likelihood estimation of logistic regression coefficients}
+
+\begin{definition}
+	The \emph{principle of maximum likelihood} states that the model
+	coefficients are to be adjusted so as to maximise the likelihood
+	that the observed data arises from the model. The resulting coefficients
+	are called \emph{maximum likelihood estimators}.
+\end{definition}
+
+\begin{theorem}
+	Let $X$ be an independent variable and let $Y$ be dependent on $X$.
+	Let $x_1,...,x_n$ and $y_1,...,y_n$ be observed values of $X$ and $Y$.
+	Then the best estimates of $\beta_0,\beta_1$ in the logistic regression
+	model are those that maximise
+	\begin{align*}
+		\sum_{i=1}^n\ln\P(Y=y_i|X=x_i) = \sum_{i=1}^n -\ln(1+\exp(-y_i(\beta_0+\beta_1x_i))).
+	\end{align*}
+\end{theorem}
+
 \end{document}
