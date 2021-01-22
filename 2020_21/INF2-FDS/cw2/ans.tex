@@ -1,0 +1,143 @@
+\documentclass{article}
+\usepackage{preamble}
+
+\title{FDS CW2: Critical Evaluation of a Data Science Study}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+
+\section*{Chosen study}
+
+\begin{itemize}
+    \item Paper: Menni C, Valdes, AM, Freidin MB. et al. (2020). 
+            \emph{\href{https://www.nature.com/articles/s41591-020-0916-2?fbclid=IwAR0tkHR2rBZ9vPGhoc8pm7ZreHZ0HdkVOzLGU2mxvYhgZ2n9DkWDZLRfys4}
+            {Real-time tracking of self-reported symptoms to predict potential COVID-19}} Nat Med26, 1037–1040. doi: 10.1038/s41591-020-0916-2
+    \item Article: \emph{\href{https://www.bbc.co.uk/news/health-52770313}{Coronavirus: Five things a Covid-19 symptom-tracking app tells us}} (BBC website, 23 May 2020)
+\end{itemize}
+
+
+\section{Paper-related questions}
+
+
+\subsection{What is the scientific goal of the study?}
+
+The aim of the study is to analyse the correlation between COVID-19 symptoms and test results
+to decide which symptoms, or combinations thereof, are most indicative of a positive case.
+
+\subsection{What is the type of study?}
+
+The study is observational since no experiments have been conducted. More precisely, we are
+dealing with a cross-sectional study because the researchers are trying to gather information
+from the entire population. The study is trying to establish a prediction model.
+
+\subsection{What are the hypotheses of the study?}
+
+The main hypothesis the study is trying to prove is that out of the COVID-19 symptoms that have
+so far been observed, some have more predictive value than others. In particular, loss of smell
+and taste is hypothesised to be caused by COVID-19. Another, less obvious, hypothesis is
+that the main stream media reports have affected awareness of loss of taste and
+smell as a COVID-19 symptom.
+
+\subsection{What is the methodology of the study and what is the result?}
+
+The data was gathered through an app where participants self-reported their symptoms and other
+health information. This has been done in two separate regions, the United Kingdom and the United
+States, and for about a month from 24 March to 21 April 2020.
+The app was, and still is, freely available so anyone could document their symptoms.
+The symptoms that were tracked are loss of smell
+and taste, fatigue, shortness of breath, fever, persistent cough, diarrhea, delirium, skipped meals,
+abdominal pain, chest pain and hoarse voice. Additionally, data on demographics,
+test results, hospitalisations and more was recorded.\\
+\indent The data was then analysed using various methods (cf. 1.5) to create a linear
+prediction model. The resulting model suggests that loss of smell and taste is, in
+addition to other symptoms like high temperature and persistent cough, a
+potential predictor of COVID-19. Furthermore, to examine the influence of the main
+stream media on the reports of loss of smell and taste, the researchers compared
+different time intervals and found that, in the UK, the awareness of loss of smell
+and taste as a symptom of COVID-19 has increased over the span of the study.
+
+\subsection{What are the statistical methods used in the study and how are they applied to the data?}
+
+Firstly, the researchers calculated basic characteristics of the data, like the percentages
+of each symptom within the entire population and tested people with either result. Further,
+they used odds ratios to characterise the relation between positive tests and loss of
+smell and taste in particular. The corresponding confidence intervals were determined by
+using a $P$-value of $0.01\%$.\\
+\indent To find out more about the association of certain symptoms with positive tests, logistic
+regression was used. In order to increase the validity,
+they first adjusted for values like age, sex and BMI. Further, step-wise logistic regression
+with 80\% training data was applied to generate 
+a linear prediction model. The set of variables to include was
+chosen based on the Akaike information criterion of the resulting model. The researchers also
+provided sensitivities, specificities and areas under the curve of the receiver operating
+characteristic curve (ROC-AUC) for different models and the two cohorts (UK and US).
+
+\subsection{What are the stated conclusions of the study?}
+
+The study concludes that loss of smell and taste is a potential predictor of COVID-19
+and that awareness of loss of smell and taste as a symptom has increased due to
+an increase in media reports. To be precise, the paper provides a linear model which includes age,
+sex, loss of smell and taste, persistent cough, severe fatigue and skipped meals to
+predict COVID-19 test results. The researchers claim that said model is similarly accurate
+accross different sex and age groups. However, it is acknowledged that the resulting
+values may overestimate the likelihood of a positive test result due to the non-representative
+group of participants. 
+
+\subsection{Impact, errors \& potential flaws}
+
+As highlighted by the researchers who conducted the study, the actual values
+obtained are unlikely to be entirely accurate for the whole population. This is
+due to the self-selected group of participants who are unlikely to be representative
+of the population in general. Further, it is rightfully pointed out that
+some symptoms seem to be more indicative of COVID-19 in one region than the other.
+This begs the question which other factors may be involved and how this affects
+the general validity of the study. This question was not adressed in the paper.\\
+\indent Since the flaws presented above are unlikely to change the central conclusion,
+i.e. that loss of smell and taste is indeed a predictor for COVID-19, the
+conducted research work is still very impactful. The World Health Organization
+is urged to add the symptom to their list. This could significantly increase
+awareness and make diagnosis more accurate.
+
+\subsection{Are there any ehtical implications of the study? How well do the authors relate these implications?}
+
+The main, if not only, sources of ethical implications for this study seem to be acquisition and
+usage of data. Without further investigation into the terms and conditions
+of the app and their communication to the participants, it seems difficult
+to fully assess the ethicality of the study. Since participantion was completely
+voluntary, all the data was directly entered by the users and the application
+used to collect the data does not seem to have a purpose other than data collection, 
+I would argue that there are no significant ethical concerns in this regard.
+This is supported by the approval by the KCL ethics Committee as well as the
+Partners Human Research Committee.
+
+\section{Article-related questions}
+
+\subsection{Brief summary}
+
+The report primarily focusses on the predictive abilities of the model in the paper and
+the values it generates over the course of the study compared to actual recorded numbers.
+A data scientist gives a basic overview of how the figures were obtained and how accurate
+they are expected to be. Finally, the report mentions that a wide range of symptoms
+are associated with COVID-19, but crucially loss of smell and taste has been shown to
+have the strongest corrolation with an infection.
+
+\subsection{How accurately did the report summarise the study?}
+
+It is important to point out that the goal of a media report is to provide
+a summary of the study and its conclusions, focussing on the information that
+is relevant to the audience and presenting it in a way that is appropriate for the
+average reader. From this perspective, the report does a very good job at presenting
+the methods, the conclusions and the shortcomings of the study and the resulting model.
+It includes the relevant numbers and helpful visualisations to put them into perspective.
+A more detailed explanation of how the predictions were made or even how the model itself
+works were left out.\\
+\indent The most noticable difference between the paper and the report are the focal points.
+While the paper primarily focuses on the predictive value of the symptoms, 
+from the hypotheses to the conclusions, the media report chooses to present
+various collected as well as predicted values. Throughout the paper, individual symptoms, especially
+loss of smell and taste, are mentioned often whereas in the report only the very last
+section deals with this. This is not so much a factual inaccuracy as it is a 
+change in tone and priority.
+
+
+\end{document}
