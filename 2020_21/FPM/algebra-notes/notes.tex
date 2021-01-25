@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
+\usepackage{enumitem}
 \begin{document}
 \mkfpmthms
 \title{Fundamentals of Pure Mathematics - Algebra (SEM4)}
@@ -39,7 +40,7 @@
     Then the cardinality of $S$ is equal to the sum, over the elements
     $t$ of $T$, of the cardinalities of the inverse images $f^{-1}(\{t\})\subseteq S$:
     \begin{align*}
-        |S| = \sum_{t\in T}\abs{f^{-1}(\{t\})}
+        \abs{S} = \sum_{t\in T}\abs{f^{-1}(\{t\})}
     \end{align*}
 \end{theorem}
 
@@ -118,28 +119,26 @@
 
 \subsection{Groups and examples}
 
-\subsubsection{The definition of a group}
-
 \begin{definition}
-    Let $S$ be any nonempty set. An operation $\star$ on $S$ is a rule
+    Let $S$ be any nonempty set. An operation $*$ on $S$ is a rule
     which, for every ordered pair $(a,b)$ of elements of $S$, determines
-    a unique element $a\star b$ of $S$. Equivalently, if we recall that
+    a unique element $a* b$ of $S$. Equivalently, if we recall that
     \begin{align*}
-        S\times S := \{(a,b) | a,b\in S\}
+        S\times S := \{(a,b) : a,b\in S\}
     \end{align*}
     then an operation is a function $S\times S\to S$.
 \end{definition}
 
 \setcounter{theorem}{2}
 \begin{definition}
-    We say that a nonempty set $G$ is a \emph{group under $\star$} if
-    \begin{enumerate}
-        \item (Closure) $\star$ is an operation, so $g\star h\in G$ for all $g,h\in G$.
-        \item (Associativity) $g\star (h \star k)=(g\star h)\star k$ for all $g,h,k\in G$.
-        \item (Identity) There exists an \emph{identity element} $e\in G$ such $e\star g = g\star e = g$
+    We say that a nonempty set $G$ is a \emph{group under $*$} if
+    \begin{enumerate}[label=G\arabic*.]
+        \item (Closure) $*$ is an operation, so $g* h\in G$ for all $g,h\in G$.
+        \item (Associativity) $g* (h * k)=(g* h)* k$ for all $g,h,k\in G$.
+        \item (Identity) There exists an \emph{identity element} $e\in G$ such $e* g = g* e = g$
               for all $g\in G$.
         \item (Inverses) Every element $g\in G$ has an \emph{inverse} $\inv g$ 
-              such that $g\star \inv g= \inv g \star g = e$.
+              such that $g* \inv g= \inv g * g = e$.
     \end{enumerate}
     If $G$ is a finite group, the number of elements of $G$ is written $\abs{G}$, and is called the
     \emph{order} of $G$. If $G$ is infinite then we say that $\abs{G}=\infty$ , ther order of $G$
@@ -152,8 +151,8 @@
 
 \setcounter{theorem}{5}
 \begin{definition}
-    Suppose that $G$ is a group and $g,h\in G$. If $g\star h = h\star g$ then we say
-    that $g$ and $h$ \emph{commute}. If $g\star h=h\star g$ for all $g,h\in G$, then
+    Suppose that $G$ is a group and $g,h\in G$. If $g* h = h* g$ then we say
+    that $g$ and $h$ \emph{commute}. If $g* h=h* g$ for all $g,h\in G$, then
     we say $G$ is an \emph{abelian} group.
 \end{definition}
 
@@ -184,12 +183,12 @@
 \begin{theorem}
     Let $G,H$ be groups. The product
     \begin{align*}
-        G\times H=\{(g,h)|g\in G, h\in H\}
+        G\times H=\{(g,h):g\in G, h\in H\}
     \end{align*}
     has the natrual structure of a group as follows:
     \begin{itemize}
-        \item The group operation is $(g,h)\star(g',h'):=(g\star_G g', h\star_H h')$, 
-        where we write $\star_G$ and $\star_H$ for the group operations in $G$ and $H$, respectively.
+        \item The group operation is $(g,h)*(g',h'):=(g* g', h* h')$, 
+        where we write $*$ and $*$ for the group operations in $G$ and $H$, respectively.
         \item The identity $e$ in $G\times H$ is $e:=(e_G, e_H)$, where $e_G$ and 
         $e_H$ are the identity elements of $G$ and $H$, respectively.
         \item The inverse of $(g,h)$ is $(\inv g, \inv h)$, where the inverse of $g$ is taken in $G$,
@@ -200,10 +199,10 @@
 \begin{corollary*}
     Let $G,H$ be groups. Then
     \begin{align*}
-        |G\times H| = |G||H|.
+        \abs{G\times H} = \abs{G}\abs{H}.
     \end{align*}
     \begin{proof}
-        $$\forall g\in G,\:|\{(g,h) : h\in H\}|=|H| \:\Rightarrow\: |G\times H| = \sum_{g\in G}|H| = |G||H|.$$
+        $$\forall g\in G,\:\abs{\{(g,h) : h\in H\}}=\abs{H} \:\Rightarrow\: \abs{G\times H} = \sum_{g\in G}\abs{H} = \abs{G}\abs{H}.$$
     \end{proof}
 \end{corollary*}
 
@@ -211,8 +210,8 @@
 \begin{lemma}
     Let $G$ be a group. If $g,h\in G$, then
     \begin{enumerate}
-        \item There is one and only one element $k\in G$ such that $k\star g=h$.
-        \item There is one and only one elmenet $k\in G$ such that $g\star k=h$.
+        \item There is one and only one element $k\in G$ such that $k* g=h$.
+        \item There is one and only one elmenet $k\in G$ such that $g* k=h$.
     \end{enumerate}
 \end{lemma}
 
@@ -220,10 +219,215 @@
 \begin{corollary}
     The following statements are true:
     \begin{enumerate}
-        \item In a group you can always cancel: if $g\star s=g\star t$ 
-        then $s=t$. Similarly, if $s\star g=t\star g$ then $s=t$.
+        \item In a group you can always cancel: if $g* s=g* t$ 
+        then $s=t$. Similarly, if $s* g=* g$ then $s=t$.
         \item Inversese are unique.
         \item A group has only one identity.
     \end{enumerate}
 \end{corollary}
+
+
+\section{Subgroups and Lagrange's theorem}
+
+
+\subsection{Subgroups}
+
+\begin{definition}
+    Let $G$ be a group under an operation $*$. Then we say that a nonempty
+    subset $H$ of $G$ is a \emph{subgroup} of $G$ if $H$ itself is a group under $*$.
+    We write $H\leq G$ if $H$ is a subgroup of $G$. If also $H\not=G$, we write
+    $H<G$ and say that $H$ is a \emph{proper subgroup}.
+\end{definition}
+
+\begin{lemma}
+    Suppose that $H\leq G$. Then
+    \begin{enumerate}
+        \item $e_H = e_G$, and
+        \item if $h\in H$, the inverse of $h$ in $H$ equals the inverse of $h$ in $G$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+    $H\subseteq G$ is a subgroup of $G$ if and only if
+    \begin{enumerate}[label=S\arabic*.]
+        \item $H$ is not empty.
+        \item If $h,k\in H$ then $h*k\in H$.
+        \item If $h\in H$ then $h^{-1}\in H$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    $H\subseteq G$ is a subgroup of $G$ if and only if
+    \begin{enumerate}[label=$\widetilde{\text{S\arabic*}}$.]
+        \item $H$ is not empty.
+        \item If $h,k\in H$ then $h*k^{-1}\in H$.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Orders of elements and cyclic subgroups}
+
+\setcounter{theorem}{2}
+\begin{definition}[Order of a group]
+    A finite group $G$ is one with only a finite number of elements.
+    The \emph{order} of a finite group, written $\abs{G}$, is the
+    number of elements in $G$.
+\end{definition}
+
+\begin{definition}[Order of an element]
+    Let $G$ be a group and $g\in G$. Then the \emph{order $o(g)$ of $g$}
+    is the least $n\in\N$ such that
+    \begin{align*}
+        g^n = e.
+    \end{align*}
+    If no such $n$ exists, we say that $g$ has \emph{infinite order}.
+\end{definition}
+
+\setcounter{theorem}{5}
+\begin{theorem}
+    In a finite group, every element has finite order.
+\end{theorem}
+
+\begin{corollary}
+    Let $g$ be an element of a finite group $G$. Then there exists $k\in\N$
+    such that $g^k=g^{-1}$.
+\end{corollary}
+
+\begin{definition}
+    Let $G$ be a group and let $g\in G$ be an element. We define the
+    subset
+    \begin{align*}
+        \lra g := \{g^k : k\in\Z\}.
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    If $G$ is a group and $g\in G$, then $\lra g$ is a subgroup of $G$.
+\end{lemma}
+
+\begin{definition}
+    A subgroup $H\leq G$ is \emph{cyclic} if $H=\lra h$ for some
+    $h\in H$. In this case, wew say that $H$ is the \emph{cyclic subgroup
+    generated by $h$}. If $G=\lra g$ for some $g\in G$, then we
+    say that the group $G$ is \emph{cyclic}, and that $g$ is a generator.
+\end{definition}
+
+\setcounter{theorem}{13}
+\begin{lemma}
+    Let $G$ be a finite group. Then
+    \begin{align*}
+        \text{$G$ is cyclic} \hs\Leftrightarrow\hs \text{$G$ contains an element of order $\abs{G}$}.
+    \end{align*}
+\end{lemma}
+
+\begin{theorem}
+    Let $G$ be a cyclic group and let $H$ be a subgroup of $G$. Then
+    $H$ is cyclic.
+\end{theorem}
+
+\begin{theorem}
+    Let $m,n\in\N$, let $G=\lra r$ be a cyclic group of order $m$
+    and $H=\lra h$ be a cyclic group of order $n$. Then
+    \begin{align*}
+        \text{$G\times H$ is cyclic} \hs\Leftrightarrow\hs \text{$m$ and $n$ are coprime.}
+    \end{align*}
+\end{theorem}
+
+\subsection{Cosets}
+
+\begin{theorem}[Lagrange's Theorem]
+    Let $G$ be a finite group and let $H\leq G$.
+    Then $\abs{H}$ divides $\abs{G}$. 
+\end{theorem}
+
+\begin{definition}
+    Let $X$ be a set, and $R\subseteq X\times X$.
+    If $(s,t)\in R$ we write $s\sim t$. We call $\sim$
+    a relation on $X$. A relation $\sim$ is called an
+    \emph{equivalence relation} on $X$ if it satisfies
+    the following three axioms
+    \begin{enumerate}[label=E\arabic*.]
+        \item (Reflexive) $x\sim x$ for all $x\in X$.
+        \item (Symmetric) $x\sim y \Rightarrow y\sim x$ for all $x,y\in X$.
+        \item (Transitive) $x\sim y$ and $y\sim z \Rightarrow x\sim z$ for all $x,y,z\in X$.
+    \end{enumerate}
+    The \emph{equivalence class} containing $x$ is give by
+    \begin{align*}
+        \cl(x) := \left\{s\in X : x\sim s\right\}.
+    \end{align*}
+\end{definition}
+
+\setcounter{theorem}{3}
+\begin{definition}
+    Let $H\leq G$ and let $g\in G$. Then a \emph{left coset} of $H$
+    in $G$ is a subset of $G$ of the form $gH$, for some $g\in G$.
+\end{definition}
+
+\setcounter{theorem}{5}
+\begin{definition}
+    We denote the set of left cosets of $H$ in $G$ by $G/H$.
+\end{definition}
+
+\setcounter{theorem}{7}
+\begin{theorem}
+    Let $H\leq G$.
+    \begin{enumerate}
+        \item For all $h\in H$, $hH=H$. In particular $eH=H$.
+        \item For $g_1,g_2\in G$, the following are equivalent \begin{enumerate}
+            \item $g_1H=g_2H$.
+            \item $\exists h\in H,\: g_2 = g_1h$.
+            \item $g_2\in g_1 H$.
+        \end{enumerate}
+        \item For $g_1,g_2\in G$, define $g_1\sim g_2$ if and only if $g_1H=g_2H$.
+        Then $\sim$ defines an equivalence relation on $G$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    The \emph{right cosets} of $H$ in $G$ are subsets of the form $Hg$.
+\end{definition}
+
+\subsection{Lagrange's Theorem}
+
+\begin{lemma}
+    Suppose that $H\leq G$ and $H$ is finite.
+    \begin{enumerate}
+        \item Then $\abs{gH}=\abs{H}$ for all $g\in G$.
+        \item For a fixed $g\in G$, the number of $g_1\in G$ 
+        such that $gH=g_1H$ is equal to $\abs{H}$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+    Suppose that $G$ is a finite group.
+    \begin{enumerate}
+        \item If $H\leq G$, then $H$ divides $|G|$.
+        \item Let $g\in G$. Then $o(g)$ divides $|G|$.
+        \item For all $g\in G$, we have that $g^{\abs{G}}=e$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+    $\abs{G / H}= \abs{G}/\abs{H}$.
+\end{corollary}
+
+\begin{definition}
+    The \emph{index} of $H\leq G$ is the number of distinct
+    left cosets of $H$ in $G$, which is $\abs{G/H}$.
+\end{definition}
+
+\begin{theorem}
+    Suppose that $G$ is a group with $\abs{G}=p$, where $p$ is
+    prime. Then $G$ is a cyclic group.
+\end{theorem}
+
+\begin{corollary}
+    Suppose that $G$ is a group with $\abs{G}<6$. Then $G$ is abelian.
+\end{corollary}
+
+\begin{theorem}[Fermat's Little Theorem]
+    If $p$ is a prime and $a\in\Z$, then
+    \begin{align*}
+        a^{p}\equiv a \mod p.
+    \end{align*}
+\end{theorem}
 \end{document}
