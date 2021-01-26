@@ -466,4 +466,112 @@ explored states.
     \end{pseudo}
 \end{definition}
 
+\section{Logical Agents}
+
+\subsection{Knowledge-based agents}
+
+\begin{definition}
+    An agents \emph{knowledge base} is a set of \emph{sentences} representing assertions
+    about the world.
+\end{definition}
+
+\begin{definition}
+    A sentence is called an \emph{axiom} if it is not derived from other sentences.
+\end{definition}
+
+\begin{pseudo}
+    \textbf{function} KB-AGENT(\emph{percept}) \textbf{returns} an \emph{action} \\+
+        \textbf{persistent:} $KB$, $t$\\
+        TELL($KB$,MAKE-PERCEPT-SENTENCE(\emph{percept}, $t$))\\
+        $\text{\emph{action}}\leftarrow\text{ASK}(KB,\text{MAKE-ACTION-QUERY}(t))$\\
+        $\text{TELL}(KB, \text{MAKE-ACTION-SENTENCE}(\text{\emph{action}},t))$\\
+        $t\leftarrow t+1$\\
+        \textbf{return} \emph{action}
+\end{pseudo}
+
+\subsection{Logic}
+
+\begin{definition}
+    A \emph{representation language} must have a \emph{syntax} that defines which
+    sentences are well formed and \emph{semantics}, i.e. the meaning of sentences.
+\end{definition}
+
+\begin{definition}
+    Let $m$ be a model and $\alpha$ be a sentence. If $\alpha$ is true in $m$, then
+    $m$ \emph{satisfies} $\alpha$. The set of all models that satisfy $\alpha$ is
+    denoted $M(\alpha)$.
+\end{definition}
+
+\begin{definition}
+    Let $\alpha,\beta$ be sentences. Then $a\vDash b$ if and only if $M(\alpha)\subseteq M(\beta)$.
+\end{definition}
+
+\begin{definition}
+    Let $i$ be an inference algorithm, $\alpha$ be a sentence and $KB$ be a knowlege base.
+    If $i$ can derive $\alpha$ from $KB$ then we write $KB\vdash_i \alpha$.
+\end{definition}
+
+\begin{definition}
+    An inference alogrithm that only derives entailed sentences is called \emph{sound}.
+\end{definition}
+
+\begin{definition}
+    An inference algorithm is complete if it can derive any sentence that is entailed.
+\end{definition}
+
+\begin{definition}
+    Let $\alpha,\beta$ be sentences. Then $a\equiv b$ if and only if $M(\alpha)=M(\beta)$.
+\end{definition}
+
+\begin{definition}
+    Let $\alpha$ be a sentence. If $M(\alpha)\not=\emptyset$ then $\alpha$ is \emph{satisfiable}.
+    If $M(\neg\alpha)=\emptyset$ then $\alpha$ is \emph{valid} or a \emph{tautologie}.
+\end{definition}
+
+\begin{lemma}
+    Let $\alpha,\beta$ be sentences. Then
+    \begin{itemize}
+        \item $\alpha\vDash\beta$ if and only if $\alpha\Rightarrow\beta$ is valid.
+        \item $\alpha\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
+    \end{itemize}
+\end{lemma}
+
+\begin{definition}
+    A knowledge base is called \emph{monotonous} if the set of entailed sentences can
+    only increase as information is added, i.e.
+    \begin{align*}
+        \text{if}\hs KB \vDash \alpha \hs\text{then}\hs KB\wedge \beta \vDash \alpha
+    \end{align*}
+    for all sentences $\alpha,\beta$.
+\end{definition}
+
+\subsection{Theorem Proving}
+
+\begin{theorem}[Resolution rule]
+    Let $l_1,...,l_k,m_1,...,m_n$ be literals and let $l_i\Leftrightarrow\neg m_j$. Then
+    \begin{align*}
+        \infer{l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n}{
+            l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
+        }.
+    \end{align*}
+\end{theorem}
+
+\begin{pseudo}
+    \textbf{function} PL-RESOLUTION$(KB,\alpha)$ \textbf{returns} $true$ or $false$\\+
+        $\text{\emph{clauses}}\leftarrow \text{the set of clauses in the CNF representation of }KB\wedge\neg\alpha$\\
+        $\text{\emph{new}}\leftarrow\emptyset$\\
+        \textbf{loop do}\\+
+            \textbf{for each} pair of clauses $(C_i,C_j)$ \textbf{in} \emph{clauses} \textbf{do}\\+
+                $\text{\emph{resolvents}}\leftarrow\text{PL-RESOLVE}(C_i,C_j)$\\
+                \textbf{if} \emph{resolvents} contains an empty clause \textbf{then return} $true$\\
+                $\text{\emph{new}}\leftarrow \text{\emph{new}}\cup \text{\emph{resolvents}}$\\-
+            \textbf{if} $\text{\emph{new}} \subseteq \text{\emph{clauses}}$ \textbf{then return} $false$\\
+            $\text{\emph{clauses}}\leftarrow\text{\emph{clauses}}\cup\text{\emph{new}}$
+\end{pseudo}
+
+\begin{theorem}[Ground resolution theorem]
+    If a set of clauses is unsatisfiable, then the resoltuion closure of
+    those clauses contains the empty clause. 
+\end{theorem}
+
 \end{document}
