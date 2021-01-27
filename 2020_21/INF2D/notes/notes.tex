@@ -545,7 +545,7 @@ explored states.
     for all sentences $\alpha,\beta$.
 \end{definition}
 
-\subsection{Theorem Proving}
+\subsection{SAT}
 
 \begin{theorem}[Resolution rule]
     Let $l_1,...,l_k,m_1,...,m_n$ be literals and let $l_i\Leftrightarrow\neg m_j$. Then
@@ -572,6 +572,56 @@ explored states.
 \begin{theorem}[Ground resolution theorem]
     If a set of clauses is unsatisfiable, then the resoltuion closure of
     those clauses contains the empty clause. 
+\end{theorem}
+
+\begin{definition}
+    A \emph{definite clause} is a disjunction of literals of which
+    exactly one is positive.
+\end{definition}
+
+\begin{definition}
+    A \emph{Horn clause} is a disjunction of literals of which at most
+    one is positive.
+\end{definition}
+
+\begin{pseudo}
+    \textbf{function} DPPL-SATISFIABLE?$(s)$ \textbf{returns} $true$ or $false$\\+
+        $\text{\emph{clauses}}\leftarrow\text{the set of clauses in the CNF representation of }s$\\
+        $\text{\emph{symbols}}\leftarrow\text{a list of the proposition symbols in }s$\\
+        \textbf{return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}, \emptyset)$
+    \\\\-
+    \textbf{function} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}, \text{\emph{model}})$ \textbf{returns} $true$ or $false$\\+
+        \textbf{if} every clause in \emph{clauses} is true in \emph{model} \textbf{then return} $true$\\
+        \textbf{if} some clause in \emph{clauses} is false in \emph{model} \textbf{then return} $false$\\
+        $P,\text{\emph{value}}\leftarrow\text{FIND-PURE-SYMBOL}(\text{\emph{symbols}},\text{\emph{clauses}},\text{\emph{model}})$\\
+        \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}-P,\text{\emph{model}}\cup\{P=\text{\emph{value}}\})$\\
+        $P,\text{\emph{value}}\leftarrow\text{FIND-UNIT-CLAUSE}(\text{\emph{clauses}}, \text{\emph{model}})$\\
+        \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}-P,\text{\emph{model}}\cup\{P=\text{\emph{value}}\})$\\
+        $P\leftarrow\text{FIRST}(\text{\emph{symbols}})$; $\text{\emph{rest}}\leftarrow\text{REST}(\text{\emph{symbols}})$\\
+        \textbf{return} $\text{DPLL}(\text{\emph{clauses}}, \text{\emph{rest}}, \text{\emph{model}}\cup\{P=true\})$ \textbf{or}
+                        $\text{DPLL}(\text{\emph{clauses}}, \text{\emph{rest}}, \text{\emph{model}}\cup\{P=false\})$
+\end{pseudo}
+
+\paragraph{Optimisations in SAT solvers}
+\begin{enumerate}
+    \item \emph{component analysis}: Find disjoint components and solve separately
+    \item \emph{variable and value ordering}: Find most occuring literal and set to true
+    \item \emph{intelligent backtracking}: record conflicts to not repeat them later
+    \item \emph{random restarts}: restarting with learned information may improve progress
+    \item \emph{clever indexing}: optimise queries like "the set of clauses in which variable $X_i$ appears as a positive literal"
+\end{enumerate}
+
+\subsection{SAT-based planning}
+
+\begin{theorem}
+    To create a plan using a SAT solver, we need to provide the following
+    \begin{itemize}
+        \item \emph{initial state}
+        \item \emph{goal}
+        \item \emph{successor-state axioms}
+        \item \emph{precondition axioms}: avoid illegal actions by imposing constraints
+        \item \emph{action-exclusion axioms}: avoid illegal combinations of actions
+    \end{itemize}
 \end{theorem}
 
 \end{document}
