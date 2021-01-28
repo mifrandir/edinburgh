@@ -466,6 +466,98 @@ explored states.
     \end{pseudo}
 \end{definition}
 
+\section{Constraint satisfaction problems}
+
+\begin{definition}
+    A \emph{constraint satisfaction problem} consists of three components:
+    a set $X=\{X_1, ..., X_n\}$ of variables, a set $D=\{D_1, ..., D_n\}$ of
+    domains and a set $C$ of constraints that specify allowable combinations
+    of values.\\
+    Each $D_i$ consists of a set of allowable values, $\{v_1, ..., v_k\}$
+    for variable $X_i$. Each constraint $C_i$ consists of a pair 
+    $\lra{\text{\emph{scope}}, \text{\emph{rel}}}$ where \emph{scope} is a
+    tuple of all the variables involved in the constraint and \emph{rel} is a
+    relation that needs to hold.
+\end{definition}
+
+\subsection{Constraint propagation}
+
+\begin{definition}
+    A variable is \emph{node-consistent} if all the values in the variable's
+    domain satisfy the variable's unary constraints.
+\end{definition}
+
+\begin{definition}
+    Let $X_i,X_j\in X$ be variables. Then $X_i$ is \emph{arc-consistent} with
+    respect to $X_j$ if for every value in the current domain $D_i$ there is some
+    value in the domain $D_j$ that satisfies the binary constraint on the arc
+    $(X_i, X_j)$.
+\end{definition}
+
+\begin{definition}
+    A variable $X_i$ is \emph{generalised arc consistent} with respect to
+    an $n$-ary constraint if for every value $v$ in the domain of $X_i$ there
+    exists a tuple of values that is a member of the constraint, has all its values
+    taken from the corresponding variables and has its $X_i$ component equal to $v$.
+\end{definition}
+
+\begin{definition}
+    A two-variable set $\{X_i, X_j\}$ is \emph{path-consistent} with respect to a
+    third variable $X_m$ if, for every assignment $\{X_i=a,X_j=b\}$ consistent with
+    the constraints on $\{X_i,X_j\}$, there is an assignment to $X_m$ that satisfies
+    the constraints on $\{X_i,X_m\}$ and $\{X_m,X_j\}$.
+\end{definition}
+
+\begin{definition}
+    A CSP is \emph{$k$-consistent} if, for any set of $k-1$ variables and for any consistent 
+    assignment to those variables, a consistent value can always be assigned to any
+    $k$th variable.
+\end{definition}
+
+\begin{definition}
+    A CSP is \emph{strongly $k$-consistent} if for all $k'\leq k$ it is $k'$-consistent.
+\end{definition}
+
+\subsection{Backtracking search}
+
+\begin{definition}
+    \emph{Backtracking search} is a search strategy where at every step only a single
+    variable and all its possible values are considered.
+\end{definition}
+
+\begin{lemma}
+    A backtracking search tree for a problem with $n$ variables with $d$ possible values
+    has $d^n$ leaves.
+\end{lemma}
+
+\begin{definition}
+    The \emph{minimum-remaining-values heuristic} tells backtracking search to choose
+    the variable with the fewest "legal" values in the next step.
+\end{definition}
+
+\begin{definition}
+    The \emph{degree heuristic} tells backtracking search to choose the variable
+    involved in the largest number of constraints in the next step.
+\end{definition}
+
+\begin{definition}
+    The \emph{least-constraining-value heuristic} tells backtracking search to
+    choose the value for the current variable that rules out the fewest values
+    for the remaining variables.
+\end{definition}
+
+\begin{definition}
+    \emph{Forward checking} is an inference strategy that is applied after every
+    step in backtracking search to ensure arc-consistency for all neighbouring variables.
+\end{definition}
+
+\begin{definition}
+    \emph{Maintaining Arc Consistency (MAC)} is an algorithm that, after a value has
+    been selected for a variable $X_i$ in backtracking search, applies the arc
+    consistency algorithm for all neighbouring variables $X_j$ that have not yet
+    been assigned a value.
+\end{definition}
+
 \section{Logical Agents}
 
 \subsection{Knowledge-based agents}
