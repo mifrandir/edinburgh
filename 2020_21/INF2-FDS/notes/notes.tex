@@ -8,7 +8,11 @@
 \maketitle
 \tableofcontents
 \pagebreak
+
+
 \section{Statistical preliminaries}
+
+
 \begin{definition}
 	The \emph{sample mean} $\bar{x}$ for sample $x_1, x_2, ..., x_n$
 	is defined as
@@ -261,9 +265,7 @@ Notes:
 Note: Adjustment is useful because finding a good fit becomes easier with more variables. We don't want this to affect $R^2$.
 
 
-
 \section{Principle Component Analysis}
-
 
 
 \begin{definition}
@@ -423,9 +425,7 @@ with the lowest error.
 \end{itemize}
 
 
-
 \section{Introduction to supervised learning}
-
 
 
 \begin{definition}
@@ -437,9 +437,7 @@ with the lowest error.
 	classifications.
 \end{definition}
 
-
 \subsection{Construction classifiers using unsupervised learning}
-
 
 To construct the classifier automatically we need
 \begin{enumerate}
@@ -451,18 +449,14 @@ This is referred to as \emph{supervised learning}, since the label for a trainin
 vector acts as supervision for the classifier when it is learning from
 training data.
 
-
 \subsection{Regression as supervised learning}
-
 
 \begin{itemize}
 	\item labels are not categories but independent variable
 	\item tries to predict label for unknown input
 \end{itemize}
 
-
 \subsection{Nearest neighbour classification}
-
 
 \subsubsection{Procedure}
 
@@ -502,9 +496,7 @@ training data.
 	on the testing set.
 \end{definition}
 
-
 \subsection{$k$-Nearest neighbour classification}
-
 
 \subsubsection{Principle}
 
@@ -880,4 +872,57 @@ Then the procedure is
 	\end{align*}
 \end{theorem}
 
+
+\section{Comparing two samples}
+
+\subsection{A/B testing}
+
+\begin{definition}
+	\emph{A/B testing} is a method for assessing how changes to design of a system
+	affect user behaviour. The statistical questions in A/B testing are
+	\begin{enumerate}
+		\item Is A \emph{significantly} better than B?
+		\item How much better is A than B?
+	\end{enumerate}
+\end{definition}
+
+\paragraph{Bootstrap for A/B learning}
+
+Let $p_A,p_B\in\R$ be the success-rate for $A$ and $B$ respectively. Then the
+difference we are trying to estimate is
+\begin{align*}
+	d = p_A - p_B.
+\end{align*}
+Then the natural estimators are
+\begin{align*}
+	\hat p_A = \frac{n_A}{n}\hs \hat p_B = \frac{n_B}{n}
+\end{align*}
+where $n_A,n_B\in\N$ are the actual numbers of successes in either case.
+The bootstrap procedure is
+\begin{enumerate}
+	\item For $j$ in $1,...,B$ \begin{enumerate}
+		\item Sample $n^*_A$ from binomial distribution with parameters $n$ and $\hat p_A$
+		\item Sample $n^*_B$ from binomial distribution with parameters $n$ and $\hat p_B$
+		\item Compute and store difference in proportions \begin{align*}
+			d^*_j = n^*_A/n - n^*_B/n
+		\end{align*}
+	\end{enumerate}
+	\item Plot the bootstrap distribution of $d^*$ and compute the desired quantities
+\end{enumerate}
+
+\subsection{Large sample theory}
+
+\begin{theorem}
+	Given a large sample of size $n$, the estimators for A/B testing are
+	\begin{align*}
+		\hat p_A &= \frac{n_A}{n}\\
+		\hat p_B &=\frac{n_B}{n}\\
+		\hat d   &= \hat p_A - \hat p_B\\
+		\hat\sigma_{\hat p_A} &= \sqrt{\frac{np_A(1-p_A)}{n}}\\
+		\hat\sigma_{\hat p_B} &= \sqrt{\frac{np_B(1-p_B)}{n}}\\
+		\hat\sigma_{\hat p_A} &= \sqrt{\frac{p_A(1-p_A)}{n}}\\
+		\hat\sigma_{\hat p_B} &= \sqrt{\frac{np_B(1-p_B)}{n}}\\
+		\hat\sigma_{\hat d}   &= \sqrt{\hat\sigma^2_{\hat p_A} + \hat\sigma^2_{\hat p_B}}
+	\end{align*}
+\end{theorem}
 \end{document}
