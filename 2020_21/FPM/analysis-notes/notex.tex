@@ -369,4 +369,156 @@
               diverging to $\infty$.
     \end{itemize}
 \end{theorem}
+
+
+\section{Infinite Series}
+
+
+\subsection{Introduction}
+
+\begin{definition}
+    Let $S=\sum_{k=1}^\infty a_k$ be an infinite seires with terms $a_k$.
+    For each $n$ the partial sum of $S$ of order $n$ is defined by
+    \begin{align*}
+        s_n = \sum_{k=1}^n a_k.
+    \end{align*}
+\end{definition}
+
+\setcounter{theorem}{6}
+\begin{theorem}[Divergence test]
+    Let $(a_k)$ be a sequence of real numbers. If $a_k$ does not
+    converge to zero then the series
+    \begin{align*}
+        \sum_{k=1}^\infty a_k\hs\text{diverges}.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Alternate divergence test]
+    Let $(a_k)$ be a sequence of real numbers. If the series
+    \begin{align*}
+        \sum_{k=1}^\infty a_k\hs\text{converges}
+    \end{align*}
+    then $(a_n)$ converges to $0$. 
+\end{theorem}
+
+\begin{theorem}[Telescopic series]
+    Let $(b_k)$ be a convergent sequence of real numbers. Then
+    \begin{align*}
+        \sum_{k=1}^\infty (b_k - b_{k+1})=b_1-\lim_{k\to\infty}b_k. 
+    \end{align*}
+\end{theorem}
+
+\setcounter{theorem}{10}
+\begin{theorem}[Geometric series]
+    Let $x\in\R$ and $N\in\{0,1,2,...\}=\N_0$. Then the series
+    \begin{align*}
+        \sum_{k=N}^\infty x^k\hs\text{converges if and only if }|x|<1.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}
+    Let $(a_k)$ and $(b_k)$ be real sequences and $\alpha\in\R$. If the
+    series $\sum_{k=1}^\infty a_k$ and $\sum_{k=1}^\infty b_k$ are convergent
+    then
+    \begin{align*}
+        \sum_{k=1}^\infty (a_k+b_k)=\sum_{k=1}^\infty a_k + \sum_{k=1}^\infty b_k
+    \end{align*}
+    and
+    \begin{align*}
+        \sum_{k=1}^\infty (\alpha a_k)=\alpha \sum_{k=1}^\infty a_k.
+    \end{align*}
+\end{theorem}
+
+\subsection{Series with nonnegative terms}
+
+\begin{theorem}
+    Suppose that $a_k\geq 0$ for large $k$. Then $\sum_{k=1}^\infty a_k$ converges
+    if and only if the sequence of partial sums $(s_n)$ is bounded. That is,
+    there exists $M>0$ such that
+    \begin{align*}
+        \abs{\sum_{k=1}^na_k}\leq M,\hs\text{for all }n\in\N
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Comparison test]
+    Suppose that $0\leq a_k\leq b_k$ for large $k$.
+    \begin{itemize}
+        \item If $\sum_{k=1}^\infty b_k<\infty$ then $\sum_{k=1}^\infty a_k < \infty$.
+        \item If $\sum_{k=1}^\infty a_k = \infty$ then $\sum_{k=1}^\infty b_k = \infty$.
+    \end{itemize} 
+\end{theorem}
+
+\begin{theorem}[Integral test]
+    Suppose that $f:[1,\infty)\to\R$ is positive and decreasing on
+    $[1,\infty)$. Let $a_k=f(k)$, $k=1,2,3,...$. Then $\sum_{k=1}^\infty f(k)$
+    converges if and only if the improper integral
+    \begin{align*}
+        \int_1^\infty f(x)\:dx < \infty.
+    \end{align*}
+\end{theorem}
+
+\setcounter{theorem}{6}
+\begin{theorem}[Limit comparison test]
+    Suppose that $0\leq a_k$, $0<b_k$ for large $k$ and that  
+    \begin{align*}
+        L=\lim_{n\to\infty}\frac{a_n}{b_n}\hs\text{exists as an extended real number}.
+    \end{align*}
+    \begin{itemize}
+        \item If $L\in(0,\infty)$ then $\sum_{k=1}^\infty a_k$ converges if and only if $\sum_{k=1}^\infty b_k$ converges.
+        \item If $L=0$ and $\sum_{k=1}^\infty b_k$ converges then $\sum_{k=1}^\infty a_k$ converges.
+        \item If $L=\infty$ and $\sum_{k=1}^\infty b_k$ diverges then $\sum_{k=1}^\infty a_k$ diverges.
+    \end{itemize}
+\end{theorem}
+
+\subsection{Absolute convergence}
+
+\begin{definition}
+    Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. We say that $S$ converges
+    absolutely if $\sum_{k=1}^\infty \abs{a_k}<\infty$. We say that the series
+    $S$ converges conditionally if $S$ converges but $\sum_{k=1}^\infty\abs{a_k}$ 
+    diverges.
+\end{definition}
+
+\begin{theorem}
+    If $\sum_{k=1}^\infty a_k$ converges absolutely, then $\sum_{k=1}^\infty a_k$
+    converges.
+\end{theorem}
+
+\begin{theorem}[Root test]
+    Let $a_k\in\R$ and assume that $r=\lim_{k\to\infty} \abs{a_k}^{1/k}$
+    exists. If
+    \begin{itemize}
+        \item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
+        \item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
+    \end{itemize} 
+\end{theorem}
+
+\setcounter{theorem}{4}
+\begin{theorem}[Ratio test]
+    Let $a_k\in\R$ and assume that $r=\lim_{k\to\infty}\frac{\abs{a_{k+1}}}{\abs{a_k}}$
+    exists as an extended real number. If
+    \begin{itemize}
+        \item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
+        \item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
+    \end{itemize}
+\end{theorem}
+
+\subsection{Alternating seires}
+
+\begin{theorem}[Alternating series]
+    Let $(a_k)$ be a decreasing sequence of nonnegative numbers such that
+    $a_k\to 0$ as $k\to\infty$. Then the series
+    \begin{align*}
+        \sum_{k=1}^\infty (-1)^k a_k\hs\text{is convergent}.
+    \end{align*} 
+\end{theorem}
+
+\begin{corollary}
+    The series
+    \begin{align*}
+        \sum_{k=1}^\infty (-1)^k\frac{1}{k},\hs \sum_{k=2}^\infty (-1)^k\frac{1}{\log k},
+        \hs \sum_{k=2}^\infty (-1)^k\frac{1}{k\log k}
+    \end{align*}
+    are all convergent.
+\end{corollary}
 \end{document}
