@@ -716,4 +716,42 @@ explored states.
     \end{itemize}
 \end{theorem}
 
+
+\section{First-order logic}
+
+
+\subsection{Basics}
+
+\begin{definition}
+    A model in first-order logic consists of a set of objects and an interpretation
+    that maps constant symbols to objects, predicate symbols to relations on
+    those objects and function symbols to functions on those objects.
+\end{definition}
+
+\begin{definition}
+    An \emph{atomic sentence} is formed from a predicate optionally followed
+    by a parenthesised list of terms. Such a sentence is true in a given model
+    if the relation referred to by the predicate symbol holds among the objects
+    referred to by the arguments.
+\end{definition}
+
+\begin{theorem}
+    Let $P$ be a predicate. Then
+    \begin{align*}
+        \forall x,\: P(x) \equiv \neg(\exists x,\: \neg P(x)).
+    \end{align*}
+\end{theorem}
+
+\subsection{Knowledge engineering}
+
+\paragraph{Steps}
+\begin{enumerate}
+    \item Identify the task 
+    \item Assemble the relevant knowledge
+    \item Decide on a vocabulary of predicates, functions and constants
+    \item Encode general knowledge about the domain
+    \item Encode a description of the specific problem instance
+    \item Pose queries to the inference procedure and get answers
+    \item Debug the knowledge base
+\end{enumerate}
 \end{document}
