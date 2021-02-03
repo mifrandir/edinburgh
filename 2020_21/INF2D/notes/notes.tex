@@ -1,7 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \mkfpmthms
-\usepackage{pseudo}
 
 \title{INF2D: Reasoning and Agents (SEM4)}
 \author{Franz Miltz}
@@ -754,4 +753,53 @@ explored states.
     \item Pose queries to the inference procedure and get answers
     \item Debug the knowledge base
 \end{enumerate}
+
+\subsection{Propositional inference}
+
+\begin{theorem}[Universal Instantiation]
+    Let $\subst(\theta, \alpha)$ denote the result of applying
+    the substitution $\theta$ to the sentence $\alpha$. Then
+    \begin{align*}
+        \infer{\subst(\{v/g\},\alpha)}{\forall v,\:\alpha}
+    \end{align*}
+    for any variable $v$ and ground term $g$, i.e. a term without variables.
+\end{theorem}
+
+\begin{theorem}[Existential Instantiation]
+    Let $\alpha$ be a sentence, $v$ be a variable and $k$ be a
+    symbol that does not appear elsewhere in the knowledge base
+    (called \emph{Skolem constant}), then 
+    \begin{align*}
+        \infer{\subst(\{v/k\},\alpha)}{\exists v,\:\alpha}
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}
+    The question of entailment for first-order logic is \emph{semidecidable}.
+\end{theorem} 
+
+\subsection{Unification and lifting}
+
+\begin{theorem}[Generalised Modus Ponens]
+    For atomic sentences $p_i$, $p_i'$ and $q$, where there is a substitution
+    $\theta$ such that $\subst(\theta,p_i')=\subst(\theta,p_i)$, for
+    all $i$,
+    \begin{align*}
+        \infer{\subst(\theta,q)}{p_1',\: p_2',\: ...,\: p_n',\:(p_1\wedge p_2 \wedge ... \wedge p_n\Rightarrow q)}.
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    The \emph{unification} alogrithm takes two sentences and returns a unifier
+    for them if one exists:
+    \begin{align*}
+        \text{UNIFY}(p,q)=\theta \hs\text{where}\hs \subst(\theta,p)=\subst(\theta,q).
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    For every unifiable pair of expressions, there exists a single \emph{most general
+    unifier (MGU)} that is unique up to renaming and substitution of variables.
+\end{theorem}
+
 \end{document}
