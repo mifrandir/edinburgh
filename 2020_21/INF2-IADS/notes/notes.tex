@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \mkthms
+\usepackage{pseudo}
 \begin{document}
 \title{Introduction to Algorithms and Data Structures (YEAR2)}
 \author{Franz Miltz}
@@ -547,6 +548,49 @@ fib = memoise(fib)
 	\begin{align*}
 		h_{m,n}= 1 + \min\{d(s_{m-1},t_{n-1}), d(s_{m-1}, t_n), d(s_m, t_{n-1})\}.	
 	\end{align*}
+\end{theorem}
+
+\subsection{Parsing for context free grammars}
+
+\begin{definition}
+	A context-free grammar is in \emph{Chomsky normal form} if for
+	each production the right-hand side consists of
+	\begin{itemize}
+		\item \emph{either} just two non-terminals (e.g $X\to YZ$)
+		\item \emph{or} just one terminal (e.g. $X\to +$).
+	\end{itemize}
+\end{definition}
+
+\begin{lemma}
+	Every context-free grammar can be transformed into an
+	equivalent one in Chomsky normal form (disregarding
+	the empty string).
+\end{lemma}
+
+\begin{definition}
+	The \emph{CYK algorithm} allows parsing of a context-free
+	grammar in Chomsky normal form.
+	\begin{pseudo}
+		\textbf{CYK}$(s,G)$:\\+
+			$n\leftarrow\text{length}(s)$\\
+			$\text{table}\leftarrow\text{Matrix }A_{ij}\text{ for }(i,j)\in[0,n-1][1,n]$\\
+			\textbf{for} $j\in\{1,..,n\}$:\\+
+				\textbf{for} $(X\to t)\in G$:\\+
+					\textbf{if} $t=s[j-1]$:\\+
+						add $X$ to table$[j-1,j]$\\--
+				\textbf{for} $i\in\{j-2,..,0\}$:\\+
+					\textbf{for} $k\in\{i+1,..,,j-1\}$:\\+
+						\textbf{for} $(X\to YZ)\in G$:\\+
+							\textbf{if} $Y\in\text{table}[i,k]$ and $Z\in\text{table}[k,j]$:\\+
+								add $X$ to table$[i,j]$\\-----
+            \textbf{return} table
+    \end{pseudo}
+\end{definition}
+
+\begin{theorem}
+	Given a grammar $G$ in Chomsky normal form with $n$ 
+	productions and an input of length $n$, the run time
+	of the CYK algorithm is $O(mn^3)$.
 \end{theorem}
 
 \end{document}
