@@ -802,4 +802,88 @@ explored states.
     unifier (MGU)} that is unique up to renaming and substitution of variables.
 \end{theorem}
 
+\subsection{Forward-chaining}
+
+\begin{definition}
+    A \emph{definite} first-order clause is a disjunction of literals of which exactly
+    one is positive.
+\end{definition}
+
+\begin{definition}
+    \emph{Datalog} is a language of knowledge bases that is restricted to first-order
+    definite clauses with no function symbols.
+\end{definition}
+
+\paragraph{Simple forward-chaining alogrithm}
+
+\begin{enumerate}
+    \item Start with a set of known facts $KB$
+    \item For all clauses in $KB$ whose premises are satisfied, add the conclusion to $KB$.
+    \item Repeat until no new facts can be added \emph{or} the query is answered.
+\end{enumerate}
+
+\begin{theorem}
+    The algorithm above is \emph{sound} and \emph{complete} for Datalog knowledge bases.
+\end{theorem}
+
+\begin{theorem}
+    The algorithm above is \emph{sound} for general knowledge bases.
+\end{theorem}
+
+\begin{theorem}
+    Every finite domain constraint satisfaction problem can be expressed as a 
+    single definite clause with some ground facts.
+\end{theorem}
+
+\begin{theorem}
+    Matching a definite clause against a set of facts is NP-hard.
+\end{theorem}
+
+\subsection{Backward-chaining}
+
+\begin{definition}
+    A \emph{generator} is a function that returns multiple times, each time giving one
+    possible result.
+\end{definition}
+
+\begin{definition}
+    \newcommand{\func}{\textbf{function }}
+    \newcommand{\return}{\textbf{return }}
+    \newcommand{\returns}{\textbf{returns }}
+    \newcommand{\generator}{\textbf{generator }}
+    \newcommand{\foreach}[2]{\textbf{for each} #1 \textbf{in} #2 \textbf{do}}
+    A simple first-order logic backward-chaining algorithm works as follows:
+    \begin{pseudo}
+        \func FOL-BC-ASK$(KB,query)$ \returns a generator of substitutions\\+
+            \return FOL-BC-OR$(KB,goal,\{\})$\\-
+        \\
+        \generator FOL-BC-OR$(KB, goal, \theta)$ \textbf{yields} a substitution\\+
+            \foreach{rule $(lhs\Rightarrow rhs)$}{FETCH-RULES-FOR-GOAL$(KB, goal)$}\\+
+                $(lhs,rhs)\leftarrow\text{STANDARDISE-VARIABLES}((lhs, rhs))$\\
+                \foreach{$\theta'$}{FOL-BC-AND$(KB,lhs,\text{UNIFY}(rhs,goal,\theta))$}\\+
+                    \textbf{yield} $\theta'$\\---
+        \\
+        \generator FOL-BC-AND$(KB,goals,\theta)$ \textbf{yields} a substitution\\+
+            \textbf{if} $\theta=failure$ \textbf{then return}\\
+            \textbf{else if} LENGTH$(goals)=0$ \textbf{then yield} $\theta$\\
+            \textbf{else do}\\+
+                $first,rest\leftarrow \text{FIRST}(goals),\text{REST}(goals)$\\
+                \foreach{$\theta'$}{FOL-BC-OR$(KB,\subst(\theta,first),\theta)$}\\+
+                    \foreach{$\theta''$}{FOL-BC-AND$(KB,rest,\theta')$}\\+
+                        \textbf{yield} $\theta''$
+
+    \end{pseudo}
+\end{definition}
+
+\begin{definition}
+    \emph{OR-parallelism} uses the fact that a goal may unify with many different
+    clauses in a knowledge base and describes the ability to compute those branches
+    in parallel.
+\end{definition}
+
+\begin{definition}
+    \emph{AND-prallelism} uses the fact that each conjunct in the body of an implication
+    may be solved individually. However, each branch needs to have bindings consistent
+    with all the other branches.
+\end{definition}
 \end{document}
