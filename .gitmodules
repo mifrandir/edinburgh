@@ -13,3 +13,6 @@
 [submodule "2020_21/CNU/tutorial03"]
 	path = 2020_21/CNU/tutorial03
 	url = https://github.com/cnu-2021/cnu-w03-tutorial-MiltFra
+[submodule "2020_21/CNU/tutorial04"]
+	path = 2020_21/CNU/tutorial04
+	url = https://github.com/cnu-2021/cnu-w04-tutorial-MiltFra
