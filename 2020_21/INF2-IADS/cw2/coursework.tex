@@ -1,0 +1,285 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkthms
+
+\title{INF2-IADS: Coursework 2}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+
+
+\section{Memory recycling}
+
+\subsection{Mark pseudocode}
+
+\begin{pseudo}
+$\text{Mark}(\text{\emph{void}}) \to \text{\emph{void}}$\\+
+    $q\leftarrow \text{empty Queue}$\\
+    \textbf{for} all stack entries $s$ \textbf{do}\\+
+        \textbf{if} $s\not=\textit{null}$ \textbf{and} $s.\text{colour} = \textit{white}$ \textbf{then}\\+
+            $s.\text{colour} \leftarrow \textit{black}$\\
+            $q$.enqueue$(s)$\\--
+    \textbf{while} $\neg(q.\text{isEmpty}())$ \textbf{do}\\+
+        $r\leftarrow q.\text{dequeue}()$\\
+        \textbf{if} $v.\text{right}.\text{colour} = \textit{white}$ \textbf{then}\\+
+            $v.\text{right}.\text{colour}\leftarrow\textit{black}$\\
+            $q.\text{enqueue}(v.\text{right})$\\-
+        \textbf{if} $v.\text{left}.\text{colour} = \textit{white}$ \textbf{then}\\+
+            $v.\text{left}.\text{colour}\leftarrow\textit{black}$\\
+            $q.\text{enqueue}(v.\text{left})$\\-
+\end{pseudo}
+
+\subsection{Sweep pseudocode}
+
+\begin{pseudo}
+$\text{Sweep}(\textit{void})\to\textit{void}$\\+
+    \textbf{for} all heap entries $c$ \textbf{do}\\+
+        \textbf{if} $\text{obj}(c).\text{colour} = \textit{white}$ \textbf{then}\\+
+            reclaim$(c)$\\-
+        \textbf{else}\\+
+            $\text{obj}(c).\text{colour}\leftarrow\textit{white}$
+\end{pseudo}
+
+\subsection{Informal asymptotic upper bound of Mark-Sweep}
+
+Consider the runtime of Mark $T_{Mark}$. Observe that there are two loops
+and only one line that gets exactly once, namely the queue initialisation.
+Thus we have
+\begin{align*}
+    T_{Mark} = T_{for} + T_{while} + O(1)
+\end{align*}
+Since the first loop runs for every one of the $m$ stack entries we have
+\begin{align*}
+    T_{for} = O(m)
+\end{align*}
+and similarly the second loop runs for every single one of the $n$ heap cells at most once
+(we made sure to only insert each node once into the queue and each iteration
+removes precisely one item) and thus
+\begin{align*}
+    T_{while} = O(n)
+\end{align*}
+so we find 
+\begin{align*}
+    T_{Mark} = O(m) + O(n) + O(1) = O(m + n).
+\end{align*}
+Now, let's consider the runtime of Sweep $T_{Sweep}$. The entire body gets
+executed as often as the single loop that is present. The loop runs for every
+heap cell, thus 
+\begin{align*}
+    T_{Sweep} = O(n).
+\end{align*}
+Finally, we find an upper bound for the total Mark-Sweep runtime $T_{MS}$
+\begin{align}
+    \label{infhims}
+    T_{MS} = T_{Mark} + T_{Sweep} = O(m+n) + O(n) = O(m + n).
+\end{align}
+
+\subsection{Informal asymptotic lower bound of Mark-Sweep}
+
+Let's start with Mark again. Observe that the second loop only runs if
+the first loop finds a valid stack entry. This may not happen at all, for
+example at the beginning of the program execution. Thus, the time associated
+with the second loop cannot be bounded below by anything but a constant value,
+i.e.
+\begin{align*}
+    T_{while} = \Omega(1).
+\end{align*}
+The for loop checks every stack entry though, regardless of its contents, i.e.
+\begin{align*}
+    T_{for} = \Omega(n).
+\end{align*}
+Therefore
+\begin{align*}
+    T_{Mark} = \Omega(n) + \Omega(1) + \Omega(1) = \Omega(n).
+\end{align*}
+Now, notice that the same is true for Sweep: The for loop runs for every
+heap cell regardless of the state of the program. We have
+\begin{align*}
+    T_{Sweep} = \Omega(m)
+\end{align*}
+and then
+\begin{align}
+    \label{infloms}
+    T_{MS} = \Omega(n) + \Omega(m) = \Omega(m+n).
+\end{align}
+By combining (\ref{infhims}) and (\ref{infloms}) we find
+\begin{align*}
+    T_{MS} = \Theta(m+n)
+\end{align*}
+even though no $\Theta$ can be given for the Mark procedure itself.
+
+\subsection{Formal asymptotic upper bound of Mark-Sweep}
+
+\begin{claim*}
+    Let $m,n\in\N$ be the number of stack entries and heap cells respectively and
+    let $T_{MS}$ be the number of line executions of the Mark-Sweep procedure
+    given in 1.1 and 1.2. Then
+    \begin{align*}
+        T_{MS} = O(m+n).
+    \end{align*} 
+\end{claim*}
+\begin{proof}
+    Let $T_{MS}$ be the number of line executions in a single Mark-Sweep procedure.
+    Then we have
+    \begin{align}
+        \label{forlms}
+        T_{MS} = T_{Mark} + T_{Sweep}
+    \end{align}
+    where $L_{Mark}$ and $L_{Sweep}$ are the number of line executions in Mark and
+    Sweep respectively. Let
+    \begin{align*}
+        k = \max\{m,n\}.    
+    \end{align*}
+    Then consider $T_{Mark}$. As noted in 
+    1.4 there is only one line outside the loops. The \texttt{for} loop runs once for each
+    stack entry and each run leads to at most $4$ lines being executed. Thus
+    \begin{align*}
+        T_{for} \leq 4m
+    \end{align*}
+    where $T_{for}$ is the number of line executions associated with the loop. For
+    the \texttt{while} loop we observe that each vertex that is being inserted into the
+    queue is white right before and then gets recoloured (cf. lines 4-6 and lines 9-14).
+    Additionally, no vertex changes colour from black to white (within the Mark procedure).
+    Therefore each vertex may only be inserted into the queue once. Since each loop iteration 
+    removes the head of the queue, the loop can only run at most $n$ times.
+    Considering that each iteration leads to at most $7$ line exectuions, we have
+    \begin{align*}
+        T_{while} \leq 7n
+    \end{align*}
+    where $T_{while}$ is the number of line executions associated with this loop.
+    Using this we find
+    \begin{align*}
+        T_{Mark} \leq 4m + 7n + 1.
+    \end{align*}
+     For the Sweep procedure we observe that
+    \begin{align*}
+        T_{Sweep} \leq 5n
+    \end{align*}
+    because there are at most $5$ lines being run for every loop iteration and
+    the loop gets run for each of the $n$ heap entries. We can now apply (\ref{forlms})
+    to find
+    \begin{align}
+        \label{tmsbound}
+        T_{MS} \leq 4m + 7n + 1 + 5n = 4m + 12n + 1 \leq 17k
+    \end{align}
+    since $k\geq m,n \geq 1$. Now let $C=17$ and $M=N=1$ be a constants. 
+    Then for all $m,n$ such that $m\geq M$ or $n\geq N$ we have
+    \begin{align*}
+        C(m+n) = 17(m+n) \geq 17k \geq T_{MS}
+    \end{align*}
+    since for all $a,b\geq 0$, $a+b \geq \max\{a,b\}$ and thus $m+n\geq k$.
+    This shows, by definition of $O$, that
+    \begin{align*}
+        T_{MS} = O(m+n).
+    \end{align*}
+\end{proof}
+
+\subsection{Informal bounds for total recycling time}
+
+Since the program may never fill the heap completely, memory recylcing may not occur
+at all and thus we cannot give a lower bound for the total runtime penalty associated
+with it. Therefore we are only concerned with upper bounds.\\
+Observe that each program action can only ever populate one additional heap cell.
+Therefore, since at the beginning of the execution and after every Mark-Sweep
+procedure there are at least $\floor{n/2}$ empty heap cells, at least $\floor{n/2}$ program operations
+need to occur before every Mark-Sweep run. To find an upper bound, let's assume that
+such a run is required precisely every $\floor{n/2}$ operations. Then throughout the
+entire program execution, $p/\floor{n/2}$ such runs occur. Therefore, the bound
+for the total time spent on memory recycling $T_{RP}$ is bounded by 
+
+\begin{align*}
+    T_{RP} \leq \frac{p\cdot T_{MS}}{\floor{\frac{n}{2}}} \leq \frac{2p\cdot T_{MS}}{n}.
+\end{align*}
+
+Using the result from 1.5 and $m=10$ this shows that
+\begin{align*}
+    T_{RP} = O\left(\frac{2p\cdot O(m+n)}{n}\right) = O(p).
+\end{align*}
+
+To find the average per line we divide this by the number of lines to get
+\begin{align*}
+    T_{RL} = T_{RP}/p = O(p)/p = O(1).
+\end{align*}
+
+
+\subsection{Formal bounds for total recycling time}
+
+\begin{claim*}
+    Consider a program consisting of $p$ actions that uses exactly $m=10$
+    stack entries, has access to $n$ heap cells and that is guaranteed to only
+    have at most $\ceil{n/2}$ heap cells that are reachable through references
+    from the stack. Then the total time spent on memory recycling $T_{RP}$ is
+    bounded by $O(p)$.
+\end{claim*}
+\begin{proof}
+    Observe that each program operation may populate at most one additional heap cell.
+    Further, after each Mark-Sweep cycle there are no unreachable cells and thus
+    $\floor{n/2}$ further allocations are required to fill the heap entirely and
+    thereby initiate the Mark-Sweep procedure. This holds immediately after
+    the start of the program too, assuming that heap cells can only become unreachable
+    through program operations. Let $c$ be the number of times the Mark-Sweep
+    procedure gets invoked. Then we have
+    \begin{align*}
+        c \leq \frac{p}{\floor{\frac{n}{2}}} = \frac{p}{\ceil{\frac{n-1}{2}}} \leq \frac{2p}{n-1}.
+    \end{align*}
+    Since $T_{RP}$ is the sum of all Mark-Sweep exectuions, we have
+    \begin{align*}
+        T_{RP} \leq\frac{2p \cdot T_{MS}}{n-1}. 
+    \end{align*}
+    Using (\ref{tmsbound}) we find
+    \begin{align}
+        \label{trbound}
+        T_{RP}\leq\frac{2p\cdot 17k}{n-1}
+    \end{align}
+    where $k=\max\{m,n\}$. Now let $P=1$, $N=10$ and $C=102$ be constants. Then
+    for all $p\geq P$ or $n\geq N$ we have
+    \begin{align*}
+        T_{RP} &\leq \frac{2p\cdot 17k}{n-1} = \frac{2p\cdot 17n}{n-1} = 34p\left(\frac{n}{n-1}\right)\\
+        &\leq 34p\left(\frac{n}{n-1}+\frac{n-1}{n}\right)=34p\left(\frac{2n^2-2n+1}{n^2-n}\right)\\
+        &=34p\left(2+\frac{1}{n^2-n}\right)\leq 34p\cdot 3 = 102p = Cp.
+    \end{align*}
+    Note that we require $n$ to be stricly greater than $1$ since $n=1$ will lead to
+    division by $0$. In that case, however, we would either have a permanently full heap
+    or a program that cannot allocate any heap memory whatsoever, depending on how the
+    rounding is supposed to be understood.
+    By definition of $O$ we now have shown
+    \begin{align*}
+        T_{RP} = O(p).
+    \end{align*}
+\end{proof}
+
+\begin{claim*}
+    Consider a program consisting of $p$ actions that uses exactly $m=10$
+    stack entries, has access to $n$ heap cells and that is guaranteed to only
+    have at most $\ceil{n/2}$ heap cells that are reachable through references
+    from the stack. Then the average time spent on memory recycling per program
+    action $T_{RL}$ is bounded by $O(1)$.
+\end{claim*}
+\begin{proof}
+    The average time per line is the total time divided by the number of lines.
+    I.e.
+    \begin{align*}
+        T_{RL} = \frac{T_{RP}}{2}.
+    \end{align*}
+    We can use (\ref{trbound}) to obtain
+    \begin{align*}
+        T_{RL} \leq \frac{2p\cdot 17k}{p(n-1)}.
+    \end{align*}
+    By simplifying we get
+    \begin{align*}
+        T_{RL} \leq \frac{34k}{n-1}.
+    \end{align*}
+    Now let $C=102$ and $N=10$ be constants. Then for all $n\geq N$
+    we have
+    \begin{align*}
+        T_{RL} &\leq \frac{34k}{n-1} = \frac{34n}{n-1} \leq 34\left(\frac{n}{n-1}+\frac{n-1}{n}\right)\\
+        &=34\left(\frac{2n^2-2n+1}{n^2-n}\right)=34\left(2+\frac{1}{n^2-n}\right)\leq 102 = C\cdot 1.
+    \end{align*}
+    It follows from the definition of $O$ that
+    \begin{align*}
+        T_{RL} = O(1).
+    \end{align*}
+\end{proof}
+
+
+\end{document}
