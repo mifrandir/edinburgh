@@ -7,6 +7,7 @@
 \begin{document}
 \maketitle
 
+\tableofcontents
 
 \section{Memory recycling}
 
@@ -40,7 +41,7 @@ $\text{Sweep}(\textit{void})\to\textit{void}$\\+
             $\text{obj}(c).\text{colour}\leftarrow\textit{white}$
 \end{pseudo}
 
-\subsection{Informal asymptotic upper bound of Mark-Sweep}
+\subsection{Informal asymptotic upper bound for runtime of Mark-Sweep}
 
 Consider the runtime of Mark $T_{Mark}$. Observe that there are two loops
 and only one line that gets exactly once, namely the queue initialisation.
@@ -74,7 +75,7 @@ Finally, we find an upper bound for the total Mark-Sweep runtime $T_{MS}$
     T_{MS} = T_{Mark} + T_{Sweep} = O(m+n) + O(n) = O(m + n).
 \end{align}
 
-\subsection{Informal asymptotic lower bound of Mark-Sweep}
+\subsection{Informal asymptotic lower bound for runtime of Mark-Sweep}
 
 Let's start with Mark again. Observe that the second loop only runs if
 the first loop finds a valid stack entry. This may not happen at all, for
@@ -108,16 +109,16 @@ By combining (\ref{infhims}) and (\ref{infloms}) we find
 \end{align*}
 even though no $\Theta$ can be given for the Mark procedure itself.
 
-\subsection{Formal asymptotic upper bound of Mark-Sweep}
+\subsection{Formal asymptotic upper bound for runtime of Mark-Sweep}
 
-\begin{claim*}
+\begin{claim}
     Let $m,n\in\N$ be the number of stack entries and heap cells respectively and
     let $T_{MS}$ be the number of line executions of the Mark-Sweep procedure
     given in 1.1 and 1.2. Then
     \begin{align*}
         T_{MS} = O(m+n).
     \end{align*} 
-\end{claim*}
+\end{claim}
 \begin{proof}
     Let $T_{MS}$ be the number of line executions in a single Mark-Sweep procedure.
     Then we have
@@ -169,12 +170,13 @@ even though no $\Theta$ can be given for the Mark procedure itself.
     \end{align*}
     since for all $a,b\geq 0$, $a+b \geq \max\{a,b\}$ and thus $m+n\geq k$.
     This shows, by definition of $O$, that
-    \begin{align*}
+    \begin{align}
+        \label{tmsbound}
         T_{MS} = O(m+n).
-    \end{align*}
+    \end{align}
 \end{proof}
 
-\subsection{Informal bounds for total recycling time}
+\subsection{Informal bounds for total and amortised recycling time}
 
 Since the program may never fill the heap completely, memory recylcing may not occur
 at all and thus we cannot give a lower bound for the total runtime penalty associated
@@ -202,15 +204,15 @@ To find the average per line we divide this by the number of lines to get
 \end{align*}
 
 
-\subsection{Formal bounds for total recycling time}
+\subsection{Formal bounds for total and amortised recycling time}
 
-\begin{claim*}
+\begin{claim}
     Consider a program consisting of $p$ actions that uses exactly $m=10$
     stack entries, has access to $n$ heap cells and that is guaranteed to only
     have at most $\ceil{n/2}$ heap cells that are reachable through references
-    from the stack. Then the total time spent on memory recycling $T_{RP}$ is
+    from the stack at any point in time. Then the total time spent on memory recycling $T_{RP}$ is
     bounded by $O(p)$.
-\end{claim*}
+\end{claim}
 \begin{proof}
     Observe that each program operation may populate at most one additional heap cell.
     Further, after each Mark-Sweep cycle there are no unreachable cells and thus
@@ -231,14 +233,13 @@ To find the average per line we divide this by the number of lines to get
         \label{trbound}
         T_{RP}\leq\frac{2p\cdot 17k}{n-1}
     \end{align}
-    where $k=\max\{m,n\}$. Now let $P=1$, $N=10$ and $C=102$ be constants. Then
+    where $k=\max\{m,n\}$. Now let $P=1$, $N=10$ and $C=680$ be constants. Then
     for all $p\geq P$ or $n\geq N$ we have
     \begin{align*}
-        T_{RP} &\leq \frac{2p\cdot 17k}{n-1} = \frac{2p\cdot 17n}{n-1} = 34p\left(\frac{n}{n-1}\right)\\
-        &\leq 34p\left(\frac{n}{n-1}+\frac{n-1}{n}\right)=34p\left(\frac{2n^2-2n+1}{n^2-n}\right)\\
-        &=34p\left(2+\frac{1}{n^2-n}\right)\leq 34p\cdot 3 = 102p = Cp.
+        T_{RP} &\leq \frac{2p\cdot 17k}{n-1} = \frac{34p\cdot 10n}{n-1} = 340p\left(\frac{n}{n-1}\right)
+        \leq 340p\cdot 2 = 680p = Cp.
     \end{align*}
-    Note that we require $n$ to be stricly greater than $1$ since $n=1$ will lead to
+    Note that we require $n>1$ since $n=1$ will lead to
     division by $0$. In that case, however, we would either have a permanently full heap
     or a program that cannot allocate any heap memory whatsoever, depending on how the
     rounding is supposed to be understood.
@@ -247,14 +248,17 @@ To find the average per line we divide this by the number of lines to get
         T_{RP} = O(p).
     \end{align*}
 \end{proof}
+\emph{Note: We are using $\forall n\in\N,\:\max\{10,n\}\leq 10n$ and $\forall n\in\N, n>1,\: n/(n-1) \geq 2$
+which are easy enough to prove that I did not want to clutter the submission with them. Both statements
+ will be used throughout the text.}
 
-\begin{claim*}
+\begin{claim}
     Consider a program consisting of $p$ actions that uses exactly $m=10$
     stack entries, has access to $n$ heap cells and that is guaranteed to only
     have at most $\ceil{n/2}$ heap cells that are reachable through references
-    from the stack. Then the average time spent on memory recycling per program
+    from the stack at any point int time. Then the average time spent on memory recycling per program
     action $T_{RL}$ is bounded by $O(1)$.
-\end{claim*}
+\end{claim}
 \begin{proof}
     The average time per line is the total time divided by the number of lines.
     I.e.
@@ -269,11 +273,11 @@ To find the average per line we divide this by the number of lines to get
     \begin{align*}
         T_{RL} \leq \frac{34k}{n-1}.
     \end{align*}
-    Now let $C=102$ and $N=10$ be constants. Then for all $n\geq N$
+    Now let $C=680$ and $N=10$ be constants. Then for all $n\geq N$
     we have
     \begin{align*}
-        T_{RL} &\leq \frac{34k}{n-1} = \frac{34n}{n-1} \leq 34\left(\frac{n}{n-1}+\frac{n-1}{n}\right)\\
-        &=34\left(\frac{2n^2-2n+1}{n^2-n}\right)=34\left(2+\frac{1}{n^2-n}\right)\leq 102 = C\cdot 1.
+        T_{RL} &\leq \frac{34k}{n-1} \leq \frac{34\cdot10n}{n-1} \leq 340\left(\frac{n}{n-1}\right)
+        \leq 340\cdot 2 \leq 680 = C.
     \end{align*}
     It follows from the definition of $O$ that
     \begin{align*}
@@ -281,5 +285,381 @@ To find the average per line we divide this by the number of lines to get
     \end{align*}
 \end{proof}
 
+\subsection{Formal bounds for total and amortised recycling time in general}
+
+Note that we can, without loss of generality, require that $rn\in\N$ ($r^{-1}$ divides $n$)
+because in the context of the problem only integer values make sense and if
+$rn\not\in\N$ then there exists an $r'\in\R$ such that $r'n\in\N$ and $r'$ leads 
+to the same behaviour as $r$. This $r'$ is given by
+\begin{align*}
+    r'=\frac{\floor{rn}}{n}
+\end{align*}
+since then $r'n=\floor{r'n}=\floor{rn}$.
+
+\begin{claim}
+    Consider a program consisting of $p$ actions that uses exactly $m=10$
+    stack entries, has access to $n$ heap cells and that is guaranteed to only
+    have at most $rn$ for some $0<r<1$ heap cells that are reachable through references
+    from the stack at any point in time.
+    Then the total time spent on memory recycling $T_{RP}$ is bounded by $O(pn)$ for
+    the largest $r$ and by $O(p)$ for the smallest $r$.
+\end{claim}
+
+\begin{proof}
+    Consider the number of Mark-Sweep runs $c$. For any $r$ we have
+    \begin{align*}
+        c \leq \frac{p}{(1-r)n}
+    \end{align*}
+    because every operation can only fill a single heap cell and $(1-r)n$ heap cells 
+    are guaranteed to be empty after each Mark-Sweep run (and at the start of the
+    program exectuion).
+    Further, observe that since $0<r<1$ we can find the smallest and largest $r$ for any $n$. We have
+    \begin{align}
+        \label{rlims}
+        r_{max} = \frac{n-1}{n} \hs\text{and}\hs r_{min} = \frac{1}{n}
+    \end{align}
+    where the values lead to one heap cell being unoccupied or occupied respectively.\\
+    Consider $r=r_{min}=1/n$. Then, similar to 1.7, we have the maximum number of Mark-Sweep
+    runs $c$ as
+    \begin{align*}
+        c \leq \frac{p}{\left(1-1/n\right)n}=\frac{p}{n-1}.
+    \end{align*}
+    We find
+    \begin{align*}
+        T_{RP} \leq \frac{p\cdot T_{MS}}{n-1} \leq \frac{17pk}{n-1}.
+    \end{align*}
+    Let $C=340$, $N=1$ and $P=1$. Then, for all $n\geq N$ or $p\geq P$ we have
+    \begin{align*}
+        T_{RP} \leq \frac{17pk}{n-1} \leq \frac{17p\cdot 10n}{n-1} = 170p\left(\frac{n}{n-1}\right)
+        \leq 170p\cdot 2 = 340p.
+    \end{align*}
+    Therefore, by definition of $O$, we have $T_{RP}=O(p)$.\\
+    Now consider $r=r_{max}=(n-1)/n$. Then we have
+    \begin{align}
+        \label{cmax}
+        c\leq \frac{p}{(1-(n-1)/n)n} = \frac{p}{n-n+1} = p.
+    \end{align}
+    Thus we find
+    \begin{align*}
+        T_{RP} \leq p\cdot T_{MS} \leq 17pk.
+    \end{align*}
+    We let $C=170$, $N=1$ and $P=1$. Then for all $n\geq N$ or $p\geq P$ we have
+    \begin{align*}
+        T_{RP} \leq 17pk \leq 17p \cdot 10n \leq 170pn \leq Cpn.
+    \end{align*}
+    By definition of $O$, we have $T_{RP}=O(pn)$. 
+\end{proof}
+
+
+\begin{claim}
+    Consider a program consisting of $p$ actions that uses exactly $m=10$
+    stack entries, has access to $n$ heap cells and that is guaranteed to only
+    have at most $rn$ for some $0<r<1$ heap cells that are reachable through references
+    from the stack at any point in time.
+    Then the average time spent on memory recycling per operation $T_{RL}$ is bounded by $O(n)$ for
+    the largest $r$ and by $O(1)$ for the smallest $r$.
+\end{claim}
+
+\begin{proof}
+    Note the limits obtained in (\ref{rlims}). Consider $r=r_{min}=1/n$. Then we find
+    the number of Mark-Sweep runs $c$ to be
+    \begin{align*}
+      c \leq \frac{p}{n-1}.  
+    \end{align*}
+    We find
+    \begin{align*}
+        T_{RL} = \frac{T_{RP}}{p} = \frac{cT_{MS}}{p} \leq \frac{17k}{n-1}.
+    \end{align*}
+    We let $C=340$ and $N=1$. Then for all $n\geq N$ we have
+    \begin{align*}
+        T_{RL} \leq \frac{17k}{n-1} \leq \frac{17\cdot 10n}{n-1} = 170\left(\frac{n}{n-1}\right) \leq 340 = C.
+    \end{align*}
+    By definition of $O$, we have $T_{RL}=O(1)$.\\
+    Consider $r=r_{max}=(n-1)/n$. Then we have $c\leq p$ as derived in (\ref{cmax}).
+    This leads to
+    \begin{align*}
+        T_{RL}=\frac{cT_{MS}}{p}\leq T_{MS} \leq 17k.
+    \end{align*}
+    Let $C=170$ and $N=1$. Then for all $n\geq N$ we have
+    \begin{align*}
+        T_{RL} \leq 17k \leq 170n \leq Cn
+    \end{align*}
+    i.e.
+    \begin{align*}
+        T_{RL} = O(n).
+    \end{align*}
+\end{proof}
+This shows that if only one heap cell is required to be empty after a Mark-Sweep run
+(or, though this has not been shown, any constant number) significantly more time is
+spent on memory recycling than in the $n/2$ case. Specifically, the amortised per-line
+cost goes from constant to linear with respect to $n$.
+
+\subsection{Maximum queue length}
+
+\begin{claim}
+    \label{claimb}
+    Consider a program with $m$ stack entries and $n$ heap cells. 
+    Let $b$ denote the number of black vertices not in the queue. Then 
+    the queue length in a Mark procedure will never exceed $m+b$.
+\end{claim}
+
+\begin{proof}
+    Consider the loop in Mark.
+    Let $b_i$ be the number of black vertices not in the queue after $i$ iterations,
+    let $q_i$ be the length of the queue after $i$ iterations and 
+    let $P_0,...,P_n$ be statements. And let those statements be
+    the following
+    \begin{align*}
+        P_i:\hs q_i \leq m+b_i
+    \end{align*}
+    Consider the statement $P_0$. Note that the only nodes in the queue before
+    the first iteration are those directly referenced by stack entries. Therefore
+    the length of the queue can be at most $m\leq m+b_0$ since in general $b_i\geq 0$. 
+    So $P_0$ always holds.\\
+    \indent For some $i<l$ where $l$ is the number of iterations of the while loop
+    assume $P_i$ holds. Then $q_i\leq m+b_i$. Now consider the
+    $(i+1)$th iteration. A single element gets removed from the queue, therefore
+    one more black vertex is outside ($b_{i+1}= b_i + 1$). Additionally
+    at most two more vertices may be inserted into the queue which leads to a
+    maximum net increase of the queue size by $1$ i.e. $q_{i+1}\leq q_i + 1$.
+    By combining, we obtain 
+    \begin{align*}
+        m + b_{i+1} = m + b_{i} + 1 \geq q_{i} + 1 \geq q_{i+1}.
+    \end{align*}
+    This shows $P_i\Rightarrow P_{i+1}$ if $i<l$.\\
+    \indent Assume $l\leq i \leq n$. Then $q_i = 0$ since the loop only ends
+    when the queue is empty. Thus $q_i \leq m + b_i$. This shows that
+    $P_i$ holds for all $l\leq i\leq n$.\\
+    Now we have $P_i\Rightarrow P_{i+1}$ for all $i\leq n-1$ and $P_0$ in
+    general. By the \emph{Principle of Mathematical Induction}
+    $P_i$ for all $0\leq i\leq n$ follows. 
+\end{proof}
+
+\begin{claim}
+    Consider a program with $m$ stack entries and $n$ heap cells. 
+    Then the queue length in a Mark procedure will never exceed $(m+n)/2$.
+\end{claim}
+
+\begin{proof}
+    Let $q_i$ and $b_i$ be as above. Then we know from \emph{Claim \ref{claimb}}
+    that for all $i$
+    \begin{align}
+        \label{ineq1}
+        q_i \leq m + b_i.
+    \end{align}
+    Further, we know that there are only $n$ nodes in total and every node
+    is either outside the queue or inside, never both. This leads to
+    \begin{align*}
+        n \geq q_i + b_i
+    \end{align*}
+    or, equivalently,
+    \begin{align}
+        \label{ineq2}
+        q_i \leq n-b_i.
+    \end{align}
+    Adding (\ref{ineq1}) and (\ref{ineq2}) gives
+    \begin{align*}
+        2q_i \leq m + n
+    \end{align*}
+    or equivalently
+    \begin{align*}
+        q_i \leq \frac{m+n}{2}
+    \end{align*}
+    as required.
+\end{proof}
+
+\subsection{Discussion of queue implementation}
+
+Since we have just shown that the number of elements in the queue is bounded
+above and that bound should be known at the time of execution, using a
+circular buffer with a fixed size array would make sense here. This also avoids 
+tedious memory management during each Mark-Sweep cycle as the required
+space can be allocated upon launch and deallocated after the program has exited.
+Compare this to an implementation based on a linked list where every element would
+have to be deallocated individually. A linked list would further be impractical
+since each element would need to store a reference to its successor and therefore
+effectively double the space required.
+
+
+\section{The knapsack problem}
+
+
+\subsection{Pseudocode for fractional greedy implementation}
+
+\begin{pseudo}
+    Greedy$(S, s_1, ..., s_n, v_1, ..., v_n)\to$ list of fractions\\+
+        $R\leftarrow\text{array of integers with length }n$\\
+        $A\leftarrow\text{array of integers with length }n$\\
+        \textbf{for $i$ from $1$ to $n$ do}\\+
+            $A[i-1] \leftarrow i$\\
+            $R[i-1] \leftarrow 0$\\-
+        $C\leftarrow \lambda i.\:v_i/s_i$\\
+        $Q\leftarrow\text{Build-Max-Heap}(A,C)$\\
+        \textbf{while} $Q.\text{heap\_size}>0$ \textbf{do}\\+
+            $i\leftarrow\text{Heap-Extract-Max}(Q)$\\
+            $R[i-1]\leftarrow \min\{1, S/s_i\}$\\
+            \textbf{if $S>s_i$ do}\\+
+                $S\leftarrow S-s_i$\\-
+            \textbf{else}\\+
+                \textbf{break}\\--
+        \textbf{return} $R$
+\end{pseudo}
+
+Note that $C$ is a function calculating the value per unit volume
+for any given index and Build-Max-Heap$(A,C)$ creates a heap from $A$
+by applying $C$ before comparing elements.
+
+\subsection{Formal bounds for runtime of fractional greedy implementation}
+
+\begin{claim}
+    Let $T_G$ be the worst-case runtime of the Greedy procedure. Then $T_G=O(n\lg n)$.
+\end{claim}
+
+\begin{proof}
+    Firstly, observe that lines 2, 3 and 7 run in $O(1)$ time. Further,
+    lines 4 to 6 require $O(n)$ time since the iterate over all $n$
+    possible indices. Line 8 creates a heap which has been shown to be possible
+    in $O(n)$ time. Note that using the special cost function $C$ is not
+    an issue because $C$ itself runs in $O(1)$ time due to only containing
+    mathematical operations.\\
+    Except for the first line of the while loop, all remaining lines are
+    possible to be run in constant time as well. Line 10 uses Heap-Extract-Max
+    which has been shown to run in $O(\lg n)$ time. If the \texttt{while}
+    loop does not break early, it runs for every single one of the $n$
+    elements on the heap. Therefore we have
+    \begin{align*}
+        T_{while} = n(4+T) = 4n + nT
+    \end{align*}
+    for some $T=O(\lg n)$. We find $4n=O(n)$. By definition of $O$
+    \begin{align*}
+        T \leq C\lg n
+    \end{align*}
+    for some constants $C$ and $N$ and all $n\geq N$. Therefore
+    \begin{align*}
+        nT \leq Cn\lg n
+    \end{align*}
+    for the same choices of $C$ and $N$. Thus $nT=O(n\lg n)$. It follows that
+    \begin{align*}
+        T_{while} = O(n) + O(n\lg n) = O(n\lg n)
+    \end{align*}
+    for the while loop and thus in total
+    \begin{align*}
+        T_G = O(1) + O(n) + O(n\lg n) = O(n\lg n).
+    \end{align*}
+\end{proof}
+
+\subsection{Proof of optimality for fractional greedy implementation}
+
+\begin{claim}
+    The Greedy algorithm described in 2.1 is optimal for all possible inputs.
+\end{claim}
+
+\begin{proof}
+    Assume the available volume fits into the knapsack or more precisely
+    \begin{align*}
+        S \geq \sum_{i=1}^n s_i.
+    \end{align*}
+    Then, since all $v_i>0$, taking all $G_i$ results in the highest value.
+    Therefore the algorithm should return a list of length $n$ filled with
+    $1$s. Observe that the while loop runs for all $n$ elements unless it
+    breaks early. It only breaks early if the volume of the remaining goods
+    exceeds the capacity of the knapsack. This does not happen in this case
+    so the value written on line 11 is guaranteed to be 1 in all $n$ 
+    iterations. Since all $n$ indices on the heap are distinct, the entire
+    list has to be filled with $1$s.\\
+    Now assume the available volume does not fit into the knapsack or more
+    precisely
+    \begin{align*}
+        S < \sum_{i=0}^n s_i.
+    \end{align*}
+    Let $\hat G_1, ...,\hat G_n$, $\hat v_1, ...,\hat v_n$ and $\hat s_1, ...,\hat s_n$ 
+    elements, their volume and their value ordered in decreasing value of value per unit
+    volume. In other words, order them such that
+    \begin{align}
+        \label{iord}
+        \forall i,j,\: i < j \Rightarrow \frac{\hat v_i}{\hat s_i}\geq \frac{\hat v_j}{\hat s_j}. 
+    \end{align}
+    Then let $k$ be the largest integer such that
+    \begin{align*}
+        S \geq \sum_{i=1}^k \hat s_i.
+    \end{align*}
+    Then the optimal solution $R$ is the list of length $n$ such that for all $i$
+    \begin{align}
+        \label{optsol}
+        R[i-1] = \begin{cases}
+            1              &\text{if } G_i = \hat G_j \text{ for some } j \leq k,\\
+            S/\hat s_{i+1} &\text{if } G_i = \hat G_{k+1},\\
+            0              &\text{if } G_i = \hat G_j \text{ for some } j > k+1.
+        \end{cases}
+    \end{align}
+    Note that all $G_1, ..., G_n$ and $\hat G_1, ..., \hat G_n$ are distinct
+    and only equal to themselves, i.e.
+    \begin{align*}
+        \forall i,j,\hs i=j \hs \Leftrightarrow \hs G_i = G_j \text{ and } \hat G_i = \hat G_j.
+    \end{align*}
+    To show that (\ref{optsol}) is indeed optimal, 
+    we consider the lists $R_1, ..., R_n$ which are the optimal
+    solutions of the knapsack problem with $\hat G_1, ..., \hat G_n$ and for all $R_i$
+    \begin{align*}
+        S = \sum_{j=1}^i \hat s_j
+    \end{align*}
+    so the optimal solution for the problem where the first $i$ $\hat G_j$
+    fit the knapsack perfectly. Then choosing the corresponding $i$ elements
+    is optimal because swapping any amount of volume $\Delta s$ from an
+    element with value density $d_a = \hat v_a / \hat s_a$ for another element
+    with density $d_b = \hat v_b / \hat s_b$ with $a\leq i < b$ results in a
+    loss of value
+    \begin{align*}
+        (d_a - d_b) \cdot \Delta s \geq 0
+    \end{align*}
+    because by (\ref{iord}) $d_a\geq d_b$. Therefore the optimal solution $R$
+    should include the $k$ most dense items. This leaves a remaining volume 
+    of
+    \begin{align*}
+        S - \sum_{i=1}^k \hat s_i
+    \end{align*}
+    to fill. By similar argument we find that the optimal strategy is to take
+    as much as we can from the item with size $\hat s_{k+1}$. Since we know
+    that the item is larger than the remainder of the knapsack, the fraction
+    of the element we can take is
+    \begin{align*}
+        \left(S - \sum_{i=1}^k \hat s_i\right)/\hat s_{k+1}
+    \end{align*}
+    which is the middle case of the optimal solution in (\ref{optsol}). 
+    Since all other cells are not touched after initialisation, this shows (\ref{optsol}).\\
+    Let's now verify that the Greedy algorithm indeed returns this $R$. 
+    Firstly, observe that in the $j$th iteration then 
+    $i$ is assigned precisely the value that leads to $G_i=\hat G_j$, 
+    i.e. the $j$th densest item.
+    Further, at the beginning of the $j$th iteration the value of $S$, let's denote it $S_j$,
+    is
+    \begin{align}
+        \label{sj}
+        S_j = S - \sum_{i=1}^{j-1} \hat s_i.
+    \end{align}
+    This is certainly the case in the beginning as $S_1=S$. Further, if the code
+    has reached the $j$th iteration for some $j>1$, then line 13 must have been run in the
+    $(j-1)$th iteration. Since the $i$ behaves as described above, we have
+    $S_j=S_{j-1}-\hat s_j$. Assuming that
+    \begin{align*}
+        S_{j-1} = S - \sum_{i=1}^{j-2} \hat s_i
+    \end{align*}
+    this results in
+    \begin{align*}
+        S_j = S - \sum_{i=1}^{j-2} \hat s_i - \hat s_{j-1} = S - \sum_{i=1}^{j-1} \hat s_i.
+    \end{align*}
+    By the principle of mathematical induction this proves that (\ref{sj}) holds.
+    By our definition of $k$, the assignment on line 11 will yield 1 for the first $k$
+    iterations and only use $S/s_i$ on the $(k+1)$th run. The assigned value then is 
+    \begin{align*}
+        S_{k+1}/\hat s_{k+1}.
+    \end{align*}
+    With (\ref{sj}) this is exactly equal to the middle case of (\ref{optsol}).
+    Since this is being assigned to the $R[i-1]$ where $G_i = \hat G_{k+1}$ this
+    is precisely the behaviour described in (\ref{optsol}).
+    Since the loop is then ended on line 14, the list is returned on line 15,
+    and no other nonzero values are written to $R$, 
+    we know that the solution is optimal.
+\end{proof}
 
 \end{document}
