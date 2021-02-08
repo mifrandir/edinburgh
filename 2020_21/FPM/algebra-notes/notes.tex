@@ -124,7 +124,7 @@
     which, for every ordered pair $(a,b)$ of elements of $S$, determines
     a unique element $a* b$ of $S$. Equivalently, if we recall that
     \begin{align*}
-        S\times S := \{(a,b) : a,b\in S\}
+        S\times S := \{(a,b) \sv a,b\in S\}
     \end{align*}
     then an operation is a function $S\times S\to S$.
 \end{definition}
@@ -183,7 +183,7 @@
 \begin{theorem}
     Let $G,H$ be groups. The product
     \begin{align*}
-        G\times H=\{(g,h):g\in G, h\in H\}
+        G\times H=\{(g,h) \sv g\in G, h\in H\}
     \end{align*}
     has the natrual structure of a group as follows:
     \begin{itemize}
@@ -296,7 +296,7 @@
     Let $G$ be a group and let $g\in G$ be an element. We define the
     subset
     \begin{align*}
-        \lra g := \{g^k : k\in\Z\}.
+        \lra g := \{g^k \sv k\in\Z\}.
     \end{align*}
 \end{definition}
 
@@ -352,7 +352,7 @@
     \end{enumerate}
     The \emph{equivalence class} containing $x$ is give by
     \begin{align*}
-        \cl(x) := \left\{s\in X : x\sim s\right\}.
+        \cl(x) := \left\{s\in X \sv x\sim s\right\}.
     \end{align*}
 \end{definition}
 
@@ -430,4 +430,82 @@
         a^{p}\equiv a \mod p.
     \end{align*}
 \end{theorem}
+
+
+\section{Going between groups}
+
+
+\subsection{Homomorphisms and isomorphisms}
+
+\begin{definition}
+    Let $(G, \oplus)$ and $(H, \otimes)$ be groups. A map $\phi:G\to H$ 
+    is called a \emph{group homomorphism} if
+    \begin{align*}
+        \phi(x \oplus y) = \phi(x)\otimes \phi(y)\hs\text{for all }x,y\in G.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    A group homomorphism $\phi:G\to H$ that is also a bijection is
+    called an \emph{isomorphism} of groups. In this case we say that
+    $G$ and $H$ are isomorphic and we write $G\cong H$. An
+    isomorphism $G\to G$ is called an \emph{automorphism} of $G$.
+\end{definition}
+
+\setcounter{theorem}{4}
+\begin{lemma}
+    Let $\phi:G\to H$ be a group homomorphism. Then
+    \begin{enumerate}
+        \item $\phi(e)=e$ and further $\phi(\inv g)=\inv{(\phi(g))}$ for all $g\in G$.
+        \item If $\phi$ is injective, the order of $g\in G$ equals the order of $\phi(g)\in H$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+    Let $\phi:G\to H$ be a group homomorphism.
+    \begin{enumerate}
+        \item The \emph{image} of $\phi$ is defined to be \begin{align*}
+            \im\phi := \{h\in H \sv h=\phi(g)\text{ for some }g\in G\}.
+        \end{align*}
+        \item We define the \emph{kernel} of $\phi$ to be \begin{align*}
+            \ker \phi := \{g\in G \sv \phi(g) = e_H\}.
+        \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    A subgroup $N\leq G$ is \emph{normal} if left and right cosets
+    of $N$ are equal: $gN=Ng$ for all $g\in G$. If $N$ is a normal
+    subgroup of $G$ we write $N \triangleleft G$.
+\end{definition}
+
+
+\begin{proposition}
+    Let $\phi:G\to H$ be a group homomorphism. Then $\ker\phi\triangleleft G$.
+\end{proposition}
+
+\begin{proposition}
+    Let $\phi: G\to H$ be a group homomorphism. Then
+    \begin{enumerate}
+        \item $\phi:G\to H$ is injective if and only if $\ker\phi=\{e_G\}$.
+        \item If $\phi:G\to H$ is injective, then $\phi$ gives an isomorphism $G\cong \im\phi$.
+    \end{enumerate}
+\end{proposition}
+
+\subsection{Products and isomorphisms}
+
+\begin{theorem}
+    Let $H,K\leq G$ be subgroups with $H\cap K=\{e\}$.
+    \begin{enumerate}
+        \item The map $\phi:H\times K\to HK$ given by $\phi:(h,k)\mapsto hk$ is bijective.
+        \item If further every element of $H$ commutes with every element of $K$ when
+              when multiplied in $G$, then $HK$ is a subgroup of $G$, and
+              furthermore it is isomorphic to $H\times K$, via $\phi$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+    Let $H,K\leq G$ be infinite subgroups of a group $G$ such that
+    $H\cap K=\{e\}$. Then $\abs{HK} = \abs H \times \abs K$.
+\end{corollary}
 \end{document}
