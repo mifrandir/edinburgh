@@ -468,6 +468,66 @@ cost goes from constant to linear with respect to $n$.
     as required.
 \end{proof}
 
+\begin{claim}
+    Consider a stack size $m$ and a heap size $n$ where $m\leq n$ and
+    $m+n$ is even. Then there exists a memory layout such that a run of Mark 
+    will reach a queue size of $(m+n)/2$.
+\end{claim}
+
+\begin{proof}
+    Let $k$ be the largest integer such that
+    \begin{align*}
+        \sum_{i=1}^k 2^{i-1}m \leq n.
+    \end{align*}
+    Then consider a memory layout created by the following algorithm:
+    \begin{enumerate}
+        \item Fill all heap cells with a vertex object.
+        \item For each stack entry construct a complete binary tree of vertex objects
+        of height $k$ and reference the root from the stack such that no vertex is assigned twice.
+        \item Assign the remaining vertex objects in such a way that the tree referenced by the $i$th
+        stack entry does not receive a new node before the $(i-1)$th stack entry references a tree of height $k+1$
+        and such that no node in any of the trees gets assigned a left child without having a right child.
+    \end{enumerate}
+    Let $b_i$ be the number of black nodes after $i$ iterations of the while loop and let
+    $q_i$ be the length of the queue at that point. Then let $P_0,...,P_{n-m}$ be the
+    following statements:
+    \begin{align*}
+        P_i:\hs q_i = m+b_i.
+    \end{align*}
+    Observe that in this case the loop can only possibly run $n-m$ times because $m$ items have
+    already been added. Also note that since $n-m$ is even there are an even number of nodes
+    in the trees that are not nodes. Due to the arrangement this means that every node has either
+    two or no children. Now consider $P_0$. Since $q_i=m$ and $b_i=0$ this statement holds.\\
+    Assume $P_i$. Then there are two cases. If the next node in the queue has two children
+    then $q_{i+1} = q_i+1$ because one node gets removed and both children get added. In that
+    case since $q_i = m + b_i$ it follows that $q_i + 1 = m + b_i + 1$ and therefore
+    $q_{i+1} = m + b_{i+1}$. If the
+    node has no children then $q_i$ must be the maximum queue length. All subsequent iterations
+    will remove one element from the queue each and $P_{i+1}$ does not hold.\\
+    This shows that the queue length behaves as follows for some $1\leq l \leq n$
+    \begin{enumerate}
+        \item For the first $l$ iterations $q_i = m + i$
+        \item For the subsequent iterations $q_i = q_l - (i - l)$
+    \end{enumerate}
+    We know $q_0 = m$ and $q_n=0$ and can now deduce that $q_i$ needs to be composed of
+    the two sequences
+    \begin{align*}
+        x_i &= m + i\\
+        y_i &= n - i
+    \end{align*}
+    By setting $x_i=y_i$ we find
+    \begin{align*}
+        i = \frac{n-m}{2}
+    \end{align*} 
+    and for this $i$ we have
+    \begin{align*}
+        x_i = y_i = \frac{n+m}{2}
+    \end{align*}
+    as desired.
+    
+
+\end{proof}
+
 \subsection{Discussion of queue implementation}
 
 Since we have just shown that the number of elements in the queue is bounded
@@ -488,7 +548,7 @@ effectively double the space required.
 
 \begin{pseudo}
     Greedy$(S, s_1, ..., s_n, v_1, ..., v_n)\to$ list of fractions\\+
-        $R\leftarrow\text{array of integers with length }n$\\
+        $R\leftarrow\text{array of rationals with length }n$\\
         $A\leftarrow\text{array of integers with length }n$\\
         \textbf{for $i$ from $1$ to $n$ do}\\+
             $A[i-1] \leftarrow i$\\
@@ -662,4 +722,93 @@ by applying $C$ before comparing elements.
     we know that the solution is optimal.
 \end{proof}
 
+\subsection{Disproving optimality for greedy 01-knapsack algorithms}
+
+\subsubsection{Highest value-per-unit-volume}
+
+Consider the following problem: Let $S=1$, $G=\{G_1, G_2\}$, $s_1=1/4$, $s_2=1$,
+$v_1=1$ and $v_2=2$. The we find the densities (value-per-unit-volume)
+\begin{align*}
+    d_1 = \frac{1}{1/4} = 4 \hs\text{and}\hs d_2 =\frac{2}{1}=2.
+\end{align*}
+Observe that we can only fit one of the items into the given $S$.
+Therefore the algorithm would select $G_1$ and end up with a value of $1$.
+However, selecting $G_2$ would result in a total value of $2$ which makes
+this algorithm suboptimal.
+
+\subsubsection{Highest value}
+
+Consider the following problem: Let $S=1$, $G=\{G_1, G_2, G_3\}$ and
+\begin{align*}
+    \begin{split}
+        s_1&=1/2,\\
+        s_2&=1/2,\\
+        s_3&=1,
+    \end{split}
+    \begin{split}
+        v_1 &= 1\\
+        v_2 &= 1\\
+        v_3 &= 3/2
+    \end{split}
+\end{align*}
+The algorithm would select $G_3$ because it has the highest value
+and end up with a value of $3/2$ in total. Selecting $G_1$ and
+$G_2$ would, however, result in a total value of $2$. Thus the
+algorithm is suboptimal in this case.
+
+\subsection{Optimal algorithm for the 0-1 knapsack problem}
+
+\begin{pseudo}
+    Dynamic$(S,s_1,...,s_n,v_1,...,v_n)\leftarrow$ list of fractions\\+
+        $A\leftarrow S\times (n+1)\text{ array of integers}$\\
+        $P\leftarrow S\times (n+1)\text{ array of integers}$\\
+        \textbf{for $s$ from $0$ to $S$ do}\\+
+            $A[0,s] \leftarrow 0$\\-
+        \textbf{for $i$ from $1$ to $n$ do}\\+
+            \textbf{for $s$ from $0$ to $S$ do}\\+
+                \textbf{if $s_i>s$ or $A[i-1,s]\geq A[i-1,s-s_i] + v_i$ then}\\+
+                    $A[i, s] \leftarrow A[i-1,s]$\\
+                    $P[i, s] \leftarrow 0$\\- 
+                \textbf{else}\\+
+                    $A[i, s] \leftarrow A[i-1,s-s_i] + v_i$\\
+                    $P[i, s] \leftarrow 1$\\---
+        $R\leftarrow \text{array of rationals with length }n$\\
+        \textbf{for $i$ from $0$ to $n-1$ do}\\+
+            $R[i] \leftarrow 0$\\-
+        $s\leftarrow S$\\
+        \textbf{for $i$ from $n$ to $1$ do}\\+
+            \textbf{if $P[i,s]=1$ do}\\+
+                $R[i-1]\leftarrow 1$\\
+                $s \leftarrow s - s_i$\\--
+        \textbf{return $R$}
+\end{pseudo}
+
+\paragraph{Runtime analysis}
+
+Observe that every line may be executed in $O(1)$ time. Notably, this
+can even be assumed for the memory allocations in lines 2, 3 and 14.
+Let $T_D$ denote the total runtime of Dynamic. 
+Then we have four distinct \texttt{for}-loops. Let their runtimes be 
+$T_1, ..., T_4$. Then we know
+\begin{align*}
+    T_D = O(1) + T_1 + T_2 + T_3 + T_4.
+\end{align*}
+The values of $T_1$, $T_3$ and $T_4$ are easy to calculate because
+they don't contain any nested loops or other operation with runtimes
+other than $O(1)$. In fact the number of line exectutions is bounded
+above by a constant value. Therefore, based on the number of
+iterations we have
+\begin{align*}
+    T_1 = O(S),\hs T_3 = O(n),\hs T_4 = O(n).
+\end{align*}
+Let's now consider $T_2$. Note that there is a nested loop for which
+each iteration will execute 3 lines of code. Therefore it's easy to show that
+\begin{align*}
+    T_2 = O(nS).
+\end{align*}
+This leads us to the total runtime
+\begin{align*}
+    T_D = O(1) + O(S) + O(nS) + O(n) + O(n) = O(nS)
+\end{align*}
+since $O(1),O(n),O(S)\subset O(nS)$.
 \end{document}
