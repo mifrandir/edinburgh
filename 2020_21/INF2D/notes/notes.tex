@@ -580,7 +580,7 @@ explored states.
         \textbf{return} \emph{action}
 \end{pseudo}
 
-\subsection{Logic}
+\subsection{Propositional logic}
 
 \begin{definition}
     A \emph{representation language} must have a \emph{syntax} that defines which
@@ -636,7 +636,7 @@ explored states.
     for all sentences $\alpha,\beta$.
 \end{definition}
 
-\subsection{SAT}
+\subsection{Satisfiability \& resolution}
 
 \begin{theorem}[Resolution rule]
     Let $l_1,...,l_k,m_1,...,m_n$ be literals and let $l_i\Leftrightarrow\neg m_j$. Then
@@ -885,5 +885,156 @@ explored states.
     \emph{AND-prallelism} uses the fact that each conjunct in the body of an implication
     may be solved individually. However, each branch needs to have bindings consistent
     with all the other branches.
+\end{definition}
+
+\subsection{Resolution}
+
+\begin{theorem}
+    Every sentence of first-oder logic can be converted into an inferentially equivalent
+    CNF sentence.
+\end{theorem}
+
+\paragraph{CNF conversion for FOL}
+\begin{enumerate}
+    \item eliminate implications
+    \item move $\neg$ inwards
+    \item standardise variables
+    \item skolemise
+    \item drop universal quantifiers
+    \item distribute $\vee$ over $\wedge$
+\end{enumerate}
+
+\begin{definition}
+    \emph{Binary resolution} is given by the rule
+    \begin{align*}
+        \infer{\subst(\theta,l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n)}{
+            l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
+        } 
+    \end{align*}
+    where $\text{UNIFY}(l_i,\neg m_j)$.
+\end{definition}
+
+\begin{definition}
+    \emph{Factoring} reduces two literals to one if they are unifiable. The unifier must be applied to the
+    entire clause.
+\end{definition}
+
+\begin{theorem}
+    The combination of binary resolution and factoring is complete.
+\end{theorem}
+
+\begin{theorem}
+    If $S$ is an unsatisfiable set of clauses, then the application of a finite number of
+    resolution steps to $S$ will yield a contradiction.
+\end{theorem}
+
+\begin{definition}[Herbrand universe]
+    If $S$ is a set of clauses, then $H_S$, the \emph{Herbrand universe} of $S$, is 
+    the set of all ground terms constructable from the following
+    \begin{enumerate}
+        \item The function symbols in $S$, if any.
+        \item The constant symbols in $S$, if any; if none, then the constant symbol $A$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Saturation]
+    If $S$ is a set of clauses and $P$ is a set of ground terms, then $P(S)$, the
+    saturation of $S$ with respect to $P$, is the set of all ground clauses obtained
+    by applying all possible consistent substitutions of ground terms in $P$ with variables in $S$.
+\end{definition}
+
+\begin{definition}[Herbrand base]
+    The saturation of a set $S$ of clauses with respect to its Herbrand universe is called the Herbrand
+    base of $S$, written $H_S(S)$. 
+\end{definition}
+
+\begin{theorem}[Herbrand's theorem]
+    If a set $S$ of clauses is unsatisfiable, then there exists a finite subset of $H_S(S)$
+    that is also unsatisfiable. 
+\end{theorem}
+
+\begin{lemma}[Lifting lemma]
+    Let $C_1$ and $C_2$ be two clauses with no shared variables,
+    and let $C_1'$ and $C_2'$ be ground instances of $C_1$ and $C_2$.
+    If $C'$ is a resolvent of $C_1'$ and $C_2'$, then there exists a clause
+    $C$ such that (1) $C$ is a resolvent of $C_1$ and $C_2$ and (2) $C'$ is a
+    ground instance of $C$. 
+\end{lemma}
+
+\begin{definition}[Demodulation]
+    For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$ and where
+    $\text{UNIFY}(x,z)=\theta$,
+    \begin{align*}
+        \infer{
+            \text{SUB}(\subst(\theta,x),\subst(\theta,y),m_1\wedge\cdots\wedge m_n)
+        }{
+            x=y,\hs m_1\wedge\cdots\wedge m_n
+        }
+    \end{align*}
+    where $\subst$ is the usual substitution of a binding list, and SUB$(x,y,m)$
+    means to replace $x$ with $y$ everywhere that $x$ occurs within $m$.
+\end{definition}
+
+\begin{definition}[Paramodulation]
+    For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$,
+    and where $\text{UNIFY}(x,z)=\theta$,
+    \begin{align*}
+        \infer{
+            \text{SUB}(\subst(\theta,x),\subst(\theta,y),\subst(\theta,l_1\wedge\cdots\wedge l_k\wedge m_1\wedge\cdots\wedge m_n))
+        }{
+            l_1\wedge \cdots\wedge x=y,\hs m_1\wedge\cdots\wedge m_n
+        }.
+    \end{align*} 
+\end{definition}
+
+\begin{theorem}
+    Paramodulation yields a complete inference procedure for first-order logic
+    with equality.
+\end{theorem}
+
+\subsection{Resolution strategies}
+
+\begin{definition}
+    \emph{Unit preference} is a resolution strategy that prefers to do resolutions
+    where one of the sentences is a unit clause.
+\end{definition}
+
+\begin{definition}
+    \emph{Unit resolution} is a restricted form of resolution in which every
+    step must involve a unit clause.
+\end{definition}
+
+\begin{theorem}
+    Unit resolution is complete for Horn clauses.
+\end{theorem}
+
+\begin{definition}
+    A \emph{set of support} strategy insists that every resolution must
+    involve one element of a special set of clauses and the resolvent is
+    added to this set.
+\end{definition}
+
+\begin{definition}
+    \emph{Input resolution} is a strategy where every resolution combines
+    one of the input sentences with some other sentence.
+\end{definition}
+
+\begin{theorem}
+    Input resolution is not complete.
+\end{theorem}
+
+\begin{definition}
+    \emph{Linear resolution} is a strategy where a resolution of $P$ and $Q$
+    possible only if $P$ is in the original $KB$ or if $P$ is an ancestor
+    of $A$ in the proof tree.
+\end{definition}
+
+\begin{theorem}
+    Linear resolution is complete.
+\end{theorem}
+
+\begin{definition}
+    The subsumption method eliminates all sentences that are subsumed
+    (that is, more specific than) an existing sentence in the $KB$.
 \end{definition}
 \end{document}
