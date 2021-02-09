@@ -3,7 +3,6 @@
 \mkthms
 
 \title{INF2-IADS: Coursework 2}
-\author{Franz Miltz}
 \begin{document}
 \maketitle
 
@@ -35,25 +34,28 @@ $\text{Mark}(\text{\emph{void}}) \to \text{\emph{void}}$\\+
 \begin{pseudo}
 $\text{Sweep}(\textit{void})\to\textit{void}$\\+
     \textbf{for} all heap entries $c$ \textbf{do}\\+
-        \textbf{if} $\text{obj}(c).\text{colour} = \textit{white}$ \textbf{then}\\+
-            reclaim$(c)$\\-
-        \textbf{else}\\+
-            $\text{obj}(c).\text{colour}\leftarrow\textit{white}$
+        \textbf{if} occupied$(c)$ \textbf{do}\\+
+            \textbf{if} $\text{obj}(c).\text{colour} = \textit{white}$ \textbf{then}\\+
+                reclaim$(c)$\\-
+            \textbf{else}\\+
+                $\text{obj}(c).\text{colour}\leftarrow\textit{white}$
 \end{pseudo}
 
 \subsection{Informal asymptotic upper bound for runtime of Mark-Sweep}
 
 Consider the runtime of Mark $T_{Mark}$. Observe that there are two loops
-and only one line that gets exactly once, namely the queue initialisation.
+and only one line that gets run exactly once, namely the queue initialisation.
 Thus we have
 \begin{align*}
     T_{Mark} = T_{for} + T_{while} + O(1)
 \end{align*}
-Since the first loop runs for every one of the $m$ stack entries we have
+Since the body of the first loop runs in for every one of the $m$ stack entries
+in $O(1)$ time, we have
 \begin{align*}
     T_{for} = O(m)
 \end{align*}
-and similarly the second loop runs for every single one of the $n$ heap cells at most once
+and similarly the body of the second loop runs for every single one of 
+the $n$ heap cells at most once
 (we made sure to only insert each node once into the queue and each iteration
 removes precisely one item) and thus
 \begin{align*}
@@ -126,7 +128,7 @@ even though no $\Theta$ can be given for the Mark procedure itself.
         \label{forlms}
         T_{MS} = T_{Mark} + T_{Sweep}
     \end{align}
-    where $L_{Mark}$ and $L_{Sweep}$ are the number of line executions in Mark and
+    where $T_{Mark}$ and $T_{Sweep}$ are the number of line executions in Mark and
     Sweep respectively. Let
     \begin{align*}
         k = \max\{m,n\}.    
@@ -143,7 +145,7 @@ even though no $\Theta$ can be given for the Mark procedure itself.
     Additionally, no vertex changes colour from black to white (within the Mark procedure).
     Therefore each vertex may only be inserted into the queue once. Since each loop iteration 
     removes the head of the queue, the loop can only run at most $n$ times.
-    Considering that each iteration leads to at most $7$ line exectuions, we have
+    Considering that each iteration leads to at most $7$ line executions, we have
     \begin{align*}
         T_{while} \leq 7n
     \end{align*}
@@ -154,19 +156,19 @@ even though no $\Theta$ can be given for the Mark procedure itself.
     \end{align*}
      For the Sweep procedure we observe that
     \begin{align*}
-        T_{Sweep} \leq 5n
+        T_{Sweep} \leq 6n
     \end{align*}
-    because there are at most $5$ lines being run for every loop iteration and
+    because there are at most $6$ lines being run for every loop iteration and
     the loop gets run for each of the $n$ heap entries. We can now apply (\ref{forlms})
     to find
     \begin{align}
         \label{tmsbound}
-        T_{MS} \leq 4m + 7n + 1 + 5n = 4m + 12n + 1 \leq 17k
+        T_{MS} \leq 4m + 7n + 1 + 6n = 4m + 12n + 1 \leq 18k
     \end{align}
-    since $k\geq m,n \geq 1$. Now let $C=17$ and $M=N=1$ be a constants. 
+    since $k\geq m,n \geq 1$. Now let $C=18$ and $M=N=1$ be a constants. 
     Then for all $m,n$ such that $m\geq M$ or $n\geq N$ we have
     \begin{align*}
-        C(m+n) = 17(m+n) \geq 17k \geq T_{MS}
+        C(m+n) = 18(m+n) \geq 18k \geq T_{MS}
     \end{align*}
     since for all $a,b\geq 0$, $a+b \geq \max\{a,b\}$ and thus $m+n\geq k$.
     This shows, by definition of $O$, that
@@ -183,19 +185,19 @@ at all and thus we cannot give a lower bound for the total runtime penalty assoc
 with it. Therefore we are only concerned with upper bounds.\\
 Observe that each program action can only ever populate one additional heap cell.
 Therefore, since at the beginning of the execution and after every Mark-Sweep
-procedure there are at least $\floor{n/2}$ empty heap cells, at least $\floor{n/2}$ program operations
+procedure there are at least $\ceil{n/2}$ empty heap cells, at least $\ceil{n/2}$ program operations
 need to occur before every Mark-Sweep run. To find an upper bound, let's assume that
-such a run is required precisely every $\floor{n/2}$ operations. Then throughout the
-entire program execution, $p/\floor{n/2}$ such runs occur. Therefore, the bound
+such a run is required precisely every $\ceil{n/2}$ operations. Then throughout the
+entire program execution, $p/\ceil{n/2}$ such runs occur. Therefore, the bound
 for the total time spent on memory recycling $T_{RP}$ is bounded by 
 
 \begin{align*}
-    T_{RP} \leq \frac{p\cdot T_{MS}}{\floor{\frac{n}{2}}} \leq \frac{2p\cdot T_{MS}}{n}.
+    T_{RP} \leq \frac{p\cdot T_{MS}}{\ceil{\frac{n}{2}}} \leq \frac{2p\cdot T_{MS}}{n}.
 \end{align*}
 
 Using the result from 1.5 and $m=10$ this shows that
 \begin{align*}
-    T_{RP} = O\left(\frac{2p\cdot O(m+n)}{n}\right) = O(p).
+    T_{RP} = \frac{2p\cdot O(m+n)}{n} = O(p).
 \end{align*}
 
 To find the average per line we divide this by the number of lines to get
@@ -209,75 +211,79 @@ To find the average per line we divide this by the number of lines to get
 \begin{claim}
     Consider a program consisting of $p$ actions that uses exactly $m=10$
     stack entries, has access to $n$ heap cells and that is guaranteed to only
-    have at most $\ceil{n/2}$ heap cells that are reachable through references
+    have at most $n/2$ heap cells that are reachable through references
     from the stack at any point in time. Then the total time spent on memory recycling $T_{RP}$ is
     bounded by $O(p)$.
 \end{claim}
 \begin{proof}
-    Observe that each program operation may populate at most one additional heap cell.
-    Further, after each Mark-Sweep cycle there are no unreachable cells and thus
-    $\floor{n/2}$ further allocations are required to fill the heap entirely and
+    Firstly, note that the number of heap cells reachable through references
+    from the stack has to be an integer, call it $r$. Then notice
+    \begin{align*}
+        r \leq n / 2 \hs\Rightarrow\hs r \leq \floor{n/2}.
+    \end{align*}
+    In the case $r=\floor{n/2}$ the maximum number of unreachable heap cells
+    is bounded above by $n-\floor{n/2}=\ceil{n/2}$.\\
+    \indent Further, observe that each program operation may populate at most one 
+    additional heap cell and after each Mark-Sweep cycle there are no unreachable cells.
+    This means that
+    $\ceil{n/2}$ further allocations are required to fill the heap entirely and
     thereby initiate the Mark-Sweep procedure. This holds immediately after
     the start of the program too, assuming that heap cells can only become unreachable
     through program operations. Let $c$ be the number of times the Mark-Sweep
     procedure gets invoked. Then we have
     \begin{align*}
-        c \leq \frac{p}{\floor{\frac{n}{2}}} = \frac{p}{\ceil{\frac{n-1}{2}}} \leq \frac{2p}{n-1}.
+        c \leq \frac{p}{\ceil{\frac{n}{2}}} \leq \frac{2p}{n}.
     \end{align*}
-    Since $T_{RP}$ is the sum of all Mark-Sweep exectuions, we have
+    Since $T_{RP}$ is the sum of all Mark-Sweep executions, we have
     \begin{align*}
-        T_{RP} \leq\frac{2p \cdot T_{MS}}{n-1}. 
+        T_{RP} \leq\frac{2p \cdot T_{MS}}{n}. 
     \end{align*}
     Using (\ref{tmsbound}) we find
     \begin{align}
         \label{trbound}
-        T_{RP}\leq\frac{2p\cdot 17k}{n-1}
+        T_{RP}\leq\frac{2p\cdot 18k}{n}=\frac{36p\cdot k}{n}
     \end{align}
-    where $k=\max\{m,n\}$. Now let $P=1$, $N=10$ and $C=680$ be constants. Then
+    where $k=\max\{m,n\}$. Now let $P=1$, $N=10$ and $C=360$ be constants. Then
     for all $p\geq P$ or $n\geq N$ we have
     \begin{align*}
-        T_{RP} &\leq \frac{2p\cdot 17k}{n-1} = \frac{34p\cdot 10n}{n-1} = 340p\left(\frac{n}{n-1}\right)
-        \leq 340p\cdot 2 = 680p = Cp.
+        T_{RP} &\leq \frac{36p\cdot k}{n} \leq \frac{36p\cdot 10n}{n} = 360p = Cp.
     \end{align*}
-    Note that we require $n>1$ since $n=1$ will lead to
-    division by $0$. In that case, however, we would either have a permanently full heap
-    or a program that cannot allocate any heap memory whatsoever, depending on how the
-    rounding is supposed to be understood.
     By definition of $O$ we now have shown
     \begin{align*}
         T_{RP} = O(p).
     \end{align*}
 \end{proof}
-\emph{Note: We are using $\forall n\in\N,\:\max\{10,n\}\leq 10n$ and $\forall n\in\N, n>1,\: n/(n-1) \geq 2$
-which are easy enough to prove that I did not want to clutter the submission with them. Both statements
- will be used throughout the text.}
+\emph{Note: We are using $\forall n\in\N,\:\max\{10,n\}\leq 10n$ which is
+easy enough to prove that I did not want to clutter the submission with a
+rigorous argument. The statement will be used throughout the text.}
 
 \begin{claim}
     Consider a program consisting of $p$ actions that uses exactly $m=10$
     stack entries, has access to $n$ heap cells and that is guaranteed to only
     have at most $\ceil{n/2}$ heap cells that are reachable through references
-    from the stack at any point int time. Then the average time spent on memory recycling per program
+    from the stack at any point int time. 
+    Then the average time spent on memory recycling per program
     action $T_{RL}$ is bounded by $O(1)$.
 \end{claim}
 \begin{proof}
-    The average time per line is the total time divided by the number of lines.
+    The average time per operation is the total time divided by the number 
+    of operations.
     I.e.
     \begin{align*}
-        T_{RL} = \frac{T_{RP}}{2}.
+        T_{RL} = \frac{T_{RP}}{p}.
     \end{align*}
     We can use (\ref{trbound}) to obtain
     \begin{align*}
-        T_{RL} \leq \frac{2p\cdot 17k}{p(n-1)}.
+        T_{RL} \leq \frac{36p\cdot k}{pn}.
     \end{align*}
     By simplifying we get
     \begin{align*}
-        T_{RL} \leq \frac{34k}{n-1}.
+        T_{RL} \leq \frac{36k}{n}.
     \end{align*}
-    Now let $C=680$ and $N=10$ be constants. Then for all $n\geq N$
+    Now let $C=360$ and $N=10$ be constants. Then for all $n\geq N$
     we have
     \begin{align*}
-        T_{RL} &\leq \frac{34k}{n-1} \leq \frac{34\cdot10n}{n-1} \leq 340\left(\frac{n}{n-1}\right)
-        \leq 340\cdot 2 \leq 680 = C.
+        T_{RL} &\leq \frac{36k}{n} \leq \frac{36\cdot10n}{n} = 360 = C.
     \end{align*}
     It follows from the definition of $O$ that
     \begin{align*}
@@ -308,12 +314,12 @@ since then $r'n=\floor{r'n}=\floor{rn}$.
 \begin{proof}
     Consider the number of Mark-Sweep runs $c$. For any $r$ we have
     \begin{align*}
-        c \leq \frac{p}{(1-r)n}
+        c \leq \frac{p}{\ceil{(1-r)n}}\leq \frac{p}{(1-r)n}
     \end{align*}
-    because every operation can only fill a single heap cell and $(1-r)n$ heap cells 
-    are guaranteed to be empty after each Mark-Sweep run (and at the start of the
-    program exectuion).
-    Further, observe that since $0<r<1$ we can find the smallest and largest $r$ for any $n$. We have
+    because every operation can only fill a single heap cell and $\ceil{(1-r)n}$
+    heap cells are guaranteed to be empty after each Mark-Sweep run
+    (and at the start of the program execution). Further, observe that 
+    since $0<r<1$ we can find the smallest and largest $r$ for any $n$. We have
     \begin{align}
         \label{rlims}
         r_{max} = \frac{n-1}{n} \hs\text{and}\hs r_{min} = \frac{1}{n}
@@ -326,12 +332,12 @@ since then $r'n=\floor{r'n}=\floor{rn}$.
     \end{align*}
     We find
     \begin{align*}
-        T_{RP} \leq \frac{p\cdot T_{MS}}{n-1} \leq \frac{17pk}{n-1}.
+        T_{RP} \leq \frac{p\cdot T_{MS}}{n-1} \leq \frac{18pk}{n-1}.
     \end{align*}
     Let $C=340$, $N=1$ and $P=1$. Then, for all $n\geq N$ or $p\geq P$ we have
     \begin{align*}
-        T_{RP} \leq \frac{17pk}{n-1} \leq \frac{17p\cdot 10n}{n-1} = 170p\left(\frac{n}{n-1}\right)
-        \leq 170p\cdot 2 = 340p.
+        T_{RP} \leq \frac{18pk}{n-1} \leq \frac{18p\cdot 10n}{n-1} = 180p\left(\frac{n}{n-1}\right)
+        \leq 180p\cdot 2 = 360p.
     \end{align*}
     Therefore, by definition of $O$, we have $T_{RP}=O(p)$.\\
     Now consider $r=r_{max}=(n-1)/n$. Then we have
@@ -341,11 +347,11 @@ since then $r'n=\floor{r'n}=\floor{rn}$.
     \end{align}
     Thus we find
     \begin{align*}
-        T_{RP} \leq p\cdot T_{MS} \leq 17pk.
+        T_{RP} \leq p\cdot T_{MS} \leq 18pk.
     \end{align*}
-    We let $C=170$, $N=1$ and $P=1$. Then for all $n\geq N$ or $p\geq P$ we have
+    We let $C=180$, $N=1$ and $P=1$. Then for all $n\geq N$ or $p\geq P$ we have
     \begin{align*}
-        T_{RP} \leq 17pk \leq 17p \cdot 10n \leq 170pn \leq Cpn.
+        T_{RP} \leq 18pk \leq 18p \cdot 10n \leq 180pn \leq Cpn.
     \end{align*}
     By definition of $O$, we have $T_{RP}=O(pn)$. 
 \end{proof}
@@ -368,21 +374,21 @@ since then $r'n=\floor{r'n}=\floor{rn}$.
     \end{align*}
     We find
     \begin{align*}
-        T_{RL} = \frac{T_{RP}}{p} = \frac{cT_{MS}}{p} \leq \frac{17k}{n-1}.
+        T_{RL} = \frac{T_{RP}}{p} = \frac{cT_{MS}}{p} \leq \frac{18k}{n-1}.
     \end{align*}
-    We let $C=340$ and $N=1$. Then for all $n\geq N$ we have
+    We let $C=360$ and $N=1$. Then for all $n\geq N$ we have
     \begin{align*}
-        T_{RL} \leq \frac{17k}{n-1} \leq \frac{17\cdot 10n}{n-1} = 170\left(\frac{n}{n-1}\right) \leq 340 = C.
+        T_{RL} \leq \frac{18k}{n-1} \leq \frac{18\cdot 10n}{n-1} = 180\left(\frac{n}{n-1}\right) \leq 360 = C.
     \end{align*}
     By definition of $O$, we have $T_{RL}=O(1)$.\\
     Consider $r=r_{max}=(n-1)/n$. Then we have $c\leq p$ as derived in (\ref{cmax}).
     This leads to
     \begin{align*}
-        T_{RL}=\frac{cT_{MS}}{p}\leq T_{MS} \leq 17k.
+        T_{RL}=\frac{cT_{MS}}{p}\leq T_{MS} \leq 18k.
     \end{align*}
-    Let $C=170$ and $N=1$. Then for all $n\geq N$ we have
+    Let $C=180$ and $N=1$. Then for all $n\geq N$ we have
     \begin{align*}
-        T_{RL} \leq 17k \leq 170n \leq Cn
+        T_{RL} \leq 18k \leq 180n = Cn
     \end{align*}
     i.e.
     \begin{align*}
@@ -429,7 +435,7 @@ cost goes from constant to linear with respect to $n$.
     This shows $P_i\Rightarrow P_{i+1}$ if $i<l$.\\
     \indent Assume $l\leq i \leq n$. Then $q_i = 0$ since the loop only ends
     when the queue is empty. Thus $q_i \leq m + b_i$. This shows that
-    $P_i$ holds for all $l\leq i\leq n$.\\
+    $P_i$ holds for all $l\leq i\leq n$.
     Now we have $P_i\Rightarrow P_{i+1}$ for all $i\leq n-1$ and $P_0$ in
     general. By the \emph{Principle of Mathematical Induction}
     $P_i$ for all $0\leq i\leq n$ follows. 
@@ -481,12 +487,13 @@ cost goes from constant to linear with respect to $n$.
     \end{align*}
     Then consider a memory layout created by the following algorithm:
     \begin{enumerate}
-        \item Fill all heap cells with a vertex object.
         \item For each stack entry construct a complete binary tree of vertex objects
         of height $k$ and reference the root from the stack such that no vertex is assigned twice.
-        \item Assign the remaining vertex objects in such a way that the tree referenced by the $i$th
-        stack entry does not receive a new node before the $(i-1)$th stack entry references a tree of height $k+1$
-        and such that no node in any of the trees gets assigned a left child without having a right child.
+        \item Assign the remaining $n-k$ vertex objects in such a way that the tree referenced by the $i$th
+        stack entry does not receive a new node before the $(i-1)$th stack entry references a 
+        complete binary tree of height $k+1$
+        and such that for no node the longest path to any leaf of the left sub-tree is shorter
+        than the longest path to any leaf of the right sub-tree.
     \end{enumerate}
     Let $b_i$ be the number of black nodes after $i$ iterations of the while loop and let
     $q_i$ be the length of the queue at that point. Then let $P_0,...,P_{n-m}$ be the
@@ -496,9 +503,9 @@ cost goes from constant to linear with respect to $n$.
     \end{align*}
     Observe that in this case the loop can only possibly run $n-m$ times because $m$ items have
     already been added. Also note that since $n-m$ is even there are an even number of nodes
-    in the trees that are not nodes. Due to the arrangement this means that every node has either
+    in the trees that are not roots. Due to the arrangement this means that every node has either
     two or no children. Now consider $P_0$. Since $q_i=m$ and $b_i=0$ this statement holds.\\
-    Assume $P_i$. Then there are two cases. If the next node in the queue has two children
+    \indent Assume $P_i$. Then there are two cases. If the next node in the queue has two children
     then $q_{i+1} = q_i+1$ because one node gets removed and both children get added. In that
     case since $q_i = m + b_i$ it follows that $q_i + 1 = m + b_i + 1$ and therefore
     $q_{i+1} = m + b_{i+1}$. If the
@@ -521,7 +528,7 @@ cost goes from constant to linear with respect to $n$.
     \end{align*} 
     and for this $i$ we have
     \begin{align*}
-        x_i = y_i = \frac{n+m}{2}
+        x_i = y_i = \frac{n+m}{2}\hs\text{and thus}\hs q_i = \frac{n+m}{2}
     \end{align*}
     as desired.
     
@@ -663,8 +670,8 @@ by applying $C$ before comparing elements.
     \begin{align*}
         S = \sum_{j=1}^i \hat s_j
     \end{align*}
-    so the optimal solution for the problem where the first $i$ $\hat G_j$
-    fit the knapsack perfectly. Then choosing the corresponding $i$ elements
+    so the optimal solution for the problem where the items $\hat G_1, ...,\hat G_i$
+    fit the knapsack perfectly. Then choosing these $i$ elements
     is optimal because swapping any amount of volume $\Delta s$ from an
     element with value density $d_a = \hat v_a / \hat s_a$ for another element
     with density $d_b = \hat v_b / \hat s_b$ with $a\leq i < b$ results in a
@@ -795,7 +802,7 @@ $T_1, ..., T_4$. Then we know
 \end{align*}
 The values of $T_1$, $T_3$ and $T_4$ are easy to calculate because
 they don't contain any nested loops or other operation with runtimes
-other than $O(1)$. In fact the number of line exectutions is bounded
+other than $O(1)$. In fact the number of line executions is bounded
 above by a constant value. Therefore, based on the number of
 iterations we have
 \begin{align*}
