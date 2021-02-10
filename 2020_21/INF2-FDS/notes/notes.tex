@@ -925,4 +925,79 @@ The bootstrap procedure is
 		\hat\sigma_{\hat d}   &= \sqrt{\hat\sigma^2_{\hat p_A} + \hat\sigma^2_{\hat p_B}}
 	\end{align*}
 \end{theorem}
+
+
+\section{Software engineering}
+
+
+\paragraph{Requirements for reproducible data analysis}
+
+\begin{itemize}
+	\item data
+	\item code 
+	\item documentation
+\end{itemize}
+
+\subsection{Facilitators of reproducible research}
+
+\subsubsection{Data}
+\begin{itemize}
+	\item Journal policies
+	\item Data repositories \begin{itemize}
+		\item institutional
+		\item subject-specific
+		\item general
+		\item governmental
+	\end{itemize}
+\end{itemize}
+
+
+\subsubsection{Code}
+
+\begin{itemize}
+	\item VCS
+	\item unit testing
+	\item conda environments
+	\item virtual environments
+\end{itemize}
+
+\subsection{Notebooks}
+
+\paragraph{Advantages}
+
+\begin{itemize}
+	\item Good for one-off analysis
+	\item helps reproducibility by recording steps
+	\item many packages have Python interfaces
+	\item can be used on a remote server
+\end{itemize}
+
+\paragraph{Disadvantages}
+
+\begin{itemize}
+	\item using same procedure for new dataset (automation not interactivity)
+	\item inconsistent state
+	\item no object-oriented code
+	\item version 
+\end{itemize}
+
+\subsection{Cleaning data}
+
+\begin{itemize}
+	\item save the raw data with details of how to obtain it
+	\item back up the raw data
+	\item save and share clean version of the data \begin{itemize}
+		\item open data format, e.g. CSV, JSON, YAML, XML
+		\item meaningful variable names
+		\item metadata about meaning of columns
+	\end{itemize}
+	\item make sure dataset is tidy \begin{itemize}
+		\item one observation per row
+		\item one variable per column
+		\item unit not stored with numbers
+		\item ideally unique ID for each observation
+	\end{itemize}
+	\item if generating data, share in a repository
+\end{itemize}
+
 \end{document}
