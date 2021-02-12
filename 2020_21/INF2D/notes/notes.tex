@@ -1037,4 +1037,105 @@ explored states.
     The subsumption method eliminates all sentences that are subsumed
     (that is, more specific than) an existing sentence in the $KB$.
 \end{definition}
+
+\subsection{Situation calculus}
+
+\begin{definition}
+    \emph{Situations} are logical terms consisting of the initial
+    situation (usually $S_0$) and all situations that are generated
+    by applying an action to a situation. The function $\text{Result}
+    (a,s)$ names the situation that results when action $a$ is executed
+    in situation $s$.
+\end{definition}
+
+\begin{definition}
+    \emph{Fluents} are functions and predicates that vary from one
+    situation to the next.
+\end{definition}
+
+\begin{definition}
+    \emph{Atemporal} or \emph{eternal} predicates and functions
+    are those that do not vary from one situation to the next.
+\end{definition}
+
+\begin{definition}
+    The \emph{projection} task requires the agent to be able to deduce
+    the outcome of a given sequence of actions.
+\end{definition}
+
+\begin{definition}
+    The \emph{planning} task requires the agent to be able to find a
+    sequence that achieves a desired effect.
+\end{definition}
+
+\begin{definition}
+    Each action is described by two axioms: a \emph{possibility axiom}
+    that states when it is possible to execute the action, and an
+    \emph{effect axiom} that says what happens when a possible action
+    is executed.
+\end{definition}
+
+\begin{definition}[Frame problem]
+    The fact that the possibility and effect axioms only describe what changes
+    and not what stays the same gives rise to the \emph{frame problem}.
+\end{definition}
+
+\begin{definition}
+    \emph{Frame axioms} state what says the same for each possible action.
+\end{definition}
+
+\begin{theorem}
+    Frame axioms solve the frame problem by adding $O(AF)$ axioms.
+\end{theorem}
+
+\begin{definition}
+    The \emph{representational frame problem} states that it should be possible
+\end{definition}
+
+\begin{definition}
+    The \emph{inferential frame problem} states that it should be 
+    possible to project the results of a $t$-step sequence of actions
+    in time $O(Et)$.
+\end{definition}
+
+\begin{definition}
+    \emph{Successor-state axioms} have the form
+    \begin{align*}
+        \text{Action } &\text{is possible} \Rightarrow\\
+        &(\text{Fluent is true in result state} \Leftrightarrow
+        \text{Action's effect made it true}\vee \text{It was true before
+        and action left it alone}).
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Successor-state axioms solve the representational frame problem
+    because the total size of the axioms is $O(AE)$ where $E$ is the
+    number of effects of each of the $A$ actions.
+\end{theorem}
+
+\begin{definition}
+    The \emph{unique names axiom} states disequality for every pair of
+    constants in the knowledge base. When this is assumed by the theorem
+    prover, rather than written down in the knowledge base, it is called
+    a \emph{unique names assumption}.
+\end{definition}
+
+\begin{definition}
+    \emph{Unique action axioms} have the form
+    \begin{align*}
+        A(x_1,...,x_m)=A(y_1,...,y_m)\Leftrightarrow x_1 = y_1\wedge\cdots \wedge x_m=y_m
+    \end{align*}
+    and enforce that two action terms with the same action name refer to the
+    same action only if they involve all the same objects.
+\end{definition}
+
+\paragraph{Solution to the inferential frame problem}
+
+\begin{enumerate}
+    \item Index actions by fluent, effect (positive or negative) and time.
+    \item Index axioms so that if $F_i$ is an effect, you can find the axiom for $F_i$ in $O(1)$ time.
+    \item Represent each situation as a previous state puls a delta.
+\end{enumerate}
+Runtime: $O(Et)$
 \end{document}
