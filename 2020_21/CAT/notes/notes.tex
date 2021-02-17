@@ -1,0 +1,119 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\begin{document}
+\mkthms
+\title{Category Theory (Steve Awodey)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Categories}
+
+\subsection{Definition}
+
+\begin{definition}[Category]
+    A \emph{category} consists of the following data:
+    \begin{itemize}
+        \item Objects: $A$, $B$, $C$, \dots
+        \item Arrows: $f$, $g$, $h$, \dots
+        \item For each arrow $f$, there are given objects \begin{align*}
+            \dom(f),\hs \cod(f)
+        \end{align*}
+        called the \emph{domain} and \emph{codomain} of $f$. We write
+        \begin{align*}
+            f:A\to B
+        \end{align*}
+        to indicate that $A=\dom(f)$ and $B=\cod(f)$.
+        \item Given arrows $f:A\to B$ and $g:B\to C$, that is, with \begin{align*}
+            \cod(f) = \dom(g)
+        \end{align*}
+        there is given an arrow
+        \begin{align*}
+            g\circ f: A\to C
+        \end{align*}
+        called the \emph{composite} of $f$ and $g$.
+        \item For each object $A$ there is given an arrow \begin{align*}
+            1_A : A\to A
+        \end{align*}
+        called the \emph{identity arrow} of $A$.
+    \end{itemize}
+    These data are required to satisfy the following laws \begin{enumerate}[label=C\arabic*.]
+        \item \emph{Associativity}: \begin{align*}
+            f \circ (g \circ h) = (f\circ g) \circ h
+        \end{align*}
+        for all arrows $f:A\to B$, $g:B\to C$, $h:C\to D$.
+        \item \emph{Unit}: \begin{align*}
+            f \circ 1_A = f = 1_B \circ f
+        \end{align*}
+        for all $f:A\to B$.
+    \end{enumerate}
+\end{definition}
+
+\subsection{Examples}
+
+\begin{definition*}[Posets and monotone functions]
+    A partially ordered set or \emph{poset} is a set $A$ equipped
+    with a binary relation $a\leq_A b$ such that the following conditions
+    hold for all $a,b,c\in A$: 
+    \begin{enumerate}[label=P\arabic*.]
+        \item \emph{reflexivity}: $a\leq_A a$.
+        \item \emph{transitivity}: If $a\leq_A b$ and $b\leq_A c$, then $a\leq_A c$.
+        \item \emph{antisymmetry}: If $a\leq_A b$ and $b\leq_A a$, then $a=b$.
+    \end{enumerate}
+    A function $f:A\to B$ between two posets is \emph{monotone} if
+    \begin{align*}
+        a \leq_A a' \text{ implies } f(a) \leq_A f(a')\hs \text{for all }a,a'\in A.
+    \end{align*}
+\end{definition*}
+
+\begin{definition}[Functors]
+    A \emph{functor}
+    \begin{align*}
+        F:\mathbf{C}\to\mathbf{D}
+    \end{align*}
+    between categories $\mathbf{C}$ and $\mathbf{D}$ is a mapping
+    of objects to objects and arrows to arrows, in such a way that
+    \begin{enumerate}[label=F\arabic*.]
+        \item $F(f:A\to B)=F(f):F(A)\to F(B)$
+        \item $F(1_A)=1_{F(A)}$
+        \item $F(f\circ g)=F(f)\circ F(g)$
+    \end{enumerate}
+\end{definition}
+
+\begin{definition*}[Monoids and homomorphisms]
+    A \emph{monoid} is a set $M$ equipped with a binary operation
+    $\cdot : M\times M \to M$ and a unit element $u\in M$ such that
+    for all $x,y,z\in M$
+    \begin{align*}
+        x\cdot (y\cdot z) = (x\cdot y) \cdot z 
+    \end{align*} 
+    and
+    \begin{align*}
+        u \cdot x = x = x \cdot u.
+    \end{align*}
+    For monoids $M,N$ a \emph{monoid homomorphism} is a function
+    $h:M\to N$ such that for all $a,b\in M$,
+    \begin{align*}
+        h(a\cdot_M b) = h(a)\cdot_N h(b)
+    \end{align*}
+    and
+    \begin{align*}
+        h(u_M) = u_N.
+    \end{align*}
+\end{definition*}
+
+\paragraph{Examples of categories}
+\begin{itemize}
+    \item \textbf{Sets}: of sets and functions
+    \item $\textbf{Sets}_\text{fin}$: of finite sets and functions
+    \item \textbf{Pos}: of posets and monotone functions
+    \item \textbf{Rel}: of sets and binary relations
+    \item \textbf{Cat}: of categories and functors
+    \item \textbf{Dis$(X)$}: of elements in $X$ and all identity arrows
+    \item \textbf{Mon}: of monoids and monoid homomorphisms
+\end{itemize}
+
+
+\end{document}
