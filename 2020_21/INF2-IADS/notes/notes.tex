@@ -6,8 +6,8 @@
 \title{Introduction to Algorithms and Data Structures (YEAR2)}
 \author{Franz Miltz}
 \maketitle
-\tableofcontents  
-
+\tableofcontents
+\pagebreak
 
 
 \section{Asymptotics Analysis}
@@ -592,5 +592,66 @@ fib = memoise(fib)
 	productions and an input of length $n$, the run time
 	of the CYK algorithm is $O(mn^3)$.
 \end{theorem}
+
+\section{P and NP}
+
+\subsection{Decision problems}
+
+\begin{definition}
+	A computational problem $Q$ is solvable in \emph{polynomial
+	time} if there is some fixed $r\in\R$, and some deterministic
+	algorithm $A$, which returns a correct solution for every
+	instance $\mathcal{J}$ in time at most $O(\abs{\mathcal{J}}^r)$.
+\end{definition}
+
+\begin{definition}
+	A computational problem $Q$ is a \emph{decision problem} if
+	it can be described in terms of a collection of potential
+	solutions $S$, where $Q(\mathcal{J})=1$ if there is a solution
+	in $S$ which solves the instance $\mathcal{J}$ and $Q(\mathcal{J})=0$
+	otherwise.
+\end{definition}
+
+\subsection{Complexity classes}
+
+\begin{definition}
+	The \emph{complexity class P} is the class of decision problems
+	$Q$ for which there is a polynomial-time aglorithm to compute $Q$
+	exactly on all input instances.
+\end{definition}
+
+\begin{definition}
+	Consider a decision problem $Q$ with respect to its collection
+	of potential solutions $S$. We say that a two-parameter algorithm 
+	$A$ is a \emph{verifier} for $Q$ iff for all instances
+	$\mathcal{J}$ of $Q$
+	\begin{align*}
+		\exists y\in S.\hs A(\mathcal{J},y)=1\hs\Leftrightarrow\hs Q(\mathcal{J})=1
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	The \emph{complexity class NP} is the class of decision problems $Q$
+	for which there is a verifier $A=A(\mathcal{J}, y)$ which runs in time
+	polynomial in the size $\abs{\mathcal{J}}$ of the instance.
+\end{definition}
+
+\subsection{Reductions between problems}
+
+\begin{definition}
+	A problem $R$ can be \emph{reduced} to the problem $Q$ if there
+	is a polynomial-time computational function $f:\{0,1\}^*\to\{0,1\}^*$
+	such that for all instances $\mathcal{J}$ of $R$
+	\begin{align*}
+		R(\mathcal{J})=1 \hs\Leftrightarrow\hs Q(f(\mathcal{J}))=1.
+	\end{align*}
+	We write $R\leq_P Q$.
+\end{definition}
+
+\begin{definition}
+	A decision problem $Q$ is said to be \emph{NP-complete} if it
+	belongs to the class NP, and it is also the case that for every
+	problem $R$ in NP, $R\leq_P Q$.
+\end{definition}
 
 \end{document}
