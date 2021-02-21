@@ -1,8 +1,9 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \usepackage{enumitem}
+\usepackage{extarrows}
 \begin{document}
-\mkthms
+\mkawodeythms
 \title{Category Theory (Steve Awodey)}
 \author{Franz Miltz}
 \maketitle
@@ -71,9 +72,9 @@
 \begin{definition}[Functors]
     A \emph{functor}
     \begin{align*}
-        F:\mathbf{C}\to\mathbf{D}
+        F:\cat{C}\to\cat{D}
     \end{align*}
-    between categories $\mathbf{C}$ and $\mathbf{D}$ is a mapping
+    between categories $\cat{C}$ and $\cat{D}$ is a mapping
     of objects to objects and arrows to arrows, in such a way that
     \begin{enumerate}[label=F\arabic*.]
         \item $F(f:A\to B)=F(f):F(A)\to F(B)$
@@ -115,5 +116,97 @@
     \item \textbf{Mon}: of monoids and monoid homomorphisms
 \end{itemize}
 
+\subsection{Isomorphisms}
+
+\begin{definition}
+    In any category $\cat{C}$, an arrow $f:A\to B$ is called an
+    \emph{isomorphism} if there exists an arrow $g:B\to A$ in
+    $\cat{C}$ such that 
+    \begin{align*}
+        g\circ f = 1_A\hs\text{and}\hs f\circ g = 1_B.
+    \end{align*}
+    We say $A$ is isomorphic to $B$ if there exists an isomorphism
+    between them and write $A\cong B$.
+\end{definition}
+
+\begin{definition}
+    A \emph{group} $G$ is a monoid with an inverse $\inv g$ for every element $g$.
+    Thus, $G$ is a category with one object, in which every arrow is an isomorphism.
+\end{definition}
+
+\begin{theorem}[Cayley]
+    Every group $G$ is isomorphic to a group of permutations.
+\end{theorem}
+
+\begin{theorem}
+    Every category $\cat{C}$ with a set of arrows is isomorphic
+    to one in which the objects are sets and the arrows are functions.
+\end{theorem}
+
+\subsection{Construction of categories}
+
+\begin{definition*}
+    The product of two categories $\cat{C}$ and $\cat{D}$, written
+    as
+    \begin{align*}
+        \cat{C}\times\cat{D}
+    \end{align*} 
+    has objects of the form $(C,D)$ for $C\in\cat{C}$ and $D\in\cat{D}$,
+    and arrows of the form
+    \begin{align*}
+        (f,g):(C,D)\to (C',D')
+    \end{align*}
+    for $f:C\to C'\in\cat{C}$ and $g:D\to D'\in\cat{D}$.
+\end{definition*}
+
+\begin{definition*}
+    The \emph{opposite} category $\catop C$ of a category $\cat C$ has
+    the same objects as $\cat C$ and an arrow $f:C\to D$ in $\catop C$
+    is an arrow $f:D\to C$ in $\cat C$. We write
+    \begin{align*}
+        f^* : D^* \to C^*
+    \end{align*} 
+    in $\catop C$ for $f:C\to D$ in $\cat C$. We further define
+    \begin{align*}
+         (1_{C^*}) &= (1_C)^*,\\ 
+         f^*\circ g^*&= (g\circ f)^*.
+    \end{align*}
+    There are two obvious projection functors
+    \begin{align*}
+        \cat C \xlongleftarrow{\hs\pi_1\hs} \cat C\times \cat D \xlongrightarrow{\hs\pi_2\hs} \cat D
+    \end{align*}
+\end{definition*}
+
+\begin{definition*}
+    The \emph{arrow category} $\catar C$ of a category $\cat C$
+    has the arrows of $\cat C$ as objects and an arrow $g$ from
+    $f:A\to B$ to $f':A'\to B'$ in $\catar C$ is a pair of arrows
+    $g=(g_1, g_2)$ in $\cat C$ such that 
+    \begin{align*}
+        g_2\circ f = f'\circ g_1.
+    \end{align*}
+    Observe that there are two functors
+    \begin{align*}
+        \cat C \xlongleftarrow{\hs\textbf{dom}\hs} \catar C \xlongrightarrow{\hs\textbf{cod}\hs} \cat C.
+    \end{align*}
+\end{definition*}
+
+\begin{definition*}
+    The \emph{slice category} $\cat C/C$ of a category $\cat C$ over an
+    object $C\in\cat C$ has as objects all arrows $f\in\cat C$ such that
+    $\dom(f)=C$ and an arrow from $f:X\to C$ to $f':X'\to C$ is an arrow
+    $a:X\to X'$ in $\cat C$ such that $f'\circ a = f$.\\
+    Note that there is a functor $U:\cat C/C \to \cat C$ defined by
+    \begin{align*}
+        U(A:X\to C) &= X &\text{for all objects }A\in\cat C/C,\\
+        U(f:(A:X\to C)\to(B:X'\to C))&= a:X\to X' &\text{for all arrows }f\in\cat C/C.
+    \end{align*}
+    Further, if $g:C\to D\in\cat C$ is any arrow, then there is a composition
+    functor,
+    \begin{align*}
+        g_*:\cat C/C\to\cat C/D
+    \end{align*}
+    defined by $g_*(f)= g\circ f$.
+\end{definition*}
 
 \end{document}
