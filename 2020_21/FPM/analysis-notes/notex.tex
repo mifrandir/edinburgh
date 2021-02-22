@@ -521,4 +521,118 @@
     \end{align*}
     are all convergent.
 \end{corollary}
+
+
+\section{Continuity}
+
+
+\subsection{Introduction}
+
+\begin{definition}
+    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$.
+    We say that $f$ is continuous at some $a\in\dom(f)$ if for any
+    sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
+    to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If $f$ is continuous
+    at each $a\in S\subset\dom(f)$ then we say $f$ is continuous on $S$.
+    If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
+\end{definition}
+
+\setcounter{theorem}{2}
+\begin{theorem}
+    Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the
+    following functions are continuous on $D$. 
+    \begin{enumerate}
+        \item $\alpha f$,
+        \item $f+g$,
+        \item $fg$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    Let $A,B\subseteq \R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and
+    $f(A)\subseteq B$. The composition of $g$ with $f$ is the function
+    $g\circ f:A\to\R$ defined by
+    \begin{align*}
+        (g\circ f)(x) = g(f(x)),\hs\text{for all }x\in A.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    If $f$ is continuous at $a\in\R$ and $g$ is continuous at $f(a)$ then
+    the composition $g\circ f$ is continuous at $a$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f) \subset\R$.
+    Then $f$ is continuous at $a\in\dom(f)$ if and only if for any
+    $\e>0$ there exists $\delta>0$ such that whenever $x\in\dom(f)$
+    and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
+\end{theorem}
+
+\subsection{The extreme and intermediate value theorems}
+
+\begin{definition}
+    Let $E\subset\R$ be nonempty. A function $f:E\to\R$ is said to be
+    bounded on $E$ if
+    \begin{align*}
+        \abs{f(x)}\leq M,\hs\text{for all } x\in E,
+    \end{align*}
+    where $M$ is some (potentially large) real number.
+\end{definition}
+
+\begin{theorem}[Extreme value theorem]
+    Let $I\subset\R$ be a closed and bounded interval. Let
+    $f:I\to\R$ be continuous on $I$. Then $f$ is bounded on the interval
+    $I$. Denote by
+    \begin{align*}
+        m=\inf\{f(x):x\in I\},\hs M=\sup\{f(x):x\in I\}.
+    \end{align*} 
+    Then there exist points $x_m,x_M\in I$ such that
+    \begin{align*}
+        f(x_m)=m\hs\text{and}\hs f(x_M)=M.
+    \end{align*}
+\end{theorem}
+
+\setcounter{theorem}{3}
+\begin{lemma}
+    Let $f:I\to\R$ where $I$ is an open nonempty interval. If $f$ is
+    continuous at a point $a\in I$ and $f(a)>0$ then for some
+    $\delta,\e>0$ we have that
+    \begin{align*}
+        f(x)>\e,\hs \text{for all }x\in(a-\delta, a+\delta).
+    \end{align*}
+\end{lemma}
+
+\begin{theorem}[Intermediate value theorem]
+    Let $I$ be a non-degenerate interval and let $f:I\to\R$ be a
+    continuous function. If $a,b\in I$, $a<b$ then $f$ attains,
+    on the interval $(a,b)$, all values between $f(a)$ and $f(b)$.
+    That is to say given $y_0$ between $f(a)$ and $f(b)$ there
+    exists $x_0\in(a,b)$ such that
+    \begin{align*}
+        f(x_0)=y_0.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}[Bolzano's theorem]
+    Let $f(x)$ be continuous on $[a,b]$ such that $f(a)f(b)<0$, 
+    then there exists $c\in(a,b)$ such that $f(c)=0$. 
+\end{theorem}
+
+\setcounter{theorem}{8}
+\begin{theorem}
+    Let $f:[a,b]\to\R$, $a,b\in\R$ be a continuous function. Then the
+    image of $f$ is an interval or a point.
+\end{theorem}
+
+\begin{theorem}
+    Let $f:[a,b]\to\R$ be a strictly increasing function such that
+    the image of $f$ is an interval, then $f$ is continuous on $[a,b]$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f:[a,b]\to\R$ be a continuous strictly increasing function.
+    Then $\inv f:[f(a),f(b)]\to\R$ is a continuous, strictly increasing
+    function.
+\end{theorem}
 \end{document}
