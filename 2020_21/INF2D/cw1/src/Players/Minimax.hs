@@ -10,6 +10,7 @@ import Board
 import Cell
 import Constants
 import Data.Array
+import Data.Bifunctor
 import Data.Graph
 import Data.List
 import Data.Maybe
@@ -83,12 +84,18 @@ generateGameTree g = StateTree g $ map ext $ filter isValid partialChildren
 -- Higher scoring nodes go first.
 -- [Hint: You should use 'lowFirst'.]
 highFirst :: (Ord v) => StateTree v a -> StateTree v a
-highFirst = undefined
+highFirst (StateTree g cs) = StateTree g $ sortBy (flip c) $ map (Data.Bifunctor.second lowFirst) cs
+  where
+    c :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
+    c (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
 
 -- Lower scoring nodes go first.
 -- [Hint: You should use 'highFirst'.]
 lowFirst :: (Ord v) => StateTree v a -> StateTree v a
-lowFirst = undefined
+lowFirst (StateTree g cs) = StateTree g $ sortBy c $ map (Data.Bifunctor.second highFirst) cs
+  where
+    c :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
+    c (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
 
 {-
     *** Part I.c (5pt) ***
