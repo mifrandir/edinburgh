@@ -123,7 +123,7 @@ pruneDepth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ prune
 -- every node.
 -- [Hint: Use 'take'.]
 pruneBreadth :: Int -> StateTree v a -> StateTree v a
-pruneBreadth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pruneBreadth d) $ take d cs 
+pruneBreadth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pruneBreadth d) $ take d cs
 
 {-
     *** Part I.e (15pt) ***
