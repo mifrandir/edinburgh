@@ -11,6 +11,7 @@ import Cell
 import Constants
 import Data.Array
 import Data.Bifunctor
+import Data.Char
 import Data.Graph
 import Data.List
 import Data.Maybe
@@ -138,7 +139,12 @@ pruneBreadth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pru
 --  positions.]
 -- [Hint 2: One way would be to use 'reachableCells' repeatedly.]
 utility :: Game -> Int
-utility = undefined
+utility (Game b ps) = s1 - s2
+  where
+    c1 = currentCell $ head ps
+    c2 = currentCell $ps !! 1
+    s1 = length (reachableCells b c1)
+    s2 = length (reachableCells b c2)
 
 -- Lifting the utility function to work on trees.
 evalTree :: GameTree -> EvalTree
