@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{FPM: Hand-in 5}
+\author{Franz Miltz (UNN: S1971811)}
+\date{1 March 2021}
+\maketitle
+\mkthms
+
+\section*{Problem 1}
+
+\begin{claim*}
+    Let $h:G\to H$ be a group homomorphism. Then
+    \begin{align}
+        \label{iff}
+        h\text{ is injective}\hs\Leftrightarrow\hs \gke h = \{e_G\}.
+    \end{align}
+\end{claim*}
+\begin{proof}
+    First, assume $h$ is injective. Then, by definition, we have
+    \begin{align}
+        \label{inj}
+        h(g_1)=h(g_2) \hs\Rightarrow\hs g_1 = g_2
+    \end{align}
+    for all $g_1,g_2\in G$. From \emph{Lemma 3.1.5} from the notes
+    we know that $h(e_G) = e_H$ where $e_G$. By definition of the kernel of
+    a group homomorphism this implies $e_G\in\gke h$. Now let
+    $g\in\gke h$. Thus $h(g) = e_H$. Then, as shown above,
+    \begin{align*}
+        h(g) = e_H = h(e_G)
+    \end{align*}
+    and by (\ref{inj}) $g=e_G$ follows. Therefore
+    \begin{align*}
+        \gke h = \{e_G\}.
+    \end{align*}
+    We have shown
+    \begin{align}
+        \label{if}
+        h\text{ is injective}\hs\Rightarrow\hs \gke h = \{e_G\}.
+    \end{align}
+    Now assume $\gke h = \{e_G\}$. Let $g_1,g_2\in G$ such that
+    \begin{align*}
+        h(g_1) = h(g_2).
+    \end{align*}
+    Then
+    \begin{align*}
+        h(g_1)h(\inv g_1) = h(g_2)h(\inv g_1).
+    \end{align*}
+    Since $h(g_1)h(\inv g_1) = h(g_1\inv g_1) = h(e_G)$, we have
+    \begin{align*}
+        h(e_G) = h(g_2)h(\inv g_1)= h(g_2\inv g_1).
+    \end{align*}
+    By \emph{Lemma 3.1.5} from the notes this shows
+    \begin{align*}
+        e_H = h(g_2\inv g_1).
+    \end{align*}
+    By the premise $\gke h = \{e_G\}$ and the definition of $\gke h$,
+    we have
+    \begin{align*}
+        h(g) = e_H \hs\Leftrightarrow\hs g=e_G
+    \end{align*}
+    and therefore
+    \begin{align*}
+        e_G = g_2\inv g_1.
+    \end{align*}
+    By multiplication with $g_1$,
+    \begin{align*}
+        g_1 = g_2
+    \end{align*}
+    follows. This shows
+    \begin{align}
+        \label{onlyif}
+        h\text{ is injective}\hs\Leftarrow\hs \gke h = \{e_G\}.
+    \end{align}
+    Since (\ref{if}) and (\ref{onlyif}) hold, we have shown (\ref{iff}).
+\end{proof}
+
+\section*{Problem 2}
+
+
+\begin{claim*}
+    Let
+    \begin{align*}
+        G_1 &= \Z_2 \times \Z_5 \times \Z_2 \times \Z_5,\\
+        G_2 &= \Z_4 \times \Z_{25},\\
+        G_3 &= \Z_{100}
+    \end{align*}
+    be groups where $\Z_n$ is a group under addition. Then
+    $G_2 \cong G_3$ but $G_1\not\cong G_2,G_3$.
+\end{claim*}
+
+\begin{proof}
+    Firstly, observe that $\abs{G_1}=\abs{G_2}=\abs{G_3}=100$.
+    Seconldy, note that $G_3=\lra{1}$. Further, we know from
+    \emph{Theorem 2.2.16} that $G_2$ must be cyclic, too. That is,
+    there exists an element $g\in G_2$ such that $o(g)=100$. The
+    same holds for $G_3$. Further, consider any element $g\in G_1$.
+    We have
+    \begin{align*}
+        g = (g_1, g_2, g_3, g_4).
+    \end{align*}
+    Consider $g^{10}$. Observe that $o(g_1)$ and $o(g_3)$ are either
+    $1$ or $2$ and $o(g_2)$ and $o(g_4)$ are either $1$ or $5$. Therefore
+    \begin{align*}
+        g^{10}=(g_1^{10},g_2^{10},g_3^{10},g_4^{10})=(e,e,e,e)=e.
+    \end{align*}
+    This shows that for all $g\in G_1$ we have $o(g)\leq 10$. Thus
+    $G_1$ cannot be isomorphic to either $G_2$ or $G_3$.\\
+    \indent As noted above, both $G_2$ and $G_3$ are cyclic and their
+    generators have the same order. By the lemma below, $G_2\cong G_3$
+    follows.
+\end{proof}
+
+
+\begin{lemma*}
+    Let $G=\lra{g}$ and $H=\lra{h}$ be cyclic groups such that
+    $o(g)=o(h)=n$. Then $G\cong H$.
+\end{lemma*}
+
+\begin{proof}
+    Let $G$ and $H$ be as described. Note that we can write
+    \begin{align*}
+        G=\{e, g, g^2, ..., g^{n-1}\},\hs
+        H=\{e, h, h^2, ..., h^{n-1}\}.
+    \end{align*}
+    Consider the mapping $i:G\to H, g^k\mapsto h^k$ where
+    $k\in\{0,1,...,n-1\}$. We then have
+    \begin{align*}
+        i(g^{a+b}) = h^{a+b} = h^a h^b = i(g^a)i(g^b).
+    \end{align*}
+    This shows that $i$ is a group homomorphism. Further, we observe
+    that for any $g^a,g^b\in G$ we have
+    \begin{align*}
+        i(g^a) = i(g^b) \hs\Leftrightarrow\hs h^a=h^b.
+    \end{align*}
+    Since $a,b\in\{0,1,...,n-1\}$ this is true if and only if $a=b$.
+    Therefore we have
+    \begin{align*}
+        i(g^a) = i(g^b) \hs\Leftrightarrow\hs g^a = g^b,
+    \end{align*}
+    i.e. $i$ is bijective. This shows that $i$ is an isormorphism
+    and $G$ and $H$ are isomorphic.
+\end{proof}
+\end{document}
