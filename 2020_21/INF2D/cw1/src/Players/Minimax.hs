@@ -110,7 +110,7 @@ lowFirst (StateTree g cs) = StateTree g $ sortBy c $ map (Data.Bifunctor.second 
 -- [Hint: You may want to use guards and recursion.]
 pruneDepth :: Int -> StateTree v a -> StateTree v a
 pruneDepth 0 (StateTree g _) = StateTree g []
-pruneDepth x (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pruneDepth (x - 1)) cs
+pruneDepth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pruneDepth (d - 1)) cs
 
 {-
     *** Part I.d (5pt) ***
@@ -123,7 +123,7 @@ pruneDepth x (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ prune
 -- every node.
 -- [Hint: Use 'take'.]
 pruneBreadth :: Int -> StateTree v a -> StateTree v a
-pruneBreadth = undefined
+pruneBreadth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pruneBreadth d) $ take d cs 
 
 {-
     *** Part I.e (15pt) ***
