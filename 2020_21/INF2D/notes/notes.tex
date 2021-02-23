@@ -1138,4 +1138,162 @@ explored states.
     \item Represent each situation as a previous state puls a delta.
 \end{enumerate}
 Runtime: $O(Et)$
+
+\section{Planning}
+
+\subsection{Definition of classical planning}
+
+\begin{definition}
+    \emph{PDDL}, the Planning Domain Definition Language, is a language
+    that allows us to express many actions in one action schema.
+    Each state is represented as a conjunction of fluents that are ground,
+    functionless atoms. Database semantics is used, i.e. each unmentioned
+    fluent is false and variables with distinct names refer to distinct
+    objects.\\
+    An \emph{action schema} is a lifted representation of a set of ground
+    actions. Every action is defined by a precondition and an effect. An
+    action $a$ is \emph{applicable} in state $s$ if $s$ entails the precondition
+    of $a$. An action $a$ involving a set of variables $x_1,...,x_n$ with
+    a precondition $P$ and an effect $E$ is written as follows:
+    \begin{align*}
+        Action&(a(x_1, ..., x_n),\\
+              &\text{Precond: } P(x_1, ..., x_n),\\
+              &\text{Effect: } E(x_1, ..., x_n)).
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    If $a$ has $v$ variables, then, in a domain with $k$ unique names of objects,
+    it takes $O(k^v)$ time to find the applicable ground actions.
+\end{lemma}
+
+\begin{definition}
+    The \emph{result} of executing an action $a$ in state $s$ is defined
+    as a state $s'$ whihch is represented by
+    \begin{align*}
+        \text{RESULT}(s,a)=(s\setminus\text{DEL}(a))\cup\text{ADD}(a)
+    \end{align*}
+    where DEL is the \emph{delete list}, i.e. the set of literals that appear
+    as negative in the action's effect, and ADD is the \emph{add list}, i.e.
+    the set of literals that appear as positive in the action's effect.
+\end{definition}
+
+\subsection{Forward state-space search}
+
+\begin{definition}
+    \emph{Forward state-space search} iterates possible sequences of actions until
+    a goal state is reached.
+\end{definition}
+
+\subsection{Backward relevant-states search}
+
+\begin{definition}
+    \emph{Backward relevant-states search} starts at the goal state and applies
+    actions backward until a sequence of steps that reaches the initial state has
+    been found.
+\end{definition}
+
+\begin{definition}
+    An action is \emph{relevant} if it could be the last one in the plan to achieve
+    the goal state from an initial state. Formally, assume a goal description $g$
+    which contains a goal literal $g_i$ and an action schema $A$ that is standardised
+    to produce $A'$. If $A'$ has an effect literal $e_j'$ where $Unify(g_i,e_j')=\theta$
+    and where we define $a'=\text{SUBST}(\theta, A')$ and if there is no effect in
+    $a'$ that is the negation of a literal in $g$, then $a'$ is a relevant action towards 
+    $g$. 
+\end{definition}
+
+\subsection{Heuristics for planning}
+
+\begin{definition}
+    The \emph{ignore preconditions heuristic} drops all preconditions from actions
+    and thus makes every action applicable in every state. This may be relaxed in
+    such a way that only certain preconditions are ignored.
+\end{definition}
+
+\begin{theorem}
+    Using the ignore preconditions heuristic to find the minimum number of 
+    actions required such that the union of those actions'
+    effects satisfies the goal is an instance of the \emph{set-cover problem}. This
+    is NP-hard. There exists a greedy alogrithm that is guaranteed to find a solution
+    within a factor of $O(\lg n)$ of the optimum.
+\end{theorem}
+
+\begin{definition}
+    The \emph{ignore delete lists} heuristic ignores the negative literals from all
+    effects.
+\end{definition}
+
+\begin{theorem}
+    Using the ignore delete lists heuisitic to find the minimum number of actions 
+    required such that the union of those actions' effects satisfies the goal 
+    is NP-hard but an approximate solution can be found in polynomial time using
+    hill-climbing.
+\end{theorem}
+
+\begin{definition}
+    A \emph{state abstraction} is a many-to-one mapping from states in the ground
+    representation of the problem to abstract states.
+\end{definition}
+
+\begin{definition}
+    The \emph{subgoal independence} assumption is that the cost of solving a conjunction
+    of subgoals is approximated by the sum of the costs of solving each subgoal
+    \emph{independently}.
+\end{definition}
+
+\subsection{SAT for planning}
+
+\begin{theorem}
+    Every PDDL description may be translated into a form that can be
+    processed by SATPlan as follows:
+    \begin{enumerate}
+        \item Propositionalise the actions: replace each action schema with a set of ground actions
+              formed by substituting constants for each of the variables.
+        \item Define the intial state: Assert $F^0$ for every fluent $F$ in the problem's intial state
+              and $\neg F^0$ for every fluent not mentioned in the initial state.
+        \item Propositionalise the goal: the goal becomes a disjunction over all of its ground instances
+              where variables are replaced by constants.
+        \item Add successor-state axioms: For each fluent $F$, add an axiom of the form \begin{align*}
+            F^{t+1} \Leftrightarrow ACF^t \vee (F^t \wedge \neg ACNF^t)
+        \end{align*} 
+        where $ACF$ is a disjunction of all the ground actions that have $F$ in
+        their add list, and $ACNF$ is a disjunction of all the ground actions that have $F$
+        in their delete list.
+        \item Add precondition axioms: For each ground action $A$, add the axiom $A^t\Rightarrow\text{PRE}(A)^t$,
+              that is, if an action is taken at time $t$, then the preconditions must have been true.
+        \item Add action exclusion axioms: say that exactly one ground action can occur at each step.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Partially ordered plans}
+
+\begin{definition}
+    A \emph{plan} is a set of actions and a set of constraints of the form $Before(a_i, a_j)$ saying
+    that one action occurs before another. A \emph{flaw} is anything that keeps a partial plan from
+    being a solution. 
+\end{definition}
+
+\subsection{Planning in nondeterministic domains}
+
+\subsubsection{Sensorless planning}
+
+\begin{itemize}
+    \item Sensorless planning requires an open-world assumption.
+    \item The belief state corresponds to all the states that satisfy the formula.
+    \item In a given belief state $b$, the agent can consider any action whose preconditions are satisfied by $b$.
+\end{itemize}
+
+\begin{theorem}
+    The family of belief states defined as conjunctions of literals is closed under updates defined by PDDL
+    action schemas.
+\end{theorem}
+
+\begin{definition}
+    \emph{Conditional effects} occur in action schemas of the form
+    \begin{align*}
+        Action(A,
+              \text{Effect:}\textbf{ when }c_1: e_1 \wedge \cdots \wedge \textbf{when }c_n: e_n)
+    \end{align*}
+\end{definition}
 \end{document}
