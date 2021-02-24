@@ -139,7 +139,10 @@ pruneBreadth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pru
 --  positions.]
 -- [Hint 2: One way would be to use 'reachableCells' repeatedly.]
 utility :: Game -> Int
-utility (Game b ps) = s1 - s2
+utility (Game b ps)
+  | c1 `elem` winningPositions (head ps) = 100
+  | c2 `elem` winningPositions (ps !! 1) = -100
+  | otherwise = s1 - s2
   where
     c1 = currentCell $ head ps
     c2 = currentCell $ps !! 1
@@ -162,7 +165,24 @@ evalTree = mapStateTree utility
 -- [Hint 1: Use a helper function to keep track of the highest and lowest scores.]
 -- [Hint 2: Use the 'Result' datatype.]
 minimaxFromTree :: EvalTree -> Action
-minimaxFromTree = undefined
+minimaxFromTree t = fst $ unpack $ find (\(a, StateTree v' _) -> v == v') cs
+  where
+    unpack (Just x) = x
+    StateTree v cs = applyMinimax True t
+    applyMinimax :: Bool -> EvalTree -> EvalTree
+    applyMinimax _ t@(StateTree v []) = t
+    applyMinimax isMax (StateTree v cs) = StateTree (getBest newCs) newCs
+      where
+        newCs :: [(Action, EvalTree)]
+        newCs = map h cs
+        h :: (Action, EvalTree) -> (Action, EvalTree)
+        h (a, t) = (a, applyMinimax (not isMax) t)
+        getBest :: [(Action, EvalTree)] -> Int
+        getBest
+          | isMax = maximum . map getVal
+          | otherwise = minimum . map getVal
+        getVal :: (Action, EvalTree) -> Int
+        getVal (_, StateTree v _) = v
 
 {-
     *** Part II (10pt) ***
