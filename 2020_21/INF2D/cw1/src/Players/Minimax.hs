@@ -85,18 +85,18 @@ generateGameTree g = StateTree g $ map ext $ filter isValid partialChildren
 -- Higher scoring nodes go first.
 -- [Hint: You should use 'lowFirst'.]
 highFirst :: (Ord v) => StateTree v a -> StateTree v a
-highFirst (StateTree g cs) = StateTree g $ sortBy (flip c) $ map (Data.Bifunctor.second lowFirst) cs
+highFirst (StateTree g cs) = StateTree g $ sortBy (flip cmp) $ map (Data.Bifunctor.second lowFirst) cs
   where
-    c :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
-    c (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
+    cmp :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
+    cmp (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
 
 -- Lower scoring nodes go first.
 -- [Hint: You should use 'highFirst'.]
 lowFirst :: (Ord v) => StateTree v a -> StateTree v a
-lowFirst (StateTree g cs) = StateTree g $ sortBy c $ map (Data.Bifunctor.second highFirst) cs
+lowFirst (StateTree g cs) = StateTree g $ sortBy cmp $ map (Data.Bifunctor.second highFirst) cs
   where
-    c :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
-    c (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
+    cmp :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
+    cmp (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
 
 {-
     *** Part I.c (5pt) ***
@@ -145,7 +145,7 @@ utility (Game b ps)
   | otherwise = s1 - s2
   where
     c1 = currentCell $ head ps
-    c2 = currentCell $ps !! 1
+    c2 = currentCell $ ps !! 1
     s1 = length (reachableCells b c1)
     s2 = length (reachableCells b c2)
 
@@ -165,24 +165,18 @@ evalTree = mapStateTree utility
 -- [Hint 1: Use a helper function to keep track of the highest and lowest scores.]
 -- [Hint 2: Use the 'Result' datatype.]
 minimaxFromTree :: EvalTree -> Action
-minimaxFromTree t = fst $ unpack $ find (\(a, StateTree v' _) -> v == v') cs
+minimaxFromTree (StateTree _ cs) = fst $ maximumBy cmp choices
   where
-    unpack (Just x) = x
-    StateTree v cs = applyMinimax True t
-    applyMinimax :: Bool -> EvalTree -> EvalTree
-    applyMinimax _ t@(StateTree v []) = t
-    applyMinimax isMax (StateTree v cs) = StateTree (getBest newCs) newCs
-      where
-        newCs :: [(Action, EvalTree)]
-        newCs = map h cs
-        h :: (Action, EvalTree) -> (Action, EvalTree)
-        h (a, t) = (a, applyMinimax (not isMax) t)
-        getBest :: [(Action, EvalTree)] -> Int
-        getBest
-          | isMax = maximum . map getVal
-          | otherwise = minimum . map getVal
-        getVal :: (Action, EvalTree) -> Int
-        getVal (_, StateTree v _) = v
+    cmp :: (Action, Int) -> (Action, Int) -> Ordering
+    cmp (_, x) (_, y) = compare x y
+    choices :: [(Action, Int)]
+    choices = map (second findMin) cs
+    findMin :: EvalTree -> Int
+    findMin (StateTree v []) = v
+    findMin (StateTree _ cs) = minimum $ map (\(_, t) -> findMax t) cs
+    findMax :: EvalTree -> Int
+    findMax (StateTree v []) = v
+    findMax (StateTree _ cs) = maximum $ map (\(_, t) -> findMin t) cs
 
 {-
     *** Part II (10pt) ***
@@ -195,7 +189,37 @@ minimaxFromTree t = fst $ unpack $ find (\(a, StateTree v' _) -> v == v') cs
 -- [Hint 1: Extend the helper function in I.e to keep track of alpha and beta.]
 -- [Hint 2: Use the 'Result' datatype.]
 minimaxABFromTree :: EvalTree -> Action
-minimaxABFromTree = undefined
+minimaxABFromTree = fst . findMaxAction (minBound :: Int) (maxBound :: Int)
+  where
+    cmp :: (Action, Int) -> (Action, Int) -> Ordering
+    cmp (_, x) (_, y) = compare x y
+    findMaxAction :: Int -> Int -> EvalTree -> (Action, Int)
+    findMaxAction a b (StateTree v [(e, t)]) = (e, findMin a b t)
+    findMaxAction a b (StateTree v ((e, t) : cs))
+      | curV >= b = (e, curV)
+      | otherwise = maximumBy cmp [(e, curV), oth]
+      where
+        curV = findMin a b t
+        a' = max curV a
+        oth = findMaxAction a' b (StateTree v cs)
+    findMin :: Int -> Int -> EvalTree -> Int
+    findMin a b (StateTree v []) = v
+    findMin a b (StateTree v [(_, t)]) = findMax a b t
+    findMin a b (StateTree v ((_, t) : cs))
+      | v' <= a = v'
+      | otherwise = min v' (findMin a b' (StateTree v cs))
+      where
+        v' = findMax a b t
+        b' = min v' b
+    findMax :: Int -> Int -> EvalTree -> Int
+    findMax a b (StateTree v []) = v
+    findMax a b (StateTree v [(_, t)]) = findMin a b t
+    findMax a b (StateTree v ((_, t) : cs))
+      | v' >= b = v'
+      | otherwise = max v' (findMax a' b (StateTree v cs))
+      where
+        v' = findMin a b t
+        a' = max v' a
 
 {-
     Putting everything together.
@@ -212,7 +236,7 @@ breadth = 10
 -- Function that combines all the different parts implemented in Part I.
 minimax :: Game -> Action
 minimax =
-  minimaxFromTree -- or 'minimaxABFromTree'
+  minimaxABFromTree -- or 'minimaxABFromTree'
     . pruneBreadth breadth
     . highFirst
     . evalTree
