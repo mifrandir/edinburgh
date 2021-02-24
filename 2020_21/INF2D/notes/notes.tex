@@ -1296,4 +1296,29 @@ Runtime: $O(Et)$
               \text{Effect:}\textbf{ when }c_1: e_1 \wedge \cdots \wedge \textbf{when }c_n: e_n)
     \end{align*}
 \end{definition}
+
+\subsubsection{Online replanning}
+
+\begin{definition}
+    Online replanning is required if the agent's model is incomplete.
+    This can be caused by the following flaws in the model:
+    \begin{itemize}
+        \item \emph{missing precondition}
+        \item \emph{missing effect}
+        \item \emph{missing state variable}
+        \item missing provision for \emph{exogenous events}
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    There are three levels of monitoring the environment:
+    \begin{itemize}
+        \item \emph{action monitoring}: before executing an action, the agent verifies that
+        all the preconditions still hold
+        \item \emph{plan monitoring}: before executing an action, the agent verifies that the
+        remaining plan will still succed
+        \item \emph{goal monitoring}: before executing an action, the agent checks to see
+        if there is a better set of goals it could be trying to achieve
+    \end{itemize}
+\end{definition}
 \end{document}
