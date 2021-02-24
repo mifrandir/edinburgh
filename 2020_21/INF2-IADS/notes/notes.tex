@@ -648,10 +648,67 @@ fib = memoise(fib)
 	We write $R\leq_P Q$.
 \end{definition}
 
+\begin{theorem}
+	Let $Q,R$ be decision problems such that $R\leq_p Q$ and
+	$Q\in P$. Then $R\in P$.
+\end{theorem}
+
 \begin{definition}
 	A decision problem $Q$ is said to be \emph{NP-complete} if it
 	belongs to the class NP, and it is also the case that for every
 	problem $R$ in NP, $R\leq_P Q$.
 \end{definition}
+
+\subsection{SAT}
+
+\begin{definition}
+	We say a propositional logic formula $\Phi$ over the variables
+	$\{x_1, ..., x_n\}$ is in \emph{Conjunctive Normal Form} (CNF)
+	if it is written in the form
+	\begin{align*}
+		\Phi = C_1 \wedge C_2 \wedge \cdots \wedge C_m
+	\end{align*}
+	where each of the clauses $C_1, ..., C_m$ is a disjunction
+	of literals over $\{x_1,...,x_m\}$.\\
+	The corresponding decision problem SAT is:
+	Given a CNF formula $\Phi=C_1\wedge\cdots\wedge C_m$ over
+	variables $\{x_1,...,x_n\}$, determine whether there is some
+	satisfying assignment for $\Phi$.	
+\end{definition}
+
+\begin{theorem}[Cook-Levin]
+	SAT is NP-complete.	
+\end{theorem}
+
+\begin{definition}
+	The CNF formula $\Phi$ is said to be \emph{3-CNF} if each of its clauses
+	$C_j$ is a disjunction of exactly three literals.\\
+	The corresponding decision problem 3-SAT is:
+	Given a 3-CNF formula $\Phi$ over the variables $\{x_1,...,x_n\}$,
+	determine whether there exists an assignment of binary values to
+	$\{x_1,...,x_n\}$ that causes all clauses to be satisfied.
+\end{definition}
+
+\begin{theorem}
+	3-SAT is NP-complete.
+\end{theorem}
+
+\subsection{Independent sets}
+
+\begin{definition}
+	Given an undirected graph $G=(V,E)$, an \emph{independent set} is
+	a subset $I\subseteq V$ such that for every pair $u,v\in I$,
+	$(u,v)\not\in E$. The size of such an independent set is the
+	the cardinality $\abs I$.\\
+	The related decision problem INDEPENDENT-SET is: Given an undirected graph $G=(V,E)$,
+	and a natural number $k\in\N$, determine whether $G$ has an independent
+	set of size $\geq k$.
+\end{definition}
+
+\begin{proposition}
+	INDEPENDENT-SET is NP-complete.
+\end{proposition}
+
+
 
 \end{document}
