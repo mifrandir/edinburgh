@@ -1000,4 +1000,35 @@ The bootstrap procedure is
 	\item if generating data, share in a repository
 \end{itemize}
 
+
+\section{Linear regression and inference}
+
+
+\begin{theorem}
+	The estimated standard error in the estimator for $\hat\beta_1$ is
+	\begin{align*}
+		\hat\sigma_{\hat\beta_1}=s_{\hat\beta_1}=\frac{s}{\sqrt{\sum_{i=1}^n (x_i-\lneg{x})^2}}
+	\end{align*}
+	where $s$ is the estimate for $\sigma$, the standard deviation of
+	residuals
+	\begin{align*}
+		\hat\sigma^2 = s^2 = \frac{\text{SSE}}{n-2}.
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}
+	Consider the quantity
+	\begin{align*}
+		T=\frac{\hat\beta_1-\beta_1}{S_{\hat\beta_1}}
+	\end{align*}
+	where $\beta_1$ is the true but unknown value. Then $T$ 
+	has a $t$-distribution with $n-2$ degrees of freedom.
+	The $100(1-\alpha)\%$ confidence interval of $\beta_1$ is given by
+	\begin{align*}
+		\hat\beta_1 - s_{\hat\beta_1}t_{\alpha/2,n-2} <\beta_1
+		<\hat\beta_1+s_{\hat\beta_1}t_{\alpha/2,n-2}.
+	\end{align*}
+\end{theorem}
+
+
 \end{document}
