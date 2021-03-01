@@ -508,4 +508,119 @@
     Let $H,K\leq G$ be finite subgroups of a group $G$ such that
     $H\cap K=\{e\}$. Then $\abs{HK} = \abs H \times \abs K$.
 \end{corollary}
+
+
+\section{Groups acting}
+
+
+\subsection{Group actions}
+
+\begin{definition}
+    Let $G$ be a group, and let $X$ be a nonempty set. Then a (left)
+    action of $G$ on $X$ is a map
+    \begin{align*}
+        G\times X \to X
+    \end{align*}
+    written $(g,x)\mapsto g\cdot x$, such that
+    \begin{align*}
+        g_1\cdot(g_2\cdot x) = (g_1g_2)\cdot x\hs\text{and}\hs e\cdot x = x
+    \end{align*}
+    for all $g_1,g_2\in G$ and all $x\in X$.
+\end{definition}
+
+\setcounter{theorem}{2}
+\begin{proposition}
+    Suppose $G$ acts on $X$. Define
+    \begin{align*}
+        N:=\{g\in G : g\cdot x = x \text{ for all } x\in X\}.
+    \end{align*}
+    Then $N$ is a subgroup of $G$.
+\end{proposition}
+
+\begin{definition}
+    Suppose that $G$ acts on $X$. Then the subgroup $N$ defined above
+    is called the \emph{kernel} of the action. If $N=\{e\}$ then we say that
+    the action is \emph{faithful}.
+\end{definition}
+
+\subsection{Orbits and stabilisers}
+
+\begin{definition}
+    Let $G$ act on $X$, and let $x\in X$. The \emph{stabiliser} of $x$ is defined
+    to be
+    \begin{align*}
+        \stab_G(x) :=\{g\in G:g\cdot x = x\}\subseteq G.
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    For all $x\in X$, the stabiliser $\stab_G(x)$ is a subgroup of $G$.
+\end{lemma}
+
+\begin{definition}
+    Let $G$ act on $X$, and let $x\in X$. The orbit of $x$ under $G$ is
+    \begin{align*}
+        \orb_G(x) = \{g\cdot x : g\in G\}\subseteq X.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Let $G$ act on $X$. Then
+    \begin{align*}
+        x\sim y \Leftrightarrow y = g\cdot x \text{ for some }g\in G
+    \end{align*}
+    defines an equivalence relation on $X$. The equivalence classes are 
+    the orbits of $G$. Thus when $G$ acts on $X$, we obtain a partition 
+    of $X$ into orbits.
+\end{theorem}
+
+\setcounter{theorem}{6}
+\begin{definition}
+    An action of $G$ on $X$ is \emph{transitive}if for all $x,y\in X$ 
+    there exists $g\in G$ such that $y=g\cdot x$. Equivalently, $X$ 
+    is a single orbit under $G$.
+\end{definition}
+
+\subsection{The orbit-stabiliser theorem}
+
+\begin{theorem}[Orbit-Stabiliser Theorem]
+    Suppose $G$ is a finite group action on a set $X$, and let $x\in X$.
+    Then 
+    \begin{align*}
+        \abs{\orb_G(x)}\cdot \abs{\stab_G(x)}=\abs G. 
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    Suppose $G$ acts on $X$ and $x,y\in X$. If $x$ and $y$
+    are in the same orbit,
+    \begin{align*}
+        \send_x(y):=\{g\in G : g\cdot x = y\}
+    \end{align*}
+    is a non-empyt subset of $G$.
+\end{definition}
+
+\begin{proposition}
+    Let $G$ act on $X$, let $x\in X$ and set $H:=\stab_G(x)$.
+    If $y=g\cdot x$ for some $g\in G$, then
+    \begin{align*}
+        \send_x(y) = gH.
+    \end{align*}
+\end{proposition}
+
+\begin{theorem}
+    Let $G$ act on $X$, let $x\in X$, and set $H:=\stab_G(x)$.
+    Then the map
+    \begin{align*}
+        \send_x:\orb_G(x)\to G/H \hs\text{which sends}\hs y\mapsto \send_x(y)
+    \end{align*}
+    is a bijective map of sets.
+\end{theorem}
+
+\subsection{First applications of the orbit-stabiliser theorem}
+
+\begin{theorem}[Cauchy's Theorem]
+    Let $G$ be a group, $p$ be a prime. If $p$ divides $\abs G$,
+    then $G$ contains an element of order $g$. 
+\end{theorem}
 \end{document}
