@@ -1,0 +1,131 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{FPM: Hand-in 6}
+\author{Franz Miltz (UNN: S1971811)}
+\date{8 March 2021}
+\maketitle
+\mkthms
+
+\section*{Problem 1}
+
+\begin{claim*}
+    The function $f:\R\to\R$ with $f(x) = x^3+2x$ is continuous at $x_0=-1$.
+\end{claim*}
+\begin{proof}
+    Let $\e>0$. Define $\delta = \frac{1}{2}\min\left\lbrace1,\frac{\e}{9}\right\rbrace$. It directly follows that
+    \begin{align}
+        \label{basic}
+        \delta< 1\hs\text{and}\hs \delta <\frac{\e}{9}.
+    \end{align}
+    Then for all $x\in\R$ such that
+    \begin{align}
+        \label{def}
+        \abs{x+1}<\delta
+    \end{align}
+    we have
+    \begin{align}
+        \label{r1}
+        \abs{x-1}&\leq \abs{x+1} + 2 < \delta + 2 < 3,\\
+        \label{r2}
+        \abs x   &\leq \abs{x+1}+1 < \delta + 1 < 2
+    \end{align}
+    by the \emph{Triangle Inequality} and (\ref{basic}). Further, we have
+    \begin{align*}
+        \abs{f(x)-f(x_0)}=\abs{x^3+2x+3}=\abs{x+1}\abs{x^2-x+3}.
+    \end{align*}
+    Applying the \emph{Triangle Inequality} again, we obtain
+    \begin{align*}
+        \abs{f(x)-f(x_0)}\leq \abs{x+1}(\abs x\abs{x-1}+3).
+    \end{align*}
+    Using (\ref{def}), (\ref{r1}) and (\ref{r2}) we find 
+    \begin{align*}
+        \abs{f(x)-f(x_0)} < \delta (2\cdot 3 + 3) = 9\delta.
+    \end{align*}
+    Therefore by (\ref{basic})
+    \begin{align*}
+        \abs{f(x)-f(x_0)} < 9\cdot\frac{\e}{9}=\e.
+    \end{align*}
+    By \emph{Theorem 4.1.6} in the notes, the claim follows.
+\end{proof}
+
+\section*{Problem 2}
+
+\begin{claim*}
+    Let $f:[0,1]\to\R$ be continuous with $f(0)=f(1)=0$. Further
+    \begin{align}
+        \label{premise}
+        f(a)=f(b)=0 \hs\Longrightarrow\hs \exists c\in(a,b).\: f(c)=0
+    \end{align}
+    for all $0\leq a<b\leq 1$. Then $f(x)=0$ for all $x\in[0,1]$.
+\end{claim*}
+
+\begin{proof}
+    Let $x_0\in(0,1)$. Now consider the sets
+    \begin{align*}
+        S_1 &:= \{x\in[0,x_0) : f(x) = 0\},\\
+        S_2 &:= \{x\in(x_0,1] : f(x) = 0\}
+    \end{align*}
+    and let $a=\sup S_1$ and $b=\sup S_2$. Note $a\leq b$.\\
+    \indent Consider the case $a<b$. Then by definition of $S_1$ and $S_2$
+    we know that for all $x$ in the nonempty set
+    \begin{align*}
+        (a,x_0)\cap(x_0,b)=\{x\in(a,b):x\not=x_0\},
+    \end{align*}
+    $f(x)\not=0$.
+    However, by (\ref{premise}) there exists some $x\in(a,b)$ with $f(x)=0$
+    which now implies $f(x_0)=0$.\\
+    \indent Now consider $a=b$. Since $a\leq x_0$ and $x_0\leq b$, we have 
+    $a=b=x_0$. We define a sequence $(x_n)_{n\in\N}$ such that $x_1=0$ and
+    \begin{align*}
+        x_n \in\{x\in S_1 : x\geq \frac{x_0+x_{n-1}}{2}\} \hs\text{for all }n>1.
+    \end{align*}
+    In other words, every $x_n$ is at most half as far away from $x_0$ 
+    as $x_{n-1}$ and $f(x)=0$. By $\sup S_1 = x_0$ it is easy to see that such
+    a sequence must exist because every $x_n$ for which there is no suitable
+    $x_{n+1}$ would be an upper bound for $S_1$. Further, note that since $x_0>x_n$
+    for all $n\in\N$ we have
+    \begin{align*}
+        x_n \geq \frac{x_{n-1}+x_0}{2} > x_{n-1} \hs\text{for all }n>1.
+    \end{align*}
+    Thus $(x_n)$ is bounded above by $x_0$ and strictly increasing. By the
+    \emph{Monotone Convergence Theorem (Ross 10.2)}, $x_n$ converges. Consider
+    the sequence $(a_n)_{n\in N}$ which is obtained by choosing the least possible
+    $x\in[0,1]$ at every step, i.e. $a_1=0$ and
+    \begin{align*}
+        a_n = \inf\left\lbrace x\in [0,1] : x \geq \frac{x_0+a_{n-1}}{2}\right\rbrace = \frac{x_0+a_{n-1}}{2}
+        \hs\text{for all }n>1.
+    \end{align*}
+    We prove by induction that
+    \begin{align}
+        \label{P}
+        a_n = x_0 \left(1-\frac{1}{2^{n-1}}\right).
+    \end{align}
+    Firstly, observe that (\ref{P}) holds for $n=1$. Secondly, assume (\ref{P}) for
+    some $n$. Then
+    \begin{align*}
+        a_{n+1} = \frac{x_0 + x_0(1-1/2^{n-1})}{2} 
+        = \frac{x_0(2-1/2^{n-1})}{2} = x_0\left(1-\frac{1}{2^n}\right).
+    \end{align*}
+    By the \emph{Principle of Mathematical Induction}, (\ref{P}) holds for all $n\in N$.
+    Observe that
+    \begin{align*}
+        \lim_{n\to\infty}a_n = x_0.
+    \end{align*}
+    Since $x_n$ is bounded above by $x_0$ and, by definition, $a_n\leq x_n$ for all $n\in\N$
+    we find
+    \begin{align*}
+        \lim_{n\to\infty}x_n = x_0.
+    \end{align*}
+    Applying continuity as defined in \emph{Ross, Definition 17.1}, we have
+    \begin{align*}
+        \lim_{n\to\infty} f(x_n) = f(x_0).
+    \end{align*}
+    Since $x_n\in S_1$ for all $n$, $f(x_n)=0$ for all $n$ and thus
+    \begin{align*}
+        \lim_{n\to\infty} f(x_n) = 0
+    \end{align*}
+    which shows $f(x_0)=0$ for all $x_0\in[0,1]$.
+\end{proof}
+\end{document}
