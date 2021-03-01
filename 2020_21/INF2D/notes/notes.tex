@@ -1321,4 +1321,82 @@ Runtime: $O(Et)$
         if there is a better set of goals it could be trying to achieve
     \end{itemize}
 \end{definition}
+
+
+\section{Hierarchical planning}
+
+
+\subsection{High-level actions}
+
+\begin{definition}
+    A \emph{high-level action} (HLA) is an action that has one or more possible
+    \emph{refinements}, into a sequence of actions, each of which may be high-level
+    or primitive.\\
+    An HLA refinement that contains only primitive actions is called an
+    \emph{implementation}.
+\end{definition}
+
+\begin{definition}
+    A high-level plan (a sequence of HLAs) achieves the goal from a given state
+    if at least one of its implementations achieves the goal from that state.
+\end{definition}
+
+\subsection{Search for primitive solutions}
+
+\begin{theorem}
+    Suppose each HLA has $r$ possible refinement, each into $k$ actions at the
+    next lower level. Then, if there are $d$ actions at the primitive level,
+    there are
+    \begin{align*}
+        r^{(d-1)/(k-1)}
+    \end{align*}
+    possible decomposition trees.
+\end{theorem}
+
+\subsection{Searching for abstract solutions}
+
+\begin{definition}
+    The \emph{downward refinement property} for HLA descriptions states that
+    a high-level plan must have at least one implementations that achieves the
+    goal.
+\end{definition}
+
+\begin{definition}
+    Given a state $s$, the \emph{reachable set} for an HLA $h$, written as
+    $\text{REACH}(s,h)$, is the set of states reachable by any of the HLA's
+    implementations.
+\end{definition}
+
+\begin{definition}
+    In \emph{demonic nondeterminism} a high-level plan achieves the goal if
+    its reachable set is fully contained in the set of goal states.
+    On the other hand, \emph{angelic nondeterminism} only requires the two
+    sets to intersect for the plan to achieve the goal.
+\end{definition}
+
+\begin{theorem}
+    An HLA under agelic semantics can have one of nine different effects on
+    a variable $A$. There are two cases: $A$ is true or $A$ is false. In both
+    cases there are three different effects:
+    \begin{enumerate}
+        \item $A$ is always true afterwards
+        \item $A$ is never true afterwards
+        \item the agent can choose the truth value of $A$
+    \end{enumerate}
+    The effects in both cases can be combined independently.
+\end{theorem}
+
+\begin{definition}
+    Each HLA has two approximations:
+    \begin{itemize}
+        \item an \emph{optimistic description} $\text{REACH}^+(s,h)$ that may
+              overstate the reachable set, and
+        \item a \emph{pessimistic description} $\text{REACH}^-(s,h)$ that may
+              understate the reachable set.
+    \end{itemize}
+    We thus have
+    \begin{align*}
+        \text{REACH}^-(s,h) \subseteq\text{REACH}(s,h)\subseteq\text{REACH}^+(s,h).
+    \end{align*}
+\end{definition}
 \end{document}
