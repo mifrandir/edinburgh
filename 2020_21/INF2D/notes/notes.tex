@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
+\usepackage{enumitem}
 \mkfpmthms
 
 \title{INF2D: Reasoning and Agents (SEM4)}
@@ -1322,11 +1323,9 @@ Runtime: $O(Et)$
     \end{itemize}
 \end{definition}
 
+\subsection{Hierarchical planning}
 
-\section{Hierarchical planning}
-
-
-\subsection{High-level actions}
+\subsubsection{High-level actions}
 
 \begin{definition}
     A \emph{high-level action} (HLA) is an action that has one or more possible
@@ -1341,7 +1340,7 @@ Runtime: $O(Et)$
     if at least one of its implementations achieves the goal from that state.
 \end{definition}
 
-\subsection{Search for primitive solutions}
+\subsubsection{Search for primitive solutions}
 
 \begin{theorem}
     Suppose each HLA has $r$ possible refinement, each into $k$ actions at the
@@ -1353,7 +1352,7 @@ Runtime: $O(Et)$
     possible decomposition trees.
 \end{theorem}
 
-\subsection{Searching for abstract solutions}
+\subsubsection{Searching for abstract solutions}
 
 \begin{definition}
     The \emph{downward refinement property} for HLA descriptions states that
@@ -1399,4 +1398,98 @@ Runtime: $O(Et)$
         \text{REACH}^-(s,h) \subseteq\text{REACH}(s,h)\subseteq\text{REACH}^+(s,h).
     \end{align*}
 \end{definition}
+
+
+\section{Quantifying uncertainty}
+
+
+\subsection{Acting under uncertainty}
+
+\begin{definition}
+    \emph{Uncertainty} arises when an agent may not know for certain what state
+    it's in or where it will end up after a sequence of actions. There are
+    two main reasons for uncertainty:
+    \begin{itemize}
+        \item partial observability
+        \item nondeterminism
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    Keeping track of a belief state as a recipe for creating agent programs
+    has the following drawbacks:
+    \begin{itemize}
+        \item The agent must consider every logically possible explanation, regardless of likelihood.
+        \item Handling every eventuality will lead to an arbitrarily large plan.
+        \item If no plan exists that is guaranteed to achieve the goal, the agent still has to find some action.
+    \end{itemize}
+\end{lemma}
+
+\begin{definition}
+    The \emph{rational decision} depends on both the relative importance of various goals and the
+    likelihood that, and degree to which, they will be achieved.
+\end{definition}
+
+\begin{theorem}
+    In general, there are three main reasons why trying to use logic
+    to cope with some specific domain may fail:
+    \begin{enumerate}
+        \item \emph{Laziness}: It is too much work to construct an 
+        exceptionless rule and too hard to use such rules.
+        \item \emph{Theoretical ignorance}: There exists no complete theory for the domain.
+        \item \emph{Practical ignorance}: Not all the necessary observations 
+        in a particular case have been or even can be made.
+    \end{enumerate}
+    An agent in such a domain can at best provide only a \emph{degree of belief}.
+\end{theorem}
+
+\begin{definition}[Maximum expected utility]
+    The \emph{principle of maximum expected utility} (MEU) states that an agent is rational
+    if and only if it chooses the action that yieldsd the highest expected utility,
+    averaged over all possible outcomes of the action. 
+\end{definition}
+
+\subsection{Introduction to probability theory}
+
+\begin{definition}
+    The \emph{sample space} is the set of all possible worlds.
+    The possible worlds are mutually exclusive and exhaustive, i.e.
+    two possible worlds cannot both be the case and one possible world must
+    be the case.
+\end{definition}
+
+\begin{definition}
+    A fully specified \emph{probability model} associates a numerical probability
+    $\P(\omega)$ with each possible world. The following axioms hold for every
+    model with sample space $\Omega$:
+    \begin{enumerate}[label=P\arabic*.]
+        \item $\forall \omega\in\Omega.\:0\leq\P(\omega)\leq 1$
+        \item $\sum_{\omega\in\Omega}\P(\omega)=1$ 
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    An \emph{event} is a set of worlds $\phi\subseteq \Omega$ such that
+    for some proposition $E$ and for all $\omega\in\Omega$
+    \begin{align*}
+        \omega\in A\hs\Leftrightarrow\hs E(\omega).
+    \end{align*}
+    The probability associated with $\phi$ is
+    \begin{align*}
+        \P(\phi)=\sum_{\omega\in\phi} \P(\omega).
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    A \emph{possible world} is an assignment of values to all of the RV's
+    under consideration.
+\end{definition}
+
+\begin{theorem}[De Finetti]
+    If an agent $A$ expresses a set of degrees of belief that violate
+    the axioms of probability theory then there is a combination of
+    bets by another agent $B$ that guarantees that $A$ will lose money
+    every time. 
+\end{theorem}
+
 \end{document}
