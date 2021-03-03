@@ -14,9 +14,14 @@ import Data.Bifunctor
 import Data.Char
 import Data.Graph
 import Data.List
+import Data.Map (Map)
+import qualified Data.Map as Map
 import Data.Maybe
 import Data.Ord
+import Data.Sequence (Seq ((:<|)), (><))
+import qualified Data.Sequence as Sequence
 import Data.Tree
+import Debug.Trace
 import Game
 import Player
 import Players.Dumb (dumbAction)
@@ -85,15 +90,7 @@ generateGameTree g = StateTree g $ map ext $ filter isValid partialChildren
 -- Higher scoring nodes go first.
 -- [Hint: You should use 'lowFirst'.]
 highFirst :: (Ord v) => StateTree v a -> StateTree v a
-highFirst (StateTree g cs) = StateTree g $ sortBy (flip cmp) $ map (Data.Bifunctor.second lowFirst) cs
-  where
-    cmp :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
-    cmp (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
-
--- Lower scoring nodes go first.
--- [Hint: You should use 'highFirst'.]
-lowFirst :: (Ord v) => StateTree v a -> StateTree v a
-lowFirst (StateTree g cs) = StateTree g $ sortBy cmp $ map (Data.Bifunctor.second highFirst) cs
+highFirst (StateTree g cs) = StateTree g $ sortBy (flip cmp) $ map (Data.Bifunctor.second highFirst) cs
   where
     cmp :: (Ord v) => (a, StateTree v a) -> (a, StateTree v a) -> Ordering
     cmp (_, StateTree g1 _) (_, StateTree g2 _) = compare g1 g2
@@ -134,20 +131,57 @@ pruneBreadth d (StateTree g cs) = StateTree g $ map (Data.Bifunctor.second $ pru
     than another one if the player is closer to its winning positions.
 -}
 
+minimumDistanceScore :: Board -> Player -> Maybe Int
+minimumDistanceScore b p
+  | null validDists = Nothing
+  | otherwise = Just $ minimum validDists
+  where
+    validDists :: [Int]
+    validDists = mapMaybe (lookupIn allDists) (winningPositions p)
+    lookupIn :: Map Cell Int -> Cell -> Maybe Int
+    lookupIn ds c = Map.lookup c ds
+    allDists = bfs (Sequence.singleton (currentCell p, 0)) Map.empty
+    -- doing bfs to calculate distances to all cells that are
+    -- closer than the winning cells (and the closest winning cell)
+    bfs :: Seq (Cell, Int) -> Map Cell Int -> Map Cell Int
+    -- if the queue is empty, bfs is done
+    bfs Sequence.Empty ds = ds
+    -- the sequence is our queue of nodes to visit (with a distance to write)
+    -- and the map holds the distance values we've found so far
+    bfs ((c, d) :<| cds) ds
+      | isJust (Map.lookup c ds) = bfs cds ds -- if the element is already present, skip it
+      | c `elem` winningPositions p = newDs -- if the position is winning, we've found the shortest path
+      | otherwise = bfs (cds >< newCds) newDs -- insert the distance into the map and extend queue
+      where
+        -- updated states of the queu and the distances
+        newDs = Map.insert c d ds
+        newCds = Sequence.fromList $ zip neighbours (repeat $ d + 1)
+        -- reachable cells that don't have a distance just yet
+        neighbours = filter (\x -> isNothing $ Map.lookup x ds) (reachableCells b c)
+
 -- Assign a value to each game (from the point of view of the current player).
 -- [Hint 1: You may want to calculate the distance between the player's current cell and its winning
 --  positions.]
 -- [Hint 2: One way would be to use 'reachableCells' repeatedly.]
 utility :: Game -> Int
 utility (Game b ps)
-  | c1 `elem` winningPositions (head ps) = 100
-  | c2 `elem` winningPositions (ps !! 1) = -100
-  | otherwise = s1 - s2
+  -- repetition is slightly better than losing
+  -- forces the winning player to make a winning move eventually
+  | turn p1 >= maxTurn = 1 + minBound :: Int
+  -- winning/losing positions don't require any more evaluation
+  | currentCell p1 `elem` winningPositions p1 = maxBound :: Int
+  | currentCell p2 `elem` winningPositions p2 = minBound :: Int
+  -- common case, we check both scores to avoid cutting off by the losing player
+  | isJust s1 && isJust s2 = - fromJust s1
+  -- if there are no winning paths, we don't re
+  | otherwise = minBound :: Int -- Players want to avoid illegal game states
   where
-    c1 = currentCell $ head ps
-    c2 = currentCell $ ps !! 1
-    s1 = length (reachableCells b c1)
-    s2 = length (reachableCells b c2)
+    p1 = head ps
+    p2 = ps !! 1
+    s1 = minimumDistanceScore b p1
+    s2 = minimumDistanceScore b p2
+    maxTurn :: Int
+    maxTurn = 10 * div boardSize 2
 
 -- Lifting the utility function to work on trees.
 evalTree :: GameTree -> EvalTree
@@ -172,7 +206,7 @@ minimaxFromTree (StateTree _ cs) = fst $ maximumBy cmp choices
     choices :: [(Action, Int)]
     choices = map (second findMin) cs
     findMin :: EvalTree -> Int
-    findMin (StateTree v []) = v
+    findMin (StateTree v []) = - v -- if the leaf is on the min-level, it's an opposing utility value
     findMin (StateTree _ cs) = minimum $ map (\(_, t) -> findMax t) cs
     findMax :: EvalTree -> Int
     findMax (StateTree v []) = v
@@ -203,7 +237,7 @@ minimaxABFromTree = fst . findMaxAction (minBound :: Int) (maxBound :: Int)
         a' = max curV a
         oth = findMaxAction a' b (StateTree v cs)
     findMin :: Int -> Int -> EvalTree -> Int
-    findMin a b (StateTree v []) = v
+    findMin a b (StateTree v []) = trace "Flipping" (- v)
     findMin a b (StateTree v [(_, t)]) = findMax a b t
     findMin a b (StateTree v ((_, t) : cs))
       | v' <= a = v'
@@ -227,7 +261,7 @@ minimaxABFromTree = fst . findMaxAction (minBound :: Int) (maxBound :: Int)
 
 -- Given depth for pruning (should be even).
 depth :: Int
-depth = 4
+depth = 8
 
 -- Given breadth for pruning.
 breadth :: Int

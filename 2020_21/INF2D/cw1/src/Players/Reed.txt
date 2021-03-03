@@ -1,5 +1,42 @@
 *** PART III (10 pt) ***
 
+# Plan
+
+There are two separate questions in play here:
+
+1. Is the Reed opening good against a general opponent?
+2. Is the Reed opening good against a special opponent that *knows* your first two moves?
+
+To understand why these are in fact different questions, one has to understand the
+reasoning involved in making a move: In general, a rational player wants to make
+the move that puts them into the best position regardless of what their opponent is
+going to do next. Because of this, Reed may be good against a player A who takes all
+possibilities into account because they are putting themselves into a disadvantage
+against it, expecting a non-Reed move because it would lead to a worse position for
+A. This reasoning is usually caused by quirks in the utility function. However, all
+of this changes if A knows that B will play the Reed opening. Essentially, it allows
+A to disregard all other moves and thus optimise their play by leaving weak spots
+that they know for certain will not be exploited.
+
+I will only discuss question (1) here as it seems to be more relevant.
+
+To answer this interpretation of the question, we just need to run some games of the
+Minimax player against the Reed player (Minimax player with two predefined moves). 
+In particular, we should use different depths for our Minimax algorithm. 
+In the end the highest value will be relevant but it might
+be interesting how the opening performs against "weaker" players, i.e. Minimax with
+a lower depth (which could represent a player only being able to calculate that many
+depths in advance).
+
+Of course seeing that "X" wins for example is not a lot of insight because maybe X wins
+anyways. The most meaningful result to obtain would be if the opening changed the
+result.
+
+What will be interesting to try and explain the results. Maybe there is something that
+becomes clear through gameplay that is especially good/bad about the Reed opening.
+
+# Findings
+
 Is it a good idea to start the game with the Reed opening?
 
 Answer here.
