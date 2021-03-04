@@ -37,6 +37,9 @@ becomes clear through gameplay that is especially good/bad about the Reed openin
 
 # Findings
 
-Is it a good idea to start the game with the Reed opening?
-
-Answer here.
+I've run the test (scripts/reed_test.sh) with depths 4 and 6. Interestingly (and perhaps
+reassuringly) both cases showed the same outcome and indeed identical behaviour. It seems
+like there is an optimal way to play the game where one more ply of foresight does
+not make a difference.
+More importantly, the results are clear: the Reed opening is bad. The game is normally favoured
+towards X. If X is forced to play the Reed opening though, Y wins in the duel.

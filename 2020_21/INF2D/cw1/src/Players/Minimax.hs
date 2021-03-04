@@ -165,12 +165,9 @@ minimumDistanceScore b p
 -- [Hint 2: One way would be to use 'reachableCells' repeatedly.]
 utility :: Game -> Int
 utility (Game b ps)
-  -- repetition is slightly better than losing
-  -- forces the winning player to make a winning move eventually
-  | turn p1 >= maxTurn = 1 + minBound :: Int
-  -- winning/losing positions don't require any more evaluation
-  | currentCell p1 `elem` winningPositions p1 = maxBound :: Int
-  | currentCell p2 `elem` winningPositions p2 = minBound :: Int
+  -- winning/losing positions don't require any real evaluation
+  | currentCell p1 `elem` winningPositions p1 = - turn p1 - maxBound :: Int -- later wins are worse
+  | currentCell p2 `elem` winningPositions p2 = turn p1 + minBound :: Int -- later losses are better
   -- common case, we check both scores to avoid cutting off by the losing player
   | isJust s1 && isJust s2 = - fromJust s1
   -- if there are no winning paths, we don't re
@@ -180,8 +177,6 @@ utility (Game b ps)
     p2 = ps !! 1
     s1 = minimumDistanceScore b p1
     s2 = minimumDistanceScore b p2
-    maxTurn :: Int
-    maxTurn = 10 * div boardSize 2
 
 -- Lifting the utility function to work on trees.
 evalTree :: GameTree -> EvalTree
@@ -199,8 +194,9 @@ evalTree = mapStateTree utility
 -- [Hint 1: Use a helper function to keep track of the highest and lowest scores.]
 -- [Hint 2: Use the 'Result' datatype.]
 minimaxFromTree :: EvalTree -> Action
-minimaxFromTree (StateTree _ cs) = fst $ maximumBy cmp choices
+minimaxFromTree (StateTree _ cs) = trace ("utility: " ++ show v) a
   where
+    (a, v) = maximumBy cmp choices
     cmp :: (Action, Int) -> (Action, Int) -> Ordering
     cmp (_, x) (_, y) = compare x y
     choices :: [(Action, Int)]
@@ -223,8 +219,9 @@ minimaxFromTree (StateTree _ cs) = fst $ maximumBy cmp choices
 -- [Hint 1: Extend the helper function in I.e to keep track of alpha and beta.]
 -- [Hint 2: Use the 'Result' datatype.]
 minimaxABFromTree :: EvalTree -> Action
-minimaxABFromTree = fst . findMaxAction (minBound :: Int) (maxBound :: Int)
+minimaxABFromTree t = trace ("utility: " ++ show v) a
   where
+    (a, v) = findMaxAction (minBound :: Int) (maxBound :: Int) t
     cmp :: (Action, Int) -> (Action, Int) -> Ordering
     cmp (_, x) (_, y) = compare x y
     findMaxAction :: Int -> Int -> EvalTree -> (Action, Int)
@@ -261,7 +258,7 @@ minimaxABFromTree = fst . findMaxAction (minBound :: Int) (maxBound :: Int)
 
 -- Given depth for pruning (should be even).
 depth :: Int
-depth = 8
+depth = 6
 
 -- Given breadth for pruning.
 breadth :: Int
