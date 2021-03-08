@@ -20,7 +20,9 @@ import Player
 import Players.Human 
 import Players.Dumb 
 import Players.Minimax
+import Players.Minimax2
 import Players.Reed
+import Players.MonteCarlo
 import Game 
 import Print
 
@@ -63,7 +65,9 @@ nameToPlayerConstructor :: String -> Maybe (String -> Cell -> Int -> [Cell] -> P
 nameToPlayerConstructor "Human" = Just makeHumanPlayer
 nameToPlayerConstructor "Dumb" = Just makeDumbPlayer
 nameToPlayerConstructor "Minimax" = Just makeMinimaxPlayer
+nameToPlayerConstructor "Minimax2" = Just makeMinimax2Player
 nameToPlayerConstructor "Reed" = Just makeReedPlayer
+nameToPlayerConstructor "MonteCarlo" = Just makeMonteCarloPlayer
 nameToPlayerConstructor _ = Nothing
 
 {-
@@ -100,15 +104,15 @@ play g@(Game b ps) =
         
         -- Simple random number generator (can be used by the player).
         rand :: (RandomGen g) => Rand g Int
-        rand = getRandomR (0, 10000)
+        rand = getRandomR (0, maxBound :: Int)
 
 -- This is the function that you should run to play the game. It asks about the type of game you 
 -- want to play and then calls the main game loop.
 main :: IO ()
 main = do {
-    putStrLn "What kind of player is player X? (Human/Dumb/Minimax/Reed)";
+    putStrLn "What kind of player is player X? (Human/Dumb/Minimax/Reed/MonteCarlo)";
     playerX<-getLine;
-    putStrLn "What kind of player is player Y? (Human/Dumb/Minimax/Reed)";
+    putStrLn "What kind of player is player Y? (Human/Dumb/Minimax/Reed/MonteCarlo)";
     playerY<-getLine; 
     case (nameToPlayerConstructor playerX, nameToPlayerConstructor playerY) of 
         (Just ctrX, Just ctrY) -> do { play (Game startingBoard (startingPlayersMiddle ctrX ctrY)) }

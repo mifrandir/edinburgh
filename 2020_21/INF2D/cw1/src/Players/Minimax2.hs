@@ -3,7 +3,7 @@
 
     *** PART I (60pt) and PART II (10pt) ***
 -}
-module Players.Minimax where
+module Players.Minimax2 where
 
 import Action
 import Board
@@ -159,10 +159,10 @@ minimumDistanceScore b p
 utility :: Game -> Int
 utility (Game b ps)
   -- winning/losing positions don't require any real evaluation
-  | currentCell p1 `elem` winningPositions p1 = - turn p1 + maxBound :: Int -- later wins are worse
+  | currentCell p1 `elem` winningPositions p1 = turn p1 + maxBound :: Int -- later losses are better
   | currentCell p2 `elem` winningPositions p2 = turn p1 + minBound :: Int -- later losses are better
   -- common case, we check both scores to avoid cutting off by the losing player
-  | isJust s1 && isJust s2 = - fromJust s1
+  | isJust s1 && isJust s2 = (fromJust s2 `div` 2) - fromJust s1
   -- if there are no winning paths, we don't re
   | otherwise = minBound :: Int -- Players want to avoid illegal game states
   where
@@ -275,14 +275,14 @@ minimaxAction b ps _ r = let g = Game b ps in minimaxAction' g (minimax g)
     minimaxAction' :: Game -> Action -> Maybe Action
     minimaxAction' g' (Move s)
       | validStepAction g' s = Just (Move s)
-      | otherwise = error "Minimax chose an invalid action."
+      | otherwise = error "Minimax2 chose an invalid action."
     minimaxAction' g' (Place w)
       | validWallAction g' w = Just (Place w)
-      | otherwise = error "Minimax chose an invalid action."
+      | otherwise = error "Minimax2 chose an invalid action."
 
 -- Make minimaxPlayer in the usual way using 'minimaxAction'.
-makeMinimaxPlayer :: String -> Cell -> Int -> [Cell] -> Player
-makeMinimaxPlayer n c rws wps =
+makeMinimax2Player :: String -> Cell -> Int -> [Cell] -> Player
+makeMinimax2Player n c rws wps =
   Player
     { name = n,
       turn = 1,
