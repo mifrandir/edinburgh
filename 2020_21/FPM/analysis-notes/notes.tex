@@ -635,4 +635,83 @@
     Then $\inv f:[f(a),f(b)]\to\R$ is a continuous, strictly increasing
     function.
 \end{theorem}
+
+\subsection{Limits of functions}
+
+\begin{definition}
+    Let $f:\dom(f)\to\R$ and $a$ an element of the extended real numbers. We say
+    that
+    \begin{align*}
+        \lim_{x\to a^{\dom(f)}}f(x)=L  
+    \end{align*}
+    for some extended real number $L$ if
+    for every sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
+    to $a$ we have $\lim_{n\to\infty}f(x_n)=L$.
+\end{definition}
+
+\begin{definition}
+    Let $a\in\R$ and let $f$ be a function defined on some interval
+    $I$ which contains $a$.
+    \begin{itemize}
+        \item We define the \emph{two-sided limit} $\lim_{x\to a}f(x)$ to be $\lim_{x\to a^{I\setminus\{a\}}}f(x)$.
+        \item We define the \emph{right-hand limit} $\lim_{x\to a+}f(x)$ to be $\lim_{x\to a^{I\cap (a, \infty)}}f(x)$.
+        \item We define the \emph{left-hand limit} $\lim_{x\to a-}f(x)$ to be $\lim_{x\to a^{(-\infty,a)\cap I}}f(x)$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Let $b\in\R$.
+    \begin{itemize}
+        \item Let $f$ be a function defined on some interval $I=(b,\infty)$.
+        We define $\lim_{x\to\infty}f(x)$ to be $\lim_{x\to\infty^I}f(x)$.
+        \item Let $f$ be a function defined on some interval $I=(-\infty, b)$.
+        We define $\lim_{x\to-\infty}f(x)$ to be $\lim_{x\to-\infty^I}f(x).$
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    Let $a\in\R$ and let $I$ be an open interval with left end-point
+    $a$. Then $\lim_{x\to a+} f(x)=L$ if for every $\e>0$ there is
+    $\delta>0$ such that
+    \begin{align*}
+        \text{if } a<x<a+\delta \text{ and }x\in I,\hs
+        \text{then}\hs \abs{f(x)-L}<\e.
+    \end{align*}
+    The value $L$ of the limit shall be denoted as $f(a^+)$.
+\end{theorem}
+
+\begin{theorem}
+    Let $f$ be a real function. The limit
+    \begin{align*}
+        \lim_{x\to a}f(x)
+    \end{align*}
+    exists and is equal to $L$ if and only if
+    \begin{align*}
+        L=\lim_{x\to a+}f(x)=\lim_{x\to a-}f(x).
+    \end{align*}
+\end{theorem}
+
+\begin{proposition}
+    Let $f$ be a real function and let $a\in\R$. Then
+    $f(x)$ is continuous at $a$ if and only if
+    \begin{align*}
+        \lim_{x\to a}f(x)=f(a).
+    \end{align*}
+\end{proposition}
+
+\setcounter{theorem}{9}
+\begin{theorem}
+    Let $a\in\R$, let $I$ be an open interval containing
+    $a$ and let $f,g$ be real functions defined everywhere
+    on $I$ except possibly at $a$. If both $f$ and $g$ have
+    limits as $x$ approaches $a$ and
+    \begin{align*}
+        f(x)\leq g(x),\hs\text{for all }x\in I\setminus\{a\},
+    \end{align*}
+    then
+    \begin{align*}
+        \lim_{x\to a}f(x)\leq\lim_{x\to a} g(x).
+    \end{align*}
+
+\end{theorem}
 \end{document}
