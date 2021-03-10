@@ -1,0 +1,92 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{FPM: Hand-in 7}
+\author{Franz Miltz (UNN: S1971811)}
+\date{15 March 2021}
+\maketitle
+\mkthms
+\section*{Problem 1}
+
+The actions are
+\begin{enumerate}
+    \item left action,
+    \item right action,
+    \item conjugate action,
+    \item the symmetries acting on the vertices of the graph,
+    \item acting on the cosets.
+\end{enumerate}
+
+\subsection*{Left, right and conjugate action}
+
+Let $(G, *)$ be a group. Then let $g\in G$ and $x\in X = G$.
+The left, right and conjugate actions of $G$ on itself are defined as follows:
+
+\begin{itemize}
+    \item left action: $\alpha_l: (g,x) \mapsto g * x$,
+    \item right action: $\alpha_r: (g,x) \mapsto x * \inv g$,
+    \item conjugate action: $\alpha_c: (g,x) \mapsto g * x * \inv g$.
+\end{itemize}
+
+\noindent These actions are well-defined for $D_5$.
+
+\subsection*{Symmetries acting on the vertices}
+
+$D_5$ is the set of symmetries of a pentagon. If we think of the pentagon as
+a graph, all the element $g\in D_5$ are graph isomorphisms. Since every
+graph isomorphism for a graph with vertices $V$ is a map $\phi:V\to V$,
+we can define the action $\beta$ of $D_5$ on $V$ as follows:
+\begin{align*}
+    \beta: D_5\times V\to V,(\phi, v)\mapsto \phi(v).
+\end{align*}
+
+\subsection*{Acting on the cosets}
+
+Let $h\in D_5$ be the reflection through one of the vertices in the pentagon
+and let $g\in D_5$ be the rotation by one fifth of a turn.
+Then we have the proper subgroup $H=\{e, h\}<D_5$. Now consider the set of
+cosets
+\begin{align*}
+    D_5/H=\{H, gH, g^2H, g^3H, g^4H\}.
+\end{align*}
+We define the group action
+\begin{align*}
+    \gamma: D_5\times D_5/H\to D_5/H,(a, bH)\mapsto abH.
+\end{align*}
+This also works for any other subset $H\leq D_5$.
+
+\section*{Problem 2}
+
+\begin{claim*}
+    Let $G$ be the group of rotational symmetries of the octahedron. Then
+    $|G|=24$.
+\end{claim*}
+
+\begin{proof}
+    Let $G$, $X$ and $t\in X$ be as described. Then, since all the vertices
+    have identical valency, we have
+    \begin{align*}
+        \orb_G(t) = X
+    \end{align*}
+    which implies $\abs{\orb_g(t)} = 6$. Further, the only rotations that
+    do not affect $t$ are the identity and the ones that have an axis that
+    goes through $t$. The only such axis goes through $t$ and the vertex on
+    the bottom where faces $E$, $F$, $G$ and $H$ meet. Let the rotation
+    around this axis by one fourth of a turn clockwise (i.e. the one that
+    maps the face $A$ onto $B$) be called $g$. Then we have
+    \begin{align*}
+        \stab_G(t) = \{e, g, g^2, g^3\}
+    \end{align*}
+    and thus $\abs{\stab_G(t)} = 4$. By the \emph{Orbit-Stabiliser Theorem}
+    we have
+    \begin{align*}
+        \abs{G} = \abs{\orb_G(t)}\cdot \abs{\stab_G(t)}
+    \end{align*}
+    and thus
+    \begin{align*}
+        \abs{G} = 6 \cdot 4 = 24.
+    \end{align*}
+\end{proof}
+
+\end{document}
