@@ -1492,4 +1492,119 @@ Runtime: $O(Et)$
     every time. 
 \end{theorem}
 
+\subsection{Probabilistic inference}
+
+\begin{definition}
+    Two propositions $a$ and $b$ are called \emph{independent} if
+    \begin{align*}
+        P(a|b) = P(a).
+    \end{align*}
+    Similarly, two variables are independent if
+    \begin{align*}
+        \P(X|Y) = \P(X).
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Bayes' rule]
+    Let $X$ and $Y$ be random variables and let $\vec e$ be some
+    background evidence. Then
+    \begin{align*}
+        \P(Y|X,\vec e) = \frac{\P(X|Y,\vec e)\P(Y|\vec e)}{\P(X|\vec e)}.
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    Given a variable $Z$, two variables $X$ and $Y$ are conditionally independent
+    if
+    \begin{align*}
+        \P(X,Y|Z) = \P(X|Z)\P(Y|Z).
+    \end{align*}
+\end{definition}
+
+\subsection{Bayesian networks}
+
+\begin{definition}
+    A \emph{Bayesian network} is a directed graph in which each node is
+    annotated with quantitative probability information. The full sepcification
+    is as follows:
+    \begin{enumerate}
+        \item Each node corresponds to a random variable, which may be discrete or cointinuous.
+        \item A set of directed links or arrows connects pairs of nodes. If there is an arrow
+        from node $X$ to node $Y$, $X$ is said to be a parent of $Y$. The graph has no directed cycles.
+        \item Each node $X_i$ has a conditional probability distribution $\P(X_i|Parents(X_i))$ that 
+         quantifies the effect of the parents on the node.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    A node is called \emph{deterministic} if it has its value specified by the values
+    of its parents, with no uncertainty.
+\end{definition}
+
+\begin{definition}
+    The \emph{noisy-OR} relation is a generalisation of the logical OR. Let $X$ be a boolean
+    random variable with parents $X_1, ..., X_k$. Then
+    \begin{align*}
+        P(x|X_1, ..., X_k) = 1 - \prod_{\{j:X_j = true\}} q_j
+    \end{align*}
+    where $q_1,...,q_k$ are the \emph{inhibition probabilities} for each parent.
+\end{definition}
+
+\begin{definition}
+    \emph{Discretisation} is the process of partitioning the domain of a continuous
+    random variable into a fixed set of intervals.
+\end{definition}
+
+\begin{definition}
+    Let $X$ be a random variable called the \emph{query variable}, let $\vec E=\{E_1,...,E_m\}$
+    be a set of \emph{evidence variables}, let $\vec e$ be a particular observed event and let
+    $\vec Y=\{Y_1, ..., Y_l\}$ denote the set of nonevidence, nonquery variables (also
+    called the \emph{hidden variables}). Then the complete set of variables is
+    $\vec X = \{X\}\cup \vec E \cup \vec Y$.\\
+    A \emph{probabilistic inference system} then computes the posterior probability distribution
+    $\P(X|\vec e)$.
+\end{definition}
+
+\begin{theorem}
+    Any query can be answered using a Bayesian network by computing sums of products of
+    conditional probabilities from the network.
+\end{theorem}
+
+\begin{theorem}
+    Every variable that is not an ancestor of a query variable or evidence variable is irrelevant
+    to the query.
+\end{theorem}
+
+\begin{definition}
+    A \emph{singly connected} network or \emph{polytree} is a network where there exists at most one
+    undirected path between any two nodes.
+\end{definition}
+
+\begin{theorem}
+    The time and space complexity of exact inference in polytrees is linar in the size of the network.
+\end{theorem}
+
+\begin{theorem}
+    In general, inference in Bayesian networks is NP-hard.
+\end{theorem}
+
+\begin{definition}
+    A \emph{consistent} estimate $\hat p$ of a probability $p$ becomes exact in the large sample limit. I.e. 
+    \begin{align*}
+        \lim_{N\to\infty} \hat p = p
+    \end{align*}
+    where $N$ is the sample size used to calculate $\hat p$.
+\end{definition}
+
+\paragraph{Rejection sampling} is a general method of producing samples from a hard-to-sample
+distribution given an easy-to-sample distribution. It involves generating samples from the
+prior distribution specified by the network and then removing all the samples that do not
+match the evidence. The estimate is obtained by counting how often $X=x$ occurs in the remaining
+samples.
+
+\paragraph{Likelihood weighting} fixes the values for the evidence variables and samples
+only the nonevidence variables. Before tallying the counts in the distribution for the query
+variable, each even is weighted by the product of the conditional probabilities for each evidence 
+variable, given its parents.
+
 \end{document}
