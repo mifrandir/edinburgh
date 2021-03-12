@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkthms
+
+\title{INF2-IADS: Coursework 2}
+\author{S1971811}
+\date{16 March 2021}
+\begin{document}
+\maketitle
+
+\section{Algorithm}
+
+I have decided to use an optimal algorithm and simplify it just enough to make it
+work in polynomial time. Obviously, this comes at the cost of the optimality, but
+that is a sacrifice that is required to fit the problem description.
+
+\subsection{General idea}
+
+A very common problem-solving approach is A*-search. Using an admissible heuristic,
+it is possible to very efficiently find the cheapest solution to a variety of problems
+involving search spaces that may be represented as a tree or a graph.
+A* is often used for pathfinding in graphs. There, its performance is asymptotically 
+bounded above by the number of edges in finite graphs, making its runtime polynomial.
+Unfortunately, the space we would need to search through is not just the graph itself
+but the set of paths starting at a specified vertex involving each vertex at most once.
+For a graph with $n$ vertices and a starting vertex $v$, this leads to
+\begin{align*}
+    \sum_{k=1}^{n-1} k! = O((n-1)!)
+\end{align*}
+nodes in the search tree and running A* in polynomial time would not be
+possible anymore.\\
+To avoid this, I have decided to limit the depth of the A*-search to some $k\in\N$.
+That is, when we start the search with a path of length $p_0$ in a graph with $n$
+vertices, we stop it upon our first encounter of a path of length $\min\{p_0+k, n\}$.
+If the path is not complete, we start the search again discarding all other
+candidates. This discarding is where we lose optimality but gain time and space
+efficiency.
+
+\subsection{Heuristic}
+
+A* search in general relies on assessing the fitness $f$ of a partial solution 
+which represents its potential of leading to the optimal solution. To calculate the
+fitness, the cost of the steps required to reach the solution $g$ is added to an approximation
+of the remaining cost to reach the goal $h$. This $h$ is called a heuristic.
+If $h$ is admissible, i.e. it never overestimates the cost, optimality of A* is
+guaranteed in general.\\
+The heuisitic used in my algorith makes use of a strict lower bound on the remaining
+path cost by summing up the cheapest outgoing edge for all the relevant nodes, i.e.
+the ones that do not yet have a successor in the path. Specifically, if $G=(V,E)$ is
+a graph with edge weights $w:E\to\R^+$
+ and $(p_n)_{1\leq n\leq k}\in V$ is a path, then we have the set of remaining vertices
+\begin{align*}
+    V'=\{v\in V : \forall n \leq k.\: p_n \not= v\}
+\end{align*}
+and the heuristic
+\begin{align*}
+    h(p_n) = \sum_{a\in V'\cup\{p_k\}} \min\{w(a, b) : b\in V'\cup\{p_1\}\}.
+\end{align*}
+It's not too difficult to see that the runtime of this is $O(\abs V^2)$. 
+
+\subsection{Total runtime}
+
+Now that we know the runtime of the heuristic, we can informally determine the entire
+runtime. Each A* run with depth $k$ evaluates less than $n^{k+1}$ partial solutions. 
+You can see this because the search tree has a branching factor of at most $n$ (number
+of vertices) and depth $k$. This leads to the total number of nodes
+\begin{align*}
+    \sum_{i=0}^k n^i < n^{k+1}
+\end{align*}
+assuming $n>1$. This is a very pessimistic bound, even in the worst-case
+analysis. We can only visit each of those potential solutions once so.
+Inserting a new candidate into the queue can thus be done in $O(\lg n^{k+1})
+= O(k)=O(1)$ time. Each step thus takes $O(h)+O(1)=O(n^2)$ time.
+This leads us to an asymptotic upper bound on the runtime of a single
+such A* execution: $O(n^{k+3})$. Since we have to do $\ceil{n/k}$ such
+runs, we have a total runtime of the algorithm $O(\ceil{n/k}n^{k+3})=
+O(n^{k+4})$. While this is certainly an overestimate of the actual behaviour,
+this allows us to deduce that this algorithm does indeed run in
+polynomial time.
+
+\subsection{Implementation}
+
+The implementation of this that I have given is hardly optimised in terms
+of performance. I have tried to keep it clean and easy to read. If
+someone wanted to push this to its limit, there is a lot that could be done.
+For example I have added a set of unused nodes to every unvisited node in the
+queue. Since we are using Python I doubt this matters too much though as any 
+attempt at non-asymptotic optimisation will be held back by the language.\\
+I have previously tried to practically optimise the algorithm for the $k=n$ 
+case, i.e. without the depth limit, to compete against my high school teacher.
+You can find the code \underline{\href{https://github.com/miltfra/tsp}{here}}.
+This is where most of the inspiration for this algorithm comes from, combined
+with the current contents of this course and INF2D.
+
+\section{Experiments}
+
+
+
+\end{document}
