@@ -348,6 +348,7 @@ def plot_triple_for_k(name, df, k):
 def plot_quadruple_for_k(name, df, k):
     fig, ax = plt.subplots(2, 2, figsize=(15, 10))
     fig.set_dpi(200)
+    fig.suptitle(f"Behaviour for various $n$ with $k={k}$")
     df = normalise_tour_values(df)
     df = df[(df["k"] == k) | (df["alg_type"] == "Greedy")]
     plot_n_vs_tour(df, ax[0][0])
@@ -360,6 +361,7 @@ def plot_quadruple_for_k(name, df, k):
 def plot_quadruple_for_n(name, df, n):
     fig, ax = plt.subplots(2, 2, figsize=(15, 10))
     fig.set_dpi(200)
+    fig.suptitle(f"Behaviour for various $k$ with $n={n}$")
     df = normalise_tour_values(df)
     df = df[(df["n"] == n) & (df["alg_type"] != "Greedy")]
     plot_k_vs_tour(df, ax[0][0])

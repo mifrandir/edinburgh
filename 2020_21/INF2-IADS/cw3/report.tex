@@ -1,14 +1,15 @@
 \documentclass{article}
 \usepackage{homework-preamble}
+\usepackage{graphicx}
 \mkthms
 
-\title{INF2-IADS: Coursework 2}
+\title{INF2-IADS: Coursework 3}
 \author{S1971811}
 \date{16 March 2021}
 \begin{document}
 \maketitle
 
-\section{Algorithm}
+\section{Algorithm (DLA*)}
 
 I have decided to use an optimal algorithm and simplify it just enough to make it
 work in polynomial time. Obviously, this comes at the cost of the optimality, but
@@ -44,7 +45,7 @@ fitness, the cost of the steps required to reach the solution $g$ is added to an
 of the remaining cost to reach the goal $h$. This $h$ is called a heuristic.
 If $h$ is admissible, i.e. it never overestimates the cost, optimality of A* is
 guaranteed in general.\\
-The heuisitic used in my algorith makes use of a strict lower bound on the remaining
+The heurisitic used in my algorithm makes use of a strict lower bound on the remaining
 path cost by summing up the cheapest outgoing edge for all the relevant nodes, i.e.
 the ones that do not yet have a successor in the path. Specifically, if $G=(V,E)$ is
 a graph with edge weights $w:E\to\R^+$
@@ -56,7 +57,7 @@ and the heuristic
 \begin{align*}
     h(p_n) = \sum_{a\in V'\cup\{p_k\}} \min\{w(a, b) : b\in V'\cup\{p_1\}\}.
 \end{align*}
-It's not too difficult to see that the runtime of this is $O(\abs V^2)$. 
+It is not difficult to see that this may be calculated in $O(\abs V^2)$ time. 
 
 \subsection{Total runtime}
 
@@ -68,9 +69,9 @@ of vertices) and depth $k$. This leads to the total number of nodes
     \sum_{i=0}^k n^i < n^{k+1}
 \end{align*}
 assuming $n>1$. This is a very pessimistic bound, even in the worst-case
-analysis. We can only visit each of those potential solutions once so.
+analysis. We can only visit each of those potential solutions once.
 Inserting a new candidate into the queue can thus be done in $O(\lg n^{k+1})
-= O(k)=O(1)$ time. Each step thus takes $O(h)+O(1)=O(n^2)$ time.
+= O(k\lg n)=O(\lg n)$ time. Each step thus takes $O(h)+O(\lg n)=O(n^2)$ time.
 This leads us to an asymptotic upper bound on the runtime of a single
 such A* execution: $O(n^{k+3})$. Since we have to do $\ceil{n/k}$ such
 runs, we have a total runtime of the algorithm $O(\ceil{n/k}n^{k+3})=
@@ -94,6 +95,135 @@ with the current contents of this course and INF2D.
 
 \section{Experiments}
 
+\subsection{Testing procedure}
+
+To try and understand these algorithms a bit better I have decided to run all of
+them with many different parameters for many different graph sizes. The algorithm
+described in the first section obviously limits the maximum graph size quite
+significantly due to the runtime, but a decent upper bound I have found is $n=40$.
+Similarly, I have had to limit the maximum depth of each A* run to $k=14$.\\
+In the task description we are asked to analyse the quality of the result
+in terms of how long the tour values are.
+While this is something worth looking at, it definitely is not the only
+relevant qunatity to see the whole picture. My algorithm solves graphs
+for $n\leq k$ \emph{optimally}. The question is how does it take to do that?
+That is precisely why I have recorded the time the algorithm takes for every run.
+Of course, it is also interesting to look at the impact different types of graphs
+(Euclidean, metric, general) have on the recorded quantities. Therefore I ran the
+tests for every pair $(n,k)$ for all the different graph types.
+
+\subsection{Generating graphs}
+
+To test the different algorithms, we first need to generate some inputs.
+In the general case this is not any more complicated than generating random
+edge weights. For the metric case we have to keep fixing edges that violate
+the triangle inequality and for Euclidean graphs we need to generate points
+in the plane instead of edge weights. I have decided to not incorporate a
+hidden shortest value because it is quite difficult to make sure that
+no other undesired properties are added in the progress.\\
+One thing that is perhaps a bit less obvious is that it might be useful
+to extend the graph for each $n$ rather than generating a completely new one.
+This is because different graphs can have vastly different difficulties even
+though they have the same size. To reduce this issue, I am generating the
+biggest possible graph first and then using subgraphs of the appropriate
+size in each run. These subgraphs are chosen in a way such that
+for each $n$ the graph is a subgraph of the graph used for $n+1$.
+
+\subsection{Observations}
+
+Running the test described above resulted in 43 figures with four subplots
+each. You can find them in the Appendix. Of course, talking about all of them
+would neither be feasible nor very interesting. Just a quick glance will show
+you that there are a lot of similarities between the plots. This is expected
+as the choice between $k=10$ and $k=11$ should generally speaking not make too
+much of a difference.\\
+Let's examine two cases in particular.
+Let $k=8$ and consider the behaviour of
+the tour values and the runtime as $n$ increases.
+I have plotted the absolute tour values, the tour values normalised with
+respect to DLA* with depth $k=13$, the runtime and the runtime without
+DLA* to allows for comparisons between the much faster alternatives.
+The most notable observations here are: 
+\begin{enumerate}
+    \item There is no real difference in tour values between DLA* and 2-Opt.
+    \item Greedy is consistenly in between Swap and 2-Opt/DLA*.
+    \item For Greedy and Swap, the general case seems to be harder than the
+    metric case and the metric case seems to be harder than the Euclidean case
+    in terms of tour values. For DLA* and 2-Opt the type of graph does not
+    seem to matter.
+    \item DLA* is \emph{by far} the slowest, 2-Opt is second and Greedy and 
+    Swap are \emph{extremely} fast. 
+    \item DLA* is significantly slower on Euclidean graphs.
+    \item Runtime of DLA* seems to be much less predictable than the others.
+\end{enumerate}
+
+While I am slightly disappointed that DLA* does not beat 2-Opt consistently,
+most of these results are expected and understandable. In regards to observation
+5, I am unsure whether this is related to the graph structure or the performance
+of floating point arithmetic.\\
+Now, let $n=36$ and consider the behaviour of the tour values and
+the runtime as $k$ increases. This comparison naturally excludes Greedy as
+that algorithm does not have a parameter. The resulting plots are
+analogous to the case above. The most interesting observations are
+\begin{enumerate}
+    \item Swap and 2-Opt have diminishing returns for greater $k$.
+    \item Increasing $k$ for DLA* can negatively affect the result.
+    \item The runtime of DLA* increases drastically with larger choices of $k$.
+    \item The runtime of 2-Opt increases (seemingly) linearly with $k$.
+    \item The impact of $k$ on the runtime of Swap is negligible relative
+    to the other two algorithms.
+\end{enumerate}
+Most of these results are expected. I have two possible explanations
+for observation 2. Firstly and perhaps somewhat obviously, $k$ defines
+when to cut off the search and use a greedy approach to limit the
+search space. It is completely possible that there is just
+some inconvenient feature in the graph that requires a certain number of
+steps to avoid. If, however, the search has to be cut off right in
+this feature (e.g. when it still looks favourable), the result may be 
+worse than in a case where the search was cut off right in front.
+Another approach is to consider the very last search. The problem is that
+$n$ isn't always divisible by $k$, so I had to find a way to make $k$
+work anyways. I did this by simply stopping the last search as soon
+as a full path has been found. This leads to an A* search that
+is potentially much less deep than $k$. Perhaps the penalty by such 
+a small depth is bigger than the gain from increasing the other depths.
+
+
+
+\subsection{Ranking}
+
+Finally, let's discuss when to use which of the discussed algorithms. 
+Essentially, there
+are two categories. One the one hand we have DLA* and 2-Opt which are
+more suited if you care about finding a very short path and less about
+the runtime. On the other hand there are Swap and Greedy which behave
+provide less optimal answers but are much quicker. Within these categories
+2-Opt should be preferred over DLA* all the time and Greedy seems to be
+much better than Swap overall.\\
+Therefore, if you care about speed or want to solve TSP for very large
+graphs, you should choose Greedy. If you can afford it however, 2-Opt
+seems to be the better option. Obviously there are other algorithms
+out there that are very likely better in both cases. 
+
+\pagebreak
+\section*{Appendix}
+
+\graphicspath{{./data}}
+
+\makeatletter
+\newcounter{int}
+\@whilenum \value{int}<13\do {
+    \stepcounter{int}
+    \includegraphics[width=\textwidth]{test6_k_\theint.png}
+}
+\makeatother
+\makeatletter
+\setcounter{int}{9}
+\@whilenum \value{int}<39\do {
+    \stepcounter{int}
+    \includegraphics[width=\textwidth]{test6_n_\theint.png}
+}
+\makeatother
 
 
 \end{document}
