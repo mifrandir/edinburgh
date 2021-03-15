@@ -16,21 +16,21 @@ class Graph:
     # the n>0 case, where we read a general graph in a different format.
     # self.perm, self.dists, self.n are the key variables to be set up.
     def __init__(self, n, filename):
+        self.dists = []
         if n >= 0:
             self.n = n
-            self.dists = self.read_general(filename)
+            self.read_general(filename)
         else:
-            self.dists = self.read_euclidean(filename)
+            self.read_euclidean(filename)
             self.n = len(self.dists)
         self.perm = list(range(self.n))
 
     def read_general(self, filename):
-        ds = [[0 for _ in range(self.n)] for _ in range(self.n)]
+        self.dists = [[0 for _ in range(self.n)] for _ in range(self.n)]
         with open(filename, "r") as f:
             for l in f:
                 i, j, d = list(map(int, l.split()))
-                ds[i][j] = ds[j][i] = d
-        return ds
+                self.dists[i][j] = self.dists[j][i] = d
 
     def read_euclidean(self, filename):
         ps = []
@@ -38,12 +38,11 @@ class Graph:
             for l in f:
                 x, y = list(map(int, l.strip().split()))
                 ps.append((x, y))
-        ds = []
+        self.dists = []
         for p in ps:
-            ds.append([])
+            self.dists.append([])
             for q in ps:
-                ds[-1].append(euclid(p, q))
-        return ds
+                self.dists[-1].append(euclid(p, q))
 
     # Complete as described in the spec, to calculate the cost of the
     # current tour (as represented by self.perm).
@@ -74,7 +73,7 @@ class Graph:
     # if it improves the tour value.
     # Return True/False depending on success.
     def tryReverse(self, i, j):
-        if j > i:
+        if i > j:
             # which part of the tour we reverse is irrelevant
             # since edges have the same value in both directions
             i, j = j, i
@@ -87,7 +86,7 @@ class Graph:
         current_value = self.dists[a][b] + self.dists[c][d]
         swap_value = self.dists[a][c] + self.dists[b][d]
         if swap_value < current_value:
-            self.perm[i:j + 1].reverse()
+            self.perm[i:j + 1] = reversed(self.perm[i:j + 1])
             return True
         return False
 
@@ -107,7 +106,7 @@ class Graph:
         while better and (count < k or k == -1):
             better = False
             count += 1
-            for j in range(self.n - 1):
+            for j in range(self.n):
                 for i in range(j):
                     if self.tryReverse(i, j):
                         better = True
