@@ -623,4 +623,201 @@
     Let $G$ be a group, $p$ be a prime. If $p$ divides $\abs G$,
     then $G$ contains an element of order $g$. 
 \end{theorem}
+
+
+\section{Counting and Cayley}
+
+\subsection{P\'olya counting}
+
+\begin{definition}
+    Let $G$ be a finite group acting on a finite set $X$. For $g\in G$
+    define the \emph{fixed point set of $g$} to be
+    \begin{align*}
+        \fix(g) := \{x\in X : g\cdot x = x\}.
+    \end{align*} 
+\end{definition}
+
+\begin{theorem}
+    Let $G$ be a finite group acting on a finite set $X$. Then
+    the number of orbits in $X$ is
+    \begin{align*}
+        \frac{1}{\abs G} \sum_{g\in G} \abs{\fix(g)}.
+    \end{align*}
+\end{theorem}
+
+\subsection{Conjugacy and the class equation}
+
+\begin{lemma}
+    Let $h\in G$ and let $g\in G := X$. Then
+    \begin{align*}
+        h\cdot g := hg\inv h
+    \end{align*}
+    defines an action of a group $G$ on itself.
+\end{lemma}
+
+\setcounter{theorem}{3}
+\begin{definition}
+    Let $G$ be a group. We define the cntre of a group $G$ to be
+    \begin{align*}
+        C(G) := \{g\in G | gh = hg \text{ for all } h\in G\}.
+    \end{align*}
+    If $g\in C(G)$, we say that $g$ is central.
+\end{definition}
+
+\setcounter{theorem}{5}
+\begin{corollary}
+    Let $G$ be a group.
+    \begin{enumerate}
+        \item For all $g\in G$, the centraliser $C(g)$ is a subgroup of $G$.
+        \item The centre $C(G)$ is a subgroup of $G$.
+        \item If $G$ is finite and $g\in G$, then \begin{align*}
+            (\text{the number of conjugates of $g$ in $G$})\times
+            \abs{C(g)} = \abs G.
+        \end{align*}
+        \item $\{e\}$ is always a conjugacy class of $G$.
+        \item $\{g\}$ is a conjugacy class if and only if $g\in C(G)$. Hence
+        $C(G)$ is the union of all the one-element conjugacy classes.
+    \end{enumerate}
+\end{corollary}
+
+\begin{theorem}
+    Suppose that $G$ is a finite group with conjugacy classes
+    \begin{align*}
+        \conj_1, ..., \conj_n.
+    \end{align*}
+    We adopt the convention that $\conj_1=\{e\}$. Let the 
+    conjugacy classes have sizes $c_1=\abs{\conj_1},...,
+    c_n=\abs{\conj_n}$.
+    \begin{enumerate}
+        \item If $g\in\conj_k$ then $c_k=\frac{\abs{G}}{\abs{C(g)}}$.
+        In particular, $c_k$ divides the order of the group.
+        \item We have \begin{align*}
+            \abs G = c_1 + c_2 + \cdots c_n,
+        \end{align*}
+        and further each of the $c_j$ divides $\abs G$. This is called the
+        class equation of $G$.
+    \end{enumerate}
+\end{theorem}
+
+\setcounter{theorem}{8}
+\begin{theorem}
+    Let $G$ be a group.
+    \begin{enumerate}
+        \item If $\abs{G}=p^k$ where $p$ is prime and $k\in\N$, then $\abs{C(G)}\geq p$.
+        \item Every group $G$ of order $p^2$ (where $p$ is prime) is abelian.
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Conjugacy in $S_n$ is determined by cycle type}
+
+\begin{definition}
+    Let $n\in \N$, let $1\leq r \leq n$ and let $\{a_1, a_2, ..., a_r\}$
+    be $r$ distinct numbers between $1$ and $n$. The cycle
+    $(a_1a_2 ... a_r)$ denotes the element of $S_n$ that sends $a_1$
+    to $a_2$, $a_2$ to $a_3$, $...$, $a_{r-1}$ to $a_r$, and leaves
+    the remaining $n-r$ numbers fixed. We say the \emph{length} of the
+    cycle $(a_1 a_2 ... a_r)$ is $r$.
+\end{definition}
+
+\begin{definition}
+    Two cycles $(a_1 a_2 ... a_r)$ and $(b_1 b_2 ... b_s)$ are \emph{disjoint}
+    if
+    \begin{align*}
+        \{a_1, a_2, ..., a_r\}\cap\{b_1, b_2, ..., b_s\} = \emptyset.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Every permutation can be written as a product of disjoint cycles.
+\end{theorem}
+
+\setcounter{theorem}{4}
+\begin{definition}
+    Given $\sigma\in S_n$, write $\sigma=\sigma_1\cdots\sigma_k$
+    as a product of disjoint cycles $\sigma_1,...,\sigma_k$. For
+    each $t=1,...,n$ let $m_t$ denote the number of cycles in this product
+    that have length $t$. Then we say that $\sigma $ has cycle type
+    \begin{align*}
+        \underbrace{1,...,1}_{m_1} \underbrace{2,...,2}_{m_2},...
+        \underbrace{n, ..., n}_{m_n},
+    \end{align*}
+    which we often write simply as $1^{m_1}, 2^{m_2}, ..., n^{m_n}$.
+\end{definition}
+
+\setcounter{theorem}{6}
+\begin{lemma}
+    Let $\sigma\in S_n$, and write $\sigma$ as a product of disjoint
+    cycles, say 
+    \begin{align*}
+        \sigma = (a_1...a_r)(b_1...b_s)...
+    \end{align*}
+    Then for all $\tau\in S_n$,
+    \begin{align*}
+        \tau \sigma \inv\tau = (\tau(a_1)...\tau(a_r))(\tau(b_1)...\tau(b_s))...
+    \end{align*}
+    white is a product of disjoint cycles.
+\end{lemma}
+
+\begin{theorem}
+    Two permutations in $S_n$ are conjugate if and only if they
+    have the same cycle type.
+\end{theorem}
+
+\begin{theorem}
+    The number of elements of $S_n$ of cycle type $1^{m_1}$,
+    $2^{m_2}$, ..., $n^{m_n}$ is
+    \begin{align*}
+        \frac{n!}{m_1!...m_n!1^{m_1}2^{m_2}...n^{m_n}}.
+    \end{align*}
+\end{theorem}
+
+\subsection{Actions, homomorphisms, and Cayley's Theorem (NE)}
+
+\begin{lemma}
+    if $G$ acts on a set $X$, then for all $g\in G$ the map
+    \begin{align*}
+        f_g:X\to X
+    \end{align*}
+    defined by $x\mapsto g\cdot x$ is a bijection.
+\end{lemma}
+
+\begin{theorem}
+    Let $G$ be a group, and let $X$ be a set. Then
+    \begin{enumerate}
+        \item An action of $G$ on $X$ is equivalent ot a group homomorphism $\phi:G\to\bij(X)$.
+        \item The action is faithful if and only if $\phi$ is injective.
+        \item If the action is faithful, then $\phi$ gives an isomorphism of $G$ with $\gim\phi\leq\bij(X)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}(Cayley's Theorem)
+    Every finite group is isomorphic to a subgroup of a symmetric group. 
+\end{corollary}
+
+\subsection{Application to Platonic solids (NE)}
+
+\begin{definition}
+    Let $n\in\N$ and set
+    \begin{align*}
+        P=\prod_{1\leq i<j\leq n}(x_i-x_j).
+    \end{align*}
+    Let $X=\{P,-P\}$. Then $S_n$ acts on $X$ by
+    \begin{align*}
+        \sigma\cdot P= \prod_{1\leq i < j \leq n} (x_{\sigma(i)}-x_{\sigma(j)})
+    \end{align*}
+    If $\sigma\in S_n$ has the property that $\sigma\cdot P=P$,
+    we say that $\sigma$ is \emph{even}. If $\sigma\cdot P=-P$,
+    we say that $\sigma$ is \emph{odd}.
+\end{definition}
+
+\setcounter{theorem}{3}
+\begin{theorem}
+    Let $A_n$ denote the set of all even permutations in $S_n$.
+    Then $A_n$ is a subgroup of $S_n$ with $\abs{A_n}=
+    \abs{S_n}/2 = n!/2$. 
+\end{theorem}
+
+\begin{definition}
+    We call $A_n$ the \emph{alternating group}.
+\end{definition}
 \end{document}
