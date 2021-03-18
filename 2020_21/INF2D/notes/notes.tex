@@ -1607,4 +1607,92 @@ only the nonevidence variables. Before tallying the counts in the distribution f
 variable, each even is weighted by the product of the conditional probabilities for each evidence 
 variable, given its parents.
 
+\paragraph{Gibbs sampling} starts with an arbitrary state and generates a next state by randomly
+sampling a value for one of the nonevidence variables $X_i$. The sampling of $X_i$ is done
+conditioned on the current values of the variables in the Markov blanket of $X_i$.
+
+\section{Probabilisitc reasoning over time}
+
+\subsection{Time and uncertainty}
+
+\begin{definition}
+    The \emph{Markov assumption} states that the current
+    state depends on only a finite fixed number of previous states.
+\end{definition}
+
+\begin{definition}
+    A \emph{stationary process} is a process of change that is governed by laws
+    that do not themselves change over time.
+\end{definition}
+
+\subsection{Inference in temporal models}
+
+The basic inference tasks that must be solved are
+\begin{enumerate}
+    \item \emph{Filtering}: Computing the belief state given all the evidence to date.
+    I.e. \[\P(\vec X_t | \vec e_{1:t}) \text{ for some } t>0.\]
+    \item \emph{Prediction}: Computing the posterior distribution over the future
+    state given all evidence to date. I.e. \[\P(\vec X_{t+k}|\vec e_{1:t})\text{ for some }t,k>0.\]
+    \item \emph{Smoothing}: Computing the posterior distribution over a past state, given all evidence
+    up to the present. I.e. \[\P(\vec X_k | \vec e_{1:t}) \text{ for some } t>k>0.\] 
+    \item \emph{Most likely explanation}: Computing the sequence of states that is mostlikely to have
+    generated a sequence of observations. I.e. \[\P(\vec x_{1:t}|\vec e_{1:t}).\]
+\end{enumerate}
+
+\begin{definition}
+    \emph{Recursive estimation} is the process of computing the distribution $\P(\vec X_{t+1}|\vec e_{1:t+1})$
+    given the new evidence $e_{t+1}$ and the previous distribution $\P(\vec X_t|\vec e_{1:t})$. In other words,
+    it is given by a function $f$ such that
+    \begin{align*}
+        \P(\vec X_{t+1}|\vec e_{1:t+1})=f(\vec e_{t+1}, \P(\vec X_t|\vec e_{1:t})).
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    By conditioning on the current state $\vec X_t$ we obtain the one-step prediction for the
+    next state
+    \begin{align*}
+        \P(\vec X_{t+1}|\vec e_{1:t+1}) = \alpha \P(\vec e_{t+1}|\vec X_{t+1})\sum_{\vec x_t} \P(\vec X_{t+1}|\vec x_t)P(\vec x_t|e_{1:t}).
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    The time and space requirements for updating must be constant if
+    an agent with limited memory is to keep track of the current state
+    distribution over an unbounded sequence of observations.
+\end{theorem}
+
+\begin{theorem}
+    Given a time $t>k>0$ and evidence $\vec e_{1:t}$ we can compute the
+    past state $\vec X_k$ as follows
+    \begin{align*}
+        \P(\vec X_k|\vec e_{1:t}) = \alpha\P(\vec X_k|\vec e_{1:k})
+        \P(\vec e_{k+1:t} | \vec X_k) =: \alpha\vec f_{1:k}\times\vec b_{k+1:t}
+    \end{align*}
+    where $\times$ is pointwise multiplication and $b_{k+1:t}$ can be 
+    computed recursively with
+    \begin{align*}
+        \P(\vec e_{k+1:t}|\vec X_k) = \sum_{x_{k+1}}
+        P(\vec e_{k+1}|\vec x_{k+1})P(\vec e_{k+2:t})\P(\vec x_{k+1}|\vec X_k).
+    \end{align*}
+\end{theorem}
+
+\subsection{Matrix algorithms}
+
+\begin{theorem}
+    Let the state variable $X_t$ have values denoted by
+    integers $1,...,S$. The transition model $\P(X_t|X_{t-1})$
+    becomes an $S\times S$ matrix $T$ where
+    \begin{align*}
+        T_{ij} = P(X_t=j|X_{t-1}=i).
+    \end{align*}
+    Let $O_t$ be an $S\times S$ diagonal matrix whose $i$th
+    diagonal entry is $P(e_t|X_t=i)$. Then
+    \begin{align*}
+        \vec f_{1:t+1} = \alpha O_{t+1}T^T \vec f_{1:t}
+        \hs\text{and}\hs
+        \vec b_{k+1:t} = TO_{k+1}b_{k+2:t}.
+    \end{align*}
+\end{theorem}
+
 \end{document}
