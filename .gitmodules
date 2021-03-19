@@ -31,3 +31,6 @@
 [submodule "2020_21/CNU/tutorial08"]
 	path = 2020_21/CNU/tutorial08
 	url = https://github.com/cnu-2021/cnu-w08-tutorial-MiltFra
+[submodule "2020_21/CNU/tutorial09"]
+	path = 2020_21/CNU/tutorial09
+	url = https://github.com/cnu-2021/cnu-w09-tutorial-MiltFra
