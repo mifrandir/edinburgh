@@ -569,7 +569,7 @@
     and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
 \end{theorem}
 
-\subsection{The extreme and intermediate value theorems}
+\subsection{The Extreme and Intermediate Value Theorems}
 
 \begin{definition}
     Let $E\subset\R$ be nonempty. A function $f:E\to\R$ is said to be
@@ -712,6 +712,182 @@
     \begin{align*}
         \lim_{x\to a}f(x)\leq\lim_{x\to a} g(x).
     \end{align*}
+\end{theorem}
 
+
+\section{Differentiability of real functions}
+
+
+\subsection{Introduction}
+
+\begin{definition}[Ross, 28.1]
+    A real function $f$ is said to be differentiable at a
+    point $a\in\R$ if $f$ is defined at some open interval containing
+    $a$ and the limit
+    \begin{align*}
+        f'(a) := \lim_{x\to a}\frac{f(x)-f(a)}{x-a} 
+    \end{align*}
+    exists. The number $f'(a)$ is called the derivative of $f$
+    at point $a$.
+\end{definition}
+
+\begin{definition}
+    A real function $f$ is said to be differentiable ata point $a\in\R$
+    if $f$ is defined on some open interval containing $a$ and the
+    limit
+    \begin{align*}
+        f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+    \end{align*}
+    exists. The number $f'(a)$ is called the derivative of $f$
+    at point $a$
+\end{definition}
+
+\begin{theorem}[Ross, 28.2]
+    If $f$ is differentiable at $a$, then $f$ is continuous at $a$. 
+\end{theorem}
+
+\begin{definition}
+    Let $I$ be a non-degenerate interval.
+    \begin{enumerate}[label=(\arabic*)]
+        \item A function $f:I\to\R$ is said to be differentiable on $I$
+        if \[f'_I(a):= \lim_{x\to a'}\frac{f(x)-f(a)}{x-a}\] exists and is
+        finite at every $a\in I$.
+        \item $f$ is said to be continuously differentiable on $I$ if $f'_I$
+        exists and is continuous on $I$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition*}
+   Let $I$ be a non-degenerate interval. For each $n\in\Z_{\geq 0}$, we write
+   $C^n(I)$ to denote the collection of real functions whose $n$-th derivative
+   exists and is continuous on $I$.\\
+   \indent
+   Furthermore $C^\infty(I)$ means the intersection $\bigcap_{n\in\N}C^n(I)$. 
+\end{definition*}
+
+\subsection{Differentiability theorems}
+
+\begin{theorem}[Ross, 28.3]
+    Let $f,g$ be real functions and $\alpha\in\R$. If $f$ and $g$ are
+    differentiable at $a$, then $f+g$, $f\cdot g$, $\alpha f$ and
+    (if $g(a)\not=0$) also $f/g$ are all differentiable at $a$. We have
+    \begin{align*}
+        (\alpha f)'(a) &= \alpha f'(a),\\
+        (f+g)'(a) &= f'(a) + g'(a),\\
+        (f\cdot g)'(a) &= f'(a)g(a)+f(a)g'(a),\\
+        \left(\frac{f}{g}\right)'(a)&=\frac{f'(a)g(a)-f(a)g'(a)}{(g(a))^2}.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}[Ross, 28.4]
+    Let $f,g$ be real functions. If $f$ is differentiable at $a$ and $g$ is
+    differentiable at $f(a)$, then $g\circ f$ is differentiable at $a$ and
+    \begin{align*}
+        (g\circ f)'(a) = g'(f(a))f'(a).
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}(Power Rule)
+    Let $n\in \N$ and $q\in\Q$. Then
+    \begin{enumerate}[label=(\arabic*)]
+        \item $(x^n)'=nx^{n-1}$ for all $x\in\R$,
+        \item $(x^q)'=qx^{q-1}$ for all $x\in\R_{>0}$. 
+    \end{enumerate} 
+\end{theorem}
+
+\subsection{Mean Value Theorem}
+
+\begin{theorem}[Rolle's Theorem]
+    Suppose $a,b\in\R$ with $a<b$. If $f$ is continuous on $[a,b]$,
+    differentiable on $(a,b)$ and $f(a)=f(b)$, then $f'(c)=0$ for some
+    $c\in(a,b)$.
+\end{theorem}
+
+\begin{theorem}[Mean Value Theorem]
+    Suppose $a,b\in\R$ with $a<b$.
+    \begin{enumerate}
+        \item If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$
+        then tere is $c\in(a,b)$ such that \[f(b)-f(a)=f'(c)(b-a).\]
+        \item If $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$
+        then there is $c\in(a,b)$ such that
+        \[f'(c)(g(b)-g(a))=g'(c)(f(b)-f(a)).\]
+    \end{enumerate} 
+\end{theorem}
+
+\begin{lemma*}[Bernoulli's inequality]
+    Let $a>0$, $\delta \geq -1$. Then
+    \begin{align*}
+        (1+\delta)^\alpha&\leq 1+\delta\alpha,\hs\text{if }\alpha\in(0,1],\\
+        (1+\delta)^\alpha&\geq 1+\delta\alpha,\hs\text{if }\alpha\in[1,\infty).
+    \end{align*} 
+\end{lemma*}
+
+\subsection{Monotone functions and the inverse functions theorem}
+
+\setcounter{theorem}{1}
+\begin{theorem}[Ross, 29.7]
+   Let $a<b$ be real and $f$ be continuous on $[a,b]$ and differentiable
+   on $(a,b)$.
+   \begin{enumerate}[label=(\arabic*)]
+       \item If $f'(x)>0$ for all $x\in(a,b)$ then $f$ is strictly increasing on $[a,b]$.
+       \item If $f'(x)<0$ for all $x\in(a,b)$ then $f$ is strictly decreasing on $[a,b]$.
+       \item If $f'(x)=0$ for all $x\in(a,b)$ then $f$ is constant on $[a,b]$. 
+   \end{enumerate} 
+\end{theorem}
+
+\begin{theorem}
+    Let $f$ be injective and continuous on an interval $I$. Then $f$ is strictly
+    monotone on $I$ and the inverse function $\inv f$ is continuous and
+    strictly monotone on $f(I)$. 
+\end{theorem}
+
+\setcounter{theorem}{4}
+\begin{theorem}(Inverse function theorem)
+    Let $f$ be injective and continuous on an open interval $I$.
+    If $a\in f(I)$ and $f'$ at the point $\inv f(a)$ exists and is
+    nonzero, then $\inv f$ is differentiable at a and
+    \begin{align*}
+        (\inv f)'(a) = \frac{1}{f'(\inv f(a))}.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[L'Hoptial's Rule]
+    Let $a$ be an extended real number and $I$ an interval that
+    either contains $a$ or has $a$ as an endpoint.\\
+    \indent Let $f,g$ be differentiable on $I\setminus\{a\}$ and
+    $g(x)\not=0\not=g'(x)$ for all $x\in I\setminus\{a\}$. Suppose further
+    that
+    \begin{align*}
+        A=\lim_{x\to a, x\in I}=\lim_{x\to a,x\in I}g(x)
+    \end{align*}
+    is either $0$ or $\infty$. If $B=\lim_{x\to a,x\in I}\frac{f'(x)}{g'(x)}$
+    exists as an extended real number, then
+    \begin{align*}
+        \lim_{x\to a, x\in I}\frac{f(x)}{g(x)}=\lim_{x\to a, x\in I}
+        \frac{f'(x)}{g'(x)}.
+    \end{align*}
+\end{theorem}
+
+\subsection{Taylor's theorem}
+
+\begin{definition}
+    Let $n\in\N$ and $a<b$ be extended real numbers. If $f:(a,b)\to\R$
+    is a function differentiable $n$-times at a point $x_0\in(a,b)$
+    we call the polynomial
+    \begin{align*}
+        P_n^{f,x_0}(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k
+    \end{align*}
+    \emph{Taylor's polynomial} of degree $n$ at $x_0$. Note that
+    $f^{(0)}=f$, $0!=1$ and $(x-x_0)^0=1$.
+\end{definition}
+
+\begin{theorem}[Taylor's formula]
+    Let $n\in\N$ and $a<b$ be extended real numbers. If $f:(a,b)\to\R$
+    and if $f^{(n+1)}$ exsits on $(a,b)$, then for each $x,x_0\in(a,b)$
+    there exists a number $c$ between $x$ and $x_0$ which depends on $n$,
+    $x$ and $x_0$, such that
+    \begin{align*}
+        f(x)=P_n^{f,x_0}(x) +\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
+    \end{align*} 
 \end{theorem}
 \end{document}
