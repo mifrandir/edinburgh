@@ -43,7 +43,9 @@
                 )
             )
         )
-        :effect (holding ?s)
+        :effect (and (holding ?s) (forall
+                (?x - chamber)
+                (not (isAt ?x ?s))))
     )
 
     (:action slay
