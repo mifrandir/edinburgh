@@ -1,4 +1,4 @@
-(define (problem travelling-21)
+(define (problem travelling_22)
     (:domain travelling)
     (:objects
         Sword - weapon
@@ -25,6 +25,9 @@
     )
 
     (:goal
-        (defeated Minobot)
+        (and
+            (defeated Minobot)
+            (isAt E Agent)
+        )
     )
 )
