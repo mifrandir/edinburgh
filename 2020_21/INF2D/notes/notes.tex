@@ -1695,4 +1695,145 @@ The basic inference tasks that must be solved are
     \end{align*}
 \end{theorem}
 
+\subsection{Dyanamic Bayesian networks}
+
+\begin{definition}
+    To construct a \emph{dynamic Bayesian network} three kinds of information
+    are required:
+    \begin{enumerate}
+        \item $\P(\vec X_0)$, the prior distribution over the state variables,
+        \item $\P(\vec X_{t+1}|\vec X_t)$, the transition model,
+        \item $\P(\vec E_t | \vec X_t)$, the sensor model.
+    \end{enumerate}
+    Since the transition and sensor model are assumed to be stationary they only
+    need to be specified for the first slice.
+\end{definition}
+
+\begin{definition}
+    There are two types of failures of a sensor:
+    \begin{enumerate}
+        \item \emph{transient}: The sensor occasionally produces invalid outputs.
+        \item \emph{persistent}: The sensor produces invalid outputs from a specific point in time onwards.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}
+    The \emph{persistent failure model} handles persistent failures of a sensor $S$ by introducing
+    a variable $B_{S,t}$ that indicates whether $S$ is in a failure state. Between each pair
+    $B_{S,t}, B_{S,t+1}$ there exists a \emph{persistence arc} that specifies that the sensor can
+    fail with a small probability at each time step but once  it has failed it will never recover.
+\end{definition}
+
+\begin{theorem}
+    Inference in dynamic Bayesian networks at some point in time $t$ can be achieved by unrolling
+    in to the finite Bayesian network up to and including $t$ and applying standard Bayesian 
+    inference in $O(t)$ time.
+\end{theorem}
+
+\begin{definition}
+    \emph{Particle filtering} describes a family of algorithms that are designed
+    for approximate inference in dynamic Bayesian networks. Initially, a population of
+    $N$ initial-state samples is created by sampling from $\P(\vec X_0)$. Then at each
+    step the following update cycle is repeated:
+    \begin{enumerate}
+        \item Each sample is propagated forward by sampling the next state value $\vec x_{t+1}$
+        given the current state value $\vec x_t$ based on the transition model $\P(\vec X_{t+1}|\vec x_t)$.
+        \item Each sample is weighted by the likelihood it assigns to the new evidence, $P(\vec e_{t+1}|\vec x_{t+1})$.
+        \item The population is resampled to generate a new population of $N$ samples. Each new sample is
+        selected from the current population; the probability that a particular sample is selected is proportional
+        to its weight. The new samples are unweighted.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    Particle filtering is consistent.
+\end{theorem}
+
+\section{Making simple decisions}
+
+\subsection{Basics of utility theory}
+
+\begin{definition}
+    A \emph{utility function} $U:S\to\R$ assigns each state $s\in S$ a desirability
+    $U(s)$. The \emph{expected utility} of an action given the evidence, $EU(a|\vec e)$,
+    is the weighted average of the outcomes
+    \begin{align*}
+        EU(a|\vec e)=\sum_{s'} P(\text{RESULT}(a)=s'|a,\vec e)U(s').
+    \end{align*}
+    The principle of \emph{maximum expected utility} states that a rational agent
+    should choose the action that maximised the agent's expected utility.
+\end{definition}
+
+\begin{definition}
+    A lottery $L$ with possible outcomes $S_1,...,S_n$ that occur with probabilities
+    $p_1,...,p_n$ is written
+    \begin{align*}
+        L=[p_1,S_1;\:p_2,S_2;\:... p_n,S_n].
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Axioms of Utility Theory]
+    Any reasonable preference relation should obey the following constraints
+    \begin{enumerate}
+        \item \emph{Orderability}: Exactly one of $A\prec B$, $A\succ B$, or $A\sim B$ holds.
+        \item \emph{Transitivity}: $(A \succ B)\wedge(B\succ C) \Rightarrow A\succ C$.
+        \item \emph{Continuity}: $A\succ B\succ C\Rightarrow \exists p.\: [p,A;\:1-p,C]\sim B$.
+        \item \emph{Substitutability}: $A\sim B\Rightarrow [p,A;\:1-p,C]\sim [p,A;\:1-p,C]$.
+        \item \emph{Monotonicity}: $A\succ B\Rightarrow (p>q\Leftrightarrow [p,A;\:1-p,B]\succ[q,A;\:1-q,B])$.
+        \item \emph{Decomposability}: $[p,A;\:1-p,[q,B;\:1-q,C]]\sim[p,A;\:(1-p)q,B;\:(1-p)(1-q),C]$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    If an agent's preferences obey the axioms of utility, then there
+    exists a utility function $U$ such that for any two outcomes $A$
+    and $B$
+    \begin{align*}
+        U(A)&>U(B)\Leftrightarrow A\succ B,\\
+        U(A)&=U(B)\Leftrightarrow A\sim B.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}
+    The utility of a lottery is given by
+    \begin{align*}
+        U([p_1,S_1;...;p_n,S_n]) = \sum_i p_i U(S_i).
+    \end{align*}
+\end{theorem}
+
+\subsection{Utility functions}
+
+\begin{definition}
+    The values of a utility functions can be fixed by $U(S)=u_\top$ for the
+    best possible outcome and $U(S)=u_\bot$ for the worst possible outcome.
+    If a utility function is \emph{normalised} it uses $u_\top = 1$ and
+    $u_\bot = 0$.
+\end{definition}
+
+\subsection{Decision networks}
+
+\begin{definition}
+    A \emph{decision network} uses three types of nodes:
+    \begin{itemize}
+        \item \emph{Chance nodes} (ovals) represent random variables, like in Bayesian networks.
+        \item \emph{Decision nodes} (rectangles) represent points where the decision maker
+        has a choice of actions. 
+        \item \emph{Utility nodes} (diamonds) represent the agent's utility function.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}
+    The algorithm for evaluating decision networks is the following:
+    \begin{enumerate}
+        \item Set the evidence variables for the current state.
+        \item For each possible value of the decision node: \begin{enumerate}
+            \item Set the decision node to that value.
+            \item Calculate the posterior probabilities for the parent nodes of
+            the utility node, using a standard probabilistic inference algorithm.
+            \item Calculate the resulting utility for the action.
+        \end{enumerate}
+        \item Return the action with the highest utility.
+    \end{enumerate}
+\end{theorem}
+
 \end{document}
