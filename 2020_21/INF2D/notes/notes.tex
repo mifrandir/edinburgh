@@ -399,7 +399,7 @@ explored states.
 
     \begin{pseudo}
         \textbf{function} MINIMAX-DECISION(\emph{state}) \textbf{returns} \emph{an action}\\+
-            \textbf{return} $\text{argmax}_{a\in\text{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
+            \textbf{return} $\argmax_{a\in\text{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
         \\
         \textbf{function} MAX-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
             \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
@@ -1834,6 +1834,128 @@ The basic inference tasks that must be solved are
         \end{enumerate}
         \item Return the action with the highest utility.
     \end{enumerate}
+\end{theorem}
+
+
+\section{Making complex decisions}
+
+
+\subsection{Sequential decision problems}
+
+\begin{definition}[MDP and policy]
+    A sequential decision problem for a fully observable, stochastic environment
+    with a Markovian transition model and additive rewards is called a \emph{Markovian
+    decision problem} and consists of a set of states, a set $\text{ACTIONS}(s)$ of
+    actions in each state $s$, a transition model $P(s'|s,a)$, and a reward function
+    $R(s)$.\\
+    A solution for such a problem must specify the agent's behaviour for any state
+    and is called a \emph{policy}.
+\end{definition}
+
+\begin{definition}
+    Let $U_h$ be a utility function on environment histories. Then, if there exists
+    a fixed time $N$ such that for all $k\in\N$
+    \begin{align*}
+        U([s_0,s_1,...,s_{N+k}]) = U([s_0,s_1,...,s_N]) 
+    \end{align*}
+    we say there is a \emph{finite horizon}. Otherwise there is a \emph{infinite
+    horizon}.
+\end{definition}
+
+\begin{theorem}
+    With a finite horizon the optimal action in a given state can change over time.
+\end{theorem}
+
+\begin{definition}
+    An agent's preferences are stationary if for two state sequences
+    $[s_0, s_1, s_2, ...]$ and $[s_0', s_1', s_2'...]$ with $s_0=s_0'$ we have
+    \begin{align*}
+        [s_0, s_1, s_2, ...] \prec [s_0', s_1', s_2'...]\hs&\Leftrightarrow\hs
+        [s_1, s_2, ...] \prec [s_1', s_2', ...],\\
+        [s_0, s_1, s_2, ...] \sim [s_0', s_1', s_2'...]\hs&\Leftrightarrow\hs
+        [s_1, s_2, ...] \sim [s_1', s_2', ...].
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Let an agent's preferences be stationary. Then there are just two coherent
+    ways to assign utilities to a sequence of states $[s_0, s_1, s_2, ...]$
+    \begin{enumerate}
+        \item \emph{Additive rewards}: The utility is \begin{align*}
+            U_h([s_0, s_1, s_2, ...]) = R(s_0) + R(s_1) + R(s_2) + \cdots.
+        \end{align*}
+        \item \emph{Discounted rewards}: For some $\gamma\in(0,1)$ the utility is \begin{align*}
+            U_h([s_0, s_1, s_2, ...]) = R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots.
+        \end{align*}
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    The utility of an infinite sequence $[s_0, s_1, s_2, ...]$ with discounted 
+    rewards and a reward function bounded by $\pm \hat R$ is bounded by
+    \begin{align*}
+        U_h([s_0, s_1, s_2, ...]) = \sum_{t=0}^\infty \gamma^t R(s_t) \leq \frac{\hat R}{1-\gamma}.
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    A policy that is guaranteed to reach a terminal state is called \emph{proper}.
+\end{definition}
+
+\begin{definition}
+    The expected utility obtained by executing a policy $\pi$ starting in $s$ is given by
+    \begin{align*}
+        U^\pi(s) = E\left[\sum_{t=0}^\infty \gamma^t R(S_t)\right]
+    \end{align*}
+    where the expectation is with respect to the probability distribution over state
+    sequences determined by $s$ and $\pi$. The policy $\pi_s^*$ given by
+    \begin{align*}
+        \pi_s^*=\argmax\limits_\pi U^\pi(s)
+    \end{align*}
+    is the one that has higher expected utilities than all the others.
+\end{definition}
+
+\begin{corollary}
+    The policy $\pi_s^*$ is optimal when $s$ is the starting state.  
+\end{corollary}
+
+\begin{theorem}
+    Consider an environment with a state space $S$, an infinite horizon and discounted utilities. The
+    policy $\pi_s^*$ is optimal for some $s\in S$ is optimal for all $s'\in S$.
+\end{theorem}
+
+\subsection{Value iteration}
+
+\begin{theorem}[Bellman equation]
+    The utility of a state is given by
+    \begin{align*}
+        U(s) = R(s) + \gamma \max_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s').
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}
+    The value iteration algorithm given by the Bellman update
+    \begin{align*}
+        U_{i+1}(s) \leftarrow R(s) + \gamma\max_{a\in A(s)} \sum_{s'} P(s'|s,a)U_i(s')
+    \end{align*}
+    is guaranteed to reach an equilibrium after some finite number of steps
+    and the resulting policy is optimal.
+\end{theorem}
+
+\subsection{Policy iteration}
+
+\begin{theorem}
+    The \emph{policy iteration} algorithm alternates the following two steps beginning
+    from some initial policy $\pi_0$:
+    \begin{itemize}
+        \item \emph{Policy evaluation}: given a policy $\pi_i$, calculate $U_i=U^{\pi_i}$,
+        the utility of each state if $\pi_i$ were to be executed.
+        \item \emph{Policy improvement}: Calculate a new policy $\pi_{i+1}$, using one step
+        look-ahead based on $U_i$ as in
+        \begin{align*}
+            \pi^*(s) = \argmax_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s')
+        \end{align*}
+    \end{itemize}
 \end{theorem}
 
 \end{document}
