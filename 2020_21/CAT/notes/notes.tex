@@ -116,6 +116,14 @@
     \item \textbf{Mon}: of monoids and monoid homomorphisms
 \end{itemize}
 
+\begin{definition}
+    For a category $\cat C$ the collection of morphisms between two objects
+    $X$ and $Y$ is denoted as
+    \begin{align*}
+        \Hom_{\cat C}(X,Y).
+    \end{align*}
+\end{definition}
+
 \subsection{Isomorphisms}
 
 \begin{definition}
@@ -209,4 +217,106 @@
     defined by $g_*(f)= g\circ f$.
 \end{definition*}
 
+\subsection{Free categories}
+
+\begin{definition}[UMP of $M(A)$]
+    Every monoid $N$ has an underlying set $\abs N$, and every monoid
+    homomorphism $f:N\to M$ has an underlying function $\abs f: \abs N
+    \to \abs M$.
+    The free monoid $M(A)$ on a set $A$ is defined to be
+    the monoid with the \emph{universal mapping property}. 
+    I.e. there is a function $i:A\to \abs{M(A)}$, and given any
+    monoid $N$ and any function $f:A\to\abs N$, there is a
+    \emph{unique} monoid homomorphism $\bar f: M(A)\to N$
+    such that $\abs f \circ i = f$.
+\end{definition}
+
+\begin{proposition}
+    Given a set $A$, the \emph{Kleene colosure} $A^*$ containing 
+    all the finite sequences of elements of $A$ has the UMP of the
+    free monoid on $A$.
+\end{proposition}
+
+\begin{proposition}
+    Given monoids $M$ and $N$ with functions $i:A\to\abs M$ and
+    $j:A\to\abs N$, each with the UMP of the free monoid on $A$,
+    there is a (unique) monoid isomorphism $h:M\cong N$ such that
+    $\abs h i=j$ and $\abs{\inv h}j = i$.
+\end{proposition}
+
+\begin{definition}
+    Let $G$ be a graph. Then the free category $\cat C(G)$ has the vertices
+    of $G$ as objects and the paths in $G$ as arrows, where a path is a finite
+    sequence of edges $e_1,...,e_n$ where $t(e_i)=s(e_{i+1})$.
+\end{definition}
+
+\begin{definition}[UMP of $\cat C(G)$]
+    The free category on a graph has the UMP. I.e. there is a graph
+    homomorphism $i:G\to\abs{\cat C(G)}$, and given any category $\cat D$
+    and any graph homomorphism $h:G\to\abs D$, there is a unique functor
+    $\bar h:\cat C(G)\to \cat D$ with $\abs{\bar h}\circ i = h$.    
+\end{definition}
+
+\subsection{Foundations}
+
+\begin{definition}
+    A category $\cat C$ is called \emph{small} if both the collection $C_0$
+    of objects and the collection $C_1$ of arrows are sets. Otherwise $\cat C$
+    is \emph{large}.
+\end{definition}
+
+\begin{definition}
+    A category $\cat C$ is called \emph{locally small} if for all objects
+    $X,Y\in\cat C$, the collection $\Hom_{\cat C}(X,Y)$ is a set.
+\end{definition}
+
+\section{Abstract structures}
+
+
+\subsection{Epis and monos}
+
+\begin{definition}
+    In any category $\cat C$, an arrow $f:A\to B$ is called a
+    \begin{itemize}
+        \item \emph{monomorphism} and we write $f:A\mono B$, if given any $g,h:C\to A$, $fg=fh$ implies $g=h$,
+        \item \emph{epimorphism} and we write $f:A\epi B$, if given any $i,j:B\to D$, $if=jf$ implies $i=j$. 
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}
+    A function $f:A\to B$ between sets is monic (epic) if and only if it is injective (surjective).
+\end{proposition}
+
+\begin{proposition}
+    Every isomorphism is both monic and epic.
+\end{proposition}
+
+\begin{definition}
+    A \emph{split} mono (epi) is an arrow with a left (right) inverse. Given
+    arrows $e:X\to A$ and $s:A\to X$ such that $es=1_A$, the arrow $s$ is called
+    a \emph{section} or \emph{splitting} of $e$, and the arrow $e$ is called a
+    \emph{retraction} of $s$. The object $A$ is called a \emph{retract} of $X$.
+\end{definition}
+
+\begin{definition}
+    An object $P$ is said to be \emph{projective} if for any epi $e:E\epi X$
+    and arrow $f:P\to X$ there is some arrow $\bar f:P\to E$ such that
+    $e\circ \bar f = f$.
+\end{definition}
+
+\subsection{Initial and terminal objects}
+
+\begin{definition}
+    In any category $\cat C$, an object
+    \begin{itemize}
+        \item $0$ is \emph{initial} if for any object $C$ there is a unique morphism
+        \[0\to C,\]
+        \item $1$ is \emph{terminal} if for any object $C$ there is a unique morphism
+        \[C\to 1.\]
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}
+    Initial (terminal) objects are unique up to isomorphism.    
+\end{proposition}
 \end{document}
