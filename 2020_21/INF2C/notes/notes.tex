@@ -28,7 +28,7 @@ Downside: Low information density
 \subsection{Fixed bit-length arithmetic}
 Issue: Hardware cannot operate on infinitely big numbers.
 \begin{definition}
-	An \B{Overflow} happens when a result does not fit the representation.
+	An \textbf{Overflow} happens when a result does not fit the representation.
 	Arithmetic therefore is module $2^N$, where $N$ is the number of bits.
 \end{definition}
 \subsection{Negative numbers}
@@ -66,8 +66,8 @@ Process of converting from a smaller to a larger representation.
 MSB is extended to all the new bits.
 \subsubsection{Overflow detection}
 \begin{enumerate}
-	\item If numbers with \B{opposite signs} are \B{added}, no overflow is possible.
-	\item If numbers with \B{identical signs} are \B{substracted}, no overflow is possible.
+	\item If numbers with \textbf{opposite signs} are \textbf{added}, no overflow is possible.
+	\item If numbers with \textbf{identical signs} are \textbf{substracted}, no overflow is possible.
 \end{enumerate}
 \begin{tabular}{| c | c | c | c |}
 	\hline
@@ -155,7 +155,7 @@ This results in the number
 \end{enumerate}
 \section{MIPS ISA}
 \begin{definition}
-	The \B{instruction set architecture} (ISA) is the interface between
+	The \textbf{instruction set architecture} (ISA) is the interface between
 	the software and the hardware.
 	\begin{itemize}
 		\item Collection of all machine instructions recognised by
@@ -166,7 +166,7 @@ This results in the number
 	\end{itemize}
 \end{definition}
 \begin{definition}
-	\B{Assembly language} is a symbolic representation of machine instructions
+	\textbf{Assembly language} is a symbolic representation of machine instructions
 	\begin{itemize}
 		\item makes it easy for humans to read and write machine code
 		\item 1-to-1 mapping between a machine instructions and a corresponding
@@ -175,7 +175,7 @@ This results in the number
 \end{definition}
 \subsection{Instructions}
 \begin{itemize}
-	\item Separate instructions to \B{access} data in memory \& operate on it.
+	\item Separate instructions to \textbf{access} data in memory \& operate on it.
 \end{itemize}
 
 \begin{tabular}{| l | l | l | l |}
@@ -190,16 +190,16 @@ This results in the number
 \end{tabular}
 \subsection{Fields}
 \begin{itemize}
-	\item \B{op}: Basic operation of the instruction
-	\item \B{rs}: The first register source operand
-	\item \B{rt}: The second register source operand
-	\item \B{rd}: The register destination operand
-	\item \B{shamt}: Shift amount
-	\item \B{funct}: Function
+	\item \textbf{op}: Basic operation of the instruction
+	\item \textbf{rs}: The first register source operand
+	\item \textbf{rt}: The second register source operand
+	\item \textbf{rd}: The register destination operand
+	\item \textbf{shamt}: Shift amount
+	\item \textbf{funct}: Function
 \end{itemize}
 \newcommand{\cellw}{1.3cm}	
 \begin{tabular}{l l}
-	\B{R-type:} &
+	\textbf{R-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} |}
 		\hline
 		op & rs & rt & rd & shamt & funct \\
@@ -207,7 +207,7 @@ This results in the number
 		6 bits & 5 bits & 5 bits & 5 bits & 5 bits & 6 bits\\
 		\hline	
 	\end{tabular}\\\\
-	\B{I-type:} &
+	\textbf{I-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} p{\cellw} p{\cellw} |}
 		\hline
 		op & rs & rt & address & & \\
@@ -215,7 +215,7 @@ This results in the number
 		6 bits & 5 bits & 5 bits & 16 bits & & \\
 		\hline
 	\end{tabular}\\\\
-	\B{J-type:} &
+	\textbf{J-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} p{\cellw} p{\cellw} p{\cellw} p{\cellw} |}
 		\hline
 		op & address & & & & \\
@@ -257,7 +257,7 @@ The 26-bits of the address are concatenated with the upper 4 bits of the PC.\\
 Example: \T{j L1}
 \subsection{Idioms}
 \subsubsection{Conditionals}
-\B{Simple equality:}
+\textbf{Simple equality:}
 \begin{minted}{C}
 if (a == b) {
 	a = a + b
@@ -269,7 +269,7 @@ Assume \T{a} is in \T{\$t0} and \T{b} is in \T{\$t1}.
       add      $t0,$t1,$t0
 Exit: # more code
 \end{verbatim}
-\B{\T{max(a,b)} function:}
+\textbf{\T{max(a,b)} function:}
 \begin{minted}{C}
 if (a > b) {
 	c = a
@@ -288,7 +288,7 @@ ENDIF:
 \end{verbatim}
 \subsubsection{Loops}
 \subsubsection{Procedures}
-\B{Pushing/Poppping values:}
+\textbf{Pushing/Poppping values:}
 \begin{verbatim}
 push: li  $t0,4
       sub $sp,$sp,$t0
@@ -387,7 +387,7 @@ Because building circuits for many inputs is complicated, we need modules.
 \end{itemize}
 \subsection{Propagation delay}
 \begin{definition}
-	\B{Propagation delay} is the delay between input signal
+	\textbf{Propagation delay} is the delay between input signal
 	change and output signal change at the other end.
 \end{definition}
 Delay depends on
@@ -400,7 +400,7 @@ $\Rightarrow$ 65 gates are necessary to compute the final bit of the sum.
 \subsection{Sequential logic circus}
 \begin{itemize}
 	\item Output depends on current and (some of the) past inputs, i.e. the circuit has memory
-	\item sequences of inputs generate sequences of outputs $\Rightarrow$ \B{sequential logic}
+	\item sequences of inputs generate sequences of outputs $\Rightarrow$ \textbf{sequential logic}
 \end{itemize}
 Simplest memory element: $O_t = I_t \vee O_{t-1}$ where $O_{t-1}$ is the feedback from the last
 computation. 
@@ -414,10 +414,10 @@ SR Latch:
 Problem: Different paths may have different delays. This leads to invalid outputs, i.e. glitches.
 \subsection{Timing of events}
 \begin{itemize}
-	\item State can only change at times synchronised to an external signal, the \B{clock}
+	\item State can only change at times synchronised to an external signal, the \textbf{clock}
 	\item clock signal is combined with circuit (AND) right before the output
 \end{itemize}
-\B{Writing SR latch (D latch)}:
+\textbf{Writing SR latch (D latch)}:
 \begin{itemize}
 	\item single input $D$, $R=\neg D$ and $S=D$
 	\item clock before inputs to SR latch
@@ -426,19 +426,19 @@ Problem: Different paths may have different delays. This leads to invalid output
 		\item $Q$ can change while clock is $1$
 	\end{itemize}
 \end{itemize}
-\B{Edge-triggered D flip-flop}:
+\textbf{Edge-triggered D flip-flop}:
 \begin{itemize}
-	\item on a \B{positive clock edge}, $D$ is propagated to $Q$
+	\item on a \textbf{positive clock edge}, $D$ is propagated to $Q$
 \end{itemize}
-\B{Register}:
+\textbf{Register}:
 \begin{itemize}
 	\item tie multiple $D$ flip-flops together using a common clock
 \end{itemize}
 \begin{definition}
 Difference between latch and flip flop:
 \begin{enumerate}
-	\item A latch is \B{level triggered}.
-	\item A flip flop is \B{edge triggered}.
+	\item A latch is \textbf{level triggered}.
+	\item A flip flop is \textbf{edge triggered}.
 \end{enumerate}
 \end{definition}
 \section{Processor Design}
@@ -453,24 +453,24 @@ Difference between latch and flip flop:
 \end{theorem}
 \subsection{Main processor functions}
 \begin{itemize}
-	\item Fetch instructions from \B{instruction memory}
-	\item Read the \B{register} operands
-	\item Use the \B{ALU} for computation
-	\item Acces \B{data memory} for load/store
-	\item Store the result of computation or loaded data into the destination \B{register}
-	\item Update the \B{Program Counter (PC)}
+	\item Fetch instructions from \textbf{instruction memory}
+	\item Read the \textbf{register} operands
+	\item Use the \textbf{ALU} for computation
+	\item Acces \textbf{data memory} for load/store
+	\item Store the result of computation or loaded data into the destination \textbf{register}
+	\item Update the \textbf{Program Counter (PC)}
 \end{itemize}
 \subsection{Single-cycle}
 \subsubsection{Fetch}
 \begin{itemize}
-	\item PC value into \B{read address} of instruction memory
+	\item PC value into \textbf{read address} of instruction memory
 	\item instruction value (32-bit word) out of instruction memory
 \end{itemize}
 \subsubsection{Update the PC}
 \begin{itemize}
 	\item actually the first step
 	\item write $\texttt{PC}=\texttt{PC}+4$ immediately
-	\item this is \B{concurrent} with everything else, but clock stops the PC output from changing 
+	\item this is \textbf{concurrent} with everything else, but clock stops the PC output from changing 
 \end{itemize}
 \subsubsection{R-Format Instructions}
 \begin{enumerate}
@@ -508,8 +508,8 @@ Difference between latch and flip flop:
 \begin{itemize}
 	\item controls all the multiplexors
 	\item not every instruction needs specific values for all control values
-	\item irrelevant states are called \B{Don't Care}
-	\item separate \B{ALU control} to handle ALU operation mode
+	\item irrelevant states are called \textbf{Don't Care}
+	\item separate \textbf{ALU control} to handle ALU operation mode
 \end{itemize}
 \subsection{Multi-cycle}
 \begin{itemize}
@@ -523,24 +523,24 @@ Components:
 	\item single ALU
 	\item registers
 \end{itemize}
-\B{Data required in subsequent cycles must be stored somewhere.}
+\textbf{Data required in subsequent cycles must be stored somewhere.}
 \begin{itemize}
 	\item used by subsequent instructions: registers \& memory
 	\item used by current instruction: special registers (not visible to programmer) 
 \end{itemize}
 \subsubsection{Process}
-\B{Cycle 1:} Fetch (access memory)
+\textbf{Cycle 1:} Fetch (access memory)
 \begin{verbatim}
 	IR <= Mem[PC]
 	PC <= PC+4
 \end{verbatim}
-\B{Cycle 2:} Decode and read
+\textbf{Cycle 2:} Decode and read
 \begin{verbatim}
 	A      <= Reg[IR[25:21]]
 	B      <= Reg[IR[20:16]]
 	ALUOut <= PC+sgnext(IR[15:0]<<2)
 \end{verbatim}
-\B{Cycle 3:}
+\textbf{Cycle 3:}
 \begin{enumerate}
 	\item R-type arithmetic/logical instruction \begin{verbatim}
 		ALUOut <= A op B
@@ -555,7 +555,7 @@ Components:
 		PC <= {PC[31:28],IR[25:0],2'b00}
 	\end{verbatim}
 \end{enumerate}
-\B{Cycle 4:}
+\textbf{Cycle 4:}
 \begin{enumerate}
 	\item R-type arithmetic/logical completion \begin{verbatim}
 		Reg[IR[15:11]] <= ALUOut
@@ -567,7 +567,7 @@ Components:
 		Mem[ALUOut] <= B
 	\end{verbatim}
 \end{enumerate}
-\B{Cycle 5:} Load completion
+\textbf{Cycle 5:} Load completion
 \begin{verbatim}
 	Reg[IR[20:16]] <= MDR
 \end{verbatim}
@@ -635,7 +635,7 @@ Use a combination of memory kinds
 \subsection{In a modern processor}
 
 
-Small, fast \B{cache} next to a processor backed up by larger \& slower chache(s) and main
+Small, fast \textbf{cache} next to a processor backed up by larger \& slower chache(s) and main
 memory give the impression of a single, large, fast memory.
 
 Addresses temporal locality:
@@ -648,7 +648,7 @@ Addresses temporal locality:
 \noindent Addresses spatial locality:
 \begin{itemize}
 	\item If need to move a word from slower to faster memory, move adjacent words.
-	\item \B{blocks} \& \B{pages}: units of storage within the caches
+	\item \textbf{blocks} \& \textbf{pages}: units of storage within the caches
 \end{itemize}
 
 \noindent Storage units:
@@ -687,27 +687,27 @@ Addresses temporal locality:
 \subsubsection{Terminology}
 
 \begin{definition}
-	A \B{block} is a unit of data stored in the cache. Typically 32-128 bytes.
+	A \textbf{block} is a unit of data stored in the cache. Typically 32-128 bytes.
 \end{definition}
 \begin{definition}
-	A \B{hit} occurs when the desired data is found in the cache.
+	A \textbf{hit} occurs when the desired data is found in the cache.
 \end{definition}
 \begin{definition}
-	A \B{miss} occurs when the desired data cannot be found in the cache.
+	A \textbf{miss} occurs when the desired data cannot be found in the cache.
 	\Rightarrow search continues at the next level of the memory.
 \end{definition}
 \begin{definition}
-	The \B{hit rate} is the fraction of accesses that are hits at a given level of the memory hierarchy.
+	The \textbf{hit rate} is the fraction of accesses that are hits at a given level of the memory hierarchy.
 \end{definition}
 \begin{definition}
-	The \B{miss rate} is the fraction of accesses that are misses at a given level of the memory hierarchy.
+	The \textbf{miss rate} is the fraction of accesses that are misses at a given level of the memory hierarchy.
 \end{definition}
 \begin{definition}
-	\B{Allocation} is the placement of a new block into the cache, which typically results in an eviction
+	\textbf{Allocation} is the placement of a new block into the cache, which typically results in an eviction
 	of another block.
 \end{definition}
 \begin{definition}
-	\B{Eviction} is the displacement of a block from the cache which commonly happens when a new block is
+	\textbf{Eviction} is the displacement of a block from the cache which commonly happens when a new block is
 	allocated in its place.
 \end{definition}
 
@@ -715,8 +715,8 @@ Addresses temporal locality:
 
 How to mapp 32-bit address to a much smaller memory?
 \begin{itemize}
-	\item a \B{tag} word, indicating the address of the main memory block it holds
-	\item a \B{valid bit}, indicating the block is in use
+	\item a \textbf{tag} word, indicating the address of the main memory block it holds
+	\item a \textbf{valid bit}, indicating the block is in use
 \end{itemize}
 
 \subsubsection{Fully Associative Cache}
@@ -730,11 +730,11 @@ How to mapp 32-bit address to a much smaller memory?
 \subsubsection{Cache Replacement}
 
 \begin{definition}
-	\B{Least Recently Used} is a replacement strategy where the cached block that has not been accessed
+	\textbf{Least Recently Used} is a replacement strategy where the cached block that has not been accessed
 	for the longest time gets evicted.
 \end{definition}
 \begin{definition}
-	\B{FIFO} is a replacement strategy where the cached blocks get evicted in the same order they are 
+	\textbf{FIFO} is a replacement strategy where the cached blocks get evicted in the same order they are 
 	allocated in.
 \end{definition}
 
@@ -742,14 +742,14 @@ How to mapp 32-bit address to a much smaller memory?
 
 \begin{itemize}
 	\item Problem of fully-associative cache: search is slow or requires expensive CAM
-	\item data can be store in \B{one location only}
+	\item data can be store in \textbf{one location only}
 	\item uses last $n$ bits of word-address
 \end{itemize}
 
 \subsubsection{Set Associative Cache}
 
 \begin{itemize}
-	\item split the cache into groups of $m$ blocks each (\B{m-way set-associative})
+	\item split the cache into groups of $m$ blocks each (\textbf{m-way set-associative})
 	\item a given block can only go into one set, but anywhere withing that set 
 	\item compromise between DM and FA caches
 	\item typical degree of associativity is 2-16
@@ -758,7 +758,7 @@ How to mapp 32-bit address to a much smaller memory?
 \subsubsection{Writing strategies}
 
 \begin{definition}
-	\B{Write through} is a strategy where both the memory and the cache
+	\textbf{Write through} is a strategy where both the memory and the cache
 	are updated on a hit.
 	\begin{itemize}
 		\item good: memory and cache always synchronised
@@ -767,7 +767,7 @@ How to mapp 32-bit address to a much smaller memory?
 \end{definition}
 
 \begin{definition}
-	\B{Write back} is a strategy where a cache block gets flagged as
+	\textbf{Write back} is a strategy where a cache block gets flagged as
 	dirty once it has been written to. When a dirty block is replaced,
 	it is written to memory
 	\begin{itemize}
@@ -777,7 +777,7 @@ How to mapp 32-bit address to a much smaller memory?
 \end{definition}
 
 \begin{definition}
-	\B{Write allocate} is a strategy where on a cache miss a block 
+	\textbf{Write allocate} is a strategy where on a cache miss a block 
 	is brought into the cache and written to.
 	\begin{itemize}
 		\item useful if no locality exists
@@ -785,7 +785,7 @@ How to mapp 32-bit address to a much smaller memory?
 \end{definition}
 
 \begin{definition}
-	\B{Write no-allocate} is a strategy on a cache miss the data is
+	\textbf{Write no-allocate} is a strategy on a cache miss the data is
 	written directly to memory and not brought to the cache.
 	\begin{itemize}
 		\item useful if no locality
@@ -807,8 +807,8 @@ How to mapp 32-bit address to a much smaller memory?
 \subsubsection{Idea}
 
 \begin{itemize}
-	\item each program thinks it owns the entire memory (\B{virtual address space})
-	\item actual main memory is \B{physical address space}
+	\item each program thinks it owns the entire memory (\textbf{virtual address space})
+	\item actual main memory is \textbf{physical address space}
 	\item virtual addresses are translated on-the-fly to physical addresses
 	\item translation is done by OS and HW
 \end{itemize}
@@ -824,7 +824,7 @@ How to mapp 32-bit address to a much smaller memory?
 \subsubsection{Paging}
 
 \begin{definition}
-	A cache line or block of VM is called a \B{page}.
+	A cache line or block of VM is called a \textbf{page}.
 	\begin{itemize}
 		\item Simply page or virtual page for VM
 		\item Page frame or physical page for physical memory
@@ -832,7 +832,7 @@ How to mapp 32-bit address to a much smaller memory?
 \end{definition}
 \begin{itemize}
 	\item Typical page sizes are 4-16 KB
-	\item Mapping is done through a per-program \B{page table}
+	\item Mapping is done through a per-program \textbf{page table}
 \end{itemize}
 
 \subsubsection{Address Translation}
@@ -849,7 +849,7 @@ How to mapp 32-bit address to a much smaller memory?
 \begin{itemize}
 	\item pages are allocated on demand 
 	\item pages are replaced and swapped to disk when system runs out of free page frames
-	\item access to a swapped-out page causes a \B{page-fault}
+	\item access to a swapped-out page causes a \textbf{page-fault}
 \end{itemize}
 Status bits:
 \begin{itemize}
@@ -889,7 +889,7 @@ Status bits:
 \section{Exceptions \& Processor Management}
 
 \begin{definition}
-	An \B{exception} is an event that interrupts the normal program flow
+	An \textbf{exception} is an event that interrupts the normal program flow
 	and requires attention of the CPU outside of the running program.
 \end{definition}
 
@@ -927,13 +927,13 @@ Internal:
 Approach 1:
 \begin{itemize}
 	\item jump to predefined address
-	\item use the \B{Cause register} to branch to right handler
+	\item use the \textbf{Cause register} to branch to right handler
 	\item works well for \T{syscall}
 \end{itemize}
 
 Approach 2:
 \begin{itemize}
-	\item directly jump to a specific handler depending on the exception (\B{vectored interrupt})
+	\item directly jump to a specific handler depending on the exception (\textbf{vectored interrupt})
 	\item the interrupt signal comes from the "outside" via CPU pins
 \end{itemize}
 
@@ -943,7 +943,7 @@ Approach 2:
 	\item determine required action
 	\item if possible: take corrective action, use EPC to jump back
 	\item otherwise: terminate program, report error
-	\item \B{During the interrupt, not other interrupts should happen!}
+	\item \textbf{During the interrupt, not other interrupts should happen!}
 \end{itemize}
 
 \subsection{Protecting system resources}
@@ -957,7 +957,7 @@ Approach 2:
 \subsection{Kernel vs. User Mode Protection}
 
 \begin{itemize}
-	\item two CPU modes: \B{user} and \B{kernel}
+	\item two CPU modes: \textbf{user} and \textbf{kernel}
 	\item privileged instructions only executed in kernel mode
 	\item kernel mode can only be entered through an exception
 	\item \T{eret} returns to previous mode
@@ -988,21 +988,21 @@ Managing Processes:
 
 States:
 \begin{itemize}
-	\item \B{RUNNING}: process is currently running
-	\item \B{READY}: process is not running, but could run if brought into CPU
-	\item \B{BLOCKED}: process is not able to run (i.e. waiting on I/O)
+	\item \textbf{RUNNING}: process is currently running
+	\item \textbf{READY}: process is not running, but could run if brought into CPU
+	\item \textbf{BLOCKED}: process is not able to run (i.e. waiting on I/O)
 \end{itemize}
 
 Transitions:
 \begin{itemize}
-	\item \B{I/O REQ}: process initiates I/O
-	\item \B{I/O COMP}: I/O finishes
-	\item \B{DISPATCH}: Os moves processes into CPU and it starts executing
-	\item \B{TIMEOUT}: process's \B{timeslice} is over
+	\item \textbf{I/O REQ}: process initiates I/O
+	\item \textbf{I/O COMP}: I/O finishes
+	\item \textbf{DISPATCH}: Os moves processes into CPU and it starts executing
+	\item \textbf{TIMEOUT}: process's \textbf{timeslice} is over
 \end{itemize}
 
 \begin{definition}
-	The \B{PCB} is an OS data structure containing each process's information:
+	The \textbf{PCB} is an OS data structure containing each process's information:
 	\begin{itemize}
 		\item PID
 		\item state

@@ -12,27 +12,27 @@
 \section{Basic theory}
 \subsection{Assumptions}
 \begin{definition}
-    An \B{$n$-sided die}, denoted $Dn$, is an object with $n$ faces numbered $\{1,..,n\}$.
+    An \textbf{$n$-sided die}, denoted $Dn$, is an object with $n$ faces numbered $\{1,..,n\}$.
     When rolled, each side is equally likely do be shown.
 \end{definition}
 \begin{definition}
-    A \B{coin} is a $D2$ with the faces labeled "heads" (H) and "tails" (T).
+    A \textbf{coin} is a $D2$ with the faces labeled "heads" (H) and "tails" (T).
 \end{definition}
 \subsection{Experiments}
 \begin{definition}
-    Performing an \B{experiment} may produce one of a number of possible \B{outcomes}.
+    Performing an \textbf{experiment} may produce one of a number of possible \textbf{outcomes}.
     Let $S$ be the set of possible outcomes of an experiment $E$. Then let $x\in S$ be one specific outcome and
     $p=\P(x)$ be its probability.\\
     If we perform $E$ a number of times $N\in\N$, we expect $x$ to occur approximately $pN$ times.
 \end{definition}
 \subsection{Sample spaces}
 \begin{definition}
-    The \B{sample space $S$} of an experiment $E$ is the set of all possible outcomes for $E$.
+    The \textbf{sample space $S$} of an experiment $E$ is the set of all possible outcomes for $E$.
 \end{definition}
 \subsection{Events}
 \begin{definition}
-    An \B{event} is a subset $A\subseteq S$ of the sample space. If the experiment is performed and the
-    outcome is $x\in S$, then we say the even $A$ has \B{occured} if $x\in A$ and that it \B{has not occurred}
+    An \textbf{event} is a subset $A\subseteq S$ of the sample space. If the experiment is performed and the
+    outcome is $x\in S$, then we say the even $A$ has \textbf{occured} if $x\in A$ and that it \textbf{has not occurred}
     otherwise.
 \end{definition}
 \begin{theorem}
@@ -53,17 +53,17 @@
     \end{itemize}
 \end{definition}
 \begin{definition}
-    Two events $A,B\subseteq S$ are \B{disjoint} if $A\cap B=\emptyset$. 
-    A collection of $A_1, A_2,...$ of events is \B{pairwise disjoint} if every pair of
+    Two events $A,B\subseteq S$ are \textbf{disjoint} if $A\cap B=\emptyset$. 
+    A collection of $A_1, A_2,...$ of events is \textbf{pairwise disjoint} if every pair of
     events within it is disjoint.
 \end{definition}
 \subsection{Probability of outcomes and events}
 \begin{definition}
-    A \B{probability mass function} (pmf) on $S$ is a function $\P$ on $S$ such that writing $p_j=\P(x_j)$ we have
+    A \textbf{probability mass function} (pmf) on $S$ is a function $\P$ on $S$ such that writing $p_j=\P(x_j)$ we have
     \begin{align*}
         \forall j,\:0 \leq p_j \leq 1 \text{ and } \sum_j p_j = 1.
     \end{align*}
-    We say that $p_j=\P(x_j)$ is the \B{probability} of the outcome $x_j$.
+    We say that $p_j=\P(x_j)$ is the \textbf{probability} of the outcome $x_j$.
 \end{definition}
 \begin{definition}
     For an event $A\subseteq S$ we define the probability of $A$ to be the sum of the probabilities of the outcomes contained in 
@@ -114,28 +114,28 @@
 \end{definition}
 \subsection{Independence}
 \begin{definition}
-    Two events $A,B\subseteq S$ are \B{independent} if
+    Two events $A,B\subseteq S$ are \textbf{independent} if
     \begin{align*}
         \P(A\cap B) = \P(A)\P(B).
     \end{align*}
-    We say two events are \B{dependent} if they are not independent.
+    We say two events are \textbf{dependent} if they are not independent.
 \end{definition}
 \subsection{Random variables}
 \begin{definition}
-    A \B{random variable} is a function on the sample space.
+    A \textbf{random variable} is a function on the sample space.
 \end{definition}
 \begin{definition}
-    The \B{standard uniform random variable} on $\{1,2,...,n\}$ is a random variable $X$ such that
+    The \textbf{standard uniform random variable} on $\{1,2,...,n\}$ is a random variable $X$ such that
     \begin{align*}
         \P(X=k)=\frac{1}{k}\text{ for }k\in\N, k\leq n.
     \end{align*}
 \end{definition}
 \begin{definition}
-    A \B{Bernoulli random variable} with parameter $p$ (where $0\leq p\leq 1$) is a random variable
+    A \textbf{Bernoulli random variable} with parameter $p$ (where $0\leq p\leq 1$) is a random variable
     taking just the two values $0$ and $1$ such that $\P(X=1)=p$ and $\P(X=0)=q$ where $q=1-p$.
 \end{definition}
 \begin{definition}
-    A \B{Binomial random variable} with parameters $n\in\N$ and $p$ (where $0\leq p\leq 1$) is a
+    A \textbf{Binomial random variable} with parameters $n\in\N$ and $p$ (where $0\leq p\leq 1$) is a
     random variable taking values $\{0,1,...,n\}$ with
     \begin{align*}
         \P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
@@ -143,7 +143,7 @@
 \end{definition}
 \begin{definition}
     Let $X,Y$ be random variables defined on the same discrete sample space. 
-    Then $X$ and $Y$ are \B{independent} if for all values of $x,y$ we have
+    Then $X$ and $Y$ are \textbf{independent} if for all values of $x,y$ we have
     \begin{align*}
         \P(X=x \text{ and } Y=y) = \P(X=x)\P(Y = y).
     \end{align*}
@@ -153,7 +153,7 @@
     Let $X$ be a random variable that takes a countable number of different
     numerical values $x_i$. Let the probability that $X$ takes the value $x_i$
     be denoted $p_i$.\\
-    The \B{expected value $\E(X)$} of $X$ is defined to be
+    The \textbf{expected value $\E(X)$} of $X$ is defined to be
     \begin{align*}
         \E(X) = \sum_i p_i x_i.
     \end{align*}
@@ -180,7 +180,7 @@
 \subsection{Conditional probability}
 \begin{definition}
     Let $A,B\subseteq S$ be events with $\P(A)\not=0$. Then the 
-    \B{conditional probability of $B$ given $A$} is defined by
+    \textbf{conditional probability of $B$ given $A$} is defined by
     \begin{align*}
         \P(B|A) = \frac{\P(B\cap A)}{\P(A)}
     \end{align*}
@@ -202,7 +202,7 @@
 \subsection{Conditional expectation}
 \begin{definition}
     If $X$ is a random variable taking values $x_1, x_2, ...$ and $A$ is an event, we can
-    compute the \B{conditional expectation} $\E(X|A)$. The formula is
+    compute the \textbf{conditional expectation} $\E(X|A)$. The formula is
     \begin{align*}
         \E(X|A) = \sum_k \P(X=x_k|A)x_k.
     \end{align*}
@@ -217,7 +217,7 @@
 \section{Four new distributions}
 \subsection{Geometric random variables}
 \begin{definition}
-    A random variable $X$ is \B{geometric} with parameter $p$ and we write $X\sim \text{Geom}(p)$ if
+    A random variable $X$ is \textbf{geometric} with parameter $p$ and we write $X\sim \text{Geom}(p)$ if
     \begin{align*}
         \P(X=k)=q^{k-1}p
     \end{align*}
@@ -228,7 +228,7 @@
 \end{proposition}
 \subsection{Continuous random variables}
 \begin{definition}
-    A \B{probability density function} for a random variable $X$ on an
+    A \textbf{probability density function} for a random variable $X$ on an
     interval $I\subseteq\R$ is a piecewise continuous function $f_X:I\to\R$ satisfying
     \begin{enumerate}
         \item $f_X(x) \geq 0$ for all $x\in I$;
@@ -253,12 +253,12 @@
     \begin{align*}
         f_X(x) = \lambda e^{-\lambda x}
     \end{align*}
-    is called an \B{exponential random variable}.
+    is called an \textbf{exponential random variable}.
     We write $X\sim\Exp(\lambda)$.
 \end{definition}
 \subsection{Properties of continuous random variables}
 \begin{definition}
-    Let $f_X$ be a pdf for a random variable. The \B{cumulative distribution
+    Let $f_X$ be a pdf for a random variable. The \textbf{cumulative distribution
     function} is defined by
     \begin{align*}
         F_X(x) = \P(X\leq x) = \int_{-\infty}^x f_X(u)du.
@@ -275,7 +275,7 @@
     \end{itemize}
 \end{proposition}
 \begin{definition}
-    The \B{expected value} of a random variable $X$ with pdf $f_X(x)$ 
+    The \textbf{expected value} of a random variable $X$ with pdf $f_X(x)$ 
     is given by
     \begin{align*}
         \E(X) = \int_{-\infty}^\infty xf_X(x) dx.
@@ -290,7 +290,7 @@
     to be $a$ and $b$.
 \end{definition}
 \begin{definition}
-    The \B{Gamma function} is a way of defining factorials for all
+    The \textbf{Gamma function} is a way of defining factorials for all
     positive real numbers rather than just integers. We define
     \begin{align*}
         \Gamma(z) = \int_0^\infty x^{z-1}e^{-x}dx,
@@ -305,7 +305,7 @@
 \end{theorem}
 \begin{definition}
     Let $\alpha$ and $\lambda$ be positive constants. The random variable
-    $X$ taking values in $[0,\infty)$ has a \B{gamma distribution} and we 
+    $X$ taking values in $[0,\infty)$ has a \textbf{gamma distribution} and we 
     write $X\sim\GD(\alpha, \lambda)$ if its pdf is
     \begin{align*}
         f_X(x) = \frac{\lambda^\alpha}{\Gamma(a)}x^{\alpha-1}e^{-\lambda x}.
@@ -326,7 +326,7 @@
 \end{theorem}
 \subsection{Probability generating functions}
 \begin{definition}
-    For a random variable $X$ its \B{probability generating function} (pgf) is the function of a variable
+    For a random variable $X$ its \textbf{probability generating function} (pgf) is the function of a variable
     $s$ defined by
     \begin{align*}
         G_X(s) = \E\left(s^X\right)
@@ -355,13 +355,13 @@
     \end{align*}
 \end{theorem}
 \begin{definition}
-    We define the \B{variance} of a random variable by
+    We define the \textbf{variance} of a random variable by
     \begin{align*}
         \V(X) = \E((X-\E(X))^2).
     \end{align*}
 \end{definition}
 \begin{definition}
-    The \B{standard deviation} $\sigma_X$ of a random
+    The \textbf{standard deviation} $\sigma_X$ of a random
     variable $X$ with variance $\V(X)$ is given by
     \begin{align*}
         \sigma_X = \sqrt{\V(X)}.
@@ -434,7 +434,7 @@
     \begin{align*}
         \P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}
     \end{align*}
-    is called a \B{Poisson random variable with parameter $\lambda$}.
+    is called a \textbf{Poisson random variable with parameter $\lambda$}.
     We write $X\sim\Poiss(\lambda)$.
 \end{definition}
 \begin{lemma}
@@ -494,7 +494,7 @@
 \section{Everything's Normal}
 \subsection{The normal distribution}
 \begin{definition}
-    The random variable $X$ on $\R$ has a \B{standard normal distribution}
+    The random variable $X$ on $\R$ has a \textbf{standard normal distribution}
     ($X\sim\Normal(0,1)$) if 
     \begin{align*}
         f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}.
@@ -503,7 +503,7 @@
 \end{definition}
 \begin{definition}
     Let $\mu,\sigma>0$ be constants. A random variable $X$ on $\R$ has
-    a \B{normal distribution with parameters $\mu,\sigma^2$}
+    a \textbf{normal distribution with parameters $\mu,\sigma^2$}
     ($X\sim\Normal(\mu,\sigma^2)$) if
     \begin{align*}
         f_X(x) =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2 }}.
@@ -539,7 +539,7 @@
 
 
 \begin{definition}
-    Let $Z\sim\Normal(0,1)$. Then we define the \B{cumulative distribution
+    Let $Z\sim\Normal(0,1)$. Then we define the \textbf{cumulative distribution
     function of $\Normal(0,1)$} as
     \begin{align*}
         \Phi(z)=F_Z(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{x^2}{2}}dx. 
@@ -556,7 +556,7 @@
 
 \begin{definition}
     Consider two discrete random variables $X,Y$ which take values in the non-negative
-    integers. The \B{joint probability mass function} of $X,Y$ is
+    integers. The \textbf{joint probability mass function} of $X,Y$ is
     \begin{align*}
         p_{X,Y} (x,y) = \P(X=x\text{ and } Y = y).
     \end{align*}
@@ -571,7 +571,7 @@
 \end{definition}
 
 \begin{definition}
-    The \B{marginal mass functions} of $X,Y$ are defined by
+    The \textbf{marginal mass functions} of $X,Y$ are defined by
     \begin{align*}
         p_X (x) = \sum_y p_{X,Y} (x,y) \text{ and } p_Y(y)=\sum_x p_{X,Y}(x,y).
     \end{align*}
@@ -585,7 +585,7 @@
 
 
 \begin{definition}
-    Let $X,Y$ be random variables. THen the \B{covariance} of $X$ and $Y$ is defined by
+    Let $X,Y$ be random variables. THen the \textbf{covariance} of $X$ and $Y$ is defined by
     \begin{align*}
         \Cov(X,Y) = \E(XY)-\E(X)\E(Y).
     \end{align*}
@@ -613,7 +613,7 @@
 
 
 \begin{definition}
-    Let $X,Y$ be random variables. Then we define the \B{correlation} of
+    Let $X,Y$ be random variables. Then we define the \textbf{correlation} of
     $X,Y$ to be
     \begin{align*}
         \Cor(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\V(X)\V(Y)}}

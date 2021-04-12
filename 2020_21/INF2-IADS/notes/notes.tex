@@ -14,7 +14,7 @@
 
 
 
-\B{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
+\textbf{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$ be functions. Then
 	\text{$f\in o(g)$} if, and only if, 
@@ -46,15 +46,15 @@
 		\exists C > 0\st \exists N \st \forall n \geq N,\: f(n) \geq Cg(n)
 	\end{align*}
 	where $C\in\R$ and $N,n\in\N$.\\
-	We call $g$ an \B{asymptotic upper bound} for $f$.
+	We call $g$ an \textbf{asymptotic upper bound} for $f$.
 \end{definition}
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Omega(g)$ if, and only if, $g\in O(f)$.\\
-	We call $g$ an \B{asymptotic lower bound} for $f$.
+	We call $g$ an \textbf{asymptotic lower bound} for $f$.
 \end{definition}
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Theta(g)$ if, and only if, $f\in O(f) \cap \Omega(f)$.\\
-	We call $g$ an \B{asymptotic tight bound} for $f$.
+	We call $g$ an \textbf{asymptotic tight bound} for $f$.
 \end{definition}
 \begin{theorem}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Theta(g)$ if, and only if, $g\in\Theta(f)$.
@@ -94,7 +94,7 @@
 
 
 \begin{definition}
-	The \B{cost} of an algorithm is a quantity to measure its performance.\\
+	The \textbf{cost} of an algorithm is a quantity to measure its performance.\\
 	The cost may be defined in different ways depending on
 	how in depth the analysis is supposed to be and what
 	is of interest in a particular situation.
@@ -103,9 +103,9 @@ Note that the cost model needs to be specified when comparing algorithms.
 \begin{definition}
 	We considering the cost of an algorithm for a specific input size there are different cases to consider:
 	\begin{itemize}
-		\item \B{worst-case} cost: the single worst cost out of all possible inputs
-		\item \B{best-case} cost: the single best cost out of all possible inputs
-		\item \B{average-case} cost: the average over all the costs for all possible inputs
+		\item \textbf{worst-case} cost: the single worst cost out of all possible inputs
+		\item \textbf{best-case} cost: the single best cost out of all possible inputs
+		\item \textbf{average-case} cost: the average over all the costs for all possible inputs
 	\end{itemize}
 \end{definition}
 \begin{theorem}
@@ -189,28 +189,28 @@ def partition(A, p, r):
 
 
 \begin{definition}
-	A \B{finite set} containing values of type $X$ is a datastructure with the following interface
+	A \textbf{finite set} containing values of type $X$ is a datastructure with the following interface
 	\begin{align*}
-		\B{contains} &: X\to \texttt{bool}\\
-		\B{insert} &: X \to \texttt{void}\\
-		\B{delete} &: X \to \texttt{void}\\
-		\B{isEmpty} &: \texttt{void} \to \texttt{bool}
+		\textbf{contains} &: X\to \texttt{bool}\\
+		\textbf{insert} &: X \to \texttt{void}\\
+		\textbf{delete} &: X \to \texttt{void}\\
+		\textbf{isEmpty} &: \texttt{void} \to \texttt{bool}
 	\end{align*}
 \end{definition}
 \begin{definition}
-	A \B{dictionary} mapping keys of type $X$ to values of type $Y$
+	A \textbf{dictionary} mapping keys of type $X$ to values of type $Y$
 	is a datastructure with the following interface
 	\begin{align*}
-		\B{lookup} &: X \to Y\\
-		\B{insert} &: X \to Y \to \texttt{void}\\
-		\B{delete} &: X \to \texttt{void}\\
-		\B{isEmpty} &: \texttt{void} \to \texttt{bool}
+		\textbf{lookup} &: X \to Y\\
+		\textbf{insert} &: X \to Y \to \texttt{void}\\
+		\textbf{delete} &: X \to \texttt{void}\\
+		\textbf{isEmpty} &: \texttt{void} \to \texttt{bool}
 	\end{align*}
 \end{definition}
 \begin{definition}
-	A \B{hash table} is a datastructure that uses a \B{hash function} $f: X \to [0,m-1]$
+	A \textbf{hash table} is a datastructure that uses a \textbf{hash function} $f: X \to [0,m-1]$
 	to store key value pairs $(X,Y)$ in an array of length $m$.\\
-	The \B{load factor} $\alpha$ is the average number of elements associated with each cell
+	The \textbf{load factor} $\alpha$ is the average number of elements associated with each cell
 	of the underlying array. If $f$ is a perfect hash function, i.e. it maps all inputs uniformly
 	onto $[0,m-1]$, then $\alpha$ is given by 
 	\begin{align*}
@@ -225,7 +225,7 @@ def partition(A, p, r):
 	\end{itemize}
 \end{proposition}
 \begin{definition}
-	\B{Open addressing} is an algorithm to handle hash collisions within a hash table 
+	\textbf{Open addressing} is an algorithm to handle hash collisions within a hash table 
 	by using a hash function $f: (X, [0,m-1]) \to [0,m-1]$ that generates a permutation of all possible
 	hash codes for each possible input $X$. An element $x\in X$ is then stored the hash code $f(x, i)$
 	if and only if all $f(x,j)$ for $j < i$ are already occupied.
@@ -235,11 +235,11 @@ def partition(A, p, r):
 	probes for an unsuccessful lookup and less for a successful one.
 \end{proposition}
 \begin{definition}
-	A \B{binary tree} consists of a value and at most one left child and at most one right child where
+	A \textbf{binary tree} consists of a value and at most one left child and at most one right child where
 	children are other binary trees.
 \end{definition}
 \begin{definition}
-	An \B{ordered binary tree} with a given ordering $(<) : X \to X \to \texttt{bool}$ is a binary tree 
+	An \textbf{ordered binary tree} with a given ordering $(<) : X \to X \to \texttt{bool}$ is a binary tree 
 	with a root $x$ such that
 	\begin{align*}
 		\forall y \in L(x), y.\texttt{key} < x.\texttt{key} 
@@ -300,7 +300,7 @@ def partition(A, p, r):
 
 
 \begin{definition}
-	A heap is an \B{almost-complete} binary tree:
+	A heap is an \textbf{almost-complete} binary tree:
 	\begin{itemize}
 		\item All leaves are either at depth $h-1$ or $h$ (where $h$ is the height of the tree)
 		\item The depth-$h$ leaves all appear consecutively from left-to-right
@@ -349,18 +349,18 @@ def partition(A, p, r):
 \end{definition}
 
 \begin{definition}
-	A graph $G$ is \B{undirected} if and only if
+	A graph $G$ is \textbf{undirected} if and only if
 	\begin{align*}
 		\forall v,w\in V,\: (v,w)\in E \Leftrightarrow (w,v)\in E.
 	\end{align*}
-	If a graph is not undirected, it is \B{directed}.
+	If a graph is not undirected, it is \textbf{directed}.
 \end{definition}
 
 \subsection{Adjacency Matrices vs Lists}
 
 \begin{definition}
 	Let $G=(V,E)$ be a graph with $n$ vertices $V=\{v_1, ..., v_n\}$.
-	Then the \B{adjacency matrix} of $G$ is the $n\times n$ matrix
+	Then the \textbf{adjacency matrix} of $G$ is the $n\times n$ matrix
 	$A=(a_{ij})_{i,j\in[1,n]}$ with 
 	\begin{align*}
 		a_{ij} = \begin{cases}
@@ -391,8 +391,8 @@ def partition(A, p, r):
 \begin{lemma}
 	A graph $G=(V,E)$ with $|V|=n$ and $|E|=m$ is
 	\begin{itemize}
-		\item \B{dense} if $m$ is close to $n^2$,
-		\item \B{sparse} if $m$ is much smaller than $n^2$. 
+		\item \textbf{dense} if $m$ is close to $n^2$,
+		\item \textbf{sparse} if $m$ is much smaller than $n^2$. 
 	\end{itemize}
 \end{lemma}
 \end{theorem}
@@ -400,7 +400,7 @@ def partition(A, p, r):
 \subsection{Graph traversal}
 
 \begin{definition}
-	A \B{traversal} is a strategy for visiting all vertices of a graph.
+	A \textbf{traversal} is a strategy for visiting all vertices of a graph.
 \end{definition} 
 
 \section{Dynamic Programming}

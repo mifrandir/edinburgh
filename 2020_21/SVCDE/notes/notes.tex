@@ -22,7 +22,7 @@
 
 
 \begin{definition}
-    A function $\vec r$ of the form $\vec r: \R \to \R^3$ is called a \B{vector function}.
+    A function $\vec r$ of the form $\vec r: \R \to \R^3$ is called a \textbf{vector function}.
 \end{definition}
 \begin{definition}
     The limit $\vec b$ of a vector function $\vec r$ at $a$ exists if, and only if,
@@ -30,7 +30,7 @@
         \forall \epsilon > 0,\: \exists \delta > 0 \st 0 < |t-a| < \delta \Rightarrow |\vec r(t) - \vec b|<\epsilon.
     \end{align*}
     This is the case if, and only if, the limits for all the components of $\vec f$ exist.\\
-    A vector function $\vec r(t)$ is \B{continuous} at $t=a$ if
+    A vector function $\vec r(t)$ is \textbf{continuous} at $t=a$ if
     \begin{align*}
         \lim_{t\to a} \vec r (t) = \vec r (a). 
     \end{align*}
@@ -43,7 +43,7 @@
 \subsubsection{Derivatives}
 
 \begin{definition}
-    The \B{derivative of a vector function} $\vec r(t)$ is defined as
+    The \textbf{derivative of a vector function} $\vec r(t)$ is defined as
     \begin{align*}
         \vec r(t) = \frac{d\vec r}{dt} = \lim_{\delta \to 0} \frac{\vec r(t+\delta)-\vec r(t)}{\delta}.
     \end{align*}
@@ -55,8 +55,8 @@
     \end{align*}
 \end{theorem}
 \begin{definition}
-    $\vec r'(a)$ is the \B{tangent vector} at the point $t=a$ to the curve traced out by the position vector function $\vec r(t)$.
-    The \B{unit tangent vector} at $t=a$ is
+    $\vec r'(a)$ is the \textbf{tangent vector} at the point $t=a$ to the curve traced out by the position vector function $\vec r(t)$.
+    The \textbf{unit tangent vector} at $t=a$ is
     \begin{align*}
         \vec T(a) = \frac{\vec r'(a)}{|\vec r'(a)|}
     \end{align*}
@@ -66,7 +66,7 @@
 \subsubsection{Integrals}
 
 \begin{definition}
-    The \B{definite integral} of the continuous vector function $\vec v(t)=f(t)\ih + g(t)\jh + h(t)\kh$ is given by
+    The \textbf{definite integral} of the continuous vector function $\vec v(t)=f(t)\ih + g(t)\jh + h(t)\kh$ is given by
     \begin{align*}
         \int_a^b \vec v(t)dt = \left[\int_a^b f(t)dt\right]\ih + \left[\int_a^b g(t) dt\right]\jh + \left[\int_a^b h(t)dt\right] \kh.
     \end{align*}
@@ -95,14 +95,14 @@
 
 
 \begin{definition}
-    A parameterisation $\vec v(t)$ is \B{smooth} on an interval $I$ if $\vec v'(t)$ is continuous and $\vec v'(t) \not = \vec 0$ on $I$.
+    A parameterisation $\vec v(t)$ is \textbf{smooth} on an interval $I$ if $\vec v'(t)$ is continuous and $\vec v'(t) \not = \vec 0$ on $I$.
 \end{definition}
 \begin{definition}
-    A curve is \B{smooth} if it has a smooth parameterisation.
+    A curve is \textbf{smooth} if it has a smooth parameterisation.
 \end{definition}
 \begin{definition}
     For a smooth curved traced out by the position vector $\vec r(t)$ with the unit tangent vector 
-    $\vec T(t)$ the \B{curvature} $\kappa$ is defined as
+    $\vec T(t)$ the \textbf{curvature} $\kappa$ is defined as
     \begin{align*}
         \kappa = \left|\frac{d\vec T}{ds}\right|=\frac{\left| \vec T'(t)\right|}{\left|\vec r'(t)\right|}
     \end{align*}
@@ -118,14 +118,14 @@
 
 
 \begin{definition}
-    Let the \B{principal unit normal vector} of the curve traced out by the position vector $\vec r(t)$
+    Let the \textbf{principal unit normal vector} of the curve traced out by the position vector $\vec r(t)$
     where $\vec r'(t)$ is smooth be defined as
     \begin{align*}
         \vec N (t) = \frac{\vec T'(t)}{\left| \vec T'(t) \right|}.
     \end{align*}
 \end{definition}
 \begin{definition}
-    The \B{binormal vector} is defined as
+    The \textbf{binormal vector} is defined as
     \begin{align*}
         \vec B(t) = \vec T(t) \times \vec N(t).
     \end{align*}
@@ -155,11 +155,11 @@
     \end{align*}
 \end{definition}
 \begin{definition}
-    The \B{level curves} of a function $f(x,y)$ are curves with equations
+    The \textbf{level curves} of a function $f(x,y)$ are curves with equations
     $f(x,y)=k$ where $k$ is a constant in the range of $f$.
 \end{definition}
 \begin{definition}
-    The \B{level surfaces} of a function $f(x,y,z)$ are surfaces with
+    The \textbf{level surfaces} of a function $f(x,y,z)$ are surfaces with
     equations $f(x,y,z)=k$ where $k$ is a constant in the range of $f$.
 \end{definition}
 
@@ -209,11 +209,11 @@
 
 \begin{definition}
     A function $f:D\to R$ with $D\subseteq\R^n$ and $R\subseteq\R$
-    is called \B{continuous} at a point $P$ with position vector $\vec p\in \R^n$
+    is called \textbf{continuous} at a point $P$ with position vector $\vec p\in \R^n$
     \begin{align*}
         \lim_{\vec x\to \vec p}f(\vec x) = f(\vec p);
     \end{align*}
-    and $f$ is \B{continuous on $S\subseteq D$} if it is continuous at 
+    and $f$ is \textbf{continuous on $S\subseteq D$} if it is continuous at 
     every point in $S$.
 \end{definition}
 
@@ -222,7 +222,7 @@
 
 
 \begin{definition}
-    Consider a function $f:\R^n\to\R$. The $n$ \B{partial derivatives} of
+    Consider a function $f:\R^n\to\R$. The $n$ \textbf{partial derivatives} of
     $f$ are defined by
     \begin{align*}
         f_{x_i}(\vec x)\equiv\frac{\p f}{\p x_i}=\lim_{\delta\to 0}\frac{f(\vec x + \delta \vec e_i)-f(\vec x)}{\delta}
@@ -258,7 +258,7 @@ Notation for higher derivatives:
 
 \begin{definition}
     Consider a surface $S$ with equation $z=f(x,y)$ where $f_x$ and $f_y$
-    are both continuous. Then the \B{tangent plane} to the surface $S$
+    are both continuous. Then the \textbf{tangent plane} to the surface $S$
     is given by the equation
     \begin{align*}
         z - z_0 = f_x(x_0, y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
@@ -272,24 +272,24 @@ Notation for higher derivatives:
     \begin{align*}
         L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a),
     \end{align*}
-    is called the \B{linearisation} of $f(x,y)$ at $(a,b)$, and the
+    is called the \textbf{linearisation} of $f(x,y)$ at $(a,b)$, and the
     approximation
     \begin{align*}
         f(x,y)\approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a)
     \end{align*}
-    is called the \B{linear approximation} of $f(x,y)$ at $(a,b)$.\\
+    is called the \textbf{linear approximation} of $f(x,y)$ at $(a,b)$.\\
     The graph of the linearisation is the tangent plane of $f(x,y)$ at
     $(a,b)$.
 \end{definition}
 \begin{definition}
     Consider the change in $z=f(x,y)$ as we move from the point
     $(a,b)$ to the point $(a+\Delta x, b+\Delta y)$. The
-    corresponding \B{increment} in $z$ is
+    corresponding \textbf{increment} in $z$ is
     \begin{align*}
         \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y 
         + \epsilon_1\Delta x + \epsilon_2\Delta y.
     \end{align*}
-    The function $f(x,y)$ is \B{differentiable} if $\Delta z$
+    The function $f(x,y)$ is \textbf{differentiable} if $\Delta z$
     may be expressed as
     \begin{align*}
         \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
@@ -307,8 +307,8 @@ Notation for higher derivatives:
 \subsubsection{Differentials}
 
 \begin{definition}
-    For the function $z=f(x,y)$, \B{differentials} $dx$ and $dy$ are
-    defined to be independent variables. The \B{total differential} $dz$
+    For the function $z=f(x,y)$, \textbf{differentials} $dx$ and $dy$ are
+    defined to be independent variables. The \textbf{total differential} $dz$
     is then defined as
     \begin{align*}
         dz = f_x(x,y)dx + f_y(x,y)dy 
@@ -391,7 +391,7 @@ Notation for higher derivatives:
 \subsubsection{Directional derivatives}
 
 \begin{definition}
-    The \B{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
+    The \textbf{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
     direction of a \emph{unit vector} $\vec u=a\ih + b\jh$ is defined as
     \begin{align*}
         D_{\vec u}f(x_0, y_0)=\lim_{\delta \to 0}
@@ -410,7 +410,7 @@ Notation for higher derivatives:
 \subsubsection{Gradient vector}
 
 \begin{definition}
-    The \B{gradient} of the scalar function $f(x,y)$ is the vector
+    The \textbf{gradient} of the scalar function $f(x,y)$ is the vector
     function defined as
     \begin{align*}
         \grad f(x,y)=\frac{\p f}{\p x}\ih + \frac{\p f}{\p y}\jh.
@@ -469,7 +469,7 @@ Notation for higher derivatives:
 \end{theorem}
 \begin{definition}
     Provided that $\grad F(x_0, y_0, z_0)\not=\vec 0$, we define the
-    \B{tangent plane to the level surface} $F(x,y,z)=k$ at $(x_0, y_0, z_0)$
+    \textbf{tangent plane to the level surface} $F(x,y,z)=k$ at $(x_0, y_0, z_0)$
     as the plane that passes through $(x_0, y_0, z_0)$ and has normal vector
     $\grad F(x_0, y_0, z_0)$.
 \end{definition}
@@ -480,7 +480,7 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 \begin{definition}
-    The \B{normal line} to surface $S$ at $(x_0, y_0, z_0)$ is the line
+    The \textbf{normal line} to surface $S$ at $(x_0, y_0, z_0)$ is the line
     passing through $(x_0, y_0, z_0)$ that is perpendicular to the tangent
     plane. Thus its direction is given by the gradient vector 
     $\grad F(x_0, y_0, z_0)$.
@@ -501,19 +501,19 @@ Notation for higher derivatives:
 \subsubsection{Functions of 2 variables}
 
 \begin{definition}
-    A function $f(x,y)$ has a \B{local maximum} at $(a,b)$ if $f(x,y)\leq f(a,b)$
+    A function $f(x,y)$ has a \textbf{local maximum} at $(a,b)$ if $f(x,y)\leq f(a,b)$
     for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
-    is then called the \B{local maximum value}.
+    is then called the \textbf{local maximum value}.
 \end{definition}
 \begin{definition}
-    A function $f(x,y)$ has a \B{local minimum} at $(a,b)$ if $f(x,y)\geq f(a,b)$
+    A function $f(x,y)$ has a \textbf{local minimum} at $(a,b)$ if $f(x,y)\geq f(a,b)$
     for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
-    is then called the \B{local minimum value}.
+    is then called the \textbf{local minimum value}.
 \end{definition}
 \begin{definition}
     If the inequalities in these two definitions hold for all points in the
-    domain of $f(x,y)$, then $f(x,y)$ has an \B{absolute maximum} or an
-    \B{absolute minimum} at $(a,b)$.
+    domain of $f(x,y)$, then $f(x,y)$ has an \textbf{absolute maximum} or an
+    \textbf{absolute minimum} at $(a,b)$.
 \end{definition}
 \begin{theorem}
     If $f(x,y)$ has a local maximum or minimum at $(a,b)$ and the first-order
@@ -527,7 +527,7 @@ Notation for higher derivatives:
     then this tangent plane must be parallel to the $xy$ plane.
 \end{lemma}
 \begin{definition}
-    A point $(a,b)$ is called a \B{critical point} of $f(x,y)$ if
+    A point $(a,b)$ is called a \textbf{critical point} of $f(x,y)$ if
     $f_x(a,b)=f_y(a,b)=0$, or if one of these partial derivatives does not exist.
 \end{definition}
 \begin{theorem}[Second Derivatives Test]
@@ -553,11 +553,11 @@ Notation for higher derivatives:
 \begin{definition}
     Properties of sets in $\R^2$:
     \begin{itemize}
-        \item A point $(a,b)$ is a \B{boundary point} of a set $D$ if
+        \item A point $(a,b)$ is a \textbf{boundary point} of a set $D$ if
         every disk with centre $(a,b)$ contains points in $D$ and also points
         not in $D$.
-        \item A \B{closed set} is one that contains all its boundary points.
-        \item A \B{bounded set} is one taht is contained within some disk, i.e.
+        \item A \textbf{closed set} is one that contains all its boundary points.
+        \item A \textbf{bounded set} is one taht is contained within some disk, i.e.
         one that is finite in extent.
     \end{itemize}
 \end{definition}
@@ -586,11 +586,11 @@ Notation for higher derivatives:
     The local maximum and minimum values of the differentiable function
     $f(x,y)$ subject to the constraint $g(x,y)=0$ (assuming that these
     max/min values exist and $\grad g(x,y)\not=\vec 0$) are to be found
-    among the critical points of the \B{Lagrangian function}
+    among the critical points of the \textbf{Lagrangian function}
     \begin{align*}
         L(x,y,\lambda)=f(x,y)+\lambda g(x,y).
     \end{align*} 
-    The number $\lambda$ is called a \B{Lagrange multiplier}.
+    The number $\lambda$ is called a \textbf{Lagrange multiplier}.
 \end{theorem}
 
 
@@ -605,11 +605,11 @@ Notation for higher derivatives:
 \subsubsection{Volumes}
 
 \begin{definition}
-    The \B{double integral} of $f(x,y)$ over the rectangle $R$ is defined as
+    The \textbf{double integral} of $f(x,y)$ over the rectangle $R$ is defined as
     \begin{align*}
         \di_R f(x,y)dA = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(x_{ij}^*, y_{ij}^*)\Delta A
     \end{align*}
-    and $f(x,y)$ is called \B{integrable} if this limit exists.
+    and $f(x,y)$ is called \textbf{integrable} if this limit exists.
 \end{definition}
 \begin{lemma}
     All continuous functions are integrable, and many bouned but
@@ -621,7 +621,7 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The \B{average value} of a function $f(x,y)$ on a rectangle $R$
+    The \textbf{average value} of a function $f(x,y)$ on a rectangle $R$
     is defined as
     \begin{align*}
         f_{ave} = \frac{1}{A(R)}\di_R f(x,y)dA
@@ -727,7 +727,7 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    If $f(x,y)$ is continuous on the \B{polar rectangle} $R$
+    If $f(x,y)$ is continuous on the \textbf{polar rectangle} $R$
     given by $a\leq r \leq b$, $\alpha \leq \theta\leq \beta$ where
     $\beta-\alpha \in [0,2\pi)$, then
     \begin{align*}
@@ -741,7 +741,7 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The \B{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
+    The \textbf{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
     is defined as
     \begin{align*}
         \ti_B f(x,y,z)dV = \lim_{l,m,n\to\infty}\sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n
@@ -757,7 +757,7 @@ Notation for higher derivatives:
     The iterated integrals can be evaluated in any order.
 \end{theorem}
 \begin{definition}
-    The \B{average value} of a function $f(x,y,z)$ over a three-dimensional region $E$
+    The \textbf{average value} of a function $f(x,y,z)$ over a three-dimensional region $E$
     is defined as
     \begin{align*}
         f_{ave} = \frac{1}{V(E)}\ti_E f(x,y,z)dV.
@@ -770,7 +770,7 @@ Notation for higher derivatives:
 
 \begin{definition}
     The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the
-    ordered triple $(\rho,\theta,z)$ in the \B{cylindrical coordinate system}. The
+    ordered triple $(\rho,\theta,z)$ in the \textbf{cylindrical coordinate system}. The
     $z$ coordinate is the same in both systems, the other coordinates are related as
     \begin{align*}
         x=\rho\cos\theta,\hs y=\rho\sin\theta,\hs
@@ -787,7 +787,7 @@ Notation for higher derivatives:
     \begin{align*}
         \alpha \leq \rho \leq \beta,\:\: h_1(\theta) \leq \rho \leq h_2(\theta).
     \end{align*}
-    The formula for \B{triple integration in cylindrical coordinates} is
+    The formula for \textbf{triple integration in cylindrical coordinates} is
     \begin{align*}
         \ti_E f(x,y,z) dV = \int_\alpha^\beta \int_{h_1(\theta)}^{h_2(\theta)}
         \int_{u_1(\rho\cos\theta,\rho\sin\theta)}^{u_2(\rho\cos\theta,\rho\sin\theta)}
@@ -801,7 +801,7 @@ Notation for higher derivatives:
 
 \begin{definition}
     The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the ordered
-    triple $(\rho,\theta,\phi)$ in the \B{spherical coordinate system}. The coordinates are
+    triple $(\rho,\theta,\phi)$ in the \textbf{spherical coordinate system}. The coordinates are
     related as
     \begin{align*}
         x=\rho\sin\phi\cos\theta,\hs y = \rho \sin\phi\sin\theta,\hs z = \rho\cos\phi
@@ -809,7 +809,7 @@ Notation for higher derivatives:
     where the radial distance $\phi=\sqrt{x^2+y^2+z^2}$.
 \end{definition}
 \begin{theorem}
-    The formula for \B{triple integration in spherical coordinates} over a region $E$ 
+    The formula for \textbf{triple integration in spherical coordinates} over a region $E$ 
     given by
     \begin{align*}
         E=\{(\rho,\theta,\phi):a\leq\rho\leq b,\alpha\leq\theta\leq\beta, c\leq\phi\leq d\}
@@ -827,12 +827,12 @@ Notation for higher derivatives:
 \subsubsection{Double integrals}
 
 \begin{definition}
-    Consider the \B{transformation} from the points $(u,v)$ in the $uv$-plane to the points $(x,y)$
+    Consider the \textbf{transformation} from the points $(u,v)$ in the $uv$-plane to the points $(x,y)$
     in the $xy$-plane, represented by
     \begin{align*}
         x = x(u,v),\hs y=y(u,v).
     \end{align*}
-    The \B{Jacobian} for this transformation is defined as
+    The \textbf{Jacobian} for this transformation is defined as
     \begin{align*}
         \frac{\partial(x,y)}{\partial(u,v)}
         =\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
@@ -891,16 +891,16 @@ Notation for higher derivatives:
 \subsection{Vector fields}
 
 \begin{definition}
-    Let $D\subseteq \R^n$. A \B{vector field on $\R^n$} is a function $\vec F$ that assigns
+    Let $D\subseteq \R^n$. A \textbf{vector field on $\R^n$} is a function $\vec F$ that assigns
     to each point $\vec p\in D$ a $n$-dimensional vector $\vec F(\vec p)$.
 \end{definition}
 \begin{definition}
-    A vector field $\vec F$ is called \B{conservative} if there exists some scalar function
+    A vector field $\vec F$ is called \textbf{conservative} if there exists some scalar function
     $f$ such that
     \begin{align*}
         \vec F = \grad f.
     \end{align*}
-    If $\vec F$ is conservative then $f$ is called a \B{potential function} of $\vec F$.
+    If $\vec F$ is conservative then $f$ is called a \textbf{potential function} of $\vec F$.
 \end{definition}
 
 
@@ -915,7 +915,7 @@ Notation for higher derivatives:
         \vec r(t) = x(t)\ih + y(t)\jh
     \end{align*}
     where the parameter $t\in[a,b]$. Assume that $C$ is smooth. 
-    If $f(x,y)$ is continuous on $C$, then the \B{line integral of $f$ along $C$} is
+    If $f(x,y)$ is continuous on $C$, then the \textbf{line integral of $f$ along $C$} is
     defined as
     \begin{align*}
         \int_C f(x,y) ds = \lim_{n\to\infty} \sum_{i=1}^n f(x(t_i^*), y(t_i^*))\Delta s_i.
@@ -929,7 +929,7 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    If $C$ is a \B{piecewise-smooth curve}, i.e. $C$ is a union of a finite number of smooth
+    If $C$ is a \textbf{piecewise-smooth curve}, i.e. $C$ is a union of a finite number of smooth
     curves $C_1, C_2, ..., C_n$ where the terminal point of $C_{i-1}$ is the starting point
     of $C_i$, then the integral of $f(x,y)$ along $C$ is
     \begin{align*}
@@ -957,7 +957,7 @@ Notation for higher derivatives:
     \begin{align*}
         \vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
     \end{align*}
-    wher the parameter $t\in[a,b]$, then the \B{line integral of $f$ along $C$}
+    wher the parameter $t\in[a,b]$, then the \textbf{line integral of $f$ along $C$}
     is defined as
     \begin{align*}
         \int_C f(x,y,z)ds = \lim_{n\to\infty}\sum_{i=1}^n f(x(t_i^*), y(t_i^*), z(t_i^*))\Delta s_i
@@ -978,7 +978,7 @@ Notation for higher derivatives:
 
 \begin{definition}
     If the vecotr field $\vec F$ is continuous on $C$, then the
-    \B{line integral of $\vec F$ along $C$} is defined as
+    \textbf{line integral of $\vec F$ along $C$} is defined as
     \begin{align*}
         \int_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec r(t))\cdot \dv r(t)dt
         = \int_C \vec F\cdot \vec T ds.
@@ -1010,7 +1010,7 @@ Notation for higher derivatives:
 \end{theorem}
 \begin{lemma}
     Suppose that $C_\alpha$ and $C_\beta$ are two piecewise-smooth curves
-    - which are called \B{paths} - that have the same start point and end
+    - which are called \textbf{paths} - that have the same start point and end
     point. Then
     \begin{align*}
         \int_{C_\alpha} \grad f \cdot d\vec r = \int_{C_\beta} \grad f \cdot d\vec r
@@ -1023,7 +1023,7 @@ Notation for higher derivatives:
 \begin{definition}
     If $\vec F$ is a continous vector field with domain $D$, we say that the
     line integral $\int_C\vec F\cdot d\vec r$ is
-    \B{independent of path} if
+    \textbf{independent of path} if
     \begin{align*}
         \int_{C_\alpha} \vec F\cdot d\vec r = \int_{C_\beta}\vec F\cdot d\vec r
     \end{align*}
@@ -1034,7 +1034,7 @@ Notation for higher derivatives:
     Line integrals of conservative vector fields are independent of path.
 \end{theorem}
 \begin{definition}
-    A \B{closed} curve is one for which the start point coincides with the end point.
+    A \textbf{closed} curve is one for which the start point coincides with the end point.
 \end{definition}
 \begin{theorem}
     \begin{align*}
@@ -1044,7 +1044,7 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 \begin{definition}
-    A set $D$ is \B{connected} if any two points in $D$ can be joined by a
+    A set $D$ is \textbf{connected} if any two points in $D$ can be joined by a
     path that lies in $D$.
 \end{definition}
 \begin{theorem}
@@ -1061,11 +1061,11 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 \begin{definition}
-    \B{Simple} properties:
+    \textbf{Simple} properties:
     \begin{itemize}
-        \item A \B{simple curve} is one that does not intersect itself anywhere
+        \item A \textbf{simple curve} is one that does not intersect itself anywhere
               between its start and end.
-        \item A \B{simply-connected region} in the plane is a connected region $D$
+        \item A \textbf{simply-connected region} in the plane is a connected region $D$
               such that every simple closed curve in $D$ encloses only points that 
               are in $D$.
     \end{itemize}
@@ -1101,7 +1101,7 @@ Notation for higher derivatives:
 \subsubsection{Curl}
 \begin{definition}
     If $\vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field
-    on $\R^3$, then the \B{curl} of $\vec F$ is defined by the vector function
+    on $\R^3$, then the \textbf{curl} of $\vec F$ is defined by the vector function
     \begin{align*}
         \curl\vec F = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\ih
         +\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\jh
@@ -1143,7 +1143,7 @@ Notation for higher derivatives:
 
 \begin{definition}
     If $\vec F(x,y,z)=P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field on $\R^3$, then
-    the \B{divergence} of $\vec F$ is defined by the scalar function
+    the \textbf{divergence} of $\vec F$ is defined by the scalar function
     \begin{align*}
         \div \vec F = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}.
     \end{align*}
@@ -1183,7 +1183,7 @@ Notation for higher derivatives:
         \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh
     \end{align*}
     in terms of two parameters $u$ and $v$ which lie in a region $D$ in the $uv$-plane.
-    The \B{parametric equations}
+    The \textbf{parametric equations}
     \begin{align*}
         x = x(u,v),\hs y=y(u,v),\hs z=z(u,v)
     \end{align*}
@@ -1198,8 +1198,8 @@ Notation for higher derivatives:
     \begin{align*}
         \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh.
     \end{align*}
-    If $\vec r_u \times\vec r_v\not=\vec 0$ then the surface is called \B{smooth}.\\
-     For a smooth surface, the \B{tangent plane} at $P_0$ is the plane containing
+    If $\vec r_u \times\vec r_v\not=\vec 0$ then the surface is called \textbf{smooth}.\\
+     For a smooth surface, the \textbf{tangent plane} at $P_0$ is the plane containing
               $\vec r(u_0,v_0)+\vec r_u(u_0,v_0)$ and $\vec r(u_0,v_0)+\vec r_v(u_0,v_0)$ and the vector
               $\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
 
@@ -1213,7 +1213,7 @@ Notation for higher derivatives:
         \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D
     \end{align*}
     and $S$ is covered just once as $(u,v)$ ranges through the parameter domain $D$,
-    then the \B{surface area} of $S$ is defined as
+    then the \textbf{surface area} of $S$ is defined as
     \begin{align*}
         A(S)=\di_D |\vec r_u \times \vec r_v|\:dA.
     \end{align*}
@@ -1237,7 +1237,7 @@ Notation for higher derivatives:
     \begin{align*}
         \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D.
     \end{align*}
-    Then the \B{surface integral} of $f(x,y,z)$ over the surface $S$ is defined as
+    Then the \textbf{surface integral} of $f(x,y,z)$ over the surface $S$ is defined as
     \begin{align*}
         \di_S f(x,y,z)dS = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(P_{ij}^*)\Delta S_{ij}.
     \end{align*}
@@ -1262,15 +1262,15 @@ Notation for higher derivatives:
 \subsubsection{Oriented surfaces}
 
 \begin{definition}
-    A smooth surface $S$ in $\R^3$ is \B{orientable} if there exists a unit normal vector
+    A smooth surface $S$ in $\R^3$ is \textbf{orientable} if there exists a unit normal vector
     field $\hat n(x,y,z)$ defined on $S$ that varies continuously as $(x,y,z)$ ranges over $S$
     and is everywhere normal to $S$.\\
-    Any such unit nromal vector field $\hat n(x,y,z)$ determines an \B{orientation} of $S$.
-    The side which $\hat n(x,y,z)$ points to is called the \B{positive side}; the other side is the
-    \B{negative side}.
+    Any such unit nromal vector field $\hat n(x,y,z)$ determines an \textbf{orientation} of $S$.
+    The side which $\hat n(x,y,z)$ points to is called the \textbf{positive side}; the other side is the
+    \textbf{negative side}.
 \end{definition}
 \begin{definition}
-    An \B{oriented surface} is a smooth surface together with a particular choice of unit
+    An \textbf{oriented surface} is a smooth surface together with a particular choice of unit
     normal vector field $\hat n(x,y,z)$.
 \end{definition}
 \begin{lemma}
@@ -1288,10 +1288,10 @@ Notation for higher derivatives:
     \end{align*}
 \end{lemma}
 \begin{definition}
-    For a \B{closed surface} (i.e., a surface without boundary):
+    For a \textbf{closed surface} (i.e., a surface without boundary):
     \begin{itemize}
-        \item the \B{positive orientation} is one for which the unit normal vectors point outwards;
-        \item the \B{negative orientation} is one for which the unit normal vector points inwards.
+        \item the \textbf{positive orientation} is one for which the unit normal vectors point outwards;
+        \item the \textbf{negative orientation} is one for which the unit normal vector points inwards.
     \end{itemize}
 \end{definition}
 \begin{definition}
@@ -1303,12 +1303,12 @@ Notation for higher derivatives:
 
 \begin{definition}
     If $\vec F(x,y,z)$ is a continuous vector field defined on an oriented surface $S$ with
-    unit normal vector field $\hat n(x,y,z)$, then the \B{surface integral of $\vec F$ over 
+    unit normal vector field $\hat n(x,y,z)$, then the \textbf{surface integral of $\vec F$ over 
     $S$} is
     \begin{align*}
         \di_S \vec F\cdot d\vec S = \di_S \vec F\cdot \hat n\:dS.
     \end{align*}
-    This integral is also called the \B{flux} of $\vec F$ over $S$.
+    This integral is also called the \textbf{flux} of $\vec F$ over $S$.
 \end{definition}
 
 
@@ -1336,7 +1336,7 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    A \B{simple} 3-dimensional region $E$ may be specified in three different ways:
+    A \textbf{simple} 3-dimensional region $E$ may be specified in three different ways:
     \begin{align*}
         E=\begin{cases}
             \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\}\\
@@ -1363,39 +1363,39 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    A \B{differential equation} is one invovling one or more derivatives of an unknown function.
+    A \textbf{differential equation} is one invovling one or more derivatives of an unknown function.
 \end{definition}
 
 \begin{definition}
-    Any function which satisfies a differential equation on an interval is called a \B{soltution} on that interval.
+    Any function which satisfies a differential equation on an interval is called a \textbf{soltution} on that interval.
 \end{definition}
 
 \begin{definition}
-    An \B{ordinary differential equation (ODE)} involves derivatives with respect to only one variable.
+    An \textbf{ordinary differential equation (ODE)} involves derivatives with respect to only one variable.
 \end{definition}
 
 \begin{definition}
-    A \B{partial differential equation (PDE)} involves derivatives with respect to more than one variable.
+    A \textbf{partial differential equation (PDE)} involves derivatives with respect to more than one variable.
 \end{definition}
 
 \begin{definition}
-    The \B{order} of a differential equation is the order of the highest-order derivative present.
+    The \textbf{order} of a differential equation is the order of the highest-order derivative present.
 \end{definition}
 
 \begin{definition}
-    A $n$th-order \B{linear} ODE has the general form
+    A $n$th-order \textbf{linear} ODE has the general form
     \begin{align*}
         a_n(x) \frac{d^ny}{dx^n}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\cdots a_1(x)\frac{dy}{dx}+a_0(x)y(x)= f(x)
     \end{align*}
     where $a_n(x), a_{n-1}(x), ..., a_0(x), f(x)$ are functions of $x$.
     \begin{itemize}
-        \item If $f(x)=0$ the ODE is \B{homogeneous},
-        \item if $f(x)\not=0$ the ODE is \B{nonhomogeneous}.
+        \item If $f(x)=0$ the ODE is \textbf{homogeneous},
+        \item if $f(x)\not=0$ the ODE is \textbf{nonhomogeneous}.
     \end{itemize}
 \end{definition}
 
 \begin{definition}
-    An \B{initial-value problem} comprises
+    An \textbf{initial-value problem} comprises
     \begin{itemize}
         \item a differential equation
         \item prescribed values for the solution and enough of its derivatives at a paritcular point to yield a solution.
@@ -1417,9 +1417,9 @@ Notation for higher derivatives:
     \begin{align*}
         \frac{dy}{dx}+P(x)y = Q(x)
     \end{align*}
-    may be solved by the \B{method of integrating factors}; i.e.
+    may be solved by the \textbf{method of integrating factors}; i.e.
     \begin{itemize}
-        \item multiply both sides of the ODE by the \B{integrating factor} $e^{\int P(x)dx}$ to give\begin{align*}
+        \item multiply both sides of the ODE by the \textbf{integrating factor} $e^{\int P(x)dx}$ to give\begin{align*}
             e^{\int P(x)dx}\left[\frac{dy}{dx}+P(x)y\right]&= e^{\int P(x)dx}Q(x)\\
             \Leftrightarrow \frac{d}{dx}\left(e^{\int P(x)dx}y\right)&=e^{\int P(x)dx}Q(x)
         \end{align*}
@@ -1434,7 +1434,7 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    A \B{separable} first-order ODE can be written in the form
+    A \textbf{separable} first-order ODE can be written in the form
     \begin{align*}
         \frac{dy}{dx}=g(x)h(y)
     \end{align*}
@@ -1451,7 +1451,7 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    A \B{homogeneous} first-order ODE can be written in the form
+    A \textbf{homogeneous} first-order ODE can be written in the form
     \begin{align*}
         \frac{dy}{dx} = g\left(\frac{y}{x}\right)
     \end{align*}
@@ -1471,7 +1471,7 @@ Notation for higher derivatives:
     \begin{align*}
         M(x,y)+N(x,y)\frac{dy}{dx}=0
     \end{align*}
-    is called \B{exact} if there exists a function $\psi(x,y)$ such that
+    is called \textbf{exact} if there exists a function $\psi(x,y)$ such that
     \begin{align*}
         \frac{\p \psi}{\p x}=M(x,y)\hs\text{and}\hs\frac{\p\psi}{\p y}=N(x,y).
     \end{align*}
@@ -1565,7 +1565,7 @@ Notation for higher derivatives:
     \begin{align*}
         t_0,\hs t_1=t_0+h,\hs t_2=t_1+h,\hs...
     \end{align*}
-    sparated by the \B{step size} $h>0$, we seek approximate values
+    sparated by the \textbf{step size} $h>0$, we seek approximate values
     $y_n$ for $\phi(t_n)$.
 \end{theorem}
 
@@ -1598,18 +1598,18 @@ Notation for higher derivatives:
     and the solution exists throughout $I$.
 \end{theorem}
 \begin{definition}
-    Two functions $y_1$ and $y_2$ arre \B{linearly dependent} on an
+    Two functions $y_1$ and $y_2$ arre \textbf{linearly dependent} on an
     interval $I$ if there exists two constants $C_1$ and $C_2$, not
     both zero, such that
     \begin{align*}
         C_1y_1(t)+C_2y_2(t)=0
     \end{align*}
     for all $t\in I$.\\
-    The functions are \B{linearly independent} on $I$ if they are not
+    The functions are \textbf{linearly independent} on $I$ if they are not
     linearly dependent.
 \end{definition}
 \begin{definition}
-    The \B{Wronskian} of two functions $y_1$ and $y_2$ is defined as the
+    The \textbf{Wronskian} of two functions $y_1$ and $y_2$ is defined as the
     determinant
     \begin{align*}
         W(y_1, y_2) = \begin{vmatrix}
@@ -1655,7 +1655,7 @@ Notation for higher derivatives:
     \end{enumerate}
 \end{theorem}
 \begin{theorem}
-    Suppse that $y_1$, $y_2$ are two \B{linearly independent} solutions to the
+    Suppse that $y_1$, $y_2$ are two \textbf{linearly independent} solutions to the
     homogeneous ODE
     \begin{align*}
         y''+p(t)y'+q(t)y =0
@@ -1672,20 +1672,20 @@ Notation for higher derivatives:
     \begin{align*}
         y=C_1y_1(t)+C_2y_2(t)
     \end{align*}
-    is called the \B{general solution}; every \B{particular solution}
+    is called the \textbf{general solution}; every \textbf{particular solution}
     to the homogeneous ODE can be found by assigning values to the 
     constants $C_1$ and $C_2$.
 \end{definition}
 \begin{definition}
     The functions $y_1$ and $y_2$ in the general solution $y=C_1y_2+C_2y_2$
-    are said to form a \B{fundamental set of solutions}.
+    are said to form a \textbf{fundamental set of solutions}.
 \end{definition}
 \begin{lemma}
     If we know one solution $y_1(t)$ to a linear homogeneous ODE, another
     linearly independent solution may be found by substituting $y=v(t)y_1(t)$.
     This leads to a first-order seperable ODE for $v'(t)$ from which
     $v(t)$ may be found.\\
-    This is called the \B{Method of Reduction of Order}.
+    This is called the \textbf{Method of Reduction of Order}.
 \end{lemma}
 
 
@@ -1703,7 +1703,7 @@ Then
     y(t)=e^{rt}
 \end{align*}
 is a solution to (\ref{linode}) provided that $r$ is a root of the
-\B{characteristic equation}
+\textbf{characteristic equation}
 \begin{align*}
     ar^2 + br + c = 0.
 \end{align*}
@@ -1747,7 +1747,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     \end{align}
     where $a$, $b$, $c$ are real-valued constants and $a\not=0$. Then 
     the corresponding homogeneous ODE (\ref{linode}) is called a
-    \B{complementary equation}.
+    \textbf{complementary equation}.
 \end{definition}
 
 \begin{theorem}
@@ -1771,7 +1771,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     \end{align*}
     where $y_c(t) = C_1y_1(t) + C_2y_2(t)$ is the general solution of the
     corresponding complementary equation.\\
-    $y_c(t)$ is called the \B{complementary function}. 
+    $y_c(t)$ is called the \textbf{complementary function}. 
 \end{theorem}
 
 \subsubsection{Method of undetermined coefficients}
@@ -1852,7 +1852,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
 
 
 \begin{definition}
-    An \B{Euler equation} has the form
+    An \textbf{Euler equation} has the form
     \begin{align}
         \label{euler}
         ax^2\frac{d^2y}{dx^2} + bx\frac{dy}{dx} + cy = 0
@@ -1876,7 +1876,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
 
 
 \begin{lemma}
-    We can use \B{power series}, i.e.
+    We can use \textbf{power series}, i.e.
     \begin{align}
         \label{pseries}
         \sum_{n=0}^\infty a_n (x-b)^n
@@ -1887,7 +1887,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
 \subsubsection{Useful properties of power series}
 
 \begin{definition}
-    The \B{radius of convergence}
+    The \textbf{radius of convergence}
     \begin{align*}
         \rho=\lim_{n\to\infty}\abs{\frac{a_n}{a_{n+1}}}\geq 0
     \end{align*}
@@ -1899,11 +1899,11 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     \end{enumerate}
 \end{definition}
 \begin{definition}
-    If the \B{Taylor series} expansion of $f$ about $x=b$, i.e.
+    If the \textbf{Taylor series} expansion of $f$ about $x=b$, i.e.
     \begin{align*}
         f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(b)}{n!}(x-b)^n
     \end{align*}
-    has $\rho>0$, then $f$ is said to be \B{analytic} at $x=b$.
+    has $\rho>0$, then $f$ is said to be \textbf{analytic} at $x=b$.
 \end{definition}
 \begin{lemma}
     If the functions $f,g$ are analytic at $x=b$ then so are
@@ -1949,9 +1949,9 @@ We can express (\ref{shl}) as
 \end{align} 
 where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
 \begin{definition}
-    The point $x=a$ is an \B{ordinary point} of (\ref{shl2}) provided that
+    The point $x=a$ is an \textbf{ordinary point} of (\ref{shl2}) provided that
     $p(x)$ and $q(x)$ are both analytic at $x=a$; otherwise $x=a$ is a
-    \B{singular point}.
+    \textbf{singular point}.
 \end{definition}
 \begin{lemma}
     If $P(x)$, $Q(x)$, $R(x)$ in (\ref{shl}) are polynomials with no common
@@ -1973,7 +1973,7 @@ where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
 \subsubsection{Series solutions near a regular singular point: Method of Frobenius}
 
 \begin{definition}
-    A \B{Frobenius series} is a power series of the form
+    A \textbf{Frobenius series} is a power series of the form
     \begin{align}
         \label{frob}
         y(x)=x^r\sum_{n=0}^\infty a_nx^n
@@ -1983,7 +1983,7 @@ where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
 
 \begin{theorem}
     To be a solution to the ODE (\ref{shl2}) the series (\ref{frob}) must
-    have an exponent $r$ that satsifies the \B{indicial equation}
+    have an exponent $r$ that satsifies the \textbf{indicial equation}
     \begin{align}
         \label{indic}
         r(r-1) + p_0r + q_0 = 0

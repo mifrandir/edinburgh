@@ -15,7 +15,7 @@
 \end{theorem}
 \section{The Real Line}
 \begin{definition}
-    A \B{field} is a set $F$ along with operations $+$ and $\cdot$ so that the following hold:\\
+    A \textbf{field} is a set $F$ along with operations $+$ and $\cdot$ so that the following hold:\\
     Rules of Addition:
     \begin{enumerate}
         \item $a+b\in F$.
@@ -121,21 +121,21 @@
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \B{AM-GM Inequality}\\
+    \textbf{AM-GM Inequality}\\
     Let $n\in\N$ and $x_1, x_2, ..., x_n \geq 0$. Then 
     \begin{align*}
         (x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}\leq\frac{x_1+\cdots+x_n}{n}.
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \B{Cauchy-Schwartz Inequality}\\
+    \textbf{Cauchy-Schwartz Inequality}\\
     Let $n\in\N$ and $x_1,...,x_n,y_1,...,y_n\in\R$. Then
     \begin{align*}
         x_1y_1+\cdots x_ny_n \leq \sqrt{x_1^2+\cdots+x_n^2}\sqrt{y_1^2+\cdots+y_n^2}.
     \end{align*}
 \end{theorem}
 \begin{definition}
-    For $x\in\R$, we define the \B{absolute value} of $x$ to be
+    For $x\in\R$, we define the \textbf{absolute value} of $x$ to be
     \begin{align*}
         \vert x \vert = \begin{cases}
             x &\text{if } x \geq 0\\
@@ -157,7 +157,7 @@
 \end{theorem}
 \section{Induction}
 \begin{definition}
-    \B{The Principle of Mathematical Induction}\\
+    \textbf{The Principle of Mathematical Induction}\\
     Given a list of statements $P(k)$, $P(k+1)$, ..., we know that $P(n)$ is true for every integer $n\geq k$ if
     \begin{enumerate}
         \item we know that $P(k)$ is true,
@@ -165,7 +165,7 @@
     \end{enumerate}
 \end{definition}
 \begin{definition}
-    \B{The Principle of Strong Mathematical Induction}\\
+    \textbf{The Principle of Strong Mathematical Induction}\\
     Let $k\in\N$ and let $P(k)$, $P(k+1)$, ..., be statements. Suppose that
     \begin{enumerate}
         \item $P(k)$ is true,
@@ -187,20 +187,20 @@
 \begin{definition}
     Let $A\subseteq\R$.
     \begin{itemize}
-        \item $A$ is said to be \B{bounded above} if $\exists M\in\R\st\forall x\in A,x\leq M$.\\
-        The number $M$ is called an \B{upper bound} of $A$.
-        \item Similarly, $A$ is said to be \B{bounded below} if $\exists m\in\R\st\forall x\in A,x\geq m$.\\
-        The number $m$ is called a \B{lower bound} of $A$.
-        \item We say $A$ is \B{bounded} if it is bounded above and below.
+        \item $A$ is said to be \textbf{bounded above} if $\exists M\in\R\st\forall x\in A,x\leq M$.\\
+        The number $M$ is called an \textbf{upper bound} of $A$.
+        \item Similarly, $A$ is said to be \textbf{bounded below} if $\exists m\in\R\st\forall x\in A,x\geq m$.\\
+        The number $m$ is called a \textbf{lower bound} of $A$.
+        \item We say $A$ is \textbf{bounded} if it is bounded above and below.
     \end{itemize}
 \end{definition}
 \begin{definition}
-    Given a set $A\subseteq\R$, a number $L$ is a \B{least upper bound} (LUB) for $A$ if
+    Given a set $A\subseteq\R$, a number $L$ is a \textbf{least upper bound} (LUB) for $A$ if
     \begin{enumerate}
         \item $L$ is an upper bound for $A$, and
         \item $\forall t<L$, $t$ is not an upper bound..
     \end{enumerate}
-    Similarly, we say $L$ is a \B{greatest lower bound} (GLB) for $A$ if
+    Similarly, we say $L$ is a \textbf{greatest lower bound} (GLB) for $A$ if
     \begin{enumerate}
         \item $L$ is a lower bound for $A$, and
         \item $\forall t>L$, $t$ is not a lower bound.
@@ -209,7 +209,7 @@
 \end{definition}
 \section{Limits}
 \begin{definition}
-    \B{The $\varepsilon-N$ definition of a limit.} Let $(x_n)^\infty_{n=1}$ be a sequence of real numbers $x_1,x_2,...$ and let $L\in\R$. We say that $x_n$ \B{converges} to $L$ and write $\lim_{n\to\infty}x_n=L$ if for all $\varepsilon>0$, there is a number $N$ so that for $n>N$, we have
+    \textbf{The $\varepsilon-N$ definition of a limit.} Let $(x_n)^\infty_{n=1}$ be a sequence of real numbers $x_1,x_2,...$ and let $L\in\R$. We say that $x_n$ \textbf{converges} to $L$ and write $\lim_{n\to\infty}x_n=L$ if for all $\varepsilon>0$, there is a number $N$ so that for $n>N$, we have
     \begin{align*}
         |x_n-L|<\varepsilon
     \end{align*}
@@ -219,7 +219,7 @@
     \end{align*}
 \end{definition}
 \begin{definition}
-    We say a sequence $(a_n)$ is \B{bounded} if the set of values $\{a_1, a_2, ...\}$ is a bounded set.
+    We say a sequence $(a_n)$ is \textbf{bounded} if the set of values $\{a_1, a_2, ...\}$ is a bounded set.
 \end{definition}
 \begin{theorem}
     If $(a_n)$ converges, it is bounded.
@@ -255,21 +255,21 @@
 \end{definition}
 \section{Convergence Theorem}
 \begin{definition}
-    A sequence $(a_n)^\infty_{n=1}$ is \B{increasing} if $a_n\leq a_n+1$ for all $n$ and \B{decreasing} if $a_n\geq a_{n+1}$ for all $n$. We say $a_n$ is \B{monotone} if it is either increasing or decreasing.
+    A sequence $(a_n)^\infty_{n=1}$ is \textbf{increasing} if $a_n\leq a_n+1$ for all $n$ and \textbf{decreasing} if $a_n\geq a_{n+1}$ for all $n$. We say $a_n$ is \textbf{monotone} if it is either increasing or decreasing.
 \end{definition}
 \begin{theorem}
-    \B{The Monotone Convergence Theorem}\\
+    \textbf{The Monotone Convergence Theorem}\\
     Let $(a_n)$ be an increasing sequence of real numbers that is bounded above (i.e. there is $M$ so that $a_n\leq M$ for all $n$). Then $(a_n)$ converges. Then $(a_n)$ converges. If $(a_n)$ is decreasing and is bounded below, then $(a_n)$ converges.
 \end{theorem}
 \begin{definition}
-    Given a sequence $(x_n)$, a \B{subsequence} is a sequence of the form $(x_{n_k})$ where $n_1<n_2<\cdots$ are positive integers.
-    A real number $x$ is a \B{limit point} of a sequence $(x_n)$ if there is a subsequence $(x_{n_k})$ so that $x_{n_k}\to x$.
+    Given a sequence $(x_n)$, a \textbf{subsequence} is a sequence of the form $(x_{n_k})$ where $n_1<n_2<\cdots$ are positive integers.
+    A real number $x$ is a \textbf{limit point} of a sequence $(x_n)$ if there is a subsequence $(x_{n_k})$ so that $x_{n_k}\to x$.
 \end{definition}
 \begin{theorem}
     Given a sequence $(x_n)$ and a number $L$, $L$ is a limit point iff for all $\varepsilon > 0$ and for all integers $N$, we can find $n>N$ such that $|x_n-L|<\varepsilon$.
 \end{theorem}
 \begin{theorem}
-    \B{Bolzano Weierstrass Theorem}. If $(x_n)$ is a bounded sequence then it has a limit point, that is, it has a convergent subsequence.
+    \textbf{Bolzano Weierstrass Theorem}. If $(x_n)$ is a bounded sequence then it has a limit point, that is, it has a convergent subsequence.
 \end{theorem}
 \section{Series and Decimals}
 \begin{definition}
@@ -290,7 +290,7 @@
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \B{Comparison Test.} If $\sum b_n$ is convergent and $|a_n|\leq b_n$ for all $n$, then $\sum a_n$ is convergent.
+    \textbf{Comparison Test.} If $\sum b_n$ is convergent and $|a_n|\leq b_n$ for all $n$, then $\sum a_n$ is convergent.
 \end{theorem}
 \begin{theorem}
     Let $x\in\R$. Then there is a sequence of integers $a_0\in\mathbb{Z}$ and $a_n\in\{0,1,...,9\}$ for $n\geq 1$ so that
@@ -305,7 +305,7 @@
     \end{align*}
 \end{theorem}
 \begin{definition}
-    \B{Pigeonhole Principle}.\\
+    \textbf{Pigeonhole Principle}.\\
     Suppose $k>n$, and we have $a_1,...,a_k\in S$, with $|S|=n$. Then there exists $i\not=j$ with $a_i=a_j$.
 \end{definition}
 \begin{theorem}
@@ -334,21 +334,21 @@
 \end{theorem}
 \section{Complex Numbers}
 \begin{definition}
-    \B{Complex Numbers.} Define $i$ to be a number such that $i^2 = -1$. 
-    The \B{complex numbers} are any number of the form
+    \textbf{Complex Numbers.} Define $i$ to be a number such that $i^2 = -1$. 
+    The \textbf{complex numbers} are any number of the form
     \begin{align*}
         z = x+iy \text{ where } x,y\in\R.
     \end{align*}
-    The set of all complex numbers is denoted $\mathbb{C}$. We define $\Re(z) = x$ and $\Im(z)=y$ to be the \B{real} and \B{imaginary parts} of $z$.
+    The set of all complex numbers is denoted $\mathbb{C}$. We define $\Re(z) = x$ and $\Im(z)=y$ to be the \textbf{real} and \textbf{imaginary parts} of $z$.
 \end{definition}
 \begin{definition}
-    \B{Modulus}. Given a complex number $z=x+iy$, the \B{modulus} of $z$ is
+    \textbf{Modulus}. Given a complex number $z=x+iy$, the \textbf{modulus} of $z$ is
     \begin{align*}
         |z|=|x+iy|=\sqrt{x^2+y^2}.
     \end{align*}
 \end{definition}
 \begin{definition}
-    \B{Complex Conjugate}. Given a complex number $z=x+iy$, its \B{complex conjugate} is defined to be
+    \textbf{Complex Conjugate}. Given a complex number $z=x+iy$, its \textbf{complex conjugate} is defined to be
     \begin{align*}
         \bar{z}=x-yi.
     \end{align*}
@@ -363,78 +363,78 @@
 \end{theorem}
 \begin{definition}
     Let $z\not=0$ be a complex number. 
-    Let $r=|z|$ and let the \B{argument} of $z$ be the angle $\theta\in[0,2\pi)$ between the line from $0$ to $z$ and the positive $x$-axis. We can then write
+    Let $r=|z|$ and let the \textbf{argument} of $z$ be the angle $\theta\in[0,2\pi)$ between the line from $0$ to $z$ and the positive $x$-axis. We can then write
     \begin{align*}
         z = r(\cos\theta+i\sin\theta)=re^{i\theta}.
     \end{align*}
-    These are the \B{polar form} and \B{exponential form} of $z$.
+    These are the \textbf{polar form} and \textbf{exponential form} of $z$.
 \end{definition}
 \begin{theorem}
-    \B{De Moivre's Theorem}. Let $z=re^{i\theta}$ and $w=se^{i\phi}$ then $zw=rse^{i(\theta+\phi)}$.
+    \textbf{De Moivre's Theorem}. Let $z=re^{i\theta}$ and $w=se^{i\phi}$ then $zw=rse^{i(\theta+\phi)}$.
 \end{theorem}
 \begin{theorem}
-    \B{A very special case of DM's Theorem}. If we let $z=re^{i\theta}$, and $n\in\N$ then
+    \textbf{A very special case of DM's Theorem}. If we let $z=re^{i\theta}$, and $n\in\N$ then
     \begin{align*}
         z^n = r^ne^{in\theta},\\
         z^{-n} = r^{-n}e^{-in\theta}.
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \B{Roots of Unity}. The solutions to $z^n=1$ are $1,w,...,w^{n-1}$ where $w=e^{\frac{2\pi i}{n}}$. That is, they are $e^{\frac{2\pi ki}{n}}$ for $k=0,1,...,n-1$.
+    \textbf{Roots of Unity}. The solutions to $z^n=1$ are $1,w,...,w^{n-1}$ where $w=e^{\frac{2\pi i}{n}}$. That is, they are $e^{\frac{2\pi ki}{n}}$ for $k=0,1,...,n-1$.
 \end{theorem}
 \section{Polynomials}
 \begin{definition}
-    For $n\in\N$, an \B{$n$-degree complex polynomial} is a function of the form
+    For $n\in\N$, an \textbf{$n$-degree complex polynomial} is a function of the form
     \begin{align*}
         p(z)=a_nz^n+a_{n-1}z^{n-1}+\cdots+a_0
     \end{align*}
-    where $a_n\not=0$ and $a_i\in\C$ for all $i$. We say that $\alpha$ is a \B{root} of $p(z)$ if $p(\alpha)=0$, in other words, if $\alpha$ is a solution to the polynomial equation $p(z)=0$.
+    where $a_n\not=0$ and $a_i\in\C$ for all $i$. We say that $\alpha$ is a \textbf{root} of $p(z)$ if $p(\alpha)=0$, in other words, if $\alpha$ is a solution to the polynomial equation $p(z)=0$.
 \end{definition}
 \begin{theorem}
-    \B{Abel-Ruffini Theorem}. There is no formula for the roots of a polynomial of degree $\geq 5$.
+    \textbf{Abel-Ruffini Theorem}. There is no formula for the roots of a polynomial of degree $\geq 5$.
 \end{theorem}
 \begin{theorem}
-    \B{Fundamental Theorem of Algebra}. Any complex polynomial has at least one root in $\C$.
+    \textbf{Fundamental Theorem of Algebra}. Any complex polynomial has at least one root in $\C$.
 \end{theorem}
 \begin{theorem}
-    \B{Factorization Theorem}. If $p$ is a degree $n$ polynomial, then there are $n$ roots $r_1,...,r_n\in\C$ and a number of $a\in\C$ so that
+    \textbf{Factorization Theorem}. If $p$ is a degree $n$ polynomial, then there are $n$ roots $r_1,...,r_n\in\C$ and a number of $a\in\C$ so that
     \begin{align*}
         p(z)=a(z-r_1)(z-r_2)\cdots(z-r_n).
     \end{align*}
-    Some roots may repeat. If a root appears $m$ times in $r_1, ..., r_n$ it has a \B{multiplicty} m.
+    Some roots may repeat. If a root appears $m$ times in $r_1, ..., r_n$ it has a \textbf{multiplicty} m.
 \end{theorem}
 \begin{theorem}
-    \B{Real Polynomials hava conjugate roots}. If $p(x)$ has real coefficients and $r$ is a root, so is $\bar{r}$.
+    \textbf{Real Polynomials hava conjugate roots}. If $p(x)$ has real coefficients and $r$ is a root, so is $\bar{r}$.
 \end{theorem}
 \begin{theorem}
-    \B{Root-Coefficient Theorem}. If $p(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$, has roots $r_1, ..., r_n$, then, if $s_j$ denotes the sum of all products of $j$-tuples of the roots,
+    \textbf{Root-Coefficient Theorem}. If $p(x)=x^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0$, has roots $r_1, ..., r_n$, then, if $s_j$ denotes the sum of all products of $j$-tuples of the roots,
     \begin{align*}
         s_j=(-1)^ja_{n-j}.
     \end{align*}
 \end{theorem}
 \section{The Integers}
 \begin{theorem}
-    \B{The Remainder Theorem.} Let $a\in\N$ and $b\in\mathbb{Z}$.
+    \textbf{The Remainder Theorem.} Let $a\in\N$ and $b\in\mathbb{Z}$.
     There are unique integers $q\in\mathbb{Z}$ and $0\leq r<a$ s.t.
     \begin{align*}
         b=qa+r.
     \end{align*}
 \end{theorem}
 \begin{definition}
-    For two integers $a$ and $b$ we say $a$ \B{divides} $b$, or write $a|b$, if there is an integer $c$ so that $b=ac$.
+    For two integers $a$ and $b$ we say $a$ \textbf{divides} $b$, or write $a|b$, if there is an integer $c$ so that $b=ac$.
 \end{definition}
 \begin{lemma}
     If $a|b$ and $b|a$, then $a=\pm b$.
 \end{lemma}
 \begin{lemma}
-    \B{The Easy Lemma.} Let $a$ and $b$ be integers and suppose $d|a$ and $d|b$. Then $d|ma+nb$ for all $m,n\in\N$.
+    \textbf{The Easy Lemma.} Let $a$ and $b$ be integers and suppose $d|a$ and $d|b$. Then $d|ma+nb$ for all $m,n\in\N$.
 \end{lemma}
 \begin{definition}
-    Given two integers $a,b\in\mathbb{Z}$ that are not both zero, the \B{highest common factor} of $a$ and $b$ is the largest positive integer $d\in\N$ that divides both $a$ and $b$.
-    We denote this integer $d$ by $\hcf(a,b)$. If $\hcf(a,b)=1$, then we say that $a$ and $b$ are \B{coprime}.
+    Given two integers $a,b\in\mathbb{Z}$ that are not both zero, the \textbf{highest common factor} of $a$ and $b$ is the largest positive integer $d\in\N$ that divides both $a$ and $b$.
+    We denote this integer $d$ by $\hcf(a,b)$. If $\hcf(a,b)=1$, then we say that $a$ and $b$ are \textbf{coprime}.
 \end{definition}
 \begin{theorem}
-    \B{Bezout's Identity.} Let $a$ and $b$ be non-zero integers. Then there are integers $s$ and $t$ so that $\hcf(a,b)=sa+tb$.
+    \textbf{Bezout's Identity.} Let $a$ and $b$ be non-zero integers. Then there are integers $s$ and $t$ so that $\hcf(a,b)=sa+tb$.
 \end{theorem}
 \begin{corollary}
     Let $a,b,c\in\Z$. Suppose $c\not=0$, $c|ab$ and $\hcf(a,c)=1$. Then $c|b$.
@@ -452,7 +452,7 @@
     If $n=p_1\cdots p_k$ is a product of primes, and if a prime $p$ divides $n$, then $p=p_i$ for some $i=1,...,k$.
 \end{corollary}
 \begin{theorem}
-    \B{The Fundamental Theorem of Arithmetic (FTA).} Let $n\geq 2$ be an integer.
+    \textbf{The Fundamental Theorem of Arithmetic (FTA).} Let $n\geq 2$ be an integer.
     \begin{itemize}
         \item (Existence) Then $n$ is equal to a product $n=p_1^{r_1}\cdots p_k^{r_k}$ of powers of prime numbers where $p_1<...<p_k$ and $r_i>0$ for all $i$.
         \item (Uniqueness) The factorization is unique: If we also have
@@ -463,13 +463,13 @@
     \end{itemize}
 \end{theorem}
 \begin{lemma}
-    \B{Existence of prime decomposition, Part I.} Every integer $n\geq 2$ can be written as a product of primes $n=p_1\cdots p_k$.
+    \textbf{Existence of prime decomposition, Part I.} Every integer $n\geq 2$ can be written as a product of primes $n=p_1\cdots p_k$.
 \end{lemma}
 \begin{lemma}
-    \B{Existence of prime decomposition, Part II.} Every integer $n\geq 2$ can be written as a product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$ and $r_i\geq 0$ for all $i$.
+    \textbf{Existence of prime decomposition, Part II.} Every integer $n\geq 2$ can be written as a product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$ and $r_i\geq 0$ for all $i$.
 \end{lemma}
 \begin{lemma}
-    \B{Uniqueness of prime decomposition.} Every integer $n$ can be written as a unique product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$.
+    \textbf{Uniqueness of prime decomposition.} Every integer $n$ can be written as a unique product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$.
 \end{lemma}
 \begin{theorem}
     Let $n=p_1^{a_1}\cdots p_k^{a_k}$ be a prime decomposition (i.e. $p_i$s are prime, $p_1<\cdots<p_k$, and $a_i>0$). Then $m$ divides $n$ iff 
@@ -530,7 +530,7 @@
     The equation $ax\equiv b \mod m$ has a solution iff $hcf(a,m)|b$.
 \end{theorem}
 \begin{theorem}
-    \B{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
+    \textbf{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
     \begin{align*}
         a^{p-1}\equiv 1 \mod p.
     \end{align*}
@@ -546,10 +546,10 @@
 \begin{definition}
     Let $A$ and $B$ be two sets.
     \begin{enumerate}
-        \item We define the \B{union} of $A$ and $B$ to be the set of elements that are either in $A$ or in $B$. We write $A\cup B$.
-        \item We define the \B{intersection} of $A$ and $B$ to be the set of elements that are in $A$ and $B$. We write $A\cap B$.
-        \item $A$ \B{minus} $B$ is the set of things in $A$ that are not in $B$. We write $A-B$ or $A\setminus B$.
-        \item If $A\cap B=\emptyset$, we say $A$ and $B$ are \B{disjoint}.
+        \item We define the \textbf{union} of $A$ and $B$ to be the set of elements that are either in $A$ or in $B$. We write $A\cup B$.
+        \item We define the \textbf{intersection} of $A$ and $B$ to be the set of elements that are in $A$ and $B$. We write $A\cap B$.
+        \item $A$ \textbf{minus} $B$ is the set of things in $A$ that are not in $B$. We write $A-B$ or $A\setminus B$.
+        \item If $A\cap B=\emptyset$, we say $A$ and $B$ are \textbf{disjoint}.
     \end{enumerate}
 \end{definition}
 \begin{proposition}
@@ -559,55 +559,55 @@
     \end{align*}
 \end{proposition}
 \begin{definition}
-    A \B{partition} of a set $S$ is a collection of nonempty subsets of $S$ so that for every $x\in S$, there is exactly one set $A$ in the collection so that $x\in A$.
+    A \textbf{partition} of a set $S$ is a collection of nonempty subsets of $S$ so that for every $x\in S$, there is exactly one set $A$ in the collection so that $x\in A$.
 \end{definition}
 \begin{definition}
-    The \B{Cartesian} product of two sets $A$ and $B$ is the set of ordered pairs
+    The \textbf{Cartesian} product of two sets $A$ and $B$ is the set of ordered pairs
     \begin{align*}
         A\times B = \{(x,y) | x\in A,\: y\in B\}.
     \end{align*}
 \end{definition}
 \begin{definition}
-    A \B{relation} $R$ on a set $S$ is just a subset of $S\times S$. Given $a,b\in S$, we write $a\sim b$ if $(a,b)\in R$.
+    A \textbf{relation} $R$ on a set $S$ is just a subset of $S\times S$. Given $a,b\in S$, we write $a\sim b$ if $(a,b)\in R$.
 \end{definition}
 \begin{definition}
     Let $S$ be a set. Let $\sim$ be a relation on $S$. We say $\sim$ is
     \begin{itemize}
-        \item \B{reflexive} if $a\sim a$ for all $a\in S$,
-        \item \B{symmetric} if for all $a,b\in S$, we have $a\sim b \Leftrightarrow b\sim a$, and
-        \item \B{transitive} if for all $a,b,c\in S$, we have
+        \item \textbf{reflexive} if $a\sim a$ for all $a\in S$,
+        \item \textbf{symmetric} if for all $a,b\in S$, we have $a\sim b \Leftrightarrow b\sim a$, and
+        \item \textbf{transitive} if for all $a,b,c\in S$, we have
         \begin{align*}
             a\sim b \sim c \Rightarrow a \sim c.
         \end{align*}
     \end{itemize}
-    If $\sim$ satisfies all three of these properties, we say $\sim$ is an \B{equivalence relation}.
+    If $\sim$ satisfies all three of these properties, we say $\sim$ is an \textbf{equivalence relation}.
 \end{definition}
 \begin{definition}
-    If $\sim$ is an equivalence relation on a set $S$ and $x\in S$, the \B{equivalence class} of $x$ is
+    If $\sim$ is an equivalence relation on a set $S$ and $x\in S$, the \textbf{equivalence class} of $x$ is
     \begin{align*}
         \cl(x) = \{y\in S | x\sim y\}.
     \end{align*}
-    The set of \B{equivalence classes} is the set $\{\cl(x) | x \in S\}$.
+    The set of \textbf{equivalence classes} is the set $\{\cl(x) | x \in S\}$.
 \end{definition}
 \begin{proposition}
     If $\sim$ is an equivalence relation on a set $S$, then the equivalence classes form a partition of $S$. 
 \end{proposition}
 \section{Functions}
 \begin{definition}
-    Given two sets $X$ and $Y$, a \B{function from $X$ to $Y$}, denoted $f:X\to Y$, is a relation pairing each $x\in X$ with an element in $Y$ which we denote $f(x)$. The set $X$ is called the \B{domain} of $f$ and $Y$ is the \B{codomain} or \B{range} of $Y$.
+    Given two sets $X$ and $Y$, a \textbf{function from $X$ to $Y$}, denoted $f:X\to Y$, is a relation pairing each $x\in X$ with an element in $Y$ which we denote $f(x)$. The set $X$ is called the \textbf{domain} of $f$ and $Y$ is the \textbf{codomain} or \textbf{range} of $Y$.
 \end{definition}
 \begin{definition}
     Let $f:X\to Y$ be a function. We say
     \begin{itemize}
-        \item $f$ is \B{surjective} if
+        \item $f$ is \textbf{surjective} if
         \begin{align*}
             \forall y \in Y,\: \exists x \in X \st f(x) = y,
         \end{align*}
-        \item $f$ is \B{injective} if
+        \item $f$ is \textbf{injective} if
         \begin{align*}
             \forall x,y \in X,\: f(x)=f(y) \Rightarrow x = y,
         \end{align*}
-        \item $f$ is \B{bijective} if it is injective and surjective.
+        \item $f$ is \textbf{bijective} if it is injective and surjective.
     \end{itemize}
 \end{definition}
 \begin{theorem}
@@ -619,7 +619,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{definition}
-    Let $f:X\to Y$ and $g:Y\to Z$ be functions. We define the \B{composition of $f$ and $g$}, denoted $g\circ f:X\to Z$, to be the function
+    Let $f:X\to Y$ and $g:Y\to Z$ be functions. We define the \textbf{composition of $f$ and $g$}, denoted $g\circ f:X\to Z$, to be the function
     \begin{align*}
         g\circ f(x) = g(f(x)).
     \end{align*}
@@ -633,7 +633,7 @@
     \end{enumerate}
 \end{theorem}
 \begin{definition}
-    If $f:X\to Y$ is bijective, the \B{inverse} of $f$, denoted $f^{-1}:Y\to X$, is the function such that
+    If $f:X\to Y$ is bijective, the \textbf{inverse} of $f$, denoted $f^{-1}:Y\to X$, is the function such that
     \begin{align*}
         f^{-1}(y) = x \Leftrightarrow f(x) = y.
     \end{align*}
@@ -642,39 +642,39 @@
     Let $f:X\to Y$ and $g:Y\to X$ be functions. Then $f$ is bijective and $g=f^{-1}$ iff $f(g(y))= y$ for all $y\in Y$ and $g(f(x))=x$ for all $x\in X$.
 \end{theorem}
 \begin{definition}
-    If $f:X\to Y$ and $A\subseteq X$, the \B{image of $A$} under $f$ is
+    If $f:X\to Y$ and $A\subseteq X$, the \textbf{image of $A$} under $f$ is
     \begin{align*}
         f(A) = \{f(x):x\in A\}\subseteq Y.
     \end{align*}
-    If $B\subseteq Y$, the \B{preimage of $B$} under $f$ is
+    If $B\subseteq Y$, the \textbf{preimage of $B$} under $f$ is
     \begin{align*}
         f^{-1}(B) = \{x\in X:f(x)\in B\}\subseteq X.
     \end{align*}
 \end{definition}
 \section*{Applications: What's bigger than $\infty$?}
 \begin{definition}
-    We say two sets $A$ and $B$ have the same \B{cardinality} if there is a bijective function $f:A\to B$, and we write $|A|=|B$ or $A\sim B$. If there is an injective map $f:A\to B$, we write $|A|\leq |B|$, and if $|A|\leq |B|$ and there is no injective map from $B$ to $A$, we write $|A|<|B|$.\\
-    When $A\sim\N$, we say $A$ is \B{countable}.
+    We say two sets $A$ and $B$ have the same \textbf{cardinality} if there is a bijective function $f:A\to B$, and we write $|A|=|B$ or $A\sim B$. If there is an injective map $f:A\to B$, we write $|A|\leq |B|$, and if $|A|\leq |B|$ and there is no injective map from $B$ to $A$, we write $|A|<|B|$.\\
+    When $A\sim\N$, we say $A$ is \textbf{countable}.
 \end{definition}
 \begin{theorem}
     $\mathbb{Q}\sim\N$.
 \end{theorem}
 \begin{theorem}
-    Let $S$ be an infinite set and let $P(S)$ denote the \B{power set} consisting of the subsets of $S$, i.e. $P(S) = \{A\subseteq S\}$. Then $|S|<|P(S)|$.
+    Let $S$ be an infinite set and let $P(S)$ denote the \textbf{power set} consisting of the subsets of $S$, i.e. $P(S) = \{A\subseteq S\}$. Then $|S|<|P(S)|$.
 \end{theorem}
 \section{Counting}
 \begin{theorem}
-    \B{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome. 
+    \textbf{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome. 
     Then after $n$ stages, the total number of outcomes is $a_1\cdot a_2\cdots a_n$.
 \end{theorem}
 \begin{proposition}
     Let $S$ have $n$ elements. Then the number of subsets is $2^n$.    
 \end{proposition}
 \begin{definition}
-    Let $S$ be a set of $n$ objects. An \B{ordering} of $S$ is a sequence $a_1,...,a_n$ for which each element of $S$ appears exactly once in this sequence.
+    Let $S$ be a set of $n$ objects. An \textbf{ordering} of $S$ is a sequence $a_1,...,a_n$ for which each element of $S$ appears exactly once in this sequence.
 \end{definition}
 \begin{theorem}
-    \B{Rearrangement Theorem.} Given a set $S$ of $n$ distinct objects, there are $n!$ ways of ordering them.
+    \textbf{Rearrangement Theorem.} Given a set $S$ of $n$ distinct objects, there are $n!$ ways of ordering them.
 \end{theorem}
 \begin{proposition}
     Let $S$ be a set of $n$ elmeents and $0\leq k \leq n$.    
@@ -709,12 +709,12 @@
 \begin{definition}
     Let $S$ be a nonempty set.
     \begin{itemize}
-        \item A \B{partition} of $S$ is a set $\{A_1,...,A_k\}$ of nonempty subsets of $S$ so that every $x\in\S$ is in exactly one $A_i$.
-        \item An \B{ordered partition} of $S$ is a sequence of sets $A_1,...,A_k$ that partition $S$.
+        \item A \textbf{partition} of $S$ is a set $\{A_1,...,A_k\}$ of nonempty subsets of $S$ so that every $x\in\S$ is in exactly one $A_i$.
+        \item An \textbf{ordered partition} of $S$ is a sequence of sets $A_1,...,A_k$ that partition $S$.
     \end{itemize}
 \end{definition}
 \begin{definition}
-    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots + r_k=n$, we denote the number of \B{ordered} partitions $A_1,..., A_n$ of a set $S$ such that $|A_i=r_i$ as
+    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots + r_k=n$, we denote the number of \textbf{ordered} partitions $A_1,..., A_n$ of a set $S$ such that $|A_i=r_i$ as
     \begin{align*}
         \binom{n}{r_1,...,r_k}.
     \end{align*}
@@ -726,20 +726,20 @@
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \B{The Binomial Theorem.} Let $n\in\N$ and $a,b\in\C$. Then
+    \textbf{The Binomial Theorem.} Let $n\in\N$ and $a,b\in\C$. Then
     \begin{align*}
         (a+b)^n=\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}.
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    \B{The Multinomial Theorem.} Let $n\in\N$ and $x_1, ..., x_k\in\C$. Then $(x_1+\cdots+x_k)^n$ is equal to the sum over all terms of the form
+    \textbf{The Multinomial Theorem.} Let $n\in\N$ and $x_1, ..., x_k\in\C$. Then $(x_1+\cdots+x_k)^n$ is equal to the sum over all terms of the form
     \begin{align*}
         \binom{n}{r_1,...,r_k}x_1^{r_1}\cdots x_k^{r_k}
     \end{align*}
     where $r_i\in\{0,1,...,n\}$ and $r_1+\cdots r_k=n$.
 \end{theorem}
 \begin{theorem}
-    \B{Inclusion-Exclusion Principle.} Let $n\geq 2$ and suppose $A_1, A_2, ..., A_n$ are sets. Let
+    \textbf{Inclusion-Exclusion Principle.} Let $n\geq 2$ and suppose $A_1, A_2, ..., A_n$ are sets. Let
     \begin{align*}
         c_1=|A_1|+|A_2|+\cdots,\:c_2=|A_1\cap A_2|+|A_1\cap A_3|+|A_2\cap A_3|+\cdots,\:\cdots
     \end{align*}
@@ -754,7 +754,7 @@
     \begin{align*}
         \{1,2,3,4,...,n\}\to\{1,2,3,4,...,n\}.
     \end{align*}
-    We call elements in $S_n$ \B{permutations} of the set $\{1,2,3,4,...,n\}$.
+    We call elements in $S_n$ \textbf{permutations} of the set $\{1,2,3,4,...,n\}$.
 \end{definition}
 \begin{lemma}
     The set $S-N$ consists of exactly $n!$ permutations.
@@ -790,13 +790,13 @@
     \begin{align*}
         (a_1\:a_2\:\cdots\:a_r)
     \end{align*}
-    and is called a \B{cycle} or \B{cyclic permutation}.
+    and is called a \textbf{cycle} or \textbf{cyclic permutation}.
 \end{definition}
 \begin{corollary}
     If $a_1, ..., a_r$ are distinct numbers in $\{1,2,...,n\}$ and $f=(a_1\: a_2\: \cdots \: a_r)$, then $r$ is the smalles positive integer such that $f^r=\iota$.
 \end{corollary}
 \begin{definition}
-    If $f=(a_1\:a_2\:\cdots\: a_r)$ and $g=(b_1\:b_2\:\cdots\:b_2)$ where $\{a_1,...,a_r\}$ and $\{b_1,..., b_n\}$ are disjoint sets, we say that $f$ and $g$ are \B{disjoint} in $S_n$.
+    If $f=(a_1\:a_2\:\cdots\: a_r)$ and $g=(b_1\:b_2\:\cdots\:b_2)$ where $\{a_1,...,a_r\}$ and $\{b_1,..., b_n\}$ are disjoint sets, we say that $f$ and $g$ are \textbf{disjoint} in $S_n$.
 \end{definition}
 \begin{proposition}
     If $f$ and $g$ are disjoint cycles in $S_n$, then $fg=gf$.    
@@ -809,7 +809,7 @@
     \begin{align*}
         f^m = \iota
     \end{align*}
-    is called the \B{order} of the permutation $f$.
+    is called the \textbf{order} of the permutation $f$.
 \end{definition}
 \begin{lemma}
     Let $f\in S_n$ have order $m$. If $f^k=\iota$ for some integer $k\in\N$, then $m|k$.
@@ -828,7 +828,7 @@
     Every permutation in $S_n$ is a product of cycles of length $2$.
 \end{lemma}
 \begin{definition}
-    We say a permutation $f\in S_n$ is \B{even} if $\sgn(f)=1$ and \B{odd} if $\sgn(f) = -1$.
+    We say a permutation $f\in S_n$ is \textbf{even} if $\sgn(f)=1$ and \textbf{odd} if $\sgn(f) = -1$.
 \end{definition}
 \begin{lemma}
     Let $n\in\N$.
