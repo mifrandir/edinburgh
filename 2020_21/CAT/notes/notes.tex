@@ -319,4 +319,35 @@
 \begin{proposition}
     Initial (terminal) objects are unique up to isomorphism.    
 \end{proposition}
+
+\subsection{Generalised elements}
+
+\begin{definition}
+    For any object $A\in\cat C$ an arrow $x\in\cat C$ of the form
+    \begin{align*}
+        x: 1 \to A
+    \end{align*}
+    where $1\in\cat C$ is terminal, is called a \emph{global element}
+    of $A$.\\
+    Further, for any object $A\in\cat C$ an arrow $x\in\cat C$ of the
+    form
+    \begin{align*}
+        x: X\to A
+    \end{align*} 
+    with arbitrary domain $X\in\cat C$ is called a \emph{generalised element}.
+\end{definition}
+
+\begin{lemma}
+    Let $x,x': X\to A$ be generalised elements of $A\in\cat C$. Then an arrow
+    $f:A\to B$ is monic if and only if $x\not=x'$ implies $fx\not=f'x$.
+\end{lemma}
+
+\begin{lemma}[Commuting square test]
+    Let $f,g,\alpha,\beta$ be arrows in any category $\cat C$ such that
+    \begin{align*}
+        f:A\to B,\hs g:A\to D,\hs \alpha:B\to C,\hs \beta:D\to C.
+    \end{align*}
+    Then we have $\alpha f=\beta g$ just if $\alpha f x = \beta g x$ for all generalised
+    elements $x:X\to A$.
+\end{lemma}
 \end{document}
