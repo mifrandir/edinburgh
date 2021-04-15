@@ -2,6 +2,7 @@
 \usepackage{notes-preamble}
 \usepackage{enumitem}
 \usepackage{extarrows}
+\usepackage{tikz-cd}
 \begin{document}
 \mkawodeythms
 \title{Category Theory (Steve Awodey)}
@@ -350,4 +351,87 @@
     Then we have $\alpha f=\beta g$ just if $\alpha f x = \beta g x$ for all generalised
     elements $x:X\to A$.
 \end{lemma}
+
+\subsection{Products}
+
+\begin{definition}
+    In any category $\cat C$, a \emph{product diagram} for the objects $A$
+    and $B$ consists of an object $P$ and arrows $p_1:P\to A$ and $p_2:P\to B$
+    satisfying the following UMP: Given any arrows $x_1:X\to A$ and $x_2:X\to B$
+    where $X$ is an object of $\cat C$, there exists a unique arrow $u:X\to P$
+    such that $x_1=p_1u$ and $x_2=p_2u$.
+\end{definition}
+
+\begin{center}
+    \begin{tikzcd}
+    & X \ar{dl}[swap]{x_1} \ar[d, dotted, "u"] \ar{dr}{x_2} \\
+    A & P \ar{l}{p_1} \ar{r}[swap]{p_2} & B
+    \end{tikzcd}
+\end{center}
+
+\begin{theorem}
+    Products are unique up to isomorphism.
+\end{theorem}
+
+\begin{definition}
+    A categroy $\cat C$ is said to \emph{have all finite products}, if it has a
+    terminal object and all binary products (and therewith all products of any
+    finite cardinality). The category $\cat C$ \emph{has all (small) products}
+    if every set of objects in $\cat C$ has a product.
+\end{definition}
+
+\subsection{Hom-sets}
+
+\begin{theorem}
+    Let $g:B\to B'$ be an arrow in $\cat C$. Then the function
+    defined by
+    \begin{align*}
+        \Hom(A, g):\Hom(A,B)\to\Hom(A,B'),\\
+        (f:A\to B) \mapsto (g\circ f:A\to B\to B'),
+    \end{align*}
+    i.e. $\Hom(A,g)(f)=g\circ f$, determines a functor
+    \begin{align*}
+        \Hom(A,-):\cat C \to \cat{Sets}
+    \end{align*}
+    called the \emph{representable functor}.
+\end{theorem}
+
+\begin{proposition}
+    A diagram of the form
+    \begin{align*}
+        A \xlongleftarrow{\hs p_1\hs} P \xlongrightarrow{\hs p_2\hs} B
+    \end{align*}
+    is a product for A and B if and only if for every object $X$, the canonical
+    function
+    \begin{gather*}
+        \vartheta_X = (\Hom(X, p_1), \Hom(X, p_2)) : \Hom(X, P)\to \Hom(X,A)\times \Hom(X,B)\\
+        x \mapsto (x_1, x_2)
+    \end{gather*}
+    is an isomorphism,
+    \begin{align*}
+        \vartheta_X:\Hom(X,P)\cong \Hom(X,A)\times\Hom(X,B).
+    \end{align*}
+\end{proposition}
+
+\begin{definition}
+    Let $\cat C$, $\cat D$ be categories with binary products. A functor
+    $F:\cat C\to \cat D$ is said to \emph{preserve binary products} if it takes
+    every product diagram
+    \begin{align*}
+        A \xlongleftarrow{\hs p_1\hs} A\times B \xlongrightarrow{\hs p_2\hs} B&\text{in }\cat C
+    \end{align*}
+    to a product diagram
+    \begin{align*}
+        FA\xlongleftarrow{\hs Fp_1\hs} F(A\times B)\xlongrightarrow{\hs Fp_2\hs}FB &\text{in }\cat D.
+    \end{align*}
+\end{definition}
+
+\begin{corollary}
+    For any object $X$ in a category $\cat C$ with products, the representable
+    functor 
+    \begin{align*}
+        \Hom_{\cat C}(X, -) : \cat C \to \cat{Sets}
+    \end{align*}
+    preserves products.
+\end{corollary}
 \end{document}
