@@ -12,18 +12,13 @@
 
 \section{Intelligent agents and their environments}
 
-\begin{definition}
+\begin{definition}[Agent, Ratinality, Architecture]
     An \emph{agent} is an entity that perceives and
     acts based on a sequence of observations in a system.
-\end{definition}
-
-\begin{definition}
-    A \emph{rational agent} is an agent that acts to achieve
+    An agent is called \emph{rational} if it acts to achieve
     the best possible outcome or the best possible expected
     outcome, if uncertainty is involved.
-\end{definition}
-
-\begin{definition}
+    
     The computing device an agent runs on combined with all sensors and actuators
     is called the agents \emph{architecture}.
 \end{definition}
@@ -31,54 +26,36 @@
 \subsection{Types of intelligent agents}
 
 \begin{definition}
-    \emph{Simple reflex agents} are agents that only react to the immediate percepts
-    and ignore the entirety of their percept history.
-\end{definition}
-
-\begin{definition}
-    \emph{Model-based reflex agents} are agents whose actions may depend on the
-    percept history as well as unperceived aspects of the world. They need to
-    maintain an \emph{internal world model}.
-\end{definition}
-
-\begin{definition}
-    \emph{Goal-based agents} are agents that have variable goals depending on the
-    state of their environment.
-\end{definition}
-
-\begin{definition}
-    \emph{Utility-based agents} are agents that can prioritise between multiple, 
-    potentially conflicting goals at the same time.
+    There are four types of agents:
+    \begin{enumerate}
+        \item \emph{simple reflex}: React only to the immediate percepts and ignore
+        the enitrety of their percept history.
+        \item \emph{model-based reflex}: Actions may depend on the percept history
+        as well as unperceived aspects of the world. Require \emph{internal world
+        model}.
+        \item \emph{goal-based}: Have variable goals depending on the state of their
+        environment.
+        \item \emph{utility-based}: Prioritise between multiple, potentially conflicting
+        goals at the same time.
+    \end{enumerate}
 \end{definition}
 
 \subsection{Types of environments}
 
 \begin{definition}
-    If the agents sensors descirbe an environment fully, it is called
-    \emph{fully observable}. Otherwise, it is \emph{partially observable}.
+    An environment is called
+    \begin{itemize}
+        \item \emph{fully observable} if the agents sensors describe it fully.
+        \item \emph{deterministic} if the next state is fully
+        determined by the current state and the agents actions.
+        \item \emph{episodic} if the next action does not depend on the previous
+        actions. Otherwise \emph{sequential}.
+        \item \emph{static} if it does not change while the agent determines
+        next action.
+        \item \emph{discrete} if the perecepts, actions and episodes within
+        are discrete.
+    \end{itemize}
 \end{definition}
-
-\begin{definition}
-    If the next state of an environment is fully determined by the current state
-    and the agents actions, it is called \emph{deterministic}. Otherwise, it is
-    \emph{stochastic}.
-\end{definition}
-
-\begin{definition}
-    If the next action within an environment does not depend on the previous actions
-    it is called \emph{episodic}. Otherwise, it is \emph{sequential}.
-\end{definition}
-
-\begin{definition}
-    If the an environment does not change while the agent determines his next action
-    it is called \emph{static}. Otherwise, it is \emph{dynamic}.
-\end{definition}
-
-\begin{definition}
-    If the percepts, actions and episodes within an environment are discrete, it is called
-    \emph{discrete}. Otherwise, it is \emph{continuous}.
-\end{definition}
-
 
 \section{Problem solving and search}
 
@@ -86,27 +63,13 @@
 \subsection{Types of problems}
 
 \begin{definition}
-    If the environment is deterministic and fully observable
-    the problem is called a \emph{single-state problem}.
-    The agent knows exactly which state it will be in and the
-    solution is a \emph{sequence}.
-\end{definition}
-
-\begin{definition}
-    If the environment is non-observable the problem is called
-    \emph{sensorless}. The agent may have no information about
-    the state of the environment and the solution is a
-    \emph{sequence}.
-\end{definition}
-
-\begin{definition}
-    If the environment is non-deterministic and/or partially 
-    observable the problem is called a \emph{contingency problem}.
-\end{definition}
-
-\begin{definition}
-    If the state space is unknown to the agent, the problem is
-    called an \emph{exploration problem}.
+    We define the following types of problems:
+    \begin{itemize}
+        \item \emph{single-state problem}: deterministic, fully-observable environment; solution is sequence
+        \item \emph{sensorless problem}: non-observable environment; solution is sequence
+        \item \emph{contingency problem}: non-deterministic and/or partially observable environment
+        \item \emph{exploration problem}: state space is unknown
+    \end{itemize}
 \end{definition}
 
 \subsection{Problem formulation}
@@ -131,7 +94,7 @@ Complexity of real world needs to be abstracted away.
     \item \emph{(abstract) solution}: set of real paths, solutions in the real world
 \end{itemize}
 
-\subsection{Tree search algorithms}
+\subsection{Search algorithms}
 
 \emph{Idea}: offline, simulated exploration of state space by generating successors of already
 explored states.
@@ -148,25 +111,6 @@ explored states.
         expand the chosen node, adding the resulting nodes to the frontier
 \end{pseudo}
 
-
-\section{Uninformed search strategies}
-
-
-\begin{definition}
-    A \emph{search strategy} defines the order of expansion in a tree search algorithm.
-\end{definition}
-
-\begin{definition}
-    Search strategies are \emph{evaluated} along the following
-    dimensions
-    \begin{itemize}
-        \item \emph{completeness}
-        \item \emph{optimality}
-        \item \emph{time complexity}
-        \item \emph{space complexity}
-    \end{itemize}
-\end{definition}
-
 \begin{pseudo}
 \textbf{function} GRAPH-SEARCH(problem) \textbf{returns} a solution or failure  \\+
     initialise the frontier using the initial state of the problem              \\
@@ -181,128 +125,49 @@ explored states.
             \emph{\textbf{only if} not in the frontier or explored set}
 \end{pseudo}
 
-\subsection{Breadth-first search}
+
+
+\subsection{Uninformed search strategies}
 
 \begin{definition}
-    \emph{Breadth-first search} is a search strategy where
-    the frontier is a FIFO queue.
-    \begin{pseudo}
-    \textbf{function} BREADTH-FIRST-SEARCH(problem) \textbf{returns} a solution or failure  \\+
-        \emph{node} $\leftarrow$ a node with STATE=\emph{problem}.INITIAL-STATE, PATH-COST=0\\
-        \textbf{if} \emph{problem}.GOAL-TEST(\emph{node}.STATE) \textbf{then}               \\+
-            \textbf{return} SOLUTION(\emph{node})                                           \\-
-        \emph{frontier} $\leftarrow$ FIFO queue only containing \emph{node}                 \\
-        \emph{explored} $\leftarrow \emptyset$                                              \\
-        \textbf{loop do}                                                                    \\+
-            \textbf{if} EMPTY?(\emph{frontier}) \textbf{then}                               \\+
-                \textbf{return} failure                                                     \\-
-            \emph{node} $\leftarrow$ POP(\emph{frontier})                                   \\
-            add \emph{node}.STATE to \emph{explored}                                        \\
-            \textbf{for each} \emph{action} $\in$ \emph{problem}.ACTIONS(\emph{node}.STATE) \textbf{do}             \\+
-                \emph{child} $\leftarrow$ CHILD-NODE(\emph{problem}, \emph{node}, \emph{action})                    \\
-                \textbf{if} \emph{child}.STATE $\not\in$ \emph{explored} $\cup$ \emph{frontier} \textbf{then}       \\+
-                \textbf{if} \emph{problem}.GOAL-TEST(\emph{child}.STATE) \textbf{then return} SOLUTION(\emph{child})\\
-                \emph{frontier} $\leftarrow$ INSERT(\emph{child}, \emph{frontier})
-    \end{pseudo}
+    A \emph{search strategy} defines the order of expansion in a tree search algorithm.
 \end{definition}
-
-\begin{theorem}
-    The breadth-first search strategy on a problem with branching factor $b$,
-    depth $d$ and maximum depth $m$ may be evaluated as follows:
-    \begin{itemize}
-        \item complete: yes, if $b$ is finite
-        \item optimal: yes, if each step has equal cost
-        \item time complexity: $O(b^d)$
-        \item space complexity: $O(b^d)$
-    \end{itemize}
-\end{theorem}
-
-\subsection{Depth-first search}
 
 \begin{definition}
-    \emph{Depth-first search} is a search strategy where the frontier is
-    a LIFO queue.
+    There are four uninformed search strategies:
+    \begin{enumerate}
+        \item \emph{breadth-first search}: frontier is a FIFO queue
+        \item \emph{depth-first search}: frontier is a LIFO queue
+        \item \emph{depth-limited search}: frontier is a LIFO queue and nodes at depth $l$ have no successors
+        \item \emph{iterative deepening search}: depth-limited search is repeated with increasing $l$
+    \end{enumerate}
 \end{definition}
 
-\begin{theorem}
-    The depth-first search strategy on a problem with branching factor $b$,
-    depth $d$ and maximum depth $m$ may be evaulated as follows:
-    \begin{itemize}
-        \item complete: no, fails for loops and infinite-depth spaces
-        \item optimal: no
-        \item time complexity: $O(b^m)$ 
-        \item space complexity: $O(bm)$
-    \end{itemize}
-\end{theorem}
-
-\subsection{Depth-limited search}
-
-\begin{definition}
-    \emph{Depth-limited search} is a search strategy where the frontier is
-    a LIFO queue and nodes at a given depth $l$ have no successors.
-\end{definition}
-
-\begin{theorem}
-    The depth-limited search strategy on a problem with branching factor $b$,
-    depth $d$, maximum depth $m$ and depth limit $l$ may be evaluated as follows:
-    \begin{itemize}
-        \item complete: yes, if $l\geq d$
-        \item optimal: no
-        \item time complexity: $O(b^l)$
-        \item space complexity: $O(bl)$
-    \end{itemize}
-\end{theorem}
-
-\subsection{Iterative deepening search}
-
-\begin{definition}
-    \emph{Iterative deepening search} is a search strategy where
-    depth-limited search is performed with increasing depth limit until
-    a solution is found.
-\end{definition}
-
-\begin{theorem}
-    The iterative deepening search strategy on a problem with branching factor
-    $b$, depth $d$ and maximum depth $m$ may be evaulated as follows:
-    \begin{itemize}
-        \item complete: yes
-        \item optimal: yes, if each step has equal cost
-        \item time complexity: $O(b^d)$
-        \item space complexity: $O(bd)$
-    \end{itemize}
-\end{theorem}
 
 
-\section{Informed search strategies}
 
-\subsection{Heuristics}
+\subsection{Informed search strategies}
 
 \begin{definition}
     A \emph{heuristic} $h:S\to \R_{\geq 0}$ is a problem-specific function
     that evaluates every element of a search space $S$ to a nonnegative value.
     For all goal states $s_0\in S$ we have $h(s_0)=0$.
-\end{definition}
-
-\begin{definition}
-    A heuristic $h$ is \emph{admissible} if for every node $n$, $h(n)\leq h^*(n)$,
-    where $h^*(n)$ is the true cost to reach the goal node from $n$.
-\end{definition}
-
-\begin{definition}
-    A heuristic $h$ is \emph{consistent} if for every node $n$, every
-    successor $n'$ of $n$ generated by any action $a$,
+    A heuristic $h$ is called
+    \begin{itemize}
+        \item \emph{admissible} if for every node $n$, $h(n)\leq h^*(n)$,
+        where $h^*(n)$ is the true cost to reach the goal node from $n$.
+        \item \emph{consistent} if for every node $n$, every
+        successor $n'$ of $n$ generated by any action $a$,
+        \begin{align*}
+            h(n) \leq c(n, a, n') + h(n').
+        \end{align*}
+    \end{itemize}
+    If $h_1,h_2:S\to \R_{\geq 0}$ are admissible heuristics for a state
+    space $S$ and
     \begin{align*}
-        h(n) \leq c(n, a, n') + h(n').
+        \forall s\in S,\: h_1(s) \leq h_2(s).
     \end{align*}
-\end{definition}
-
-\begin{definition}
-    Let $h_1,h_2:S\to \R_{\geq 0}$ be admissible heuristics for a state
-    space $S$. If
-    \begin{align*}
-        \forall s\in S,\: h_1(s) \leq h_2(s) 
-    \end{align*}
-    \emph{$h_2$ dominates $h_1$}.
+    Then \emph{$h_2$ dominates $h_1$}.
 \end{definition}
 
 \begin{theorem}
@@ -310,78 +175,35 @@ explored states.
     better for tree and graph search.
 \end{theorem}
 
-\subsection{Best-first search}
-
 \begin{definition}
-    \emph{Best-first search} is a search strategy where an evaluation function
-    $f$ assigns a desirability to each node in the frontier and the next node
-    to expand is chosen based on that value.
-\end{definition}
-
-\subsection{Greedy best-first search}
-
-\begin{definition}
-    \emph{Greedy (best-first) search} is a best-first search strategy where the
-    evaluation function is chosen to be a heuristic $h$ and the next node to
-    expand is the one in the frontier that minimises $h(n)$.
-\end{definition}
-
-\begin{theorem}
-    The greedy search strategy on a problem with branching factor $b$, depth
-    $d$ and maximum depth $m$ may be evaluated as follows:
+    We consider the following informed search strategies:
     \begin{itemize}
-        \item complete: no, can get stuck in loops
-        \item optimal: no
-        \item time complexity: $O(b^m)$
-        \item space complexity: $O(b^m)$
+        \item \emph{best-first}: next node to expand is chosen based on desirability assigned by a function $f$.
+        \item \emph{greedy best-first}: $f=h$ where $h$ is a heuristic.
+        \item \emph{A*}: $f=g+h$ where $h$ is a heuristic and $g$ is the cummulative cost of reaching a given node.
     \end{itemize}
-\end{theorem}
-
-\subsection{A* search}
-
-\begin{definition}
-    \emph{A* search} is a best-first search strategy where the evaluation
-    function $f=g+h$ is chosen to be the sum of a heuristic $h$, representing the
-    path cost from a node $n$ to a goal node, and a cummulative 
-    cost function $g$ that calculates the cost of reaching $n$
-    in from the start node.
 \end{definition}
 
+\paragraph{Comparison}
+
+Let $b$ be the branching factor, $d$ be the optimal depth, $m$ the maximum depth, 
+
+
+\begin{center}
+    \begin{tabular}{l | l | l | l | l}
+        \textbf{Strategy} & \textbf{Complete?} & \textbf{Optimal?} & \textbf{Time} & \textbf{Space}
+        \\\hline
+    \end{tabular}
+\end{center}
 
 \begin{theorem}
-    If $h$ is admissible, A* using TREE-SEARCH is optimal.
-\end{theorem}
-
-\begin{theorem}
-    If $h$ is consistent, A* using GRAPH-SEARCH is optimal.
-\end{theorem}
-
-\begin{theorem}
-    The A* search strategy on a problem with branching factor $b$, depth $d$
-    and maximum depth $m$ may be evaluated as follows:
-    \begin{itemize}
-        \item complete: yes, unless there are infinitely many nodes $n$ with $f(n) \leq f(G)$.
-        \item optimal: yes
-        \item time complexity: $O(b^d)$
-        \item space complexity: $O(b^d)$
-    \end{itemize}
-\end{theorem}
-
-\subsection{Relaxed problems}
-
-\begin{definition}
-    Given a problem $P$, a \emph{relaxed problem of $P$} is a problem with
-    fewer restrictions.
-\end{definition}
-
-\begin{theorem}
-    Let $P$ be a problem and let $P'$ be a relaxed problem of $P$. Then
-    the cost of an optimal solution of $P'$ is a admissible heuristic
-    for $P$.
+    Let $P$ be a problem and let $P'$ be a relaxed problem of $P$, i.e.
+    a problem with fewer restriction. Then the cost of an optimal solution of 
+    $P'$ is a admissible heuristic for $P$.
 \end{theorem}
 
 
-\section{Adversarial search}
+\subsection{Adversarial search}
 
 
 \begin{definition}
@@ -389,8 +211,6 @@ explored states.
     opposing goals. Its purpose is to ensure the best possible outcome for the
     agent applying it, taking into account all possible actions by other agents.
 \end{definition}
-
-\subsection{Minimax}
 
 \begin{definition}
     \emph{Minimax} is an adversarial search strategy in deterministic, perfect
@@ -418,20 +238,6 @@ explored states.
             \textbf{return} $v$
     \end{pseudo}
 \end{definition}
-
-\begin{theorem}
-    The minimax search strategy on a problem with branching
-    factor $b$, depth $d$ and maximum depth $m$ may be evaluated
-    as follows:
-    \begin{itemize}
-        \item complete: yes, if tree is finite
-        \item optimal: yes, against optimal opponent
-        \item time complexity: $O(b^m)$
-        \item space complexity: $O(bm)$
-    \end{itemize}
-\end{theorem}
-
-\subsection{Alpha-beta pruning}
 
 \begin{definition}
     \emph{\alpha-\beta pruning} is a minimax-like adversarial search
@@ -465,6 +271,26 @@ explored states.
             \textbf{return} $v$\\-
     \end{pseudo}
 \end{definition}
+
+\subsection{Summary}
+
+Let $b$ be the branching factor, $d$ be the optimal depth, $m$ the maximum depth, $l$ be the
+depth limit$n$ be any node and $g$ be the goal node.
+
+\begin{center}
+\begin{tabular}{l | l | l | l | l}
+    \textbf{Strategy} & \textbf{Complete?} & \textbf{Optimal?} & \textbf{Time} & \textbf{Space}
+    \\\hline
+    Breadth-first & yes, if $b$ is finite & yes, if each step has equal cost & $O(b^d)$ & $O(b^d)$\\
+    Depth-first & no & no & $O(b^m)$ & $O(bm)$ \\
+    Depth-limited & yes, if $l\geq d$ & no & $O(b^l)$ & $O(bl)$ \\
+    Iterative deepening & yes & yes, if each step has equal cost & $O(b^d)$ & $O(bd)$ \\
+    Greedy best-first & no, can get stuck in loops & no & $O(b^m)$ & $O(b^m)$ \\
+    A* (Tree) & yes, unless $f(n)\leq f(g)$ infinitely & yes, if $h$ is admissible &  $O(b^d)$ & $O(b^d)$ \\
+    A* (Graph) & yes, unless $f(n)\leq f(g)$ infinitely & yes, if $h$ is consistent &  $O(b^d)$ & $O(b^d)$ \\
+    Minimax & yes, if tree is finite & yes, against optimal opponent & $O(b^m)$ & $O(bm)$
+\end{tabular}
+\end{center}
 
 \section{Constraint satisfaction problems}
 
