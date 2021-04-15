@@ -360,14 +360,14 @@
     satisfying the following UMP: Given any arrows $x_1:X\to A$ and $x_2:X\to B$
     where $X$ is an object of $\cat C$, there exists a unique arrow $u:X\to P$
     such that $x_1=p_1u$ and $x_2=p_2u$.
+    \begin{center}
+        \begin{tikzcd}
+        & X \ar{dl}[swap]{x_1} \ar[d, dotted, "u"] \ar{dr}{x_2} \\
+        A & P \ar{l}{p_1} \ar{r}[swap]{p_2} & B
+        \end{tikzcd}
+    \end{center}
+    We write $P=A\times B$.
 \end{definition}
-
-\begin{center}
-    \begin{tikzcd}
-    & X \ar{dl}[swap]{x_1} \ar[d, dotted, "u"] \ar{dr}{x_2} \\
-    A & P \ar{l}{p_1} \ar{r}[swap]{p_2} & B
-    \end{tikzcd}
-\end{center}
 
 \begin{theorem}
     Products are unique up to isomorphism.
@@ -434,4 +434,97 @@
     \end{align*}
     preserves products.
 \end{corollary}
+
+\section{Duality}
+
+\subsection{The duality principle}
+
+\begin{proposition}[Formal duality]
+    For any sentence $\Sigma$ in the language of category theory,
+    if $\Sigma$ follows from the axioms for categories, then so does
+    its dual $\Sigma^*$
+    \begin{align*}
+        \text{CT}\Rightarrow \Sigma \text{\hs implies\hs} \text{CT}\Rightarrow \Sigma^*.
+    \end{align*} 
+\end{proposition}
+
+\begin{proposition}[Conceptual duality]
+    For any statement $\Sigma$ about categories, if $\Sigma$ holds for all categories,
+    then so does the dual statement $\Sigma^*$.
+\end{proposition}
+
+\subsection{Coproducts}
+
+\begin{definition}
+    In any category $\cat C$, a \emph{coproduct diagram} for the objects $A$ and $B$
+    consists of an object $A$ and arrows $q_1:A\to Q$ and $q_2:B\to Q$ satisfying
+    the following UMP: Given any arrows $x_1:A\to X$ and $x_2:B\to X$ where $X$ is an
+    object of $\cat C$, there exists a unique arrow $u:X\to P$ such that $x_1=up_1$
+    and $x_2=up_2$.
+    \begin{center}
+        \begin{tikzcd}
+        & X & \\
+        A \ar{ur}{x_1} \ar{r}[swap]{q_1} & Q \ar[u, dotted, "u"] & B \ar[l, "q_2"] \ar{ul}[swap]{x_2}
+        \end{tikzcd}
+    \end{center}
+    We write $Q=A+B$.
+\end{definition}
+
+\begin{proposition}
+    In the category $\cat{Ab}$ of abelian groups, there is a canonical isomorphism between the binary
+    coproduct and product
+    \begin{align*}
+        A + B \cong A \times B.
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}
+    Coproducts are unique up to isomorphism.
+\end{proposition}
+
+\subsection{Equalisers}
+
+\begin{definition}
+    In any category $\cat C$, given parallel arrows 
+    \begin{align*}
+        f,g: A\to B
+    \end{align*}
+    an \emph{equaliser} of $f$ and $g$ consists of an object $E$ and an arrow $e:E\to A$,
+    universal such that
+    \begin{align*}
+        f \circ e = g \circ e.
+    \end{align*}
+    That is, given any $z:Z\to A$ with $f\circ z=g\circ z$, there is a \emph{unique}
+    $u:Z\to E$ with $e\circ u = z$.
+\end{definition}
+
+\begin{proposition}
+    In any category, if $e:E\to A$ is an equaliser of some pair of arrows, $e$ is monic.
+\end{proposition}
+
+\subsection{Coequalisers}
+
+\begin{definition}
+    For any parallel arrows $f,g:A\to B$ in any category $\cat C$, a \emph{coequaliser}
+    consists of $Q$ and $q:B\to Q$, universal with the property $qf=qg$. That is given
+    any $Z$ and $z:B\to Z$, if $zf=zg$, then there exists a unique $u:Q\to Z$ such that
+    $uq=z$.
+\end{definition}
+
+\begin{proposition}
+    If $q:B\to Q$ is a coequaliser of some pair of arrows, then $q$ is epic.
+\end{proposition}
+
+\begin{proposition}
+    For every monoid $M$ there are sets $R$ and $G$ and a coequaliser diagram,
+    \begin{center}
+        \begin{tikzcd}
+            F(R) \arrow[r, shift left=.3ex, "r_1"] 
+            \arrow[r, shift right=.3ex, swap, "r_2"] & F(G)
+            \arrow[r] & M
+        \end{tikzcd}
+    \end{center}
+    with $F(R)$ and $F(G)$ free; thus, $M\cong F(G)/(r_1=r_2)$.
+\end{proposition}
+
 \end{document}
