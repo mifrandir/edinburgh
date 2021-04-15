@@ -337,10 +337,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 \begin{definition}
     A CSP is \emph{$k$-consistent} if, for any set of $k-1$ variables and for any consistent 
     assignment to those variables, a consistent value can always be assigned to any
-    $k$th variable.
-\end{definition}
-
-\begin{definition}
+    $k$-th variable.
     A CSP is \emph{strongly $k$-consistent} if for all $k'\leq k$ it is $k'$-consistent.
 \end{definition}
 
@@ -357,19 +354,13 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{lemma}
 
 \begin{definition}
-    The \emph{minimum-remaining-values heuristic} tells backtracking search to choose
-    the variable with the fewest "legal" values in the next step.
-\end{definition}
-
-\begin{definition}
-    The \emph{degree heuristic} tells backtracking search to choose the variable
-    involved in the largest number of constraints in the next step.
-\end{definition}
-
-\begin{definition}
-    The \emph{least-constraining-value heuristic} tells backtracking search to
-    choose the value for the current variable that rules out the fewest values
-    for the remaining variables.
+    We consider the following heuristics for backtracking search:
+    \begin{itemize}
+        \item \emph{minimum-remaining-values}: chooses the variable with the fewest legal values
+        \item \emph{degree}: chooses the variable involved in the largest number of constraints
+        \item \emph{least-constraining-value}: chooses the value that
+        rules out the fewest values for the remaining variables
+    \end{itemize}
 \end{definition}
 
 \begin{definition}
@@ -417,33 +408,14 @@ depth limit$n$ be any node and $g$ be the goal node.
 \begin{definition}
     Let $m$ be a model and $\alpha$ be a sentence. If $\alpha$ is true in $m$, then
     $m$ \emph{satisfies} $\alpha$. The set of all models that satisfy $\alpha$ is
-    denoted $M(\alpha)$.
-\end{definition}
-
-\begin{definition}
-    Let $\alpha,\beta$ be sentences. Then $a\vDash b$ if and only if $M(\alpha)\subseteq M(\beta)$.
-\end{definition}
-
-\begin{definition}
-    Let $i$ be an inference algorithm, $\alpha$ be a sentence and $KB$ be a knowlege base.
-    If $i$ can derive $\alpha$ from $KB$ then we write $KB\vdash_i \alpha$.
-\end{definition}
-
-\begin{definition}
-    An inference alogrithm that only derives entailed sentences is called \emph{sound}.
-\end{definition}
-
-\begin{definition}
-    An inference algorithm is complete if it can derive any sentence that is entailed.
-\end{definition}
-
-\begin{definition}
-    Let $\alpha,\beta$ be sentences. Then $a\equiv b$ if and only if $M(\alpha)=M(\beta)$.
-\end{definition}
-
-\begin{definition}
-    Let $\alpha$ be a sentence. If $M(\alpha)\not=\emptyset$ then $\alpha$ is \emph{satisfiable}.
-    If $M(\neg\alpha)=\emptyset$ then $\alpha$ is \emph{valid} or a \emph{tautologie}.
+    denoted $M(\alpha)$.\\
+    Let $\alpha,\beta$ be sentences. Then we define the following:
+    \begin{itemize}
+        \item $a\vDash b$ if and only if $M(\alpha)\subseteq M(\beta)$
+        \item $a\equiv b$ if and only if $M(\alpha)=M(\beta)$
+        \item $\alpha$ is \emph{satisfiable} only if $M(\alpha)\not=\emptyset$
+        \item $\alpha$ is \emph{valid} only if $M(\neg\alpha)=\emptyset$
+    \end{itemize}
 \end{definition}
 
 \begin{lemma}
@@ -453,6 +425,17 @@ depth limit$n$ be any node and $g$ be the goal node.
         \item $\alpha\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
     \end{itemize}
 \end{lemma}
+
+\begin{definition}
+    Let $i$ be an inference algorithm, $\alpha$ be a sentence and $KB$ be a knowlege base.
+    If $i$ can derive $\alpha$ from $KB$ then we write $KB\vdash_i \alpha$.
+    An inference algorithm is called
+    \begin{itemize}
+        \item \emph{sound} if it only derives entailed sentences.
+        \item \emph{complete} if it can derive any sentence that is entailed.
+    \end{itemize}
+\end{definition}
+
 
 \begin{definition}
     A knowledge base is called \emph{monotonous} if the set of entailed sentences can
@@ -474,6 +457,20 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{align*}
 \end{theorem}
 
+\begin{theorem}[Ground resolution theorem]
+    If a set of clauses is unsatisfiable, then the resoltuion closure of
+    those clauses contains the empty clause. 
+\end{theorem}
+
+\begin{definition}
+    We define two types of special clauses:
+    \begin{itemize}
+        \item \emph{definite clause}: disjunction of literals of which exactly one is positive
+        \item \emph{Horn clause}: disjunction of literals of which at most one is positive
+    \end{itemize}
+\end{definition}
+
+
 \begin{pseudo}
     \textbf{function} PL-RESOLUTION$(KB,\alpha)$ \textbf{returns} $true$ or $false$\\+
         $\text{\emph{clauses}}\leftarrow \text{the set of clauses in the CNF representation of }KB\wedge\neg\alpha$\\
@@ -487,23 +484,8 @@ depth limit$n$ be any node and $g$ be the goal node.
             $\text{\emph{clauses}}\leftarrow\text{\emph{clauses}}\cup\text{\emph{new}}$
 \end{pseudo}
 
-\begin{theorem}[Ground resolution theorem]
-    If a set of clauses is unsatisfiable, then the resoltuion closure of
-    those clauses contains the empty clause. 
-\end{theorem}
-
-\begin{definition}
-    A \emph{definite clause} is a disjunction of literals of which
-    exactly one is positive.
-\end{definition}
-
-\begin{definition}
-    A \emph{Horn clause} is a disjunction of literals of which at most
-    one is positive.
-\end{definition}
-
 \begin{pseudo}
-    \textbf{function} DPPL-SATISFIABLE?$(s)$ \textbf{returns} $true$ or $false$\\+
+    \textbf{function} DPLL-SATISFIABLE?$(s)$ \textbf{returns} $true$ or $false$\\+
         $\text{\emph{clauses}}\leftarrow\text{the set of clauses in the CNF representation of }s$\\
         $\text{\emph{symbols}}\leftarrow\text{a list of the proposition symbols in }s$\\
         \textbf{return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}, \emptyset)$
@@ -632,11 +614,6 @@ depth limit$n$ be any node and $g$ be the goal node.
 \subsection{Forward-chaining}
 
 \begin{definition}
-    A \emph{definite} first-order clause is a disjunction of literals of which exactly
-    one is positive.
-\end{definition}
-
-\begin{definition}
     \emph{Datalog} is a language of knowledge bases that is restricted to first-order
     definite clauses with no function symbols.
 \end{definition}
@@ -650,15 +627,15 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{enumerate}
 
 \begin{theorem}
-    The algorithm above is \emph{sound} and \emph{complete} for Datalog knowledge bases.
+    The algorithm above is
+    \begin{itemize}
+        \item \emph{sound} and \emph{complete} for Datalog knowledge bases.
+        \item \emph{sound} for general knowledge bases.
+    \end{itemize}
 \end{theorem}
 
 \begin{theorem}
-    The algorithm above is \emph{sound} for general knowledge bases.
-\end{theorem}
-
-\begin{theorem}
-    Every finite domain constraint satisfaction problem can be expressed as a 
+    Every finite domain CSP can be expressed as a 
     single definite clause with some ground facts.
 \end{theorem}
 
@@ -703,33 +680,31 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{definition}
 
 \begin{definition}
-    \emph{OR-parallelism} uses the fact that a goal may unify with many different
-    clauses in a knowledge base and describes the ability to compute those branches
-    in parallel.
-\end{definition}
-
-\begin{definition}
-    \emph{AND-prallelism} uses the fact that each conjunct in the body of an implication
-    may be solved individually. However, each branch needs to have bindings consistent
-    with all the other branches.
+    There are two types of parallelism that may be used to optimise CSP solvers:
+    \begin{itemize}
+        \item \emph{OR-parallelism}: goal may unify with many different clauses; 
+        branches can be computed in parallel
+        \item \emph{AND-parallelism}: each conjunct in the body of an implication
+        may be solved individually (though each branch needs to have bindings
+        consistent with all the other branches)
+    \end{itemize}
 \end{definition}
 
 \subsection{Resolution}
 
 \begin{theorem}
     Every sentence of first-oder logic can be converted into an inferentially equivalent
-    CNF sentence.
+    CNF sentence. This may be achieved as follows:
+    \begin{enumerate}
+        \item eliminate implications
+        \item move $\neg$ inwards
+        \item standardise variables
+        \item skolemise
+        \item drop universal quantifiers
+        \item distribute $\vee$ over $\wedge$
+    \end{enumerate}
 \end{theorem}
 
-\paragraph{CNF conversion for FOL}
-\begin{enumerate}
-    \item eliminate implications
-    \item move $\neg$ inwards
-    \item standardise variables
-    \item skolemise
-    \item drop universal quantifiers
-    \item distribute $\vee$ over $\wedge$
-\end{enumerate}
 
 \begin{definition}
     \emph{Binary resolution} is given by the rule
@@ -738,7 +713,7 @@ depth limit$n$ be any node and $g$ be the goal node.
             l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
         } 
     \end{align*}
-    where $\text{UNIFY}(l_i,\neg m_j)$.
+    where $\theta=\text{UNIFY}(l_i,\neg m_j)$.
 \end{definition}
 
 \begin{definition}
@@ -809,7 +784,7 @@ depth limit$n$ be any node and $g$ be the goal node.
         \infer{
             \text{SUB}(\subst(\theta,x),\subst(\theta,y),\subst(\theta,l_1\wedge\cdots\wedge l_k\wedge m_1\wedge\cdots\wedge m_n))
         }{
-            l_1\wedge \cdots\wedge x=y,\hs m_1\wedge\cdots\wedge m_n
+            l_1\wedge \cdots\wedge l_k\wedge x=y,\hs m_1\wedge\cdots\wedge m_n
         }.
     \end{align*} 
 \end{definition}
