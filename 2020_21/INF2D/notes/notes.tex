@@ -796,49 +796,22 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Resolution strategies}
 
-\begin{definition}
-    \emph{Unit preference} is a resolution strategy that prefers to do resolutions
-    where one of the sentences is a unit clause.
-\end{definition}
+\begin{proposition}[R\&N p. 355]
+    We consider the following resolution strategies
+    \begin{itemize}
+        \item \emph{unit preference}: prefers resolution with at least one unit clause
+        \item \emph{unit resolution}: restricted; every step must involve a unit clause; complete for Horn clauses
+        \item \emph{set of support}: every resolution must involve one element of a special
+        set of clauses and resolvent is added to this set; may be incomplete depending on $S$
+        \item \emph{input resolution}: is a strategy where every resolution combines one of the
+        input sentences with some other sentence; not complete
+        \item \emph{linear resolution}: $P$ and $Q$ may be resolved if $P$ is in the original
+        $KB$ or if $P$ is an ancestor of $Q$; complete
+        \item \emph{subsumption}: eliminates al sentences that are more specific than an existing
+        sentence in the $KB$
+    \end{itemize}
+\end{proposition}
 
-\begin{definition}
-    \emph{Unit resolution} is a restricted form of resolution in which every
-    step must involve a unit clause.
-\end{definition}
-
-\begin{theorem}
-    Unit resolution is complete for Horn clauses.
-\end{theorem}
-
-\begin{definition}
-    A \emph{set of support} strategy insists that every resolution must
-    involve one element of a special set of clauses and the resolvent is
-    added to this set.
-\end{definition}
-
-\begin{definition}
-    \emph{Input resolution} is a strategy where every resolution combines
-    one of the input sentences with some other sentence.
-\end{definition}
-
-\begin{theorem}
-    Input resolution is not complete.
-\end{theorem}
-
-\begin{definition}
-    \emph{Linear resolution} is a strategy where a resolution of $P$ and $Q$
-    possible only if $P$ is in the original $KB$ or if $P$ is an ancestor
-    of $A$ in the proof tree.
-\end{definition}
-
-\begin{theorem}
-    Linear resolution is complete.
-\end{theorem}
-
-\begin{definition}
-    The subsumption method eliminates all sentences that are subsumed
-    (that is, more specific than) an existing sentence in the $KB$.
-\end{definition}
 
 \subsection{Situation calculus}
 
@@ -847,27 +820,17 @@ depth limit$n$ be any node and $g$ be the goal node.
     situation (usually $S_0$) and all situations that are generated
     by applying an action to a situation. The function $\text{Result}
     (a,s)$ names the situation that results when action $a$ is executed
-    in situation $s$.
-\end{definition}
-
-\begin{definition}
-    \emph{Fluents} are functions and predicates that vary from one
-    situation to the next.
-\end{definition}
-
-\begin{definition}
-    \emph{Atemporal} or \emph{eternal} predicates and functions
-    are those that do not vary from one situation to the next.
-\end{definition}
-
-\begin{definition}
-    The \emph{projection} task requires the agent to be able to deduce
-    the outcome of a given sequence of actions.
-\end{definition}
-
-\begin{definition}
-    The \emph{planning} task requires the agent to be able to find a
-    sequence that achieves a desired effect.
+    in situation $s$.\\
+    We observe two types of predicates and function:
+    \begin{itemize}
+        \item \emph{fluents}: vary from one situation to the next,
+        \item \emph{atemporal}: do not vary from one situation to the next.
+    \end{itemize}
+    Further, there are new types of tasks:
+    \begin{itemize}
+        \item \emph{projection}: deduction of outcome of a given sequence of actions,
+        \item \emph{planning}: finding a sequence of actions that achieves desired effect.
+    \end{itemize}
 \end{definition}
 
 \begin{definition}
@@ -883,7 +846,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{definition}
 
 \begin{definition}
-    \emph{Frame axioms} state what says the same for each possible action.
+    \emph{Frame axioms} state what stays the same for each possible action.
 \end{definition}
 
 \begin{theorem}
@@ -916,7 +879,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     number of effects of each of the $A$ actions.
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[Unique names]
     The \emph{unique names axiom} states disequality for every pair of
     constants in the knowledge base. When this is assumed by the theorem
     prover, rather than written down in the knowledge base, it is called
@@ -971,7 +934,7 @@ Runtime: $O(Et)$
 
 \begin{definition}
     The \emph{result} of executing an action $a$ in state $s$ is defined
-    as a state $s'$ whihch is represented by
+    as a state $s'$ which is represented by
     \begin{align*}
         \text{RESULT}(s,a)=(s\setminus\text{DEL}(a))\cup\text{ADD}(a)
     \end{align*}
@@ -999,7 +962,7 @@ Runtime: $O(Et)$
     An action is \emph{relevant} if it could be the last one in the plan to achieve
     the goal state from an initial state. Formally, assume a goal description $g$
     which contains a goal literal $g_i$ and an action schema $A$ that is standardised
-    to produce $A'$. If $A'$ has an effect literal $e_j'$ where $Unify(g_i,e_j')=\theta$
+    to produce $A'$. If $A'$ has an effect literal $e_j'$ where $\text{UNIFY}(g_i,e_j')=\theta$
     and where we define $a'=\text{SUBST}(\theta, A')$ and if there is no effect in
     $a'$ that is the negation of a literal in $g$, then $a'$ is a relevant action towards 
     $g$. 
@@ -1175,7 +1138,7 @@ Runtime: $O(Et)$
 \end{definition}
 
 \begin{theorem}
-    An HLA under agelic semantics can have one of nine different effects on
+    An HLA under angelic semantics can have one of nine different effects on
     a variable $A$. There are two cases: $A$ is true or $A$ is false. In both
     cases there are three different effects:
     \begin{enumerate}
