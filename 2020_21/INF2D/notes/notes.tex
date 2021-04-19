@@ -219,22 +219,22 @@ Let $b$ be the branching factor, $d$ be the optimal depth, $m$ the maximum depth
 
     \begin{pseudo}
         \textbf{function} MINIMAX-DECISION(\emph{state}) \textbf{returns} \emph{an action}\\+
-            \textbf{return} $\argmax_{a\in\text{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
+            \textbf{return} $\argmax_{a\in\textsf{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
         \\
         \textbf{function} MAX-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
             \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
                 \textbf{return} UTILITY(\emph{state})\\-
             $v\leftarrow-\infty$\\
-            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
-                $v\leftarrow \text{MAX}(v, \text{MIN-VALUE}(\text{RESULT}(s, a)))$\\-
+            \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \textsf{MAX}(v, \textsf{MIN-VALUE}(\textsf{RESULT}(s, a)))$\\-
             \textbf{return} $v$\\-
         \\
         \textbf{function} MIN-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
             \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
                 \textbf{return} UTILITY(\emph{state})\\-
             $v\leftarrow\infty$\\
-            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
-                $v\leftarrow \text{MIN}(v, \text{MAX-VALUE}(\text{RESULT}(s, a)))$\\-
+            \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \textsf{MIN}(v, \textsf{MAX-VALUE}(\textsf{RESULT}(s, a)))$\\-
             \textbf{return} $v$
     \end{pseudo}
 \end{definition}
@@ -252,22 +252,22 @@ Let $b$ be the branching factor, $d$ be the optimal depth, $m$ the maximum depth
             \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
                 \textbf{return} UTILITY(\emph{state})\\-
             $v\leftarrow-\infty$\\
-            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
-                $v\leftarrow \text{MAX}(v, \text{MIN-VALUE}(\text{RESULT}(\text{\emph{state}}, a), \alpha, \beta))$\\
+            \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \textsf{MAX}(v, \textsf{MIN-VALUE}(\textsf{RESULT}(\textsf{\emph{state}}, a), \alpha, \beta))$\\
                 \textbf{if} $v\geq \beta$ \textbf{then}\\+
                     \textbf{return} $v$\\-
-                $\alpha\leftarrow\text{MAX}(\alpha, v)$\\-
+                $\alpha\leftarrow\textsf{MAX}(\alpha, v)$\\-
             \textbf{return} $v$\\-
         \\
         \textbf{function} MIN-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
             \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
                 \textbf{return} UTILITY(\emph{state})\\-
             $v\leftarrow\infty$\\
-            \textbf{for each} $a\in\text{ACTIONS(\emph{state})}$ \textbf{do}\\+
-                $v\leftarrow \text{MIN}(v, \text{MAX-VALUE}(\text{RESULT}(\text{\emph{state}}, a), \alpha, \beta))$\\
+            \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+                $v\leftarrow \textsf{MIN}(v, \textsf{MAX-VALUE}(\textsf{RESULT}(\textsf{\emph{state}}, a), \alpha, \beta))$\\
                 \textbf{if} $v\leq \alpha$ \textbf{then}\\+
                     \textbf{return} $v$\\-
-                $\beta\leftarrow\text{MIN}(\beta, v)$\\-
+                $\beta\leftarrow\textsf{MIN}(\beta, v)$\\-
             \textbf{return} $v$\\-
     \end{pseudo}
 \end{definition}
@@ -392,8 +392,8 @@ depth limit$n$ be any node and $g$ be the goal node.
     \textbf{function} KB-AGENT(\emph{percept}) \textbf{returns} an \emph{action} \\+
         \textbf{persistent:} $KB$, $t$\\
         TELL($KB$,MAKE-PERCEPT-SENTENCE(\emph{percept}, $t$))\\
-        $\text{\emph{action}}\leftarrow\text{ASK}(KB,\text{MAKE-ACTION-QUERY}(t))$\\
-        $\text{TELL}(KB, \text{MAKE-ACTION-SENTENCE}(\text{\emph{action}},t))$\\
+        $\textsf{\emph{action}}\leftarrow\textsf{ASK}(KB,\textsf{MAKE-ACTION-QUERY}(t))$\\
+        $\textsf{TELL}(KB, \textsf{MAKE-ACTION-SENTENCE}(\textsf{\emph{action}},t))$\\
         $t\leftarrow t+1$\\
         \textbf{return} \emph{action}
 \end{pseudo}
@@ -422,7 +422,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     Let $\alpha,\beta$ be sentences. Then
     \begin{itemize}
         \item $\alpha\vDash\beta$ if and only if $\alpha\Rightarrow\beta$ is valid.
-        \item $\alpha\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
+        \item $\alpha\not\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
     \end{itemize}
 \end{lemma}
 
@@ -473,33 +473,33 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \begin{pseudo}
     \textbf{function} PL-RESOLUTION$(KB,\alpha)$ \textbf{returns} $true$ or $false$\\+
-        $\text{\emph{clauses}}\leftarrow \text{the set of clauses in the CNF representation of }KB\wedge\neg\alpha$\\
-        $\text{\emph{new}}\leftarrow\emptyset$\\
+        $\textsf{\emph{clauses}}\leftarrow \text{the set of clauses in the CNF representation of }KB\wedge\neg\alpha$\\
+        $\textsf{\emph{new}}\leftarrow\emptyset$\\
         \textbf{loop do}\\+
             \textbf{for each} pair of clauses $(C_i,C_j)$ \textbf{in} \emph{clauses} \textbf{do}\\+
-                $\text{\emph{resolvents}}\leftarrow\text{PL-RESOLVE}(C_i,C_j)$\\
+                $\textsf{\emph{resolvents}}\leftarrow\textsf{PL-RESOLVE}(C_i,C_j)$\\
                 \textbf{if} \emph{resolvents} contains an empty clause \textbf{then return} $true$\\
-                $\text{\emph{new}}\leftarrow \text{\emph{new}}\cup \text{\emph{resolvents}}$\\-
-            \textbf{if} $\text{\emph{new}} \subseteq \text{\emph{clauses}}$ \textbf{then return} $false$\\
-            $\text{\emph{clauses}}\leftarrow\text{\emph{clauses}}\cup\text{\emph{new}}$
+                $\textsf{\emph{new}}\leftarrow \textsf{\emph{new}}\cup \textsf{\emph{resolvents}}$\\-
+            \textbf{if} $\textsf{\emph{new}} \subseteq \textsf{\emph{clauses}}$ \textbf{then return} $false$\\
+            $\textsf{\emph{clauses}}\leftarrow\textsf{\emph{clauses}}\cup\textsf{\emph{new}}$
 \end{pseudo}
 
 \begin{pseudo}
     \textbf{function} DPLL-SATISFIABLE?$(s)$ \textbf{returns} $true$ or $false$\\+
-        $\text{\emph{clauses}}\leftarrow\text{the set of clauses in the CNF representation of }s$\\
-        $\text{\emph{symbols}}\leftarrow\text{a list of the proposition symbols in }s$\\
-        \textbf{return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}, \emptyset)$
+        $\textsf{\emph{clauses}}\leftarrow\textsf{the set of clauses in the CNF representation of }s$\\
+        $\textsf{\emph{symbols}}\leftarrow\textsf{a list of the proposition symbols in }s$\\
+        \textbf{return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}, \emptyset)$
     \\\\-
-    \textbf{function} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}, \text{\emph{model}})$ \textbf{returns} $true$ or $false$\\+
+    \textbf{function} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}, \textsf{\emph{model}})$ \textbf{returns} $true$ or $false$\\+
         \textbf{if} every clause in \emph{clauses} is true in \emph{model} \textbf{then return} $true$\\
         \textbf{if} some clause in \emph{clauses} is false in \emph{model} \textbf{then return} $false$\\
-        $P,\text{\emph{value}}\leftarrow\text{FIND-PURE-SYMBOL}(\text{\emph{symbols}},\text{\emph{clauses}},\text{\emph{model}})$\\
-        \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}-P,\text{\emph{model}}\cup\{P=\text{\emph{value}}\})$\\
-        $P,\text{\emph{value}}\leftarrow\text{FIND-UNIT-CLAUSE}(\text{\emph{clauses}}, \text{\emph{model}})$\\
-        \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\text{\emph{clauses}}, \text{\emph{symbols}}-P,\text{\emph{model}}\cup\{P=\text{\emph{value}}\})$\\
-        $P\leftarrow\text{FIRST}(\text{\emph{symbols}})$; $\text{\emph{rest}}\leftarrow\text{REST}(\text{\emph{symbols}})$\\
-        \textbf{return} $\text{DPLL}(\text{\emph{clauses}}, \text{\emph{rest}}, \text{\emph{model}}\cup\{P=true\})$ \textbf{or}
-                        $\text{DPLL}(\text{\emph{clauses}}, \text{\emph{rest}}, \text{\emph{model}}\cup\{P=false\})$
+        $P,\textsf{\emph{value}}\leftarrow\textsf{FIND-PURE-SYMBOL}(\textsf{\emph{symbols}},\textsf{\emph{clauses}},\textsf{\emph{model}})$\\
+        \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}-P,\textsf{\emph{model}}\cup\{P=\textsf{\emph{value}}\})$\\
+        $P,\textsf{\emph{value}}\leftarrow\textsf{FIND-UNIT-CLAUSE}(\textsf{\emph{clauses}}, \textsf{\emph{model}})$\\
+        \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}-P,\textsf{\emph{model}}\cup\{P=\textsf{\emph{value}}\})$\\
+        $P\leftarrow\textsf{FIRST}(\textsf{\emph{symbols}})$; $\textsf{\emph{rest}}\leftarrow\textsf{REST}(\textsf{\emph{symbols}})$\\
+        \textbf{return} $\textsf{DPLL}(\textsf{\emph{clauses}}, \textsf{\emph{rest}}, \textsf{\emph{model}}\cup\{P=true\})$ \textbf{or}
+                        $\textsf{DPLL}(\textsf{\emph{clauses}}, \textsf{\emph{rest}}, \textsf{\emph{model}}\cup\{P=false\})$
 \end{pseudo}
 
 \paragraph{Optimisations in SAT solvers}
@@ -602,7 +602,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     The \emph{unification} alogrithm takes two sentences and returns a unifier
     for them if one exists:
     \begin{align*}
-        \text{UNIFY}(p,q)=\theta \hs\text{where}\hs \subst(\theta,p)=\subst(\theta,q).
+        \textsf{UNIFY}(p,q)=\theta \hs\text{where}\hs \subst(\theta,p)=\subst(\theta,q).
     \end{align*}
 \end{definition}
 
@@ -663,15 +663,15 @@ depth limit$n$ be any node and $g$ be the goal node.
         \\
         \generator FOL-BC-OR$(KB, goal, \theta)$ \textbf{yields} a substitution\\+
             \foreach{rule $(lhs\Rightarrow rhs)$}{FETCH-RULES-FOR-GOAL$(KB, goal)$}\\+
-                $(lhs,rhs)\leftarrow\text{STANDARDISE-VARIABLES}((lhs, rhs))$\\
-                \foreach{$\theta'$}{FOL-BC-AND$(KB,lhs,\text{UNIFY}(rhs,goal,\theta))$}\\+
+                $(lhs,rhs)\leftarrow\textsf{STANDARDISE-VARIABLES}((lhs, rhs))$\\
+                \foreach{$\theta'$}{FOL-BC-AND$(KB,lhs,\textsf{UNIFY}(rhs,goal,\theta))$}\\+
                     \textbf{yield} $\theta'$\\---
         \\
         \generator FOL-BC-AND$(KB,goals,\theta)$ \textbf{yields} a substitution\\+
             \textbf{if} $\theta=failure$ \textbf{then return}\\
             \textbf{else if} LENGTH$(goals)=0$ \textbf{then yield} $\theta$\\
             \textbf{else do}\\+
-                $first,rest\leftarrow \text{FIRST}(goals),\text{REST}(goals)$\\
+                $first,rest\leftarrow \textsf{FIRST}(goals),\textsf{REST}(goals)$\\
                 \foreach{$\theta'$}{FOL-BC-OR$(KB,\subst(\theta,first),\theta)$}\\+
                     \foreach{$\theta''$}{FOL-BC-AND$(KB,rest,\theta')$}\\+
                         \textbf{yield} $\theta''$
@@ -713,7 +713,7 @@ depth limit$n$ be any node and $g$ be the goal node.
             l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
         } 
     \end{align*}
-    where $\theta=\text{UNIFY}(l_i,\neg m_j)$.
+    where $\theta=\textsf{UNIFY}(l_i,\neg m_j)$.
 \end{definition}
 
 \begin{definition}
@@ -765,10 +765,10 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \begin{definition}[Demodulation]
     For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$ and where
-    $\text{UNIFY}(x,z)=\theta$,
+    $\textsf{UNIFY}(x,z)=\theta$,
     \begin{align*}
         \infer{
-            \text{SUB}(\subst(\theta,x),\subst(\theta,y),m_1\wedge\cdots\wedge m_n)
+            \textsf{SUB}(\subst(\theta,x),\subst(\theta,y),m_1\wedge\cdots\wedge m_n)
         }{
             x=y,\hs m_1\wedge\cdots\wedge m_n
         }
@@ -779,10 +779,10 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \begin{definition}[Paramodulation]
     For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$,
-    and where $\text{UNIFY}(x,z)=\theta$,
+    and where $\textsf{UNIFY}(x,z)=\theta$,
     \begin{align*}
         \infer{
-            \text{SUB}(\subst(\theta,x),\subst(\theta,y),\subst(\theta,l_1\wedge\cdots\wedge l_k\wedge m_1\wedge\cdots\wedge m_n))
+            \textsf{SUB}(\subst(\theta,x),\subst(\theta,y),\subst(\theta,l_1\wedge\cdots\wedge l_k\wedge m_1\wedge\cdots\wedge m_n))
         }{
             l_1\wedge \cdots\wedge l_k\wedge x=y,\hs m_1\wedge\cdots\wedge m_n
         }.
@@ -818,7 +818,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 \begin{definition}
     \emph{Situations} are logical terms consisting of the initial
     situation (usually $S_0$) and all situations that are generated
-    by applying an action to a situation. The function $\text{Result}
+    by applying an action to a situation. The function $\textsf{Result}
     (a,s)$ names the situation that results when action $a$ is executed
     in situation $s$.\\
     We observe two types of predicates and function:
@@ -840,43 +840,33 @@ depth limit$n$ be any node and $g$ be the goal node.
     is executed.
 \end{definition}
 
-\begin{definition}[Frame problem]
+\begin{definition}[Frame problem, R\&N p. 266]
     The fact that the possibility and effect axioms only describe what changes
-    and not what stays the same gives rise to the \emph{frame problem}.
-\end{definition}
-
-\begin{definition}
-    \emph{Frame axioms} state what stays the same for each possible action.
+    and not what stays the same gives rise to the \emph{frame problem}. In a world
+    with $m$ actions and $n$ fluents of which at most $k$ are affected by an action,
+    we have the following specialisations:
+    \begin{itemize}
+        \item \emph{representational}: Finding a set of frame axioms of size $O(mn)$.
+        \item \emph{inferential}: Projecting forward the result of a $t$ step plan in $O(kt)$ time.
+    \end{itemize}
 \end{definition}
 
 \begin{theorem}
-    Frame axioms solve the frame problem by adding $O(AF)$ axioms.
+    \emph{Frame axioms} state what stays the same for each possible action and
+    solve the frame problem by introducing $O(mn)$ axioms.
 \end{theorem}
 
-\begin{definition}
-    The \emph{representational frame problem} states that it should be possible
-\end{definition}
-
-\begin{definition}
-    The \emph{inferential frame problem} states that it should be 
-    possible to project the results of a $t$-step sequence of actions
-    in time $O(Et)$.
-\end{definition}
-
-\begin{definition}
+\begin{theorem}[R\&N p. 267]
     \emph{Successor-state axioms} have the form
     \begin{align*}
-        \text{Action } &\text{is possible} \Rightarrow\\
-        &(\text{Fluent is true in result state} \Leftrightarrow
-        \text{Action's effect made it true}\vee \text{It was true before
+        \textsf{Action } &\textsf{is possible} \Rightarrow\\
+        &(\textsf{Fluent is true in result state} \Leftrightarrow
+        \textsf{Action's effect made it true}\vee \textsf{It was true before
         and action left it alone}).
     \end{align*}
-\end{definition}
-
-\begin{theorem}
-    Successor-state axioms solve the representational frame problem
-    because the total size of the axioms is $O(AE)$ where $E$ is the
-    number of effects of each of the $A$ actions.
+    and solve the representational
+    frame problem because the total size of the axioms is $O(mk)$ where
+    $k$ is the number of effects of each of the $m$ actions.
 \end{theorem}
 
 \begin{definition}[Unique names]
@@ -900,15 +890,15 @@ depth limit$n$ be any node and $g$ be the goal node.
 \begin{enumerate}
     \item Index actions by fluent, effect (positive or negative) and time.
     \item Index axioms so that if $F_i$ is an effect, you can find the axiom for $F_i$ in $O(1)$ time.
-    \item Represent each situation as a previous state puls a delta.
+    \item Represent each situation as a previous state plus a delta.
 \end{enumerate}
-Runtime: $O(Et)$
+Runtime: $O(kt)$
 
 \section{Planning}
 
 \subsection{Definition of classical planning}
 
-\begin{definition}
+\begin{definition}[R\&N, p. 367]
     \emph{PDDL}, the Planning Domain Definition Language, is a language
     that allows us to express many actions in one action schema.
     Each state is represented as a conjunction of fluents that are ground,
@@ -922,8 +912,8 @@ Runtime: $O(Et)$
     a precondition $P$ and an effect $E$ is written as follows:
     \begin{align*}
         Action&(a(x_1, ..., x_n),\\
-              &\text{Precond: } P(x_1, ..., x_n),\\
-              &\text{Effect: } E(x_1, ..., x_n)).
+              &\textsf{Precond: } P(x_1, ..., x_n),\\
+              &\textsf{Effect: } E(x_1, ..., x_n)).
     \end{align*}
 \end{definition}
 
@@ -936,60 +926,56 @@ Runtime: $O(Et)$
     The \emph{result} of executing an action $a$ in state $s$ is defined
     as a state $s'$ which is represented by
     \begin{align*}
-        \text{RESULT}(s,a)=(s\setminus\text{DEL}(a))\cup\text{ADD}(a)
+        \textsf{RESULT}(s,a)=(s\setminus\textsf{DEL}(a))\cup\textsf{ADD}(a)
     \end{align*}
     where DEL is the \emph{delete list}, i.e. the set of literals that appear
     as negative in the action's effect, and ADD is the \emph{add list}, i.e.
     the set of literals that appear as positive in the action's effect.
 \end{definition}
 
-\subsection{Forward state-space search}
+\subsection{Planning as state-space search}
 
-\begin{definition}
-    \emph{Forward state-space search} iterates possible sequences of actions until
-    a goal state is reached.
-\end{definition}
-
-\subsection{Backward relevant-states search}
+\begin{theorem}[R\&N, p. 373]
+    \emph{Forward state-space search}, i.e. iterating possible sequences of 
+    actions until a goal state is reached, has the following drawbacks:
+    \begin{itemize}
+        \item too many iterations required,
+        \item irrelevant actions may be chosen.
+    \end{itemize}
+\end{theorem}
 
 \begin{definition}
     \emph{Backward relevant-states search} starts at the goal state and applies
-    actions backward until a sequence of steps that reaches the initial state has
-    been found.
-\end{definition}
-
-\begin{definition}
-    An action is \emph{relevant} if it could be the last one in the plan to achieve
-    the goal state from an initial state. Formally, assume a goal description $g$
+    relevant actions backward until a sequence of steps that reaches the initial 
+    state has been found. An action is relevant if
+    \begin{enumerate}
+        \item at least one of the action's effects unifies with an element of the goal, and
+        \item none of its effects negate an element of the goal.
+    \end{enumerate}
+    Formally, assume a goal description $g$
     which contains a goal literal $g_i$ and an action schema $A$ that is standardised
-    to produce $A'$. If $A'$ has an effect literal $e_j'$ where $\text{UNIFY}(g_i,e_j')=\theta$
-    and where we define $a'=\text{SUBST}(\theta, A')$ and if there is no effect in
+    to produce $A'$. If $A'$ has an effect literal $e_j'$ where $\textsf{UNIFY}(g_i,e_j')=\theta$
+    and where we define $a'=\textsf{SUBST}(\theta, A')$ and if there is no effect in
     $a'$ that is the negation of a literal in $g$, then $a'$ is a relevant action towards 
     $g$. 
 \end{definition}
 
-\subsection{Heuristics for planning}
-
-\begin{definition}
+\begin{theorem}[R\&N p. 376]
     The \emph{ignore preconditions heuristic} drops all preconditions from actions
     and thus makes every action applicable in every state. This may be relaxed in
     such a way that only certain preconditions are ignored.
-\end{definition}
 
-\begin{theorem}
-    Using the ignore preconditions heuristic to find the minimum number of 
+    Using this heuristic to find the minimum number of 
     actions required such that the union of those actions'
     effects satisfies the goal is an instance of the \emph{set-cover problem}. This
     is NP-hard. There exists a greedy alogrithm that is guaranteed to find a solution
     within a factor of $O(\lg n)$ of the optimum.
 \end{theorem}
 
-\begin{definition}
+\begin{theorem}[R\&N p. 377]
     The \emph{ignore delete lists} heuristic ignores the negative literals from all
     effects.
-\end{definition}
 
-\begin{theorem}
     Using the ignore delete lists heuisitic to find the minimum number of actions 
     required such that the union of those actions' effects satisfies the goal 
     is NP-hard but an approximate solution can be found in polynomial time using
@@ -1020,12 +1006,12 @@ Runtime: $O(Et)$
         \item Propositionalise the goal: the goal becomes a disjunction over all of its ground instances
               where variables are replaced by constants.
         \item Add successor-state axioms: For each fluent $F$, add an axiom of the form \begin{align*}
-            F^{t+1} \Leftrightarrow ACF^t \vee (F^t \wedge \neg ACNF^t)
+            F^{t+1} \Leftrightarrow \textsf{ActionCausesF}^t \vee (F^t \wedge \neg \textsf{ActionCausesNotF}^t)
         \end{align*} 
         where $ACF$ is a disjunction of all the ground actions that have $F$ in
         their add list, and $ACNF$ is a disjunction of all the ground actions that have $F$
         in their delete list.
-        \item Add precondition axioms: For each ground action $A$, add the axiom $A^t\Rightarrow\text{PRE}(A)^t$,
+        \item Add precondition axioms: For each ground action $A$, add the axiom $A^t\Rightarrow\textsf{PRE}(A)^t$,
               that is, if an action is taken at time $t$, then the preconditions must have been true.
         \item Add action exclusion axioms: say that exactly one ground action can occur at each step.
     \end{enumerate}
@@ -1034,9 +1020,11 @@ Runtime: $O(Et)$
 \subsection{Partially ordered plans}
 
 \begin{definition}
-    A \emph{plan} is a set of actions and a set of constraints of the form $Before(a_i, a_j)$ saying
+    A \emph{plan} is a set of actions and a set of constraints of the form $\textsf{Before}(a_i, a_j)$ saying
     that one action occurs before another. A \emph{flaw} is anything that keeps a partial plan from
-    being a solution. 
+    being a solution.
+    Such a partially ordered plan may be constructed by making the least commitment possible to fix the
+    current flaw.
 \end{definition}
 
 \subsection{Planning in nondeterministic domains}
@@ -1049,7 +1037,7 @@ Runtime: $O(Et)$
     \item In a given belief state $b$, the agent can consider any action whose preconditions are satisfied by $b$.
 \end{itemize}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 418]
     The family of belief states defined as conjunctions of literals is closed under updates defined by PDDL
     action schemas.
 \end{theorem}
@@ -1058,13 +1046,13 @@ Runtime: $O(Et)$
     \emph{Conditional effects} occur in action schemas of the form
     \begin{align*}
         Action(A,
-              \text{Effect:}\textbf{ when }c_1: e_1 \wedge \cdots \wedge \textbf{when }c_n: e_n)
+              \textsf{Effect:}\textbf{ when }c_1: e_1 \wedge \cdots \wedge \textbf{when }c_n: e_n)
     \end{align*}
 \end{definition}
 
 \subsubsection{Online replanning}
 
-\begin{definition}
+\begin{definition}[R\&N p. 423]
     Online replanning is required if the agent's model is incomplete.
     This can be caused by the following flaws in the model:
     \begin{itemize}
@@ -1075,7 +1063,7 @@ Runtime: $O(Et)$
     \end{itemize}
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 423]
     There are three levels of monitoring the environment:
     \begin{itemize}
         \item \emph{action monitoring}: before executing an action, the agent verifies that
@@ -1126,7 +1114,7 @@ Runtime: $O(Et)$
 
 \begin{definition}
     Given a state $s$, the \emph{reachable set} for an HLA $h$, written as
-    $\text{REACH}(s,h)$, is the set of states reachable by any of the HLA's
+    $\textsf{REACH}(s,h)$, is the set of states reachable by any of the HLA's
     implementations.
 \end{definition}
 
@@ -1152,14 +1140,14 @@ Runtime: $O(Et)$
 \begin{definition}
     Each HLA has two approximations:
     \begin{itemize}
-        \item an \emph{optimistic description} $\text{REACH}^+(s,h)$ that may
+        \item an \emph{optimistic description} $\textsf{REACH}^+(s,h)$ that may
               overstate the reachable set, and
-        \item a \emph{pessimistic description} $\text{REACH}^-(s,h)$ that may
+        \item a \emph{pessimistic description} $\textsf{REACH}^-(s,h)$ that may
               understate the reachable set.
     \end{itemize}
     We thus have
     \begin{align*}
-        \text{REACH}^-(s,h) \subseteq\text{REACH}(s,h)\subseteq\text{REACH}^+(s,h).
+        \textsf{REACH}^-(s,h) \subseteq\textsf{REACH}(s,h)\subseteq\textsf{REACH}^+(s,h).
     \end{align*}
 \end{definition}
 
@@ -1169,7 +1157,7 @@ Runtime: $O(Et)$
 
 \subsection{Acting under uncertainty}
 
-\begin{definition}
+\begin{definition}[R\&N p. 480]
     \emph{Uncertainty} arises when an agent may not know for certain what state
     it's in or where it will end up after a sequence of actions. There are
     two main reasons for uncertainty:
@@ -1189,7 +1177,7 @@ Runtime: $O(Et)$
     \end{itemize}
 \end{lemma}
 
-\begin{definition}
+\begin{definition}[R\&N p. 481]
     The \emph{rational decision} depends on both the relative importance of various goals and the
     likelihood that, and degree to which, they will be achieved.
 \end{definition}
@@ -1207,7 +1195,7 @@ Runtime: $O(Et)$
     An agent in such a domain can at best provide only a \emph{degree of belief}.
 \end{theorem}
 
-\begin{definition}[Maximum expected utility]
+\begin{definition}[Maximum expected utility, R\&N p. 483 ]
     The \emph{principle of maximum expected utility} (MEU) states that an agent is rational
     if and only if it chooses the action that yieldsd the highest expected utility,
     averaged over all possible outcomes of the action. 
@@ -1215,7 +1203,10 @@ Runtime: $O(Et)$
 
 \subsection{Introduction to probability theory}
 
-\begin{definition}
+\renewcommand{\P}{\mathbf{P}}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\begin{definition}[R\&N p. 484]
     The \emph{sample space} is the set of all possible worlds.
     The possible worlds are mutually exclusive and exhaustive, i.e.
     two possible worlds cannot both be the case and one possible world must
@@ -1224,23 +1215,23 @@ Runtime: $O(Et)$
 
 \begin{definition}
     A fully specified \emph{probability model} associates a numerical probability
-    $\P(\omega)$ with each possible world. The following axioms hold for every
+    $P(\omega)$ with each possible world. The following axioms hold for every
     model with sample space $\Omega$:
     \begin{enumerate}[label=P\arabic*.]
-        \item $\forall \omega\in\Omega.\:0\leq\P(\omega)\leq 1$
-        \item $\sum_{\omega\in\Omega}\P(\omega)=1$ 
+        \item $\forall \omega\in\Omega.\:0\leq P(\omega)\leq 1$
+        \item $\sum_{\omega\in\Omega} P(\omega)=1$ 
     \end{enumerate}
 \end{definition}
 
 \begin{definition}
     An \emph{event} is a set of worlds $\phi\subseteq \Omega$ such that
-    for some proposition $E$ and for all $\omega\in\Omega$
+    for some proposition $Q$ and for all $\omega\in\Omega$
     \begin{align*}
-        \omega\in A\hs\Leftrightarrow\hs E(\omega).
+        \omega\in \phi\hs\Leftrightarrow\hs Q(\omega).
     \end{align*}
     The probability associated with $\phi$ is
     \begin{align*}
-        \P(\phi)=\sum_{\omega\in\phi} \P(\omega).
+        P(\phi)=\sum_{\omega\in\phi} P(\omega).
     \end{align*}
 \end{definition}
 
@@ -1258,7 +1249,18 @@ Runtime: $O(Et)$
 
 \subsection{Probabilistic inference}
 
-\begin{definition}
+\begin{lemma}[R\&N p. 493]
+    Let $\vec E$ be the list of evidence variables, let $\vec e$ be the list of observed
+    values for them, and let $\vec Y$ be the remaining unobserved variables. The query
+    $\P(X|\vec e)$ can be evaluated as
+    \begin{align*}
+        \P(X|\vec e) = \alpha\P(X, \vec e) = \alpha \sum_{\vec y} \P(X,\vec e, \vec y),
+    \end{align*}
+    where the summation is over all possible combinations of values of the variables in
+    $\vec Y$.
+\end{lemma}
+
+\begin{definition}[R\&N p. 494]
     Two propositions $a$ and $b$ are called \emph{independent} if
     \begin{align*}
         P(a|b) = P(a).
@@ -1269,15 +1271,14 @@ Runtime: $O(Et)$
     \end{align*}
 \end{definition}
 
-\begin{theorem}[Bayes' rule]
-    Let $X$ and $Y$ be random variables and let $\vec e$ be some
-    background evidence. Then
+\begin{theorem}[General Bayes' rule, R\&N p. 497]
+    Let $X$ and $Y$ be random variables. Then
     \begin{align*}
-        \P(Y|X,\vec e) = \frac{\P(X|Y,\vec e)\P(Y|\vec e)}{\P(X|\vec e)}.
+        \P(Y|X) = \alpha \P(X|Y)\P(Y).
     \end{align*}
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[R\&N p. 498]
     Given a variable $Z$, two variables $X$ and $Y$ are conditionally independent
     if
     \begin{align*}
@@ -1287,7 +1288,7 @@ Runtime: $O(Et)$
 
 \subsection{Bayesian networks}
 
-\begin{definition}
+\begin{definition}[R\&N p. 511]
     A \emph{Bayesian network} is a directed graph in which each node is
     annotated with quantitative probability information. The full sepcification
     is as follows:
@@ -1300,26 +1301,28 @@ Runtime: $O(Et)$
     \end{enumerate}
 \end{definition}
 
-\begin{definition}
-    A node is called \emph{deterministic} if it has its value specified by the values
-    of its parents, with no uncertainty.
-\end{definition}
+\begin{proposition}[R\&N p. 513]
+    Let $x_1, ..., x_n$ be values of the random variables $X_1,...,X_n$. Then 
+    \begin{align*}
+        P(x_1, ..., x_n) = \prod_{i=1}^n P(x_i | \textsf{parents}(X_i))
+    \end{align*}
+    where $\textsf{parents}(X_i)$ denotes the values of $\textsf{Parents}(X_i)$ that
+    appear in $x_1, ..., x_n$.
+\end{proposition}
 
-\begin{definition}
-    The \emph{noisy-OR} relation is a generalisation of the logical OR. Let $X$ be a boolean
+\begin{definition}[R\&N p. 518]
+    The \emph{noisy-OR} relation is a generalisation of the logical OR. Let $X_i$ be a boolean
     random variable with parents $X_1, ..., X_k$. Then
     \begin{align*}
-        P(x|X_1, ..., X_k) = 1 - \prod_{\{j:X_j = true\}} q_j
+        P(x_i|X_1, ..., X_k) = 1 - \prod_{\{j:X_j = true\}} q_j
     \end{align*}
-    where $q_1,...,q_k$ are the \emph{inhibition probabilities} for each parent.
+    where $q_1,...,q_k$ are the \emph{inhibition probabilities} for each parent
+    \begin{align*}
+        q_j = P(\neg x_i | \neg x_1, ..., \neg x_{j-1}, x_j, \neg x_{j+1}, ..., \neg x_k).
+    \end{align*}
 \end{definition}
 
-\begin{definition}
-    \emph{Discretisation} is the process of partitioning the domain of a continuous
-    random variable into a fixed set of intervals.
-\end{definition}
-
-\begin{definition}
+\begin{definition}[R\&N p. 522]
     Let $X$ be a random variable called the \emph{query variable}, let $\vec E=\{E_1,...,E_m\}$
     be a set of \emph{evidence variables}, let $\vec e$ be a particular observed event and let
     $\vec Y=\{Y_1, ..., Y_l\}$ denote the set of nonevidence, nonquery variables (also
@@ -1329,35 +1332,24 @@ Runtime: $O(Et)$
     $\P(X|\vec e)$.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 523]
     Any query can be answered using a Bayesian network by computing sums of products of
     conditional probabilities from the network.
 \end{theorem}
 
-\begin{theorem}
-    Every variable that is not an ancestor of a query variable or evidence variable is irrelevant
-    to the query.
-\end{theorem}
+\begin{theorem}[Complexity of exact inference, R\&N p. 528]
+    The time and space complexity of exact inference in \emph{polytrees}, i.e. networks where there exists at most one
+    undirected path between any two nodes, is linar in the size of the network.
 
-\begin{definition}
-    A \emph{singly connected} network or \emph{polytree} is a network where there exists at most one
-    undirected path between any two nodes.
-\end{definition}
-
-\begin{theorem}
-    The time and space complexity of exact inference in polytrees is linar in the size of the network.
-\end{theorem}
-
-\begin{theorem}
     In general, inference in Bayesian networks is NP-hard.
 \end{theorem}
 
 \begin{definition}
-    A \emph{consistent} estimate $\hat p$ of a probability $p$ becomes exact in the large sample limit. I.e. 
+    A \emph{consistent} estimate $\hat p_N$ of a probability $p$ becomes exact in the large sample limit. I.e. 
     \begin{align*}
-        \lim_{N\to\infty} \hat p = p
+        \lim_{N\to\infty} \hat p_N = p
     \end{align*}
-    where $N$ is the sample size used to calculate $\hat p$.
+    where $N$ is the sample size used to calculate $\hat p_N$.
 \end{definition}
 
 \paragraph{Rejection sampling} is a general method of producing samples from a hard-to-sample
@@ -1522,7 +1514,7 @@ The basic inference tasks that must be solved are
     $U(s)$. The \emph{expected utility} of an action given the evidence, $EU(a|\vec e)$,
     is the weighted average of the outcomes
     \begin{align*}
-        EU(a|\vec e)=\sum_{s'} P(\text{RESULT}(a)=s'|a,\vec e)U(s').
+        EU(a|\vec e)=\sum_{s'} P(\textsf{RESULT}(a)=s'|a,\vec e)U(s').
     \end{align*}
     The principle of \emph{maximum expected utility} states that a rational agent
     should choose the action that maximised the agent's expected utility.
@@ -1609,7 +1601,7 @@ The basic inference tasks that must be solved are
 \begin{definition}[MDP and policy]
     A sequential decision problem for a fully observable, stochastic environment
     with a Markovian transition model and additive rewards is called a \emph{Markovian
-    decision problem} and consists of a set of states, a set $\text{ACTIONS}(s)$ of
+    decision problem} and consists of a set of states, a set $\textsf{ACTIONS}(s)$ of
     actions in each state $s$, a transition model $P(s'|s,a)$, and a reward function
     $R(s)$.\\
     A solution for such a problem must specify the agent's behaviour for any state
