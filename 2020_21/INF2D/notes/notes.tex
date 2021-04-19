@@ -184,18 +184,6 @@ explored states.
     \end{itemize}
 \end{definition}
 
-\paragraph{Comparison}
-
-Let $b$ be the branching factor, $d$ be the optimal depth, $m$ the maximum depth, 
-
-
-\begin{center}
-    \begin{tabular}{l | l | l | l | l}
-        \textbf{Strategy} & \textbf{Complete?} & \textbf{Optimal?} & \textbf{Time} & \textbf{Space}
-        \\\hline
-    \end{tabular}
-\end{center}
-
 \begin{theorem}
     Let $P$ be a problem and let $P'$ be a relaxed problem of $P$, i.e.
     a problem with fewer restriction. Then the cost of an optimal solution of 
@@ -1352,7 +1340,7 @@ Runtime: $O(kt)$
     where $N$ is the sample size used to calculate $\hat p_N$.
 \end{definition}
 
-\paragraph{Rejection sampling} is a general method of producing samples from a hard-to-sample
+\paragraph{Rejection sampling} (R\&N p. 532) is a general method of producing samples from a hard-to-sample
 distribution given an easy-to-sample distribution. It involves generating samples from the
 prior distribution specified by the network and then removing all the samples that do not
 match the evidence. The estimate is obtained by counting how often $X=x$ occurs in the remaining
@@ -1363,7 +1351,7 @@ only the nonevidence variables. Before tallying the counts in the distribution f
 variable, each even is weighted by the product of the conditional probabilities for each evidence 
 variable, given its parents.
 
-\paragraph{Gibbs sampling} starts with an arbitrary state and generates a next state by randomly
+\paragraph{Gibbs sampling} (R\&N p. 536) starts with an arbitrary state and generates a next state by randomly
 sampling a value for one of the nonevidence variables $X_i$. The sampling of $X_i$ is done
 conditioned on the current values of the variables in the Markov blanket of $X_i$.
 
@@ -1371,29 +1359,32 @@ conditioned on the current values of the variables in the Markov blanket of $X_i
 
 \subsection{Time and uncertainty}
 
+\begin{definition}[R\&N p. 568]
+    A \emph{stationary process} is a process of change that is governed by laws
+    that do not themselves change over time.
+\end{definition}
+
 \begin{definition}
     The \emph{Markov assumption} states that the current
     state depends on only a finite fixed number of previous states.
 \end{definition}
 
-\begin{definition}
-    A \emph{stationary process} is a process of change that is governed by laws
-    that do not themselves change over time.
-\end{definition}
-
 \subsection{Inference in temporal models}
 
-The basic inference tasks that must be solved are
-\begin{enumerate}
-    \item \emph{Filtering}: Computing the belief state given all the evidence to date.
-    I.e. \[\P(\vec X_t | \vec e_{1:t}) \text{ for some } t>0.\]
-    \item \emph{Prediction}: Computing the posterior distribution over the future
-    state given all evidence to date. I.e. \[\P(\vec X_{t+k}|\vec e_{1:t})\text{ for some }t,k>0.\]
-    \item \emph{Smoothing}: Computing the posterior distribution over a past state, given all evidence
-    up to the present. I.e. \[\P(\vec X_k | \vec e_{1:t}) \text{ for some } t>k>0.\] 
-    \item \emph{Most likely explanation}: Computing the sequence of states that is mostlikely to have
-    generated a sequence of observations. I.e. \[\P(\vec x_{1:t}|\vec e_{1:t}).\]
-\end{enumerate}
+\begin{proposition}[R\&N p. 570]
+    The basic inference tasks that must be solved are
+    \begin{enumerate}
+        \item \emph{Filtering}: Computing the belief state given all the evidence to date.
+        I.e. \[\P(\vec X_t | \vec e_{1:t}) \text{ for some } t>0.\]
+        \item \emph{Prediction}: Computing the posterior distribution over the future
+        state given all evidence to date. I.e. \[\P(\vec X_{t+k}|\vec e_{1:t})\text{ for some }t,k>0.\]
+        \item \emph{Smoothing}: Computing the posterior distribution over a past state, given all evidence
+        up to the present. I.e. \[\P(\vec X_k | \vec e_{1:t}) \text{ for some } t>k>0.\] 
+        \item \emph{Most likely explanation}: Computing the sequence of states that is mostlikely to have
+        generated a sequence of observations. I.e. \[\P(\vec x_{1:t}|\vec e_{1:t}).\]
+    \end{enumerate}
+\end{proposition}
+
 
 \begin{definition}
     \emph{Recursive estimation} is the process of computing the distribution $\P(\vec X_{t+1}|\vec e_{1:t+1})$
@@ -1404,7 +1395,7 @@ The basic inference tasks that must be solved are
     \end{align*}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 572]
     By conditioning on the current state $\vec X_t$ we obtain the one-step prediction for the
     next state
     \begin{align*}
@@ -1418,14 +1409,14 @@ The basic inference tasks that must be solved are
     distribution over an unbounded sequence of observations.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 574]
     Given a time $t>k>0$ and evidence $\vec e_{1:t}$ we can compute the
     past state $\vec X_k$ as follows
     \begin{align*}
         \P(\vec X_k|\vec e_{1:t}) = \alpha\P(\vec X_k|\vec e_{1:k})
         \P(\vec e_{k+1:t} | \vec X_k) =: \alpha\vec f_{1:k}\times\vec b_{k+1:t}
     \end{align*}
-    where $\times$ is pointwise multiplication and $b_{k+1:t}$ can be 
+    where $\times$ is pointwise multiplication and $\vec b_{k+1:t}$ can be 
     computed recursively with
     \begin{align*}
         \P(\vec e_{k+1:t}|\vec X_k) = \sum_{x_{k+1}}
@@ -1435,25 +1426,25 @@ The basic inference tasks that must be solved are
 
 \subsection{Matrix algorithms}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 579]
     Let the state variable $X_t$ have values denoted by
     integers $1,...,S$. The transition model $\P(X_t|X_{t-1})$
-    becomes an $S\times S$ matrix $T$ where
+    becomes an $S\times S$ matrix $\vec T$ where
     \begin{align*}
         T_{ij} = P(X_t=j|X_{t-1}=i).
     \end{align*}
-    Let $O_t$ be an $S\times S$ diagonal matrix whose $i$th
+    Let $\vec O_t$ be an $S\times S$ diagonal matrix whose $i$th
     diagonal entry is $P(e_t|X_t=i)$. Then
     \begin{align*}
-        \vec f_{1:t+1} = \alpha O_{t+1}T^T \vec f_{1:t}
+        \vec f_{1:t+1} = \alpha \vec O_{t+1}\vec T^\top \vec f_{1:t}
         \hs\text{and}\hs
-        \vec b_{k+1:t} = TO_{k+1}b_{k+2:t}.
+        \vec b_{k+1:t} = \vec T\vec O_{k+1}\vec b_{k+2:t}.
     \end{align*}
 \end{theorem}
 
 \subsection{Dyanamic Bayesian networks}
 
-\begin{definition}
+\begin{definition}[R\&N p. 591]
     To construct a \emph{dynamic Bayesian network} three kinds of information
     are required:
     \begin{enumerate}
@@ -1465,28 +1456,27 @@ The basic inference tasks that must be solved are
     need to be specified for the first slice.
 \end{definition}
 
-\begin{definition}
-    There are two types of failures of a sensor:
-    \begin{enumerate}
-        \item \emph{transient}: The sensor occasionally produces invalid outputs.
-        \item \emph{persistent}: The sensor produces invalid outputs from a specific point in time onwards.
-    \end{enumerate}
+\begin{definition}[R\&N p. 593]
+    The \emph{transient failure model} handles transient failures, i.e. occasional invalid
+    values, of a sensor $S$ by assigning a non-zero probability for receiving an invalid
+    value at each point in time, regardless of the evidence. 
 \end{definition}
 
 \begin{definition}
-    The \emph{persistent failure model} handles persistent failures of a sensor $S$ by introducing
+    The \emph{persistent failure model} handles persistent failures, i.e. consistent invalid
+    outputs from some point in time onwards, of a sensor $S$ by introducing
     a variable $B_{S,t}$ that indicates whether $S$ is in a failure state. Between each pair
     $B_{S,t}, B_{S,t+1}$ there exists a \emph{persistence arc} that specifies that the sensor can
     fail with a small probability at each time step but once  it has failed it will never recover.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 595]
     Inference in dynamic Bayesian networks at some point in time $t$ can be achieved by unrolling
     in to the finite Bayesian network up to and including $t$ and applying standard Bayesian 
     inference in $O(t)$ time.
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[R\&N p. 597]
     \emph{Particle filtering} describes a family of algorithms that are designed
     for approximate inference in dynamic Bayesian networks. Initially, a population of
     $N$ initial-state samples is created by sampling from $\P(\vec X_0)$. Then at each
@@ -1501,7 +1491,7 @@ The basic inference tasks that must be solved are
     \end{enumerate}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 599]
     Particle filtering is consistent.
 \end{theorem}
 
@@ -1509,7 +1499,7 @@ The basic inference tasks that must be solved are
 
 \subsection{Basics of utility theory}
 
-\begin{definition}
+\begin{definition}[R\&N p. 611]
     A \emph{utility function} $U:S\to\R$ assigns each state $s\in S$ a desirability
     $U(s)$. The \emph{expected utility} of an action given the evidence, $EU(a|\vec e)$,
     is the weighted average of the outcomes
@@ -1520,7 +1510,7 @@ The basic inference tasks that must be solved are
     should choose the action that maximised the agent's expected utility.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 612]
     A lottery $L$ with possible outcomes $S_1,...,S_n$ that occur with probabilities
     $p_1,...,p_n$ is written
     \begin{align*}
@@ -1540,7 +1530,7 @@ The basic inference tasks that must be solved are
     \end{enumerate}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 613]
     If an agent's preferences obey the axioms of utility, then there
     exists a utility function $U$ such that for any two outcomes $A$
     and $B$
@@ -1559,7 +1549,7 @@ The basic inference tasks that must be solved are
 
 \subsection{Utility functions}
 
-\begin{definition}
+\begin{definition}[R\&N p. 615]
     The values of a utility functions can be fixed by $U(S)=u_\top$ for the
     best possible outcome and $U(S)=u_\bot$ for the worst possible outcome.
     If a utility function is \emph{normalised} it uses $u_\top = 1$ and
@@ -1568,7 +1558,7 @@ The basic inference tasks that must be solved are
 
 \subsection{Decision networks}
 
-\begin{definition}
+\begin{definition}[R\&N p. 626]
     A \emph{decision network} uses three types of nodes:
     \begin{itemize}
         \item \emph{Chance nodes} (ovals) represent random variables, like in Bayesian networks.
@@ -1578,7 +1568,7 @@ The basic inference tasks that must be solved are
     \end{itemize}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 628]
     The algorithm for evaluating decision networks is the following:
     \begin{enumerate}
         \item Set the evidence variables for the current state.
@@ -1598,17 +1588,18 @@ The basic inference tasks that must be solved are
 
 \subsection{Sequential decision problems}
 
-\begin{definition}[MDP and policy]
+\begin{definition}[MDP and policy, R\&N p. 647]
     A sequential decision problem for a fully observable, stochastic environment
     with a Markovian transition model and additive rewards is called a \emph{Markovian
-    decision problem} and consists of a set of states, a set $\textsf{ACTIONS}(s)$ of
+    decision problem} and consists of a set of states (with an initial state $s_0$), 
+    a set $\textsf{ACTIONS}(s)$ of
     actions in each state $s$, a transition model $P(s'|s,a)$, and a reward function
     $R(s)$.\\
     A solution for such a problem must specify the agent's behaviour for any state
     and is called a \emph{policy}.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 648]
     Let $U_h$ be a utility function on environment histories. Then, if there exists
     a fixed time $N$ such that for all $k\in\N$
     \begin{align*}
@@ -1622,7 +1613,7 @@ The basic inference tasks that must be solved are
     With a finite horizon the optimal action in a given state can change over time.
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[R\&N p. 649]
     An agent's preferences are stationary if for two state sequences
     $[s_0, s_1, s_2, ...]$ and $[s_0', s_1', s_2'...]$ with $s_0=s_0'$ we have
     \begin{align*}
@@ -1646,7 +1637,7 @@ The basic inference tasks that must be solved are
     \end{enumerate}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 650]
     The utility of an infinite sequence $[s_0, s_1, s_2, ...]$ with discounted 
     rewards and a reward function bounded by $\pm \hat R$ is bounded by
     \begin{align*}
@@ -1682,7 +1673,7 @@ The basic inference tasks that must be solved are
 
 \subsection{Value iteration}
 
-\begin{theorem}[Bellman equation]
+\begin{theorem}[Bellman equation, R\&N p. 652]
     The utility of a state is given by
     \begin{align*}
         U(s) = R(s) + \gamma \max_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s').
@@ -1700,7 +1691,7 @@ The basic inference tasks that must be solved are
 
 \subsection{Policy iteration}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 656]
     The \emph{policy iteration} algorithm alternates the following two steps beginning
     from some initial policy $\pi_0$:
     \begin{itemize}
