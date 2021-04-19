@@ -12,7 +12,7 @@
 
 \section{Intelligent agents and their environments}
 
-\begin{definition}[Agent, Ratinality, Architecture]
+\begin{definition}[Agent, Ratinality, Architecture; R\&N p. 37]
     An \emph{agent} is an entity that perceives and
     acts based on a sequence of observations in a system.
     An agent is called \emph{rational} if it acts to achieve
@@ -23,26 +23,9 @@
     is called the agents \emph{architecture}.
 \end{definition}
 
-\subsection{Types of intelligent agents}
-
-\begin{definition}
-    There are four types of agents:
-    \begin{enumerate}
-        \item \emph{simple reflex}: React only to the immediate percepts and ignore
-        the enitrety of their percept history.
-        \item \emph{model-based reflex}: Actions may depend on the percept history
-        as well as unperceived aspects of the world. Require \emph{internal world
-        model}.
-        \item \emph{goal-based}: Have variable goals depending on the state of their
-        environment.
-        \item \emph{utility-based}: Prioritise between multiple, potentially conflicting
-        goals at the same time.
-    \end{enumerate}
-\end{definition}
-
 \subsection{Types of environments}
 
-\begin{definition}
+\begin{definition}[R\&N p. 42]
     An environment is called
     \begin{itemize}
         \item \emph{fully observable} if the agents sensors describe it fully.
@@ -55,6 +38,23 @@
         \item \emph{discrete} if the perecepts, actions and episodes within
         are discrete.
     \end{itemize}
+\end{definition}
+
+\subsection{Types of intelligent agents}
+
+\begin{definition}[R\&N p. 47]
+    There are four types of agents:
+    \begin{enumerate}
+        \item \emph{simple reflex}: React only to the immediate percepts and ignore
+        the enitrety of their percept history.
+        \item \emph{model-based reflex}: Actions may depend on the percept history
+        as well as unperceived aspects of the world. Require \emph{internal world
+        model}.
+        \item \emph{goal-based}: Have variable goals depending on the state of their
+        environment.
+        \item \emph{utility-based}: Prioritise between multiple, potentially conflicting
+        goals at the same time.
+    \end{enumerate}
 \end{definition}
 
 \section{Problem solving and search}
@@ -74,7 +74,7 @@
 
 \subsection{Problem formulation}
 
-\begin{definition}[Problem formulation]
+\begin{definition}[Problem formulation, R\&N p. 66]
     A single-state problem in state space $S$
     and action space $A$ is defined by
     \begin{enumerate}
@@ -133,10 +133,11 @@ explored states.
     A \emph{search strategy} defines the order of expansion in a tree search algorithm.
 \end{definition}
 
-\begin{definition}
-    There are four uninformed search strategies:
+\begin{definition}[R\&N pp. 81-91]
+    There are five uninformed search strategies:
     \begin{enumerate}
         \item \emph{breadth-first search}: frontier is a FIFO queue
+        \item \emph{uniform-cost search}: frontier is a priority queue with path cost
         \item \emph{depth-first search}: frontier is a LIFO queue
         \item \emph{depth-limited search}: frontier is a LIFO queue and nodes at depth $l$ have no successors
         \item \emph{iterative deepening search}: depth-limited search is repeated with increasing $l$
@@ -148,7 +149,7 @@ explored states.
 
 \subsection{Informed search strategies}
 
-\begin{definition}
+\begin{definition}[R\&N p. 92]
     A \emph{heuristic} $h:S\to \R_{\geq 0}$ is a problem-specific function
     that evaluates every element of a search space $S$ to a nonnegative value.
     For all goal states $s_0\in S$ we have $h(s_0)=0$.
@@ -194,13 +195,13 @@ explored states.
 \subsection{Adversarial search}
 
 
-\begin{definition}
+\begin{definition}[R\&N p. 161]
     \emph{Adversarial serach} is required when multiple agents work to achieve 
     opposing goals. Its purpose is to ensure the best possible outcome for the
     agent applying it, taking into account all possible actions by other agents.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 165]
     \emph{Minimax} is an adversarial search strategy in deterministic, perfect
     information games, where the agent chooses the action that guarantees the
     highest lower bound for the utility value of the final state.
@@ -227,8 +228,8 @@ explored states.
     \end{pseudo}
 \end{definition}
 
-\begin{definition}
-    \emph{\alpha-\beta pruning} is a minimax-like adversarial search
+\begin{definition}[R\&N p. 167]
+    \emph{\alpha-\beta-pruning} is a minimax-like adversarial search
     strategy, where upper and lower bounds are used to identify
     sub-trees that do not affect the solution.
     \begin{pseudo}
@@ -282,7 +283,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \section{Constraint satisfaction problems}
 
-\begin{definition}
+\begin{definition}[R\&N p. 202]
     A \emph{constraint satisfaction problem} consists of three components:
     a set $X=\{X_1, ..., X_n\}$ of variables, a set $D=\{D_1, ..., D_n\}$ of
     domains and a set $C$ of constraints that specify allowable combinations
@@ -296,7 +297,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Constraint propagation}
 
-\begin{definition}
+\begin{definition}[R\&N p. 208]
     A variable is \emph{node-consistent} if all the values in the variable's
     domain satisfy the variable's unary constraints.
 \end{definition}
@@ -308,7 +309,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     $(X_i, X_j)$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 210]
     A variable $X_i$ is \emph{generalised arc consistent} with respect to
     an $n$-ary constraint if for every value $v$ in the domain of $X_i$ there
     exists a tuple of values that is a member of the constraint, has all its values
@@ -322,7 +323,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     the constraints on $\{X_i,X_m\}$ and $\{X_m,X_j\}$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 211]
     A CSP is \emph{$k$-consistent} if, for any set of $k-1$ variables and for any consistent 
     assignment to those variables, a consistent value can always be assigned to any
     $k$-th variable.
@@ -331,7 +332,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Backtracking search}
 
-\begin{definition}
+\begin{definition}[R\&N p. 215]
     \emph{Backtracking search} is a search strategy where at every step only a single
     variable and all its possible values are considered.
 \end{definition}
@@ -351,12 +352,12 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{itemize}
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 217]
     \emph{Forward checking} is an inference strategy that is applied after every
     step in backtracking search to ensure arc-consistency for all neighbouring variables.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 218]
     \emph{Maintaining Arc Consistency (MAC)} is an algorithm that, after a value has
     been selected for a variable $X_i$ in backtracking search, applies the arc
     consistency algorithm for all neighbouring variables $X_j$ that have not yet
@@ -367,12 +368,10 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Knowledge-based agents}
 
-\begin{definition}
+\begin{definition}[R\&N p. 235]
     An agents \emph{knowledge base} is a set of \emph{sentences} representing assertions
     about the world.
-\end{definition}
 
-\begin{definition}
     A sentence is called an \emph{axiom} if it is not derived from other sentences.
 \end{definition}
 
@@ -388,12 +387,12 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Propositional logic}
 
-\begin{definition}
+\begin{definition}[R\&N p. 240]
     A \emph{representation language} must have a \emph{syntax} that defines which
     sentences are well formed and \emph{semantics}, i.e. the meaning of sentences.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 241]
     Let $m$ be a model and $\alpha$ be a sentence. If $\alpha$ is true in $m$, then
     $m$ \emph{satisfies} $\alpha$. The set of all models that satisfy $\alpha$ is
     denoted $M(\alpha)$.\\
@@ -406,14 +405,6 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{itemize}
 \end{definition}
 
-\begin{lemma}
-    Let $\alpha,\beta$ be sentences. Then
-    \begin{itemize}
-        \item $\alpha\vDash\beta$ if and only if $\alpha\Rightarrow\beta$ is valid.
-        \item $\alpha\not\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
-    \end{itemize}
-\end{lemma}
-
 \begin{definition}
     Let $i$ be an inference algorithm, $\alpha$ be a sentence and $KB$ be a knowlege base.
     If $i$ can derive $\alpha$ from $KB$ then we write $KB\vdash_i \alpha$.
@@ -424,8 +415,15 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{itemize}
 \end{definition}
 
+\begin{lemma}[R\&N p. 249]
+    Let $\alpha,\beta$ be sentences. Then
+    \begin{itemize}
+        \item $\alpha\vDash\beta$ if and only if $\alpha\Rightarrow\beta$ is valid. (Deduction theorem)
+        \item $\alpha\not\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
+    \end{itemize}
+\end{lemma}
 
-\begin{definition}
+\begin{definition}[R\&N p. 251]
     A knowledge base is called \emph{monotonous} if the set of entailed sentences can
     only increase as information is added, i.e.
     \begin{align*}
@@ -436,7 +434,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Satisfiability \& resolution}
 
-\begin{theorem}[Resolution rule]
+\begin{theorem}[Resolution rule, R\&N p. 253]
     Let $l_1,...,l_k,m_1,...,m_n$ be literals and let $l_i\Leftrightarrow\neg m_j$. Then
     \begin{align*}
         \infer{l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n}{
@@ -451,8 +449,9 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{theorem}
 
 \begin{definition}
-    We define two types of special clauses:
+    We define the following types of special clauses:
     \begin{itemize}
+        \item \emph{unit clause}: disjunction of a single literal
         \item \emph{definite clause}: disjunction of literals of which exactly one is positive
         \item \emph{Horn clause}: disjunction of literals of which at most one is positive
     \end{itemize}
@@ -491,6 +490,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{pseudo}
 
 \paragraph{Optimisations in SAT solvers}
+(R\&N p. 261)
 \begin{enumerate}
     \item \emph{component analysis}: Find disjoint components and solve separately
     \item \emph{variable and value ordering}: Find most occuring literal and set to true
@@ -518,20 +518,20 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Basics}
 
-\begin{definition}
+\begin{definition}[R\&N p. 290]
     A model in first-order logic consists of a set of objects and an interpretation
     that maps constant symbols to objects, predicate symbols to relations on
     those objects and function symbols to functions on those objects.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 293]
     An \emph{atomic sentence} is formed from a predicate optionally followed
     by a parenthesised list of terms. Such a sentence is true in a given model
     if the relation referred to by the predicate symbol holds among the objects
     referred to by the arguments.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 298]
     Let $P$ be a predicate. Then
     \begin{align*}
         \forall x,\: P(x) \equiv \neg(\exists x,\: \neg P(x)).
@@ -540,7 +540,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Knowledge engineering}
 
-\paragraph{Steps}
+\paragraph{Steps}(R\&N p. 307)
 \begin{enumerate}
     \item Identify the task 
     \item Assemble the relevant knowledge
@@ -553,7 +553,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Propositional inference}
 
-\begin{theorem}[Universal Instantiation]
+\begin{theorem}[Universal Instantiation, R\&N p. 323]
     Let $\subst(\theta, \alpha)$ denote the result of applying
     the substitution $\theta$ to the sentence $\alpha$. Then
     \begin{align*}
@@ -571,7 +571,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{align*} 
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 325]
     The question of entailment for first-order logic is \emph{semidecidable}.
 \end{theorem} 
 
@@ -586,7 +586,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{align*}
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[R\&N p. 326]
     The \emph{unification} alogrithm takes two sentences and returns a unifier
     for them if one exists:
     \begin{align*}
@@ -594,14 +594,14 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{align*}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 327]
     For every unifiable pair of expressions, there exists a single \emph{most general
     unifier (MGU)} that is unique up to renaming and substitution of variables.
 \end{theorem}
 
 \subsection{Forward-chaining}
 
-\begin{definition}
+\begin{definition}[R\&N p. 331]
     \emph{Datalog} is a language of knowledge bases that is restricted to first-order
     definite clauses with no function symbols.
 \end{definition}
@@ -622,7 +622,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{itemize}
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 334]
     Every finite domain CSP can be expressed as a 
     single definite clause with some ground facts.
 \end{theorem}
@@ -633,12 +633,12 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Backward-chaining}
 
-\begin{definition}
+\begin{definition}[R\&N p. 337]
     A \emph{generator} is a function that returns multiple times, each time giving one
     possible result.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 338]
     \newcommand{\func}{\textbf{function }}
     \newcommand{\return}{\textbf{return }}
     \newcommand{\returns}{\textbf{returns }}
@@ -680,7 +680,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 
 \subsection{Resolution}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 346]
     Every sentence of first-oder logic can be converted into an inferentially equivalent
     CNF sentence. This may be achieved as follows:
     \begin{enumerate}
@@ -694,31 +694,25 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{theorem}
 
 
-\begin{definition}
+\begin{theorem}[Binary resolution, factoring; R\&N p. 347]
     \emph{Binary resolution} is given by the rule
     \begin{align*}
         \infer{\subst(\theta,l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n)}{
             l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
         } 
     \end{align*}
-    where $\theta=\textsf{UNIFY}(l_i,\neg m_j)$.
-\end{definition}
-
-\begin{definition}
+    where $\theta=\textsf{UNIFY}(l_i,\neg m_j)$.\\
     \emph{Factoring} reduces two literals to one if they are unifiable. The unifier must be applied to the
-    entire clause.
-\end{definition}
-
-\begin{theorem}
+    entire clause.\\
     The combination of binary resolution and factoring is complete.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 350]
     If $S$ is an unsatisfiable set of clauses, then the application of a finite number of
     resolution steps to $S$ will yield a contradiction.
 \end{theorem}
 
-\begin{definition}[Herbrand universe]
+\begin{definition}[Herbrand universe, R\&N p. 351]
     If $S$ is a set of clauses, then $H_S$, the \emph{Herbrand universe} of $S$, is 
     the set of all ground terms constructable from the following
     \begin{enumerate}
@@ -743,7 +737,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     that is also unsatisfiable. 
 \end{theorem}
 
-\begin{lemma}[Lifting lemma]
+\begin{lemma}[Lifting lemma, R\&N p. 353]
     Let $C_1$ and $C_2$ be two clauses with no shared variables,
     and let $C_1'$ and $C_2'$ be ground instances of $C_1$ and $C_2$.
     If $C'$ is a resolvent of $C_1'$ and $C_2'$, then there exists a clause
@@ -751,7 +745,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     ground instance of $C$. 
 \end{lemma}
 
-\begin{definition}[Demodulation]
+\begin{definition}[Demodulation, R\&N p. 354]
     For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$ and where
     $\textsf{UNIFY}(x,z)=\theta$,
     \begin{align*}
@@ -777,7 +771,7 @@ depth limit$n$ be any node and $g$ be the goal node.
     \end{align*} 
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 355]
     Paramodulation yields a complete inference procedure for first-order logic
     with equality.
 \end{theorem}
@@ -1067,7 +1061,7 @@ Runtime: $O(kt)$
 
 \subsubsection{High-level actions}
 
-\begin{definition}
+\begin{definition}[HLA, R\&N p. 406]
     A \emph{high-level action} (HLA) is an action that has one or more possible
     \emph{refinements}, into a sequence of actions, each of which may be high-level
     or primitive.\\
@@ -1075,14 +1069,14 @@ Runtime: $O(kt)$
     \emph{implementation}.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 407]
     A high-level plan (a sequence of HLAs) achieves the goal from a given state
     if at least one of its implementations achieves the goal from that state.
 \end{definition}
 
 \subsubsection{Search for primitive solutions}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 409]
     Suppose each HLA has $r$ possible refinement, each into $k$ actions at the
     next lower level. Then, if there are $d$ actions at the primitive level,
     there are
@@ -1094,13 +1088,13 @@ Runtime: $O(kt)$
 
 \subsubsection{Searching for abstract solutions}
 
-\begin{definition}
+\begin{definition}[R\&N p. 410]
     The \emph{downward refinement property} for HLA descriptions states that
     a high-level plan must have at least one implementations that achieves the
     goal.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[R\&N p. 411]
     Given a state $s$, the \emph{reachable set} for an HLA $h$, written as
     $\textsf{REACH}(s,h)$, is the set of states reachable by any of the HLA's
     implementations.
@@ -1113,7 +1107,7 @@ Runtime: $O(kt)$
     sets to intersect for the plan to achieve the goal.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[R\&N p. 412]
     An HLA under angelic semantics can have one of nine different effects on
     a variable $A$. There are two cases: $A$ is true or $A$ is false. In both
     cases there are three different effects:
