@@ -5,7 +5,7 @@
 \usepackage{tikz-cd}
 \begin{document}
 \mkawodeythms
-\title{Category Theory (Steve Awodey)}
+\title{Category Theory}
 \author{Franz Miltz}
 \maketitle
 \tableofcontents
@@ -15,7 +15,7 @@
 
 \subsection{Definition}
 
-\begin{definition}[Category]
+\begin{definition}[Category; Awodey 1.1]
     A \emph{category} consists of the following data:
     \begin{itemize}
         \item Objects: $A$, $B$, $C$, \dots
@@ -55,7 +55,7 @@
 
 \subsection{Examples}
 
-\begin{definition*}[Posets and monotone functions]
+\begin{definition}[Posets and monotone functions]
     A partially ordered set or \emph{poset} is a set $A$ equipped
     with a binary relation $a\leq_A b$ such that the following conditions
     hold for all $a,b,c\in A$: 
@@ -68,9 +68,9 @@
     \begin{align*}
         a \leq_A a' \text{ implies } f(a) \leq_A f(a')\hs \text{for all }a,a'\in A.
     \end{align*}
-\end{definition*}
+\end{definition}
 
-\begin{definition}[Functors]
+\begin{definition}[Functors; Awodey 1.2]
     A \emph{functor}
     \begin{align*}
         F:\cat{C}\to\cat{D}
@@ -84,7 +84,7 @@
     \end{enumerate}
 \end{definition}
 
-\begin{definition*}[Monoids and homomorphisms]
+\begin{definition}[Monoids and homomorphisms]
     A \emph{monoid} is a set $M$ equipped with a binary operation
     $\cdot : M\times M \to M$ and a unit element $u\in M$ such that
     for all $x,y,z\in M$
@@ -104,7 +104,7 @@
     \begin{align*}
         h(u_M) = u_N.
     \end{align*}
-\end{definition*}
+\end{definition}
 
 \paragraph{Examples of categories}
 \begin{itemize}
@@ -127,7 +127,7 @@
 
 \subsection{Isomorphisms}
 
-\begin{definition}
+\begin{definition}[Isomorphism; Awodey 1.3]
     In any category $\cat{C}$, an arrow $f:A\to B$ is called an
     \emph{isomorphism} if there exists an arrow $g:B\to A$ in
     $\cat{C}$ such that 
@@ -147,14 +147,11 @@
     Every group $G$ is isomorphic to a group of permutations.
 \end{theorem}
 
-\begin{theorem}
-    Every category $\cat{C}$ with a set of arrows is isomorphic
-    to one in which the objects are sets and the arrows are functions.
-\end{theorem}
+
 
 \subsection{Construction of categories}
 
-\begin{definition*}
+\begin{definition}
     The product of two categories $\cat{C}$ and $\cat{D}$, written
     as
     \begin{align*}
@@ -166,9 +163,9 @@
         (f,g):(C,D)\to (C',D')
     \end{align*}
     for $f:C\to C'\in\cat{C}$ and $g:D\to D'\in\cat{D}$.
-\end{definition*}
+\end{definition}
 
-\begin{definition*}
+\begin{definition}
     The \emph{opposite} category $\catop C$ of a category $\cat C$ has
     the same objects as $\cat C$ and an arrow $f:C\to D$ in $\catop C$
     is an arrow $f:D\to C$ in $\cat C$. We write
@@ -184,9 +181,9 @@
     \begin{align*}
         \cat C \xlongleftarrow{\hs\pi_1\hs} \cat C\times \cat D \xlongrightarrow{\hs\pi_2\hs} \cat D
     \end{align*}
-\end{definition*}
+\end{definition}
 
-\begin{definition*}
+\begin{definition}
     The \emph{arrow category} $\catar C$ of a category $\cat C$
     has the arrows of $\cat C$ as objects and an arrow $g$ from
     $f:A\to B$ to $f':A'\to B'$ in $\catar C$ is a pair of arrows
@@ -198,9 +195,9 @@
     \begin{align*}
         \cat C \xlongleftarrow{\hs\textbf{dom}\hs} \catar C \xlongrightarrow{\hs\textbf{cod}\hs} \cat C.
     \end{align*}
-\end{definition*}
+\end{definition}
 
-\begin{definition*}
+\begin{definition}
     The \emph{slice category} $\cat C/C$ of a category $\cat C$ over an
     object $C\in\cat C$ has as objects all arrows $f\in\cat C$ such that
     $\dom(f)=C$ and an arrow from $f:X\to C$ to $f':X'\to C$ is an arrow
@@ -216,7 +213,7 @@
         g_*:\cat C/C\to\cat C/D
     \end{align*}
     defined by $g_*(f)= g\circ f$.
-\end{definition*}
+\end{definition}
 
 \subsection{Free categories}
 
@@ -232,7 +229,7 @@
     such that $\abs f \circ i = f$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 1.9]
     Given a set $A$, the \emph{Kleene colosure} $A^*$ containing 
     all the finite sequences of elements of $A$ has the UMP of the
     free monoid on $A$.
@@ -260,13 +257,18 @@
 
 \subsection{Foundations}
 
-\begin{definition}
+\begin{definition}[Awodey 1.11]
     A category $\cat C$ is called \emph{small} if both the collection $C_0$
     of objects and the collection $C_1$ of arrows are sets. Otherwise $\cat C$
     is \emph{large}.
 \end{definition}
 
-\begin{definition}
+\begin{theorem}[Awodey 1.6]
+    Every small category $\cat{C}$ is isomorphic
+    to one in which the objects are sets and the arrows are functions.
+\end{theorem}
+
+\begin{definition}[Awodey 1.12]
     A category $\cat C$ is called \emph{locally small} if for all objects
     $X,Y\in\cat C$, the collection $\Hom_{\cat C}(X,Y)$ is a set.
 \end{definition}
@@ -276,7 +278,7 @@
 
 \subsection{Epis and monos}
 
-\begin{definition}
+\begin{definition}[Awodey 2.1]
     In any category $\cat C$, an arrow $f:A\to B$ is called a
     \begin{itemize}
         \item \emph{monomorphism} and we write $f:A\mono B$, if given any $g,h:C\to A$, $fg=fh$ implies $g=h$,
@@ -284,15 +286,15 @@
     \end{itemize}
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 2.2]
     A function $f:A\to B$ between sets is monic (epic) if and only if it is injective (surjective).
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 2.6]
     Every isomorphism is both monic and epic.
 \end{proposition}
 
-\begin{definition}
+\begin{definition}[Awodey 2.7]
     A \emph{split} mono (epi) is an arrow with a left (right) inverse. Given
     arrows $e:X\to A$ and $s:A\to X$ such that $es=1_A$, the arrow $s$ is called
     a \emph{section} or \emph{splitting} of $e$, and the arrow $e$ is called a
@@ -307,7 +309,7 @@
 
 \subsection{Initial and terminal objects}
 
-\begin{definition}
+\begin{definition}[Awodey 2.9]
     In any category $\cat C$, an object
     \begin{itemize}
         \item $0$ is \emph{initial} if for any object $C$ there is a unique morphism
@@ -317,7 +319,7 @@
     \end{itemize}
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 2.10]
     Initial (terminal) objects are unique up to isomorphism.    
 \end{proposition}
 
@@ -354,7 +356,7 @@
 
 \subsection{Products}
 
-\begin{definition}
+\begin{definition}[Product; Awodey 2.15]
     In any category $\cat C$, a \emph{product diagram} for the objects $A$
     and $B$ consists of an object $P$ and arrows $p_1:P\to A$ and $p_2:P\to B$
     satisfying the following UMP: Given any arrows $x_1:X\to A$ and $x_2:X\to B$
@@ -369,11 +371,11 @@
     We write $P=A\times B$.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Awodey 2.17]
     Products are unique up to isomorphism.
 \end{theorem}
 
-\begin{definition}
+\begin{definition}[Awodey 2.19]
     A categroy $\cat C$ is said to \emph{have all finite products}, if it has a
     terminal object and all binary products (and therewith all products of any
     finite cardinality). The category $\cat C$ \emph{has all (small) products}
@@ -396,7 +398,7 @@
     called the \emph{representable functor}.
 \end{theorem}
 
-\begin{proposition}
+\begin{proposition}[Awodey 2.20]
     A diagram of the form
     \begin{align*}
         A \xlongleftarrow{\hs p_1\hs} P \xlongrightarrow{\hs p_2\hs} B
@@ -413,7 +415,7 @@
     \end{align*}
 \end{proposition}
 
-\begin{definition}
+\begin{definition}[Awodey 2.21]
     Let $\cat C$, $\cat D$ be categories with binary products. A functor
     $F:\cat C\to \cat D$ is said to \emph{preserve binary products} if it takes
     every product diagram
@@ -426,7 +428,7 @@
     \end{align*}
 \end{definition}
 
-\begin{corollary}
+\begin{corollary}[Awodey 2.22]
     For any object $X$ in a category $\cat C$ with products, the representable
     functor 
     \begin{align*}
@@ -439,7 +441,7 @@
 
 \subsection{The duality principle}
 
-\begin{proposition}[Formal duality]
+\begin{proposition}[Formal duality; Awodey 3.1]
     For any sentence $\Sigma$ in the language of category theory,
     if $\Sigma$ follows from the axioms for categories, then so does
     its dual $\Sigma^*$
@@ -448,14 +450,14 @@
     \end{align*} 
 \end{proposition}
 
-\begin{proposition}[Conceptual duality]
+\begin{proposition}[Conceptual duality; Awodey 3.2]
     For any statement $\Sigma$ about categories, if $\Sigma$ holds for all categories,
     then so does the dual statement $\Sigma^*$.
 \end{proposition}
 
 \subsection{Coproducts}
 
-\begin{definition}
+\begin{definition}[Coproduct; Awodey 3.3]
     In any category $\cat C$, a \emph{coproduct diagram} for the objects $A$ and $B$
     consists of an object $A$ and arrows $q_1:A\to Q$ and $q_2:B\to Q$ satisfying
     the following UMP: Given any arrows $x_1:A\to X$ and $x_2:B\to X$ where $X$ is an
@@ -470,7 +472,7 @@
     We write $Q=A+B$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 3.11]
     In the category $\cat{Ab}$ of abelian groups, there is a canonical isomorphism between the binary
     coproduct and product
     \begin{align*}
@@ -478,13 +480,13 @@
     \end{align*}
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 3.12]
     Coproducts are unique up to isomorphism.
 \end{proposition}
 
 \subsection{Equalisers}
 
-\begin{definition}
+\begin{definition}[Equaliser; Awodey 3.13]
     In any category $\cat C$, given parallel arrows 
     \begin{align*}
         f,g: A\to B
@@ -498,24 +500,24 @@
     $u:Z\to E$ with $e\circ u = z$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 3.16]
     In any category, if $e:E\to A$ is an equaliser of some pair of arrows, $e$ is monic.
 \end{proposition}
 
 \subsection{Coequalisers}
 
-\begin{definition}
+\begin{definition}[Coequaliser; Awodey 3.18]
     For any parallel arrows $f,g:A\to B$ in any category $\cat C$, a \emph{coequaliser}
     consists of $Q$ and $q:B\to Q$, universal with the property $qf=qg$. That is given
     any $Z$ and $z:B\to Z$, if $zf=zg$, then there exists a unique $u:Q\to Z$ such that
     $uq=z$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 3.19]
     If $q:B\to Q$ is a coequaliser of some pair of arrows, then $q$ is epic.
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Awodey 3.24]
     For every monoid $M$ there are sets $R$ and $G$ and a coequaliser diagram,
     \begin{center}
         \begin{tikzcd}
