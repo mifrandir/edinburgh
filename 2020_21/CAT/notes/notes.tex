@@ -1,8 +1,17 @@
 \documentclass{article}
+
+
 \usepackage{notes-preamble}
 \usepackage{enumitem}
 \usepackage{extarrows}
+
 \usepackage{tikz-cd}
+\tikzset{
+   commutative diagrams/.cd,
+   arrow style=tikz,
+   diagrams={>=latex}}
+
+
 \begin{document}
 \mkawodeythms
 \title{Category Theory}
@@ -529,4 +538,173 @@
     with $F(R)$ and $F(G)$ free; thus, $M\cong F(G)/(r_1=r_2)$.
 \end{proposition}
 
+\section{Groups and categories}
+
+\subsection{Groups in a category}
+
+\begin{definition}[Group; Awodey p. 75]
+    A \emph{group} in $\cat C$ consists of objects and arrows as so:
+
+    \begin{center}
+        \begin{tikzcd}
+        G\times G\arrow[r, "m"] & G & G \arrow[l, swap, "i"]\\
+        & 1 \arrow[u, "u"]
+        \end{tikzcd}
+    \end{center}
+    
+    satisfying the following conditions, for all generalised elements
+    \begin{align*}
+        x,y,z:Z\to G,
+    \end{align*}
+
+    \begin{enumerate}
+        \item $m$ is associative, that is, the following commutes: \begin{center}
+            \begin{tikzcd}
+                {(G\times G)\times G} \arrow[d, swap, "m\times 1"] \arrow[rr, "\cong"] & & {G\times(G\times G)} \arrow[d, "1\times m"]\\
+                {G\times G}\arrow[dr, swap, "m"] & & G\times G\arrow[dl, "m"]\\
+                & G &
+            \end{tikzcd}
+        \end{center}
+        where $\cong$ is the canonical associativity isomorphism for products. I.e. \begin{align*}
+            m\circ \lra{m\circ \lra{x,y}, z} = m\circ\lra{x,m\circ\lra{y,z}}.
+        \end{align*}
+        \item $u$ is a unit for $m$, that is, both triangles in the following commute: \begin{center}
+            \begin{tikzcd}
+                G \arrow[d, swap, "\lra{1_G, u}"] \arrow[dr, "1_G"] \arrow[r, "\lra{u, 1_G}"] 
+                & G\times G\arrow[d, "m"]\\
+                G\times G \arrow[r, swap, "m"]
+                & G
+            \end{tikzcd}
+        \end{center}
+        I.e. \begin{align*}
+            m\circ\lra{x,u} = x = m\circ\lra{u, x}.
+        \end{align*}
+        \item $i$ is an inverse with respect to $m$, that is, both sides of the following commute: \begin{center}
+            \begin{tikzcd}
+                G\times G \arrow[d, swap, "1_G\times i"] & 
+                G \arrow[l, swap, "\Delta"] \arrow[d, "u"] \arrow[r, "\Delta"] &
+                G\times G \arrow[d, "i\times 1_G"] \\
+                G\times G \arrow[r, swap, "m"] &
+                G &
+                G\times G \arrow[l, "m"]
+            \end{tikzcd}
+        \end{center}
+        I.e. \begin{align*}
+            m\circ\lra{x,i\circ x} = u = m\circ\lra{i\circ x, x}
+        \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Group homomorphism; Awodey p. 77]
+    A \emph{homorphism $h:G\to H$} of groups in $\cat C$ consists of an arrow in $\cat C$
+    such that
+    \begin{enumerate}
+        \item $h$ preserves $m$: \begin{center}
+            \begin{tikzcd}
+                G\times G \arrow[d, swap, "m"] \arrow[r, "h\times h"] &
+                H\times H \arrow[d, "m"] \\
+                G \arrow[r, swap, "h"] &
+                H
+            \end{tikzcd}
+        \end{center}
+        \item $h$ preserves $u$: \begin{center}
+            \begin{tikzcd}
+                G \arrow[r, swap, "h"] & H \\
+                1 \arrow[u, "u"] \arrow[ur, swap, "u"]
+            \end{tikzcd}
+        \end{center}
+        \item $h$ perserves $i$: \begin{center}
+            \begin{tikzcd}
+                G \arrow[r, "h"] \arrow[d, swap, "i"] &
+                H \arrow[d, "i"] \\
+                G \arrow[r, swap, "h"] & H
+            \end{tikzcd}
+        \end{center}
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}[Awodey p. 78]
+    Given any set $G$ equipped with two binary operations $\circ,\star$:
+    $G\times G\to G$ with units $1^\circ$ and $1^\star$, respectively and
+    satisfying
+    \begin{align*}
+        (g_1 \circ h_1)\star (g_2\circ h_2) = (g_1\star g_2) \circ (h_1\star h_2)
+    \end{align*}
+    for any $g_1, g_2, h_1, h_2\in G$, the following hold.
+    \begin{enumerate}
+        \item $1^\circ = 1^\star$.
+        \item $\circ = \star$.
+        \item The operation $\circ = \star$ is commutative.
+    \end{enumerate}
+\end{proposition}
+
+\begin{corollary}[Awodey p. 79]
+    The groups in the category of groups are exactly the abelian groups. 
+\end{corollary}
+
+\begin{definition}[Awodey p. 79]
+    A \emph{strict monoidal category} is a category $\cat C$ equipped with a
+    binary operation $\otimes:\cat C\times \cat C\to \cat C$ which is functorial
+    and associative,
+    \begin{align*}
+        A\otimes(B\otimes C) = (A\otimes B)\otimes C,
+    \end{align*}
+    together with a distinguished object $I$ that acts as a unit,
+    \begin{align*}
+        I\otimes C = C = C \otimes I.
+    \end{align*}
+\end{definition}
+
+\subsection{The category of groups}
+
+\begin{theorem}[Awodey p. 83]
+    Every group homomorphism $h:G\to H$ has a kernel $\ker(h)=\inv h(u)$
+    which is a normal subgroup of $G$ with the property that, for any normal
+    subgroup $N\subseteq G$ 
+    \begin{align*}
+        N\subseteq \ker(h)
+    \end{align*}
+    if and only if there is a (necessarily unique) homomorphism
+    $\bar h:G/N\to H$ with $\bar h \circ \pi = h$ where 
+    $\pi:G\to G/N$ takes every element of $G$ to its
+    coset: $g\mapsto [g]$.
+\end{theorem}
+
+\subsection{Groups as categories}
+
+\begin{definition}[Awodey p. 83]
+    A \emph{congruence} on a category $\cat C$ is an equivalence relation
+    $f\sim g$ on arrows such that
+    \begin{enumerate}
+        \item $f\sim g$ implies $\dom(f) = \dom(g)$ and $\cod(f) = \cod(g)$, \begin{center}
+            \begin{tikzcd}
+                \bullet \arrow[r, shift left=.3ex, "f"] \arrow[r, swap, shift right=.3ex, "g"] & \bullet
+            \end{tikzcd}
+        \end{center}
+        \item $f\sim g$ implies $bfa\sim bga$ for all arrows $a:A\to X$ and $b:Y\to B$, where
+        $\dom(f) = X = \dom(g)$ and $\cod(f) = Y = \cod(g)$, \begin{center}
+            \begin{tikzcd}
+                \bullet \arrow[r, "a"] &
+                \bullet \arrow[r, shift left=.3ex, "f"] \arrow[r, swap, shift right=.3ex, "g"] &
+                \bullet \arrow[r, "b"] &
+                \bullet
+            \end{tikzcd}
+        \end{center}
+    \end{enumerate} 
+\end{definition}
+
+\begin{corollary}
+    Every functor $F:\cat C \to \cat D$ factors as $F=\tilde F \circ \pi$, \begin{center}
+        \begin{tikzcd}
+            \cat C \arrow[d, swap, "\pi"] \arrow[r, "F"] &
+            \cat D \\
+            \cat C / \ker(F) \arrow[ur, swap, "\tilde F"]
+        \end{tikzcd}
+    \end{center}
+    where $\pi$ is bijective on objects and surjective on Hom-sets, and $\tilde F$ is
+    injective on Hom-sets (i.e., "faithful"):
+    \begin{align*}
+        \tilde F_{A,B}:\Hom(A,B)\mono \Hom(FA, FB)\hs\text{for all }A,B\in \cat C/\ker(F).
+    \end{align*}
+\end{corollary}
 \end{document}
