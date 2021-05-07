@@ -297,46 +297,41 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	More generally, for any such tree with a maximum depth $d$ of at most $d=2 \lg n$ the
 	lookup time is $O(\log n)$.
 \end{proposition}
+
+\paragraph{Comparison}
 \begin{center}
-	
-\begin{tabular}{| l | l |}
+\begin{tabular}{ l | l | l | l }
+	\textbf{Implementation} & \texttt{contains} & \texttt{insert} & \texttt{delete}\\
 	\hline
-	Type & \\
+	Linked List (simple) 
+	& $\Theta(n)$, $\Theta(n)$
+	& $\Theta(1)$, $\Theta(1)$
+	& $\Theta(n)$, $\Theta(n)$\\
 	\hline
-	Set & \begin{tabular}{ l | l | l | l }
-		Implementation & \texttt{contains} & \texttt{insert} & \texttt{delete}\\
-		\hline
-		Linked List (simple) 
-		& $\Theta(n)$, $\Theta(n)$
-		& $\Theta(1)$, $\Theta(1)$
-		& $\Theta(n)$, $\Theta(n)$\\
-		\hline
-		Ordered Linked List (simple) 
-		& $\Theta(\lg n)$, $\Theta(\lg n)$
-		& $\Theta(\lg n)$, $\Theta(\lg n)$
-		& $\Theta(\lg n)$, $\Theta(\lg n)$\\
-		\hline
-		Hash Table (linked bucket list)
-		& $\Theta(\alpha)$, $\Theta(n)$
-		& $\Theta(1)$, $\Theta(1)$
-		& $\Theta(\alpha)$, $\Theta(n)$\\
-		\hline
-		Hash Table (open addressing)
-		& $\Theta(1/(1-\alpha))$, $\Theta(n)$
-		& $\Theta(1/(1-\alpha))$, $\Theta(n)$
-		& - \\
-		\hline
-		Ordered Binary Tree
-		& $\Theta(\lg n)$, $\Theta(n)$
-		& $\Theta(\lg n)$, $\Theta(n)$ 
-		& $\Theta(\lg n)$, $\Theta(n)$\\
-		\hline
-		Red-Black Tree
-		& $\Theta(\lg n)$, $\Theta(\lg n)$
-		& $\Theta(\lg n)$, $\Theta(\lg n)$
-		& $\Theta(\lg n)$, $\Theta(\lg n)$
-	\end{tabular} \\
+	Ordered Linked List (simple) 
+	& $\Theta(\lg n)$, $\Theta(\lg n)$
+	& $\Theta(\lg n)$, $\Theta(\lg n)$
+	& $\Theta(\lg n)$, $\Theta(\lg n)$\\
 	\hline
+	Hash Table (linked bucket list)
+	& $\Theta(\alpha)$, $\Theta(n)$
+	& $\Theta(1)$, $\Theta(1)$
+	& $\Theta(\alpha)$, $\Theta(n)$\\
+	\hline
+	Hash Table (open addressing)
+	& $\Theta(1/(1-\alpha))$, $\Theta(n)$
+	& $\Theta(1/(1-\alpha))$, $\Theta(n)$
+	& - \\
+	\hline
+	Ordered Binary Tree
+	& $\Theta(\lg n)$, $\Theta(n)$
+	& $\Theta(\lg n)$, $\Theta(n)$ 
+	& $\Theta(\lg n)$, $\Theta(n)$\\
+	\hline
+	Red-Black Tree
+	& $\Theta(\lg n)$, $\Theta(\lg n)$
+	& $\Theta(\lg n)$, $\Theta(\lg n)$
+	& $\Theta(\lg n)$, $\Theta(\lg n)$
 \end{tabular}
 \end{center}
 
@@ -361,9 +356,9 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	The heap operations have the following runtimes:
 	\\
 	\begin{center}
-	\begin{tabular}{| l | c |}
+	\begin{tabular}{| l | l |}
 		\hline
-		Operation & Asymptotic Runtime\\
+		Operation & Runtime\\
 		\hline
 		Max & $\Theta(1)$\\
 		\hline
@@ -427,7 +422,7 @@ def partition(arr, p, r):                   # O(n), n=r-p
 		\hline
 		Time to check if $w$ adjacent to $v$ & $\Theta(1)$ & $\Theta(\text{out}(v))$\\
 		\hline
-		Time to visit all $W$ adjacent to $v$ & $\Theta(n)$ & $\Theta(\text{out}(v))$\\
+		Time to visit all $w$ adjacent to $v$ & $\Theta(n)$ & $\Theta(\text{out}(v))$\\
 		\hline
 		Time to visit all edges & $\Theta(n^2)$ & $\Theta(n+m)$\\
 		\hline
@@ -449,33 +444,6 @@ def partition(arr, p, r):                   # O(n), n=r-p
 \end{definition} 
 
 \section{Dynamic Programming}
-
-\subsection{Decorators in Python}
-
-\begin{minted}{python}
-def memoise(f):
-  memo = {}
-  def check(s):
-    if s not in memo:
-      memo[s] = f(s)
-    return memo[s]
-  return check
-\end{minted}
-\begin{example}
-Using the Fibonacci function:
-\begin{minted}{python}
-# inefficient fib function
-def fib(n):
-  if n == 0:
-    return 0
-  if n == 1:
-    return 1
-  return fib(n-1) + fib(n-2)
-
-# more efficient wrapper
-fib = memoise(fib)
-\end{minted}
-\end{example}
 
 \subsection{The coin-changing problem}
 
@@ -766,5 +734,110 @@ fib = memoise(fib)
 	\item recursive backtracking
 \end{itemize}
 
+\subsection{Polynomial-time approximation}
+
+\begin{definition}[$\alpha$-approximation]
+	Consider some optimisation problem \textsf{OPT} where for a given 
+	instance $\mathcal{J}$, and the set of feasible solutions $y$,
+	$\textsf{OPT}(\mathcal{J})$ is the cost/value of the optimum $y$.\\
+	An algorithm $A$ is said to be an $\alpha$-approximation for \textsf{OPT}
+	if for every instance $\mathcal{J}$, the algorithm returns a value
+	$A(\mathcal{J})$ satisfying
+	\begin{align*}
+		A(\mathcal{J}) \begin{cases}
+			\leq \alpha \cdot \textsf{OPT}(\mathcal{J}) &\text{if \textsf{OPT} is a minimisation problem},\\
+			\geq 1/\alpha \cdot \textsf{OPT}(\mathcal{J}) &\text{if \textsf{OPT} is a maximisation problem}.
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+\begin{definition}[Vertex cover]
+	Given an undirected graph $G=(V,E)$, a subset $V'\subseteq V$ is a
+	\emph{vertex cover (VC)} for $G$ if every edge $e\in E$ has at least one
+	endpoint in $V'$.
+\end{definition}
+
+\noindent 2-approximation for VC:
+\begin{pseudo}
+\textbf{function} \textsf{Approx-Vertex-Cover}$(G=(V,E))$:\\+
+	$C\leftarrow \emptyset$\\
+	$E'\leftarrow\emptyset$\\
+	\textbf{while} $E'\not=\emptyset$:\\+
+		$(u,v)\leftarrow\textsf{some edge in }E'$\\
+		$C\leftarrow C\cup\{u,v\}$\\
+		$E'\leftarrow E'\setminus\{(a,b)\in E : \{a,b\}\cap\{u,v\}\not=\emptyset\}$\\-
+    \textbf{return} $C$
+\end{pseudo}
+
+\begin{definition}
+	Given a 3-CNF formula $\Phi=C_1\wedge\cdots\wedge C_m$ over the variables
+	$x_1, ..., x_n$, determine the maximum number of clauses $k$ such that there
+	exists an assignment of binary values to $x_1, ..., x_n$ that makes $k$
+	clauses satisfied.
+\end{definition}
+
+\begin{pseudo}
+\textbf{function} \textsf{Greedy-3-SAT}$(\Phi, n, m)$:\\+
+	\textbf{for} $i\in\{1,...,n\}$:\\+
+		$E_0 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=0)$\\
+		$E_1 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=1)$\\
+		\textbf{if} $E_0\geq E_1$:\\+
+			$b_i\leftarrow 0$\\-
+        \textbf{else}:\\+
+			$b_i\leftarrow 1$\\-
+		Update $\Phi$ by fixing $x_i=b_i$\\-
+    \textbf{return }$\vec b$
+\end{pseudo}
+
+\begin{theorem}
+	The \emph{maximum independent set} problem cannot be approximated to
+	any constant approximation factor $\alpha\in\R$, assuming $P\not= NP$.
+\end{theorem}
+
+\subsection{Exhaustive search}
+
+Na\"ive backtracking:
+
+\begin{pseudo}
+\textbf{function} \textsf{SAT-backtrack}$(\Phi=C_1\wedge\cdots\wedge C_m, \mathcal{J}, b)$:\\+
+	\textbf{if} $m=0$:\\+ \textbf{return} \textsf{true}\\-
+	\textbf{if} $\exists$ empty clause in $\Phi$:\\+
+		\textbf{return} \textsf{false}\\-
+    $i\leftarrow\text{some index in $[n]\setminus\mathcal{J}$}$\\
+	$\Phi'\leftarrow\Phi(x_i\leftarrow 0)$\\
+	\textbf{if} \textsf{SAT-backtrack}$(\Phi', \mathcal{J}\cup\{i\}, b\cup\{x_i=0\})$:\\+
+		\textbf{return} \textsf{true}\\-
+	$\Phi'\leftarrow\Phi(x_i\leftarrow 1)$\\
+	\textbf{return} \textsf{SAT-backtrack}$(\Phi',\mathcal{J}\cup\{i\}, b\cup\{x_i=1\})$
+\end{pseudo}
+
+\noindent Davis, Putnam, Logemann, Loveland (DPLL):
+
+\begin{pseudo}
+\textbf{function} \textsf{DPLL}$(\Phi=C_1\wedge\cdots\wedge C_m)$\\+
+	\textbf{if} every literal in $\Phi$ is pure:\\+\textbf{return} \textsf{true}\\-
+	\textbf{if} some clause in $\Phi$ is empty:\\+\textbf{return} \textsf{false}\\-
+	\textbf{while} $\exists$ unit clause $l$ in $\Phi$:\\+
+		\textbf{if} $l$ is $x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 1)$\\-
+		\textbf{else if} $l$ is $\neg x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 0)$\\--
+	\textbf{while} $\exists$ pure literal $l$ in $\Phi$:\\+
+		\textbf{if} $l$ is $x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 1)$\\-
+		\textbf{else if} $l$ is $\neg x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 0)$\\--
+    $x\leftarrow\text{undetermined variable in }\Phi$\\
+	\textbf{return} \textsf{DPLL}$(\Phi(x\leftarrow 0))$ 
+	\textbf{or}     \textsf{DPLL}$(\Phi(x\leftarrow 1))$
+\end{pseudo}
+
+\begin{theorem}
+	The runtime of DPLL is bounded by $O(2^n\cdot\abs{\Phi})$. Depending on the
+	heuristic for chosing the next variable to split on, the practical running
+	time is much better. Some heuristics are
+	\begin{itemize}
+		\item most-constraining variable
+		\item almost pure literals
+		\item shortest clause
+		\item maximising $\sum_{k=2}^n 2^{-k} \abs{\{C_j : x\in C_j, \abs{C_j}=k\}}$
+	\end{itemize}
+\end{theorem}
 
 \end{document}
