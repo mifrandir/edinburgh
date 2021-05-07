@@ -120,20 +120,64 @@ Note that the cost model needs to be specified when comparing algorithms.
 
 \subsection{Bubblesort}
 
+\begin{minted}{python}
+def bubble_sort(arr):                       # O(n**2)
+  for n in range(len(start), 2, -1):        # O(n) iterations 
+    for i in range(n-1):                    # O(n) iterations
+      if arr[i] > arr[i+1]:
+        arr[i], arr[i+1] = arr[i+1], arr[i]
+\end{minted}
+
 
 \subsection{Insertion Sort}
 
+\begin{minted}{python}
+def insert_sort(arr):                       # O(n**2)
+  for i in range(1, n):                     # O(n) iterations
+    t = arr[i]
+    for j in range(i-1,0,-1):               # O(n) iterations
+      if arr[j] > x:
+        break
+      arr[j+1] = arr[j]
+    arr[j+1] = x
+\end{minted}
 
 \subsection{Mergesort}
 
+\begin{minted}{python}
+def merge_sort(arr):                        # O(n*log(n)), Master Theorem
+  n = len(arr)
+  if n < 2:
+	return arr
+  left = merge_sort(arr[:n // 2])           # O(n//2*log(n//2))
+  right = merge_sort(arr[n // 2:])          # O(n//2*log(n//2))
+  return merge(left, right)                 # O(n)
+
+# We're merging backwards and then reversing the list because
+# popping from/appending to the front is very inefficient.
+def merge(left, right):                     # O(n)
+  merged = []                               # n = len(left) + len(right)
+  while len(left) > 0 and len(right) > 0:   # O(n) iterations
+    if left[-1] > right[-1]:
+      merged.append(left.pop())
+    else:
+      merged.append(right.pop())
+  merged.extend(left)                       # O(len(left)) = O(n)
+  merged.extend(right)                      # O(len(right)) = O(n)
+  return reversed(merged)                   # O(n)
+\end{minted}
 
 \subsection{Heapsort}
 
+\begin{minted}{python}
+def heap_sort(arr):                         # O(n*log(n))
+  n = len(arr)
+  heapify(arr, n)                           # O(n)
+  for i in range(n):                        # O(n) iterations
+    arr[-i] = extract_max(arr, n-1)         # O(log(n))
+\end{minted}
 
 \subsection{Quicksort}
-
-
-\subsubsection{Algorithm}
 
 Algorithm for input array $A$:
 \begin{enumerate}
@@ -146,40 +190,41 @@ Algorithm for input array $A$:
 	\item Sort the resulting subarrays recursively.
 \end{enumerate}
 
-\noindent Main algorithm:
 \begin{minted}{python}
-def quick_sort(A, p, r):
+def quick_sort(arr, p, r):                  # O(n**2)
   if p < r:
-    split = partition(A, p, r)
-	quick_sort(A, p, split-1)
-	quick_sort(A, split+1, r)
-\end{minted}
+    split = partition(arr, p, r)            # O(n)
+    quick_sort(arr, p, split-1)             # O(n**2)
+    quick_sort(arr, split+1, r)             # O(n**2)
 
-\noindent Partitioning algorithm:
-\begin{minted}{python}
-def partition(A, p, r):
-  pivot = A[r].key
+def partition(arr, p, r):                   # O(n), n=r-p
+  pivot = arr[r].key
   i = p - 1
-  for j in range(p,r):
-    if A[j] <= pivot:
+  for j in range(p, r):                     # O(n) iterations
+    if arr[j] <= pivot:
       i += 1
-      exchange(A, i, j)
-  exchange(A, i+1, r)
+      arr[i], arr[j] = arr[j], arr[i]
+  arr[i+1], arr[j] = arr[j], arr[i+1]
   return i+1
 \end{minted}
 
-\subsubsection{Analysis}
+\subsection{Comparison}
 
 \begin{center}
-	\begin{tabular}{| l | c |}
-		\hline
-		Worst Case & $\Theta(n^2)$\\
-		\hline
-		Average Case & $\Theta(n\lg n)$\\
-		\hline
+	\begin{tabular}{l | l | l | l}
+		\textbf{Algorithm} & \textbf{Worst-case} & \textbf{Average-case} & \textbf{Best-case}
+		\\\hline
+		BubbleSort & $\Theta(n^2)$     & $\Theta(n^2)$     & $\Theta(1)$ swaps
+		\\\hline
+		InsertSort & $\Theta(n^2)$     & $\Theta(n^2)$     & $\Theta(1)$ swaps
+		\\\hline
+		MergeSort  & $\Theta(n\log n)$ & $\Theta(n\log n)$ & $\Theta(n\log n)$
+		\\\hline
+		QuickSort  & $\Theta(n^2)$     & $\Theta(n\log n)$ & $\Theta(n\log n)$
+		\\\hline
+		HeapSort   & $\Theta(n\log n)$ & $\Theta(n\log n)$ & $\Theta(n\log n)$
 	\end{tabular}
-	\end{center}
-
+\end{center}
 
 \section{Collections}
 
