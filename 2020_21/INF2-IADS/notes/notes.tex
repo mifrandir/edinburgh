@@ -5,14 +5,15 @@
 \begin{document}
 \title{Introduction to Algorithms and Data Structures (YEAR2)}
 \author{Franz Miltz}
+\date{10 May 2021}
 \maketitle
 \tableofcontents
 \pagebreak
 
 
-\section{Asymptotics Analysis}
+\section{Asymptotics analysis}
 
-
+\subsection{Formal definition}
 
 \textbf{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
 \begin{definition}
@@ -277,7 +278,7 @@ def partition(arr, p, r):                   # O(n), n=r-p
 \end{definition}
 \begin{proposition}
 	In a hash table with load factor $\alpha$ that uses open addressing requires, on average, $1/(1-\alpha)$ 
-	probes for an unsuccessful lookup and less for a successful one.
+	probes for an unsuccessful lookup and fewer for a successful one.
 \end{proposition}
 \begin{definition}
 	A \textbf{binary tree} consists of a value and at most one left child and at most one right child where
@@ -443,7 +444,7 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	A \textbf{traversal} is a strategy for visiting all vertices of a graph.
 \end{definition} 
 
-\section{Dynamic Programming}
+\section{Dynamic programming}
 
 \subsection{The coin-changing problem}
 
@@ -838,6 +839,59 @@ Na\"ive backtracking:
 		\item shortest clause
 		\item maximising $\sum_{k=2}^n 2^{-k} \abs{\{C_j : x\in C_j, \abs{C_j}=k\}}$
 	\end{itemize}
+\end{theorem}
+
+\section{Computability}
+
+\subsection{Register machines}
+
+\begin{definition}
+	We say a register machine $M$ \emph{computes} a partial function
+	$f:\N\times\N\partialto\N$ if, for any $m,n\in\N$, the following
+	holds after setting the registers $A=m$, $B=n$, $C=D=\cdots=0$:
+	\begin{itemize}
+		\item $M$ terminates if and only if $f(m,n)$ is defined.
+		\item If $M$ terminates, the final value in $A$ is $f(m,n)$.
+	\end{itemize}
+	We say $f:\N\times\N\partialto\N$ is \emph{RM-computable} if and
+	only if there is some register machine that computes $f$.
+\end{definition}
+
+\begin{theorem}
+	The following classes of functions coincide:
+	\begin{itemize}
+		\item functions definable in $\lambda$-calculus,
+		\item functions computable by Turing and register machines,
+		\item functions computable in any Turing complete programming language.
+	\end{itemize}
+	We call this class \emph{Church-Turing computable}.
+\end{theorem}
+
+\subsection{Undecidable questions}
+
+\begin{theorem}[Halting problem]
+	An RM computation is said to \emph{halt} if we eventually emerge at
+	an exit. Let $m,n\in\N$. Then the function $h$ given by
+	\begin{align*}
+		h(m,n)=\begin{cases}
+			0 &\text{if machine $m$ halts on input $n$,}\\
+			1 &\text{otherwise}
+		\end{cases}	
+	\end{align*}
+	is not RM-computable.
+\end{theorem}
+
+\begin{theorem}
+	A \emph{Diophantine equation} is a multi-variable polynomial
+	equation with integer coefficients for which we require integer
+	solutions. Whether or not any such equation has a solution is
+	undecidable.
+\end{theorem}
+
+\begin{theorem}
+	Let $S,T$ be finite sets of strings. Whether or not there exists
+	a string that can be formed both as a concatenation of strings in
+	$S$ as well as a concatenation of strings in $T$ is undecidable.
 \end{theorem}
 
 \end{document}
