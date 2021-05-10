@@ -840,8 +840,61 @@
     \end{align*}
 \end{corollary}
 
-\begin{proposition}
-    A category has finite products and equalisers iff it has pullbacks and a
-    terminal object.
-\end{proposition} 
+\subsection{Limits}
+
+\begin{definition}[Cones; Awodey p. 101]
+    Let $\cat J$ and $\cat C$ be categories. A \emph{diagram of type} $\cat J$
+    in $\cat C$ is a functor. 
+    \begin{align*}
+        D:\cat J \to \cat C.
+    \end{align*}
+    For all objects $j\in\cat J$ we write $D_j:=D(j)$ and for all arrows
+    $\alpha:i\to j\in\cat J$ we write
+    \begin{align*}
+        D_\alpha = D(\alpha):D_i\to D_j.
+    \end{align*}
+    A \emph{cone} to a diagram $D$ consists of an object $C$ in $\cat C$ and
+    a family of arrows in $\cat C$,
+    \begin{align*}
+        \left(c_j:C\to D_j\right)_{j\in\cat J}
+    \end{align*}
+    such that for each arrow $\alpha:i\to j$ in $\cat J$, 
+    the following triangle commutes
+    \begin{center}
+        \begin{tikzcd}
+            C \arrow[d, swap, "c_i"] \arrow[r, "c_j"] &
+            D_j \\
+            D_i \arrow[ur, swap, "D_\alpha"]
+        \end{tikzcd}
+    \end{center}
+    A \emph{morphism of cones} with objects $C,C'$ and arrows
+    $\left(c_j\right)_{j\in\cat J}$, $\left(c'_j\right)_{j\in\cat J}$
+    is an arrow $\vartheta\in\cat C$ making each triangle
+    \begin{center}
+        \begin{tikzcd}
+            C  \arrow[dr, swap, "c_j"] \arrow[r, "\vartheta"] &
+            C' \arrow[d, "c'_j"] \\
+            & D_j
+        \end{tikzcd}
+    \end{center}
+    commute. That is, such that $c_j = c'_j \circ \vartheta$ for all $j\in\cat J$.
+    We have a category $\cat{Cone}(D)$ of cones to $D$.
+\end{definition}
+
+\begin{definition}[Awodey p. 102]
+    A \emph{limit} of a diagram $D:\cat J \to \cat C$ is a terminal object in the
+    category $\cat{Cone}(D)$. A \emph{finite limit} is a limit of a diagram on
+    a finite index category $\cat J$.
+\end{definition} 
+
+\begin{proposition}[Awodey p. 105]
+    Let $\cat C$ be a category. Then the following are equivalent:
+    \begin{enumerate}
+        \item $\cat C$ has finite products and equalisers of $\kappa$ many objects.
+        \item $\cat C$ has pullbacks and a terminal object of cardinality $\kappa$.
+        \item $\cat C$ has limits for all diagrams $D:\cat J\to\cat C$ where $\text{card}(\cat J_1)\leq \kappa$.
+    \end{enumerate}
+    Dually for coproducts, coequalisers, pushouts, inital objects and colimits.
+\end{proposition}
+
 \end{document}
