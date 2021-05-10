@@ -2,6 +2,8 @@
 \usepackage{notes-preamble}
 \mkthms
 \usepackage{pseudo}
+\usepackage{multicol}
+
 \begin{document}
 \title{Introduction to Algorithms and Data Structures (YEAR2)}
 \author{Franz Miltz}
@@ -15,7 +17,7 @@
 
 \subsection{Formal definition}
 
-\textbf{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
+\emph{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$ be functions. Then
 	\text{$f\in o(g)$} if, and only if, 
@@ -47,15 +49,15 @@
 		\exists C > 0\st \exists N \st \forall n \geq N,\: f(n) \geq Cg(n)
 	\end{align*}
 	where $C\in\R$ and $N,n\in\N$.\\
-	We call $g$ an \textbf{asymptotic upper bound} for $f$.
+	We call $g$ an \emph{asymptotic upper bound} for $f$.
 \end{definition}
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Omega(g)$ if, and only if, $g\in O(f)$.\\
-	We call $g$ an \textbf{asymptotic lower bound} for $f$.
+	We call $g$ an \emph{asymptotic lower bound} for $f$.
 \end{definition}
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Theta(g)$ if, and only if, $f\in O(f) \cap \Omega(f)$.\\
-	We call $g$ an \textbf{asymptotic tight bound} for $f$.
+	We call $g$ an \emph{asymptotic tight bound} for $f$.
 \end{definition}
 \begin{theorem}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in\Theta(g)$ if, and only if, $g\in\Theta(f)$.
@@ -95,7 +97,7 @@
 
 
 \begin{definition}
-	The \textbf{cost} of an algorithm is a quantity to measure its performance.\\
+	The \emph{cost} of an algorithm is a quantity to measure its performance.\\
 	The cost may be defined in different ways depending on
 	how in depth the analysis is supposed to be and what
 	is of interest in a particular situation.
@@ -104,9 +106,9 @@ Note that the cost model needs to be specified when comparing algorithms.
 \begin{definition}
 	We considering the cost of an algorithm for a specific input size there are different cases to consider:
 	\begin{itemize}
-		\item \textbf{worst-case} cost: the single worst cost out of all possible inputs
-		\item \textbf{best-case} cost: the single best cost out of all possible inputs
-		\item \textbf{average-case} cost: the average over all the costs for all possible inputs
+		\item \emph{worst-case} cost: the single worst cost out of all possible inputs
+		\item \emph{best-case} cost: the single best cost out of all possible inputs
+		\item \emph{average-case} cost: the average over all the costs for all possible inputs
 	\end{itemize}
 \end{definition}
 \begin{theorem}
@@ -149,7 +151,7 @@ def insert_sort(arr):                       # O(n**2)
 def merge_sort(arr):                        # O(n*log(n)), Master Theorem
   n = len(arr)
   if n < 2:
-	return arr
+    return arr
   left = merge_sort(arr[:n // 2])           # O(n//2*log(n//2))
   right = merge_sort(arr[n // 2:])          # O(n//2*log(n//2))
   return merge(left, right)                 # O(n)
@@ -229,34 +231,245 @@ def partition(arr, p, r):                   # O(n), n=r-p
 
 \section{Collections}
 
+\subsection{Lists}
 
+\begin{definition}
+	A list of items of type $X$ is a datastructure with the
+	following interface:
+	\begin{align*}
+		\textbf{get} &: \Z \to X \\
+		\textbf{set} &: \Z\times X\to\{*\}\\
+		\textbf{cons} &: X\to \{*\}\\
+		\textbf{append} &: X\to \{*\}\\
+		\textbf{insert} &: \Z\times X \to \{*\}\\
+		\textbf{delete} &: \Z\to \{*\}\\
+		\textbf{length} &: \{*\} \to \Z
+	\end{align*}
+\end{definition}
+
+\subsubsection{Fixed-size arrays}
+\begin{multicols}{2}
+\noindent Strengths:
+\begin{itemize}
+	\item fast \texttt{get} and \texttt{set} operations
+	\item fixed, predictable size; good for memory management
+\end{itemize}
+
+\noindent Weaknesses:
+\begin{itemize}
+	\item limited size
+	\item unsuitable for computations with unpredictable size
+\end{itemize}
+
+\begin{minted}{python}
+def get(self, i):
+  return self.arr[i]
+\end{minted}
+
+\begin{minted}{python}
+def append(self, x):
+  self.arr[self.n] = x
+  self.n += 1
+\end{minted}
+
+\begin{minted}{python}
+def insert(self, i, x):
+  n += 1
+  for j in range(n, i-1, -1):
+    self.arr[j+1] = self.arr[j]
+  self.arr[i] = x
+\end{minted}
+\end{multicols}
+
+\subsubsection{Extensible arrays}
+
+\begin{multicols}{2}
+
+
+\noindent Strengths:
+\begin{itemize}
+	\item unlimited, variable size
+	\item fast \texttt{get} and \texttt{set}
+	\item fast amortised \texttt{append}
+\end{itemize}
+
+\noindent Weaknesses:
+\begin{itemize}
+	\item bad worst-case \texttt{append}
+\end{itemize}
+
+\begin{pseudo}
+\textbf{function} \textsf{append}$(x)$:\\+
+  \textbf{if} $n=|A|$:\\+
+    $B \leftarrow \text{new array of size }\ceil{n\times r}$\\
+	copy contents of $A$ into $B$\\
+	$A\leftarrow B$\\-
+  $A[n]\leftarrow x$\\
+  $n\leftarrow n + 1$
+\end{pseudo}
+\end{multicols}
+
+
+
+\subsubsection{Linked list}
+
+Strengths:
+\begin{itemize}
+	\item fast insertions and deletion at front 
+	\item naturally allow for sharing
+\end{itemize}
+
+Weaknesses:
+\begin{itemize}
+	\item slow random access
+	\item unpredictable structure in memory
+\end{itemize}
+
+\subsubsection{Comparison}
+
+\begin{center}
+\begin{tabular}{ l | l | l | l | l | l | l | l }
+	\textbf{Implementation} 
+	& \texttt{get} 
+	& \texttt{set} 
+	& \texttt{cons}
+	& \texttt{append}
+	& \texttt{insert}
+	& \texttt{delete}
+	& \texttt{length}
+	\\
+	\hline
+	Fixed-size array
+	& $O(1)$
+	& $O(1)$
+	& *$O(n)$
+	& *$O(1)$
+	& *$O(n)$
+	& $O(n)$
+	& $O(1)$
+	\\
+	\hline
+	Extensible array
+	& $O(1)$
+	& $O(1)$
+	& $O(n)$
+	& $O(n)$, amortised $O(1)$
+	& $O(n)$
+	& $O(n)$
+	& $O(1)$
+	\\
+	\hline
+	Linked list
+	& $O(n)$
+	& $O(n)$
+	& $O(1)$
+	& $O(n)$
+	& $O(n)$
+	& $O(n)$
+	& $O(1)$
+\end{tabular}
+\end{center}
+
+\subsection{Stacks}
+
+\begin{definition}
+	A stack containing items of type $X$ is a datastructure with
+	the following interface:
+	\begin{align*}
+		\textbf{empty} &: \{*\}\to\{0, 1\}\\
+		\textbf{peek} &: X \to \{*\}\\
+		\textbf{pop} &: \{*\}\to X\\
+		\textbf{push} &: \{*\}\to X
+	\end{align*}
+\end{definition}
+
+\begin{center}
+\begin{tabular}{ l | l | l | l | l}
+	\textbf{Implementation} 
+	& \texttt{empty} 
+	& \texttt{peek} 
+	& \texttt{pop}
+	& \texttt{push}
+	\\
+	\hline
+	Extensible array
+	& $O(1)$
+	& $O(1)$
+	& $O(1)$
+	& $O(n)$, amortised $O(1)$
+	\\
+	\hline
+	Linked list
+	& $O(1)$
+	& $O(1)$
+	& $O(1)$
+	& $O(1)$
+\end{tabular}
+\end{center}
+
+\subsection{Queues}
+
+\begin{definition}
+	A queue containing items of type $X$ is a datastructure with
+	the following interface:
+	\begin{align*}
+		\textbf{empty} &: \{*\}\to\{0, 1\}\\
+		\textbf{peek} &: X \to \{*\}\\
+		\textbf{dequeue} &: \{*\}\to X\\
+		\textbf{enqueue} &: \{*\}\to X
+	\end{align*}
+\end{definition}
+
+\begin{center}
+\begin{tabular}{ l | l | l | l | l}
+	\textbf{Implementation} 
+	& \texttt{empty} 
+	& \texttt{peek} 
+	& \texttt{dequeue}
+	& \texttt{enqueue}
+	\\
+	\hline
+	Wraparound array
+	& $O(1)$
+	& $O(1)$
+	& $O(1)$
+	& $O(n)$, amortised $O(1)$
+	\\
+	\hline
+	Doubly linked list
+	& $O(1)$
+	& $O(1)$
+	& $O(1)$
+	& $O(1)$
+\end{tabular}
+\end{center}
 
 \subsection{Sets and dictionaries}
 
 
 \begin{definition}
-	A \textbf{finite set} containing values of type $X$ is a datastructure with the following interface
+	A \emph{finite set} containing values of type $X$ is a datastructure with the following interface
 	\begin{align*}
-		\textbf{contains} &: X\to \texttt{bool}\\
-		\textbf{insert} &: X \to \texttt{void}\\
-		\textbf{delete} &: X \to \texttt{void}\\
-		\textbf{isEmpty} &: \texttt{void} \to \texttt{bool}
+		\textbf{contains} &: X\to \{0,1\}\\
+		\textbf{insert} &: X \to \{*\}\\
+		\textbf{delete} &: X \to \{*\}\\
+		\textbf{isEmpty} &: \{*\} \to \{0,1\}
 	\end{align*}
 \end{definition}
 \begin{definition}
-	A \textbf{dictionary} mapping keys of type $X$ to values of type $Y$
+	A \emph{dictionary} mapping keys of type $X$ to values of type $Y$
 	is a datastructure with the following interface
 	\begin{align*}
 		\textbf{lookup} &: X \to Y\\
-		\textbf{insert} &: X \to Y \to \texttt{void}\\
-		\textbf{delete} &: X \to \texttt{void}\\
-		\textbf{isEmpty} &: \texttt{void} \to \texttt{bool}
+		\textbf{insert} &: X \times Y \to \{*\}\\
+		\textbf{delete} &: X \to \{*\}\\
+		\textbf{isEmpty} &: \{*\} \to \{0,1\}
 	\end{align*}
 \end{definition}
 \begin{definition}
-	A \textbf{hash table} is a datastructure that uses a \textbf{hash function} $f: X \to [0,m-1]$
+	A \emph{hash table} is a datastructure that uses a \emph{hash function} $f: X \to [0,m-1]$
 	to store key value pairs $(X,Y)$ in an array of length $m$.\\
-	The \textbf{load factor} $\alpha$ is the average number of elements associated with each cell
+	The \emph{load factor} $\alpha$ is the average number of elements associated with each cell
 	of the underlying array. If $f$ is a perfect hash function, i.e. it maps all inputs uniformly
 	onto $[0,m-1]$, then $\alpha$ is given by 
 	\begin{align*}
@@ -271,7 +484,7 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	\end{itemize}
 \end{proposition}
 \begin{definition}
-	\textbf{Open addressing} is an algorithm to handle hash collisions within a hash table 
+	\emph{Open addressing} is an algorithm to handle hash collisions within a hash table 
 	by using a hash function $f: (X, [0,m-1]) \to [0,m-1]$ that generates a permutation of all possible
 	hash codes for each possible input $X$. An element $x\in X$ is then stored the hash code $f(x, i)$
 	if and only if all $f(x,j)$ for $j < i$ are already occupied.
@@ -281,11 +494,11 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	probes for an unsuccessful lookup and fewer for a successful one.
 \end{proposition}
 \begin{definition}
-	A \textbf{binary tree} consists of a value and at most one left child and at most one right child where
+	A \emph{binary tree} consists of a value and at most one left child and at most one right child where
 	children are other binary trees.
 \end{definition}
 \begin{definition}
-	An \textbf{ordered binary tree} with a given ordering $(<) : X \to X \to \texttt{bool}$ is a binary tree 
+	An \emph{ordered binary tree} with a given ordering $(<) : X \to X \to \texttt{bool}$ is a binary tree 
 	with a root $x$ such that
 	\begin{align*}
 		\forall y \in L(x), y.\texttt{key} < x.\texttt{key} 
@@ -294,7 +507,7 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	and both $L(x)$ and $R(x)$ are ordered.
 \end{definition}
 \begin{proposition}
-	For a prefectly balanced ordered binary tree, the lookup time is be $O(\log n)$.\\
+	For a perfectly balanced ordered binary tree, the lookup time is $O(\log n)$.\\
 	More generally, for any such tree with a maximum depth $d$ of at most $d=2 \lg n$ the
 	lookup time is $O(\log n)$.
 \end{proposition}
@@ -376,10 +589,10 @@ def partition(arr, p, r):                   # O(n), n=r-p
 \end{theorem}
 
 
-\subsection{Graphs}
+\section{Graphs}
 
 
-\subsubsection{Directed and Undirected Graphs}
+\subsection{Directed and Undirected Graphs}
 
 \begin{definition}
 	A graph $G$ is defined as
@@ -390,18 +603,18 @@ def partition(arr, p, r):                   # O(n), n=r-p
 \end{definition}
 
 \begin{definition}
-	A graph $G$ is \textbf{undirected} if and only if
+	A graph $G$ is \emph{undirected} if and only if
 	\begin{align*}
 		\forall v,w\in V,\: (v,w)\in E \Leftrightarrow (w,v)\in E.
 	\end{align*}
-	If a graph is not undirected, it is \textbf{directed}.
+	If a graph is not undirected, it is \emph{directed}.
 \end{definition}
 
 \subsection{Adjacency Matrices vs Lists}
 
 \begin{definition}
 	Let $G=(V,E)$ be a graph with $n$ vertices $V=\{v_1, ..., v_n\}$.
-	Then the \textbf{adjacency matrix} of $G$ is the $n\times n$ matrix
+	Then the \emph{adjacency matrix} of $G$ is the $n\times n$ matrix
 	$A=(a_{ij})_{i,j\in[1,n]}$ with 
 	\begin{align*}
 		a_{ij} = \begin{cases}
@@ -429,21 +642,112 @@ def partition(arr, p, r):                   # O(n), n=r-p
 		\hline
 	\end{tabular}
 \end{center}
-\begin{lemma}
-	A graph $G=(V,E)$ with $|V|=n$ and $|E|=m$ is
+\begin{definition}
+	A graph $G=(V,E)$ with $|V|=n$ and $|E|=m$ is said to be
 	\begin{itemize}
-		\item \textbf{dense} if $m$ is close to $n^2$,
-		\item \textbf{sparse} if $m$ is much smaller than $n^2$. 
+		\item \emph{dense} if $m$ is close to $n^2$,
+		\item \emph{sparse} if $m$ is much smaller than $n^2$. 
 	\end{itemize}
-\end{lemma}
+\end{definition}
 \end{theorem}
 
 \subsection{Graph traversal}
 
 \begin{definition}
-	A \textbf{traversal} is a strategy for visiting all vertices of a graph.
+	A \emph{traversal} is a strategy for visiting all vertices of a graph.
 \end{definition} 
 
+\begin{lemma}
+	For a directed graph $G=(V,E)$ with $m$ edges,
+	\begin{align*}
+		m=\sum_{v\in V} \textsf{out-degree}(v).
+	\end{align*}
+	Similarly, for an undirected graph $G=(V,E)$ with $m$ edges,
+	\begin{align*}
+		m=\frac{1}{2}\sum_{v\in V}\textsf{deg}(v).
+	\end{align*}
+\end{lemma}
+
+\begin{pseudo}
+\textbf{function} \textsf{dfs}$(G)$:\\+
+	$\textsf{visited}\leftarrow\text{empty set}$\\
+	\textbf{for all} $v$ in $V$:\\+
+		\textbf{if} $v\not\in\textsf{visited}$:\\+
+		$\textsf{dfsFromVertex}(G, v, $\textsf{visited}$)$\\---
+\\
+\textbf{function} \textsf{dfsFromVertex}$(G,v,\textsf{visited})$: \\+
+	$S\leftarrow \textsf{empty stack}$\\
+	$S.\textsf{push}(v)$\\
+	\textbf{while not} $S.\textsf{isEmpty}()$:\\+
+		$u\leftarrow S.\textsf{pop}()$\\
+		\textbf{if} $u\in \textsf{visited}$:\\+
+			\textbf{continue}\\-
+		$\textsf{visited}.\textsf{insert}(u)$\\
+		\textbf{for all} $w$ adjacent to $u$:\\+
+			$S.\textsf{push}(w)$
+\end{pseudo}
+
+\begin{pseudo}
+\textbf{function} \textsf{dfsRec}$(G)$:\\+
+	$\textsf{visited}\leftarrow\text{empty set}$\\
+	\textbf{for all} $v$ in $V$:\\+
+		\textbf{if} $v\not\in\textsf{visited}$:\\+
+		$\textsf{dfsFromVertexRec}(G, v, $\textsf{visited}$)$\\---
+\\
+\textbf{function} \textsf{dfsFromVertexRec}$(G, v, $\textsf{visited}$)$:\\+
+    $\textsf{visited}.\textsf{insert}(v)$\\
+    \textbf{for all} $w$ adjacent to $v$:\\+
+		\textbf{if} $w\not\in\textsf{visited}$:\\+
+			\textsf{dfsFromVertexRec}$(G, w, \textsf{visited})$
+\end{pseudo}
+
+\begin{definition}
+	A vertex $w$ is a \emph{child} of a vertex $v$ in the DFS
+	forest if \textsf{dfsFromVertex}$(G,w)$ is called from
+	\textsf{dfsFromVertex}$(G,v)$.
+\end{definition}
+
+\subsection{Topological sorting}
+
+\begin{definition}
+	Let $G=(V,E)$ be a directed graph. A \emph{topological order of $G$} is a
+	total order $\prec$ of the vertex set $V$ such that for all edges $(v,w)\in E$
+	we have $v\prec w$.
+\end{definition}
+
+\begin{definition}
+	A \emph{directed acyclic graph} (DAG) is a digraph without cycles.
+\end{definition}
+
+\begin{theorem}
+	A digraph has a topological order iff it is a DAG.
+\end{theorem}
+
+\begin{lemma}
+	Let $G$ be a graph and $v$ a vertex of $G$. Consider the moment
+	during the execution of \textsf{dfs}$(G)$ when \textsf{dfsFromVertex}$(G,v)$
+	is started. We call a vertex $w$ \emph{finished} iff \textsf{dfsFromVertex}$(G,w)$
+	has been started and terminated. Then for all vertices $w$ we have:
+	\begin{enumerate}
+		\item If $w$ is not yet visited and reachable from $v$, then $w$ will be
+		finished before $v$.
+		\item If $w$ is visited, but not yet finished, then $v$ is reachable from $w$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+	Let $G=(V,E)$ be a digraph. We define an order $\prec$ on $V$ as follows:
+	\begin{align*}
+		v\prec w \hs\text{ if and only if}\hs\text{$w$ becomes finished before $v$}.
+	\end{align*}
+	If $G$ is a DAG, then $\prec$ is a topological order.
+\end{theorem}
+
+\begin{pseudo}
+\textbf{function} \textsf{topSort}$(G=(V,E))$:\\+
+	$\textsf{state}\leftarrow\text{array of $\abs{V}$ colours initialised to \textsf{white}}$
+\end{pseudo}
+	
 \section{Dynamic programming}
 
 \subsection{The coin-changing problem}
