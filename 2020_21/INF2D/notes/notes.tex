@@ -5,7 +5,7 @@
 
 \title{INF2D: Reasoning and Agents (SEM4)}
 \author{Franz Miltz}
-\date{20 April 2021}
+\date{10 May 2021}
 \begin{document}
 \maketitle
 \tableofcontents
@@ -13,7 +13,7 @@
 
 \section{Intelligent agents and their environments}
 
-\begin{definition}[Agent, Ratinality, Architecture; R\&N p. 37]
+\begin{definition}[Agent, Rationality, Architecture; R\&N p. 37]
     An \emph{agent} is an entity that perceives and
     acts based on a sequence of observations in a system.
     An agent is called \emph{rational} if it acts to achieve
@@ -21,7 +21,7 @@
     outcome, if uncertainty is involved.
     
     The computing device an agent runs on combined with all sensors and actuators
-    is called the agents \emph{architecture}.
+    is called the agent's \emph{architecture}.
 \end{definition}
 
 \subsection{Types of environments}
@@ -29,9 +29,9 @@
 \begin{definition}[R\&N p. 42]
     An environment is called
     \begin{itemize}
-        \item \emph{fully observable} if the agents sensors describe it fully.
+        \item \emph{fully observable} if the agent's sensors describe it fully.
         \item \emph{deterministic} if the next state is fully
-        determined by the current state and the agents actions.
+        determined by the current state and the agent's actions.
         \item \emph{episodic} if the next action does not depend on the previous
         actions. Otherwise \emph{sequential}.
         \item \emph{static} if it does not change while the agent determines
@@ -104,7 +104,7 @@ explored states.
 \textbf{function} TREE-SEARCH(problem) \textbf{returns} a solution or failure   \\+
     initialise the frontier using the initial state of the problem              \\
     \textbf{loop do}                                                            \\+
-        \textbf{if} the frontier is empy \textbf{then}                          \\+
+        \textbf{if} the frontier is empty \textbf{then}                          \\+
             \textbf{return} failure                                             \\-
         choose a leaf node and remove it from the frontier                      \\
         \textbf{if} the node contains a goal state \textbf{then}                \\+
@@ -116,7 +116,7 @@ explored states.
 \textbf{function} GRAPH-SEARCH(problem) \textbf{returns} a solution or failure  \\+
     initialise the frontier using the initial state of the problem              \\
     \textbf{loop do}                                                            \\+
-        \textbf{if} the frontier is empy \textbf{then}                          \\+
+        \textbf{if} the frontier is empty \textbf{then}                          \\+
             \textbf{return} failure                                             \\-
         choose a leaf node and remove it from the frontier                      \\
         \textbf{if} the node contains a goal state \textbf{then}                \\+
@@ -182,13 +182,13 @@ explored states.
     \begin{itemize}
         \item \emph{best-first}: next node to expand is chosen based on desirability assigned by a function $f$.
         \item \emph{greedy best-first}: $f=h$ where $h$ is a heuristic.
-        \item \emph{A*}: $f=g+h$ where $h$ is a heuristic and $g$ is the cummulative cost of reaching a given node.
+        \item \emph{A*}: $f=g+h$ where $h$ is a heuristic and $g$ is the cumulative cost of reaching a given node.
     \end{itemize}
 \end{definition}
 
 \begin{theorem}
     Let $P$ be a problem and let $P'$ be a relaxed problem of $P$, i.e.
-    a problem with fewer restriction. Then the cost of an optimal solution of 
+    a problem with fewer restrictions. Then the cost of an optimal solution of 
     $P'$ is a admissible heuristic for $P$.
 \end{theorem}
 
@@ -197,7 +197,7 @@ explored states.
 
 
 \begin{definition}[R\&N p. 161]
-    \emph{Adversarial serach} is required when multiple agents work to achieve 
+    \emph{Adversarial search} is required when multiple agents work to achieve 
     opposing goals. Its purpose is to ensure the best possible outcome for the
     agent applying it, taking into account all possible actions by other agents.
 \end{definition}
@@ -365,12 +365,12 @@ depth limit$n$ be any node and $g$ be the goal node.
     been assigned a value.
 \end{definition}
 
-\section{Logical Agents}
+\section{Logical agents}
 
 \subsection{Knowledge-based agents}
 
 \begin{definition}[R\&N p. 235]
-    An agents \emph{knowledge base} is a set of \emph{sentences} representing assertions
+    An agent's \emph{knowledge base} is a set of \emph{sentences} representing assertions
     about the world.
 
     A sentence is called an \emph{axiom} if it is not derived from other sentences.
@@ -445,7 +445,7 @@ depth limit$n$ be any node and $g$ be the goal node.
 \end{theorem}
 
 \begin{theorem}[Ground resolution theorem]
-    If a set of clauses is unsatisfiable, then the resoltuion closure of
+    If a set of clauses is unsatisfiable, then the resolution closure of
     those clauses contains the empty clause. 
 \end{theorem}
 
