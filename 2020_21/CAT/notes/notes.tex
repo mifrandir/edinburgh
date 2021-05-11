@@ -187,9 +187,13 @@
          f^*\circ g^*&= (g\circ f)^*.
     \end{align*}
     There are two obvious projection functors
-    \begin{align*}
-        \cat C \xlongleftarrow{\hs\pi_1\hs} \cat C\times \cat D \xlongrightarrow{\hs\pi_2\hs} \cat D
-    \end{align*}
+    \begin{center}
+        \begin{tikzcd}
+            \cat C &&
+            \cat C \times \cat D \arrow[ll, swap, "\pi_1"] \arrow[rr, "\pi_2"] &&
+            \cat D
+        \end{tikzcd}
+    \end{center}
 \end{definition}
 
 \begin{definition}
@@ -201,9 +205,13 @@
         g_2\circ f = f'\circ g_1.
     \end{align*}
     Observe that there are two functors
-    \begin{align*}
-        \cat C \xlongleftarrow{\hs\textbf{dom}\hs} \catar C \xlongrightarrow{\hs\textbf{cod}\hs} \cat C.
-    \end{align*}
+    \begin{center}
+        \begin{tikzcd}
+            \cat C &&
+            \catar C \arrow[ll, swap, "\textbf{dom}"] \arrow[rr, "\textbf{cod}"] &&
+            \cat C
+        \end{tikzcd}
+    \end{center}
 \end{definition}
 
 \begin{definition}
@@ -213,8 +221,10 @@
     $a:X\to X'$ in $\cat C$ such that $f'\circ a = f$.\\
     Note that there is a functor $U:\cat C/C \to \cat C$ defined by
     \begin{align*}
-        U(A:X\to C) &= X &\text{for all objects }A\in\cat C/C,\\
-        U(f:(A:X\to C)\to(B:X'\to C))&= a:X\to X' &\text{for all arrows }f\in\cat C/C.
+        U(A:X\to C) &= X 
+        &&\text{for all objects }A\in\cat C/C,\\
+        U(f:(A:X\to C)\to(B:X'\to C))&= a:X\to X' 
+        &&\text{for all arrows }f\in\cat C/C.
     \end{align*}
     Further, if $g:C\to D\in\cat C$ is any arrow, then there is a composition
     functor,
@@ -409,9 +419,13 @@
 
 \begin{proposition}[Awodey 2.20]
     A diagram of the form
-    \begin{align*}
-        A \xlongleftarrow{\hs p_1\hs} P \xlongrightarrow{\hs p_2\hs} B
-    \end{align*}
+    \begin{center}
+        \begin{tikzcd}
+            A &&
+            P \arrow[ll, swap, "p_1"] \arrow[rr, "p_2"] &&
+            B
+        \end{tikzcd}
+    \end{center}
     is a product for A and B if and only if for every object $X$, the canonical
     function
     \begin{gather*}
@@ -428,13 +442,21 @@
     Let $\cat C$, $\cat D$ be categories with binary products. A functor
     $F:\cat C\to \cat D$ is said to \emph{preserve binary products} if it takes
     every product diagram
-    \begin{align*}
-        A \xlongleftarrow{\hs p_1\hs} A\times B \xlongrightarrow{\hs p_2\hs} B&\text{in }\cat C
-    \end{align*}
+    \begin{center}
+        \begin{tikzcd}
+            A &&
+            A\times B \arrow[ll, swap, "p_1"] \arrow[rr, "p_2"] &&
+            B
+        \end{tikzcd}
+    \end{center}
     to a product diagram
-    \begin{align*}
-        FA\xlongleftarrow{\hs Fp_1\hs} F(A\times B)\xlongrightarrow{\hs Fp_2\hs}FB &\text{in }\cat D.
-    \end{align*}
+    \begin{center}
+        \begin{tikzcd}
+            FA &&
+            F(A\times B) \arrow[ll, swap, "Fp_1"] \arrow[rr, "Fp_2"] &&
+            FB
+        \end{tikzcd}
+    \end{center}
 \end{definition}
 
 \begin{corollary}[Awodey 2.22]
@@ -895,6 +917,97 @@
         \item $\cat C$ has limits for all diagrams $D:\cat J\to\cat C$ where $\text{card}(\cat J_1)\leq \kappa$.
     \end{enumerate}
     Dually for coproducts, coequalisers, pushouts, inital objects and colimits.
+\end{proposition}
+
+\begin{definition}[Awodey p. 106]
+    A functor $F:\cat C\to\cat D$ is said to \emph{preserve limits of type $\cat J$} if,
+    whenever $p_j:L\to D_j$ is a limit for a diagram $D:\cat J\to\cat C$; the cone
+    $Fp_j:FL\to FD_j$ is then a limit for the diagram $FD:\cat J\to\cat D$. Briefly,
+    \begin{align*}
+        F(\catlim D_j)\cong \catlim F(D_j).
+    \end{align*} 
+    A functor that preserves all limits is said to be \emph{continuous}.
+\end{definition}
+
+\begin{proposition}
+    The representable functors $\Hom(C,-)$ preserve all limits.
+\end{proposition}
+
+\begin{definition}[Awodey p. 107]
+    A functor of the form $F:\catop C\to \cat D$ is called a \emph{contravariant
+    functor} on $\cat C$. Explicitly, such a functor takes $f:A\to B$ to $F(f):
+    F(B)\to F(A)$ and $F(g\circ f)=F(f)\circ F(g)$.
+\end{definition}
+
+\begin{corollary}
+    Contravariant representable functors map all colimits to limits.
+\end{corollary}
+
+\subsection{Colimits}
+
+\begin{definition}[Awodey p. 110]
+    A functor $F:\cat C\to\cat D$ is said to \emph{create limits of type $\cat J$}
+    if for every diagram $C:\cat J\to\cat C$ and limit $p_j:L\to FC_j$ in $\cat D$
+    there is a unique cone $\bar{p_j}:\bar L \to C_j$ with $F(\bar L) = L$ and
+    $F(\bar{p_j})=p_j$, which furthermore, is a limit for $C$. Briefly, every limit
+    in $\cat D$ is the image of a unique cone in $\cat C$, which is a limit there.
+    The notion of \emph{creating colimits} is dfined analogously. 
+\end{definition}
+
+\begin{proposition}
+    The forgetful functor $U:\cat{Groups}\to\cat{Sets}$ creates $\omega$-colimits.
+    It also creates al limits.
+\end{proposition}
+
+\section{Exponentials}
+
+\subsection{Exponential in a category}
+
+\begin{definition}[Awodey p. 121]
+    Let the category $\cat C$ have binary products. An \emph{exponential}
+    of objects $B$ and $C$ consists of an object
+    \begin{align*}
+        C^B
+    \end{align*} 
+    and an arrow
+    \begin{align*}
+        \epsilon:C^B\times B \to C
+    \end{align*}
+    such that, for any object $A$ and an arrow
+    \begin{align*}
+        f:A\times B\to C
+    \end{align*}
+    there is a unique arrow
+    \begin{align*}
+        \tilde f:A\to C^B
+    \end{align*}
+    such that
+    \begin{align*}
+        \epsilon \circ (\tilde f\times 1_B) = f
+    \end{align*}
+    as in the diagram
+    \begin{center}
+        \begin{tikzcd}
+            C^B &
+            C^B\times B \arrow[r, "\epsilon"] &
+            C \\
+            A \arrow[u, "\tilde f"] &
+            A\times B \arrow[u, "\tilde f\times 1_B"] \arrow[ru, swap, "f"]
+        \end{tikzcd}
+    \end{center}
+\end{definition}
+
+\begin{definition}[Awodey p. 122]
+    A category is \emph{cartesian closed}, if it has all finite
+    products and exponentials.
+\end{definition}
+
+\begin{proposition}[Awodey p. 126]
+    In any cartesian closed category $\cat C$, exponentiation by a
+    fixed object $A$ is a functor
+    \begin{align*}
+        (-)^A:\cat C\to\cat C.
+    \end{align*} 
 \end{proposition}
 
 \end{document}
