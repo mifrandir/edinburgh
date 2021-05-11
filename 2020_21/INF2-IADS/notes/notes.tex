@@ -1,14 +1,16 @@
 \documentclass{article}
 \usepackage{notes-preamble}
-\mkthms
+\mkfpmthms
 \usepackage{pseudo}
 \usepackage{multicol}
+\usepackage{enumitem}
 
 \begin{document}
 \title{Introduction to Algorithms and Data Structures (YEAR2)}
 \author{Franz Miltz}
 \date{10 May 2021}
 \maketitle
+\setcounter{tocdepth}{2}
 \tableofcontents
 \pagebreak
 
@@ -92,9 +94,7 @@
 
 
 
-\section{Algorithms and cost models}
-
-
+\subsection{Cost models}
 
 \begin{definition}
 	The \emph{cost} of an algorithm is a quantity to measure its performance.\\
@@ -120,6 +120,7 @@ Note that the cost model needs to be specified when comparing algorithms.
 	we know that the runtime of $A$ \emph{in general} is $\Omega (g)$.
 \end{theorem}
 
+\section{Sorting}
 
 \subsection{Bubblesort}
 
@@ -299,12 +300,12 @@ def insert(self, i, x):
 \end{itemize}
 
 \begin{pseudo}
-\textbf{function} \textsf{append}$(x)$:\\+
-  \textbf{if} $n=|A|$:\\+
-    $B \leftarrow \text{new array of size }\ceil{n\times r}$\\
-	copy contents of $A$ into $B$\\
-	$A\leftarrow B$\\-
-  $A[n]\leftarrow x$\\
+\textbf{function} \textsf{append}$(x)$:												\\+
+  \textbf{if} $n=|A|$:																\\+
+    $B \leftarrow \text{new array of size }\ceil{n\times r}$						\\
+	copy contents of $A$ into $B$													\\
+	$A\leftarrow B$																	\\-
+  $A[n]\leftarrow x$																\\
   $n\leftarrow n + 1$
 \end{pseudo}
 \end{multicols}
@@ -615,7 +616,7 @@ Weaknesses:
 \begin{definition}
 	Let $G=(V,E)$ be a graph with $n$ vertices $V=\{v_1, ..., v_n\}$.
 	Then the \emph{adjacency matrix} of $G$ is the $n\times n$ matrix
-	$A=(a_{ij})_{i,j\in[1,n]}$ with 
+	$A=(a_{ij})_{i,j\in[n]}$ with 
 	\begin{align*}
 		a_{ij} = \begin{cases}
 			1 &\text{if } (v_i,v_j)\in E\\
@@ -669,35 +670,35 @@ Weaknesses:
 \end{lemma}
 
 \begin{pseudo}
-\textbf{function} \textsf{dfs}$(G)$:\\+
-	$\textsf{visited}\leftarrow\text{empty set}$\\
-	\textbf{for all} $v$ in $V$:\\+
-		\textbf{if} $v\not\in\textsf{visited}$:\\+
-		$\textsf{dfsFromVertex}(G, v, $\textsf{visited}$)$\\---
-\\
-\textbf{function} \textsf{dfsFromVertex}$(G,v,\textsf{visited})$: \\+
-	$S\leftarrow \textsf{empty stack}$\\
-	$S.\textsf{push}(v)$\\
-	\textbf{while not} $S.\textsf{isEmpty}()$:\\+
-		$u\leftarrow S.\textsf{pop}()$\\
-		\textbf{if} $u\in \textsf{visited}$:\\+
-			\textbf{continue}\\-
-		$\textsf{visited}.\textsf{insert}(u)$\\
-		\textbf{for all} $w$ adjacent to $u$:\\+
+\textbf{function} \textsf{dfs}$(G)$:											\\+
+	$\textsf{visited}\leftarrow\text{empty set}$								\\
+	\textbf{for all} $v$ in $V$:												\\+
+		\textbf{if} $v\not\in\textsf{visited}$:									\\+
+		$\textsf{dfsFromVertex}(G, v, $\textsf{visited}$)$						\\---
+																				\\
+\textbf{function} \textsf{dfsFromVertex}$(G,v,\textsf{visited})$: 				\\+
+	$S\leftarrow \textsf{empty stack}$											\\
+	$S.\textsf{push}(v)$														\\
+	\textbf{while not} $S.\textsf{isEmpty}()$:									\\+
+		$u\leftarrow S.\textsf{pop}()$											\\
+		\textbf{if} $u\in \textsf{visited}$:									\\+
+			\textbf{continue}													\\-
+		$\textsf{visited}.\textsf{insert}(u)$									\\
+		\textbf{for all} $w$ adjacent to $u$:									\\+
 			$S.\textsf{push}(w)$
 \end{pseudo}
 
 \begin{pseudo}
-\textbf{function} \textsf{dfsRec}$(G)$:\\+
-	$\textsf{visited}\leftarrow\text{empty set}$\\
-	\textbf{for all} $v$ in $V$:\\+
-		\textbf{if} $v\not\in\textsf{visited}$:\\+
-		$\textsf{dfsFromVertexRec}(G, v, $\textsf{visited}$)$\\---
-\\
-\textbf{function} \textsf{dfsFromVertexRec}$(G, v, $\textsf{visited}$)$:\\+
-    $\textsf{visited}.\textsf{insert}(v)$\\
-    \textbf{for all} $w$ adjacent to $v$:\\+
-		\textbf{if} $w\not\in\textsf{visited}$:\\+
+\textbf{function} \textsf{dfsRec}$(G)$:											\\+
+	$\textsf{visited}\leftarrow\text{empty set}$								\\
+	\textbf{for all} $v$ in $V$:												\\+
+		\textbf{if} $v\not\in\textsf{visited}$:									\\+
+		$\textsf{dfsFromVertexRec}(G, v, $\textsf{visited}$)$					\\---
+																				\\
+\textbf{function} \textsf{dfsFromVertexRec}$(G, v, $\textsf{visited}$)$:		\\+
+    $\textsf{visited}.\textsf{insert}(v)$										\\
+    \textbf{for all} $w$ adjacent to $v$:										\\+
+		\textbf{if} $w\not\in\textsf{visited}$:									\\+
 			\textsf{dfsFromVertexRec}$(G, w, \textsf{visited})$
 \end{pseudo}
 
@@ -744,49 +745,131 @@ Weaknesses:
 \end{theorem}
 
 \begin{pseudo}
-\textbf{function} \textsf{topSort}$(G=(V,E))$:\\+
-	$\textsf{state}\leftarrow\text{array of $\abs{V}$ colours initialised to \textsf{white}}$
+\textbf{function} \textsf{topSort}$(G=(V,E))$:										\\+
+	$\textsf{state}\leftarrow\text{array of $\abs{V}$ colours
+		initialised to \textsf{white}}$												\\
+	$L\leftarrow\text{empty linked list}$											\\
+	\textbf{for all} $v\in V$:														\\+
+		\textbf{if} $\textsf{state}[v] = \textsf{white}$:							\\+
+			\textsf{softFromVertex}$(G,v,L)$										\\--
+    \textbf{return} $L$																\\-
+\end{pseudo}
+
+\begin{pseudo}
+\textbf{function} \textsf{softFromVertex}$(G,v,L)$:									\\+
+	$\textsf{state}[v]\leftarrow\textsf{grey}$										\\
+	\textbf{for all} $w$ adjacent to $v$:											\\+
+		\textbf{if} $\textsf{state}[w] = \textsf{white}$:							\\+
+			\textsf{sortFromVertex}$(G,w)$											\\-
+		\textbf{else if} $\textsf{state}[w] = \textsf{grey}$:						\\+
+			\textbf{fail} "Cycle detected" 											\\--
+	$\textsf{state}[v]\leftarrow \textsf{black}$									\\
+	$L.\textsf{cons}(v)$
+\end{pseudo}
+
+\subsection{Connected components}
+
+\begin{definition}[L15]
+	Let $G=(V,E)$ be an undriected graph. Then a subset $C\subseteq V$ is
+	(\emph{strongly}) \emph{connected} if for all $v,w\in C$ there is a path 
+	from $v$ to $w$. A \emph{connected component} of $G$ is a \emph{maximum
+	connected subset} $C\subseteq V$, i.e. there is no connected subset
+	$C'\subseteq V$ such that $C'\subset C$. $G$ is \emph{connected} if
+	it only has one connected component.
+\end{definition}
+
+\begin{corollary}
+	Let $G=(V,E)$ be undirected. Each vertex $v\in V$ is contained in exactly
+	one connected component. Further, the connected component that contains $v$
+	is precisely the set of all vertices that are reachable from $v$. 
+\end{corollary}
+
+\begin{pseudo}
+\textbf{function} \textsf{connectedComponent}$(G)$:									\\+
+	$\textsf{visited}\leftarrow\text{empty set}$									\\
+	$\textsf{components}\leftarrow\text{empty set}$									\\
+	\textbf{for all} $v$ in $V$:													\\+
+		\textbf{if} $v\not\in\textsf{visited}$:										\\+
+			$C\leftarrow\textsf{empty set}$											\\
+			$\textsf{ccFromVertex}(G, v, $\textsf{visited}$, C)$					\\
+			$\textsf{components}.\textsf{insert}(C)$								\\--
+	\textbf{return} \textsf{components}												\\-
+																					\\
+\textbf{function} \textsf{ccFromVertex}$(G, v, $\textsf{visited}$, C)$:				\\+
+    $\textsf{visited}.\textsf{insert}(v)$											\\
+	$C.\textsf{insert}(v)$															\\
+    \textbf{for all} $w$ adjacent to $v$:											\\+
+		\textbf{if} $w\not\in\textsf{visited}$:										\\+
+			\textsf{ccFromVertex}$(G, w, \textsf{visited}, C)$
 \end{pseudo}
 	
 \section{Dynamic programming}
 
+\subsection{Principles}
+\begin{definition}[L16]
+	The \emph{principles of dynamic programming} are:
+	\begin{enumerate}[label=(dp\arabic*)]
+		\item Need is to see that computing the optimum solution for our original 
+			instance can be achieved by finding solutions to problems of the same 
+			type, and combining them.
+		\item Solution needs to be expressible in terms of a \emph{recurrence}, 
+			where the RHS contains one or more recursive calls for smaller 
+			instances of the same problem.
+		\item We need to be able to organise storage for the results for all 
+			possible subproblems.
+		\item We need an algorithm to control the order in which subproblems 
+			are solved.
+	\end{enumerate}
+\end{definition}
+
 \subsection{The coin-changing problem}
 
-\begin{definition}
+\begin{definition}[L16]
 	Given a value $v\in\N_0$, plus a sequence of coin values $c_1,c_2,...,c_k\in\N_0$,
 	find a \emph{multiset} $S$ of coins whose values sum to $v$, whose cardinality
 	of $S$ is the minimum possible for $v$ is this coin system.
 \end{definition}
 
-\subsection{Principles}
+\begin{pseudo}
+\textbf{function} \textsf{dpCoinChanging}$(v, c_1, ..., c_k)$:					\\+
+	$c\leftarrow\text{array of length $k$ holding $c_1, ..., c_k$}$				\\
+	$C,P\leftarrow\text{arrays of length $v+1$ containing $\infty$}$			\\
+	$C[0]\leftarrow 0,C[1]\leftarrow 1$											\\
+	\textbf{for} $w$ \textbf{from} $2$ \textbf{to} $v$:							\\+
+		\textbf{for} $i$ \textbf{from} $1$ \textbf{to} $k$:						\\+
+			\textbf{if} $c[i]\leq w$ and $C[w-c[i]]+1<C[w]$:					\\+
+				$C[w]\leftarrow 1 + C[w-c[i]]$									\\
+				$P[w]\leftarrow i$												\\---
+	$S\leftarrow\text{array of length $k$ containing $0$}$						\\
+	\textbf{while} $v>0$:														\\+
+		$i\leftarrow P[v]$														\\
+		$S[i]\leftarrow S[i]+1$													\\
+		$v\leftarrow v - c[i]$													\\-
+	\textbf{return} $S$
+\end{pseudo}
 
-\begin{enumerate}
-	\item Need is to see that computing the optimum solution for our original instance
-		  can be achieved by finding solutions to problems of the same type, and combining
-		  them.
-    \item Solution needs to be expressible in terms of a \emph{recurrence}, where the RHS
-		  contains one or more recursive calls for smaller instances of the same problem.
-    \item We need to be able to organise storage for the results for all possible subproblems.
-    \item We need an algorithm to control the order in which subproblems are solved.
-\end{enumerate}
+\begin{corollary}
+	The worst-case running time of \textsf{dpCoinChanging}$(v, c_1, ..., c_k)$
+	is $O(vk)$.
+\end{corollary}
 
 \subsection{Seam Carving}
 
-\begin{definition}
-	Given an $m\times n$ matrix $A$, a \emph{vertical seam} is sequence $(s_k)_{k\in\N}$
-	of natural numbers such that
+\begin{definition}[Seams; L17]
+	Given an $m\times n$ matrix $A$, a \emph{vertical seam} is a finite sequence 
+	$(s_k)_{k\leq m}$ of natural numbers such that
 	\begin{align*}
-		\forall i\leq m,\: s_i\in(1,n)\hs\text{and}\hs\forall i<m,\: \abs{s_i - s_{i+1}} \leq 1.
+		\forall i\leq m,\: 1 < s_i < n\hs\text{and}\hs\forall i<m,\: \abs{s_i - s_{i+1}} \leq 1.
 	\end{align*}
-	A \emph{horizontal seam} of $A$ is a sequence $(s_n)_{n\in\N}$ of natural numbers
-	such that
+	A \emph{horizontal seam} of $A$ is a finite sequence $(s_k)_{k\leq n}$ of 
+	natural numbers such that
 	\begin{align*}
-		\forall j\leq n,\: s_j\in(1,m)\hs\text{and}\hs\forall j<n,\: \abs{s_j - s_{j+1}} \leq 1.
+		\forall j\leq n,\: 1 < s_j < m\hs\text{and}\hs\forall j<n,\: \abs{s_j - s_{j+1}} \leq 1.
 	\end{align*}
 \end{definition}
 
-\begin{definition}
-	Let $A$ be an $m\times n$ matrix and let $e_A:[1,m]\times[1,n]\to\R$ be an
+\begin{definition}[L17]
+	Let $A$ be an $m\times n$ matrix and let $e_A:[m]\times[n]\to\R$ be an
 	energy function. Then the \emph{energy} of a seam $s=(s_k)_{k\in\N}$ is defined as
 	\begin{align*}
 		e(s) := \begin{cases}
@@ -796,19 +879,26 @@ Weaknesses:
 	\end{align*}
 \end{definition}
 
-\begin{definition}
+\begin{definition}[L17]
 	$L_1$ gradient scoring can be written as
 	\begin{align*}
 		e_A(i,j) := \abs{\frac{\p}{\p x} A}_{ij} + \abs{\frac{\p}{\p y} A}_{ij}
 	\end{align*}
 	where $\p/\p x$ and $\p/\p y$ are gradient functions defined in the image
-	processing context.
-\end{definition}
-
-\begin{definition}
-	Let $A$ be an $m\times n$ matrix. 
-	For every $(i,j)\in[1,m]\times[1,n]$, the minimum cost of a vertical seam 
-	ending in $(i,j)$ is given by $c_A(i,j)$.
+	processing context, e.g. by using the \emph{Sobal operators}
+	\begin{align*}
+		\begin{bmatrix}
+			-1 & 0 & +1 \\
+			-2 & 0 & +2 \\
+			-1 & 0 & +1
+		\end{bmatrix}
+		\hs \text{and} \hs
+		\begin{bmatrix}
+			-1 & -2 & -1 \\
+			0  &  0 &  0 \\
+			+1 & +2 & +1
+		\end{bmatrix}
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
@@ -817,7 +907,8 @@ Weaknesses:
 	\begin{align*}
 		\forall i \leq m,\: e_A(i,1) = e_A(i,n) = \infty.
 	\end{align*}
-	Then $c_A$ is given by
+	Then, for every $\lra{i,j}\in[m]\times[n]$, the minimum cost $c_A(i,j)$ 
+	of a vertical seam ending in $\lra{i,j}$ is given by
 	\begin{align*}
 		c_A(i,j) = e_A(i,j) + \begin{cases}
 			0 &\text{if }i=1,\\
@@ -830,6 +921,69 @@ Weaknesses:
 	\end{align*}
 \end{theorem}
 
+\begin{pseudo}
+\textbf{function} \textsf{dpVerticalSeam}$(A, m, n)$:						\\+
+	$\textsf{opt},p\leftarrow\text{arrays of size $m\times n$}$ (1-based)	\\
+	\textbf{for $j$ from $1$ to $n$}:										\\+
+		\textbf{for $i$ from $1$ to $m$}:									\\+
+			$e[i,j]\leftarrow e_A(i,j)$										\\-
+		$\textsf{opt}[1,j]\leftarrow e[1,j]$								\\
+		$p[1,j]\leftarrow 0$												\\-
+	\textbf{for $i$ from $1$ to $m$}:										\\+
+		\textbf{for $j$ from $1$ to $n$}:									\\+
+			$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j]$				\\
+			$p[i,j]\leftarrow 0$											\\
+			\textbf{if} $\textsf{opt}[i-1,j-1]<\textsf{opt}[i,j]$:			\\+
+				$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j-1]$			\\
+				$p[i,j]\leftarrow -1$										\\-
+			\textbf{if} $\textsf{opt}[i-1,j+1]<\textsf{opt}[i,j]$:			\\+
+				$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j+1]$			\\
+				$p[i,j]\leftarrow +1$										\\-
+			$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i,j]+e[i,j]$			\\--
+	$j'\leftarrow 2$														\\
+	\textbf{for $j$ from $1$ to $n$}:										\\+
+		\textbf{if} $\textsf{opt}[m,j]<\textsf{opt}[m,j']$:					\\+
+			$j'\leftarrow j$												\\--
+	\textbf{return} $\lra{m,j'}, p$
+
+\end{pseudo}
+
+\begin{corollary}[L17]
+	The worst-case running time of \textsf{dpVerticalSeam}$(A,m,n)$ is $O(mn)$.
+\end{corollary}
+
+\subsection{All-pairs shortest paths}
+
+\begin{definition}[All-pairs shortest paths problem; L18]
+	Given a graph or digraph $G=(V,E)$ together with a weight function
+	$w:E\to\R$, compute an $n\times n$ matrix $D$ such that $D[i,j]$
+	is the value of the shortest path w.r.t. $w$ from $i$ to $j$, for
+	every $0\leq i,j\leq n-1$.	
+\end{definition}
+
+\begin{definition}[L18]
+	Let $u,v\in V$ and suppose we have a path $p=e_1,...,e_{\abs p}$ from
+	$u$ to $v$. Then the cost $d_p$ of this path is 
+	\begin{align*}
+		d_p = \sum_{h=1}^{\abs p} w(e_h).
+	\end{align*}
+\end{definition}
+
+\begin{lemma}[L18]
+	Let $i,j\in V$ and suppose that there is at least one path from $u$ to $v$
+	in $G=(V,E)$. Assume there is no cycle of total negative weight in $G$, $w$.
+	Then the mminimum-cost path from $u$ to $v$ has length at most $n-1$.
+\end{lemma}
+
+\begin{definition}[L18]
+	Let $G=(V,E)$. Then let $V=\{v_1, ..., v_n\}$ and
+	\begin{align*}
+		V_k = \{v_i\in V : i\leq k\}.
+	\end{align*}
+	Further, let $P_k$ be the set of paths in $G$ with interior
+	restricted to $V_k$.
+\end{definition}
+
 \subsection{Edit distance}
 
 \begin{definition}
@@ -837,7 +991,7 @@ Weaknesses:
 	any padding (with some $-$ insertions) $s'$ of $s$, and $t'$ of $t$ such that
 	\begin{align*}
 		\abs{s'}&=\abs{t'},\\
-		(s'_i\not=-)&\text{ or }(t'_i\not=-)\hs\text{for all }i\in[1,|s'|].
+		(s'_i\not=-)&\text{ or }(t'_i\not=-)\hs\text{for all }i\in[|s'|].
 	\end{align*}
 \end{definition}
 
@@ -891,7 +1045,7 @@ Weaknesses:
 	\begin{pseudo}
 		\textbf{CYK}$(s,G)$:\\+
 			$n\leftarrow\text{length}(s)$\\
-			$\text{table}\leftarrow\text{Matrix }A_{ij}\text{ for }(i,j)\in[0,n-1][1,n]$\\
+			$\text{table}\leftarrow\text{Matrix }A_{ij}\text{ for }(i,j)\in[0,n-1][n]$\\
 			\textbf{for} $j\in\{1,..,n\}$:\\+
 				\textbf{for} $(X\to t)\in G$:\\+
 					\textbf{if} $t=s[j-1]$:\\+
@@ -1101,7 +1255,7 @@ Weaknesses:
 
 \subsection{Exhaustive search}
 
-Na\"ive backtracking:
+\subsubsection{Na\"ive backtracking}
 
 \begin{pseudo}
 \textbf{function} \textsf{SAT-backtrack}$(\Phi=C_1\wedge\cdots\wedge C_m, \mathcal{J}, b)$:\\+
@@ -1116,7 +1270,7 @@ Na\"ive backtracking:
 	\textbf{return} \textsf{SAT-backtrack}$(\Phi',\mathcal{J}\cup\{i\}, b\cup\{x_i=1\})$
 \end{pseudo}
 
-\noindent Davis, Putnam, Logemann, Loveland (DPLL):
+\subsubsection{Davis, Putnam, Logemann, Loveland (DPLL)}
 
 \begin{pseudo}
 \textbf{function} \textsf{DPLL}$(\Phi=C_1\wedge\cdots\wedge C_m)$\\+
