@@ -499,7 +499,7 @@ Weaknesses:
 	children are other binary trees.
 \end{definition}
 \begin{definition}
-	An \emph{ordered binary tree} with a given ordering $(<) : X \to X \to \texttt{bool}$ is a binary tree 
+	An \emph{ordered binary tree} with a given ordering $(<) : X\times X \to \{0, 1\}$ is a binary tree 
 	with a root $x$ such that
 	\begin{align*}
 		\forall y \in L(x), y.\texttt{key} < x.\texttt{key} 
@@ -507,11 +507,28 @@ Weaknesses:
 	\end{align*}
 	and both $L(x)$ and $R(x)$ are ordered.
 \end{definition}
+
 \begin{proposition}
 	For a perfectly balanced ordered binary tree, the lookup time is $O(\log n)$.\\
 	More generally, for any such tree with a maximum depth $d$ of at most $d=2 \lg n$ the
 	lookup time is $O(\log n)$.
 \end{proposition}
+
+\begin{theorem}[L9]
+	A \emph{red-black tree} is a ordered binary tree that follows the
+	following rules:
+	\begin{enumerate}
+		\item Every node is either \texttt{red} or \texttt{black}.
+		\item The root and all leaves are \texttt{black}.
+		\item All paths from the root to a leaf contain the same number $b$ of \texttt{black} nodes.
+		\item The children of a \texttt{red} node are \texttt{black}.
+	\end{enumerate}
+	For every tree with $n$ nodes that satisfies these conditions, 
+	the height $h$ is bounded by
+	\begin{align*}
+		h\leq 2\lg(n+1)+1.
+	\end{align*}
+\end{theorem}
 
 \paragraph{Comparison}
 \begin{center}
@@ -981,8 +998,55 @@ Weaknesses:
 		V_k = \{v_i\in V : i\leq k\}.
 	\end{align*}
 	Further, let $P_k$ be the set of paths in $G$ with interior
-	restricted to $V_k$.
+	restricted to $V_k$. Then, for $0\leq i,j<n$ and $k\geq 0$, let
+	\begin{align*}
+		d_{ij}^{<k}=\begin{cases}
+			0 & 
+			i=j, \\
+			\min\{d_p:p\in P_k, p\text{ is from $v_i$ to $v_j$}\} & 
+			i\not=j, \text{path from $v_i$ to $v_j$ exists in $P_k$}, \\
+			\infty &
+			i\not=j, \text{path from $v_i$ to $v_j$ does not exist in $P_k$}. 
+		\end{cases}
+	\end{align*}
+	Then we define $D^{<k}=(d_{ij}^{<k})_{0\leq i,j\leq n-1}$. We call $D^{<k}$
+	the matrix of distances via $V_k$-restridcted paths.
 \end{definition}
+
+\begin{theorem}[L18]
+	Let $0\leq i,j<n$. If $k>0$, then 
+	\begin{align*}
+		D^{<k+1}[i,j]=\begin{cases}
+			0 & \text{if $i=j$}, \\
+			\min\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\} & \text{otherwise}.
+		\end{cases}
+	\end{align*}
+	Further,
+	\begin{align*}
+		D^{<0}[i,j] = \begin{cases}
+			0 		& \text{if $i=j$}, \\
+			w(i,j)  & \text{if $i\not=j$, $(i,j)\in E$}, \\
+			\infty  & \text{if $i\not=j$, $(i,j)\not\in E$}.
+		\end{cases}
+	\end{align*}
+	For all $x\in\R$ we define $x+\infty = \infty + x = \infty + \infty = \infty$,
+	$\min\{\infty, \infty\}=\infty$ and $\min\{\infty, x\}=x$.
+\end{theorem}
+
+\begin{pseudo}
+\textbf{function} \textsf{FloydWarshall}$(G=(V,E), w)$:\\+
+	$D^{<0}, ..., D^{<n+1}\leftarrow \text{arrays of size $|V|\times |V|$}$	\\
+	\textbf{for $k$ from $0$ to $n-1$}:										\\+
+		\textbf{for $i$ from $0$ to $n-1$}:									\\+
+			\textbf{for $j$ from $0$ to $n-1$}: 							\\+
+				$D^{<k+1}[i,j]\leftarrow \min
+					\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\}$				\\---
+	\textbf{return} $D^{<n+1}$
+\end{pseudo}
+
+\begin{theorem}
+	\textsf{FloydWarshall}$(G=(V,E), w)$ runs in $\Theta(\abs{V}^3)$ time.
+\end{theorem}
 
 \subsection{Edit distance}
 
@@ -1043,7 +1107,7 @@ Weaknesses:
 	The \emph{CYK algorithm} allows parsing of a context-free
 	grammar in Chomsky normal form.
 	\begin{pseudo}
-		\textbf{CYK}$(s,G)$:\\+
+		\textbf{function} \textsf{CYK}$(s,G)$:\\+
 			$n\leftarrow\text{length}(s)$\\
 			$\text{table}\leftarrow\text{Matrix }A_{ij}\text{ for }(i,j)\in[0,n-1][n]$\\
 			\textbf{for} $j\in\{1,..,n\}$:\\+
@@ -1273,7 +1337,7 @@ Weaknesses:
 \subsubsection{Davis, Putnam, Logemann, Loveland (DPLL)}
 
 \begin{pseudo}
-\textbf{function} \textsf{DPLL}$(\Phi=C_1\wedge\cdots\wedge C_m)$\\+
+\textbf{function} \textsf{DPLL}$(\Phi=C_1\wedge\cdots\wedge C_m)$:\\+
 	\textbf{if} every literal in $\Phi$ is pure:\\+\textbf{return} \textsf{true}\\-
 	\textbf{if} some clause in $\Phi$ is empty:\\+\textbf{return} \textsf{false}\\-
 	\textbf{while} $\exists$ unit clause $l$ in $\Phi$:\\+
