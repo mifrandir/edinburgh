@@ -1048,6 +1048,73 @@ Weaknesses:
 	\textsf{FloydWarshall}$(G=(V,E), w)$ runs in $\Theta(\abs{V}^3)$ time.
 \end{theorem}
 
+\subsection{Probabilistic finite-state machines}
+
+\begin{definition}[L19]
+	A \emph{probabilistic FSM} is a finite-state machine of the form
+	$M=\lra{Q, \Sigma, q_0, F, \delta}$ with $\Delta\subseteq Q\times\Sigma\times Q$,
+	together with a \emph{probability label} $p_{q,a,q'}\in[0,1]$ for every
+	$\lra{q,a,q'}\in\Delta$ such that for every $q\in Q$, $a\in\Sigma$, we have
+	\begin{align*}
+		\sum_{q'\in Q, \lra{q,a,q'}\in\Delta} p_{q,a,q'}=1.
+	\end{align*}
+\end{definition}
+
+\begin{definition}[L19]
+	A \emph{Hidden Markov Model} is a state-machine $M=\lra{Q, \Sigma, \Delta, P, 
+	\{b_q:q\in Q\}, \pi}$ with $\Delta\subseteq Q\times Q$, together with
+	\begin{itemize}
+		\item A $\abs Q \times \abs Q$ \emph{transition matrix} $P$ dfining a
+			probability label $p_{q,q'}\in[0,1]$ for every $\lra{q,q'}\in\Delta$
+			such that for every $q\in Q$ we have \begin{align*}
+				\sum_{q'\in Q}p_{q,q'} = 1.
+			\end{align*}
+        \item A probability distribution $b_q$ on $\Sigma$ for every $q\in Q$,
+			$b_q$ defining the distribution of \emph{emission} from $\Sigma$
+			associated with state $q$. For all $q\in Q$ we require \begin{align*}
+				\sum_{a\in\Sigma} b_q(a) = 1.
+			\end{align*}
+        \item A distribution $\pi$ to describe the starting state.
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[Max likelihood path]
+	Given a HMM defined by $M=\lra{Q,\Sigma,\Delta,P,\{b_q:q\in Q\},\pi}$, and
+	a sequence $s\in\Sigma^*$, what is the \emph{most likely path} through $M$
+	to have generated $s$?	
+\end{definition}
+
+\begin{theorem}[L19]
+	The max likelihood path through a HMM given by $M=\lra{Q,\Sigma,\Delta,
+	P,\{b_q:q\in Q\},\pi}$ to have generated a string $s$ can be calculated 
+	using the algorithm below.
+	\begin{pseudo}
+		\textbf{function} \textsf{Viterbi}$(M=\lra{Q,\Sigma,\Delta, P,
+			\{b_q:q\in Q\},\pi}, s=s_1...s_n)$:									\\+
+			$\textsf{mlp}, \textsf{prev}
+				\leftarrow \text{arrays of size $n\times\abs Q$}$				\\
+			\textbf{for} $q\in Q$:												\\+
+				$\textsf{mlp}[1,q]\leftarrow\pi_q\times b_{q,s_1}$				\\-
+			\textbf{for $i$ from $2$ to $n$}:									\\+
+				\textbf{for $q\in Q$}:											\\+
+					$\textsf{mlp}[i,q]\leftarrow 0$								\\
+					\textbf{for $q'\in Q$}:										\\+
+						$\textsf{trans}\leftarrow p_{q',q}\times b_{q,s_i}$	\\
+						\textbf{if} $\textsf{trans}\times\textsf{mlp}[i-1,q']>
+							\textsf{mlp}[i,q]$:									\\+
+							$\textsf{mlp}[i,q]\leftarrow
+								\textsf{trans}\times\textsf{mlp}[i-1,q']$		\\
+							$\textsf{prev}[i,q]\leftarrow q'$					\\----
+			$\textsf{max}\leftarrow 0$											\\
+			\textbf{for $q\in Q$}:												\\+
+				\textbf{if} $\textsf{mlp}[n,q]>\textsf{max}$:					\\+
+					$\textsf{max}\leftarrow\textsf{mlp}[n,q]$					\\--
+			\textbf{return} \textsf{max}
+	\end{pseudo}
+	$\textsf{Viterbi}(M, s=s_1\cdots s_n)$ runs in $\Theta(n\cdot\abs{Q}^2)$ time
+	and takes $\Theta(n\cdot\abs Q)$ space.
+\end{theorem}
+
 \subsection{Edit distance}
 
 \begin{definition}
@@ -1280,37 +1347,43 @@ Weaknesses:
 	endpoint in $V'$.
 \end{definition}
 
-\noindent 2-approximation for VC:
-\begin{pseudo}
-\textbf{function} \textsf{Approx-Vertex-Cover}$(G=(V,E))$:\\+
-	$C\leftarrow \emptyset$\\
-	$E'\leftarrow\emptyset$\\
-	\textbf{while} $E'\not=\emptyset$:\\+
-		$(u,v)\leftarrow\textsf{some edge in }E'$\\
-		$C\leftarrow C\cup\{u,v\}$\\
-		$E'\leftarrow E'\setminus\{(a,b)\in E : \{a,b\}\cap\{u,v\}\not=\emptyset\}$\\-
-    \textbf{return} $C$
-\end{pseudo}
+\begin{theorem}
+	The following algorithm is a 2-approximation for the vertex cover
+	problem.	
+	\begin{pseudo}
+	\textbf{function} \textsf{Approx-Vertex-Cover}$(G=(V,E))$:\\+
+		$C\leftarrow \emptyset$\\
+		$E'\leftarrow\emptyset$\\
+		\textbf{while} $E'\not=\emptyset$:\\+
+			$(u,v)\leftarrow\textsf{some edge in }E'$\\
+			$C\leftarrow C\cup\{u,v\}$\\
+			$E'\leftarrow E'\setminus\{(a,b)\in E : \{a,b\}\cap\{u,v\}\not=\emptyset\}$\\-
+		\textbf{return} $C$
+	\end{pseudo}
+\end{theorem}
 
-\begin{definition}
+\begin{definition}[MAX 3-SAT]
 	Given a 3-CNF formula $\Phi=C_1\wedge\cdots\wedge C_m$ over the variables
-	$x_1, ..., x_n$, determine the maximum number of clauses $k$ such that there
-	exists an assignment of binary values to $x_1, ..., x_n$ that makes $k$
-	clauses satisfied.
+	$x_1, ..., x_n$, determine the maximum number $k$ of clauses $C_i$ such 
+	that there exists an assignment of binary values to $x_1, ..., x_n$ that 
+	makes $k$ clauses satisfied.
 \end{definition}
 
-\begin{pseudo}
-\textbf{function} \textsf{Greedy-3-SAT}$(\Phi, n, m)$:\\+
-	\textbf{for} $i\in\{1,...,n\}$:\\+
-		$E_0 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=0)$\\
-		$E_1 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=1)$\\
-		\textbf{if} $E_0\geq E_1$:\\+
-			$b_i\leftarrow 0$\\-
-        \textbf{else}:\\+
-			$b_i\leftarrow 1$\\-
-		Update $\Phi$ by fixing $x_i=b_i$\\-
-    \textbf{return }$\vec b$
-\end{pseudo}
+\begin{theorem}
+	The following algorithm is a $7/8$-approximation for \textsf{MAX 3-SAT}:
+	\begin{pseudo}
+	\textbf{function} \textsf{Greedy-3-SAT}$(\Phi, n, m)$:\\+
+		\textbf{for} $i\in\{1,...,n\}$:\\+
+			$E_0 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=0)$\\
+			$E_1 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=1)$\\
+			\textbf{if} $E_0\geq E_1$:\\+
+				$b_i\leftarrow 0$\\-
+			\textbf{else}:\\+
+				$b_i\leftarrow 1$\\-
+			Update $\Phi$ by fixing $x_i=b_i$\\-
+		\textbf{return }$\vec b$
+	\end{pseudo}
+\end{theorem}
 
 \begin{theorem}
 	The \emph{maximum independent set} problem cannot be approximated to
