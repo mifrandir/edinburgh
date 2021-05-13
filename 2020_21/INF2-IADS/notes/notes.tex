@@ -1196,6 +1196,41 @@ Weaknesses:
 	of the CYK algorithm is $O(mn^3)$.
 \end{theorem}
 
+\begin{definition}[L22]
+	A context free language is called \emph{LL(1)} if, during
+	parsing, the current token and the current non-terminal fully
+	deteremine which rule to apply.	
+\end{definition}
+
+\begin{theorem}
+	An LL(1) language with a pre-generated parse table may be 
+	parsed with the following algorithm in $\Theta(n)$ time.
+
+\begin{pseudo}
+\textbf{function} \textsf{LL1Parse}$(T, S, w=w_1\cdots w_n)$:		\\+
+	$i \leftarrow 1$												\\
+	$Q \leftarrow\text{stack with single entry$S$}$					\\
+	\textbf{while} $Q$ not empty:									\\+
+		$x\leftarrow Q.\textsf{peek}()$								\\
+		\textbf{if} $x$ is non-terminal:							\\+
+			\textbf{match} $T[x,w_i]$:								\\+
+				\textbf{case} blank:								\\+
+					\textbf{fail}									\\-
+				\textbf{case} rule $x\to\beta$:						\\+
+					$Q.\textsf{pop}()$								\\
+					\textbf{for} $s\in\textsf{reversed}(\beta)$:	\\+
+						$Q.\textsf{push}(s)$						\\----
+		\textbf{else if} $x = w_i$:									\\+
+			$Q.\textsf{pop}()$										\\
+			$i\leftarrow i+1$										\\-
+		\textbf{else}:												\\+
+			\textbf{fail}											\\--
+	\textbf{if} $w_i=\$$:											\\+
+		\textbf{return}												\\-
+	\textbf{fail}
+\end{pseudo}
+\end{theorem}
+
 \section{P and NP}
 
 \subsection{Decision problems}
@@ -1313,7 +1348,7 @@ Weaknesses:
 \end{proposition}
 
 
-\section{Dealing with NP-completeness}
+\subsection{Dealing with NP-completeness}
 
 
 \paragraph{General possibilities}
@@ -1324,7 +1359,7 @@ Weaknesses:
 	\item recursive backtracking
 \end{itemize}
 
-\subsection{Polynomial-time approximation}
+\subsubsection{Polynomial-time approximation}
 
 \begin{definition}[$\alpha$-approximation]
 	Consider some optimisation problem \textsf{OPT} where for a given 
@@ -1390,7 +1425,7 @@ Weaknesses:
 	any constant approximation factor $\alpha\in\R$, assuming $P\not= NP$.
 \end{theorem}
 
-\subsection{Exhaustive search}
+\subsubsection{Exhaustive search}
 
 \subsubsection{Na\"ive backtracking}
 
