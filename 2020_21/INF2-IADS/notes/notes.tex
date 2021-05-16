@@ -48,7 +48,7 @@
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$. Then $f\in O(g)$ if, and only if,
 	\begin{align*}
-		\exists C > 0\st \exists N \st \forall n \geq N,\: f(n) \geq Cg(n)
+		\exists C > 0\st \exists N \st \forall n \geq N,\: f(n) \leq Cg(n)
 	\end{align*}
 	where $C\in\R$ and $N,n\in\N$.\\
 	We call $g$ an \emph{asymptotic upper bound} for $f$.
@@ -1052,7 +1052,15 @@ Weaknesses:
 
 \begin{definition}[L19]
 	A \emph{probabilistic FSM} is a finite-state machine of the form
-	$M=\lra{Q, \Sigma, q_0, F, \delta}$ with $\Delta\subseteq Q\times\Sigma\times Q$,
+	$M=\lra{Q, \Sigma, q_0, F, \delta}$ where
+	\begin{itemize}
+		\item $Q$ is a set of states,
+		\item $\Sigma$ is an alphabet,
+		\item $q_0\in Q$ is the initial state,
+		\item $F\subseteq Q$ is a set of accepting states,
+		\item $\delta:Q\times \Sigma \to\mathcal{P}(Q)$ is a transition function 
+			(where $\mathcal{P}(Q)$ is the powerset of $Q$),
+	\end{itemize}
 	together with a \emph{probability label} $p_{q,a,q'}\in[0,1]$ for every
 	$\lra{q,a,q'}\in\Delta$ such that for every $q\in Q$, $a\in\Sigma$, we have
 	\begin{align*}
@@ -1062,16 +1070,21 @@ Weaknesses:
 
 \begin{definition}[L19]
 	A \emph{Hidden Markov Model} is a state-machine $M=\lra{Q, \Sigma, \Delta, P, 
-	\{b_q:q\in Q\}, \pi}$ with $\Delta\subseteq Q\times Q$, together with
+	\{b_q:q\in Q\}, \pi}$ with $\Delta\subseteq Q\times Q$ where
 	\begin{itemize}
-		\item A $\abs Q \times \abs Q$ \emph{transition matrix} $P$ dfining a
-			probability label $p_{q,q'}\in[0,1]$ for every $\lra{q,q'}\in\Delta$
-			such that for every $q\in Q$ we have \begin{align*}
+		\item $Q$ is a set of states,
+		\item $\Sigma$ is an alphabet
+		\item $\Delta:Q\to\mathcal{P}(Q)$ is a transition function
+		\item $P$ is a $\abs Q \times \abs Q$ \emph{transition matrix} 
+			defining a probability label $p_{q,q'}\in[0,1]$ for every 
+			$\lra{q,q'}\in\Delta$ such that for every $q\in Q$ we have 
+			\begin{align*}
 				\sum_{q'\in Q}p_{q,q'} = 1.
 			\end{align*}
-        \item A probability distribution $b_q$ on $\Sigma$ for every $q\in Q$,
-			$b_q$ defining the distribution of \emph{emission} from $\Sigma$
-			associated with state $q$. For all $q\in Q$ we require \begin{align*}
+        \item every $b_q$ defines a probability distribution on $\Sigma$ 
+			for every $q\in Q$, $b_q$ defining the distribution of 
+			\emph{emission} from $\Sigma$ associated with state $q$. For all
+			$q\in Q$ we require \begin{align*}
 				\sum_{a\in\Sigma} b_q(a) = 1.
 			\end{align*}
         \item A distribution $\pi$ to describe the starting state.
