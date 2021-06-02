@@ -306,7 +306,7 @@
 \end{definition}
 
 \begin{proposition}[Awodey 2.2]
-    A function $f:A\to B$ between sets is monic (epic) if and only if it is injective (surjective).
+    A function $f:A\to B$ between sets is monic (epic) iff it is injective (surjective).
 \end{proposition}
 
 \begin{proposition}[Awodey 2.6]
@@ -361,7 +361,7 @@
 
 \begin{lemma}
     Let $x,x': X\to A$ be generalised elements of $A\in\cat C$. Then an arrow
-    $f:A\to B$ is monic if and only if $x\not=x'$ implies $fx\not=f'x$.
+    $f:A\to B$ is monic iff $x\not=x'$ implies $fx\not=f'x$.
 \end{lemma}
 
 \begin{lemma}[Commuting square test]
@@ -426,7 +426,7 @@
             B
         \end{tikzcd}
     \end{center}
-    is a product for A and B if and only if for every object $X$, the canonical
+    is a product for A and B iff for every object $X$, the canonical
     function
     \begin{gather*}
         \vartheta_X = (\Hom(X, p_1), \Hom(X, p_2)) : \Hom(X, P)\to \Hom(X,A)\times \Hom(X,B)\\
@@ -686,7 +686,7 @@
     \begin{align*}
         N\subseteq \ker(h)
     \end{align*}
-    if and only if there is a (necessarily unique) homomorphism
+    iff there is a (necessarily unique) homomorphism
     $\bar h:G/N\to H$ with $\bar h \circ \pi = h$ where 
     $\pi:G\to G/N$ takes every element of $G$ to its
     coset: $g\mapsto [g]$.
@@ -743,7 +743,7 @@
     An equaliser of parallel arrows $f,g:A\to B$ is a subobject
     of $A$ with the property
     \begin{align*}
-        z\in_A E \hs\text{if and only if}\hs f(z) = g(z).
+        z\in_A E \hs\text{iff}\hs f(z) = g(z).
     \end{align*}
 \end{corollary}
 
@@ -997,6 +997,8 @@
     \end{center}
 \end{definition}
 
+\subsection{Cartesian closed categories}
+
 \begin{definition}[Awodey p. 122]
     A category is \emph{cartesian closed}, if it has all finite
     products and exponentials.
@@ -1008,6 +1010,121 @@
     \begin{align*}
         (-)^A:\cat C\to\cat C.
     \end{align*} 
+\end{proposition}
+
+\begin{proposition}[Awodey p. 134]
+    A category $\cat C$ is a CCC iff it has the following structure:
+    
+    \begin{itemize}
+        \item A distinguished object $1$, and for each object $C$ there
+        is given an arrow \begin{align*}
+            !_C:C\to 1
+        \end{align*}
+        such that for each arrow $f:C\to 1$, \begin{align*}
+            f=!_C.
+        \end{align*}
+        \item For each pair of objects $A$, $B$, there is given an object
+        $A\times B$ and arrows, \begin{align*}
+            p_1:A\times B \to A\hs\text{and}\hs p_2:A\times B\to B
+        \end{align*}
+        and for each pair of arrows $f:Z\to A$ and $g:Z\to B$, there is given
+        an arrow, \begin{align*}
+            \lra{f,g}:Z\to A\times B
+        \end{align*}
+        such that \begin{align*}
+            p_1\lra{f,g}&=f\\
+            p_2\lra{f,g}&=g\\
+            \lra{p_1h,p_2h}&=h &\text{for all }h:Z\to A\times B.
+        \end{align*}
+        \item For each pair of objects $A$, $B$, there is given an object 
+        $B^A$ and an arrow, \begin{align*}
+            \epsilon : B^A\times B \to B
+        \end{align*}
+        and for each arrow $f:Z\times A \to B$, there is given an arrow \begin{align*}
+            \tilde{f}:Z\to B^A
+        \end{align*}
+        such that \begin{align*}
+            \epsilon\circ(\tilde f \times 1_A)=f
+        \end{align*}
+        and \begin{align*}
+            \widetilde{(\epsilon\circ(g\times 1_A))}=g
+        \end{align*}
+        for all $g:Z\to B^A$. Here, and generally, for any $a:X\to A$ and
+        $b:Y\to B$, we write
+        \begin{align*}
+            a\times b = \lra{a\circ p_1, b\circ p_2}:X\times Y\to A\times B.
+        \end{align*}
+    \end{itemize}
+\end{proposition}
+
+\subsection{Heyting algebras}
+
+\begin{definition}[Awodey p. 129]
+    A \emph{Heyting algebra} is a poset with
+    \begin{enumerate}
+        \item Finite meets: $1$ and $p\wedge q$,
+        \item Finite joins: $0$ and $p\vee q$,
+        \item Exponentials: for each $a$, $b$, an element $a\Rightarrow b$
+            such that \begin{align*}
+                a\wedge b \leq c \hs\text{iff}\hs a\leq b\Rightarrow c.
+            \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Awodey p. 130]
+    A poset is \emph{(co)complete} if it is so as a category. THis if it has all
+    set-indexed meets $\bigwedge_{i\in I}a_i$ (resp. join $\bigvee_{i\in I}a_i$).
+    A lattice, Heyting algebra, Boolean algebra, etc. is called \emph{(co)complete}
+    if it is so as a poset.
+\end{definition}
+
+\begin{proposition}[Awodey p. 130]
+    A complete lattice is a Heyting algebra iff it satisfies the
+    infinite distributive law
+    \begin{align*}
+        a\wedge\left(\bigvee_i b_i\right)=\bigvee_i (a\wedge b_i).
+    \end{align*} 
+\end{proposition}
+
+\subsection{\lambda-calculus}
+
+\begin{definition}
+    A \emph{theory} $\mathcal{L}$ in the $\lambda$-calculus is a set 
+    of basic types and terms, together with a set of equations between 
+    terms.
+\end{definition}
+
+\begin{definition}[Awodey p. 139]
+    A \emph{model} of a theory $\mathcal{L}$ in a category $\cat C$
+    is an assignment of the types and terms of $\mathcal{L}$ to objects
+    and arrows of $\cat C$:
+    \begin{align*}
+        X\text{ basic type} \hs
+        &\mapsto\hs\eqc X \text{ object} \\
+        b:A\to B\text{ basic term} \hs
+        &\mapsto\hs \eqc b: \eqc A \to \eqc B\text{ arrow}
+    \end{align*}
+    such that 
+    \begin{align*}
+        \eqc{A\times B} &= \eqc A \times \eqc B \\
+        \eqc{\lra{f,g}} &= \lra{\eqc f, \eqc g}\\
+        \text{etc.}
+    \end{align*}
+    and
+    \begin{align*}
+        \mathcal{L}\vdash a = b : A \to B \hs\text{implies}\hs
+        \eqc a = \eqc b : \eqc A \to \eqc B.
+    \end{align*}
+\end{definition}
+
+\begin{proposition}
+    For any theory $\mathcal{L}$ in the $\lambda$-calculus, one has the
+    following:
+    \begin{enumerate}
+        \item For any terms $a,b,\mathcal{L}\vdash a = b$ iff
+            for all models $M$ in CCCs, $[\![a]\!]_M=[\![b]\!]_M$.
+        \item Moreover, for any type $A$, there is a closed $t:A$ iff for all models $M$ in CCCs, there is an arrow $1\to\eqc{A}_M$. 
+    \end{enumerate}
 \end{proposition}
 
 \end{document}
