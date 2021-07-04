@@ -1213,4 +1213,23 @@
     image of $y$.
 \end{proposition}
 
+\section{Naturality}
+
+\subsection{Category of categories}
+
+\begin{definition}[Awodey p. 148]
+    A functor $F:\cat C \to \cat C$ is said to be
+    \begin{itemize}
+        \item \emph{injective (resp. surjective) on objects} if the object part
+            $F_0:\cat C_0 \to \cat D_0$ is injective.
+        \item \emph{injective (resp. surjective) on arrows} if the arrow part
+            $F_1:\cat C_1 \to \cat D_1$ is injective.
+        \item \emph{faithful} if for all $A,B\in \cat C_0$ the map \begin{align*}
+            F_{A,B}:\Hom_{\cat C}(A,B)\to\Hom_{\cat D}(FA,FB)
+        \end{align*}
+        defined by $f\mapsto F(f)$ is injective.
+        \item \emph{full} if $F_{A,B}$ is always surjective.
+    \end{itemize} 
+\end{definition}
+
 \end{document}
