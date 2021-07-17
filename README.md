@@ -13,11 +13,11 @@ Year    | Span     | School | Short     | Title                                 
 2019/20 | SEM2     | MATH   | CAP       | Calculus and its Applications                       | Nikola Popovic                     | 99   | P     | 10
 2019/20 | SEM2     | INF    | INF1B     | Object Oriented Programming                         | Volker Seeker                      | 82   | A2    | 10
 2019/20 | SEM2     | PHYS   | IAP       | Introductory Astrophysics                           | Catherine Heymans & Ross Galloway  | 62   | B     | 10
-2020/21 | FULL     | INF    | INF2-IADS | Intro to Algorithms and Data Structures             | Mary Cryan                         |      |       | 10
-2020/21 | FULL     | INF    | INF2-FDS  | Foundations of Data Science                         | Kobi Gal & David Sterratt          |      |       | 10
+2020/21 | FULL     | INF    | INF2-IADS | Intro to Algorithms and Data Structures             | Mary Cryan                         | 89   | A2    | 10
+2020/21 | FULL     | INF    | INF2-FDS  | Foundations of Data Science                         | Kobi Gal & David Sterratt          | 77   | A3    | 10
 2020/21 | SEM1     | MATH   | SVCDE     | Several Variable Calculus and Differential Equations| Max Ruffert                        | 87   | A2    | 10
 2020/21 | SEM1     | MATH   | PRB       | Probability                                         | Toby Bailey                        | 86   | A2    |  5
 2020/21 | SEM1     | INF    | INF2-CS   | Introduction to Computer Systems                    | Boris Grot                         | 96   | A1    | 10
-2020/21 | SEM2     | MATH   | FPM       | Fundamentals of Pure Mathematics                    | Nikolaos Bournaveas                |      |       | 10
-2020/21 | SEM2     | MATH   | CNU       | Computing and Numerics                              | Charlotte Desvages                 |      |       |  5
-2020/21 | SEM2     | INF    | INF2D     | Reasoning and Agents                                | Claudia Chiritia & Alex Lascarides |      |       | 10
+2020/21 | SEM2     | MATH   | FPM       | Fundamentals of Pure Mathematics                    | Nikolaos Bournaveas                | 96   | A1    | 10
+2020/21 | SEM2     | MATH   | CNU       | Computing and Numerics                              | Charlotte Desvages                 | 91   | A1    |  5
+2020/21 | SEM2     | INF    | INF2D     | Reasoning and Agents                                | Claudia Chiritia & Alex Lascarides | 87   | A2    | 10
