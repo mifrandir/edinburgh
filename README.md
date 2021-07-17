@@ -16,6 +16,8 @@ SEM2     | MATH   | CAP       | Calculus and its Applications                   
 SEM2     | INF    | INF1B     | Object Oriented Programming                         | Volker Seeker                      | 82   | A2    | 10
 SEM2     | PHYS   | IAP       | Introductory Astrophysics                           | Catherine Heymans & Ross Galloway  | 62   | B     | 10
 
+Total credits sought: 140
+
 Weighted average: 86.29
 
 ### Year 2 (2020/21)
@@ -31,4 +33,22 @@ SEM2     | MATH   | FPM       | Fundamentals of Pure Mathematics                
 SEM2     | MATH   | CNU       | Computing and Numerics                              | Charlotte Desvages                 | 91   | A1    |  5
 SEM2     | INF    | INF2D     | Reasoning and Agents                                | Claudia Chiritia & Alex Lascarides | 87   | A2    | 10
 
+Total credits sought: 140
+
 Weighted average: 88.64
+
+### Year 3 (2021/22)
+
+Span     | School | Short     | Title                                               | Organiser(s)                       | Mark | Grade | ECTS
+---------|--------|-----------|-----------------------------------------------------|------------------------------------|------|-------|------
+SEM1     | MATH   | HAna      | Honours Analysis                                    |                                    |      |       | 10
+SEM1     | MATH   | GEO       | Geometry                                            |                                    |      |       | 5
+SEM1     | INF    | ILP       | Informatics Large Practical                         |                                    |      |       | 10
+SEM1     | INF    | AR        | Automated Reasoning                                 |                                    |      |       | 5
+SEM2     | MATH   | HAlg      | Honours Algebra                                     |                                    |      |       | 10
+SEM2     | MATH   | INT       | Introduction to Number Theory                       |                                    |      |       | 5
+SEM2     | INF    | ITCS      | Introduction to Theoretical Computer Science        |                                    |      |       | 5
+SEM2     | INF    | ADS       | Algorithms and Data Structures                      |                                    |      |       | 5
+SEM2     | INF    | CT        | Compiling Techniques                                |                                    |      |       | 10
+
+Total credits sought: 120 + 10
