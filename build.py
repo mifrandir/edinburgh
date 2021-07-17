@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import os, sys, subprocess
+import os, sys, subprocess, time
 
 OUT_DIR = "./out"
 TEX_CMD = [
@@ -15,7 +15,8 @@ def compile_with_recipe(tex_file):
     return subprocess.run(cmd,
                           stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
-                          cwd=tex_dir)
+                          cwd=tex_dir,
+                          timeout=100)
 
 
 def is_target(tex_path):
@@ -33,13 +34,14 @@ def compile_pdf(tex_path):
         print(
             f"WARN: The given file is not a suitable source file. Skipping. ({tex_path})",
             flush=True)
-        return
+        return 0
+    t = time.time()
     print(f"Compiling {tex_path}...", end='', flush=True)
     tex_path_no_ext, _ = os.path.splitext(tex_path)
     p = compile_with_recipe(tex_path)
     if p.returncode:
         print("FAIL (Compilation)", flush=True)
-        return
+        return 0
     target_file = tex_path_no_ext + ".pdf"
     tex_dir = os.path.dirname(tex_path)
     tex_parent_dirs = tex_dir.split('/')
@@ -53,8 +55,10 @@ def compile_pdf(tex_path):
         stdout=subprocess.PIPE)
     if p.returncode:
         print("FAIL (Copying)", flush=True)
+        return 0
     else:
-        print("DONE", flush=True)
+        print(f"DONE ({time.time() - t:.2f}s)", flush=True)
+        return 1
 
 
 def find_all_tex():
@@ -65,9 +69,13 @@ def find_all_tex():
 
 
 def default_build():
-    ts = find_all_tex()
-    for t in ts:
-        compile_pdf(t)
+    sources = find_all_tex()
+    t = time.time()
+    print(f"Found {len(sources)} source files, starting compilation.")
+    num_compiled = 0
+    for s in sources:
+        num_compiled += compile_pdf(s)
+    print(f"Compiled {num_compiled} files in {time.time() - t:.2f} seconds.")
 
 
 def prep_dirs():
