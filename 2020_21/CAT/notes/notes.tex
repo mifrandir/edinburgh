@@ -1232,4 +1232,77 @@
     \end{itemize} 
 \end{definition}
 
+\subsection{Representable structure}
+
+\begin{definition}[Awodey p. 150]
+    An object $C\in\cat C$ is called a \emph{generator of $\cat C$} if
+    for all objects $X,Y\in\cat C$ and parallel arrows $f,g:X\to Y$
+    where $f\not=g$, there exists an arrow $x:C\to X$ such that $fx\not=gx$.
+\end{definition}
+
+\begin{proposition}[Special case of Stone Duality; Awodey p. 155]
+    Every Boolean algebra $B$ is isomorphic to one consisting of subsets 
+    of some set $X$, equipped with the set-theoretical Boolean operations.
+\end{proposition}
+
+\subsection{Natural transformations}
+
+\begin{definition}[Awodey p. 156]
+    For categories $\cat C$, $\cat D$ and functors
+    \begin{align*}
+        F, G: \cat C \to \cat D
+    \end{align*} 
+    a \emph{natural transformation} $\vartheta:F\to G$ is a family of
+    arrows in $\cat D$
+    \begin{align*}
+        (\vartheta_C: FC\to GC)_{C\in\cat C_0}
+    \end{align*}
+    such that, for any $f:C\to C'$ in $\cat C$, one has 
+    \begin{align*}
+        \vartheta_{C'}\circ F(f) = G(f) \circ \vartheta_C,
+    \end{align*}
+    that is, the following commutes:
+    \begin{center}
+        \begin{tikzcd}
+            FC \arrow[r, "\vartheta_C"] \arrow[d, "Ff"] &
+            GC \arrow[d, "Gf"] \\
+            FC' \arrow[r, "\vartheta_{C'}"] &
+            GC'
+        \end{tikzcd}
+    \end{center}
+    Given such a natural transformation $\vartheta: F\to G$, the
+    $\cat D$-arrow $\vartheta_C:FC\to GC$ is called the \emph{component
+    of $\vartheta$ at $C$}.
+\end{definition}
+
+\begin{definition}[Awodey p. 158]
+    The \emph{functor category} $\cat{Fun}(\cat C, \cat D)$ has
+    \begin{itemize}
+        \item objects: functors $F:\cat C \to \cat D$,
+        \item arrows: natural transformations $\vartheta:F\to G$.
+    \end{itemize} 
+    For each object $F$, the natural transformation $1_F$ has components
+    \begin{align*}
+        (1_F)_C = 1_{FC}:FC\to FC
+    \end{align*}
+    and the composite natural transformation of $\vartheta:F\to G$ and
+    $\varphi:G\to H$ has components
+    \begin{align*}
+        (\varphi\circ\vartheta)_C=\varphi_C\circ\vartheta_C.
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Awodey p. 158]
+    A \emph{natural isomorphism} is a natural transformation
+    \begin{align*}
+        \vartheta: F\to G
+    \end{align*} 
+    which is an isomorphism in the functor category $\cat{Fun}(\cat C, \cat D)$.
+\end{definition}
+
+\begin{lemma}[Awodey p. 159]
+    A natural transformation $\vartheta:F\to G$ is a natural isomorphism
+    iff each component $\vartheta_C:FC\to GC$ is an isomorphism. 
+\end{lemma}
+
 \end{document}
