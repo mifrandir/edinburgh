@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\begin{document}
+\mkfpmthms
+\title{Honours Analysis (SEM5)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Revision}
+
+\subsection{Real numbers}
+
+\subsubsection{Nested intervals}
+
+\begin{definition}[Notes 1.1]
+    A sequence $(I_n)_{n\in\N}$ of sets is said to be nested if 
+    \begin{align*}
+        I_1 \supset I_2 \supset I_3 \supset \dots
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Nested Interval Property; Notes 1.1]
+    If $(I_n)_{n\in\N}$ is a nested sequence of nonempty closed bounded intervals then 
+    \begin{align*}
+        E=\bigcap_{n\in\N} I_n = \{x\in\R : x \in I_n \text{ for all } n\in\N\}
+    \end{align*} 
+    is nonempty.
+    Moreover if $\lambda(I_n)\to 0$, where $\lambda(I_n)$ denotes the length of the
+    interval $I_n$, then $E$ contains exactly one number.
+\end{theorem}
+
+\subsubsection{Compactness of closed bounded intervals}
+
+\begin{definition}
+    Let $E=[a,b]$ for some real numbers $a\leq b$. Suppose that $(I_\alpha)_{\alpha\in\mathcal{A}}$
+    is a collection of intervals. Then we say that $(I_\alpha)_{\alpha\in\mathcal{A}}$ \textbf{covers}
+    $E$ if 
+    \begin{align*}
+        E \subset \bigcup_{\alpha \in \mathcal{A}} I_\alpha.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Notes 1.2]
+    Let $E=[a,b]$ for some real numbers $a\leq b$. Suppose that $(I_\alpha)_{\alpha\in\mathcal{A}}$
+    is an arbitrary collection of open intervals that cover $E$. Then there exists a finite
+    set of indices $\{\alpha_1, \alpha_2, ..., \alpha_n\}$ such that 
+    \begin{align*}
+        E \subset I_{\alpha_1} \cup I_{\alpha_2}\cup \cdots \cup I_{\alpha_n}.
+    \end{align*}
+    We say that $(I_{\alpha_i})_{i=1,2,...,n}$ is a finite subcover of $E$.
+\end{theorem}
+
+\subsection{Sequences in $\R$}
+
+\begin{definition}[Notes 1.2]
+    A sequence of real numbers $(x_n)$ is said to \emph{converge} to a real number
+    $a\in\R$ if and only if for every $\e>0$ there is an $N\in\N$ such that
+    \begin{align*}
+        n\geq N \text{ implies } \abs{x_n-a} < \e.
+    \end{align*} 
+    The number $a$ is called the limit of the sequence $(x_n)$. A sequence that
+    does not converge to a real number is said to \emph{diverge}.
+\end{definition}
+
+\end{document}
