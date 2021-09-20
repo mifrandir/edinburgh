@@ -4,12 +4,13 @@
 \usepackage{notes-preamble}
 \usepackage{enumitem}
 \usepackage{extarrows}
-
+\usepackage{babel}
 \usepackage{tikz-cd}
 \tikzset{
    commutative diagrams/.cd,
    arrow style=tikz,
    diagrams={>=latex}}
+\usetikzlibrary{babel}
 
 
 \begin{document}
@@ -1303,6 +1304,38 @@
 \begin{lemma}[Awodey p. 159]
     A natural transformation $\vartheta:F\to G$ is a natural isomorphism
     iff each component $\vartheta_C:FC\to GC$ is an isomorphism. 
+\end{lemma}
+
+\subsection{Exponentials of categories}
+
+\begin{proposition}[Awodey p. 161]
+    $\cat{Cat}$ is cartesian closed, with the exponentials 
+    \begin{align*}
+        \cat D^{\cat C} = \text{Fun}(\cat C, \cat D).
+    \end{align*}
+\end{proposition}
+
+\begin{lemma}[Bifunctor lemma; Awodey p. 161]
+    Given categories $\cat A, \cat B$, and $\cat C$, a map of arrows and objects,
+    \begin{align*}
+        F_0 : \cat A_0 \times \cat B_0 \to \cat C_0\\
+        F_1 : \cat A_1 \times \cat B_1 \to \cat C_1
+    \end{align*} 
+    is a functor $F:\cat A \times \cat B \to \cat C$ iff
+    \begin{enumerate}
+        \item $F$ is functorial in each argument: $F(A, -):\cat B \to \cat C$ and 
+            $F(-, B):\cat A \to \cat C$ are functors for all $A\in\cat A_0$ and $B\in \cat B_0$
+        \item $F$ satisfies the following "interchange law." Given $\alpha: A\to A'\in \cat A$ and
+            $\beta: B\to B'\in \cat B$, the following commutes: 
+            \begin{center}
+                \begin{tikzcd}
+                    F(A,B) \arrow[r, "{F(A,\beta)}"] \arrow[d, "{F(\alpha, B)}"] &
+                    F(A,B') \arrow[d, "{F(\alpha, B')}"] \\
+                    F(A',B) \arrow[r, "{F(A',\beta)}"] &
+                    F(A',B')
+                \end{tikzcd} 
+            \end{center}
+    \end{enumerate}
 \end{lemma}
 
 \end{document}
