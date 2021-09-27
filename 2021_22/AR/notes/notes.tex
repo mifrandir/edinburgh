@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\mkthms
+
+\title{Automated Reasoning (SEM5)}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+\section{Introduction}
+\begin{definition}
+    \emph{Automated Reasoning} refers to reasoning in a computer using logic.
+    \begin{itemize}
+        \item active area of research since the 50s
+        \item part of artificial intelligence
+    \end{itemize}
+\end{definition}
+\begin{theorem}
+    Formalised mathematics is neither
+    \begin{itemize}
+        \item \emph{complete} (see G\"odel's Incompleteness Theorems), nor
+        \item \emph{decidable} (see Church and Turing).
+    \end{itemize}
+\end{theorem}
+
+\section{Logic}
+\subsection{Propositional Logic}
+
+\begin{definition}
+    A syntactically correct formula is called a \emph{well-formed formula}.
+
+    Given an alphabet of propositional symbols $\mathcal{L}$, the
+    set of wffs is the smallest set such that 
+    \begin{itemize}
+        \item any symbol $A\in\mathcal{L}$ is a wff;
+        \item if $P$ and $Q$ are wffs, so are $\neg P, P\vee Q, P\wedge Q, P\leftarrow Q$, and $P\leftrightarrow Q$;
+        \item if $P$ is a wff, then $(P)$ is a wff.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    An \emph{interpretation} (or \emph{valuation}) $V$ is a truth assignment
+    to the symbols in the alphabet $\mathcal{L}$, i.e. a function
+    \begin{align*}
+        V:\mathcal{L}\to \{\top,\bot\}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    An interpretation $V$ \emph{satisfies} a wff $P$ if $[\![ P]\!]_V=\top$.
+\end{definition}
+
+\begin{definition}
+    A wff is \emph{satisfiable} if there exists an interpretation that satisfies it.
+    Otherwise it's unsatisfiable.
+\end{definition}
+
+\begin{definition}
+    A wff is \emph{valid} if every interpretation satisfies it.
+\end{definition}
+
+\begin{definition}
+    The wffs $P_1, P_2,...,P_n$ \emph{entail} $Q$ if any interpretation
+    which satisfies all of $P_1, P_2,...,P_n$ also satisfies $A$.
+    We write 
+    \begin{align*}
+        P_1, P_2, ..., P_n \vDash Q.
+    \end{align*}
+\end{definition}
+\end{document}
