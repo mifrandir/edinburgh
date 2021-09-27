@@ -66,4 +66,93 @@
     does not converge to a real number is said to \emph{diverge}.
 \end{definition}
 
+\begin{definition}[Notes 1.3]
+    A sequence $(x_n)$ of numbers $x_n\in\R$ is said to be \emph{Cauchy} if for every $\e>0$ there
+    exists an $N\in\N$ such that
+    \begin{align*}
+        \abs{x_n-x_m}<\e \hs \text{for all }n,m\geq N. 
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Notes 1.3]
+    If $(x_n)$ is a convergent sequence of real numbers, then $(x_n)$ is a Cauchy sequence.
+\end{theorem}
+
+\begin{theorem}[Cauchy's Theorem; Notes 1.4]
+    Let $(x_n)$ be a sequence of real numbers. Then $(x_n)$ is a Cauchy sequence if and only
+    if $(x_n)$ is a convergent sequence. 
+\end{theorem}
+
+\begin{definition}[Notes 1.4]
+    Suppose $(x_n)_{n\in\N}$ is a sequence. A \emph{subsequence} of $(x_n)$ is a sequence of the form
+    $(x_{n_k})_k\in\N$ where for each $k$ there is a positive integer $n_k$ such that
+    \begin{align*}
+        n_1 < n_2 < \cdots n_k < n_{k+1} < ...
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Bolzano-Weierstrass; Notes 1.5]
+    Every bounded sequence of real numbers has a convergent subsequence. 
+\end{theorem}
+
+\begin{definition}[Notes 1.5]
+    If $(x_n)$ is a bounded sequence of real numbers we denote by
+    \begin{align*}
+        \limsup_{n\to\infty} x_n = \lim_{n\to\infty}\left(\sup_{k\geq n}x_k\right),\hs
+        \liminf_{n\to\infty} x_n = \lim_{n\to\infty}\left(\inf_{k\geq n}x_k\right).
+    \end{align*} 
+\end{definition}
+
+\begin{theorem}[Notes 1.6]
+    A sequence $(x_n)$ of real numbers is convergent if and only if $\limsup_{n\to\infty}x_n$
+    and $\liminf_{n\to\infty}x_n$ are real numbers and
+    \begin{align*}
+        \limsup_{n\to\infty}x_n =\liminf_{n\to\infty} x_n.
+    \end{align*}
+\end{theorem}
+
+\subsection{Infinite series of real numbers}
+
+\begin{definition}[Notes 1.6]
+    Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. For each $n\in\N$, the partial
+    sum of $S$ of order $n$ is defined by
+    \begin{align*}
+        s_n = \sum_{k=1}^n a_k. 
+    \end{align*} 
+    $S$ is said to \emph{converge} if and only if its sequence of partial sums $(s_n)$
+    converges to some $s\in\R$ as $n\to\infty$.
+\end{definition}
+
+\begin{theorem}[Cauchy criterion for series; Notes 1.7]
+    Let $S=\sum_{k=1}^\infty a_k$ be a series. Then the series $S$ is convergent
+    if and only if for any $\e>0$ there exists $N$ such that for all $m\geq n\geq N$
+    we have that
+    \begin{align*}
+        \abs{\sum_{k=n+1}^m}<\e.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}[Notes 1.8]
+    Let $S=\sum_{k=1}^\infty a_k$ be an absolutely convergent series. Then
+    \begin{enumerate}
+        \item The series $S$ is convergent.
+        \item Let $z:\N\to\N$ be a bijection. Then the series $\sum_{k=1}^\infty a_{z(k)}$
+            is convergent and \begin{align*}
+                \sum_{k=1}^\infty a_k = \sum_{k=1}^\infty a_{z(k)}.
+            \end{align*}
+    \end{enumerate} 
+\end{theorem}
+
+\begin{theorem}[Notes 1.9]
+    Let $S=\sum_{k=1}^\infty a_k$ be any conditionally convergent series. Then there
+    exist rearangements $z:\N\to\N$ such that
+    \begin{enumerate}
+        \item For any $r\in\R$ the series $\sum_{k=1}^\infty a_{z(k)}$ is conditionally
+            convergent and its sum is $r$.
+        \item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $+\infty$.
+        \item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $-\infty$.
+        \item The partial sums of the series $\sum_{k=1}^\infty a_{z(k)}$ oscillate between any two real numbers.
+    \end{enumerate} 
+\end{theorem}
+
 \end{document}
