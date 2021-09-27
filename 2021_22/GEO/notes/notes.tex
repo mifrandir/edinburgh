@@ -9,7 +9,7 @@
 \tableofcontents
 \pagebreak
 
-\section{Revision}
+\section{Prerequisites}
 
 \subsection{Abstract vector spaces}
 
@@ -160,5 +160,221 @@
         \end{align*}
     \end{enumerate}
 \end{theorem}
+
+\section{Curves in Euclidean space}
+
+\subsection{Regular curves}
+
+\begin{definition}
+    A \emph{parametrised curve in Euclidean space} is a smooth map
+    $\vec x : (a,b) \to \E^n$,
+    \begin{align*}
+        t \mapsto\vec x(t) = \begin{pmatrix}
+            x^1(t)\\
+            x^2(t)\\
+            \vdots\\
+            x^n(t)
+        \end{pmatrix}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    The \emph{velocity vector} of the curve $\vec x(t)$ is given by
+    \begin{align*}
+        \vec x'(t) = \begin{pmatrix}
+            (x^1)'(t)\\
+            (x^2)'(t)\\
+            \vdots\\
+            (x^n)'(t)
+        \end{pmatrix}.
+    \end{align*}
+    A curve $\vec x(t)$ is \emph{regular} if its velocity $\vec x'(t)\not=0$
+    for all $t\in(a,b)$. The \emph{tangent line} to a regular curve $\vec x(t)$
+    at $\vec x(t^0)$ is the line 
+    \begin{align*}
+        \{\vec x(t^0)+\lambda\vec x'(t^0) : \lambda \in\R\}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    The norm of the velocity
+    \begin{align*}
+        v(t)=\abs{\vec x'(t)}
+    \end{align*}
+    is the \emph{speed} of the curve at $\vec x(t)$. Note $v(t)>0$ for all $t$
+    if and only if the curve is regular. A parametrisation of a regular curve $\vec x(t)$
+    such that $v(t)=1$ everywhere is called a \emph{unit-speed parametrisation}.
+\end{definition}
+
+\begin{definition}
+    The \emph{arc-length} of a regular curve $\vec x:(a,b)\to \E^n$ from $\vec x(t^0)$
+    to $\vec x(t)$ is
+    \begin{align*}
+        s(t) = \int_{t^0}^t v(t)\:dt.
+    \end{align*}
+    For a unit-speed parametrisation $s=t-t^0$, hence it is also called an
+    \emph{arc-length parametrisation}.
+\end{definition}
+
+\begin{definition}
+    Let $g:(k,l)\to(a,b), \tau\to t$ be a smooth map with $g'(\tau)\not=0$ everywhere.
+    The curve $\vec{\tilde x}(\tau)=\vec x(g(\tau))$ is a \emph{reparametrisation}
+    of $\vec x(t)$. If $g'>0$ it preserves orientation.
+\end{definition}
+
+\begin{theorem}
+    For any regular curve $\vec x:(a,b)\to\E^n$, there exists a reparametrisation
+    which is unit-speed.
+\end{theorem}
+
+\begin{definition}
+    A \emph{vector field along the curve $\vec x(t)$} in Euclidean space is a vector
+    function $\vec v:(a,b)\to\E^n$.
+\end{definition}
+
+\begin{definition}
+    The \emph{unit tangent} vector field along a regular curve $\vec x(t)$ is 
+    \begin{align*}
+        \vec T(t) = \frac{\vec x'(t)}{v(t)}.
+    \end{align*}
+    Thus, for a unit-speed curve $\vec x(s)$ it is simply $\vec T(s)=\vec x'(s)$.
+\end{definition}
+
+\begin{definition}
+    For a unit-speed curve $\vec x(s)$ the curvature $\kappa(s)$ is defined by
+    \begin{align*}
+        \kappa(s) = \abs{\vec T'(s)}.
+    \end{align*}
+    For a general parametrisation thsi becomes $\kappa(t)=\abs{\vec T(t)}/v(t)$.
+\end{definition}
+
+\subsection{The Frenet-Serret frame and the structure equations}
+
+\begin{definition}
+    A unit-speed curve $\vec x(s)$ is \emph{biregular} if $\kappa(s)\not=0$ for
+    all values of $s$.
+\end{definition}
+
+\begin{definition}
+    The \emph{principal normal} along a unit-speed biregular curve $\vec x(s)$ is
+    \begin{align*}
+        \vec N(s) = \frac{\vec T'(s)}{\abs{\vec T'(s)}}=\frac{\vec T'(s)}{\kappa}.
+    \end{align*}
+    The \emph{binormal} vector field along $\vec x(s)$ is
+    \begin{align*}
+        \vec B = \vec T \times \vec N.
+    \end{align*}
+\end{definition}
+
+\begin{proposition}
+    The vector fields $\{\vec T(s), \vec N(s), \vec B(s)\}$ along a biregular curve
+    $\vec x(s)$ are an orthonormal basis for $\E^3$ for each $s$. This is called the
+    \emph{Frenet-Serret frame} of $\vec x(t)$.
+\end{proposition}
+
+\begin{definition}
+    The \emph{torsion} of a biregular unit-speed curve $\vec x(t)$ is defined by
+    \begin{align*}
+        \tau = - \vec B' \cdot \vec N.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Let $\vec x$ be a unit-speed biregular curve in $\E^3$. The Frenet-Serret
+    frame $\vec T(s), \vec N(s), \vec B(s)$ along $\vec x(s)$ satisfies
+    \begin{align*}
+        \begin{pmatrix}
+            \vec T\\
+            \vec N\\
+            \vec B
+        \end{pmatrix}'
+        = \begin{pmatrix}
+            0       & \kappa & 0 \\
+            -\kappa & 0      & \tau \\
+            0       & -\tau  & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            \vec T\\
+            \vec N\\
+            \vec B
+        \end{pmatrix}.
+    \end{align*}
+    This is called the \emph{structure equation for a unit-speed space curve},
+    or sometimes the "Frenet-Serret equation".
+\end{theorem}
+
+\begin{theorem}
+    For a general parametrisation $\vec x(t)$ of a biregular space curve the structure
+    equation becomes 
+    \begin{align*}
+        \begin{pmatrix}
+            \vec T\\
+            \vec N\\
+            \vec B
+        \end{pmatrix}'
+        = v\begin{pmatrix}
+            0       & \kappa & 0 \\
+            -\kappa & 0      & \tau \\
+            0       & -\tau  & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+            \vec T\\
+            \vec N\\
+            \vec B
+        \end{pmatrix}.
+    \end{align*}
+    where $v$ is the speed of the curve.
+\end{theorem}
+
+\begin{theorem}
+    A biregular curve $\vec x(t)$ is a plane curve if and only if $\tau=0$ everywhere.
+\end{theorem}
+
+\begin{theorem}
+    The curvature and torsion of a biregular space curve in any parametrisation can be
+    computed by
+    \begin{align*}
+        v^3\kappa = \abs{\vec x' \times \vec x''},\hs
+        v^6\kappa^2\tau = (\vec x' \times \vec x'') \cdot \vec x'''.
+    \end{align*}
+\end{theorem}
+
+\subsection{The equivalence problem}
+
+\begin{definition}
+    An \emph{isometry} of $\E^3$ is a map $\E^3\to\E^3$ given by
+    \begin{align*}
+        \vec x \mapsto A\vec x + \vec b
+    \end{align*}
+    where $A$ is an orthogonal matrix and $\vec b$ is a fixed vector. If $\det A = 1$,
+    so that $A$ is a rotation matrix, then the isometry is said to be an \emph{Euclidean motion}
+    or a \emph{rigid motion}. If $\det A = -1$ the isometry is orientation-reversing.
+\end{definition}
+
+\begin{proposition}
+    The curvature and torsion of a biregular curve are unchanged by a Euclidean motion.
+    In other words, taking a unit speed parametrisation, if
+    \begin{align*}
+        \vec{\hat x}(s) = A\vec x(s) + \vec b,
+    \end{align*}
+    where $A$ is a fixed rotation matrix and $\vec b$ is a fixed vector, then
+    \begin{align*}
+        \hat\kappa(s) = \kappa(s), \hs \hat\tau(s)=\tau(s).
+    \end{align*}
+    If instead $\det A=-1$ then
+    \begin{align*}
+        \hat\kappa(s)=\kappa(s), \hs \hat\tau(s) = -\tau(s).
+    \end{align*}
+\end{proposition}
+
+\begin{theorem}[The fundamental theorem of curves]
+    If two biregular space curves have the same curvature and torsion then they differ at most
+    by a Euclidean motion.
+\end{theorem}
+
+\begin{corollary}
+    Every biregular curve with $\kappa,\tau$ both constant is a helix, unless $\tau=0$ in
+    which case it is a circle.
+\end{corollary}
 
 \end{document}
