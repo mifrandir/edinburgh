@@ -67,21 +67,22 @@
    \begin{align*}
       \sum_{j=0}^\infty a^j = \frac{1}{1-a}
    \end{align*}
-   and the sequence of partial sums $(s_n)$ with
+   and the convergent sequence of partial sums $(s_n)$ with
    \begin{align*}
       s_n = \sum_{j=0}^n a^j.
    \end{align*}
    Let $\e>0$. Then choose $N\in\R$ such that for all $n>N$,
-   \begin{align*}
+   \begin{align}
+      \label{prop2}
       \abs{s_n-\frac{1}{1-a}} < \e.
-   \end{align*}
+   \end{align}
    Consider any integers $n,k>N+1$ and assume without loss of generality that $n>k$.
    Observe that we can use the \emph{Triangle Inequality} to find
    \begin{align*}
       \abs{x_n - x_k} = \abs{x_n - x_{n-1} + x_{n-1} - x_{n-2} \cdots + x_{k+1} - x_k}
       \leq \abs{x_n-x_{n-1}} + \abs{x_{n-1} - x_{n-2}} + \cdots + \abs{x_{k+1} - x_k}.
    \end{align*}
-   We can use (\ref{prop1}) to write
+   We can then use (\ref{prop1}) to write
    \begin{align*}
       \abs{x_n - x_k} \leq a^{n-1} + a^{n-2} + \cdots + a^k < \sum_{j=k}^\infty a^j.
    \end{align*}
@@ -89,7 +90,7 @@
    \begin{align*}
       \sum_{j=k}^\infty a^j = \frac{1}{1-a}-s_{k-1}=\abs{s_{k-1}-\frac{1}{1-a}}.
    \end{align*}
-   Since $k-1>N$, it follows that
+   Since $k-1>N$, it follows from (\ref{prop2}) that
    \begin{align*}
       \abs{x_n - x_k} < \e
    \end{align*}
@@ -104,80 +105,20 @@
    $E\cap(a-r, a+r)$ contains infinitely many points.
 \end{claim}
 \begin{proof}
-   Note that $E$ is bounded, so both $\inf E$ and $\sup E$ exist as real numbers.
-   Consider the sets
+   Let $M\in\R$ such that $\abs x \leq M$ for all $x\in E$.
+   Consider a function $f:\N\to E$ where for all $n\in\N$,
    \begin{align*}
-      E' &= \left\lbrace x \in E : x \leq \frac{\inf E + \sup E}{2}\right\rbrace,\\
-      E'' &= \left\lbrace x \in E : x > \frac{\inf E + \sup E}{2}\right\rbrace.
+      f(n) \in E \setminus \{f(k) : k < n\}.
    \end{align*}
-   Note that $E=E'\cup E''$. Since $E$ is infinite, one of $E'$ and $E''$ must be as well.
-   We can thus define either $E_2 = E'$ or $E_2=E''$ such that $E_2$ is a bounded infinite
-   subset of $\R$.
-   In general, define $E_1 := E_n$,
+   We define a sequence $(x_n)$ such that for all $n\in\N$,
    \begin{align*}
-      E'_n &:= \left\lbrace x \in E_n : x \leq \frac{\inf E_n + \sup E_n}{2}\right\rbrace,\\
-      E''_n &:= \left\lbrace x \in E_n : x > \frac{\inf E_n + \sup E_n}{2}\right\rbrace,
+      x_n = f(n).
    \end{align*}
-   and either $E_n:=E'_{n-1}$ or $E_n:=E''_{n-1}$ such that all $E_n$ are bounded and infinite.
-   Observe that
-   \begin{align*}
-      E_1 \supseteq E_2 \supseteq E_3 \supseteq \cdots
-   \end{align*}
-   Consider now the sequence of nonempty closed bounded intervals $(I_n)$ where
-   \begin{align*}
-      I_n = [\inf E_n, \sup E_n].
-   \end{align*}
-   Note that for all $n\geq 2$,
-   \begin{align}
-      \label{eq1}
-      \inf E_n \leq \begin{cases}
-         \inf E_{n-1} &\text{if }E_n = E'_{n-1},\\
-         \frac{\inf E_{n-1} + \sup E_{n-1}}{2} &\text{if }E_n = E''_{n-1}.\\
-      \end{cases}
-   \end{align}
-   Similarly,
-   \begin{align}
-      \label{eq2}
-      \sup E_n \leq \begin{cases}
-         \frac{\inf E_{n-1} + \sup E_{n-1}}{2} &\text{if }E_n = E'_{n-1},\\
-         \sup E_{n-1} &\text{if }E_n = E''_{n-1}.\\
-      \end{cases}
-   \end{align}
-   Let $\lambda(I_n)$ be the length of the interval $I_n$. 
-   Then by (\ref{eq1}) and (\ref{eq2})
-   \begin{align*}
-      \lambda(I_n) \leq \frac{\lambda (I_{n-1})}{2}
-   \end{align*}
-   for all $n\geq 2$.
-   By definition,
-   \begin{align*}
-      \lambda(I_1) = \sup E - \inf E.
-   \end{align*}
-   Thus 
-   \begin{align*}
-      0 \leq \lambda(I_n) \leq \frac{\sup E - \inf E}{2^{n-1}}.
-   \end{align*}
-   It follows from the \emph{Sqeeze Theorem} that $\lambda(I_n)\to 0$ as $n\to\infty$.
-   Further,
-   \begin{align*}
-      I_1 \supset I_2 \supset I_3 \supset \cdots 
-   \end{align*}
-   By the \emph{Nested Interval Property} that the intersection
-   \begin{align*}
-      \bigcap_{n\in\N} I_n
-   \end{align*}
-   contains exactly one element $a\in\R$. Let $r>0$. Then choose $n\in\N$ large enough
-   such that
-   \begin{align*}
-      \lambda(I_n)\leq \frac{\sup E - \inf E}{2^{n-1}} < r.
-   \end{align*}
-   Note that
-   \begin{align*}
-      a \in I_n = [\inf E_n, \sup E_n].
-   \end{align*}
-   Since $E_n\subseteq I_n$, we know that for all $x\in E_n$, $\abs{x-a}<r$.
-   Because $E_n\subseteq E$ is also infinite, this shows that there are infinitely many elements in
-   the set $E\cap(a-r, a+r)$.
+   Note that all elements of the sequence are unique due to the construction of $f$.
+   Since $\abs{x_n}\leq M$ for all $n$, by the \emph{Bolzano Weierstrass Theorem} there exists a subsequence $(x_{k_n})$
+   that converges to a point $a\in\R$. Let $r > 0$. Find $N\in\N$ such that for all $n>N$, $\abs{x_{k_n}-a}<r$. Equivalently,
+   for all such $n$, $x_{k_n}\in(a-r, a+r)$. Since there are infinitely many such $x_{k_n}\in E$ all of which are unique,
+   the claim follows. 
 \end{proof}
 
 \end{document}
