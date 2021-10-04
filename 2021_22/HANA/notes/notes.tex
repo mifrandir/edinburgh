@@ -78,7 +78,7 @@
     If $(x_n)$ is a convergent sequence of real numbers, then $(x_n)$ is a Cauchy sequence.
 \end{theorem}
 
-\begin{theorem}[Cauchy's Theorem; Notes 1.4]
+\begin{theorem}[Cauchy]
     Let $(x_n)$ be a sequence of real numbers. Then $(x_n)$ is a Cauchy sequence if and only
     if $(x_n)$ is a convergent sequence. 
 \end{theorem}
@@ -91,7 +91,7 @@
     \end{align*}
 \end{definition}
 
-\begin{theorem}[Bolzano-Weierstrass; Notes 1.5]
+\begin{theorem}[Bolzano-Weierstrass]
     Every bounded sequence of real numbers has a convergent subsequence. 
 \end{theorem}
 
@@ -153,6 +153,129 @@
         \item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $-\infty$.
         \item The partial sums of the series $\sum_{k=1}^\infty a_{z(k)}$ oscillate between any two real numbers.
     \end{enumerate} 
+\end{theorem}
+
+\subsection{Continuity of real functions}
+
+\begin{definition}[Notes 1.7]
+    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. We say that $f$ is
+    continuous at some $a\in\dom(f)$ if for any sequence $(x_n)$ whose terms lie in
+    $\dom(f)$ and which converges to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If 
+    $f$ is continuous at each $a\in\S\subset\dom(f)$ then we say $f$ is continuos on $S$.
+    If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
+\end{definition}
+
+\begin{theorem}[Notes 1.10]
+    Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the following functions
+    are continuous on $D$. 
+    \begin{enumerate}
+        \item $\alpha f$;
+        \item $f+g$;
+        \item $fg$.
+    \end{enumerate} 
+\end{theorem}
+
+\begin{definition}[Notes 1.8]
+    Let $A,B\subseteq\R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and $f(A)\subseteq B$. The
+    composition of $g$ with $f$ is the function $g\circ f:A\to\R$ defined by
+    \begin{align*}
+        (g\circ f)(x) = g(f(x)),\hs \text{for all }x\in A.
+    \end{align*} 
+\end{definition}
+
+\begin{theorem}[Notes 1.11]
+    If $f$ is continuous at $a\in\R$ and $g$ is continuous at $f(a)$ then the composition 
+    $g\circ f$ is continuous at $a$.
+\end{theorem}
+
+\begin{theorem}[Notes 1.12]
+    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. Then $f$ is continuous
+    at $a\in\dom(f)$ if and only if for any $\e>0$ there exists $\delta>0$ such that
+    whenever $x\in\dom(f)$ and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$. 
+\end{theorem}
+
+\begin{theorem}[Intermediate Value]
+    Let $a<b$ be real numbers and $f:[a,b]\to\R$ be a continuous on $[a,b]$.
+    If $f(a)f(b)>0$ then there eixists at least one $c\in(a,b)$ such that $f(c)=0$. 
+\end{theorem}
+
+\begin{theorem}[Extreme Value]
+    Let $a<b$ be real numbers and $f:[a,b]\to\R$ be continuous on $[a,b]$. Then
+    there exists points $c,d\in[a,b]$ such that
+    \begin{align*}
+        f(c) = \inf\{f(x):x\in[a,b]\},\hs f(d)=\sup\{f(x):x\in[a,b]\}.
+    \end{align*} 
+    That is the function $f$ on the interval $[a,b]$ is bounded and attains its minimal
+    and maximal values at some points $c,d\in[a,b]$ respectively.
+\end{theorem}
+
+\section{Uniform convergence}
+
+\subsection{Uniform convergence of sequences of functions}
+
+\begin{definition}[Notes 2.1]
+    Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
+    \emph{converge poinwise} on $E$ if and only if $f(x)=\lim_{n\to\infty}f_n(x)$ exists
+    for each $x\in E$. 
+\end{definition}
+
+\begin{theorem}
+    The pointwise limit does not preserve
+    \begin{itemize}
+        \item continuouity, i.e. all $f_n$ are continuous but $f$ is not,
+        \item differentiability, i.e. all $f_n$ are differentiable but $f$ is not,
+        \item itegrability, i.e. all $f_n$ are integrable but $f$ is not,
+        \item derivatives, i.e. all $f_n$ and $f$ are differentiable, but $(f_n)'\not\to f'$,
+        \item integrals, i.e. all $f_n$ and $f$ are integrable, but $\int_a^b f_n(x)dx\not\to \int_a^b f(x)dx$.
+    \end{itemize}
+\end{theorem}
+
+\begin{definition}
+    Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
+    \emph{converge uniformly} on $E$ to a function $f$ if and only if for every $\e>0$ there
+    is an $N\in\N$ such that
+    \begin{align*}
+        n\geq N\hs\text{implies}\hs \abs{f_n(x)-f(x)}<\e
+    \end{align*}
+    for all $x\in E$.
+\end{definition}
+
+\begin{proposition}
+    The following are equivalent concerning a sequence of functions $f_n:E\to\R$ and $f:E\to\R$:
+    \begin{enumerate}
+        \item $f_n\to f$ uniformly on $E$
+        \item $\sup_{x\in E}\abs{f_n(x)-f(x)}\to 0$ as $n\to\infty$
+        \item there exists a sequence $a_n\to 0$ such that $\abs{f_n(x)-f(x)}\leq a_n$ for all $x\in E$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    A sequence of functions $f_n$ is said to be \emph{uniformly bounded} on a set $E$ if there
+    is an $M>0$ such that $\abs{f_n(x)}\leq M$ for all $x\in E$ and all $n\in\N$.
+\end{definition}
+
+\begin{lemma}
+    Let $f_n:E\to\R$ be a sequence of real bounded functions. If $f_n\to f$ uniformly on $E$
+    then $f$ is bounded and $f_n$ is uniformly bounded on $E$.
+\end{lemma}
+
+\begin{theorem}[Notes 2.2]
+    Suppose that $f_n\to f$ uniformly on a closed interval $[a,b]$. If each $f_n$ is integrable
+    on $[a,b]$, then so is $f$ and
+    \begin{align*}
+        \lim_{n\to\infty} \int_a^b f_n(x)\:dx = \int_a^b\left(\lim_{n\to\infty}f_n(x)\right)\:dx.
+    \end{align*}
+    In fact, $\lim_{n\to\infty} \int_a^x f_n(t)\:dt = \int_a^x f(t)\:dt$ uniformly for $x\in[a,b]$.
+\end{theorem}
+
+\begin{theorem}[Notes 2.3]
+    Let $(a,b)$ be a bounded interval and suppose that $f_n$ is a sequence of functions which converges
+    at some $x_0\in(a,b)$. If each $f_n$ is differentiable on $(a,b)$, and $f'_n$ converges uniformly
+    on $(a,b)$ as $n\to\infty$, then $f_n$ converges uniformly on $(a,b)$ and
+    \begin{align*}
+        \lim_{n\to\infty}f'_n(x)= \left(\lim_{n\to\infty}f_n(x)\right)'
+    \end{align*}
+    for each $x\in(a,b)$.
 \end{theorem}
 
 \end{document}
