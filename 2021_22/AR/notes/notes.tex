@@ -26,7 +26,7 @@
 \end{theorem}
 
 \section{Logic}
-\subsection{Propositional Logic}
+\subsection{Propositional logic}
 
 \begin{definition}
     A syntactically correct formula is called a \emph{well-formed formula}.
@@ -69,4 +69,55 @@
         P_1, P_2, ..., P_n \vDash Q.
     \end{align*}
 \end{definition}
+
+\subsection{Natural deduction}
+
+
+\begin{definition}
+    \emph{Natural deduction} uses the following rules:
+    \begin{align*}
+        \begin{array}{c c c}
+            \infer[(\text{conjI})]{P\wedge Q}{P\hs Q} &
+            \infer[(\text{conjunct1})]{P}{P\wedge Q} &
+            \infer[(\text{conjunct2})]{Q}{P\wedge Q} \\
+            \infer[(\text{disjI1})]{P\vee Q}{P} &
+            \infer[(\text{disjI2})]{P\vee Q}{Q} &
+            \infer[(\text{disjE})]{R}{P\vee Q \hs \begin{array}[b]{c}
+                [P]\\ \vdots \\ R
+            \end{array}
+            \hs \begin{array}[b]{c}
+                [Q]\\ \vdots \\ R
+            \end{array}}\\
+            \infer[(\text{impI})]{P\to Q}{\begin{array}[b]{c}
+                [P]\\\vdots\\Q 
+            \end{array}} &
+            \infer[(\text{impE})]{R}{P\to Q\hs P \hs \begin{array}[b]{c}
+                [Q]\\\vdots\\R
+            \end{array}}&
+            \infer[(\text{mp})]{Q}{P\to Q\hs P}\\
+            \infer[(\text{iffI})]{P\leftrightarrow Q}{\begin{array}[b]{c}
+                [Q]\\\vdots\\P
+            \end{array}\hs\begin{array}[b]{c}
+                [P]\\\vdots\\Q
+            \end{array}} &
+            \infer[(\text{iffD1})]{Q}{P\leftrightarrow Q\hs P}&
+            \infer[(\text{iffD2})]{P}{P\leftrightarrow Q\hs Q}\\
+            \infer[(\text{notI})]{\neg P}{\begin{array}[b]{c}
+                P \\ \vdots \\ \bot
+            \end{array}} &
+            \infer[(\text{notE})]{\bot}{P\hs\neg P} & \\
+            \infer[(\text{excluded\_middle})]{\neg P \vee P}{} &
+            \infer[\text{(ccontr)}]{P}{\begin{array}[b]{c}
+                [\neg P] \\ \vdots \\ \bot
+            \end{array}}
+        \end{array}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Soundness]
+    If $Q$ is provable from assumptions $P_1,...,P_2$ then $P_1,...,P_n\vDash Q$. 
+\end{theorem}
+\begin{theorem}[Completeness]
+    If $P_1,...,P_n\vDash Q$ then $Q$ is provable from assumptions $P_1,...,P_2$. 
+\end{theorem}
 \end{document}
