@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Honours Analysis: Homework 1}
+\author{Franz Miltz (UNN: S1971811)}
+\date{14 October 2021}
+\maketitle
+
+\section{Workshop 3 - Question 1}
+
+\begin{claim}
+   There exists a series $\sum_{n=1}^\infty a_n$ that diverges even though the 
+   series $(a_n)$ converges.
+\end{claim}
+\begin{proof}
+   Let $a_n=1/n$. Then $a_n\to 0$ as $n\to\infty$ but the harmonic series 
+   $\sum_{n=1}^\infty a_n$ is known to diverge.
+\end{proof}
+
+\begin{claim}
+   There exists a series $\sum_{n=1}^\infty a_n$ that diverges even though
+   $a_n\to 0$ as $n\to\infty$.
+\end{claim}
+\begin{proof}
+   Let $a_n=1/n$. Then $a_n\to 0$ as $n\to\infty$ but the harmonic series 
+   $\sum_{n=1}^\infty a_n$ is known to diverge.
+\end{proof}
+
+\begin{claim}
+   There exists a series $\sum_{n=1}^\infty a_n$ that converges even though
+   the series $\sum_{n=1}^\infty \abs{a_n}$ diverges.
+\end{claim}
+\begin{proof}
+   Let $a_n=(-1)^{n+1}/n$. 
+\end{proof}
+
+\section{Workshop 3 - Question 5}
+
+\begin{claim}
+   Suppose that a series $\sum_{n=1}^\infty a_n$ converges conditionally. Prove
+   that $\sum_{n=1}^\infty n^pa_n$ diverges for all $p> 1$.
+\end{claim}
+\begin{proof}
+   By contradiction. Assume that $\sum_{n=1}^\infty n^pa_n$ converges. Then the sequence $(n^pa_n)$
+   must converge to zero and therefore it must be bounded. Choose $M\in\R$ such 
+   that
+   \begin{align*}
+      \abs{n^pa_n}\leq M.
+   \end{align*}
+   Observe that $n^p > 0$ for all $n\in\N$. Therefore, the above implies 
+   \begin{align*}
+      n^p\abs{a_n} \leq M
+   \end{align*}
+   and thereby
+   \begin{align}
+      \label{ineq1}
+      \abs{a_n} \leq \frac{M}{n^p} .
+   \end{align}
+   Note that the infinite sum
+   \begin{align*}
+      \sum_{n=1}^\infty \frac{M}{n^p} = M\sum_{n=1}^\infty \frac{1}{n^p}
+   \end{align*}
+   is a constant multiple of a $p$-series with $p>1$. Therefore it converges.
+   Now note that, due to (\ref{ineq1}), we can apply the \emph{Comparison Test}
+   to find that the series $\sum_{n=1}^\infty a_n$ converges absolutely.
+   This contradicts the premise and therefore our assumption must be false.
+\end{proof}
+
+
+\end{document}
