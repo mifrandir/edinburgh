@@ -25,8 +25,7 @@
     \end{itemize}
 \end{theorem}
 
-\section{Logic}
-\subsection{Propositional logic}
+\section{Propositional Logic}
 
 \begin{definition}
     A syntactically correct formula is called a \emph{well-formed formula}.
@@ -120,4 +119,260 @@
 \begin{theorem}[Completeness]
     If $P_1,...,P_n\vDash Q$ then $Q$ is provable from assumptions $P_1,...,P_2$. 
 \end{theorem}
+
+\subsection{Propositional Reasoning in Isabelle}
+
+\newcommand{\db}[1]{[\![#1]\!]}
+
+\begin{definition}
+    Applying \texttt{rule someRule} where
+    \begin{align*}
+        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+    \end{align*}
+    to the goal
+    \begin{align*}
+        \db{A_1; ...; A_n} \Rightarrow C
+    \end{align*}
+    where $Q$ and $C$ can be \emph{unified}, we generate the goals
+    \begin{align*}
+        \db{A'_1; ...; A'_n} &\Rightarrow P'_1\\
+        &\vdots \\
+        \db{A'_1; ...; A'_n} &\Rightarrow P'_m
+    \end{align*}
+    where \begin{align*}
+        A'_1, ..., A'_n,P'_1,...,P'_m
+    \end{align*}
+    are the results of applying the
+    substitution which unfies $Q$ and $C$ to
+    \begin{align*}
+        A_1,...,A_n,P_1,...,P_m.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Applying \texttt{erule someRule} where
+    \begin{align*}
+        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+    \end{align*}
+    to the goal
+    \begin{align*}
+        \db{A_1; ...; A_n} \Rightarrow C
+    \end{align*}
+    where $Q$ and $C$ are unifiable and $P_1$ and $A_1$ are unifiable, we generate the goals
+    \begin{align*}
+        \db{A'_2; ...; A'_n} &\Rightarrow P'_2\\
+        &\vdots \\
+        \db{A'_2; ...; A'_n} &\Rightarrow P'_m
+    \end{align*}
+    where \begin{align*}
+        A'_2, ..., A'_n,P'_2,...,P'_m
+    \end{align*}
+    are the results of applying the
+    substitution which unfies $Q$ to $C$ and $P_1$ to $A_1$ to
+    \begin{align*}
+        A_2,...,A_n,P_2,...,P_m.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Applying \texttt{drule someRule} where
+    \begin{align*}
+        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+    \end{align*}
+    to the goal
+    \begin{align*}
+        \db{A_1; ...; A_n} \Rightarrow C
+    \end{align*}
+    where $P_1$ and $A_1$ can be \emph{unified}, we generate the goals
+    \begin{align*}
+        \db{A'_2; ...; A'_n} &\Rightarrow P'_2\\
+        &\vdots \\
+        \db{A'_2; ...; A'_n} &\Rightarrow P'_m\\
+        \db{Q',A'_2; ...; A'_n} &\Rightarrow C'
+    \end{align*}
+    where \begin{align*}
+        A'_2, ..., A'_n,P'_2,...,P'_m,Q',C'
+    \end{align*}
+    are the results of applying the
+    substitution which unfies $P_1$ and $A_1$ to
+    \begin{align*}
+        A_2,...,A_n,P_2,...,P_m,Q,C.
+    \end{align*}
+\end{definition}
+\begin{definition}
+    Applying \texttt{frule someRule} where
+    \begin{align*}
+        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+    \end{align*}
+    to the goal
+    \begin{align*}
+        \db{A_1; ...; A_n} \Rightarrow C
+    \end{align*}
+    where $P_1$ and $A_1$ can be \emph{unified}, we generate the goals
+    \begin{align*}
+        \db{A'_1; ...; A'_n} &\Rightarrow P'_1\\
+        &\vdots \\
+        \db{A'_1; ...; A'_n} &\Rightarrow P'_m\\
+        \db{Q',A'_1; ...; A'_n} &\Rightarrow C'
+    \end{align*}
+    where \begin{align*}
+        A'_1, ..., A'_n,P'_1,...,P'_m,Q',C'
+    \end{align*}
+    are the results of applying the
+    substitution which unfies $P_1$ and $A_1$ to
+    \begin{align*}
+        A_1,...,A_n,P_1,...,P_m,Q,C.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Applying \texttt{cut\_tac lemmaName} adds the conclusion of \texttt{lemmaName} as a
+    new assumption, and its assumptions as new subgoals.
+\end{definition}
+
+\begin{definition}
+    Applying \texttt{subgoal\_tac $P$} adds $P$ as a new assumption, and introduces $P$
+    as a new subgoal.
+\end{definition}
+
+\begin{theorem}
+    Propositional logic in Isabelle is sound.
+\end{theorem}
+\begin{proof}
+    By the following properties.
+    \begin{enumerate}
+        \item Every proof is broken down into primitive rules applications which are checked
+            by a small piece of hand-verified code. These rules are sound.
+        \item New concepts are introduced by definition rather than axiomatisation. New 
+            definitions cannot introduce unsoundness.
+    \end{enumerate}
+\end{proof}
+
+\section{First-Order Logic}
+
+\subsection{Syntax}
+
+\begin{definition}
+    Let 
+    \begin{itemize}
+        \item $\mathcal{V}$ an at most countable set of variables, and
+        \item $\mathcal{F}$ an at most countable set of function letters each assigned a unique arity
+    \end{itemize} 
+    then the set of \emph{well-formed terms} is the smallest set such that
+    \begin{itemize}
+        \item any variable $v\in \mathcal{V}$ is a term, and
+        \item if $f\in \mathcal{F}$ has arity $n$, and $t_1,...,t_n$ are terms, so is $f(t_1, ..., t_n)$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Let $P$ an at most countable set of predicats, each assigned a unique arity,
+    then the set of \emph{well-formed formulas} is the smallest set such that
+    \begin{itemize}
+        \item if $A\in \mathcal{P}$ has arity $n$, and $t_1,...,t_n$ are terms, then $A(t_1, ..., t_n)$ is a wff,
+        \item if $P$ and $Q$ are wffs, so are $\neg P,P\vee Q,P\wedge Q,P\leftarrow Q,P\leftrightarrow Q$,
+        \item if $P$ is a wff, so are $\exists x. P$ and $\forall x. P$ for any $x\in \mathcal{V}$, and
+        \item if $P$ is a wff, then $(P)$ is a wff.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    A variable occurence of $x$ is \emph{in the scope of} a quantifier 
+    occurence $\forall x$ or $\exists x$ if the quantifier occurence is
+    the first occurence of the quantifier over $x$ in a traversal from the 
+    variable occurence position to the root of the formula tree.
+
+    An occurence of a variable $x$ in a formula $P$ is \emph{bound} if it
+    is in the scope of a $\forall x$ or $\exists x$ quantifier.
+\end{definition}
+
+\begin{definition}
+    If $P$ is a formula, $s$ is a term and $x$ is a variable, then 
+    \begin{align*}
+        P[s/x]
+    \end{align*}
+    is the formula obtained by \emph{substituting $s$ for all free occurences of $x$}
+    throughout $P$.
+\end{definition}
+
+\subsection{Semantics}
+
+\begin{definition}[Assignment]
+    Given an interpretation $\mathcal{I}$, an \emph{assignment $s$} assigns a value
+    from the domain $\mathcal{D}$ to each variable $\mathcal{V}$ i.e. $s:\mathcal{V}\to\mathcal{D}$.
+
+    We extend this assignment $s$ to all terms inducively by saying that
+    \begin{enumerate}
+        \item if $\mathcal{I}$ maps the $n$-ary function letter $f$ to the function $f^\mathcal{I}$, and
+        \item if terms $t_1, ..., t_n$ have been assigned concrete values $a_1,...,a_n\in D$
+    \end{enumerate}
+    then we can assign value $f^\mathcal{I}(a_1,...,a_n)\in\mathcal{D}$ to the term
+    $f(t_1,...,t_n)$.
+\end{definition}
+
+\begin{definition}[Satisfaction]
+    Given an interpretation $\mathcal{I}$ and an assignment $s:\mathcal{V}\to\mathcal{D}$
+    \begin{enumerate}
+        \item any wff which is a nullary predicate letter $A$ is satisfied iff the
+            interpretation of $A$ in $\mathcal{I}$ is $T$,
+        \item suppose we have a wff $P$ of the form $A(t_1,..., t_n)$, where $A$ is
+            interpreted as relation $A^\mathcal{I}$ and $t_1,...,t_n$ have been assigned
+            concrete values $a_1,...,a_n$ by $s$. Then $P$ is satisfied iff \begin{align*}
+                (a_1,...,a_n)\in A^\mathcal{I},
+            \end{align*}
+        \item any wff of the form $\forall x.P$ is satisfied iff $P$ is satisfied with
+            with respect to the assignment $s[x\mapsto a]$ for all $a\in D$,
+        \item any wff of the form $\exists x.P$ is satisfied iff $P$ is satisfied with
+            with respect to the assignment $s[x\mapsto a]$ for some $a\in D$,
+        \item any wffs of the form $P\vee Q$, $P\wedge Q$, $P\leftarrow Q$, $P\leftrightarrow Q$,
+            $\neg P$ are satisfied according to the truth-tables for each connective.
+    \end{enumerate} 
+\end{definition}
+
+\begin{definition}[Entailment]
+    We write $I\vDash_s P$ to mean that wff $P$ is satisfied by interpretation $I$ and
+    assignment $s$.  We say that the wffs $P_1,...,P_n$ \emph{entail} wff $Q$ and write
+    \begin{align*}
+        P_1,...,P_n\vDash Q
+    \end{align*}
+    if, for any interpretation $I$ and assignment $s$ for which $I\vDash_s P^i$ for all $i$,
+    we also have $I\vDash_s Q$.
+\end{definition}
+
+\subsection{Deduction}
+
+\begin{definition}
+    The introduction rules for quantifiers are:
+    \begin{itemize}
+        \item Universal quantification, provided that $x_0$ is not free in the assumptions, \begin{align*}
+            \infer[(\text{allI})]{\forall x. P}{P[x_0/x]}
+        \end{align*}
+        \item Existential qunatification \begin{align*}
+            \infer[(\text{exI})]{\exists x.P}{P[t/x]}
+        \end{align*}
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    The elimination rules for quantifiers are:
+    \begin{itemize}
+        \item Existential elimination: \begin{align*}
+            \infer[(\text{exE})]{Q}{\exists x.P\hs \begin{array}[b]{c}
+                [P[x_0/x]]\\
+                \vdots \\
+                Q
+            \end{array}}
+        \end{align*}
+        \item Specialisation: \begin{align*}
+            \infer[(\text{spec})]{P[t/x]}{\forall x.P}
+        \end{align*}
+        \item Universal elimination: \begin{align*}
+            \infer[(\text{allE})]{Q}{\forall x.P\hs \begin{array}[b]{c}
+                [P[t/x]]\\
+                \vdots \\
+                Q
+            \end{array}}
+        \end{align*}
+    \end{itemize}
+\end{definition}
 \end{document}
