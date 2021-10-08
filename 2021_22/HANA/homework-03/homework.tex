@@ -32,7 +32,12 @@
    the series $\sum_{n=1}^\infty \abs{a_n}$ diverges.
 \end{claim}
 \begin{proof}
-   Let $a_n=(-1)^{n+1}/n$. 
+   Let $a_n=(-1)^n/n$. By the \emph{Alternating Series Test}, the series $\sum_{n=1}^\infty a_n$
+   converges. However, 
+   \begin{align}
+      \sum_{n=1}^\infty \abs{a_n} = \sum_{n=1}^\infty \frac{1}{n}
+   \end{align}
+   which is the harmonic series we know to diverge.
 \end{proof}
 
 \section{Workshop 3 - Question 5}
@@ -67,5 +72,47 @@
    This contradicts the premise and therefore our assumption must be false.
 \end{proof}
 
+\section{Workshop 3 - Question 6}
+
+\begin{claim}
+   Let $f(x)=x^2$ when $x$ is rational and $f(x)=0$ when $x$ is irrational.
+   Then $f$ is continuous and differentiable only at $x=0$.
+\end{claim}
+\begin{proof}
+   Consider a sequence $(x_n)$ such that $x_n\to 0$ as $n\to \infty$. Let $\e>0$.
+   Pick $N$ such that $\abs{x_n}<\sqrt{\e}$ for all $n>N$. Then, for all $n>N$ we have
+   \begin{align*}
+      \abs{f(x_n) - f(0)} = \begin{cases}
+         \abs{x_n^2} &\text{if $x_n$ is rational},\\
+         0           &\text{if $x_n$ is irrational}.
+      \end{cases}
+   \end{align*}
+   Note that either way, $\abs{f(x_n)-f(0)}<\e$ and thus $f(x_n)\to 0$ as $n\to\infty$.
+   This shows that $f$ is continuous at $0$. Now consider
+   \begin{align*}
+      \lim_{h\to 0} \frac{f(h) - f(0)}{h} = \lim_{h\to 0} \frac{f(h)}{h}. 
+   \end{align*}
+   Let $\e>0$. Let $\delta = \sqrt{h}$. Then for all $0 < \abs{h} < \delta$, 
+   \begin{align}
+      \abs{\frac{f(h)}{h}} = \begin{cases}
+         h^2/h = h, &\text{if $h$ is rational},\\
+         0        , &\text{if $h$ is irrational}. 
+      \end{cases}
+   \end{align}
+   In both cases, $\abs{f(h)/h}<\e$. Thus $f$ is differentiable at $0$ and $f'(0)=0$.
+
+   Consider a sequence of rational numbers $(x_n)$ such that $x_n\to L$ where $L\not=0$.
+   Then clearly 
+   \begin{align}
+      \lim_{n\to\infty} f(x_n) = L^2.
+   \end{align}
+   However, for a sequence of irrational numbers $(y_n)$ where $y_n\to L$,
+   \begin{align}
+      \lim_{n\to\infty} f(y_n) = 0.
+   \end{align}
+   Since these limits disagree for all $L\not=0$, $f$ is only continuous at $0$.
+   Note that such sequences exist due to the completeness of the rationals and
+   irrationals.
+\end{proof}
 
 \end{document}
