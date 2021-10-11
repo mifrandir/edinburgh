@@ -278,4 +278,47 @@
     for each $x\in(a,b)$.
 \end{theorem}
 
+\subsection{Uniform convergence of series of functions}
+
+\begin{definition}
+    Let $f_k$ be a sequence of real functions defined on some set $E$ and set 
+    \begin{align}
+        s_n(x) = \sum_{k=1}^n f_k(x),\hs x\in E,n\in\N.
+    \end{align}
+    \begin{enumerate}
+        \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge pointwise} on $E$ iff
+            the sequence $s_n(x)$ converges pointwise on $E$ as $n\to\infty$.
+        \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge uniformly} on $E$ iff
+            the sequence $s_n(x)$ converges uniformly on $E$ as $n\to\infty$.
+        \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge absolutely (pointwise)} on $E$ iff
+            $\sum_{k=1}^\infty \abs{f_k(x)}$ converges for each $x\in E$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}
+    Let $E$ be a nonempty subset of $\R$ and let $(f_k)$ be a sequence of real functions defined on $E$.
+    \begin{enumerate}
+        \item Suppose that $x_0\in E$and that each $f_k$ is continuous at $x_0\in E$. 
+            If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is continuos at $x_0\in E$.
+        \item Term-by-term integration: Suppose that $E=[a,b]$ and that each $f_k$ is integrable on $[a,b]$.
+            If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $[a,b]$, then $f$ is integrable on $[a,b]$
+            and \begin{align*}
+                \int_a^b \sum_{k=1}^\infty f_k(x)\:dx = \sum_{k=1}^\infty \int_a^b f_k(x)\:dx.
+            \end{align*}
+        \item Term-by-term differentiation: Suppse that $E$ is a bounded, open interval and that each 
+            $f_k$ is differentiable on $E$. If $\sum_{k=1}^\infty f_k(x_0)$ converges at some $x_0\in E$,
+            and $g=\sum_{k=1}^\infty f'_k$ converges uniformly on $E$, then $f=\sum_{k=1}^\infty f_k$ 
+            converges uniformly on $E$, is differentiable on $E$, and \begin{align*}
+                f'(x) = \left(\sum_{k=1}^\infty f_k(x)\right)' = \sum_{k=1}^\infty f'_k(x)= g(x) 
+            \end{align*}
+            for $x\in E$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Weierstrass M-test]
+    Let $E$ be a nonempty subset of $\R$, let $f_k:E\to\R$, $k\in\N$, and suppose that $M_k\geq 0$
+    satisfies $\sum_{k=1}^\infty M_k<\infty$. If $\abs{f_k(x)}\leq M_k$ for $k\in\N$ and $x\in E$,
+    $f=\sum_{k=1}^\infty f_k$ converges absolutely and uniformly on $E$.
+\end{theorem}
+
 \end{document}
