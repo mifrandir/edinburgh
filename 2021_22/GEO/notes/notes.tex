@@ -581,4 +581,149 @@
     $c^*\alpha$ over the interval $[a,b]$.
 \end{definition}
 
+\section{Differential forms}
+
+\subsection{The exterior algebra of differential forms}
+
+\begin{definition}
+    A 2-form at $p\in D$ is a map $\alpha:T_pD\times T_p D \to \R$ which is linear in each argument
+    and alternating $\alpha(v,w)=-\alpha(w,v)$ for all $v,w\in T_pD$. More generally, a $k$-form at
+    $p\in D$ is a map of $k$ vectors in $T_pD$ to $\R$ which is \emph{multilinear} and \emph{alternating}.
+\end{definition}
+
+\begin{definition}
+    The \emph{wedge product} $\alpha \wedge \beta$ of $1$-forms $\alpha$ and $\beta$ is a $2$-form defined
+    by the following bilinear and alternating map,
+    \begin{align*}
+        (\alpha\wedge\beta)(v,w) = \alpha(v)\beta(w) - \alpha(w)\beta(v) = \begin{vmatrix}
+            \alpha(v) &\alpha(w) \\
+            \beta(v) &\beta(w)
+        \end{vmatrix}.
+    \end{align*}
+    More generally, the wedge product of $k$ $1$-forms $\alpha^1,\alpha^2,...,\alpha^k$ can be defined as a
+    map acting on $k$ vectors $v_1,v_2,...,v_k$
+    \begin{align*}
+        (\alpha^1\wedge\cdots\wedge\alpha^k)(v_1,...,v_k) = \begin{vmatrix}
+            \alpha^1(v_1) &\cdots &\alpha^1(v_k)\\
+            \vdots &\ddots &\vdots \\ 
+            \alpha^k(v_1) &\cdots &\aleph^k(v_k)
+        \end{vmatrix}.
+    \end{align*}
+    The resulting map is linear in each vector separately and changes sign if any pair of vectors is exchanged.
+    Hence it defines a $k$-form.
+\end{definition}
+
+\begin{definition}
+    By a \emph{multi-index $I$ of length $\abs{I}=k$} we shall mean an increasing sequence
+    $I=(i_1,...,i_k)$ of integers $1\leq i_1<i_2<\cdots<i_k\leq n$. We will write
+    \begin{align*}
+        dx^I = dx^{i_1} \wedge \cdots \wedge dx^{i_k}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    A \emph{differential $k$-form} or a \emph{differential form of degree $k$} on $D$ is a
+    smooth map $\alpha$ which assigns to each $p\in D$ a $k$-form at $p$; it can be written as
+    \begin{align*}
+        \alpha=\alpha_Idx^I
+    \end{align*}
+    where $\alpha_I:D\to\R$ are smooth functions, and the sum happens over all multi-indices
+    $I$ with $\abs{I}=k$. Given two differential $k$ forms $\alpha,\beta$ and a function $f$ 
+    the differential $k$-forms $\alpha+\beta$ and $f\alpha$ are 
+    \begin{align*}
+        \alpha + \beta = (\alpha_I + \beta_I)dx^I, \hs f\alpha = f\alpha_I dx^I.
+    \end{align*}
+    The set of $k$-forms on $D$ is denoted $\Omega^k(D)$. By convention, a \emph{zero-form}
+    is a function. If $k>n$ then $\Omega^k(D)=\emptyset$.
+\end{definition}
+
+\begin{definition}
+    We extend $\wedge$ linearly in order to define the \emph{wedge product} of a $k$-form $\alpha$
+    and an $l$-form $\beta$. Explicitly,
+    \begin{align*}
+        (\alpha_Idx^I) \wedge (\beta_Jdx^J) = \alpha_I\beta_Jdx^I\wedge dx^J.
+    \end{align*}
+    Then the wedge product defines a bilinear map 
+    \begin{align*}
+        \wedge : \Omega^k(D) \times \Omega^l(D) \to \Omega^{k+l} (D).
+    \end{align*}
+\end{definition}
+
+\begin{proposition}
+    For all $\alpha\in\Omega^k(D)$ and $\beta\in\Omega^l(D)$,
+    \begin{align*}
+        \alpha\wedge\beta = (-1)^{kl} \beta \wedge \alpha.
+    \end{align*}
+    Note that if $f\in\Omega^0(D)$ is a function, then we define 
+    \begin{align*}
+        f\wedge\beta = f\beta
+    \end{align*}
+    and the formula still applies.
+\end{proposition}
+
+\subsection{The exterior derivative}
+
+\begin{definition}
+    If $\alpha=\alpha_Idx^I\in\Omega^k(D)$, then its \emph{exterior derivative} $d\alpha\in\Omega^{k+1}(D)$
+    is 
+    \begin{align*}
+        d\alpha = d\alpha_I \wedge dx^I
+    \end{align*}
+    where $d\alpha_I$ denotes the exterior derivative of the function $\alpha_I$. Note that 
+    a consequence of this definition is $d(dx^I) = d(1)\wedge dx^I=0$.
+\end{definition}
+
+\begin{theorem}
+    The exterior derivative $d:\Omega^k(D)\to \Omega^{k+1}(D)$ is a linear map satisfying
+    the following properties 
+    \begin{enumerate}
+        \item $d$ obeys the graded derivation property, for any $\alpha\in\Omega^k(D)$ \begin{align*}
+            d(\alpha \wedge \beta) = d\alpha\wedge\beta +(-1)^k\alpha\wedge d\beta.
+        \end{align*}
+        \item $d(d\alpha)=0$ for any $\alpha\in\Omega^k(D)$, or more compactly $d^2=0$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+    A form $\alpha\in\Omega^k(D)$ is said to be \emph{closed} if $d\alpha = 0$ and it is said
+    to be \emph{exact} if $\alpha=d\beta$ for some $\beta\in\Omega^{k-1} (D)$.
+\end{definition}
+
+\begin{lemma}[Poincar\'e]
+    Every closed differential form on $\R^n$ is exact.
+\end{lemma}
+
+\subsection{Integration in $\R^n$}
+
+\begin{definition}
+    The \emph{standard orientation} is defined by
+    \begin{align*}
+        dx^1\wedge dx^2 \wedge \cdots \wedge dx^n.
+    \end{align*}
+    Coordinates $(y^1, ..., y^n)$ are said to be \emph{oriented} on $D$ iff
+    $dy^1\wedge\cdots\wedge dy^n$ is a positive multiple of $dx^1\wedge\cdots\wedge dx^n$
+    for all $x\in D\subseteq \R^n$.
+\end{definition}
+
+\begin{proposition}
+    Let $(x^1,...,x^n)$ be oriented coordinates for $\R^n$. Let $(y^1, ..., y^n)$ be 
+    smooth functions on $\R^n$. Then
+    \begin{align*}
+        dy^1\wedge\cdots\wedge dy^n = \frac{\p(y^1,...,y^n)}{\p(x^1,...,x^n)}dx^1\wedge\cdots\wedge dx^n,
+    \end{align*}
+    where the factor on the RHS is the Jacobian matrix of the coordinate transformation.
+\end{proposition}
+
+\begin{definition}
+    Let $(x^1,...,x^n)$ be oriented coordinates on $D\subseteq \R^n$ and write 
+    \begin{align*}
+        \omega = f(x^1, ..., x^n)dx^1\wedge\cdots\wedge dx^n\in\Omega^n(D).
+    \end{align*}
+    Then the \emph{integral of $\omega$ over $D$} is defined by
+    \begin{align*}
+        \int_D \omega = \int_D f(x^1,...,x^n)dx^1\cdots dx^n,
+    \end{align*}
+    where the RHS is now the usual multi-integral of several variable calculus.
+\end{definition}
+
 \end{document}
