@@ -34,7 +34,7 @@
     set of wffs is the smallest set such that 
     \begin{itemize}
         \item any symbol $A\in\mathcal{L}$ is a wff;
-        \item if $P$ and $Q$ are wffs, so are $\neg P, P\vee Q, P\wedge Q, P\leftarrow Q$, and $P\leftrightarrow Q$;
+        \item if $P$ and $Q$ are wffs, so are $\neg P, P\vee Q, P\wedge Q, P\rightarrow Q$, and $P\leftrightarrow Q$;
         \item if $P$ is a wff, then $(P)$ is a wff.
     \end{itemize}
 \end{definition}
@@ -270,7 +270,7 @@
     then the set of \emph{well-formed formulas} is the smallest set such that
     \begin{itemize}
         \item if $A\in \mathcal{P}$ has arity $n$, and $t_1,...,t_n$ are terms, then $A(t_1, ..., t_n)$ is a wff,
-        \item if $P$ and $Q$ are wffs, so are $\neg P,P\vee Q,P\wedge Q,P\leftarrow Q,P\leftrightarrow Q$,
+        \item if $P$ and $Q$ are wffs, so are $\neg P,P\vee Q,P\wedge Q,P\rightarrow Q,P\leftrightarrow Q$,
         \item if $P$ is a wff, so are $\exists x. P$ and $\forall x. P$ for any $x\in \mathcal{V}$, and
         \item if $P$ is a wff, then $(P)$ is a wff.
     \end{itemize}
@@ -324,7 +324,7 @@
             with respect to the assignment $s[x\mapsto a]$ for all $a\in D$,
         \item any wff of the form $\exists x.P$ is satisfied iff $P$ is satisfied with
             with respect to the assignment $s[x\mapsto a]$ for some $a\in D$,
-        \item any wffs of the form $P\vee Q$, $P\wedge Q$, $P\leftarrow Q$, $P\leftrightarrow Q$,
+        \item any wffs of the form $P\vee Q$, $P\wedge Q$, $P\rightarrow Q$, $P\leftrightarrow Q$,
             $\neg P$ are satisfied according to the truth-tables for each connective.
     \end{enumerate} 
 \end{definition}
@@ -375,4 +375,40 @@
         \end{align*}
     \end{itemize}
 \end{definition}
+
+\section{Higher-Order Logic}
+
+\subsection{Functions}
+
+\begin{definition}
+    A \emph{lambda abstraction} is a term that denotes a function directly by the 
+    rules which define it.
+\end{definition}
+
+\begin{definition}
+    The basic types in Isabelle are \emph{bool}, \emph{ind} and $\alpha\Rightarrow\beta$.
+    The two primitive families of functions are:
+    \begin{align*}
+        &(=_\alpha): \alpha\Rightarrow \alpha \Rightarrow \textit{bool}\\
+        &(\rightarrow): \textit{bool} \Rightarrow\textit{bool}\Rightarrow\textit{bool}
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    The following representations and definitions are used:
+    \begin{itemize}
+        \item Formulas are terms of type \textit{bool}.
+        \item Predicates are functions of type $\alpha\Rightarrow\textit{bool}$.
+        \item Sets are represented as predicates.
+        \item True is defined as $\top \equiv (\lambda x.x)=(\lambda x.x)$.
+        \item Universal quantification as function equality: \begin{align*}
+            \forall x. \phi \equiv (\lambda x. \phi) = (\lambda x. \top).
+        \end{align*}
+        \item Conjunction and disjunction are defined as: \begin{align*}
+            P\wedge Q &\equiv \forall R. (P\rightarrow Q \rightarrow R) \rightarrow R\\
+            P\vee Q &\equiv \forall R. (P\rightarrow R)\rightarrow (Q\rightarrow R) \rightarrow R
+        \end{align*}
+    \end{itemize}
+\end{definition}
+
 \end{document}
