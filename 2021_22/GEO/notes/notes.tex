@@ -726,4 +726,187 @@
     where the RHS is now the usual multi-integral of several variable calculus.
 \end{definition}
 
+\section{Surfaces}
+
+\subsection{Regular surfaces}
+
+\begin{definition}
+    A \emph{local surface} in $\E^3$ is a smooth, injective, map $\vec x: D\to\E^3$
+    with a continuous inverse $\inv{\vec x} : \vec x(D) \to D$. We may denote the image
+    $\vec x (D)$ by $S$.
+\end{definition}
+
+\begin{definition}
+    Given a local surface $\vec x$ we define
+    \begin{align*}
+        \vec x_{u^1} = \frac{\p x^i}{\p u^1}\frac{\p}{\p x^i}, \hs 
+        \vec x_{u^2} = \frac{\p x^i}{\p u^2}\frac{\p}{\p x^i}.
+    \end{align*}
+    For every point $p\in D$, these are vectors in $T_{\vec x()}\E^3$, which we will 
+    identify with $\E^3$ itself. We say that a local surface $\vec x$ is \emph{regular
+    at $p\in D$} if $\vec x_{u^1}(p)$ and $\vec x_{u^2}(p)$ are linearly independent.
+    A local surface is \emph{regular} if it is regular at $p$ for all $p\in D$.
+\end{definition}
+
+\begin{definition}
+    $\Sigma\subset\E^3$ is a \emph{regular surface} if for each $p\in\Sigma$ there
+    exists are regular local surface $\vec x:D\to\E^3$ such that $\vec p\in\vec x(D)$
+    and $\vec x(D)=U\cap\Sigma$ for some open set $U\subset\R^3$.
+\end{definition}
+
+\begin{definition}
+    At a regular point on a local surface, the plan spanned by $\vec x_{u^1}(p)$ 
+    and $\vec x_{u^2}(p)$ is the \emph{tangent plane to the surface at $\vec x(p)$},
+    which we denote by $T_{\vec x(p)}S$. At a regular point, the \emph{unit normal}
+    to the surface is 
+    \begin{align*}
+        \vec N(p)=\frac{\vec x_{u^1}(p)\times\vec x_{u^2}(p)}{\abs{\vec x_{u^1}(p)\times\vec x_{u^2}(p)}}.
+    \end{align*}
+    Clearly, $\vec N(p)$ is orthogonal to the tangent plane $T_{\vec x(p)}S$.
+\end{definition}
+
+\begin{proposition}
+    Given a regular surface the map $\vec N:D\to\E^3$ is a smooth function whose
+    image lies in a unit sphere $S^2\subset\E^3$. The map $\vec N$ is called the
+    local \emph{Gauss map}.
+\end{proposition}
+
+\subsection{Standard surfaces}
+
+\begin{definition}
+    Let $g:D\to\R$ be a smooth function. The \emph{graph of} $g$ is the local surface 
+    defined by 
+    \begin{align*}
+        \vec x(u^1, u^2) = (u^1, u^2, g(u^1, u^2)).
+    \end{align*}
+\end{definition}
+
+\begin{proposition}
+    Graphs are always regular, and the unit normal is given by
+    \begin{align*}
+        \vec N = \frac{1}{\sqrt{1 + \left(\frac{\p g}{\p u^1}\right) + \left(\frac{\p y}{\p u^2}\right)}}\begin{pmatrix}
+            -\frac{\p g}{\p u^1} \\ \frac{-\p g}{\p u^2} \\ 1
+        \end{pmatrix}.
+    \end{align*}
+\end{proposition}
+
+\begin{definition}
+    An \emph{implicitly defined surface $\Sigma$} is the zero set of a function
+    $f:\E^3\to\R$, i.e., $\Sigma=\inv f(0)$.
+\end{definition}
+
+\begin{proposition}
+    An implicitly defined surface $\Sigma = \inv f(0)$, such that $df\not=0$
+    everywhere on $\Sigma$, is a regular surface.
+\end{proposition}
+
+\begin{definition}
+    A \emph{surface of revolution} with profile curve $f(u)>0$ is a local 
+    surface of the form 
+    \begin{align*}
+        \vec x(u, \phi) = (f(u)\cos\phi,f(u)\sin\phi,u).
+    \end{align*}
+    A surface of revolution can be constructed by rotating a curve $x^1=f(x^3)$
+    around the $x^3$-axis in $\R^3$. It thus has cylindrical symmetry.
+\end{definition}
+
+\begin{definition}
+    A \emph{ruled surface} is a surface of the form 
+    \begin{align*}
+        \vec x(u,v)= \vec z(u) + v\vec p(u).
+    \end{align*}
+    Notice that curves of constant $u$ are straight lines in $\E^3$ through 
+    $\vec z(u)$ in the direction $\vec p(u)$.
+\end{definition}
+
+\section{The fundamental forms}
+
+\subsection{Symmetric tensors}
+
+\begin{definition}
+    A symmetric bilinear form on $T_pD$ is a bilinear map $B:T_pD\times T_pD 
+    \to\R$ such that $B(v,w)=B(w,v)$ for all $v,w\in T_pD$. Given two $1$-forms
+    $\alpha$, $\beta$ at $p\in D$ define a symmetric bilinear form $\alpha\beta$
+    on $T_pD$ by 
+    \begin{align*}
+        (\alpha\beta)(v, w) = \frac{1}{2}(\alpha(v)\beta(w) \alpha(w)\beta(v)) 
+    \end{align*}
+    where $v,w\in T_pD$. Note that $\alpha\beta=\beta\alpha$ and we write $\alpha^2$
+    for $\alpha\alpha$.
+\end{definition}
+
+\begin{definition}
+    A symmetric tensor on $D$ is a map which assigns to each $p\in D$ a symmetric
+    bilinear form on $T_pD$; it can be written as
+    \begin{align*}
+        B=B_{ij}dx^idx^j
+    \end{align*}
+    where $B_{ij}$ are smooth functions on $D$.
+\end{definition}
+
+\begin{definition}
+    A (Riemannian) \emph{metric} on $D$ is a symmetric tensor $g=g_{ij}dx^idx^j$ 
+    which is positive definite at each point; $g(\vec v,\vec v)\geq 0$ for all
+    $\vec v \in T_pD$, with equality if and only if $v=0$. Equivalently, it is a 
+    choice for each $p\in D$ of an inner product on $T_pD$.
+\end{definition}
+
+\subsection{The first fundamental form}
+
+\begin{proposition}
+    Consider a regular local surface defined by $\vec x: D\to \E^3$. The linear map
+    $\eval{d\vec x}{p}:T_pD\to T_{\vec x(p)}S$ is a bijection.
+\end{proposition}
+
+\begin{definition}
+    Given a regular local surface $\vec x: D\to\E^3$, the \emph{first fundamental form}
+    is defined by 
+    \begin{align*}
+        I = d\vec x \cdot d\vec x.,
+    \end{align*}
+    where we have introduced the notation $d\vec x\cdot d\vec x=(dx^1)^2+(dx^2)^2+(dx^3)^2$.
+\end{definition}
+
+\begin{proposition}
+    The first fundamental form is a metric on $D$.
+\end{proposition}
+
+\begin{proposition}
+    The first fundamental form of a regular local surface $\vec x:D\to\E^3$ is
+    \begin{align*}
+        I = E(du^1)^2 + 2Fdu^1du^2+ G(du^2)^2
+    \end{align*}
+    where $E,F,G$ are functions on $D$ given by
+    \begin{align*}
+        E=\vec x_{u^1} \cdot \vec x_{u^1},\hs 
+        F=\vec x_{u^1} \cdot \vec x_{u^2},\hs 
+        G=\vec x_{u^2} \cdot \vec x_{u^2}.
+    \end{align*}
+\end{proposition}
+
+\subsection{The second fundamental form}
+
+
+\begin{definition}
+    Given a regular local surface $\vec x: D\to\E^3$, the \emph{second fundamental form}
+    is defined by 
+    \begin{align*}
+        \vec\I = -d\vec x\cdot d\vec N,
+    \end{align*}
+    with the dot product interpreted as above.
+\end{definition}
+
+\begin{proposition}
+    The second fundamental form is given by
+    \begin{align*}
+        \vec\I = l(du^1)^2 + 2mdu^1du^2+n(du^2)^2
+    \end{align*}
+    where $l,m,n$ are functions on $D$ given by
+    \begin{align*}
+        l=-\vec x_{u^1}\cdot\vec N_{u^1}, \hs 
+        m=-\vec x_{u^1}\cdot\vec N_{u^2}, \hs 
+        n=-\vec x_{u^2}\cdot\vec N_{u^2}.
+    \end{align*}
+\end{proposition}
+
 \end{document}
