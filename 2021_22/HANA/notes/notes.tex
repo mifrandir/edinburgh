@@ -280,11 +280,11 @@
 
 \subsection{Uniform convergence of series of functions}
 
-\begin{definition}
+\begin{definition}[Notes 2.3]
     Let $f_k$ be a sequence of real functions defined on some set $E$ and set 
-    \begin{align}
+    \begin{align*}
         s_n(x) = \sum_{k=1}^n f_k(x),\hs x\in E,n\in\N.
-    \end{align}
+    \end{align*}
     \begin{enumerate}
         \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge pointwise} on $E$ iff
             the sequence $s_n(x)$ converges pointwise on $E$ as $n\to\infty$.
@@ -295,7 +295,7 @@
     \end{enumerate}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Notes 2.4]
     Let $E$ be a nonempty subset of $\R$ and let $(f_k)$ be a sequence of real functions defined on $E$.
     \begin{enumerate}
         \item Suppose that $x_0\in E$and that each $f_k$ is continuous at $x_0\in E$. 
@@ -320,5 +320,69 @@
     satisfies $\sum_{k=1}^\infty M_k<\infty$. If $\abs{f_k(x)}\leq M_k$ for $k\in\N$ and $x\in E$,
     $f=\sum_{k=1}^\infty f_k$ converges absolutely and uniformly on $E$.
 \end{theorem}
+
+\section{Power series}
+
+\subsection{Introduction}
+
+\begin{definition}[Notes 3.1]
+    The \emph{radius of convergence $R$} of the power series 
+    \begin{align}
+        \label{ps}
+        \sum_{n=0}^\infty a_n(x-c)^n     
+    \end{align}
+    is defined by 
+    \begin{align*}
+        R = \sup\{r\geq 0:(a_nr^n) \text{ is bounded}\},
+    \end{align*}
+    unless $(a_nr^n)$ is bounded for all $r\geq 0$, in which case we declare $R=\infty$.
+\end{definition}
+
+\begin{theorem}[Notes 3.1]
+    Suppose the radius of convergence $E$ of (\ref{ps}) satisfies $0<R<\infty$. 
+    If $\abs{x-c}<R$, the power series (\ref{ps}) converges absolutely. If 
+    $\abs{x-c}>R$, the power series (\ref{ps}) diverges.
+\end{theorem}
+
+\subsection{Continuity and differentiability of power series}
+
+\begin{theorem}[Notes 3.2]
+    Assume that $R>0$. Suppose that $0<r<R$. Then the series (\ref{ps}) converges
+    uniformly and absolutely on $\abs{x-c}\leq r$ to a continuous function $f$.
+    Hence 
+    \begin{align*}
+        f(x) = \sum_{n=0}^\infty a_n(x-c)^n     
+    \end{align*}
+    defines a continuous function $f:(c-R, c+R)\to\R$.
+\end{theorem}
+
+\begin{lemma}[Notes 3.1]
+    The two poer series $\sum_{n=1}^\infty a_n(x-c)^n$ and $\sum_{n=1}^\infty (x-c)^{n-1}$
+    have the same radius of convergence.
+\end{lemma}
+
+\begin{theorem}[Notes 3.3]
+    Suppose the radius of convergence of the power series (\ref{ps}) is $R$. Then 
+    the function 
+    \begin{align*}
+        f(x) = \sum_{n=0}^\infty a_n(x-c)^n
+    \end{align*}
+    is infinitely differentiable on $\abs{x-c} < R$, and for such $x$,
+    \begin{align*}
+        f'(x) = \sum_{n=0}^\infty na_n(x-c)^{n-1}
+    \end{align*}
+    and the series converges absolutely, and also uniformly on $[c-r, c+r]$ for any 
+    $r<R$. Moreover, 
+    \begin{align*}
+        a_n = \frac{f^{(n)}(c)}{n!}.
+    \end{align*}
+\end{theorem}
+
+\subsection{Analytic functions}
+
+\begin{definition}
+    A function $f$ is \emph{analytic} on $\{x: \abs{x-c}<r\}$ if there is a power
+    series (\ref{ps}) which converges to $f$ on $\{x: \abs{x-c}<r\}$.
+\end{definition}
 
 \end{document}
