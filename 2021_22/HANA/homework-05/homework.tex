@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Honours Analysis: Homework 5}
+\author{Franz Miltz (UNN: S1971811)}
+\date{21 October 2021}
+\maketitle
+
+\section*{Workshop 5 - Question 2}
+
+\begin{claim*}
+   Let 
+   \begin{align*}
+      S(x)=\sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!}
+   \end{align*}
+   for all $x\in\R$. Then $S$ is differentiable on $\R$ and 
+   \begin{align*}
+      S'(x) = \sum_{k=0}^\infty \frac{(-1)^kx^{2k}}{(2k)!}.
+   \end{align*}
+\end{claim*}
+
+\begin{proof}
+   We shall not prove that the interval of convergence is $(-\infty,\infty)$
+   as this is part of another exercise, but it can be shown easily by 
+   applying the \emph{Ratio Test}. Let us now focus on the claim above.
+   
+   Firstly, observe that we can write 
+   \begin{align*}
+      S(x) = \sum_{k=0}^\infty a_k(x-x_0)^k
+   \end{align*}
+   with $x_0 = 0$ and 
+   \begin{align*}
+      a_k = \begin{cases}
+         \frac{(-1)^{(k-1)/2}}{k!} &\text{if $k$ is odd},\\
+         0 &\text{if $k$ is even}.
+      \end{cases}
+   \end{align*}
+   By \emph{Wade, Theorem 7.30}, it follows that $S$ is differentiable on $\R$
+   and 
+   \begin{align*}
+      S'(x) = \sum_{k=1}^\infty ka_k(x-x_0)^{k-1}
+      = \sum_{k=0}^\infty (k+1)a_{k+1}x^k.
+   \end{align*}
+   However, observe that for all odd $k$ we have $a_{k+1}=0$
+   and thus we may write 
+   \begin{align*}
+      S'(x) = \sum_{k=0}^\infty (2k+1)a_{2k+1}x^{2k}
+      = \sum_{k=0}^\infty (2k+1)\frac{(-1)^k x^{2k}}{(2k+1)!}
+      = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+   \end{align*}
+\end{proof}
+
+\subsection*{Workshop 5 - Question 3}
+
+\begin{claim*}
+   Let
+   \begin{align*}
+      S(x)=\sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!},\hs \text{and}\hs
+      C(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+   \end{align*}
+   Then $(C(x))^2 + (S(x))^2 = 1$ for all $x$ and $\abs{S(x)},\abs{C(x)}\leq 1$ 
+   for all $x$.
+\end{claim*}
+
+\begin{proof}
+   
+\end{proof}
+
+\end{document}
