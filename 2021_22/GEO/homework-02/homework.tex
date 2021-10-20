@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Geometry: Hand-in 2}
+\author{Franz Miltz (UNN: S1971811)}
+\date{25 October 2021}
+\maketitle
+\noindent Let $c:[0,2\pi] \to \R^3$ be a curve and $\alpha:\R^3\to\R$ be a $1$-form
+such that 
+\begin{align*}
+   c(t)   = (\cos t, \sin t, t), \hs
+   \alpha = 2x^1x^2dx^1 + (x^1)^2dx^2 + x^3dx^3.
+\end{align*}
+
+\begin{claim*}
+   Then the integral of $\alpha$ along $c$ is $\int_c \alpha = 2\pi^2$.
+\end{claim*}
+\begin{proof}
+   Firstly, we find the tangent vector field $c'$:
+   \begin{align*}
+      c'(t) = -\sin t\frac{\p }{\p x^1} + \cos t\frac{\p }{\p x^2} + \frac{\p }{\p x^3} .
+   \end{align*}
+   Secondly, we observe that along $c$ we have 
+   \begin{align*}
+      x^1(t) = \cos t, \hs x^2(t)= \sin t, \hs x^3(t) = t.
+   \end{align*}
+   Thirdly, we use the definition of integrating $\alpha$ along $c$ to obtain
+   \begin{align*}
+      \int_c \alpha &= \int_a^b \alpha(c'(t))\:dt\\
+      &= \int_0^{2\pi}\left( (2\sin t\cos t)(-\sin t) + (\cos t)^2 (\cos t) + t\right)\:dt\\
+      &= \int_0^{2\pi} \left(3\cos^3 t - 2 \cos t + t\right)\:dt\\
+      &= 3\int_0^{2\pi} \cos^3 t\:dt - 2 \int_0^{2\pi} \cos t\: dt + \int_0^{2\pi} t\:dt\\
+      &= 2\pi^2.
+   \end{align*}
+\end{proof}
+
+\begin{claim*}
+   $d\alpha = 0$.
+\end{claim*}
+\begin{proof}
+   By definition of $d:\Omega^1(\R^3) \to\Omega^2(\R^3)$ we have
+   \begin{align*}
+      d\alpha =\sum_I d\alpha_I\wedge dx^I
+      = d\alpha_1\wedge dx^1 + d\alpha_2\wedge dx^2 + d\alpha_3\wedge dx^3.
+   \end{align*}
+   We find 
+   \begin{align*}
+      d\alpha_1 = 2x^2dx^1 + 2x^1dx^2, \hs 
+      d\alpha_2 = 2x^1dx^1, \hs
+      d\alpha_3 = dx^3.
+   \end{align*}
+   Using $dx^i\wedge dx^i=0$ for all $i$, we find
+   \begin{align*}
+      d\alpha = 2x^1dx^2\wedge dx^1 + 2x^1dx^1\wedge dx^2.
+   \end{align*}
+   Since $dx^2\wedge dx^1=-dx^1\wedge dx^2$, the claim follows.
+\end{proof}
+
+\end{document}
