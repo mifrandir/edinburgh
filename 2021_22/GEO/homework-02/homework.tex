@@ -57,4 +57,26 @@ such that
    Since $dx^2\wedge dx^1=-dx^1\wedge dx^2$, the claim follows.
 \end{proof}
 
+\begin{claim*}
+   Let $f:\R^3\to \R$ be defined by
+   \begin{align*}
+      f = \left(x^1\right)^2x^2 + 2\left(x^3\right)^2.
+   \end{align*}
+   Then $df=\alpha$.
+\end{claim*}
+
+\begin{proof}
+   We have the partial derivatives
+   \begin{align*}
+      \frac{\p f}{\p x^1}= 2x^1x^2, \hs 
+      \frac{\p f}{\p x^2}= \left(x^1\right)^2, \hs 
+      \frac{\p f}{\p x^3}= x^3.
+   \end{align*}
+   Therefore, by definition of $d:\Omega^0(\R^3)\to\Omega^1(\R^3)$,
+   \begin{align*}
+      df = \sum_{i=1}^3 \frac{\p f}{\p x^i}dx^i
+      = 2x^1x^2dx^1 + \left(x^1\right)^2dx^2 + x^3dx^3 = \alpha.
+   \end{align*}
+\end{proof}
+
 \end{document}
