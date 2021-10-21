@@ -23,7 +23,7 @@
 \begin{proof}
    We shall not prove that the interval of convergence is $(-\infty,\infty)$
    as this is part of another exercise, but it can be shown easily by 
-   applying the \emph{Ratio Test}. Let us now focus on the claim above.
+   applying the \emph{Alternating Series Test}. Let us now focus on the claim above.
    
    Firstly, observe that we can write 
    \begin{align*}
@@ -53,12 +53,27 @@
 
 \subsection*{Workshop 5 - Question 3}
 
+Let
+\begin{align*}
+   S(x) =\sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!},\hs \text{and}\hs
+   C(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+\end{align*}
+
 \begin{claim*}
-   Let
+   $C$ is differentiable on $\R$ and $C'=S$.
+\end{claim*}
+\begin{proof}
+   Fix $x\not=0$. Let $(a_n)$ be the sequence such that
    \begin{align*}
-      S(x)=\sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!},\hs \text{and}\hs
-      C(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+      a_n = \frac{(-1)^{k}x^{2k}}{(2k)!}.
    \end{align*}
+   Then note that
+   \begin{align*}
+      \frac{\abs{a_{n+1}}}{\abs{a_n}} = \frac{x^2}{(2k+2)(2k+1)} \leq 
+   \end{align*}
+\end{proof}
+
+\begin{claim*}
    Then $(C(x))^2 + (S(x))^2 = 1$ for all $x$ and $\abs{S(x)},\abs{C(x)}\leq 1$ 
    for all $x$.
 \end{claim*}
