@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\usepackage{babel}
+\title{Pointwise vs uniform}
+\subtitle{Convergence of sequences of functions}
+\author{Franz Miltz}
+\date{23 October 2021}
+\usetheme[
+    numbering=none, 
+    block=fill, 
+    background=light, 
+    progressbar=foot,
+    sectionpage=progressbar,
+    subsectionpage=none
+]{metropolis}
+\usepackage{graphicx}
+
+\begin{document}
+    \frame{\titlepage}
+    %\begin{frame}
+    %    \frametitle{Definition}
+    %    Let $E\subseteq\mathbb{R}$ be nonempty and let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
+%
+    %    \begin{itemize}
+    %        \item We say $f_n\to f$ pointwise as $n\to\infty$ if for all $x\in E$ and $\varepsilon > 0$, there
+    %            exists an $N\in\mathbb{N}$ such that for all $n>N$, \begin{align*}
+    %                \left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+    %            \end{align*}
+    %        \item We say $f_n\to f$ uniformly as $n\to\infty$ if for all $\varepsilon > 0$, there
+    %            exists an $N\in\mathbb{N}$ such that for all $n>N$ and $x\in E$, \begin{align*}
+    %                \left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+    %            \end{align*}
+    %    \end{itemize}
+    %\end{frame}
+    \begin{frame}
+        \frametitle{Definition}
+        Let $E\subseteq\mathbb{R}$ be nonempty and let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
+
+        \begin{itemize}
+            \item We say $f_n\to f$ pointwise as $n\to\infty$ if \begin{align*}
+                \forall \varepsilon > 0.\:
+                \underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
+                \forall n>N.\:\left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+            \end{align*}
+            \item We say $f_n\to f$ uniformly as $n\to\infty$ if \begin{align*}
+                \forall \varepsilon >0.\: 
+                \underline{\mathbf{\exists N\in\mathbb{N}.\:\forall x\in E.}}\:
+                \forall n > N.\: \left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+            \end{align*}
+        \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Intuition}
+        \includegraphics[width=11cm]{skills3-pointwise.png}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Intuition}
+        \includegraphics[width=11cm]{skills3-uniform.png}
+    \end{frame}
+    
+\end{document}
