@@ -137,7 +137,7 @@ Let
    \begin{align*}
       \frac{x^{2k+1}}{(2k+1)!} - \frac{x^{2k+3}}{(2k+3)!}
       \geq \frac{x^{2k+1}}{(2k+1)!}-\frac{6x^{2k+1}}{(2k+3)!}
-      = ((2k+3)(2k+2)-6)\frac{(2k+1)!x^{2k+1}}{(2k+1)!(2k+3)!}
+      = ((2k+3)(2k+2)-6)\frac{x^{2k+1}}{(2k+3)!}
    \end{align*}
    where $k\geq 0$.
    Observe that the second factor is strictly greater than zero. Consider the first factor,
@@ -169,7 +169,7 @@ Let
    \begin{align*}
       \frac{x^{2k}}{(2k)!} - \frac{x^{2k+2}}{(2k+2)!}
       \geq \frac{x^{2k}}{(2k)!}-\frac{2x^{2k}}{(2k+2)!}
-      = ((2k+2)(2k+1)-2)\frac{(2k)!x^{2k}}{(2k)!(2k+2)!}
+      = ((2k+2)(2k+1)-2)\frac{x^{2k}}{(2k+2)!}
    \end{align*}
    where $k\geq 0$.
    Observe that the second factor is strictly greater than zero. Consider the first factor,
@@ -186,5 +186,52 @@ Let
       \frac{x^{2k}}{(2k)!} - \frac{x^{2k+2}}{(2k+2)!} \geq 0
    \end{align*}
    for all $k$. Since the strict inequality holds for $k=1$, the claim follows.
+\end{proof}
+\begin{claim*}
+   Let $0\leq x\leq \sqrt{56}$ such that $1-x^2/2!+x^4/4!<0$. Then $C(x)<0$.
+\end{claim*}
+\begin{proof}
+   Fix $0\leq x\leq\sqrt{56}$. We regroup
+   \begin{align}
+      \label{regroup3}
+      C(x)= \left(1 - \frac{x^2}{2!} + \frac{x^4}{4!} \right)
+      - \left(\frac{x^6}{6!}-\frac{x^8}{8!}\right)
+      - \left(\frac{x^{10}}{10!}-\frac{x^{12}}{12!}\right)
+      - \cdots
+   \end{align}
+   Consider a pair of adjacent terms and use $x^2\leq 56$ to find 
+   \begin{align*}
+      \frac{x^{2k}}{(2k)!}-\frac{x^{2k+2}}{(2k+2)!} \geq 
+      \frac{x^{2k}}{(2k)!}-\frac{56x^{2k}}{(2k+2)!} =
+      ((2k+2)(2k+1)-56)\frac{x^{2k}}{(2k+2)!}
+   \end{align*}
+   where $k\geq 3$. Note again that the factor on the right is strictly
+   greater than zero. When considering the left factor,
+   \begin{align*}
+      (2k+2)(2k+1) - 56, 
+   \end{align*}
+   we note that it is stricly increasing with $k$ and we have 
+   \begin{align*}
+      k=3 \hs\Rightarrow\hs (2k+2)(2k+1) - 56 = 0.
+   \end{align*}
+   Therefore, for $k\geq 3$, 
+   \begin{align*}
+      \frac{x^{2k}}{(2k)!}-\frac{x^{2k+2}}{(2k+2)!}\geq 0.
+   \end{align*}
+   By the premise, 
+   \begin{align*}
+      1 - \frac{x^2}{2!} + \frac{x^4}{4!} < 0.
+   \end{align*}
+   Thus all the summands in (\ref{regroup3}) are less than or equal to zero 
+   where at least one of them is non-zero. $C(x)<0$ follows. 
+   Further, we have 
+   \begin{align*}
+      0 < 8/5 < \sqrt{49} < \sqrt{56}
+   \end{align*}
+   and 
+   \begin{align*}
+      x = 8/5 \hs\Rightarrow\hs 1-\frac{x^2}{2!}+\frac{x^4}{4!} = -\frac{13}{1875} < 0. 
+   \end{align*}
+   Thus $C(8/5)<0$.
 \end{proof}
 \end{document}
