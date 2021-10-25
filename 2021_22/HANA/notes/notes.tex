@@ -385,4 +385,90 @@
     series (\ref{ps}) which converges to $f$ on $\{x: \abs{x-c}<r\}$.
 \end{definition}
 
+\section{Lebesgue Integration}
+
+\subsection{Step functions}
+
+\begin{definition}[Notes 4.1]
+    We say that $\phi:\R\to\R$ is a \emph{step function} if there exist real numbers 
+    $x_0<x_1<\cdots < x_n$ (for some $n\in\N$) such that 
+    \begin{enumerate}
+        \item $\phi(x)=0$ for $x<x_0$ and $x>x_n$,
+        \item $\phi$ is constant on $(x_{j-1}, x_j)$, $1\leq j\leq n$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[Notes 4.2]
+    If $\phi$ is a step function with respect to $\{x_0, x_1, ..., x_n\}$ which takes the 
+    value $c_j$ on $(x_{j-1}, x_j)$, then we define
+    \begin{align*}
+        \int \phi = \sum_{j=1}^n c_j(x_j-x_{j-1}).
+    \end{align*}
+\end{definition}
+
+\subsection{Lebesgue integrability}
+
+\begin{definition}[Notes 4.3]
+    A function $f:I\to\R$ is said to be \emph{Lebesgue integrable} on an interval 
+    $I$ if there exist values $c_j$ and bounded intervals $J_j\subset I$, $j=1,2,3,...$
+    such that 
+    \begin{align*}
+        \sum_{j=1}^\infty \abs{c_j}\lambda (J_j) < \infty,
+    \end{align*}
+    and the equality 
+    \begin{align*}
+        f(x) = \sum_{j=1}^\infty \abs{c_j}\chi_{J_j}(x)
+    \end{align*}
+    holds for all $x\in I$ at which
+    \begin{align*}
+        \sum_{j=1}^\infty \abs{c_j} X_{J_j}(x) < \infty.
+    \end{align*}
+    We denote by $\int_I f$ the number 
+    \begin{align*}
+        \int_I f = \sum_{j=1}^\infty c_j\lambda(J_j)
+    \end{align*}
+    and call it the integral of $f$ over the interval $I$.
+\end{definition}
+
+\begin{theorem}[Notes 4.1]
+    Suppose that $c_j,d_j$ are real numbers and $J_j,K_j$ are bounded intervals 
+    for all $j=1,2,3,...$ and 
+    \begin{align*}
+        \sum_{j=1}^\infty \abs{c_j}\lambda(J_j)<\infty, \hs
+        \sum_{j=1}^\infty \abs{d_j}\lambda(K_j)<\infty.
+    \end{align*} 
+    If 
+    \begin{align*}
+        \sum_{j=1}^\infty \abs{c_j}\chi_{J_j}(x) < \infty\hs\text{and}\hs 
+        \sum_{j=1}^\infty \abs{d_j}\chi_{K_j}(x) <\infty,
+    \end{align*}
+    then
+    \begin{align*}
+        \sum_{j=1}^\infty c_j\lambda(J_j)= \sum_{j=1}^\infty d_j\lambda(K_j).
+    \end{align*}
+\end{theorem}
+
+\begin{corollary}
+    Let $\phi:\R\to\R$ be a step functin. Then $\phi$ is (Lebesgue) integrable on $\R$.
+\end{corollary}
+
+\begin{corollary}
+    The function $\chi_{\Q\cap[0,1]}$ is (Lebesgue) integrable on $[0,1]$ and its integral is zero.
+\end{corollary}
+
+\subsection{Basic properties}
+
+\begin{theorem}[Notes 4.2]
+    Suppose $f$ and $g$ are integrable on $I$ and $\alpha$ and $\beta$ are real numbers. Then 
+    \begin{enumerate}
+        \item $\alpha f + \beta g$ is integrable on $I$ and \begin{align*}
+            \int_I (\alpha f + \beta g) = \alpha \int_I f + \beta \int_I g.
+        \end{align*}
+        \item If $f\geq 0$ on $I$ then $\int_I f \geq 0$; if $f\geq g$ on $I$ then $\int_I f\geq \int_I g$.
+        \item $\abs f$ is integrable on $I$ and $\abs{\int_I f}\leq \int_I \abs f$.
+        \item $\max\{f,g\}$ and $\min\{f,g\}$ are integrable on $I$.
+        \item If one of the functions is bounded then the product $fg$ is integrable on $I$.
+        \item If $f\geq 0$ with $\int_I f = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
+    \end{enumerate}
+\end{theorem}
 \end{document}
