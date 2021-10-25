@@ -34,7 +34,7 @@ lemma contrapos: "P \<longrightarrow> Q \<Longrightarrow> \<not> Q \<longrightar
   apply (rule ccontr)
   apply (frule notnotD)
   apply (erule notE)
-  apply (frule mp)
+  apply (drule mp)
   by assumption
 
  
@@ -42,11 +42,10 @@ lemma contrapos: "P \<longrightarrow> Q \<Longrightarrow> \<not> Q \<longrightar
 text\<open>2 marks\<close>
 lemma flowers_knights: "((\<exists>x. F x) \<longrightarrow> (\<forall>x. G x)) \<longrightarrow> (\<forall>x y. F x \<longrightarrow> G y)"
   apply (rule impI)
-  apply (rule allI)
-  apply (rule allI)
+  apply (rule allI)+
   apply (rule impI)
-  apply (frule_tac P="F" in exI)
-  apply (frule mp)
+  apply (frule_tac P=F in exI)
+  apply (drule mp)
    apply assumption
   apply (rule_tac P=G in spec)
   by assumption
@@ -54,7 +53,41 @@ lemma flowers_knights: "((\<exists>x. F x) \<longrightarrow> (\<forall>x. G x)) 
 
 subsection\<open>Problem 2 (7 marks)\<close>
 
-(*Formalise and prove your claim*)
+text\<open>The portait is not in the golden box.\<close>
+lemma not_g: "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L)\<rbrakk> \<Longrightarrow> \<not>G"
+  apply (rule ccontr)
+  apply (frule notnotD)
+  apply (frule mp)
+  by assumption
+
+lemma dm: "\<not>(P \<or> Q) \<Longrightarrow> \<not>P \<and> \<not>Q"
+  apply (cut_tac P=P in excluded_middle)
+  apply (rule conjI)
+   apply (rule ccontr)
+   apply (drule notnotD)
+   apply (drule_tac P=P and Q=Q in disjI1)
+   apply (erule_tac P="P\<or>Q" and R=False in notE)
+   apply assumption
+  apply (rule ccontr)
+   apply (drule notnotD)
+   apply (drule_tac P=P and Q=Q in disjI2)
+   apply (erule_tac P="P\<or>Q" in notE)
+  by assumption  
+
+lemma not_s: "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L); G \<or> S \<or> L\<rbrakk> \<Longrightarrow> \<not>S"
+  apply (rule ccontr)
+  apply (drule notnotD)
+  apply (drule_tac P=S in mp)
+   apply assumption
+  apply (cut_tac P=S and Q=G in dm)
+   apply assumption
+  apply (drule conjunct1)
+  apply (erule_tac P=S in notE)
+  by assumption
+
+lemma "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L); G \<or> S \<or> L\<rbrakk> \<Longrightarrow> L"
+  apply (cut_tac not_s)
+  
 
 section\<open>Knights and Knaves Problems: (30 marks)\<close>
 
