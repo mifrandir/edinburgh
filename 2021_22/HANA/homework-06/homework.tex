@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Honours Analysis: Homework 6}
+\author{Franz Miltz (UNN: S1971811)}
+\date{4 November 2021}
+\maketitle
+
+\section*{Workshop 6 - Question 5}
+\begin{claim*}
+   Let $I$ be an open interval in $\R$. Suppose $f:I\to\R$ is differentiable
+   and its derivative $f'$ is bounded on $I$. Then $f$ is uniformly convergent.
+\end{claim*}
+\begin{proof}
+   Find $M$ such that $\abs{f'(x)} \leq M$ for all $x\in I$. By the 
+   \emph{Mean Value Theorem} we know that for any closed interval $[a,b]\subset I$,
+   \begin{align*}
+      -M(b-a) \leq f(b) - f(a) \leq M(b-a)
+   \end{align*}
+   or equivalently 
+   \begin{align*}
+      \abs{f(b)-f(a)} \leq M(b-a).
+   \end{align*}
+   Fix $\e>0$. We choose $\delta = \e/M$. Let $x,y\in I$ be such that $\abs{x-y}<\delta$ 
+   and assume without loss of generality that $x>y$. Then
+   \begin{align*}
+      \abs{f(x) - f(y)} \leq M(x-y) = M\abs{x-y} < M\delta = \e.
+   \end{align*}
+\end{proof}
+
+\section*{Workshop 6 - Question 7}
+
+\begin{claim*}
+   Let $I$ be any interval in $\R$. A function $f:I\to\R$ is uniformly continuous
+   on $I$ if and only if whenever $s_n,t_n\in I$ are sequences such that 
+   $\abs{s_n-t_n}\to 0$, then $\abs{f(s_n)-f(t_n)}\to 0$.
+\end{claim*}
+\begin{proof}
+   ($\Rightarrow$) Assume $f:I\to\R$ is uniformly continuous on $I$. Let $s_n,t_n$
+   be sequences such that $s_n,t_n\in I$ for all $n\in\N$ and $\abs{s_n-t_n}\to 0$
+   as $n\to\infty$. Let $\e>0$ and choose $\delta > 0$
+   such that for all $x,y\in I$ where $\abs{x-y}<\delta$,
+   \begin{align*}
+      \abs{f(x)-f(y)}<\e. 
+   \end{align*}
+   Then choose $N$ such that for all $n>N$,
+   \begin{align*}
+      \abs{s_n-t_n} < \delta.
+   \end{align*}
+   Then for all $n>N$ we have $\abs{s_n-t_n}<\delta$ which implies $\abs{f(s_n)-f(t_n)}<\e$ 
+   by definition.
+
+   ($\Leftarrow$) By contradiction. 
+   Let $f:I\to\R$ be such that whenever $\abs{s_n-t_n}\to 0$, we have 
+   $\abs{f(s_n)-f(t_n)}\to 0$.  Assume $f:I\to\R$ is not uniformly continuous.
+   Then there exists $\e > 0$ such that for all $\delta>0$ there are $x,y\in I$ for 
+   which $\abs{x-y}<\delta$ but $\abs{f(x)-f(y)}\geq \e$. Find such $\e>0$. Then let 
+   $(\delta_n)$ be a sequence where $\delta_n>0$ for all $n\in\N$ and $\delta_n\to 0$ as $n\to\infty$. 
+   Then for each $n\in\N$ find $s_n,t_n$ such that
+   \begin{align*}
+      \abs{s_n-t_n} < \delta_n \hs\text{but}\hs \abs{f(s_n)-f(t_n)} \geq \e.
+   \end{align*}
+   Observe that by the \emph{Squeeze Theorem} $\abs{s_n-t_n}\to 0$, but clearly 
+   $\abs{f(s_n)-f(t_n)}\not\to 0$. This contradicts the premise and thereby proves that $f$
+   is uniformly continuous on $I$.
+\end{proof}
+\end{document}
