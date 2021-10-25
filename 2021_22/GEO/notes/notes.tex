@@ -909,4 +909,104 @@
     \end{align*}
 \end{proposition}
 
+\section{Curvature of surfaces}
+
+\subsection{Bilinear algebra}
+
+\begin{definition}
+    Let $A,B$ be two symmetric bilinear forms. Then the \emph{eigenvalues of $B$ with respect to $A$} 
+    are roots of the polynomial 
+    \begin{align*}
+        \det(B-\lambda A) = 0,
+    \end{align*}
+    where by abuse of notation $A,B$ are the matrices of the symmetric forms $A,B$ relative to the 
+    basis.
+\end{definition}
+
+\begin{lemma}
+    Let $A,B$ be two symmetric bilinear forms. Then the eigenvalues and eigenvectors of $B$ with respect 
+    to $A$ are independent of the basis chosen.
+\end{lemma}
+
+\begin{proposition}
+    If $A:D\times D\to\R$ is positive definite there exists a basis $\{e_1, ..., e_n\}$ of $V$ such that
+    \begin{enumerate}
+        \item $\{e_1,...,e_n\}$ is orthonormal with respect to $A$,
+        \item each $e_k$ is an eigenvector of $B$ with respect to $A$ with a real eigenvalue.
+    \end{enumerate}
+\end{proposition}
+
+\subsection{Gauss and mean curvatures}
+
+\begin{definition}
+    The eigenvalues $k_1,k_2$ of $\I$ with respect to $I$ are \emph{principal curvatures} of the surface.
+    The corresponding eigenvectors are the \emph{principal directions} of the surface. Hence the
+    principal curvatures are the roots of the polynomial $\det(\I-\lambda I)=0$. Their mean is the
+    \emph{mean curvature} of the surface:
+    \begin{align*}
+        H=\frac{k_1+k_2}{2},
+    \end{align*}
+    and their product is the \emph{Gauss curvature}:
+    \begin{align*}
+        K = k_1k_2.
+    \end{align*}
+    The principal curvatures may vary with position and are thereby (smooth) functions on $D$.
+\end{definition}
+
+\section{The meaning of curvature}
+
+\subsection{Curves on surfaces}
+
+Let $c:[a,b]\to D$ be a curve with $c(t)=(u(t),v(t))$ and let $\vec x: D\to\E^3$ be a 
+local surface.
+
+\begin{lemma}
+    We have 
+    \begin{align*}
+        \vec x' := \frac{d}{dt}\vec x(c(t)) = d\vec x(c')\hs\text{and}\hs 
+        \vec N' := \frac{d}{dt}\vec N(c(t)) = d\vec N(c').
+    \end{align*}
+    where $c'$ is the tangent vector to the curve $c$ in $D$, so that 
+    $c'=u'\frac{\p }{\p u}+v'\frac{\p }{\p v}$.
+\end{lemma}
+
+\begin{proposition}
+    The arclength of the curve $\vec x(c(t))$, $t\in[a,b]$, lying on a surface is 
+    \begin{align*}
+        s = \int_a^b \sqrt{I(c',c')}\:dt
+    \end{align*}
+    where $I$ is the first fundamental form of the surface.
+\end{proposition}
+
+\begin{proposition}
+    For a curve lying on a surface,
+    \begin{align*}
+        \vec N\cdot \frac{d^2}{dt^2}\vec x(c(t)) = \I(c',c').
+    \end{align*}
+\end{proposition}
+
+\subsection{Invariance under Euclidean motions}
+
+\begin{theorem}
+    Let $\vec x: D\to\E^3$ and $\vec{\hat x}:D\to\E^3$ be two surfaces related by a 
+    Euclidean motion, so 
+    \begin{align*}
+        \vec{\hat x} (u,v) = A\vec x(u,v)+\vec a
+    \end{align*}
+    forall $(u,v)\in D$ where $A$ is an orthogonal matrix with $\det A=1$ and $\vec a\in\E^3$
+    Then we have 
+    \begin{align*}
+        \hat I = I \hs \text{and} \hs \hat\I = \I
+    \end{align*}
+    and hence in particular
+    \begin{align*}
+        \hat H = H \hs \text{and} \hs \hat K = K.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Fundamental theorem of surfaces]
+    The converse of the above is also true: two surfaces with the same first and second 
+    fundamental forms must be related by a Euclidean motion.
+\end{theorem}
+
 \end{document}
