@@ -135,12 +135,43 @@ locale knights_knaves =
       and G_imp_S: "\<forall>x. \<forall> y. G x \<longrightarrow> S y x"
 begin
 
+thm impE
+
 subsection\<open>Problem 3 (4 marks)\<close>
 lemma S_imp_G: "\<forall>x. \<forall> y. S y x \<longrightarrow> G x"
-oops
+  apply (rule allI)+
+  apply (cut_tac V_imp_not_S)
+  apply (rule impI)
+  apply (drule_tac x=x in spec)
+  apply (drule_tac x=y in spec)
+  apply (rule ccontr)
+  apply (cut_tac V_iff_not_G)
+  apply (drule_tac x=x in spec)
+  apply (drule iffD2)
+   apply assumption
+  apply (drule mp)
+   apply assumption
+  apply (drule_tac R="False" in notE)
+  apply (drule_tac R="G x" in notE)
+  by assumption
 
 lemma not_S_imp_V: "\<forall>x. \<forall> y. \<not> S y x \<longrightarrow> V x"
-oops
+  apply (rule allI)+
+  apply (cut_tac G_imp_S)
+  apply (rule impI)
+  apply (drule_tac x=x in spec)
+  apply (drule_tac x=y in spec)
+  apply (drule_tac contrapos)
+  apply (drule mp)
+   apply assumption
+  apply (cut_tac V_iff_not_G)
+  apply (drule_tac x=x in spec)
+  apply (drule iffD2)
+  by assumption
+
+  
+
+  
 
 subsection\<open>Problem 4 (6 marks)\<close>
 lemma Mel_and_Zoey: "\<lbrakk>S 1 z = V m; S 1 m = (\<not> V z \<and> \<not> V m)\<rbrakk> \<Longrightarrow> G z \<and> V m"
