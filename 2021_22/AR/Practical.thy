@@ -54,12 +54,13 @@ lemma flowers_knights: "((\<exists>x. F x) \<longrightarrow> (\<forall>x. G x)) 
 subsection\<open>Problem 2 (7 marks)\<close>
 
 text\<open>The portait is not in the golden box.\<close>
-lemma not_g: "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L)\<rbrakk> \<Longrightarrow> \<not>G"
+lemma not_g: "\<lbrakk>G \<longrightarrow> False\<rbrakk> \<Longrightarrow> \<not>G"
   apply (rule ccontr)
   apply (frule notnotD)
   apply (frule mp)
   by assumption
 
+text\<open>De Morgan's Law.\<close>
 lemma dm: "\<not>(P \<or> Q) \<Longrightarrow> \<not>P \<and> \<not>Q"
   apply (cut_tac P=P in excluded_middle)
   apply (rule conjI)
@@ -74,7 +75,8 @@ lemma dm: "\<not>(P \<or> Q) \<Longrightarrow> \<not>P \<and> \<not>Q"
    apply (erule_tac P="P\<or>Q" in notE)
   by assumption  
 
-lemma not_s: "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L); G \<or> S \<or> L\<rbrakk> \<Longrightarrow> \<not>S"
+text\<open>The portait is not in the silver box.\<close>
+lemma not_s: "\<lbrakk>S \<longrightarrow> \<not>(S \<or> G)\<rbrakk> \<Longrightarrow> \<not>S"
   apply (rule ccontr)
   apply (drule notnotD)
   apply (drule_tac P=S in mp)
@@ -85,8 +87,41 @@ lemma not_s: "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \
   apply (erule_tac P=S in notE)
   by assumption
 
-lemma "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L); G \<or> S \<or> L\<rbrakk> \<Longrightarrow> L"
-  apply (cut_tac not_s)
+text\<open>Helper\<close>
+lemma disj_other: "\<lbrakk>P \<or> Q; ~P\<rbrakk> \<Longrightarrow> Q"
+  apply (rule ccontr)
+  apply (drule_tac R="False" in disjE)
+    apply (drule_tac P=P and R="False" in notE)
+     apply assumption+
+   apply (drule_tac P=Q and R="False" in notE)
+  by assumption
+  
+  
+text\<open>The portait is in the lead boxx.\<close>
+lemma l: "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L); G \<or> S \<or> L\<rbrakk> \<Longrightarrow> L"
+  apply (cut_tac S=S and G=G in not_s)
+   apply assumption
+  apply (cut_tac G=G in not_g)
+   apply assumption
+  apply (rule ccontr)
+  apply (cut_tac P=G and Q="S\<or>L" in disj_other)
+    apply assumption+
+  apply (cut_tac P=S and Q=L in disj_other)
+    apply assumption+
+  apply (drule_tac P=L and R="False" in notE)
+  by assumption
+
+text\<open>The portait is only in the lead box.\<close>
+theorem "\<lbrakk>G \<longrightarrow> False; S \<longrightarrow> \<not>(S \<or> G);  L \<longrightarrow> (L \<longrightarrow> L); G \<or> S \<or> L\<rbrakk> \<Longrightarrow> ~G \<and> ~S \<and> L"
+  apply (rule conjI)
+   apply (cut_tac G=G in not_g)
+    apply assumption+
+  apply (rule conjI)
+  apply (cut_tac G=G and S=S in not_s)
+    apply assumption+
+  apply (cut_tac G=G and S=S and L=L in l)
+  by assumption+
+
   
 
 section\<open>Knights and Knaves Problems: (30 marks)\<close>
