@@ -60,8 +60,9 @@ lemma not_g: "\<lbrakk>G \<longrightarrow> False\<rbrakk> \<Longrightarrow> \<no
   apply (frule mp)
   by assumption
 
-text\<open>De Morgan's Law.\<close>
-lemma dm: "\<not>(P \<or> Q) \<Longrightarrow> \<not>P \<and> \<not>Q"
+text\<open>De Morgan's Laws\<close>
+
+lemma dm1: "\<not>(P \<or> Q) \<Longrightarrow> \<not>P \<and> \<not>Q"
   apply (cut_tac P=P in excluded_middle)
   apply (rule conjI)
    apply (rule ccontr)
@@ -81,7 +82,7 @@ lemma not_s: "\<lbrakk>S \<longrightarrow> \<not>(S \<or> G)\<rbrakk> \<Longrigh
   apply (drule notnotD)
   apply (drule_tac P=S in mp)
    apply assumption
-  apply (cut_tac P=S and Q=G in dm)
+  apply (cut_tac P=S and Q=G in dm1)
    apply assumption
   apply (drule conjunct1)
   apply (erule_tac P=S in notE)
@@ -151,8 +152,7 @@ lemma S_imp_G: "\<forall>x. \<forall> y. S y x \<longrightarrow> G x"
    apply assumption
   apply (drule mp)
    apply assumption
-  apply (drule_tac R="False" in notE)
-  apply (drule_tac R="G x" in notE)
+  apply (drule_tac P="S y x" and R="False" in notE)
   by assumption
 
 lemma not_S_imp_V: "\<forall>x. \<forall> y. \<not> S y x \<longrightarrow> V x"
@@ -169,13 +169,82 @@ lemma not_S_imp_V: "\<forall>x. \<forall> y. \<not> S y x \<longrightarrow> V x"
   apply (drule iffD2)
   by assumption
 
-  
-
-  
+lemma iff_flip: "P \<longleftrightarrow> Q \<Longrightarrow> \<not>P \<longleftrightarrow> \<not>Q" 
+  apply (rule iffI)
+   apply (rule ccontr)
+   apply (drule notnotD)
+   apply (drule iffD2)
+    apply assumption
+   apply (rule_tac P=P and R=False in notE)
+    apply assumption+
+  apply (rule ccontr)
+  apply (drule notnotD)
+  apply (drule iffD1)
+   apply assumption
+  apply (rule_tac P=Q and R=False in notE)
+  by assumption+
 
 subsection\<open>Problem 4 (6 marks)\<close>
+
+lemma Zoey: "\<lbrakk>S 1 z = V m; S 1 m = (\<not> V z \<and> \<not> V m)\<rbrakk> \<Longrightarrow> G z"
+  apply (cut_tac S_imp_G)
+  apply (drule_tac x=z in spec)
+  apply (drule_tac x=1 in spec)
+  apply (rule ccontr)
+   apply (cut_tac P="S 1 z" and Q="G z" in contrapos)
+    apply assumption
+   apply (drule_tac P="~G z" in mp)
+    apply assumption
+   apply (drule iffD2)
+    apply (rule ccontr)
+    apply (cut_tac V_iff_not_G)
+    apply (drule_tac x=z in spec)
+    apply (drule_tac Q="(~ G z)" in iffD2)
+     apply assumption
+    apply (cut_tac P="S 1 m" and Q="(\<not> V z \<and> \<not> V m)" in iff_flip)
+     apply assumption
+    apply (drule_tac P="(~ S 1 m)" and Q="~(~ V z \<and> ~ V m)" in iffD2)
+     apply (rule ccontr)
+     apply (drule notnotD)
+     apply (drule_tac conjunct1)
+     apply (drule_tac P="V z" and R=False in notE)
+      apply assumption+
+    apply (cut_tac not_S_imp_V)
+    apply (drule_tac x=m in spec)
+    apply (drule_tac x=1 in spec)
+    apply (drule_tac P="~ S 1 m" in mp)
+     apply assumption
+  apply (drule_tac P="V m" and R=False in notE)
+     apply assumption+
+   apply (drule_tac P="S 1 z" and R=False in notE)
+  by assumption+
+
 lemma Mel_and_Zoey: "\<lbrakk>S 1 z = V m; S 1 m = (\<not> V z \<and> \<not> V m)\<rbrakk> \<Longrightarrow> G z \<and> V m"
-oops
+  apply (cut_tac z=z and m=m in Zoey)
+    apply assumption+
+  apply (rule conjI)
+   apply assumption
+  apply (cut_tac V_iff_not_G)
+  apply (drule_tac x=z in spec)
+  apply (cut_tac P="V z" and Q="~ G z" in iff_flip)
+   apply assumption
+  apply (cut_tac G_imp_S)
+  apply (drule_tac x=z in spec)
+  apply (drule_tac x=1 in spec)
+  apply (drule mp)
+  apply assumption
+  apply (drule_tac Q="S 1 z" in iffD1)
+  by assumption+
+  
+  
+  
+  
+    
+    
+  
+     
+  
+  
 
 subsection\<open>Problem 5 (20 marks)\<close>
 text\<open>5 marks for formalisation + 15 marks for proof\<close>
