@@ -65,4 +65,42 @@
    $\abs{f(s_n)-f(t_n)}\not\to 0$. This contradicts the premise and thereby proves that $f$
    is uniformly continuous on $I$.
 \end{proof}
+
+\section*{Workshop 6 - Question 8}
+
+\begin{claim*}
+   Suppose $f:[a,b]\to\R$ is continuous. Then it is uniformly continuous.
+\end{claim*}
+\begin{proof}
+   By contradiction. Assume $f$ is not uniformly continuous. Then there exists an $\e>0$
+   such that for all $\delta > 0$ there are $x,y\in[a,b]$ such that $\abs{x-y}<\delta$
+   but $\abs{f(x)-f(y)}\geq\e$. Fix $\e>0$. Let $(\delta_n)$ be such that $\delta_n\to 0$
+   as $n\to\infty$ and $\delta_n > 0$ for all $n\in\N$. Find $x_n,y_n\in[a,b]$ such that 
+   $\abs{x_n-y_n}<\delta_n$ but
+   \begin{align}
+      \label{geqe}
+      \abs{f(x_n)-f(y_n)}\geq\e.
+   \end{align}
+
+   By the \emph{Bolzano-Weierstrass theorem} there must be a subsequence $x_{n_k}$
+   such that $x_{n_k}\to L\in\R$ as $k\to\infty$. In particular, fix $\e'>0$. Then there 
+   exists $K_1\in\N$ such that for all $k>K_1$, 
+   \begin{align*}
+      \abs{x_{n_k}-L}<\frac{\e'}{2},
+   \end{align*}
+   and $K_2\in\N$ such that for all $k>K_2$,
+   \begin{align*}
+      \abs{x_{n_k}-y_{n_k}} < \frac{\e'}{2}.
+   \end{align*}
+   Choose $K=\max\{K_1,K_2\}$. Then for all $k>K$, $\abs{y_{n_k} - L} < \e'$. Thus 
+   $y_{n_k} \to L$ as $k\to\infty$.
+   Therefore 
+   \begin{align*}
+      \lim_{k\to\infty} \abs{f(x_{n_k})-f(y_{n_k})}
+      = \abs{\lim_{k\to\infty} f(x_{n_k})-\lim_{k\to\infty} f(y_{n_k})}
+      = \abs{f(L)-f(L)} = 0.
+   \end{align*}
+   This contradicts (\ref{geqe}) thus $f$ must be uniformly continuous.
+\end{proof}
+
 \end{document}
