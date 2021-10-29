@@ -235,22 +235,99 @@ lemma Mel_and_Zoey: "\<lbrakk>S 1 z = V m; S 1 m = (\<not> V z \<and> \<not> V m
   apply assumption
   apply (drule_tac Q="S 1 z" in iffD1)
   by assumption+
-  
-  
-  
-  
-    
-    
-  
-     
-  
-  
 
 subsection\<open>Problem 5 (20 marks)\<close>
 text\<open>5 marks for formalisation + 15 marks for proof\<close>
 
-lemma Abel_and_Beatrice: False (*formulate and prove your claim*)
-oops
+text\<open>The next two proofs are very similar to Zoey and Mel...\<close>
+lemma Abel_G: "\<lbrakk>  S 2 a = V b; S 2 b = (G a \<and> G b) \<rbrakk> \<Longrightarrow> G a"
+  apply (cut_tac S_imp_G)
+  apply (drule_tac x=a in spec)
+  apply (drule_tac x=2 in spec)
+  apply (rule ccontr)
+   apply (cut_tac P="S 2 a" and Q="G a" in contrapos)
+    apply assumption
+   apply (drule_tac P="~G a" in mp)
+    apply assumption
+   apply (drule iffD2)
+    apply (rule ccontr)
+    apply (cut_tac V_iff_not_G)
+    apply (drule_tac x=a in spec)
+    apply (drule_tac Q="(~ G a)" in iffD2)
+     apply assumption
+    apply (cut_tac P="S 2 b" and Q="G a \<and> G b" in iff_flip)
+  apply assumption
+    apply (drule_tac P="(~ S 2 b)" and Q="~(G a \<and> G b)" in iffD2)
+     apply (rule ccontr)
+     apply (drule notnotD)
+    apply (drule_tac conjunct1)
+    apply (cut_tac V_iff_not_G)
+    apply (drule_tac x=a in spec)
+    apply (drule_tac Q="V a" in iffD1)
+     apply assumption
+     apply (drule_tac P="G a" and R=False in notE)
+      apply assumption+
+    apply (cut_tac not_S_imp_V)
+    apply (drule_tac x=b in spec)
+    apply (drule_tac x=2 in spec)
+    apply (drule_tac P="~ S 2 b" in mp)
+     apply assumption
+  apply (drule_tac P="V b" and R=False in notE)
+     apply assumption+
+   apply (drule_tac P="S 2 a" and R=False in notE)
+  by assumption+
+
+lemma Abel_and_Beatrice_G_and_V: "\<lbrakk> S 2 a = V b; S 2 b = (G a \<and> G b) \<rbrakk> \<Longrightarrow> G a \<and> V b"
+  apply (cut_tac a=a and b=b in Abel_G)
+    apply assumption+
+  apply (rule conjI)
+   apply assumption
+  apply (cut_tac V_iff_not_G)
+  apply (drule_tac x=a in spec)
+  apply (cut_tac P="V a" and Q="~ G a" in iff_flip)
+   apply assumption
+  apply (cut_tac G_imp_S)
+  apply (drule_tac x=a in spec)
+  apply (drule_tac x=2 in spec)
+  apply (drule mp)
+  apply assumption
+  apply (drule_tac Q="S 2 a" in iffD1)
+  by assumption+
+
+lemma Abel_and_Beatrice: "\<lbrakk>S 1 a = ((\<exists>x. F x) \<longrightarrow> (\<forall> x. G x)); S 1 b = (\<not>(\<forall>x. \<forall>y. F x \<longrightarrow> G y)); S 2 a = V b; S 2 b = (G a \<and> G b)\<rbrakk> \<Longrightarrow> G a \<and> V b \<and> ~F a \<and> ~F b"
+  apply (cut_tac a=a and b=b in Abel_and_Beatrice_G_and_V)
+    apply assumption+
+  apply (erule_tac P="G a" and Q="V b" in conjE)
+  apply (rule conjI)
+   apply assumption
+  apply (rule conjI)
+   apply assumption
+  apply (cut_tac V_imp_not_S)
+  apply (drule_tac x=b in spec)
+  apply (drule_tac x=1 in spec)
+  apply (drule_tac P="V b" in mp)
+   apply assumption
+  apply (cut_tac P="S 1 b" and Q="(\<not> (\<forall>x y. F x \<longrightarrow> G y))" in iff_flip)
+   apply assumption
+  apply (drule_tac Q="\<not> S 1 b" in iffD1)
+   apply assumption
+  apply (drule notnotD)
+  apply (frule_tac x=a in spec)
+  apply (drule_tac x=b in spec)+
+  apply (cut_tac P="F b" and Q="G b" in contrapos)
+    apply assumption
+  apply (cut_tac P="F a" and Q="G b" in contrapos)
+   apply assumption
+  apply (cut_tac V_iff_not_G)
+  apply (drule_tac x=b in spec)
+  apply (drule_tac Q="V b" in iffD1)
+   apply assumption
+  apply (drule_tac P="\<not>G b" in mp)
+   apply assumption
+  apply (drule_tac P="\<not>G b" in mp)
+   apply assumption
+  apply (rule conjI)
+  by assumption+
 
 end
 
