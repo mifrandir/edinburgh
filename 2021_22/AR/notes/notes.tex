@@ -378,8 +378,6 @@
 
 \section{Higher-Order Logic}
 
-\subsection{Functions}
-
 \begin{definition}
     A \emph{lambda abstraction} is a term that denotes a function directly by the 
     rules which define it.
@@ -410,5 +408,166 @@
         \end{align*}
     \end{itemize}
 \end{definition}
+
+\section{Unification}
+
+\subsection{Matching}
+
+\begin{definition}
+    \emph{Matching} is the process of finding an instance of a pattern that is equal to another term.
+
+    Problem: Given two expressions, \emph{pattern} $s$ and \emph{target} $t$, find a subsitution
+    \begin{align*}
+        s[\phi] \equiv t
+    \end{align*}
+    where $\equiv$ means that the terms are identical.
+\end{definition}
+
+\begin{definition}
+    A \emph{disagreement pair} of two expressions $s$ and $t$ is a pair of subexpressions
+    which disagree.
+\end{definition}
+
+\paragraph{Matching Algorithm}
+
+To match pattern and target given substitution $\phi$:
+
+\begin{enumerate}
+    \item If pattern and target are identical then succeed with output $\phi$.
+    \item Otherwise, let $\lra{t_1, t_2}$ be the first disagreement pair.
+    \item If $t_1$ is a variable then call match on pattern $\{t_2/t_1\}$ and target given $\phi\{t_2/t_1\}$.
+    \item Else fail.
+\end{enumerate}
+
+\subsection{General unification}
+
+\begin{definition}
+    \emph{Unification} is the process of finding a common instance of two terms. 
+
+    Problem: Given two expressions, $s$ and $t$, find subsitutions
+    $\phi$ and $\psi$ such that
+    \begin{align*}
+        s[\phi] \equiv t[\psi]
+    \end{align*}
+    where $\equiv$ means that the terms are identical.
+\end{definition}
+
+\paragraph{Unification algorithm}
+
+To generally unify $S$ given $\phi$
+\begin{enumerate}
+    \item If $\abs{S}=1$, succeed and output $\phi$.
+    \item Otherwise, let $D$ be the first disagreement set of $S$.
+    \item If $D$ contains a variable $V$ and a term $t_1$ and $V$ 
+          does not occur in $t_1$ then generally unify $S[\{t_1/V\}]$ given $\phi[\{t_1/V\}]$.
+    \item Else fail.
+\end{enumerate}
+
+\begin{definition}
+    We have the following types of unification: 
+    \begin{enumerate}
+        \item \emph{unitary}: A single unique mgu, or none. (predicate logic)
+        \item \emph{finitary}: Finite number of mgus. (predicate logic with commutativity)
+        \item \emph{infinitary}: Possibly infinite number of mgus. (predicate logic with associativity)
+        \item \emph{nullary}: No mgus exist, although unifiers may exist.
+        \item \emph{undecidable}: Unification is not decidable.
+    \end{enumerate}
+\end{definition}
+
+\begin{center}
+    \begin{tabular}{c | c | c | c}
+        \textbf{Name}   & \textbf{Before}                        & \textbf{After}                           & \textbf{Condition}                         \\\hline
+        Decompose       & $P\wedge (f(\vec s) \equiv f(\vec t))$ & $P\wedge\bigwedge_i (s_i \equiv t_i)$    &                                            \\\hline
+        Conflict        & $P\wedge (f(\vec s) \equiv g(\vec t))$ & fail                                     & $f\not\equiv g$                            \\\hline
+        Switch          & $P\wedge (s\equiv X)$                  & $P\wedge(X\equiv s)$                     & $X\in V$, $s\not\in V$                     \\\hline
+        Delete          & $P\wedge (s\equiv s)$                  & P                                        &                                            \\\hline
+        Eliminate       & $P\wedge (X\equiv s)$                  & $P[s/X]\wedge X\equiv s$                 & $X\in V(P)$, $X\not\in V(s)$, $s\not\in V$ \\\hline
+        Occurs Check    & $P\wedge (X\equiv s)$                  & fail                                     & $X\in V(s)$, $s\not\in V$                  \\\hline
+        Coalesce        & $P\wedge (X\equiv Y)$                  & $P[Y/X]\wedge(X\equiv Y)$                & $X,Y\in V(P)$, $X\not\equiv Y$
+    \end{tabular}
+\end{center}
+
+\subsection{Composition of subsitutions}
+
+\begin{definition}
+    If $\phi$ and $\psi$ are subsitutions then their \emph{composition $\phi\circ\psi$}
+    is also a subsitution which, for any term $t$, satisfies the following property:
+    \begin{align*}
+        t[\phi\circ\psi] \equiv (t[\phi])[\psi].
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    We say two subsitutions $\phi$, $\psi$ are equal if for all variables $x$,
+    \begin{align*}
+        x[\phi] = x[\psi].
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    The set of all subsitutions together with the operation $\circ$ forms a monoid. In particular,
+    for any substitutions $\phi,\psi,\theta$ and any variable $x$, we have 
+    \begin{itemize}
+        \item \emph{associativity}: $(\phi \circ \psi) \circ \theta = \phi \circ (\psi \circ \theta)$,
+        \item \emph{unit}: $\phi\circ[] = \phi = []\circ\phi$.
+    \end{itemize}
+\end{theorem}
+
+\begin{definition}
+    Given any two terms $s$ and $t$, a subsitution $\phi$ is their \emph{most general unifier}
+    if 
+    \begin{align*}
+        s[\phi]\equiv t[\phi] \hs\text{and}\hs
+        \forall \psi.\: s[\psi] \equiv t[\psi]  \Rightarrow \exists \theta.\: \psi = \phi \circ \theta.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    The \emph{most general unifier} is unique up to alphabetic variance.
+\end{theorem}
+
+\paragraph{Combining subsitutions}
+
+To combine subsitutions $\phi$ and $\psi$
+\begin{enumerate}
+    \item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
+    \item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
+    \item Output the union of $\phi'$ and $\psi'$.
+\end{enumerate}
+
+\section{Rewriting}
+
+\subsection{Definition}
+
+\begin{definition}
+    \emph{Rewriting} is a technique for replacing terms in an expression with equivalent terms.
+\end{definition}
+
+\begin{theorem}[Rewrite rule of inference]
+    \begin{align*}
+        \infer{P\{R[\theta]\}}{P\{t\}\hs L\Rightarrow R\hs L[\theta]=t}
+    \end{align*} 
+\end{theorem}
+
+\begin{definition}
+    A rewrite rule $\alpha\Rightarrow\beta$ must satisfy the following restrictions:
+    \begin{itemize}
+        \item $\alpha$ is not a variable.
+        \item $V(\beta)\subseteq V(\alpha)$.
+    \end{itemize}
+\end{definition}
+
+\subsection{Termination}
+
+\begin{definition}
+    We say that a set of rewrite rules is \emph{terminating} if starting with any expression,
+    successively applying rewrite rules eventually brings us to a state where no rule applies. 
+\end{definition}
+
+\begin{theorem}
+    Suppose we have a measure $M$ that assigns to every expression a nonnegative integer and
+    a set of rewrite rules $S$. If every rule in $S$ decreases the value of $M$, then $S$ 
+    is terminating.
+\end{theorem}
 
 \end{document}
