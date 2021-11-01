@@ -1009,4 +1009,169 @@ local surface.
     fundamental forms must be related by a Euclidean motion.
 \end{theorem}
 
+\subsection{Taylor series}
+
+\begin{proposition}
+    Let $\vec p \in \vec x(D)$ be apoint on a regular local surface. By a Euclidean motion,
+    choose $\vec p$ to be at the origin and the unit normal at that point to be along the positive
+    $x^3$-axis so $T_{\vec p}S$ is the $(x^1,x^2)$ plane. Near $\vec p$ we can parametrise 
+    the surface as the graph 
+    \begin{align*}
+        \vec x(u,v)=\begin{pmatrix}
+            u \\ v \\ f(u,v)
+        \end{pmatrix}
+    \end{align*}
+    where at the origin
+    \begin{align*}
+        I_{(0,0)}&=(du)^2+(dv)^2,\\
+        \I_{(0,0)}&=f_{uu}(0,0)(du)^2+2f_{uv}(0,0)dudv+f_{vv}(0,0)(dv)^2.
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}
+    In setup of the previous Proposition, suppose the $x^1$, $x^2$ axes correspond 
+    to the principal directions. Then the Taylor series of the surface near the origin
+    is 
+    \begin{align*}
+        x^3 = f(x^1, x^2) = \frac{k_1}{2}(x^1)^2 + \frac{k_2}{2}(x^2)^2 + \text{higher order terms}
+    \end{align*}
+    where $k_1$ and $k_2$ are the principal curvatures at $\vec p$.
+\end{proposition}
+
+\begin{corollary}
+    If $K>0$ at a point then the surface is bowl-shaped around that point and if $K<0$ the it is
+    saddle-shaped. If $K=0$ at a point then there are two possibilities: if both principal
+    curvatures are zero, then the surface is planar around that point; otherwise it's like 
+    a bent plane.
+\end{corollary}
+
+\begin{definition}
+    A surface with $K=0$ everywhere is called \emph{flat}.
+\end{definition}
+
+\begin{definition}
+    A \emph{minimal surface} is one with mean curvature $H=0$ everywhere.
+\end{definition}
+
+\begin{lemma}
+    A minimal surface has $k_1=-k_2$ and thus $K \leq 0$ everywhere.
+\end{lemma}
+
+\subsection{Umbilical points and surfaces}
+
+\begin{theorem}
+    A regular surface has $\I=0$ iff it is (a piece of) a plane.
+\end{theorem}
+
+\begin{theorem}
+    A regular local surface has $\I = \lambda I$ where $\lambda \not=0$ is a constant iff 
+    the surface is (a piece of) a sphere with radius $1/\abs\lambda$.
+\end{theorem}
+
+\begin{definition}
+    An \emph{umbilical point} on a surface is a point where $k_1=k_2$. Consequently all 
+    directions are principal at such a point.
+\end{definition}
+
+\begin{lemma}
+    For any surface $K\leq H^2$, with equality only at umbilical points.
+\end{lemma}
+
+\begin{theorem}
+    A regular local surface for which every point is umbilical, is either part of a sphere 
+    or a plane.
+\end{theorem}
+
+\section{Moving frames in Euclidean space}
+
+\subsection{Moving frames in $\E^3$}
+
+\begin{definition}
+    A \emph{moving frame} for $\E^3$ on $D$ is a collection of maps $\vec e_i:D\to\E^3$
+    for $i=1,2,3$ such that for all $u\in D$ the $\vec e_i(u)$ form an oriented orthonormal
+    basis of $\E^3$.
+\end{definition}
+
+\begin{definition}
+    If $\vec v:D\to\E^3$, given by 
+    \begin{align*}
+        \vec v(u)=\vec v(u^1,...,u^n)=\begin{pmatrix}
+            v^1(u^1,...,u^n)\\ 
+            v^2(u^1,...,u^n)\\
+            v^3(u^1,...,u^n)
+        \end{pmatrix}
+    \end{align*}
+    is an $\E^3$-valued function on $D$, then we write $d\vec v$ for its entry
+    by entry exterior derivative 
+    \begin{align*}
+        d\vec v = \begin{pmatrix}
+            dv^1 \\ dv^2 \\ dv^3
+        \end{pmatrix}.
+    \end{align*}
+    We refer to an object like $d\vec v$ as a \emph{matrix of $1$-forms on $D$} or as a 
+    \emph{$\E^3$-valued $1$-form on $D$}. If $\vec w$ is a vector field on $D$, then we write
+    \begin{align*}
+        d\vec v(w) = \begin{pmatrix}
+            dv^1(\vec w) \\ dv^2(\vec w) \\ dv^3(\vec w)
+        \end{pmatrix} : D\to\E^3.
+    \end{align*}
+\end{definition}
+
+\subsection{Connection forms and the structure equations}
+
+\begin{definition}
+    The $1$-forms $\omega_i^j=\vec e_j\cdot d\vec e_i\in\Omega^1(D)$ are called the 
+    \emph{connection $1$-forms} and by definition satisfy $d\vec e_i = \vec e_j\omega_i^j$.
+\end{definition}
+
+\begin{proposition}
+    The connection $1$-forms $\omega_j^i$ are related by the antisymmetry property: 
+    \begin{align*}
+        \omega_i^j = -\omega_j^i
+    \end{align*}
+    for all $i,j$. In particular $\omega_i^i = 0$ for all $i$.
+\end{proposition}
+
+\begin{lemma}
+    We denote 
+    \begin{align*}
+        \vec w = \begin{pmatrix}
+            0           & \omega_2^1  & \omega_3^1 \\
+            -\omega_2^1 & 0           & \omega_3^2 \\
+            -\omega_3^1 & -\omega_3^2 & 0
+        \end{pmatrix}
+    \end{align*}
+    and 
+    \begin{align*}
+        d\vec E = \begin{pmatrix}
+            d\vec e_1 & d\vec e_2 & d\vec e_3
+        \end{pmatrix}.
+    \end{align*}
+    Then 
+    \begin{align*}
+        d\vec E = \vec E\vec\omega.
+    \end{align*}
+\end{lemma}
+
+\begin{theorem}
+    The \emph{first sturcture equations} are 
+    \begin{align*}
+        d\vec\theta + \vec w \wedge \vec \theta = 0,
+    \end{align*}
+    or equivalently 
+    \begin{align*}
+        d\theta^i + \omega_j^i \wedge \theta^j = 0,\hs i=1,2,3.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}
+    The \emph{second structure equations} are 
+    \begin{align*}
+        d\vec\omega + \vec \omega \wedge\vec \omega = 0,
+    \end{align*}
+    or equivalently 
+    \begin{align*}
+        d\omega_j^i + \omega_k^i\wedge\omega_j^k=0.
+    \end{align*}
+\end{theorem}
 \end{document}
