@@ -385,7 +385,7 @@
     series (\ref{ps}) which converges to $f$ on $\{x: \abs{x-c}<r\}$.
 \end{definition}
 
-\section{Lebesgue Integration}
+\section{Integration}
 
 \subsection{Step functions}
 
@@ -471,4 +471,99 @@
         \item If $f\geq 0$ with $\int_I f = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
     \end{enumerate}
 \end{theorem}
+
+\subsection{Riemann integration}
+
+\begin{definition}[Notes 4.4]
+    Let $f:\R\to\R$. We say that $f$ is \emph{Riemann-integrable} if for every 
+    $\e>0$ there exist step functions $\phi$ and $\psi$ such that 
+    \begin{align*}
+        \phi \leq f \leq \psi 
+    \end{align*}
+    and
+    \begin{align*}
+        \int \psi - \int \phi < \e.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Notes 4.5]
+    A function $f:\R\to\R$ is \emph{Riemann-integrable} if and only if 
+    \begin{align*}
+        \sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
+        = \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
+    \end{align*} 
+\end{theorem}
+
+\begin{definition}[Notes 4.5]
+    If $f$ is Riemann-integrable we define its Riemann integral $(R) \int f$ as the common 
+    value 
+    \begin{align*}
+        (R) \int f
+        =\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
+        = \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
+    \end{align*} 
+\end{definition}
+
+\begin{theorem}[Notes 4.6]
+    Suppose that $f:\R\to\R$ is Riemann integrable. Then $f$ is also Lebesgue integrable on $\R$ 
+    and moreover 
+    \begin{align*}
+        (R) \int f = \int f.
+    \end{align*} 
+\end{theorem}
+
+\begin{lemma}[Notes 4.1]
+    Let $f:\R\to\R$ be a bounded function with bounded support $[a,b]$. The following are equivalent:
+    \begin{enumerate}
+        \item $f$ is Riemann-integrable.
+        \item for every $\e>0$ there exist $a=x_0<\cdots x_n=b$ such that if $M_j$ and $m_j$ 
+            denote the supremum and infimum vallues of $f$ on $(x_{j-1}, x_j)$ respectively, then \begin{align*}
+                \sum_{j=1}^n (M_j-m_j)(x_j-x_{j-1})<\e.
+            \end{align*}
+        \item for every $\e>0$ there exist $a=x_0<\cdots<x_n=b$ such that, with $I_j=(x_{j-1},x_j)$ 
+            for every $j\geq 1$, \begin{align*}
+                \sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x)-f(y)}\lambda(I_j)<\e.
+            \end{align*}
+    \end{enumerate} 
+\end{lemma}  
+
+\begin{theorem}[Notes 4.7]
+    Suppose that $g:[a,b]\to\R$ and let $f$ be defined by $f(x)=g(x)$ for $x\in[a,b]$ and $f(x)=0$
+    otherwise.
+    \begin{enumerate}
+        \item If $g$ is continuos on $[a,b]$, then $f$ is Riemann-integrable.
+        \item If $g$ is a monotone function, then $f$ is Riemann-integrable.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary*}
+   Let $I=(a,b)$ be a bounded interval and suppose that there exists points $a=x_0<x_1<\cdots<x_n=b$
+   such that a function $f:I\to\R$ is bounded and continuous on each subinterval $(x_j,x_{j+1})$,
+   $j=0,1,...,n$. Then such function is Riemann integrable.
+\end{corollary*}
+
+\subsection{Dependence on an interval}
+
+\begin{theorem}[Notes 4.8]
+    Let $I$ and $J$ be two intervals such that $J\subset I$.
+    \begin{enumerate}
+        \item If $f$ is integrable on $I$ then $f$ is integrable on $J$.
+        \item If $f$ is integrable on $J$ and simultaneously $f(x)=0$ for all $x\in I\setminus J$
+            then $f$ is integrable on $I$ and \begin{align*}
+                \int_J f = \int_I f.
+            \end{align*} 
+        \item If $f$ is integrable on $I$ and $f(x)\geq 0$ for all $x\in I$ then \begin{align*}
+            \int_J f \leq \int_I f.
+        \end{align*}
+        \item Suppose that $I$ can be written as the union of disjoint intervals $I_n$ and let $f$
+            be integrable on each of the intervals $I_n$. Then $f$ is integrable on $I$ if and only if
+            \begin{align*}
+                \sum_{n=1}^\infty \int_{I_n} \abs f < \infty.
+            \end{align*}
+            It then follows that \begin{align*}
+                \int_I f = \sum_{n=1}^\infty \int_{I_n}f.
+            \end{align*}
+    \end{enumerate} 
+\end{theorem}
+
 \end{document}
