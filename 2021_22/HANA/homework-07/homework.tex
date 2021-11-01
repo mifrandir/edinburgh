@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Honours Analysis: Homework 7}
+\author{Franz Miltz (UNN: S1971811)}
+\date{11 November 2021}
+\maketitle
+
+\section*{Workshop 7 - Question 4}
+
+\begin{claim*}
+   Let $I$ be a bounded interval and let $f:I\to\R$ be such that 
+   \begin{align*}
+      f(x) = \begin{cases}
+         1, &\text{for }x\not\in\Q,\\
+         0, &\text{for }x\in\Q.
+      \end{cases}
+   \end{align*}
+   Then $f$ is integrable and $\int_I f = \lambda(I)$.
+\end{claim*}
+\begin{proof}
+   We can write $f$ as a difference of characteristic functions:
+   \begin{align*}
+      f(x) = \chi_I(x) - \chi_\Q(x)\hs\text{for all }x\in I.
+   \end{align*}
+   Note that $\chi_I$ is integrable by definition and $\chi_\Q$ is integrable due to
+   \emph{Notes, Exercise 4.4}. 
+   
+   Thus, by \emph{Notes, Theorem 4.2}, $f$ is integrable and 
+   \begin{align*}
+      \int_I f = \int_I \chi_I - \int_I \chi_\Q = \lambda(I)-0 = \lambda(I).
+   \end{align*}
+\end{proof}
+
+\end{document}
