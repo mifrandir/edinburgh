@@ -355,7 +355,29 @@ begin
 
 subsubsection\<open>Problem 6 (3 marks)\<close>
 
-(* Formalise and prove the statement *)
+lemma order_distinctAB: 
+  fixes A::'p and B::'p and C::'p
+  assumes p: "order A B C"
+  shows "A \<noteq> B"
+proof
+  assume a: "A=B"
+  have q: "order B A C" using a p by blast
+  have r: "order C A B" using q order_CBA by blast
+  have s: "\<not> order A B C" using r order_notBCA by blast
+  show False using p s by auto
+qed
+
+lemma order_distinctBC:
+    fixes A::'p and B::'p and C::'p
+    assumes p: "order A B C"
+    shows "B \<noteq> C"
+proof
+  assume a: "B = C" 
+  have q: "order A C B" using a p by blast
+  have r: "order B C A" using q order_CBA by blast
+  have s: "~order B C A" using p order_notBCA by blast
+  show False using r s by auto
+qed
 
 text\<open>Line through two points:\<close>
 definition line :: "'p \<Rightarrow> 'p \<Rightarrow> 'p set"
@@ -375,7 +397,8 @@ locale lines =
   assumes A_V:"A \<noteq> B \<Longrightarrow> \<exists>C. order A B C"
       and A_VI:"\<lbrakk>C \<in> line A B; D \<in> line A B; C \<noteq> D\<rbrakk> \<Longrightarrow> A \<in> line C D"
       and unique_line:"A\<noteq>B \<Longrightarrow> \<exists>!l\<in>Lines. A \<in> l \<and> B \<in> l"
-      (* Formalise axiom AVII and axiom AVIII *)
+      and A_VII: "\<exists> A. \<exists> B. \<exists> C. A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~order A B C \<and> ~order B C A \<and> ~order C A B"
+      and A_VIII: "\<lbrakk>~(A \<in> line B C); order B C D; order C E A \<rbrakk> \<Longrightarrow> \<exists> F. order A F B \<and> D \<in> line E F"
 begin
 
 subsubsection\<open>Problem 8 (5 marks)\<close>
