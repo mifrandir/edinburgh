@@ -404,7 +404,12 @@ begin
 subsubsection\<open>Problem 8 (5 marks)\<close>
 
 (* Formalise and prove that given a line, there is a point not on the line *)
-
+lemma not_all_on_line: "\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E)"
+proof (rule ccontr)
+  assume a: "~(\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E))"
+  have p1: "\<exists> D. \<exists> E. \<forall> F. F \<in> line D E" using a by blast
+  
+qed
 end
 
 subsection\<open>Triangle Geometry (26 marks)\<close>
