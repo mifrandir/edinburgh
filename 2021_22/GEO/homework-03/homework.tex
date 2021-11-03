@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Geometry: Hand-in 3}
+\author{Franz Miltz (UNN: S1971811)}
+\date{8 November 2021}
+\maketitle
+
+\begin{claim*}
+   Let $\Sigma\subset\E^3$ be a regular surface, that meets a plane $P\subset\E^3$ in a 
+   single point $\vec p$. Then $P$ coincides with the tangent plane of $\Sigma$ at $\vec p$,
+   $T_{\vec p}\Sigma$.
+\end{claim*}
+\begin{proof}
+   Let $P$ be given by the equation
+   \begin{align*}
+      \vec n \cdot (\vec x - \vec p) = 0 \hs\text{for all }\vec x\in P
+   \end{align*}
+   where we assume without loss of generality that $\vec n$ is a unit vector. Then the 
+   distance of any point $\vec x\in\E^3$ the distance to $P$ is
+   \begin{align*}
+      D(\vec x) = \vec n \cdot (\vec x - \vec p).
+   \end{align*}
+   Further, since $\Sigma$ is regular, there exists a local regular surface
+   $\vec y: D\subset\R^3\to \E^3$ such that $\vec p \in\vec y(D)$ and $\vec y(D)=U\cap\Sigma$
+   for some open set $U\subset\R^3$.
+   The distance of a point on this surface given by $(u,v)\in D$ then is 
+   \begin{align*}
+      D(\vec y(u,v)) = \vec n \cdot (\vec y(u,v) - \vec p) =: g(u,v).
+   \end{align*}
+   Consider the Jacobian matrix
+   \begin{align*}
+      J_g =
+      \begin{bmatrix}
+         \frac{\p g}{\p u} & \frac{\p g}{\p v}
+      \end{bmatrix}.
+   \end{align*}
+   Note that the $1\times1$ matrix $\left[\eval{\frac{\p g}{\p v}}{p}\right]$ is invertible 
+   at $q\in D$ where $\vec y(q) = \vec p$ if and only if 
+   \begin{align}
+      \label{non_tangent}
+      \eval{\frac{\p g}{\p v}}{q} = \vec n \cdot \vec y_v(q)\not= 0.
+   \end{align}
+   Assume, for contradiction, that $P$ does not coincide with the tangent space 
+   $T_{\vec p}\Sigma$. Then we know that at $q$ either 
+   \begin{align*}
+      \vec n \cdot \vec y_u(q) \not=0, \hs\text{or}\hs \vec n \cdot \vec y_v(q) \not=0.
+   \end{align*}
+   This is because $\vec y$ is regular so $\vec y_u$ and $\vec y_v$ must be linearly independent
+   and span $T_{\vec p} \Sigma$. We can assume without loss of generality assume that the latter holds.
+   We therefore have (\ref{non_tangent}).
+   
+   By the \emph{Implicit Function Theorem} there must exist a function 
+   \begin{align*}
+      \Phi : E \subset \R \to \R
+   \end{align*}
+   defined on an open set $E\subset \R$ such that there exists an open set $\tilde D$
+   with $q\in \tilde D\subset D$ such that 
+   \begin{align*}
+      \tilde D \cap (\R \subset \R^2) = E,
+   \end{align*}
+   and such that for all $\tilde q \in \tilde D$ we have 
+   \begin{align*}
+      g(\tilde q) = g(q) \hs\Leftrightarrow\hs \tilde p = (r, \Phi(r)) \hs \text{for some $r\in\E$}.
+   \end{align*}
+   Since $E$ is open and nonempty, there exists more than one such $r$. This implies that there 
+   is more than one point on $\Sigma$ where the distance to $P$ is zero which contradicts the premise.
+   Therefore $P$ and $T_{\vec p}\Sigma$ must coincide.
+\end{proof}
+
+
+\end{document}
