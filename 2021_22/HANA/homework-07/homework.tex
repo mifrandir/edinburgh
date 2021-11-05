@@ -92,6 +92,35 @@ $M>0$. Let $p>0$.
    \end{align*}
 \end{claim*}
 \begin{proof}
+   Consider a sequence $(p_n)$ where $p_n>0$ for all $n\in\N$ and 
+   $p_n\to\infty$ as $n\to\infty$. Then define the sequence $(s_n)$ by
+   \begin{align*}
+      s_n = \int_a^b \abs{f(x)}^pdx. 
+   \end{align*}
+   Fix $0<\e<M/2$. Then, by (\ref{fullineq}), we have 
+   \begin{align*}
+      (M-\e)^p\lambda(I) \leq s_n \leq M^p(b-a).
+   \end{align*}
+   where $I\subseteq [a,b]$. Since all the terms are positive, we have
+   \begin{align*}
+      (M-\e)\left(\lambda(I)\right)^{1/p} \leq 
+      s_n^{1/p} \leq 
+      M(b-a)^{1/p}.
+   \end{align*}
+   Consider the limits
+   \begin{align*}
+      \lim_{p\to\infty} (M-\e)(\lambda(I))^{1/p} &= M-\e,\\
+      \lim_{p\to\infty} M(b-a)^{1/p} &= M,\\
+   \end{align*}
+   Therefore, for any $0<\e<M/2$, 
+   \begin{align*}
+      M-\e \leq \lim_{p\to\infty} s_n^{1/p} \leq M.
+   \end{align*}
+   Note that $s_n$ does not depend on $\e$ so we must have 
+
+   \begin{align*}
+      \lim_{p\to\infty} s_n^{1/p} = \lim_{p\to\infty} \left(\int_a^b \abs{f(x)}dx\right)^{1/p} = M.
+   \end{align*}
 \end{proof}
 
 \end{document}
