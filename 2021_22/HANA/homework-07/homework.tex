@@ -123,4 +123,40 @@ $M>0$. Let $p>0$.
    \end{align*}
 \end{proof}
 
+\subsection*{Workshop 7 - Question 6}
+
+\begin{claim*}
+   Let $f(x)=n$ for every $x\in((n+1)^{-2}, n^{-2}]$, $n\in\N$. $f$ is integrable on $(0,1]$
+   and 
+   \begin{align*}
+      \int_{(0, 1]} f = \sum_{j=1}^\infty \frac{1}{j^2}.
+   \end{align*}
+\end{claim*}
+\begin{proof}
+   Consider the function $g:(0,1]\to\R$ given by 
+   \begin{align*}
+      g(x) = \sum_{j=1}^\infty \chi_{J_j}(x)
+   \end{align*}
+   where $J_j = (0, j^{-2}]$. Note that for $x\in((n+1)^{-2}, n^{-2})$ where $n\in\N$,
+   we have $\chi_{J_j}(x)=1$ if and only if $j\leq n$. Thus 
+   \begin{align*}
+      g(x) = \sum_{j=1}^n 1 = n = f(x)
+   \end{align*}
+   for all $x\in(0,1]$. We observe that 
+   \begin{align*}
+      \sum_{j=1}^\infty \abs{c_j} \lambda(J_j) = \sum_{j=1}^\infty \frac{1}{j^2}
+   \end{align*}
+   with $c_j=1$ which is a converging $p$-series. By definition of Lebesgue integrability,
+   we have 
+   \begin{align*}
+      \int_{(0,1]} f = \sum_{j=1}^\infty \lambda(J_j) = \sum_{j=1}^\infty \frac{1}{j^2}.
+   \end{align*}
+\end{proof}
+
+\paragraph{Sketch of $f$}
+
+\begin{center}
+\includegraphics[width=15.5cm]{sketch.jpg}
+\end{center}
+
 \end{document}
