@@ -7,6 +7,108 @@
 \date{8 November 2021}
 \maketitle
 
+\section*{Question 1}
+
+\begin{claim*}
+   Let $\alpha\in\Omega^1(\R^n)$ be a $1$-form such that 
+   \begin{align*}
+      \alpha=\sum_{i=1}^n x^idx^i.
+   \end{align*}
+   Then there exists $\beta\in\Omega^{n-1}(\R^n\setminus\{\vec 0\})$ such that 
+   \begin{align*}
+      \alpha\wedge\beta = dx^1\wedge\cdots\wedge dx^n.
+   \end{align*}
+\end{claim*}
+\begin{proof}
+   Let 
+   \begin{align*}
+      \beta = \frac{(-1)^{n-1}}{x^n}dx^1\wedge\cdots\wedge dx^{n-1}.
+   \end{align*}
+   Then we have 
+   \begin{align*}
+      \alpha\wedge\beta &= \left(\sum_{i=1}^n x^idx^i\right) \wedge \left(\frac{(-1)^{n-1}}{x^n}dx^1\wedge\cdots\wedge dx^{n-1}\right)\\
+                        &= \sum_{i=1}^n \frac{(-1)^{n-1}x^i}{x^n}dx^i\wedge dx^1 \wedge \cdots dx^{n-1}.
+   \end{align*}
+   However, for all $1\leq i\leq n-1$ the wedge product is zero due to the repeated $dx^i$. Thus 
+   \begin{align*}
+      \alpha\wedge\beta = \frac{(-1)^{n-1}x^n}{x^n}dx^n\wedge dx^1\wedge\cdots\wedge dx^{n-1}=dx^1\wedge\cdots\wedge dx^n.
+   \end{align*}
+\end{proof}
+
+\section*{Question 2}
+
+Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)\}\subset\R^3$ and 
+\begin{align*}
+   \vec x(z,\phi)=\begin{pmatrix}
+      \cosh z \cos\phi \\ \cosh z \sin\phi \\ z
+   \end{pmatrix}.
+\end{align*}
+
+\begin{claim*}
+   $\vec x$ is regular and
+   \begin{align*}
+      I=d\vec x\cdot d\vec x = (\sinh^2 z + 1)(dz)^2 + (\cosh^2 z) (d\phi)^2.
+   \end{align*}
+\end{claim*}
+\begin{proof}
+   We calculate 
+   \begin{align}
+      \label{dirderiv1}
+      \vec x_z &= \sinh z \cos\phi \frac{\p }{\p x^1} 
+      + \sinh z \sin\phi \frac{\p }{\p x^2} 
+      + \frac{\p }{\p x^3},\\
+      \label{dirderiv2}
+      \vec x_\phi &= -\cosh z \sin\phi \frac{\p }{\p x^1} 
+      + \cosh z\cos\phi\frac{\p }{\p x^2}.
+   \end{align}
+   Firstly, we observe that both $\vec x_z$ and $\vec x_\phi$ are non-zero on $D$.
+   Further,
+   \begin{align*}
+      \vec x_z \cdot \vec x_\phi = -\sinh z\cosh z\sin\phi\cos\phi + \sinh z\cosh z\sin\phi\cos\phi
+      = 0.
+   \end{align*}
+   Therfore $\vec x_z$ and $\vec x_\phi$ are non-zero and perpendicular everywhere, making them linearly 
+   independent. By definition, this shows that $\vec x$ is a regular local surface.
+   Further, we have 
+   \begin{align*}
+      (dx^1)^2 &= (\sinh z\cos\phi dz - \cosh z \sin\phi d\phi)^2\\
+      &=\sinh^2 z \cos^2\phi(dz)^2
+      -2\sinh z\cosh z\sin\phi\cos\phi dzd\phi+\cosh^2z\sin^2\phi(d\phi)^2,\\
+      (dx^2)^2 &= (\sinh z\sin\phi dz + \cosh z \cos\phi d\phi)^2\\
+      &=\sinh^2 z\sin^2\phi (dz)^2 + 2\sinh z\cosh z\sin\phi\cos\phi dzd\phi + \cosh^2 z\cos^2\phi(d\phi)^2,\\
+      (dx^3)^2 &=(dz)^2.
+   \end{align*}
+   Therefore, by definition, 
+   \begin{align*}
+      I=d\vec x\cdot d\vec x = (\sinh^2 z + 1)(dz)^2 + (\cosh^2 z) (d\phi)^2.
+   \end{align*}
+\end{proof}
+
+\begin{claim*}
+   The unit normal of $\vec x$ at a point $(z,\phi)\in D$ is 
+   \begin{align*}
+      \vec N(z, \phi) = \frac{-\cosh z \cos\phi \frac{\p }{\p x^1}-\cosh z \sin\phi\frac{\p }{\p x^2}+\sinh z\cosh z \frac{\p }{\p x^3}}{(1-\sinh^2 z)\cosh^2 z}. 
+   \end{align*} 
+\end{claim*}
+\begin{proof}
+   By definition, we have 
+   \begin{align*}
+      \vec N(p) = \frac{\vec x_z \times \vec x_\phi}{\abs{\vec x_z \times \vec x_\phi}}.
+   \end{align*}
+   We use (\ref{dirderiv1}) and (\ref{dirderiv2}) to claculate 
+   \begin{align*}
+      \vec x_z\times \vec x_\phi = -\cosh z \cos\phi \frac{\p }{\p x^1}-\cosh z \sin\phi\frac{\p }{\p x^2}+\sinh z\cosh z \frac{\p }{\p x^3}
+   \end{align*}
+   and then 
+   \begin{align*}
+      \abs{\vec x_z\times \vec x_\phi} = (1-\sinh^2 z)\cosh^2 z.
+   \end{align*}
+   The claim follows immediately.
+\end{proof}
+
+
+\section*{Question 3}
+
 \begin{claim*}
    Let $\Sigma\subset\E^3$ be a regular surface, that meets a plane $P\subset\E^3$ in a 
    single point $\vec p$. Then $P$ coincides with the tangent plane of $\Sigma$ at $\vec p$,
@@ -48,7 +150,8 @@
       \vec n \cdot \vec y_u(q) \not=0, \hs\text{or}\hs \vec n \cdot \vec y_v(q) \not=0.
    \end{align*}
    This is because $\vec y$ is regular so $\vec y_u$ and $\vec y_v$ must be linearly independent
-   and span $T_{\vec p} \Sigma$. We can assume without loss of generality assume that the latter holds.
+   and span $T_{\vec p} \Sigma$. Since we could reparameterise to swap $\vec y_u$ and $\vec y_v$, 
+   we can assume without loss of generality that the latter inequality holds.
    We therefore have (\ref{non_tangent}).
    
    By the \emph{Implicit Function Theorem} there must exist a function 
@@ -64,7 +167,7 @@
    \begin{align*}
       g(\tilde q) = g(q) \hs\Leftrightarrow\hs \tilde q = (r, \Phi(r)) \hs \text{for some $r\in E$}.
    \end{align*}
-   Since $E$ is open and nonempty, there exists more than one such $r$. This implies that there 
+   Since $E$ is open, there exists more than one such $r$. This implies that there 
    is more than one point on $\Sigma$ where the distance to $P$ is zero which contradicts the premise.
    Therefore $P$ and $T_{\vec p}\Sigma$ must coincide.
 \end{proof}
