@@ -45,9 +45,9 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
 \end{align*}
 
 \begin{claim*}
-   $\vec x$ is regular and
+   $\vec x$ is regular and the first fundamental form is 
    \begin{align*}
-      I=d\vec x\cdot d\vec x = (\sinh^2 z + 1)(dz)^2 + (\cosh^2 z) (d\phi)^2.
+      I= (\cosh^2 z)(dz)^2 + (\cosh^2 z) (d\phi)^2.
    \end{align*}
 \end{claim*}
 \begin{proof}
@@ -80,15 +80,15 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    \end{align*}
    Therefore, by definition, 
    \begin{align*}
-      I=d\vec x\cdot d\vec x = (\sinh^2 z + 1)(dz)^2 + (\cosh^2 z) (d\phi)^2.
+      I=d\vec x\cdot d\vec x = (\cosh^2 z)(dz)^2 + (\cosh^2 z) (d\phi)^2.
    \end{align*}
 \end{proof}
 
 \begin{claim*}
    The unit normal of $\vec x$ at a point $(z,\phi)\in D$ is 
    \begin{align*}
-      \vec N(z, \phi) = \frac{-\cosh z \cos\phi \frac{\p }{\p x^1}-\cosh z \sin\phi\frac{\p }{\p x^2}+\sinh z\cosh z \frac{\p }{\p x^3}}{(1-\sinh^2 z)\cosh^2 z}. 
-   \end{align*} 
+      \vec N(z, \phi) = \frac{-\cos\phi \frac{\p }{\p x^1}-\sin\phi\frac{\p }{\p x^2}+\sinh z\frac{\p }{\p x^3}}{\cosh z}. 
+   \end{align*}
 \end{claim*}
 \begin{proof}
    By definition, we have 
@@ -101,11 +101,67 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    \end{align*}
    and then 
    \begin{align*}
-      \abs{\vec x_z\times \vec x_\phi} = (1-\sinh^2 z)\cosh^2 z.
+      \abs{\vec x_z\times \vec x_\phi} = \sqrt{(1 + \sinh^2 z)\cosh^2 z} = \cosh^2 z.
    \end{align*}
-   The claim follows immediately.
+   The claim follows after cancellation.
 \end{proof}
 
+\begin{claim*}
+   The second fundamental form of $\vec x$ at a point $(z,\phi)\in D$ is 
+   \begin{align*}
+      \I = -(dz)^2-(d\phi)^2.
+   \end{align*}
+\end{claim*}
+
+\begin{proof}
+   We calculate 
+   \begin{align*}
+      dN_1 &= d\left(-\frac{\cos\phi}{\cosh z}\right) = \left(\frac{\sinh z\cos\phi}{\cosh^2z}\right)dz + \left(\frac{\sin\phi}{\cosh z}\right)d\phi,\\
+      dN_2 &= d\left(-\frac{\sin\phi}{\cosh z}\right) = \left(\frac{\sinh z\sin\phi}{\cosh^2 z}\right)dz - \left(\frac{\cos\phi}{\cosh z}\right)d\phi,\\
+      dN_3 &= d\left(\frac{\sinh z}{\cosh z}\right)   = \left(\frac{1}{\cosh^2 z}\right)dz
+   \end{align*}
+   We use this and our calculations for $d\vec x$ to find 
+   \begin{align*}
+      \I = -d\vec x \cdot d\vec N = -(dz)^2 -(d\phi)^2.
+   \end{align*}
+\end{proof}
+
+\begin{claim*}
+   The principal curvatures of $\vec x$ at $(z,\phi)\in D$ are 
+   \begin{align*}
+      k_1 = k_2 = -\frac{1}{\cosh^2 z}
+   \end{align*}
+   and thus 
+   \begin{align*}
+      H=-\frac{1}{\cosh^2 z},\hs K=\frac{1}{\cosh^4 z}.
+   \end{align*}
+\end{claim*}
+\begin{proof}
+   The first and second fundamental form are represented by the following 
+   matrices:
+   \begin{align*}
+      I = \begin{pmatrix}
+         \cosh^2 z & 0 \\ 0 & \cosh^2 z
+      \end{pmatrix}, \hs 
+      \I = \begin{pmatrix}
+         -1 & 0 \\ 0 & -1
+      \end{pmatrix}.
+   \end{align*}
+   Thus the principal curvatures are the solutions to the equation
+   \begin{align*}
+      \det(\I-kI)=0
+   \end{align*}
+   which holds if and only if 
+   \begin{align*}
+      (1+\cosh^2 z)^2 = 0.
+   \end{align*}
+   Thus $k_1=k_2=-1/\cosh^2 z$.
+   By definition, we then have 
+   \begin{align*}
+      H&=\frac{1}{2}(k_1+k_2)=-\frac{1}{\cosh^2 z},\\
+      K&=k_1k_2=\frac{1}{\cosh^4 z}.
+   \end{align*}
+\end{proof}
 
 \section*{Question 3}
 
