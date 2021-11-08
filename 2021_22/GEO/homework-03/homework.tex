@@ -9,6 +9,9 @@
 
 \section*{Question 1}
 
+\emph{The proof below is obviously wrong as $x^n$ may be zero,
+but I have not been able to find smooth parameters for $\beta$ that are defined everywhere.}
+
 \begin{claim*}
    Let $\alpha\in\Omega^1(\R^n)$ be a $1$-form such that 
    \begin{align*}
@@ -109,7 +112,7 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
 \begin{claim*}
    The second fundamental form of $\vec x$ at a point $(z,\phi)\in D$ is 
    \begin{align*}
-      \I = -(dz)^2-(d\phi)^2.
+      \I = -(dz)^2+(d\phi)^2.
    \end{align*}
 \end{claim*}
 
@@ -122,18 +125,18 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    \end{align*}
    We use this and our calculations for $d\vec x$ to find 
    \begin{align*}
-      \I = -d\vec x \cdot d\vec N = -(dz)^2 -(d\phi)^2.
+      \I = -d\vec x \cdot d\vec N = -(dz)^2 +(d\phi)^2.
    \end{align*}
 \end{proof}
 
 \begin{claim*}
    The principal curvatures of $\vec x$ at $(z,\phi)\in D$ are 
    \begin{align*}
-      k_1 = k_2 = -\frac{1}{\cosh^2 z}
+      k_1 = \frac{1}{\cosh^2 z}, \hs k_2 = -\frac{1}{\cosh^2 z}
    \end{align*}
    and thus 
    \begin{align*}
-      H=-\frac{1}{\cosh^2 z},\hs K=\frac{1}{\cosh^4 z}.
+      H=0,\hs K=-\frac{1}{\cosh^4 z}.
    \end{align*}
 \end{claim*}
 \begin{proof}
@@ -144,7 +147,7 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
          \cosh^2 z & 0 \\ 0 & \cosh^2 z
       \end{pmatrix}, \hs 
       \I = \begin{pmatrix}
-         -1 & 0 \\ 0 & -1
+         -1 & 0 \\ 0 & 1
       \end{pmatrix}.
    \end{align*}
    Thus the principal curvatures are the solutions to the equation
@@ -153,13 +156,13 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    \end{align*}
    which holds if and only if 
    \begin{align*}
-      (1+\cosh^2 z)^2 = 0.
+      (1+k\cosh^2 z)(1-k\cosh^2 z) = 0.
    \end{align*}
-   Thus $k_1=k_2=-1/\cosh^2 z$.
+   Thus $k_1=1/\cosh^2 z$ and $k_2=-1/\cosh^2 z$.
    By definition, we then have 
    \begin{align*}
-      H&=\frac{1}{2}(k_1+k_2)=-\frac{1}{\cosh^2 z},\\
-      K&=k_1k_2=\frac{1}{\cosh^4 z}.
+      H&=\frac{1}{2}(k_1+k_2)=0,\\
+      K&=k_1k_2=-\frac{1}{\cosh^4 z}.
    \end{align*}
 \end{proof}
 
