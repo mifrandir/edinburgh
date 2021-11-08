@@ -566,4 +566,20 @@
     \end{enumerate} 
 \end{theorem}
 
+\subsection{Fundamental Theorem of Calculus and Practical Integration}
+
+\begin{theorem}[Fundamental Theorem of Calculus, Part 1]
+    Let $I$ be an interval and let $g:I\to\R$ be integrable on $I$. For all $x\in I$ and 
+    some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g$. Suppose $g$ is continuous at $x$ 
+    for some $x\in I$. Then $G$ is differentiable at $x$ and $G'(x)=g(x)$.
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Calculus, Part 2]
+    Suppose $f:I\to\R$ has continuous derivative $f'$ on the interval $I$. Then for any 
+    $a,b\in I$ 
+    \begin{align*}
+        \int_a^b f' = f(b) - f(a).
+    \end{align*}
+\end{theorem}
+
 \end{document}
