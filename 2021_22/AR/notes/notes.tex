@@ -656,4 +656,51 @@ To combine subsitutions $\phi$ and $\psi$
     \end{enumerate}
 \end{theorem}
 
+\section{Inductive Proof}
+
+\begin{definition}
+    An \emph{inductive datatype} is defined by constructors, some of which involve the datatype 
+    itself. An inductive datatype is called \emph{free} if terms are only equal if they are 
+    syntactically identical.
+\end{definition}
+
+\begin{definition}
+    Let $(<) \subseteq S\times S$ be an ordering on a type $S$. We call $<$ \emph{well-founded} or
+    \emph{noetherian} if there does not exist an infinite sequence $(x_n)$ of $x_n\in S$ such that 
+    \begin{align*}
+        x_{n+1} < x_n\hs\text{ for all $n\in\N$.  }
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Consider the $L$-system with left- and right-introduction rules. This system has two convenient properties 
+    \begin{enumerate}
+        \item Cut elimination: the cut rule is unnecessary.
+        \item Sub-formula property: every cut-free proof only contains formulas which are sub-formulas of the original goal.
+    \end{enumerate}
+    Introducin the induction rule 
+    \begin{align*}
+        \infer{\Gamma \vdash \forall n. P(n)}{\Gamma \vdash P(0) \hs \Gamma,P(n)\vdash P(n+1) \hs \vdash n\not\in V(\Gamma, P)}
+    \end{align*}
+    then cut elimination fails. Furthermore, it is impossible to extend the system such that 
+    the sub-formula property is re-established.
+\end{theorem}
+
+\paragraph{Challenges in automating inductive proofs}
+
+Theoretically, and practically, to do inductive proofs we need 
+\begin{itemize}
+    \item lemma speculation
+    \item generalisation
+\end{itemize}
+
+Automated techniques include 
+\begin{itemize}
+    \item Boyer-Moore approach 
+    \item Rippling, "Productive Use of Failure"
+    \item Up-front speculation
+    \item Cycling proofs
+    \item Only doing a few cases 
+\end{itemize}
+
 \end{document}
