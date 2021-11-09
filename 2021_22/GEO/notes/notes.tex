@@ -1182,4 +1182,152 @@ local surface.
         d\omega_j^i + \omega_k^i\wedge\omega_j^k=0.
     \end{align*}
 \end{theorem}
+
+\section{The structure equations for a surface}
+
+\subsection{Adapted frames and the structure equations}
+
+Let $\vec x: D \to \E^3$ be an oriented local surface.
+
+\begin{definition}[Notes 11.1]
+    A moving frame $(\vec e_1, \vec e_2, \vec e_3)$ for $\E^3$ on $D$
+    is said to be adapted to the surface if $\vec e_3 = \vec N$.
+\end{definition}
+
+\begin{proposition}[Notes 11.2]
+    The first and second structure equations for a regular local surface 
+    with respect to an adapted frame, give the \emph{structure equations
+    of a surface}:
+    \begin{align*}
+        d\theta^1 + \omega_2^1\wedge\theta^2 = 0\\
+        d\theta^2 + \omega_1^2\wedge\theta^1 = 0\\
+        \omega_1^3\wedge\theta^1 + \omega_2^3\wedge\theta^2 = 0\\
+        d\omega_2^1+\omega_3^1\wedge\omega_2^3 = 0\\
+        d\omega_3^1 + \omega_2^1 \wedge \omega_3^2 = 0\\
+        d\omega_3^2 + \omega_1^2 \wedge \omega_3^1 = 0
+    \end{align*}
+\end{proposition}
+
+\begin{lemma}[Notes 11.3]
+    $\{\theta^1, \theta^2\}$ is a basis for $\Omega^1(D)$. 
+\end{lemma}
+
+\begin{lemma}
+    There are unique functions $a,b,c$ on $D$ such that 
+    \begin{align*}
+        \omega_3^1 = a\theta^1+b\theta^2,\\
+        \omega_3^2 = b\theta^1+c\theta^2.
+    \end{align*}
+\end{lemma}
+
+\begin{proposition}
+    The first and second fundamental forms are 
+    \begin{align*}
+        I = (\theta^1)^2 + (\theta^2)^2,\hs 
+        \I = -a(\theta^1)^2-2b\theta^1\theta^2-c(\theta^2)^2.
+    \end{align*}
+    The Gauss curvature $K$ and the mean curvature $H$ are given by 
+    \begin{align*}
+        K=ac-b^2, \hs H=-\frac{1}{2}(a+c).
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}
+    The Gauss equation is equivalent to 
+    \begin{align*}
+        d\omega_2^1 = K\theta^1\wedge\theta^2.
+    \end{align*}
+\end{proposition}
+
+\subsection{Gauss's Theorema Egregium}
+
+\begin{proposition}
+    Let $\vec x:D\to\E^3$ be a regular local surface with first fundamental form 
+    $I$ and $\theta^1$, $\theta^2$ be $1$-forms on $D$ such that 
+    \begin{align*}
+        I = (\theta^1)^2+(\theta^2)^2.
+    \end{align*}
+    Then there exists a unique adapted frame such that $\theta^1=\vec e_1\cdot d\vec x$
+    and $\theta^2 = \vec e_2 \cdot d\vec x$.
+\end{proposition}
+
+\begin{definition}
+    Two regular surfaces $\vec x,\tilde{\vec x}:D\to\E^3$ are \emph{isometric}
+    if $I=\tilde I$.
+\end{definition}
+
+\begin{theorem}[Gauss's Theorema Egregium]
+    Isometric surfaces have the same Gauss curvature.
+\end{theorem}
+
+\section{Geodesics}
+
+\subsection{Geodesics in Euclidean space}
+
+\begin{definition}
+    Let $\vec x:[a,b]\to\E^n$ be a unit speed curve in Euclidean space joining two points 
+    $\vec x(a),\vec x(b)\in\E^n$. Consider a $1$-parameter family of \emph{nearby} curves 
+    \begin{align*}
+        \vec x_\e (t) = \vec x(t) + \e\vec y(t)
+    \end{align*}
+    where $\vec x'(t) \cdot \vec y(t)  = 0$ and $\vec y(a)=\vec y(b)=\vec 0$.
+    We call $\vec y(t)$ a \emph{connecting vector}.
+\end{definition}
+
+\begin{definition}
+    We say a unit speed curve $\vec x(t)$ as above has a \emph{stationary length} if 
+    the length of nearby curves $s_\e = \int_a^b \abs{\vec x'_c} dt$ satisfies 
+    \begin{align*}
+        \eval{\frac{ds_\e}{d\e }}{\e=0}=0
+    \end{align*}
+    for all connecting vectors $\vec y(t)$.
+\end{definition}
+
+\begin{proposition}
+    A unit speed curve $\vec x(t)$ in Euclidean space has stationary length if and only if 
+    it is the straight line joining the two end points.
+\end{proposition}
+
+\subsection{Geodesics on surfaces}
+
+\begin{definition}
+    A unit speed curve $\vec x(c(t))$ lying in a surface is \emph{geodesic} if its acceleration
+    is everywhere normal to the surface, that is, 
+    \begin{align*}
+        \frac{d^2}{dt^2}\vec x(c(t)) = A(t)\vec N(c(t)).
+    \end{align*}
+    where $\vec N$ is the unit normal to the surface and $A$ is some function along the curve.
+\end{definition}
+
+\begin{proposition}
+    A curve lying in a surface has stationary length if and only if it is a geodesic.
+\end{proposition}
+
+\begin{proposition}
+    A curve $\vec x(c(t))$ lying in a surface is a geodesic if and only if, in an adapted frame 
+    it obeys the \emph{geodesic equations}
+    \begin{align*}
+        \frac{d}{dt}(\theta^1 (c')) + \omega_2^1(c')\theta^2(c') = 0,\\
+        \frac{d}{dt}(\theta^2 (c')) + \omega_1^2(c')\theta^1(c') = 0,
+    \end{align*}
+    and the \emph{energy equation}
+    \begin{align*}
+        (\theta^1(c'))^2 + (\theta^2(c'))^2 = 1.
+    \end{align*}
+\end{proposition}
+
+\begin{proposition}
+    The fact that the energy
+    \begin{align*}
+        E = (\theta^1(c'))^2 + (\theta^2(c'))^2
+    \end{align*}
+    is constant is a consequence of the geodesic equations. Setting it to one just means we get 
+    curves of unit speed, rather than some constant speed.
+\end{proposition}
+
+\begin{proposition}
+    Given a point $\vec p$ on a surface and a unit tangent vector $\vec v$ to the surface at $\vec p$,
+    there exists a unique geodesic on the surface $t\mapsto \vec x(c(t))$ for $\abs t < \e$,
+    such that $\vec x(0) =\vec p$ and $\vec x'(0) \vec v$.
+\end{proposition}
 \end{document}
