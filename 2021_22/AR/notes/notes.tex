@@ -570,4 +570,90 @@ To combine subsitutions $\phi$ and $\psi$
     is terminating.
 \end{theorem}
 
+\subsection{Confluence}
+
+\begin{definition}
+    An expression where no rewrite rules apply is said to be in \emph{normal form}.
+\end{definition}
+
+\begin{definition}
+    Let $s$ be an expression and let $t_1, ..., t_n$ be the normal forms obtained by 
+    applying rewrite rules exhaustively. If $t_i=t_j$ for all $1\leq i,j\leq n$, then we 
+    say we have a \emph{canonical normal form} for $s$.
+\end{definition}
+
+\begin{definition}
+    A set of rewrite rules is \emph{confluent} if for all terms $r,s_1,s_2$ such that 
+    $r\to^*s_1$ and $r\to^*s_2$ there exists a term $t$ such that 
+    $s_1\to^*t$ and $s_2\to^*t$.
+\end{definition}
+
+\begin{definition}
+    A set of rewrite rules is \emph{Church-Rosser} if for all terms $s_1$ and $s_2$
+    such that $s_1\leftrightarrow^* s_2$, there exists a term $t$ such that $s_1\to^*t$
+    and $s_2\to^* t$.
+\end{definition}
+
+\begin{theorem}
+    A term is confluent if and only if it is Church-Rosser.
+\end{theorem}
+
+\begin{theorem}
+    Let $S$ be a terminating rewrite set. If $S$ is confluent, then every expression has a 
+    canonical normal form under $S$.
+\end{theorem}
+
+\begin{definition}
+    A set of rewrite rules is \emph{locally confluent} if for all terms $r,s_1,s_2$ such that 
+    $r\to s_1$ and $r\to s_2$ there exists a term $t$ such that 
+    $s_1\to^*t$ and $s_2\to^*t$.
+\end{definition}
+
+\begin{lemma}[Newman]
+    Any terminating and locally confluent rewrite set is confluent. 
+\end{lemma}
+
+\begin{theorem}
+    Local confluence is decidable.
+\end{theorem}
+
+\begin{definition}
+    Let $L_1\Rightarrow R_1$ and $L_2\Rightarrow R_2$ be rewrite rules. A \emph{critical pair} is 
+    a pair of expressions 
+    \begin{align*}
+        \lra{R_1[\theta], L_1[\theta]\{R_2[\theta]/s[\theta]\}}
+    \end{align*}
+    where $s$ is a non-variable sub-term of $L_1$ such that $s[\theta]=L_2[\theta]$ with 
+    most general unifier $\theta$.
+\end{definition}
+
+\begin{theorem}
+    An algorithm to test for local confluence works as follows:
+    \begin{enumerate}
+        \item Find all the critical pairs in set of rewrite rules $R$
+        \item For each critical pair $\lra{s_1, s_2}$: \begin{enumerate}
+            \item Find a normal form $s_1'$ of $s_1$
+            \item Find a normal form $s_2'$ of $s_2$
+            \item Check $s_1'=s_2'$, if not then fail
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+    The \emph{Knuth-Bendix Completion Algorithm} works as follows:
+    \begin{enumerate}
+        \item While there are non-conflatable critical pairs in $R$: \begin{enumerate}
+            \item Take a critical pair $\lra{s_1, s_2}$ in $R$
+            \item Normalise $s_1$ to $s_1'$ and $s_2$ to $s_2'$
+            \item If $R\cup\{s_1'\Rightarrow s_2'\}$ is terminating then \begin{align*}
+                R := R \cup \{s_1'\Rightarrow s_2'\}
+            \end{align*}
+            \item Otherwise, if $R\cup\{s_2'\Rightarrow s_1'\}$ is terminating then \begin{align*}
+                R := R \cup \{s_2' \Rightarrow s_1'\}
+            \end{align*}
+            \item Otherwise, fail.
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
 \end{document}
