@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Honours Analysis: Homework 8}
+\author{Franz Miltz (UNN: S1971811)}
+\date{18 November 2021}
+\maketitle
+
+\section*{Workshop 8 - Question 6}
+
+\begin{claim*}
+   Let $f(x)=n$ for all $x\in((n+1)^{-1}, n^{-1}]$, $n\in\N$. Then $f$ is not integrable on 
+   $(0,1]$.
+\end{claim*}
+\begin{proof}
+   Consider the function $g:(0,1]\to\R$ given by 
+   \begin{align*}
+      g(x) = \sum_{j=1}^\infty \chi_{J_j}(x)
+   \end{align*}
+   where $J_j = (0, j^{-1}]$. Note that for $x\in((n+1)^{-1}, n^{-1}]$ where $n\in\N$,
+   we have $\chi_{J_j}(x)=1$ if and only if $j\leq n$. Thus 
+   \begin{align*}
+      g(x) = \sum_{j=1}^n 1 = n = f(x)
+   \end{align*}
+   for all $x\in(0,1]$. Therefore we can write 
+   \begin{align*}
+      f(x) = \sum_{j=1}^\infty f_j(x)
+   \end{align*}
+   where $f_j=\chi_{J_j}$. Note that the series 
+   \begin{align*}
+      \sum_{j=1}^\infty \int_{(0,1]} f_j = \sum_{j=1}^\infty \lambda(J_j)  
+      = \sum_{j=1}^\infty \frac{1}{j}
+   \end{align*}
+   diverges. It follows from \emph{Notes, Theorem 4.3} that $f$ is not integrable on $(0,1]$. 
+\end{proof}
+
+\section*{Workshop 8 - Question 7}
+
+For $x>0$ we define 
+\begin{align*}
+   L(x) = \int_1^x \frac{dt}{t}.
+\end{align*}
+
+\begin{claim*}
+   $L$ is differentiable on $\R_{>0}$ and
+   \begin{align*}
+      L'(x) = \frac{1}{x}.
+   \end{align*}
+\end{claim*}
+
+\begin{proof}
+   Let $g(x) = 1/x$. Then 
+   \begin{align*}
+      L(x) = \int_{x_0}^x g(t) dt
+   \end{align*}
+   where $x_0=1$. Observe that $1/x$ is a rational function defined on $\R_{\geq 0}$
+   and therefore continuous. The claim follows directly from \emph{Notes, Theorem 4.10}.
+\end{proof}
+
+\end{document}
