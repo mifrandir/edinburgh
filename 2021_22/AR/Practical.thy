@@ -403,12 +403,53 @@ begin
 
 subsubsection\<open>Problem 8 (5 marks)\<close>
 
+lemma symmetric_line:
+  fixes A::'p and B::'p and X::'p
+  assumes p1: "X \<in> line A B"
+    and p2: "A \<noteq> B"
+  shows "X \<in> line B A" 
+proof -
+  have a: "X=A \<or> X=B \<or> order A B X \<or> order A X B \<or> order X A B"
+    using line_def p1 p2 points.order_CBA by fastforce
+  have b: "X=B \<or> X=A \<or> order B A X \<or> order B X A \<or> order X B A"
+    using order_CBA a by blast 
+  show "X \<in> line B A"
+    using b p2 points.line_def points_axioms by fastforce
+qed
+
 (* Formalise and prove that given a line, there is a point not on the line *)
 lemma not_all_on_line: "\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E)"
 proof (rule ccontr)
   assume a: "~(\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E))"
-  have p1: "\<exists> D. \<exists> E. \<forall> F. F \<in> line D E" using a by blast
-  
+  have p1: "\<exists> D. \<exists> E. \<forall> F. F \<in> line D E" 
+     using a by blast
+   obtain D where p2: "\<exists> E. \<forall> F. F \<in> line D E" 
+     using p1 by auto
+   obtain E where p3: "\<forall> F. F \<in> line D E" 
+     using p2 by auto
+   obtain A where p4: "\<exists> B. \<exists> C. (A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B))" 
+     using A_VII by auto
+   obtain B where p5: "\<exists> C. (A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B))"
+     using p4 by auto
+   obtain C where p6: "A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B)"
+     using p5 by auto
+   have p7: "A \<in> line D E" 
+     using p3 by simp
+   have p8: "B \<in> line D E"
+     using p3 by simp
+   have p9: "C \<in> line D E"
+     using p3 by simp
+   have pA: "\<exists>!l\<in>Lines. A \<in> l \<and> B \<in> l" using p6 unique_line by blast
+   obtain l where pB: "A \<in> l \<and> B \<in> l" using pA by auto
+   have pC: "D \<in> line A B" using A_VI p6 p7 p8 by blast
+   have pD: "A \<in> line E D" using p7 line_def symmetric_line by blast
+   have pE: "B \<in> line E D" using p8 line_def symmetric_line by blast
+   have pF: "E \<in> line A B" using A_VI p6 pD pE by blast
+   have p10: "A \<in> line A B \<and> B \<in> line A B"
+     by (simp add: line_def p6) 
+   have p11: "A \<in> l \<and> B \<in> l"
+     by (simp add: pB)
+   have p12: "l = line A B" using p6 p10 p11 unique_line by 
 qed
 end
 
