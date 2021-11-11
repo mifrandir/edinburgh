@@ -44,9 +44,10 @@ For $x>0$ we define
 
 \begin{claim*}
    $L$ is differentiable on $\R_{>0}$ and
-   \begin{align*}
+   \begin{align}
+      \label{deriv}
       L'(x) = \frac{1}{x}.
-   \end{align*}
+   \end{align}
 \end{claim*}
 
 \begin{proof}
@@ -56,6 +57,33 @@ For $x>0$ we define
    \end{align*}
    where $x_0=1$. Observe that $1/x$ is a rational function defined on $\R_{\geq 0}$
    and therefore continuous. The claim follows directly from \emph{Notes, Theorem 4.10}.
+\end{proof}
+
+\begin{claim*}
+   For all $x,y\in\R_{>0}$,
+   \begin{align*}
+      L(xy) = L(x) + L(y).
+   \end{align*}
+\end{claim*}
+
+\begin{proof}
+   Note that the claim holds for $x=y=1$ since 
+   \begin{align*}
+      L(1) = L(1) + L(1) = 0.
+   \end{align*}
+   Consider the following derivative where $y\in\R_{>0}$:
+   \begin{align*}
+      \frac{d}{dt}\left(L(ty)\right) = yL'(ty) = \frac{1}{t}.
+   \end{align*}
+   where we used the \emph{Chain Rule} and (\ref{deriv}). By \emph{Notes, Exercise 4.6}
+   we can write
+   \begin{align*}
+      \int_1^x \left(\frac{d}{dt}L(ty)\right)dt = \int_1^x \frac{dt}{t}.
+   \end{align*}
+   By definition of $L$ and \emph{Notes, Theorem 4.11}, we then get
+   \begin{align*}
+      L(xy) - L(y) = L(x).
+   \end{align*}
 \end{proof}
 
 \end{document}
