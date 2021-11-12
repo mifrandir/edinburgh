@@ -612,9 +612,14 @@ lemma pos_order_neq_zero:
   using assms pos_order_eq_zero by blast+
 
 lemma axiom1:
-  assumes " x = y"
+  assumes p: "x = y"
     shows "\<Delta> x y z = 0"
-  sorry (*Prove this statement.*)
+proof -
+  have p1: "\<Delta> x x z = \<Delta> x y z" using p by blast  
+  have "\<Delta> x x z = - \<Delta> x x z" using reverse_order2 by force
+  then have "\<Delta> x x z = 0" by fastforce
+  then show "\<Delta> x y z = 0" using p1 by auto
+qed
 
 lemma axiom3_b: "\<Delta> x y z = \<Delta> h y z + \<Delta> x h z + \<Delta> x y h"
 proof -
@@ -689,10 +694,19 @@ proof (rule ccontr)
 qed
 
 lemma axiom6:
-  assumes "\<Delta> x y z = 0"
-      and "x \<noteq> z"
-    shows " \<exists>L. \<forall>h. \<Delta> h x y = L * \<Delta> h x z"
-  sorry (*Prove this statement.*)
+  assumes col: "\<Delta> x y z = 0"
+      and neq: "x \<noteq> z"
+    shows "\<exists>L. \<forall>h. \<Delta> h x y = L * \<Delta> h x z"
+proof -
+  define a :: real where "a = 1"
+  obtain p where "a = \<Delta> x z p" using axiom2 neq by blast
+  then have area: "\<Delta> p x z = a" using axiom0_a by blast
+  define q :: real where "q = \<Delta> p x y"
+  also have q_works: "\<forall>h. \<Delta> h x y = q * \<Delta> h x z"
+    using area a_def axiom5 col q_def by simp
+  show "\<exists>L. \<forall>h. \<Delta> h x y = L * \<Delta> h x z"
+    using q_works by simp 
+qed
 
 end
 
@@ -794,7 +808,16 @@ qed
 
 (* Formulate and prove signedArea_5 *)
 
+lemma signedArea_5: 
+  fixes x::point and y :: point and z :: point
+  assumes col: "signedArea x y z = 0"
+  shows "(signedArea h x y)*(signedArea k x z) 
+    = (signedArea k x y)*(signedArea h x z)"
+proof -
+  have "(signedArea h x y)*(signedArea k x z) 
+    = (signedArea k x y)*(signedArea h x z)"
 
+  
 
 (* Now using the definition of signedArea instantiate the triangles locale
   so that \<Delta> corresponds to  signedArea. Use command 'interpretation'
