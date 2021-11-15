@@ -1330,4 +1330,138 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     there exists a unique geodesic on the surface $t\mapsto \vec x(c(t))$ for $\abs t < \e$,
     such that $\vec x(0) =\vec p$ and $\vec x'(0) \vec v$.
 \end{proposition}
+
+\subsection{The hyperbolic plane}
+
+\begin{definition}
+    \emph{Two-dimensional hyperbolic space} is the upper half plane 
+    \begin{align*}
+        H = \{(x,y) : x > 0\}\subset\R^2
+    \end{align*}
+    equipped with the first fundamental form given by 
+    \begin{align*}
+        I = \frac{(dx)^2 + (dy)^2}{y^2}.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}
+    Hyperbolic space has $K=-1$.    
+\end{theorem}
+
+\begin{theorem}[Hilbert]
+    No complete regular surface of constant negative Gauss curvature exists in $\E^3$. 
+\end{theorem}
+
+\begin{theorem}[Nash]
+    Every Riemannian manifold can be isometrically immersed in some $\E^n$. 
+\end{theorem}
+
+\section{Integration over surfaces}
+
+\subsection{Integration of 2-forms over surfaces}
+
+\begin{definition}
+    Let $\vec x:D\to\R^3$ define a local surface 
+    \begin{align*}
+        \vec x(u,v)=(x^1(u,v), x^2(u,v), x^3(u,v)).
+    \end{align*}
+    Let 
+    \begin{align*}
+        \alpha = \alpha_{12}dx^1\wedge dx^2 + \alpha_{13}dx^1\wedge dx^3 + \alpha_{23}dx^2\wedge dx^3
+    \end{align*}
+    be a $2$-form on $\R^3$. We define the \emph{pull-back} $x^*\alpha$ of $\alpha$ by the map $x$
+    to be the $2$-form on $D$ given by 
+    \begin{align*}
+        x^*\alpha = \alpha_{12}(\vec x(u,v))dx^1\wedge dx^2+ \alpha_{13}(\vec x(u,v))dx^1\wedge dx^3 + \alpha_{23}(\vec x(u,v))dx^2\wedge dx^3
+    \end{align*}
+    where here $dx^k$ is the exterior derivative of $x^k:D\to\R$.
+\end{definition}
+
+\begin{definition}
+    Let $\vec x:D\to\R^3$ be a local surface and let $\alpha$ be a $2$-form on $\R^3$. We define 
+    the \emph{integral} of $\alpha$ over the local surface to be 
+    \begin{align*}
+        \int_{\vec x(D)} \alpha = \int_D \vec x^*\alpha.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    If $\Sigma$ is an oriented regular surface, the integral over $\Sigma$ of a $2$-form $\alpha$
+    is defined by writing $\Sigma$ as a union of images of regular oriented local surfaces, and 
+    adding the integrals of $\alpha$ over these local surfaces. 
+\end{definition}
+
+\begin{definition}
+    A $1$-dimensional submanifold of $\R^3$ is a regular curve, a $2$-dimensional submanifold of 
+    $\R^3$ is a regular surface, a $3$-dimensional submanifold of $\R^3$ is a domain.
+\end{definition}
+
+\begin{definition}
+    Let $\Sigma$ be an oriented surface in $\R^3$ with boundary an oriented curve $C$.
+    The \emph{induced orientation} on $C$ is such that if $(u_1,u_2)$ is an oriented coordinate
+    chart on $\Sigma$ such that $u_1\leq 0$ and $u_1=0$ is the boundary, then $u_2$ is an
+    oriented coordinate on $C$. 
+    
+    Let $M$ be a $3$-dimensional submanifold of $\R^3$ bounded by 
+    an oriented surface $\Sigma$. The induced orientation on $\Sigma$ is such that $(u_1,u_2,u_3)$
+    is an oriented coordinate chart on $M$ such that $u_1\leq 0$ and $u_1=0$ is the boundary,
+    then $(u_2,u_3)$ are oriented coordinates on $\Sigma$.
+\end{definition}
+
+\begin{theorem}[Stokes]
+    Let $\Sigma$ be a $k$-dimensional oriented closed and bounded submanifold in $\R^3$ with 
+    boundary $\sigma\Sigma$ given the induced orientation and $\alpha\in\Omega^{k-1}(\Sigma)$.
+    Then
+    \begin{align*}
+        \int_\Sigma d\alpha = \int_{\sigma\Sigma}\alpha.
+    \end{align*}
+\end{theorem}
+
+\begin{corollary}[Green]
+    Let $D\subset\R^2$ with boundary curve $C$. The induced orientation on $C$ from 
+    the standard orientation on $D$ is anti-clockwise. Then Stokes' theorem for the $1$-form 
+    $\alpha=P(x,y)dx + Q(x,y)dy$ is 
+    \begin{align*}
+        \int_C(Pdx + Qdy) = \int_D\left(\frac{\p Q}{\p x}-\frac{\p P}{\p y}\right)dx\wedge dy. 
+    \end{align*} 
+\end{corollary}
+
+\subsection{Integration of functions over surfaces}
+
+\begin{definition}
+    Given a local surface $\vec x:D\to\E^3$, the integral of a 
+    function $f:\E^3\to\R$ over $\vec x$ is 
+    \begin{align*}
+        \int_{\vec x(D)} = \int_D f(\vec x(u,v))\abs{\vec x_u \times \vec x_v}dudv.
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    For a local surface $\abs{\vec x_u \times \vec x_v}=\sqrt{\det I}$. Hence the area 
+    of $\vec x$ is 
+    \begin{align*}
+        A = \int_D \sqrt{\det I}dudv.
+    \end{align*}
+    Thus the area is an intrinsic property of the surface.
+\end{lemma}
+
+\begin{lemma}
+    For a local surface in $\E^3$ with adapted frame,
+    \begin{align*}
+        \theta^1\wedge\theta^2 = \abs{\vec x_u \times \vec x_v} du \wedge dx.
+    \end{align*}
+\end{lemma}
+
+\begin{corollary}
+    Let $\vec x: D\to\E^3$ be a local surface and $f:\E^3\to\R$ be a function. Then 
+    the integral of $f$ over the surface is given by 
+    \begin{align*}
+        \int_{\vec x(D)} f = \int_D f(\vec x(u,v))\theta^1\wedge\theta^2.
+    \end{align*}
+    In particular, 
+    \begin{align*}
+        A = \int_D \theta^1\wedge\theta^2
+    \end{align*}
+    gives the area of the local surface. 
+\end{corollary}
 \end{document}
