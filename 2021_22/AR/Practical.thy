@@ -401,6 +401,10 @@ locale lines =
       and A_VIII: "\<lbrakk>~(A \<in> line B C); order B C D; order C E A \<rbrakk> \<Longrightarrow> \<exists> F. order A F B \<and> D \<in> line E F"
 begin
 
+lemma uniqueness: "[|\<exists>!x. P x; P A; P B|] ==> A = B"
+  by blast
+  
+
 subsubsection\<open>Problem 8 (5 marks)\<close>
 
 lemma symmetric_line:
@@ -420,36 +424,35 @@ qed
 (* Formalise and prove that given a line, there is a point not on the line *)
 lemma not_all_on_line: "\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E)"
 proof (rule ccontr)
-  assume a: "~(\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E))"
-  have p1: "\<exists> D. \<exists> E. \<forall> F. F \<in> line D E" 
-     using a by blast
-   obtain D where p2: "\<exists> E. \<forall> F. F \<in> line D E" 
-     using p1 by auto
-   obtain E where p3: "\<forall> F. F \<in> line D E" 
-     using p2 by auto
-   obtain A where p4: "\<exists> B. \<exists> C. (A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B))" 
+  assume assumption: "~(\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E))"
+  then have "\<exists> D. \<exists> E. \<forall> F. F \<in> line D E" 
+     by blast
+   then obtain D where "\<exists> E. \<forall> F. F \<in> line D E" 
+     by auto
+   then obtain E where all_p_on_DE: "\<forall> F. F \<in> line D E" 
+     by auto
+   obtain A where "\<exists> B. \<exists> C. (A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B))" 
      using A_VII by auto
-   obtain B where p5: "\<exists> C. (A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B))"
-     using p4 by auto
-   obtain C where p6: "A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B)"
-     using p5 by auto
-   have p7: "A \<in> line D E" 
-     using p3 by simp
-   have p8: "B \<in> line D E"
-     using p3 by simp
-   have p9: "C \<in> line D E"
-     using p3 by simp
-   have pA: "\<exists>!l\<in>Lines. A \<in> l \<and> B \<in> l" using p6 unique_line by blast
-   obtain l where pB: "A \<in> l \<and> B \<in> l" using pA by auto
-   have pC: "D \<in> line A B" using A_VI p6 p7 p8 by blast
-   have pD: "A \<in> line E D" using p7 line_def symmetric_line by blast
-   have pE: "B \<in> line E D" using p8 line_def symmetric_line by blast
-   have pF: "E \<in> line A B" using A_VI p6 pD pE by blast
-   have p10: "A \<in> line A B \<and> B \<in> line A B"
-     by (simp add: line_def p6) 
-   have p11: "A \<in> l \<and> B \<in> l"
-     by (simp add: pB)
-   have p12: "l = line A B" using p6 p10 p11 unique_line by 
+   then obtain B where "\<exists> C. (A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B))"
+     by auto
+   then obtain C where spec_A_VII: "A \<noteq> B \<and> B \<noteq> C \<and> C \<noteq> A \<and> ~(order A B C) \<and> ~(order B C A) \<and> ~(order C A B)"
+     by auto
+   have A_on_DE: "A \<in> line D E" 
+     using all_p_on_DE by simp
+   have B_on_DE: "B \<in> line D E"
+     using all_p_on_DE by simp
+   have A_and_B_on_AB: "line A B \<in> Lines \<and> A \<in> line A B \<and> B \<in> line A B"
+     using Lines_def line_def spec_A_VII by blast 
+   have A_and_B_on_DE: "line D E \<in> Lines \<and> A \<in> line D E \<and> B \<in> line D E"
+     using Lines_def A_on_DE B_on_DE by blast 
+   have "\<exists>!l\<in>Lines. A \<in> l \<and> B \<in> l" using spec_A_VII unique_line by blast
+   then have "line D E = line A B"
+     using A_and_B_on_AB A_and_B_on_DE by blast 
+   then have "C \<in> line A B"
+     using all_p_on_DE by auto 
+   then have "\<forall> D. \<forall> E. \<exists> F. ~(F \<in> line D E)"
+     using order_CBA points.line_def points_axioms spec_A_VII by fastforce    
+   then show False using assumption by auto
 qed
 end
 
@@ -814,8 +817,16 @@ lemma signedArea_5:
   shows "(signedArea h x y)*(signedArea k x z) 
     = (signedArea k x y)*(signedArea h x z)"
 proof -
-  have "(signedArea h x y)*(signedArea k x z) 
-    = (signedArea k x y)*(signedArea h x z)"
+  have "signedArea x y z + signedArea h z y + signedArea z h x + signedArea y x h = 0" using signedArea_3_a by simp
+  then have "signedArea h z y + signedArea z h x + signedArea y x h = 0" using col by simp
+  also have "signedArea h z y = -signedArea h y z"
+    using signedArea_0_b by blast
+  then have "-signedArea h y z + signedArea z h x + signedArea y x h = 0" using signedArea_0_b
+    using calculation by force
+  then have "-signedArea h y z + signedArea h x z + signedArea y x h = 0"
+    by (simp add: signedArea_0_a)
+  then have "-signedArea h y z + signedArea h x z + signedArea y h x = 0"
+qed
 
   
 
