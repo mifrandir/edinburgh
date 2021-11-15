@@ -31,7 +31,7 @@ SEM1     | MATH   | PRB       | Probability                                     
 SEM1     | INF    | INF2-CS   | Introduction to Computer Systems                    | Boris Grot                         | 96   | A1    | 10
 SEM2     | MATH   | FPM       | Fundamentals of Pure Mathematics                    | Nikolaos Bournaveas                | 96   | A1    | 10
 SEM2     | MATH   | CNU       | Computing and Numerics                              | Charlotte Desvages                 | 91   | A1    |  5
-SEM2     | INF    | INF2D     | Reasoning and Agents                                | Claudia Chiritia & Alex Lascarides | 87   | A2    | 10
+SEM2     | INF    | INF2D     | Reasoning and Agents                                | Claudia Chiritia                   | 87   | A2    | 10
 
 Total credits sought: 140
 
