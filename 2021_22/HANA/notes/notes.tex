@@ -566,19 +566,91 @@
     \end{enumerate} 
 \end{theorem}
 
-\subsection{Fundamental Theorem of Calculus and Practical Integration}
+\subsection{Fundamental Theorem of Calculus}
 
-\begin{theorem}[Fundamental Theorem of Calculus, Part 1]
+\begin{theorem}[Notes 4.10]
     Let $I$ be an interval and let $g:I\to\R$ be integrable on $I$. For all $x\in I$ and 
     some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g$. Suppose $g$ is continuous at $x$ 
     for some $x\in I$. Then $G$ is differentiable at $x$ and $G'(x)=g(x)$.
 \end{theorem}
 
-\begin{theorem}[Fundamental Theorem of Calculus, Part 2]
+\begin{theorem}[Notes 4.11]
     Suppose $f:I\to\R$ has continuous derivative $f'$ on the interval $I$. Then for any 
     $a,b\in I$ 
     \begin{align*}
         \int_a^b f' = f(b) - f(a).
+    \end{align*}
+\end{theorem}
+
+\subsection{Integrability of sequences of functions}
+
+\begin{theorem}[Notes 4.3]
+    Suppose that $(f_n)_{n\in\N}$ is a sequence of functions each of which is integrable on $I$.
+    \begin{enumerate}
+        \item Assume that \begin{align*}
+            \sum_{n=1}^\infty \int_I \abs{f_n} < \infty.
+        \end{align*}
+        Let $f$ be a function on the interval $I$ such that \begin{align*}
+            f(x) = \sum_{n=1}^\infty f_n(x)\hs\text{for all $x\in I$ such that }\sum_{n=1}^\infty \abs{f_n(x)}<\infty. 
+        \end{align*}
+        Then $f$ is integrable on $I$ and \begin{align*}
+            \int_I f = \sum_{n=1}^\infty \int_I f_n.
+        \end{align*}
+        \item Assume that each $f_n\geq 0$ on $I$ and let $f(x)=\sum_{n=1}^\infty f_n(x)$ for all $x\in I$. Then $f$ 
+            is integrable on $I$ if and only if \begin{align*}
+                \sum_{n=1}^\infty \int_I f_n < \infty. 
+            \end{align*}
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Monotone Convergence; Notes 4.4]
+    Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions on an interval $I$. That is 
+    $f_1(x) \leq f_2(x) \leq \cdots$ for all $x\in I$. Then let 
+    \begin{align*}
+        f(x) = \lim_{n\to\infty}f_n(x),
+    \end{align*} 
+    where we allow for the possibility that at some points this limit is infinite. Then $f$ is integrable on $I$
+    if and only if 
+    \begin{align*}
+        \sup_{n\in\N}\int_I f_n = \lim_{n\to\infty}\int_I f_n < \infty.
+    \end{align*}
+    Then further, 
+    \begin{align*}
+        \int_I f = \lim_{n\to\infty} \int_I f_n.
+    \end{align*}
+\end{theorem}
+
+\begin{lemma}[Fatoux; Notes 4.2]
+    Let $(f_n)$ be a sequence of nonnegative integrable functions on an interval $I$. Let 
+    \begin{align*}
+        f(x) = \liminf_{n\to\infty} f_n(x), \hs\text{for all $x\in I$}.
+    \end{align*}
+    If $\liminf_{n\to\infty}\int_I f_n<\infty$ then $f$ is integrable on $I$ and 
+    \begin{align*}
+        \int_I f \leq \liminf_{n\to\infty} \int_I f_n.
+    \end{align*}
+\end{lemma}
+
+\begin{theorem}[Dominated convergence; Notes 4.12]
+    Let $(f_n)$ be a sequence of integrable functions on an interval $I$ and assume that 
+    \begin{align*}
+        f(x) = \lim_{n\to\infty} f_n(x), \hs \text{for all $x\in I$}.
+    \end{align*} 
+    Assume also that the sequence $(f_n)$ is dominated by some integrable function $g$, that is 
+    \begin{align*}
+        \abs{f_n(x)} \leq g(x), \hs \text{for all $x\in I$ and $n\in\N$.}
+    \end{align*}
+    Then the function $f$ is integrable on $I$ and 
+    \begin{align*}
+        \int_I f = \lim_{n\to\infty} \int_I f_n.
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Notes 4.13]
+    Let $(a,b)$ be a bounded interval and suppose that $f_n:(a,b)\to\R$ are integrable functions 
+    which converge uniformly to a function $f$. Then $f$ is integrable on $(a,b)$ and 
+    \begin{align*}
+        \int_a^b f = \lim_{n\to\infty} \int_a^b f_n.
     \end{align*}
 \end{theorem}
 
