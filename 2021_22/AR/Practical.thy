@@ -826,13 +826,43 @@ proof -
   then have "-signedArea h y z + signedArea h x z + signedArea y x h = 0"
     by (simp add: signedArea_0_a)
   then have "-signedArea h y z + signedArea h x z + signedArea y h x = 0"
+    sorry
+  show ?thesis by sorry
 qed
+
 
   
 
 (* Now using the definition of signedArea instantiate the triangles locale
   so that \<Delta> corresponds to  signedArea. Use command 'interpretation'
   (it may be easier to prove the assumptions of the locale separately first). *)
+
+interpretation signedArea_as_triangles: triangles signedArea
+proof
+  fix x and y and z
+  show "signedArea x y z = signedArea y z x"
+    using signedArea_0_a by blast
+  fix x and y and z
+  show "- signedArea z y x = signedArea x y z"
+  proof -
+    have "signedArea z y x = - signedArea z x y"
+      using signedArea_0_b by blast
+    then have "- signedArea z y x = signedArea z x y"
+      by auto
+    also have "signedArea x y z = signedArea z x y"
+      by (simp add: signedArea_0_a)
+    then show ?thesis by (simp add: calculation)
+  qed
+  fix x and y and R
+  show "x \<noteq> y \<Longrightarrow> \<exists>z. R = signedArea x y z"
+    using signedArea_2 by blast
+  fix x and y and z and h
+  show "signedArea x y z + signedArea h z y + signedArea z h x + signedArea y x h = 0"
+    by (simp add: signedArea_3_a)
+  fix x y z h k
+  show "signedArea x y z = 0 \<Longrightarrow> (signedArea h x y) * (signedArea k x z) = (signedArea k x y) * (signedArea h x z)"
+    using signedArea_5 by auto
+qed
 
 subsection\<open>Problem 11: Challenge (20 marks)\<close>
 
