@@ -872,8 +872,24 @@ locale triangles_continuum_pt =
   assumes "\<exists> (a::'a) b. a \<noteq> b" (* then by axiom 2 we can get a continuum of points *)
 begin
 
-(* Define 'order' in terms of \<Delta> and then instantiate the points locale. *)
+definition triangles_order :: "'a \<Rightarrow> 'a \<Rightarrow> 'a \<Rightarrow> bool"
+  where 
+    "\<Delta> x y z = 0 \<Longrightarrow> (
+      triangles_order x y z = (x \<noteq> y \<and> x \<noteq> z \<and> y \<noteq> z \<and>
+        (\<forall>p. \<Delta> p x y \<noteq> 0 \<longrightarrow> (\<Delta> p x y + \<Delta> p y z = \<Delta> p x z))
+      )
+    )"
+
+interpretation points triangles_order
+proof 
+  fix A B C
+  show "triangles_order A B C \<Longrightarrow> triangles_order C B A"
+  proof
+  
+qed
 
 end
+
+
 end
 
