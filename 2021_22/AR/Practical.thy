@@ -874,19 +874,134 @@ begin
 
 definition triangles_order :: "'a \<Rightarrow> 'a \<Rightarrow> 'a \<Rightarrow> bool"
   where 
-    "\<Delta> x y z = 0 \<Longrightarrow> (
-      triangles_order x y z = (x \<noteq> y \<and> x \<noteq> z \<and> y \<noteq> z \<and>
-        (\<forall>p. \<Delta> p x y \<noteq> 0 \<longrightarrow> (\<Delta> p x y + \<Delta> p y z = \<Delta> p x z))
-      )
-    )"
+    "triangles_order x y z = (\<Delta> x y z = 0 \<and> x \<noteq> y \<and> (\<forall>p. \<Delta> p x y > 0 \<longrightarrow> (\<Delta> p y z > 0 \<and> \<Delta> p x z > 0)))"
 
-interpretation points triangles_order
-proof 
-  fix A B C
-  show "triangles_order A B C \<Longrightarrow> triangles_order C B A"
-  proof
-  
+lemma triangles_order_CBA:
+  fixes A B C
+  assumes "triangles_order A B C"
+  shows "triangles_order C B A"
+proof -
+    have ABC_zero_area: "\<Delta> A B C = 0" using triangles_order_def assms by blast
+    then have "\<Delta> C B A = 0"
+      using pos_order_neq_zero(4) by blast 
+    have ABC_in_order: "\<forall>p. \<Delta> p A B > 0 \<longrightarrow> (\<Delta> p B C > 0 \<and> \<Delta> p A C > 0)"
+      using triangles_order_def assms by auto
+    have "A \<noteq> B"
+      using assms triangles_order_def by auto
+    then have "\<exists>z. 1 = \<Delta> A B z"
+      using axiom2 by blast
+    then obtain P where "1 = \<Delta> A B P"
+      by force
+    then have "\<Delta> P A B = 1"
+      using axiom0_b reverse_order2 by auto
+    then have P_pos_areas: "\<Delta> P B C > 0 \<and> \<Delta> P A C > 0"
+      by (simp add: ABC_in_order)
+    have main_prop: "\<forall>p. \<Delta> p C B > 0 \<longrightarrow> (\<Delta> p B A > 0 \<and> \<Delta> p C A > 0)" 
+    proof
+      fix Q
+      have "(\<Delta> P A B)*(\<Delta> Q A C) = (\<Delta> Q A B)*(\<Delta> P A C)"
+        by (simp add: ABC_zero_area axiom5)
+      then have qac_eq: "\<Delta> Q A C = (\<Delta> Q A B)*(\<Delta> P A C)"
+        by (simp add: \<open>\<Delta> P A B = 1\<close>)
+      then show "\<Delta> Q C B > 0 \<longrightarrow> (\<Delta> Q B A > 0 \<and> \<Delta> Q C A > 0)"
+      proof (cases "\<Delta> Q C B > 0")
+        case False
+        show ?thesis
+          using False by auto 
+      next
+        case True
+        have "\<Delta> P A C > 0"
+          using P_pos_areas by blast
+        have "(\<Delta> Q C B)*(\<Delta> P C A) = (\<Delta> P C B)*(\<Delta> Q C A)"
+          by (simp add: \<open>\<Delta> C B A = 0\<close> axiom5)
+        then have ax3: "(\<Delta> Q C B)*(\<Delta> P C A)/(\<Delta> P C B) = (\<Delta> Q C A)"
+          using P_pos_areas pos_order_neq_zero(2) by force
+        have "\<Delta> P C A = - \<Delta> P A C"
+          using axiom0_b reverse_order2 by presburger
+        then have "\<Delta> P C A < 0"
+          by (simp add: P_pos_areas)
+        then have lhs_neg: "(\<Delta> Q C B)*(\<Delta> P C A) < 0"
+          by (simp add: True mult.commute mult_pos_neg2)
+        have "\<Delta> P C B = - \<Delta> P B C"
+          using axiom0_b reverse_order2 by presburger
+        then have "\<Delta> P C B < 0"
+          by (simp add: P_pos_areas)
+        then have "(\<Delta> Q C B)*(\<Delta> P C A)/(\<Delta> P C B) > 0"
+          by (simp add: divide_neg_neg lhs_neg)
+        then have "\<Delta> Q C A > 0"
+          by (simp add: ax3)
+        have "-\<Delta> Q C A = (\<Delta> Q A B)*(\<Delta> P A C)"
+          using axiom0_b qac_eq reverse_order2 by auto
+        then have "(\<Delta> Q A B)*(\<Delta> P A C) < 0"
+          using \<open>0 < \<Delta> Q C A\<close> by linarith
+        then have "\<Delta> Q A B < 0"
+          using ABC_in_order mult_less_0_iff qac_eq by force
+        also have "\<Delta> Q A B = - \<Delta> Q B A"
+          by (simp add: reverse_order1)
+        then have "\<Delta> Q B A > 0"
+          using calculation by auto
+        show ?thesis
+          by (simp add: \<open>0 < \<Delta> Q B A\<close> \<open>0 < \<Delta> Q C A\<close>)
+      qed
+    qed
+    have "C \<noteq> B"
+      using P_pos_areas two_points2 by force
+    show ?thesis
+      by (simp add: \<open>C \<noteq> B\<close> main_prop triangles_order_def \<open>\<Delta> C B A = 0\<close>)  
+  qed
+
+lemma triangles_order_notBCA:
+  fixes A B C
+  assumes "triangles_order A B C"
+  shows "~triangles_order B C A"
+proof
+  obtain P where "1 = \<Delta> A B P"
+    using assms axiom2 triangles_order_def by blast
+  have "\<Delta> P A B > 0 \<longrightarrow> (\<Delta> P B C > 0 \<and> \<Delta> P A C > 0)"
+    using assms triangles_order_def by auto
+  then have "\<Delta> P B C > 0"
+    using \<open>1 = \<Delta> A B P\<close> axiom0_b reverse_order2 by auto
+  assume "triangles_order B C A"
+  have "\<Delta> P B C > 0 \<longrightarrow> (\<Delta> P C A > 0 \<and> \<Delta> P B A > 0)"
+    using \<open>triangles_order B C A\<close> triangles_order_def by auto
+  then have "\<Delta> P B A > 0"
+    by (simp add: \<open>0 < \<Delta> P B C\<close>)
+  then have "\<Delta> P A B < 0"
+    by (simp add: axiom0_a less_real_def reverse_order2)
+  then show False
+    using \<open>1 = \<Delta> A B P\<close> axiom0_a by auto
 qed
+
+lemma triangles_order_distinctAC:
+  fixes A B C
+  assumes "triangles_order A B C"
+  shows "A \<noteq> C"
+proof
+  assume "A = C"
+  have "triangles_order C B A"
+    by (simp add: assms triangles_order_CBA)
+  then have def: "\<Delta> C B A = 0 \<and> C \<noteq> B \<and> (\<forall>p. \<Delta> p C B > 0 \<longrightarrow> (\<Delta> p B A > 0 \<and> \<Delta> p C A > 0))"
+    using triangles_order_def by force
+  then have "C \<noteq> B"
+    by blast
+  then have "\<exists>p. 1 = \<Delta> C B p"
+    using axiom2 by blast
+  then obtain P where "1 = \<Delta> C B P"
+    by blast
+  then have "\<Delta> P C B = 1"
+    by (simp add: axiom0_a)
+  have "\<forall>p. \<Delta> p C B > 0 \<longrightarrow> (\<Delta> p B A > 0 \<and> \<Delta> p C A > 0)"
+    using def by auto
+  then have gtz: "\<Delta> P C A > 0"
+    by (simp add: \<open>\<Delta> P C B = 1\<close>)
+  have eqz: "\<Delta> P C A = 0"
+    by (simp add: \<open>A = C\<close> two_points2)
+  show False
+    using eqz gtz by auto
+qed
+    
+interpretation points triangles_order
+  using points_def triangles_order_CBA triangles_order_distinctAC triangles_order_notBCA by blast
 
 end
 
