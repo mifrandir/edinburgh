@@ -357,26 +357,27 @@ subsubsection\<open>Problem 6 (3 marks)\<close>
 
 lemma order_distinctAB: 
   fixes A::'p and B::'p and C::'p
-  assumes p: "order A B C"
+  assumes "order A B C"
   shows "A \<noteq> B"
 proof
   assume a: "A=B"
-  have q: "order B A C" using a p by blast
-  have r: "order C A B" using q order_CBA by blast
-  have s: "\<not> order A B C" using r order_notBCA by blast
-  show False using p s by auto
+  then have "order B A C" using assms by blast
+  then have "order C A B" using order_CBA by blast
+  then have "\<not> order A B C" using order_notBCA by blast
+  then show False using assms by auto
 qed
 
 lemma order_distinctBC:
     fixes A::'p and B::'p and C::'p
-    assumes p: "order A B C"
+    assumes "order A B C"
     shows "B \<noteq> C"
 proof
-  assume a: "B = C" 
-  have q: "order A C B" using a p by blast
-  have r: "order B C A" using q order_CBA by blast
-  have s: "~order B C A" using p order_notBCA by blast
-  show False using r s by auto
+  assume "B = C" 
+  then have "order A C B" using assms by blast
+  then have "order B C A" using order_CBA by blast
+  also have "~order B C A"
+    using \<open>B = C\<close> order_distinctAB by blast 
+  then show False using calculation by auto
 qed
 
 text\<open>Line through two points:\<close>
@@ -828,10 +829,7 @@ proof -
   then have "-signedArea h y z + signedArea h x z + signedArea y h x = 0"
     sorry
   show ?thesis by sorry
-qed
-
-
-  
+qed 
 
 (* Now using the definition of signedArea instantiate the triangles locale
   so that \<Delta> corresponds to  signedArea. Use command 'interpretation'
