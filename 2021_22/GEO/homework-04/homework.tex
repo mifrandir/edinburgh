@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Geometry: Hand-in 4}
+\author{Franz Miltz (UNN: S1971811)}
+\date{22 November 2021}
+\maketitle
+\noindent Let $D=\{u,v,z\in\R : u,v\not=0\}$ and let $\vec x:D\to\E^3$ be such that 
+\begin{align*}
+   \vec x(u,v,z) = \begin{pmatrix}
+      uv \\ \frac{1}{2}(v^2 - u^2) \\ z
+   \end{pmatrix}
+\end{align*}
+
+\section*{Question 1}
+
+\begin{claim*}
+   \begin{align}
+      \label{dx}
+      d\vec x = \sqrt{u^2 + v^2}du\vec e_1
+      + \sqrt{u^2 + v^2}dv \vec e_2
+      + dz\vec e_3
+   \end{align}
+   where
+   \begin{align*}
+      \vec e_1 = \frac{1}{\sqrt{u^2 + v^2}}\begin{pmatrix}
+         v \\ -u \\ 0
+      \end{pmatrix} , \hs
+      \vec e_2 = \frac{1}{\sqrt{u^2 + v^2}}\begin{pmatrix}
+         u \\ v \\ 0
+      \end{pmatrix}, \hs 
+      \vec e_3 = \begin{pmatrix}
+         0 \\ 0 \\ 1
+      \end{pmatrix}
+   \end{align*}
+   are a moving frame on $D$.
+\end{claim*}
+\begin{proof}
+   Firstly, we calculate 
+   \begin{align*}
+      d\vec x = \begin{pmatrix}
+         v du + u dv \\
+         -u du + v dv \\
+         dz
+      \end{pmatrix}.
+   \end{align*} 
+   It's straightforward to verify algebraically that (\ref{dx}) holds. Secondly,
+   we note that $u,v\not=0$ and therefore that the $\vec e_i$ are well-defined on $D$
+   and smooth. Lastly, we observe that 
+   \begin{align}
+      \vec e_i \cdot \vec e_j = \delta_i^j,
+   \end{align}
+   making $\{\vec e_1, \vec e_2, \vec e_3\}$ a moving frame.
+\end{proof}
+
+\section*{Question 2}
+
+\end{document}
