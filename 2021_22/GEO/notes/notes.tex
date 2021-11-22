@@ -1464,4 +1464,76 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \end{align*}
     gives the area of the local surface. 
 \end{corollary}
+
+\section{Gauss-Bonnet theorem}
+
+\subsection{Geodesic triangles}
+
+\begin{definition}
+    A \emph{geodesic triangle} $\Delta$ in a surface is three points each joined to the other 
+    two by geodesics. We assume our triangles are sufficiently small that they fit in the image 
+    of a single local surface on which we have an adapted frame.
+\end{definition}
+
+\begin{proposition}
+    Let $t\mapsto \vec x(c(t)), t\in[a,b]$, be a geodesic in a local surface and $(\vec e_1, \vec e_2)$
+    be an adapted moving frame for the surface. Let $\theta(t)$ be such that 
+    \begin{align*}
+        \vec x' = \cos(\theta(t)) \vec e_1 + \sin(\theta(t)) \vec e_2
+    \end{align*}
+    along the geodesic. Then 
+    \begin{align*}
+        \theta'(t) = \omega_2^1 (c'(t)).
+    \end{align*}
+\end{proposition}
+
+\begin{theorem}
+    Let $\Delta$ be a geodesic triangle on a local surface with interior angles $\alpha$, $\beta$,
+    $\gamma$. Assume $\Delta$ is contractible to a point. Then 
+    \begin{align*}
+        \int_\Delta K\theta^1\wedge\theta^2 = \alpha + \beta + \gamma - \pi.
+    \end{align*}
+\end{theorem}
+
+\begin{corollary}
+    Let $\Delta$ be a geodesic triangle with angles $\alpha,\beta,\gamma$ and area $A(\Delta)$.
+    We have 
+    \begin{enumerate}
+        \item on the plane, $\alpha+\beta+\gamma = \pi$;
+        \item on the unit sphere, $\alpha + \beta + \gamma = \pi + A(\Delta) > \pi$;
+        \item in hyperbolic space, $\alpha + \beta + \gamma = \pi - A(\Delta) < \pi$.
+    \end{enumerate}
+\end{corollary}
+
+\subsection{Gauss-Bonnet}
+
+\begin{definition}
+    Dissect $\Sigma$ into polygons. Let $V$ be the number of vertices , $E$ the number of edges
+    and $F$ the number of faces of the dissection. The \emph{Euler characteristic} of the 
+    dissected surface is 
+    \begin{align*}
+        \chi(\Sigma) = V - E + F.
+    \end{align*}
+\end{definition}
+
+\begin{proposition}
+    The Euler characteristic of a surface is independent of the particular dissection chosen.
+    Furthermore, it is unchanged by reasonable deformations of the surface.
+\end{proposition}
+
+\begin{definition}
+    The \emph{torus} is the surface of revolution whose profile is a circle 
+    \begin{align*}
+        (f(u)-a)^2 + u^2 = b
+    \end{align*}
+    with $b<a$. The Euler characteristic of the torus is $0$.
+\end{definition}
+
+\begin{theorem}[Gauss-Bonnet]
+    Let $\Sigma$ be an oriented closed and bounded surface with no boundary. Then 
+    \begin{align*}
+        \chi(\Sigma) = \frac{1}{2\pi}\int_\Sigma K.
+    \end{align*} 
+\end{theorem}
+
 \end{document}
