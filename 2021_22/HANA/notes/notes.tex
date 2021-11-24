@@ -654,4 +654,89 @@
     \end{align*}
 \end{theorem}
 
+\section{Fourier series and orthogonality}
+
+\subsection{The space $L^2$}
+
+\begin{definition}[Notes 5.1]
+    Define the space $L^2=L^2([a,b])$ as the set of measurable functions $f:[a,b]\to\C$
+    so that the function $x\mapsto \abs{f(x)}^2$ is Lebesgue integrable, i.e. 
+    \begin{align*}
+       \vabs{f}_2^2 := \int_a^b \abs{f(x)}^2 dx < \infty.
+    \end{align*}
+    The quantity $\vabs{f}_2$ is called the \emph{$L^2$-norm} of $f$. If $\vabs{f}_2=1$,
+    then we say that $f$ is \emph{$L^2$-normalised}.
+\end{definition}
+
+\begin{definition}[Notes 5.2]
+    For two functions $f,g\in L^2([a,b])$ we define the \emph{inner product} by 
+    \begin{align*}
+        \lra{f,g} = \int_a^b f(x)\lneg{g(x)}dx.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Cauchy-Schwarz inequality; Notes 5.1]
+    Let $f,g\in L^2([a,b])$. Then the function $x\mapsto f(x)\lneg{g(x)}$ is Lebesgue
+    integrable and we have
+    \begin{align*}
+        \abs{\lra{f,g}}\leq \vabs f_2\vabs g_2.
+    \end{align*} 
+\end{theorem}
+
+\begin{definition}[Notes 5.3]
+    Let $f,f_1,f_2,...$ be functions in $L^2([a,b])$. We say that the sequence $(f_n)_n$ converges 
+    to $f$ in $L^2$ if the sequence 
+    \begin{align*}
+        \vabs{f_n - f}_2 = \left(\int_a^b \abs{f_n(x)-f(x)}^2dx\right)^{1/2}
+    \end{align*}
+    converges to zero as $n\to\infty$. We also write $f_n\to f$ in $L^2$.
+\end{definition}
+
+\subsection{Orthonormal systems}
+
+\begin{definition}[Notes 5.4]
+    A sequence $(\phi_n)_n$ of $L^2$ functions on $[a,b]$ is called an \emph{orthonormal system on $[a,b]$}
+    if 
+    \begin{align*}
+        \lra{\phi_n, \phi_m} = \begin{cases}
+            0, &\text{if }n\not=m,\\
+            1, &\text{if }n=m.
+        \end{cases}
+    \end{align*}
+    The index $n$ may run over any countable set.
+\end{definition}
+
+\begin{theorem}[Notes 5.2]
+    Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$ and $f\in L^2$. Consider
+    \begin{align}
+        \label{sn}
+        s_N(x) = \sum_{n=1}^N \lra{f,\phi_n}\phi_n(x).
+    \end{align}
+    Denote the linear span of the functions $(\phi_n)_{n=1,...,N}$ by $X_N$. Then 
+    \begin{align*}
+        \vabs{f-s_N}_2 \leq \vabs{f-g}_2
+    \end{align*}
+    holds for all $g\in X_N$ with equality if and only if $g=s_N$.
+\end{theorem}
+
+\begin{theorem}[Bessel's inequality; Notes 5.3]
+    If $(\phi_n)_n$ is an orthonormal system on $[a,b]$ and $f\in L^2$, then 
+    \begin{align*}
+        \sum_n \abs{\lra{f,\phi_n}}^2 \leq \vabs f_2^2.
+    \end{align*} 
+\end{theorem}
+
+\begin{corollary}[Riemann-Lebesgue lemma in $L^2$]
+    Let $(\phi_n)_{n=1,2,...}$ be an orthonormal system and $f\in L^2$, then 
+    \begin{align*}
+        \lim_{n\to\infty} \lra{f,\phi_n}=0.
+    \end{align*} 
+\end{corollary}
+
+\begin{theorem}[Notes 5.4]
+    Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$. Let $(s_N)_N$ be as in (\ref{sn}).
+    Then $(\phi_n)_n$ is complete if and only if $(s_N)_N$ converges to $f$ in the $L^2$-norm 
+    for every $f\in L^2$.
+\end{theorem}
+
 \end{document}
