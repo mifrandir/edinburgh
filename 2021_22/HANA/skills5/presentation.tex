@@ -17,27 +17,23 @@
     \frame{\titlepage}
     \begin{frame}
         \frametitle{Motivation}
-        Consider a sequence of functions $(f_n)$. For example,
-        \begin{itemize}
-            \item $f_n(x) = x + 1/n$,
-            \item $f_n(x) = x/n$,
-            \item $f_n(x) = (-1)^nx$.
-        \end{itemize}
+        Consider a sequence of functions $(f_n)$.
         \begin{enumerate}
             \item \emph{Does $f_n$ get arbitrarily close to some $f$ as $n\to\infty$?}
             \item \emph{How are the properties of the limit $f$ and each $f_n$ related?}
         \end{enumerate}
+        \emph{Idea: Consider $(f_n(x))$ for individual $x$.}
     \end{frame} 
     \begin{frame}
-        \frametitle{Pointwise Convergence}
-        \emph{Idea: Consider $(f_n(x))$ for individual $x$.}
+        \frametitle{Definition}
+        Let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
         \begin{definition}
-            $(f_n)$ converges pointwise to $f$ if 
-            for all $x$,
+            $(f_n)$ converges pointwise to some $f:E\to\mathbb{R}$ if 
+            for all $x\in E$,
             \begin{align*}
                 \lim_{n\to\infty} f_n(x) = f(x),
             \end{align*}
-            or equivalently if for all $x$,
+            or equivalently,
             \begin{align*}
                 \forall \varepsilon > 0.\:
                 \underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
@@ -46,16 +42,24 @@
         \end{definition}
     \end{frame} 
     \begin{frame}
-        \frametitle{Uniform Convergence}
+        \frametitle{Motivation}
         \emph{Problem: Pointwise convergence does not preserve properties of the $f_n$.
         (e.g. continuity, integrability, ...)}
-        \begin{itemize}
-            \item Relation between $x_1$ and $x_2$ are lost completely.
-            \item Convergence of individual sequences instead of functions.
-        \end{itemize}
+    \end{frame}
+    \begin{frame}
+        \frametitle{Definition}
         Let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
+
         \begin{definition}
-            $(f_n)$ converges \emph{uniformly} to $f$ if
+            $(f_n)$ converges \textbf{pointwise} to some $f:E\to\mathbb{R}$ if
+            \begin{align*}
+                \forall \varepsilon > 0.\:
+                \underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
+                \forall n>N.\:\left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+            \end{align*}
+        \end{definition}
+        \begin{definition}
+            $(f_n)$ converges \textbf{uniformly} to some $f:E\to\mathbb{R}$ if
             \begin{align*}
                 \forall \varepsilon >0.\: 
                 \underline{\mathbf{\exists N\in\mathbb{N}.\:\forall x\in E.}}\:
