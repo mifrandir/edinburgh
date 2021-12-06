@@ -49,14 +49,7 @@
     Given a basis $(\vec e_1,..., \vec e_n)$ for $V$, we have a basis $(\alpha_1, ..., \alpha_n)$,
     given by 
     \begin{align*}
-        \alpha_i(\vec e_j) = \delta_j^i
-    \end{align*}
-    where $\delta_j^i$ is the Kronecker delta:
-    \begin{align*}
-        \delta_j^i=\begin{cases}
-            1 &\text{if }i=j,\\
-            0 &\text{if }i\not=j.
-        \end{cases}
+        \alpha_i(\vec e_j) = \delta_j^i.
     \end{align*}
 \end{definition}
 
@@ -78,6 +71,24 @@
         \lra{.,.} : V\times V \to K : (\vec v, \vec w) \mapsto \lra{\vec v, \vec w}.
     \end{align*}
 \end{definition}
+
+\begin{lemma}
+    Let $V$ be a vector space and choose a basis $\vec e_1,...,\vec e_n$. Further, let $f:V\to V$
+    be a linear map, and choose a basis $\vec v_1, ...,\vec v_n$ so that it can be represented 
+    by a square matrix $A$, i.e. 
+    \begin{align*}
+        f(\vec v) = f\left(\sum_{i=1}^n v^i \vec e_i\right) \longleftrightarrow A\begin{pmatrix}
+            v^1\\\vdots\\v^n
+        \end{pmatrix}.
+    \end{align*}
+    If we use the dual basis $b_1,...,b_n$ for $V^*$ then the dual linear map $f^*:V^*\to V^*$ gets represented
+    by the same matrix $A$, which now acts on the row-vectors by multiplication from the right, i.e.
+    \begin{align*}
+        f^*(\alpha) = f^*\left(\sum_{j=1}^n b_j\alpha^j\right)\longleftrightarrow \begin{pmatrix}
+            b_1 & \cdots & b_n
+        \end{pmatrix}A.
+    \end{align*}
+\end{lemma}
 
 \subsection{The inverse and implicit function theorems}
 
