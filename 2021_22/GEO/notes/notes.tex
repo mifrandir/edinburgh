@@ -73,22 +73,28 @@
 \end{definition}
 
 \begin{lemma}
-    Let $V$ be a vector space and choose a basis $\vec e_1,...,\vec e_n$. Further, let $f:V\to V$
-    be a linear map, and choose a basis $\vec v_1, ...,\vec v_n$ so that it can be represented 
-    by a square matrix $A$, i.e. 
+    Let $V,W$ be vector spaces with bases $\vec v_1,...,\vec v_n$ and $\vec w_1,...,\vec w_n$,
+    respectively. Then let $f:V\to W$ be a linear map such that $f$ is represented by a matrix 
+    $A$, by multiplication on the left, then $f^*:W^*\to V^*$ is represented by $A$ as well, 
+    by multiplication on the right.
+\end{lemma}
+
+\begin{lemma}
+    Let $V$ be finite-dimensional. Then $\lra{.,.}:V\times V\to K$ is non-degenerate if and only if 
+    $f_{\lra{.,.}}:V\to V^*$ is an isomorphism.
+\end{lemma}
+
+\begin{lemma}
+    The bilinear map $\lra{.,.}$ is symmetric if and only if 
     \begin{align*}
-        f(\vec v) = f\left(\sum_{i=1}^n v^i \vec e_i\right) \longleftrightarrow A\begin{pmatrix}
-            v^1\\\vdots\\v^n
-        \end{pmatrix}.
+        f_{\lra{.,.}}=f_{\lra{.,.}}^*
     \end{align*}
-    If we use the dual basis $b_1,...,b_n$ for $V^*$ then the dual linear map $f^*:V^*\to V^*$ gets represented
-    by the same matrix $A$, which now acts on the row-vectors by multiplication from the right, i.e.
+    and anti-symmetric if and only if 
     \begin{align*}
-        f^*(\alpha) = f^*\left(\sum_{j=1}^n b_j\alpha^j\right)\longleftrightarrow \begin{pmatrix}
-            b_1 & \cdots & b_n
-        \end{pmatrix}A.
+        f_{\lra{.,.}}=-f_{\lra{.,.}}^*.
     \end{align*}
 \end{lemma}
+
 
 \subsection{The inverse and implicit function theorems}
 
