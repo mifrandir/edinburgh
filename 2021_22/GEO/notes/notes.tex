@@ -379,45 +379,47 @@
     which case it is a circle.
 \end{corollary}
 
-\section{Vector fields and one-froms}
+\section{Vector fields and one-forms}
 
 \subsection{Tangent space and vector fields}
 
 \begin{definition}
-    If $\vec v$ is a vector at $p\in\E^3$ and $f:\E^3\in\R$ is a differentiable function,
-    the directional derivative of $f$ along $\vec v$ at $p$ is
+    Let $p\in\E^3$. Then a derivative operator acting on functions $f:\E^3\to\R$
+    at $p$ is the map
     \begin{align*}
-        (D_{\vec v}f)_p = (\vec v \cdot \grad f)(p) = \sum_{k=1}^n v^k \eval{\frac{\p f}{\p x^k}}{p}
+        v^k \eval{\frac{\p }{\p x^k}}{p} : 
+        f \mapsto v^k \eval{\frac{\p f}{\p x^k}}{p}    
     \end{align*}
+    for some coefficients $v^1,...,v^n$.
 \end{definition}
 
 \begin{definition}
     For each $p\in D$, we define the \emph{tangent space $T_pD$ to $D$ at $p$} as the
     set of all derivative operators at $p$, called \emph{tangent vectors} at $p\in D$,
     \begin{align*}
-        \sum_{i=1}^n v^i \eval{\frac{\p}{\p x^i}}{p},\hs v^i\in\R.
+        T_p D =\left\lbrace v^i \eval{\frac{\p}{\p x^i}}{p}: v^1,...,v^n\in\R\right\rbrace.
     \end{align*}
-    A smooth \emph{vector field} on $D$ is a smooth map $v$ which assigns to each $p\in D$
-    an element in $T_p D$; in other words, it is a differential operator
+    A smooth \emph{vector field} on $D$ is a smooth map $v:D\to T_pD$; in other words,
+    it is a differential operator
     \begin{align*}
-        v = \sum_{i=1}^n v^i \frac{\p}{\p x^i},
+        \vec v = v^i\frac{\p}{\p x^i},
     \end{align*}
     where now each $v^i:D\to\R$ is a smooth function.
 \end{definition}
 
 \begin{definition}
-    If $v,w$ are vector fields
+    If $\vec v,\vec w:D\to T_pD$ are vector fields
     \begin{align*}
-        v = \sum_i v^i \frac{\p}{\p x^i}\hs\text{and}\hs w = \sum_i w^i \frac{\p }{\p x^i}
+        \vec v = v^i \frac{\p}{\p x^i}\hs\text{and}\hs \vec w = w^i \frac{\p }{\p x^i}
     \end{align*}
     and if $\lambda\in\R$, then $\lambda v$ and $v+w$ are vector fields defined by
     \begin{align*}
-        \lambda v = \sum_i \lambda v^i \frac{\p }{\p x^i}\hs\text{and}\hs
-        v+w = \sum_i (v^i+w^i)\frac{\p }{\p x^i}.
+        \lambda \vec v = \lambda v^i \frac{\p }{\p x^i}\hs\text{and}\hs
+        \vec v+\vec w = (v^i+w^i)\frac{\p }{\p x^i}.
     \end{align*}
     Furthermore, if $f$ is a function then we can define a vector field $fv$ by
     \begin{align*}
-        fv = \sum_i fv^i\frac{\p }{\p x^i}.
+        f\vec v = fv^i\frac{\p }{\p x^i}.
     \end{align*}
 \end{definition}
 
@@ -429,19 +431,19 @@
 \end{theorem}
 
 \begin{definition}
-    Given a vector field $v$ and a smooth function $f$, we can define a function 
+    Given a vector field $\vec v$ and a smooth function $f:\E^n\to\R$, we can define a function 
     \begin{align*}
-        v(f) = \sum_i v^i\frac{\p f}{\p x^i}.
+        \vec v(f) = \sum_i v^i\frac{\p f}{\p x^i}.
     \end{align*}
 \end{definition}
 
-\begin{proposition}
-    For all vector fields $v,w$ and function $f,g$, the following identities hold:
+\begin{proposition}[Notes 4.7]
+    For all vector fields $\vec v,\vec w:D\to T_pD$ and functions $f,g:\E^n\to\R$, the following identities hold:
     \begin{align*}
-        (v+w)(f) &= v(f) + w(f)\\=ja\\
-        (fv)(g)  &= fv(g) \\
-        v(f+g)   &= v(f) + v(g) \\
-        v(fg)    &= gv(f) + fv(g)
+        (\vec v+\vec w)(f) &= \vec v(f) + \vec w(f)\\
+        (f\vec v)(g)  &= f\vec v(g) \\
+        \vec v(f+g)   &= \vec v(f) + \vec v(g) \\
+        \vec v(fg)    &= g\vec v(f) + f\vec v(g)
     \end{align*}
 \end{proposition}
 
@@ -454,12 +456,11 @@
     \begin{align*}
         c'(t)=(x^1(t), x^2(t), ..., x^n(t))
     \end{align*}
-    where each $x^i:(a,b)\to\R$ is a smooth function, such that its velocity
     is non-vanishing for all $t\in(a,b)$. 
     We say a curve $c$ \emph{passes through $p\in D$} if $c(0)=p$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 4.9]
     Let $c:(a,b)\to D$ be a curve that passes through $p$. There exists a unique
     $c'_p\in T_p D$ such that for any smooth function $f:D\to\R$
     \begin{align*}
@@ -481,7 +482,8 @@
     \begin{align*}
         \alpha(\vec v + \vec w) = \alpha(v) + \alpha(w),\hs \alpha(a\vec v) = a\alpha(\vec v    la.)
     \end{align*}
-    The set of 1-forms at $p\in D$, denoted by $T^*_p D$ is called the \emph{dual vector space} of $T_p D$.
+    The set of 1-forms at $p\in D$, denoted by $T^*_p D$ is called the \emph{dual vector space}
+    of $T_p D$.
 \end{definition}
 
 \begin{definition}
@@ -494,47 +496,54 @@
         \end{cases}
     \end{align*}
     Equivalently, $\eval{dx^i}{p}$ are defined by their action on an arbitrary tangent vector
-    $\vec v = \sum_{i=1}^n v^i\eval{\frac{\p }{\p x^i}}p$:
+    $\vec v = v^i\eval{\frac{\p }{\p x^i}}p$:
     \begin{align*}
         \eval{dx^j}{p}(\vec v) = v^j.
     \end{align*}
 \end{definition}
 
+\begin{lemma}[Notes, Remark 4.13]
+    $T_p^*D$ is a vector space of dimension $n$ with basis 
+    $\left\lbrace \eval{dx^1}{p},...,\eval{dx^n}{p}\right\rbrace$ called the dual basis to
+    $\left\lbrace \eval{\frac{\p }{\p x^1}}{p}, ..., \eval{\frac{\p }{\p x^n}}{p}\right\rbrace$.
+\end{lemma}
+
 \begin{definition}
     A \emph{differential 1-form} on $D$ is a smooth map $\alpha$ which assigns to each $p\in D$
     a 1-form in $T^*_pD$; it can be written as
     \begin{align*}
-        \alpha = \sum_{i=1}^n\alpha_i dx^i
+        \alpha = \alpha_i dx^i
     \end{align*}
-    where $\alpha_i:D\to\R$ are smooth functions. Given 1-forms $\alpha=\sum_i\alpha_idx^i$ and 
-    $\beta=\sum_i\beta_idx^i$ and a function $f$ on $D$, addition and scalar multiplication of 
+    where $\alpha_i:D\to\R$ are smooth functions. Given 1-forms $\alpha=\alpha_idx^i$ and 
+    $\beta=\beta_idx^i$ and a function $f$ on $D$, addition and scalar multiplication of 
     1-forms are given by
     \begin{align*}
-        \alpha + \beta = \sum_i (\alpha_i + \beta_i)dx^i,\hs f\alpha = \sum_i (f\alpha_i)dx^i.
+        \alpha + \beta = (\alpha_i + \beta_i)dx^i,\hs f\alpha = (f\alpha_i)dx^i.
     \end{align*}
 \end{definition}
 
-\begin{lemma}
-    If $\alpha=\sum_i\alpha_i dx^i$ and $\vec v = \sum_i v^i\frac{\p }{\p x^i}$, then $\alpha(\vec v)$
-    is the smooth function
+\begin{lemma}[Notes 4.16]
+    If $\alpha=\alpha_i dx^i\in T_p^*D$ and $\vec v=v^i\frac{\p }{\p x^i}\in T_pD$,
+    then $\alpha(-):T_pD\to\R$ is the smooth function
     \begin{align*}
-        \alpha(\vec v) = \sum_{i=1}^n \alpha_i v^i.    
+        \alpha(\vec v) = \alpha_i v^i.    
     \end{align*}
 \end{lemma}
 
 \begin{definition}
-    Given a smooth function $f$ on $D$, its \emph{exterior derivative} is the 1-form $df$ defined by
+    Given a smooth function $f:D\to\R$, its \emph{exterior derivative} is the 1-form 
+    $df:D\to T^*_pD$ defined by
     \begin{align*}
-        (df)(v) = v(f)
+        (df)(\vec v) = \vec v(f)
     \end{align*}
-    for any vector field $v$. Equivalently,
+    for any vector field $\vec v:D\to T_pD$. Equivalently,
     \begin{align*}
-        df=\sum_{i=1}^n \frac{\p f}{\p x^i}dx^i.
+        df=\frac{\p f}{\p x^i}dx^i.
     \end{align*}
 \end{definition}
 
-\begin{proposition}
-    For any functions $f,g$ on $D$, we have 
+\begin{proposition}[Notes 4.20]
+    For any functions $f,g:D\to\R$, we have 
     \begin{itemize}
         \item $d(f+g)=df + dg$,
         \item $d(fg) =fdg + gdf$,
@@ -545,16 +554,16 @@
 \subsection{Line integrals}
 
 \begin{definition}
-    Let $c:[a,b]\to D$ be a curve and $\alpha$ a 1-form on $D$. The \emph{integral of $\alpha$ over
-    the curve $c$} is 
+    Let $c:[a,b]\to D$ be a curve and $\alpha:D\to T_p^*D$ a 1-form. The \emph{integral
+    of $\alpha$ over the curve $c$} is 
     \begin{align*}
         \int_c \alpha = \int_a^b \alpha(c'(t))\:dt
     \end{align*}
-    where $c'(t)$ is the tangent vector field to the curve.
+    where $c':[a,b]\to T_pD$ is the tangent vector field to the curve.
 \end{definition}
 
-\begin{proposition}
-    Let $c:[a,b]\to D$ be a curve in $D$ and let $f$ a function on $D$. Then
+\begin{proposition}[Notes 4.22]
+    Let $c:[a,b]\to D$ be a curve and let $f:D\to\R$ a function. Then
     \begin{align*}
         \int_c df = f(c(b)) - f(c(a)).
     \end{align*}
@@ -574,7 +583,7 @@
 \end{proposition}
 
 \begin{definition}
-    The \emph{pull-back} of $\alpha$ by the map $c:[a,b]\to D$ is the 1-form on the
+    The \emph{pull-back} of $\alpha:D\to T_p^*D$ by the map $c:[a,b]\to D$ is the 1-form on the
     interval $[a,b]$ defined by
     \begin{align*}
         c^*\alpha :=  \alpha(c'(t))dt.
