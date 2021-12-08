@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
-\mkthms
+\mkfpmthms
 \begin{document}
 \title{Geometry (SEM5)}
 \author{Franz Miltz}
@@ -725,6 +725,10 @@
     Every closed differential form on $\R^n$ is exact.
 \end{lemma}
 
+\begin{lemma}[Notes Exercise 5.35]
+    Let $f,g:D\to\R$ be functions. Define $\alpha=fdg$. Then $\alpha\wedge d\alpha=0$. 
+\end{lemma}
+
 \subsection{Integration in $\R^n$}
 
 \begin{definition}
@@ -760,6 +764,8 @@
 
 \section{Surfaces}
 
+Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
+
 \subsection{Regular surfaces}
 
 \begin{definition}
@@ -769,15 +775,16 @@
 \end{definition}
 
 \begin{definition}
-    Given a local surface $\vec x$ we define
+    Given a local surface $\vec x:D\to\E^3$ we define the \emph{directional derivatives}
+    $\vec x_{u^1},\vec x_{u^2}:D\to\E^3$,
     \begin{align*}
         \vec x_{u^1} = \frac{\p x^i}{\p u^1}\frac{\p}{\p x^i}, \hs 
         \vec x_{u^2} = \frac{\p x^i}{\p u^2}\frac{\p}{\p x^i}.
     \end{align*}
-    For every point $p\in D$, these are vectors in $T_{\vec x()}\E^3$, which we will 
+    For every point $p\in D$, these are vectors in $T_{\vec x(p)}\E^3$, which we will 
     identify with $\E^3$ itself. We say that a local surface $\vec x$ is \emph{regular
     at $p\in D$} if $\vec x_{u^1}(p)$ and $\vec x_{u^2}(p)$ are linearly independent.
-    A local surface is \emph{regular} if it is regular at $p$ for all $p\in D$.
+    A local surface is \emph{regular} if it is regular for all $p\in D$.
 \end{definition}
 
 \begin{definition}
@@ -797,7 +804,7 @@
     Clearly, $\vec N(p)$ is orthogonal to the tangent plane $T_{\vec x(p)}S$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 6.7]
     Given a regular surface the map $\vec N:D\to\E^3$ is a smooth function whose
     image lies in a unit sphere $S^2\subset\E^3$. The map $\vec N$ is called the
     local \emph{Gauss map}.
@@ -813,7 +820,7 @@
     \end{align*}
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 6.11]
     Graphs are always regular, and the unit normal is given by
     \begin{align*}
         \vec N = \frac{1}{\sqrt{1 + \left(\frac{\p g}{\p u^1}\right) + \left(\frac{\p y}{\p u^2}\right)}}\begin{pmatrix}
@@ -827,7 +834,7 @@
     $f:\E^3\to\R$, i.e., $\Sigma=\inv f(0)$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 6.13]
     An implicitly defined surface $\Sigma = \inv f(0)$, such that $df\not=0$
     everywhere on $\Sigma$, is a regular surface.
 \end{proposition}
@@ -843,10 +850,11 @@
 \end{definition}
 
 \begin{definition}
-    A \emph{ruled surface} is a surface of the form 
+    A \emph{ruled surface} is a surface $\vec x:D_1\times D_2\to\E^3$ of the form 
     \begin{align*}
-        \vec x(u,v)= \vec z(u) + v\vec p(u).
+        \vec x(u,v)= \vec z(u) + v\vec p(u)
     \end{align*}
+    where $\vec z,\vec p:D_1\to\E^3$.
     Notice that curves of constant $u$ are straight lines in $\E^3$ through 
     $\vec z(u)$ in the direction $\vec p(u)$.
 \end{definition}
@@ -855,13 +863,15 @@
 
 \subsection{Symmetric tensors}
 
+Let $D\subseteq\R^n$ with coordinates $(x^1,...,x^n)$.
+
 \begin{definition}
     A symmetric bilinear form on $T_pD$ is a bilinear map $B:T_pD\times T_pD 
-    \to\R$ such that $B(v,w)=B(w,v)$ for all $v,w\in T_pD$. Given two $1$-forms
+    \to\R$ such that $B(\vec v,\vec w)=B(\vec w,\vec v)$ for all $\vec v,\vec w\in T_pD$. Given two $1$-forms
     $\alpha$, $\beta$ at $p\in D$ define a symmetric bilinear form $\alpha\beta$
     on $T_pD$ by 
     \begin{align*}
-        (\alpha\beta)(v, w) = \frac{1}{2}(\alpha(v)\beta(w) \alpha(w)\beta(v)) 
+        (\alpha\beta)(\vec v, \vec w) = \frac{1}{2}(\alpha(\vec v)\beta(\vec w) \alpha(\vec w)\beta(\vec v)) 
     \end{align*}
     where $v,w\in T_pD$. Note that $\alpha\beta=\beta\alpha$ and we write $\alpha^2$
     for $\alpha\alpha$.
@@ -876,6 +886,13 @@
     where $B_{ij}$ are smooth functions on $D$.
 \end{definition}
 
+\begin{corollary}[Notes Example 7.3]
+    The dot product in $\E^n$ is given by the symmetric form 
+    \begin{align*}
+        g(\vec v, \vec w) = \delta_{ij} v^i w^i.
+    \end{align*}
+\end{corollary}
+
 \begin{definition}
     A (Riemannian) \emph{metric} on $D$ is a symmetric tensor $g=g_{ij}dx^idx^j$ 
     which is positive definite at each point; $g(\vec v,\vec v)\geq 0$ for all
@@ -885,7 +902,9 @@
 
 \subsection{The first fundamental form}
 
-\begin{proposition}
+Let $D\subseteq\R^2$ with coordinates $(u^1,u^2)$.
+
+\begin{proposition}[Notes 7.5]
     Consider a regular local surface defined by $\vec x: D\to \E^3$. The linear map
     $\eval{d\vec x}{p}:T_pD\to T_{\vec x(p)}S$ is a bijection.
 \end{proposition}
@@ -899,21 +918,22 @@
     where we have introduced the notation $d\vec x\cdot d\vec x=(dx^1)^2+(dx^2)^2+(dx^3)^2$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 7.9]
     The first fundamental form is a metric on $D$.
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 7.10]
     The first fundamental form of a regular local surface $\vec x:D\to\E^3$ is
     \begin{align*}
         I = E(du^1)^2 + 2Fdu^1du^2+ G(du^2)^2
     \end{align*}
     where $E,F,G$ are functions on $D$ given by
-    \begin{align*}
+    \begin{align}
+        \label{fff}
         E=\vec x_{u^1} \cdot \vec x_{u^1},\hs 
         F=\vec x_{u^1} \cdot \vec x_{u^2},\hs 
         G=\vec x_{u^2} \cdot \vec x_{u^2}.
-    \end{align*}
+    \end{align}
 \end{proposition}
 
 \subsection{The second fundamental form}
@@ -923,48 +943,52 @@
     Given a regular local surface $\vec x: D\to\E^3$, the \emph{second fundamental form}
     is defined by 
     \begin{align*}
-        \vec\I = -d\vec x\cdot d\vec N,
+        \I = -d\vec x\cdot d\vec N,
     \end{align*}
     with the dot product interpreted as above.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 7.17]
     The second fundamental form is given by
     \begin{align*}
-        \vec\I = l(du^1)^2 + 2mdu^1du^2+n(du^2)^2
+        \I = l(du^1)^2 + 2mdu^1du^2+n(du^2)^2
     \end{align*}
     where $l,m,n$ are functions on $D$ given by
-    \begin{align*}
+    \begin{align}
+        \label{sff}
         l=-\vec x_{u^1}\cdot\vec N_{u^1}, \hs 
         m=-\vec x_{u^1}\cdot\vec N_{u^2}, \hs 
         n=-\vec x_{u^2}\cdot\vec N_{u^2}.
-    \end{align*}
+    \end{align}
 \end{proposition}
 
 \section{Curvature of surfaces}
 
+Let $D\subseteq\R^2$ be a domain and $\vec x:D\to\E^3$ a regular surface.
+
 \subsection{Bilinear algebra}
 
+Let $V$ be a real vector space and $A,B:V^2\to\R$ be symmetric bilinear forms.
+
 \begin{definition}
-    Let $A,B$ be two symmetric bilinear forms. Then the \emph{eigenvalues of $B$ with respect to $A$} 
-    are roots of the polynomial 
+    The \emph{eigenvalues of $B$ with respect to $A$} are roots of the polynomial 
     \begin{align*}
         \det(B-\lambda A) = 0,
     \end{align*}
     where by abuse of notation $A,B$ are the matrices of the symmetric forms $A,B$ relative to the 
-    basis.
+    basis, i.e. $A_{ij}=A(\vec e_i,\vec e_j)$ and $B_{ij}=B(\vec e_i,\vec e_j)$.
 \end{definition}
 
-\begin{lemma}
-    Let $A,B$ be two symmetric bilinear forms. Then the eigenvalues and eigenvectors of $B$ with respect 
+\begin{lemma}[Notes 8.1]
+    Then the eigenvalues and eigenvectors of $B$ with respect 
     to $A$ are independent of the basis chosen.
 \end{lemma}
 
-\begin{proposition}
-    If $A:D\times D\to\R$ is positive definite there exists a basis $\{e_1, ..., e_n\}$ of $V$ such that
+\begin{proposition}[Notes 8.3]
+    If $A$ is positive definite there exists a basis $\{\vec e_1, ..., \vec e_n\}$ of $V$ such that
     \begin{enumerate}
-        \item $\{e_1,...,e_n\}$ is orthonormal with respect to $A$,
-        \item each $e_k$ is an eigenvector of $B$ with respect to $A$ with a real eigenvalue.
+        \item $\{\vec e_1,...,\vec e_n\}$ is orthonormal with respect to $A$,
+        \item each $\vec e_k$ is an eigenvector of $B$ with respect to $A$ with a real eigenvalue.
     \end{enumerate}
 \end{proposition}
 
@@ -985,14 +1009,24 @@
     The principal curvatures may vary with position and are thereby (smooth) functions on $D$.
 \end{definition}
 
+\begin{proposition}[Notes 8.5]
+    The Gauss and mean curvature are smooth functions on $D$ given by 
+    \begin{align*}
+        K=\frac{ln-m^2}{EG-F^2},\hs
+        H=\frac{lG+nE-2mF}{2(EG-F^2)}
+    \end{align*} 
+    where $E,F,G$ and $l,m,n$ are as in (\ref{fff}) and (\ref{sff}).
+\end{proposition}
+
 \section{The meaning of curvature}
 
 \subsection{Curves on surfaces}
 
+Let $D\subseteq\R^2$ be a domain with coordinates $(u,v)$.
 Let $c:[a,b]\to D$ be a curve with $c(t)=(u(t),v(t))$ and let $\vec x: D\to\E^3$ be a 
 local surface.
 
-\begin{lemma}
+\begin{lemma}[Notes 9.1]
     We have 
     \begin{align*}
         \vec x' := \frac{d}{dt}\vec x(c(t)) = d\vec x(c')\hs\text{and}\hs 
@@ -1002,7 +1036,7 @@ local surface.
     $c'=u'\frac{\p }{\p u}+v'\frac{\p }{\p v}$.
 \end{lemma}
 
-\begin{proposition}
+\begin{proposition}[Notes 9.2]
     The arclength of the curve $\vec x(c(t))$, $t\in[a,b]$, lying on a surface is 
     \begin{align*}
         s = \int_a^b \sqrt{I(c',c')}\:dt
@@ -1010,16 +1044,17 @@ local surface.
     where $I$ is the first fundamental form of the surface.
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 9.5]
     For a curve lying on a surface,
     \begin{align*}
-        \vec N\cdot \frac{d^2}{dt^2}\vec x(c(t)) = \I(c',c').
+        \vec N\cdot \frac{d^2}{dt^2}\vec x(c(t)) = \I(c',c')
     \end{align*}
+    where $\I$ is the second fundamental form of the surface.
 \end{proposition}
 
 \subsection{Invariance under Euclidean motions}
 
-\begin{theorem}
+\begin{theorem}[Notes 9.7]
     Let $\vec x: D\to\E^3$ and $\vec{\hat x}:D\to\E^3$ be two surfaces related by a 
     Euclidean motion, so 
     \begin{align*}
@@ -1041,9 +1076,14 @@ local surface.
     fundamental forms must be related by a Euclidean motion.
 \end{theorem}
 
+\begin{proposition}[Notes 9.9]
+    Under an orientation reversing isometry, the principal curvatures and the mean curvature 
+    change sign but the Gauss curvature is unaffected. 
+\end{proposition}
+
 \subsection{Taylor series}
 
-\begin{proposition}
+\begin{proposition}[Notes 9.10]
     Let $\vec p \in \vec x(D)$ be apoint on a regular local surface. By a Euclidean motion,
     choose $\vec p$ to be at the origin and the unit normal at that point to be along the positive
     $x^3$-axis so $T_{\vec p}S$ is the $(x^1,x^2)$ plane. Near $\vec p$ we can parametrise 
@@ -1060,7 +1100,7 @@ local surface.
     \end{align*}
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 9.11]
     In setup of the previous Proposition, suppose the $x^1$, $x^2$ axes correspond 
     to the principal directions. Then the Taylor series of the surface near the origin
     is 
@@ -1070,7 +1110,7 @@ local surface.
     where $k_1$ and $k_2$ are the principal curvatures at $\vec p$.
 \end{proposition}
 
-\begin{corollary}
+\begin{corollary}[Notes 9.12]
     If $K>0$ at a point then the surface is bowl-shaped around that point and if $K<0$ the it is
     saddle-shaped. If $K=0$ at a point then there are two possibilities: if both principal
     curvatures are zero, then the surface is planar around that point; otherwise it's like 
@@ -1085,7 +1125,7 @@ local surface.
     A \emph{minimal surface} is one with mean curvature $H=0$ everywhere.
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}[Notes Definition 9.16]
     A minimal surface has $k_1=-k_2$ and thus $K \leq 0$ everywhere.
 \end{lemma}
 
