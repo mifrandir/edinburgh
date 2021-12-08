@@ -40,3 +40,6 @@
 [submodule "2020_21/CNU/tutorial10"]
 	path = 2020_21/CNU/tutorial10
 	url = https://github.com/cnu-2021/cnu-w10-tutorial-MiltFra
+[submodule "2021_22/ILP"]
+	path = 2021_22/ILP
+	url = git@github.com:MiltFra/ILP.git
