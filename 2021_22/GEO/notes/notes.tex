@@ -399,7 +399,8 @@
     \begin{align*}
         T_p D =\left\lbrace v^i \eval{\frac{\p}{\p x^i}}{p}: v^1,...,v^n\in\R\right\rbrace.
     \end{align*}
-    A smooth \emph{vector field} on $D$ is a smooth map $v:D\to T_pD$; in other words,
+    A smooth \emph{vector field} on $D$ is a smooth map $\vec v$ which assigns to each 
+    $p\in D$ an element in $T_pD$; in other words,
     it is a differential operator
     \begin{align*}
         \vec v = v^i\frac{\p}{\p x^i},
@@ -408,7 +409,7 @@
 \end{definition}
 
 \begin{definition}
-    If $\vec v,\vec w:D\to T_pD$ are vector fields
+    If $\vec v,\vec w$ are vector fields
     \begin{align*}
         \vec v = v^i \frac{\p}{\p x^i}\hs\text{and}\hs \vec w = w^i \frac{\p }{\p x^i}
     \end{align*}
@@ -432,7 +433,7 @@
 \end{theorem}
 
 \begin{definition}
-    Given a vector field $\vec v:D\to T_pD$ and a smooth function $f:D\to\R$,
+    Given a vector field $\vec v$ and a smooth function $f:D\to\R$,
     we can define a function 
     \begin{align*}
         \vec v(f) = v^i\frac{\p f}{\p x^i}.
@@ -440,7 +441,7 @@
 \end{definition}
 
 \begin{proposition}[Notes 4.7]
-    For all vector fields $\vec v,\vec w:D\to T_pD$ and functions $f,g:D\to\R$, the following identities hold:
+    For all vector fields $\vec v,\vec w$ and functions $f,g$, the following identities hold:
     \begin{align*}
         (\vec v+\vec w)(f) &= \vec v(f) + \vec w(f)\\
         (f\vec v)(g)  &= f\vec v(g) \\
@@ -477,7 +478,7 @@
 \end{corollary}
 
 \begin{definition}[Notes Exercise 4.30]
-    Let $\vec u,\vec v:D\to T_pD$ be vector fields. Then the \emph{Lie bracket} is defined as 
+    Let $\vec u,\vec v$ be vector fields. Then the \emph{Lie bracket} is defined as 
     \begin{align*}
         [\vec u, \vec v] = \vec u(\vec v(f)) - \vec v(\vec u(f)) 
         = \left(\vec u(v^k)-\vec v(u^k)\right)\frac{\p f}{\p x^k}.
@@ -485,7 +486,7 @@
 \end{definition}
 
 \begin{lemma}
-    Let $\vec u, \vec v, \vec w:D\to T_pD$ be vector fields and let $f:D\to\R$ be a
+    Let $\vec u, \vec v, \vec w$ be vector fields and let $f$ be a
     function. Then 
     \begin{align*}
         [\vec v, \vec u] &= -[\vec u, \vec v],\\
@@ -545,26 +546,26 @@
 
 \begin{lemma}[Notes 4.16]
     If $\alpha=\alpha_i dx^i\in T_p^*D$ and $\vec v=v^i\frac{\p }{\p x^i}\in T_pD$,
-    then $\alpha(-):T_pD\to\R$ is the smooth function
+    then $\alpha(\vec v)$ is the smooth function
     \begin{align*}
         \alpha(\vec v) = \alpha_i v^i.    
     \end{align*}
 \end{lemma}
 
 \begin{definition}
-    Given a smooth function $f:D\to\R$, its \emph{exterior derivative} is the 1-form 
-    $df:D\to T^*_pD$ defined by
+    Given a smooth function $f$, its \emph{exterior derivative} is the 1-form 
+    $df$ defined by
     \begin{align*}
         (df)(\vec v) = \vec v(f)
     \end{align*}
-    for any vector field $\vec v:D\to T_pD$. Equivalently,
+    for any vector field $\vec v$. Equivalently,
     \begin{align*}
         df=\frac{\p f}{\p x^i}dx^i.
     \end{align*}
 \end{definition}
 
 \begin{proposition}[Notes 4.20]
-    For any functions $f,g:D\to\R$, we have 
+    For any functions $f,g$, we have 
     \begin{itemize}
         \item $d(f+g)=df + dg$,
         \item $d(fg) =fdg + gdf$,
@@ -575,7 +576,7 @@
 \subsection{Line integrals}
 
 \begin{definition}
-    Let $c:[a,b]\to D$ be a curve and $\alpha:D\to T_p^*D$ a 1-form. The \emph{integral
+    Let $c:[a,b]\to D$ be a curve and $\alpha$ a 1-form on $D$. The \emph{integral
     of $\alpha$ over the curve $c$} is 
     \begin{align*}
         \int_c \alpha = \int_a^b \alpha(c'(t))\:dt
@@ -584,7 +585,7 @@
 \end{definition}
 
 \begin{proposition}[Notes 4.22]
-    Let $c:[a,b]\to D$ be a curve and let $f:D\to\R$ a function. Then
+    Let $c:[a,b]\to D$ be a curve and let $f$ a function. Then
     \begin{align*}
         \int_c df = f(c(b)) - f(c(a)).
     \end{align*}
@@ -604,7 +605,7 @@
 \end{proposition}
 
 \begin{definition}
-    The \emph{pull-back} of $\alpha:D\to T_p^*D$ by the map $c:[a,b]\to D$ is the 1-form on the
+    The \emph{pull-back} of $\alpha$ by the map $c:[a,b]\to D$ is the 1-form on the
     interval $[a,b]$ defined by
     \begin{align*}
         c^*\alpha :=  \alpha(c'(t))dt.
@@ -1160,14 +1161,20 @@ local surface.
 
 \begin{definition}
     A \emph{moving frame} for $\E^3$ on $D$ is a collection of maps $\vec e_i:D\to\E^3$
-    for $i=1,2,3$ such that for all $u\in D$ the $\vec e_i(u)$ form an oriented orthonormal
+    for $i=1,2,3$ such that for all $\vec u\in D$ the $\vec e_i(\vec u)$ form an oriented orthonormal
     basis of $\E^3$.
+
+    Orthonormal means 
+    \begin{align*}
+        \vec e_i(\vec u) \cdot \vec e_j(\vec u) = \delta_{ij}
+    \end{align*}
+    and oriented means $\vec e_3(\vec u) = \vec e_1(\vec u) \times \vec e_2(\vec u)$.
 \end{definition}
 
 \begin{definition}
     If $\vec v:D\to\E^3$, given by 
     \begin{align*}
-        \vec v(u)=\vec v(u^1,...,u^n)=\begin{pmatrix}
+        \vec v(\vec u)=\vec v(u^1,...,u^n)=\begin{pmatrix}
             v^1(u^1,...,u^n)\\ 
             v^2(u^1,...,u^n)\\
             v^3(u^1,...,u^n)
@@ -1181,7 +1188,7 @@ local surface.
         \end{pmatrix}.
     \end{align*}
     We refer to an object like $d\vec v$ as a \emph{matrix of $1$-forms on $D$} or as a 
-    \emph{$\E^3$-valued $1$-form on $D$}. If $\vec w$ is a vector field on $D$, then we write
+    \emph{$\E^3$-valued $1$-form on $D$}. If $\vec w:D\to\E^3$ is a vector field on $D$, then we write
     \begin{align*}
         d\vec v(w) = \begin{pmatrix}
             dv^1(\vec w) \\ dv^2(\vec w) \\ dv^3(\vec w)
@@ -1190,6 +1197,16 @@ local surface.
 \end{definition}
 
 \subsection{Connection forms and the structure equations}
+
+Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving frame.
+
+\begin{definition}
+    The $1$-forms $\theta^1,\theta^2,\theta^3$ are defined by 
+    \begin{align*}
+        \theta^i = \vec e_i \cdot d\vec x \in \Omega^1(D)
+    \end{align*}
+    so that $d\vec x = \theta^i\vec e_i$.
+\end{definition}
 
 \begin{definition}
     The $1$-forms $\omega_i^j=\vec e_j\cdot d\vec e_i\in\Omega^1(D)$ are called the 
