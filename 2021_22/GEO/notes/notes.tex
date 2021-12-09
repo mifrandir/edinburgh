@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{notes-preamble}
-\mkfpmthms
+\mkthmstwounified
 \begin{document}
 \title{Geometry (SEM5)}
 \author{Franz Miltz}
@@ -1313,7 +1313,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \end{align*}
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 11.6]
     The Gauss equation is equivalent to 
     \begin{align*}
         d\omega_2^1 = K\theta^1\wedge\theta^2.
@@ -1322,7 +1322,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \subsection{Gauss's Theorema Egregium}
 
-\begin{proposition}
+\begin{proposition}[Notes 11.9]
     Let $\vec x:D\to\E^3$ be a regular local surface with first fundamental form 
     $I$ and $\theta^1$, $\theta^2$ be $1$-forms on $D$ such that 
     \begin{align*}
@@ -1360,7 +1360,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \section{Geodesics}
 
-\subsection{Geodesics in Euclidean space}
+\subsection{In Euclidean space}
 
 \begin{definition}
     Let $\vec x:[a,b]\to\E^n$ be a unit speed curve in Euclidean space joining two points 
@@ -1381,12 +1381,20 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     for all connecting vectors $\vec y(t)$.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 12.3]
     A unit speed curve $\vec x(t)$ in Euclidean space has stationary length if and only if 
     it is the straight line joining the two end points.
 \end{proposition}
 
-\subsection{Geodesics on surfaces}
+\subsection{On surfaces}
+
+\begin{definition}
+    A curve $\vec x(c(t))$ on a surface has \emph{stationary length} if 
+    \begin{align*}
+        \eval{\frac{ds_\e}{d\e}}{\e=0}=0
+    \end{align*}
+    for all connecting vectors $\vec y(t)$ such that $\vec y(t)\cdot\vec N=0$.
+\end{definition}
 
 \begin{definition}
     A unit speed curve $\vec x(c(t))$ lying in a surface is \emph{geodesic} if its acceleration
@@ -1397,11 +1405,11 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     where $\vec N$ is the unit normal to the surface and $A$ is some function along the curve.
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[Notes 12.7]
     A curve lying in a surface has stationary length if and only if it is a geodesic.
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 12.9]
     A curve $\vec x(c(t))$ lying in a surface is a geodesic if and only if, in an adapted frame 
     it obeys the \emph{geodesic equations}
     \begin{align*}
@@ -1414,7 +1422,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \end{align*}
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 12.11]
     The fact that the energy
     \begin{align*}
         E = (\theta^1(c'))^2 + (\theta^2(c'))^2
@@ -1423,13 +1431,18 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     curves of unit speed, rather than some constant speed.
 \end{proposition}
 
-\begin{proposition}
+\begin{proposition}[Notes 12.12]
     Given a point $\vec p$ on a surface and a unit tangent vector $\vec v$ to the surface at $\vec p$,
     there exists a unique geodesic on the surface $t\mapsto \vec x(c(t))$ for $\abs t < \e$,
     such that $\vec x(0) =\vec p$ and $\vec x'(0) \vec v$.
 \end{proposition}
 
-\subsection{The hyperbolic plane}
+\begin{lemma}[Notes Remark 12.13]
+    Given two points on a surface which is a closed subset of $\E^3$, there exists a geodesic
+    joining those points.
+\end{lemma}
+
+\section{The hyperbolic plane}
 
 \begin{definition}
     \emph{Two-dimensional hyperbolic space} is the upper half plane 
@@ -1442,7 +1455,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \end{align*}
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Notes 13.2]
     Hyperbolic space has $K=-1$.    
 \end{theorem}
 
@@ -1507,7 +1520,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{definition}
 
 \begin{theorem}[Stokes]
-    Let $\Sigma$ be a $k$-dimensional oriented closed and bounded submanifold in $\R^3$ with 
+    Let $\Sigma$ be a $k$-dimensional oriented closed and bounded submanifold in $\R^n$ with 
     boundary $\sigma\Sigma$ given the induced orientation and $\alpha\in\Omega^{k-1}(\Sigma)$.
     Then
     \begin{align*}
@@ -1534,7 +1547,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \end{align*}
 \end{definition}
 
-\begin{lemma}
+\begin{lemma}[Notes 14.15]
     For a local surface $\abs{\vec x_u \times \vec x_v}=\sqrt{\det I}$. Hence the area 
     of $\vec x$ is 
     \begin{align*}
@@ -1543,14 +1556,14 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     Thus the area is an intrinsic property of the surface.
 \end{lemma}
 
-\begin{lemma}
+\begin{lemma}[Notes 14.16]
     For a local surface in $\E^3$ with adapted frame,
     \begin{align*}
         \theta^1\wedge\theta^2 = \abs{\vec x_u \times \vec x_v} du \wedge dx.
     \end{align*}
 \end{lemma}
 
-\begin{corollary}
+\begin{corollary}[Notes 14.17]
     Let $\vec x: D\to\E^3$ be a local surface and $f:\E^3\to\R$ be a function. Then 
     the integral of $f$ over the surface is given by 
     \begin{align*}
