@@ -1270,7 +1270,7 @@ Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving fra
 
 Let $\vec x: D \to \E^3$ be an oriented local surface.
 
-\begin{definition}[Notes 11.1]
+\begin{definition}
     A moving frame $(\vec e_1, \vec e_2, \vec e_3)$ for $\E^3$ on $D$
     is said to be adapted to the surface if $\vec e_3 = \vec N$.
 \end{definition}
@@ -1293,7 +1293,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     $\{\theta^1, \theta^2\}$ is a basis for $\Omega^1(D)$. 
 \end{lemma}
 
-\begin{lemma}
+\begin{lemma}[Notes 11.4]
     There are unique functions $a,b,c$ on $D$ such that 
     \begin{align*}
         \omega_3^1 = a\theta^1+b\theta^2,\\
@@ -1301,7 +1301,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \end{align*}
 \end{lemma}
 
-\begin{proposition}
+\begin{proposition}[Notes 11.5]
     The first and second fundamental forms are 
     \begin{align*}
         I = (\theta^1)^2 + (\theta^2)^2,\hs 
@@ -1340,6 +1340,23 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \begin{theorem}[Gauss's Theorema Egregium]
     Isometric surfaces have the same Gauss curvature.
 \end{theorem}
+\begin{proof}
+    The result follows because of the following algorithm for computing the Gauss curvature 
+    of a regular local surface depends only on $I$.
+    \begin{itemize}
+        \item Find $1$-forms $\theta^1,\theta^2$ such that \begin{align*}
+            I = (\theta^1)^2 + (\theta^2)^2.
+        \end{align*}
+        \item Solve the first structure equations for a surface \begin{align*}
+            d\theta^1 + \omega_2^1 \wedge \theta^2 = 0\hs\text{and}\hs
+            d\theta^2 + \omega_1^2 \wedge \theta^1 = 0
+        \end{align*}
+        for the connection form $\omega_2^1$.
+        \item Calculate $K$ from the equivalent of the Gauss equation: \begin{align*}
+            d\omega_2^1 = K\theta^1\wedge\theta^2.
+        \end{align*}
+    \end{itemize}
+\end{proof}
 
 \section{Geodesics}
 
