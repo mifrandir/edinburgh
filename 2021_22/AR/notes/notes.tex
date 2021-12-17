@@ -1,7 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \usepackage{enumitem}
-\mkthms
+\mkthmstwounified
 
 \title{Automated Reasoning (SEM5)}
 \author{Franz Miltz}
@@ -664,21 +664,41 @@ To combine subsitutions $\phi$ and $\psi$
     syntactically identical.
 \end{definition}
 
+\begin{example}
+    Consider the datatypes \emph{nat} and \emph{int} with the following definitions:
+    \begin{minted}{isabelle}
+datatype nat = Zero | Succ nat
+datatype int = Zero | Succ int | Pred int
+    \end{minted}
+    Here \emph{nat} is freely generated but \emph{int} is not (e.g. \texttt{Succ (Pred Zero) == Zero}).
+\end{example}
+
 \begin{definition}
     Let $(<) \subseteq S\times S$ be an ordering on a type $S$. We call $<$ \emph{well-founded} or
     \emph{noetherian} if there does not exist an infinite sequence $(x_n)$ of $x_n\in S$ such that 
     \begin{align*}
-        x_{n+1} < x_n\hs\text{ for all $n\in\N$.  }
+        x_1 > x_2 > \cdots > x_n\hs\text{ for all $n\in\N$.  }
     \end{align*}
 \end{definition}
 
+\begin{theorem}[Complete Induction]
+    Let $P:X\to\{\top,\bot\}$ be a predicate and $(<)\subseteq X\times X$ well-founded ordering.
+    If
+    \begin{align*}
+        \forall y.\:(\forall z.\:z < y \to P\:z) \to P\:y
+        \hs\Rightarrow\hs
+        \forall x.\:P\:x
+    \end{align*}
+\end{theorem}
+
 \begin{theorem}
-    Consider the $L$-system with left- and right-introduction rules. This system has two convenient properties 
+    Consider the $L$-system with left- and right-introduction rules. This system has two
+    convenient properties 
     \begin{enumerate}
         \item Cut elimination: the cut rule is unnecessary.
         \item Sub-formula property: every cut-free proof only contains formulas which are sub-formulas of the original goal.
     \end{enumerate}
-    Introducin the induction rule 
+    Introducing the induction rule 
     \begin{align*}
         \infer{\Gamma \vdash \forall n. P(n)}{\Gamma \vdash P(0) \hs \Gamma,P(n)\vdash P(n+1) \hs \vdash n\not\in V(\Gamma, P)}
     \end{align*}
@@ -702,5 +722,24 @@ Automated techniques include
     \item Cycling proofs
     \item Only doing a few cases 
 \end{itemize}
+
+\section{Hoare Logic}
+
+\subsection{Formal verification}
+
+\begin{definition}
+    \emph{Formal specification} uses mathematical notation to give a precise description
+    of what a program should do. \emph{Formal verification} uses logical rules to mathematically
+    prove that a program satisfies a formal specification.
+
+    There are different types of semantics to describe programs:
+    \begin{itemize}
+        \item \emph{denotational}: construct mathematical objects that describe the meaning.
+            E.g. functions: $[\![C]\!]:S\to S$.
+        \item \emph{operational}: describe the steps of computation during execution. Either
+            small-step ($\lra{C,\sigma}\to\lra{C',\sigma'}$) or big-step ($\lra{C,\sigma}\Downarrow\sigma'$).
+        \item \emph{axiomatic}: define axioms and rules of some logic of program. E.g. $\{P\}C\{Q\}$.
+    \end{itemize}
+\end{definition}
 
 \end{document}

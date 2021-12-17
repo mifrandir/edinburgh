@@ -43,3 +43,6 @@
 [submodule "2021_22/ILP"]
 	path = 2021_22/ILP
 	url = git@github.com:MiltFra/ILP.git
+[submodule "latex-preamble"]
+	path = preamble
+	url = git@github.com:MiltFra/latex-preamble.git
