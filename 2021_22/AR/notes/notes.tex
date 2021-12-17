@@ -742,4 +742,70 @@ Automated techniques include
     \end{itemize}
 \end{definition}
 
+\begin{definition}[Hoare triple]
+    In Hoare logic, a program specification states that 
+    given a state that satisfies preconditions $P$, executing a program $C$, if it terminates, 
+    will result in a state that satisfies postconditions $Q$. We write 
+    \begin{align*}
+        \hoare{P}{C}{Q}.
+    \end{align*}
+\end{definition}
+
+\subsection{Hoare logic rules}
+
+\begin{definition}[Assignment axiom]
+    \begin{align*}
+        \infer{\hoare{Q[E/V]}{V:=E}{Q}}{}
+    \end{align*} 
+\end{definition}
+
+\begin{definition}[Sequencing rule]
+   \begin{align*}
+       \infer{\hoare{P}{C_1; C_2}{R}}{\hoare{P}{C_1}{Q} \hs \hoare{Q}{C_2}{R}}
+   \end{align*} 
+\end{definition}
+
+\begin{definition}[Skip axiom]
+   \begin{align*}
+        \infer{\hoare{P}{\texttt{SKIP}}{P}}{} 
+   \end{align*} 
+\end{definition}
+
+\begin{definition}[Conditional rule]
+    \begin{align*}
+        \infer{\hoare{P}{\texttt{IF $S$ THEN $C_1$ ELSE $C_2$ FI}}{Q}}{
+            \hoare{P\wedge S}{C_1}{Q}\hs\hoare{P\wedge\neg S}{C_2}{Q}
+        } 
+    \end{align*}    
+\end{definition}
+
+\begin{definition}[Precondition strengthening]
+    \begin{align*}
+        \infer{\hoare{P}{C}{Q}}{P\to P'\hs\hoare{P'}{C}{Q}}
+    \end{align*} 
+\end{definition}
+
+\begin{definition}[Postcondition weakening]
+    \begin{align*}
+        \infer{\hoare{P}{C}{Q}}{\hoare{P}{C}{Q'}\hs Q'\to Q}
+    \end{align*} 
+\end{definition}
+
+\begin{definition}[While rule]
+    \begin{align*}
+        \infer{\hoare{P}{\texttt{WHILE $S$ DO $C$ OD}}{P\wedge\neg S}}{\hoare{P\wedge S}{C}{P}}
+    \end{align*} 
+\end{definition}
+
+\subsection{Meta-theory}
+
+\begin{theorem}
+    Hoare logic is 
+    \begin{itemize}
+        \item sound,
+        \item undecidable, and 
+        \item complete, but only for simple languages.
+    \end{itemize}
+\end{theorem}
+
 \end{document}
