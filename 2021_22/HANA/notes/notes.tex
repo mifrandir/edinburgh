@@ -739,4 +739,112 @@
     for every $f\in L^2$.
 \end{theorem}
 
+\subsection{Trigonometric polynomials}
+
+\begin{definition}
+    A \emph{trigonometric polynomial} is a function of the form 
+    \begin{align*}
+        f(x) = \sum_{n=-N}^N c_ne^{2\pi i n x} \hs (x\in\R),
+    \end{align*}
+    where $N\in\N$ and $c_n\in\C$. If $c_N$ or $c_{-N}$ is non-zero, then $N$ is called the 
+    degree of $f$.
+\end{definition}
+
+\begin{lemma}[Notes 5.1]
+    $(e^{2\pi inx})_{n\in\Z}$ forms an orthonormal system on $[0,1]$. In particular,
+    \begin{enumerate}
+        \item for all $n\in\Z$, \begin{align*}
+            \int_0^1 e^{2\pi inx}dx = \begin{cases}
+                0, &\text{if }n\not=0,\\
+                1, &\text{if }n=0.
+            \end{cases}
+        \end{align*}
+        \item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial, then \begin{align*}
+            c_n = \lra{f,\phi_n} = \int_0^1 f(t)e^{-2\pi int}dt.
+        \end{align*}
+    \end{enumerate} 
+\end{lemma}
+
+\begin{definition}
+    For a $1$-periodic integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
+    by 
+    \begin{align*}
+        \hat f(n) = \int_0^1 f(t)e^{-2\pi int}dt=\lra{f, \phi_n}.
+    \end{align*}
+    The double infinite series 
+    \begin{align*}
+        \sum_{n=-\infty}^\infty \hat f(n) e^{2\pi inx}
+    \end{align*}
+    is called the \emph{Fourier series} of $f$.
+\end{definition}
+
+\begin{definition}
+    For a $1$-periodic integrable function $f$ we define the partial sums
+    \begin{align*}
+        S_Nf(x)=\sum_{n=-N}^N \hat f(n) e^{2\pi inx}.
+    \end{align*}
+\end{definition}
+
+\subsection{Convolutions and kernels}
+
+\begin{definition}
+    For two $1$-periodic functions $f,g\in L^2$ we define their \emph{convolutions} 
+    by 
+    \begin{align*}
+        f*g(x)=\int_0^1 f(t)g(x-t)dt.
+    \end{align*} 
+\end{definition}
+
+\begin{lemma}[Notes 5.2]
+    For $1$-periodic functions $f,g\in L^2$, 
+    \begin{align*}
+        f*g=g*f.
+    \end{align*}
+\end{lemma}
+
+\begin{definition}
+    The \emph{Dirichlet kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
+    $(D_N)$ defined by
+    \begin{align*}
+        D_N(x)=\sum_{n=-N}^N e^{2\pi inx}.
+    \end{align*}
+\end{definition}
+
+\begin{lemma}[Notes 5.3]
+    We have 
+    \begin{align*}
+        D_N(x)=\frac{\sin(2\pi(N+1/2)x)}{\sin(\pi x)}.
+    \end{align*} 
+\end{lemma}
+
+\begin{definition}
+    The \emph{Fej\'er kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
+    $(K_N)$ defined by
+    \begin{align*}
+        K_N(x)=\frac{1}{N+1}\sum_{n=0}^ND_n(x).
+    \end{align*}
+\end{definition}
+
+\begin{lemma}[Notes 5.4]
+    We have
+    \begin{align*}
+        K_N(x)=\frac{1}{2(N+1)}\frac{1-\cos(2\pi(N+1)x)}{\sin^2(\pi x)}
+        =\frac{1}{N+1}\left(\frac{\sin(\pi(N+1)x)}{\sin(\pi x)}\right)^2.
+    \end{align*} 
+\end{lemma}
+
+\begin{theorem}[Fej\'er]
+    For every 1-periodic continuous function $f$,
+    \begin{align*}
+        K_N*f\to f
+    \end{align*} 
+    uniformly on $\R$ as $N\to \infty$.
+\end{theorem}
+
+\begin{corollary*}
+    Every 1-periodic continuous function can be uniformly approximated by trigonometric
+    polynomials. That is, for every 1-periodic continuous $f$ there exists a sequence 
+    $(f_n)$ of trigonometric polynomials such that $f_n\to f$ uniformly. 
+\end{corollary*}
+
 \end{document}
