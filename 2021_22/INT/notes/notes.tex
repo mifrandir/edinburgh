@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\begin{document}
+\mkthmstwounified
+\title{Honours Algebra (SEM6)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Pythagorean triples}
+
+\begin{definition}
+    Three natural numbers $(a,b,c)$ are called a \emph{pythagorean triple} if 
+    \begin{align*}
+        a^2 + b^2 = c^2.
+    \end{align*}
+\end{definition}
+
+\begin{lemma}
+    If $(a,b,c)$ is a pythagorean triple and $d$ is any positive integer then 
+    so is $(da,db,dc)$.
+\end{lemma}
+
+\begin{definition}
+    A pythagorean triple $(a,b,c)$ is called \emph{primitive} if they have no common factor.
+\end{definition}
+
+\begin{theorem}
+    Every primitive pythagorean triple $(a,b,c)$ with $a$ odd satsifies 
+    \begin{align*}
+        a=s,\hs b=\frac{s^2-t^2}{2},\hs c=\frac{s^2+t^2}{2},
+    \end{align*}
+    where $s>t\geq 1$ are chosen to be odd integers with no common factors.
+\end{theorem}
+
+\end{document}
