@@ -52,3 +52,15 @@ SEM2     | INF    | ITCS      | Introduction to Theoretical Computer Science    
 SEM2     | INF    | CT        | Compiling Techniques                                |                                    |      |       | 10
 
 Total credits sought: 120 + 10
+
+## Building
+
+A utility to build all LaTeX files has been provided. Some notable dependencies are 
+
+- Python3,
+- Pygments,
+- Matplotlib,
+- TeX Live,
+- latexmk,
+- Microsoft fonts (Arial)
+
