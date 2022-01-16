@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\mkthmstwounified
+
+\title{Introduction to Theoretical Computer Science (SEM6)}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Regular Languages}
+
+\subsection{Finite automata}
+
+\begin{definition}[Sipser, p. 35]
+    A \emph{finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+    \begin{enumerate}
+        \item $Q$ is a finite set called the \emph{states},
+        \item $\Sigma$ is a finite set called the \emph{alphabet},
+        \item $\delta:Q\times\Sigma\to Q$ is the \emph{transition function},
+        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $F\subseteq Q$ is the \emph{set of accept states}.
+    \end{enumerate} 
+\end{definition}
+
+\begin{definition}
+    A \emph{language} $A$ over an alphabet $\Sigma$ is a set such that for all 
+    $w\in A$ there exist $w_1,w_2,...,w_n\in\Sigma$ such that $w=w_1w_2\cdots w_n$.
+    
+    A finite automaton $M=(Q,\Sigma,\delta,q_0,F)$ accepts a word $w=w_1\cdots w_n\in A$ 
+    if there exists a sequence of states $r_0,...,r_n\in Q$ such that 
+    \begin{enumerate}
+        \item $r_0=q_0$,
+        \item $\delta(r_i,w_{i+1})=r_{i+1}$, for $i<n$, and 
+        \item $r_n\in F$.
+    \end{enumerate}
+    We say $M$ recognises $A$ if and only if $A=\{w : M\text{ accepts }w\}$.
+\end{definition}
+
+\begin{definition}[Sipser p. 40]
+    A language is called a \emph{regular language} if some finite automaton recognises it.
+\end{definition}
+
+\begin{definition}[Sipser p. 44]
+    Let $A$ and $B$ be languages. We define the following \emph{regular operations}:
+    \begin{enumerate}
+        \item \emph{union}: $A\cup B=\{x : x \in A \text{ or } x \in B\}$.
+        \item \emph{concatenation}: $A\circ B=\{xy : x \in A \text{ or } y \in B\}$.
+        \item \emph{star}: $A^* = \{x_1x_2\dots x_k:k\geq 0 \text{ and each }x_i\in A\}$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Sipser p. 45, 60, 62]
+    The class of regular languages is closed under regular operations.
+\end{theorem}
+
+\begin{theorem}[Pumping lemma; Sipser p. 78]
+    If $A$ is a regular language, then there is a number $p$ where if $s$
+    is any string in $A$ of length at least $p$, then $s$ may be divided 
+    into three pieces, $s=xyz$, satisfying the following conditions:
+    \begin{enumerate}
+        \item for each $i\geq 0$, $xy^iz\in A$,
+        \item $\abs y > 0$, and 
+        \item $\abs{xy} \leq p$.
+    \end{enumerate} 
+\end{theorem}
+
+\subsection{Nondeterminism}
+
+\begin{definition}[Sipser p. 53]
+    A \emph{nondeterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+    \begin{enumerate}
+        \item $Q$ is a finite set called the \emph{states},
+        \item $\Sigma$ is a finite set called the \emph{alphabet},
+        \item $\delta:Q\times\Sigma_\e\to \mathcal{P}(Q)$ is the \emph{transition function},
+        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $F\subseteq Q$ is the \emph{set of accept states}.
+    \end{enumerate} 
+\end{definition}
+
+\begin{theorem}[Sipser p. 55]
+    Every nondeterministic finite automaton has an equivalent deterministic finite automaton.
+\end{theorem}
+
+\begin{corollary}[Sipser p. 56]
+    A language is regular if and only if some nondeterministic finite automaton recognises it. 
+\end{corollary}
+
+\subsection{Regular expressions}
+
+\begin{definition}[Sipser p. 64]
+    $R$ is a \emph{regular expression} over an alphabet $\Sigma$ if one of the following holds:
+    \begin{enumerate}
+        \item $R\in\Sigma$,
+        \item $R=\e$,
+        \item $R=\emptyset$,
+        \item $R=(R_1\cup R_2)$, where $R_1,R_2$ are regular expressions,
+        \item $R=(R_1\circ R_2)$, where $R_1,R_2$ are regular expressions, or
+        \item $R=(R_1^*)$, where $R_1$ is a regular expression.
+    \end{enumerate} 
+\end{definition}
+
+\begin{theorem}[Sipser p. 66]
+    A language is regular if and only if some regular expression describes it. 
+\end{theorem}
+
+
+\end{document}
