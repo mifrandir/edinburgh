@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\begin{document}
+\mkthmstwounified
+\title{Metric Spaces (SEM6)}
+\author{Franz Miltz}
+\maketitle
+\noindent Textbook: V. Bryant, \emph{Metric Spaces: Iteration and Application}
+\tableofcontents
+\pagebreak
+
+\section{Metrics, norms and inner products}
+
+\subsection{Metrics and metric spaces}
+
+\begin{definition}[Metric space]
+    A \emph{metric} on a non-empty set $X$ is a function $d:X\times X\to\R$
+    such that, for all $x,y,z\in X$, 
+    \begin{enumerate}
+        \item $d(x,y)=0$ if and only if $x=y$,
+        \item $d(x,y)=d(y,x)$,
+        \item $d(x,y)\leq d(x,z) + d(z,y)$.
+    \end{enumerate}
+    A \emph{metric space} is an ordered pair $(X,d)$ where $X$ is a non-empty set and 
+    $d$ is a metric on $X$.
+\end{definition}
+
+\begin{lemma}
+    The following are metric spaces:
+    \begin{enumerate}
+        \item $(\R^n, d_1)$ where $d_1:\R^n\times\R^n\to\R$ is defined by \begin{align*}
+            d_1(x,y)=\abs{x_1-y_1}+\cdots+\abs{x_n-y_n}.
+        \end{align*} 
+        \item $(\R^n, d_\infty)$ where $d_\infty:\R^n\times\R^n\to\R$ is defined by \begin{align*} d_\infty(x,y)=\max\{\abs{x_1-y_1},...,\abs{x_n-y_n}\}.
+        \end{align*}
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+    Let $a,b\in\R$ with $a<b$.
+    Then the set of all real valued continuous functions defined of real valued
+    continuous functions defined on $[a,b]$, denoted $C([a,b])$, together with
+    the usual operations of addition and scalar multiplication is a vector space.
+    Further let $d:C([a,b])\times C([a,b])\to \R$ be given by 
+    \begin{align*}
+        d(f,g)=\sup\{\abs{f(x)-g(x)}:x\in[a,b]\}.
+    \end{align*} 
+    Then $(C([a,b]),d)$ is a metric space.
+\end{lemma}
+
+\begin{definition}[Metric subspace]
+    Let $(X,d)$ be a metric space. For any non-empty subset $Y\subseteq X$ we define 
+    a function $d_Y:Y\times Y\to\R$ by
+    \begin{align*}
+        d_Y(y_1,y_2)=d(y_1,y_2).
+    \end{align*}
+    Then $(Y,d_Y)$ is a metric subspace of $(X,d)$.
+\end{definition}
+
+\begin{definition}[Ultrametric]
+    Let $(X,d)$ be a metric space. If for all $x,y,z\in X$,
+    \begin{align*}
+        d(x,y)\leq \max\{d(x,z),d(z,y)\}
+    \end{align*}
+    then $d$ is called an \emph{ultrametric}.
+\end{definition}
+
+\begin{proposition}[Reverse triangle inequality]
+   Let $(X,d)$ be a metric space and let $x,y,z\in X$. Then 
+   \begin{align*}
+       \abs{d(x,y)-d(x,z)}\leq d(y,z).
+   \end{align*} 
+\end{proposition}
+
+\subsection{Norms and normed linear spaces}
+
+\begin{definition}[Normed linear space]
+    Let $X$ be a real vector space. A \emph{norm} is a function $\vabs{-}:X\to\R$
+    where for all $x,y\in X$ and all $\lambda\in\R$,
+    \begin{enumerate}
+        \item $\vabs x \geq 0$,
+        \item $\vabs x = 0$ if and only if $x = 0$,
+        \item $\vabs{\lambda x}=\abs \lambda \vabs x$,
+        \item $\vabs{x+y}\leq \vabs x +\vabs y$.
+    \end{enumerate}
+    A \emph{normed linear space} is a pair $(X,\vabs{-})$ where $X$ is a real vector 
+    space and $\vabs{-}$ is a norm on $X$.
+\end{definition}
+
+\begin{lemma}
+    Let $p\geq 1$ be a real number.
+    Let the set of all real sequences $(x_n)_{n\in\N}$ such that the series 
+    $\sum_{n=1}^\infty \abs{x_n}^p$ converges be denoted by $L^p$. 
+    We define the following operations:
+    \begin{align}
+        \label{sequence_operations}
+        +:L^1\times L^1\to L^1;(x,y)\mapsto x+y&=(x_n+y_n)_{n\in\N}=(x_1+y_1,x_2+y_2,...,x_n+y_n,...),\\
+        \cdot:\R\times L^1\to L^1;(\lambda,x)\mapsto\lambda x&=(\lambda x_n)_{n\in\N}=(\lambda x_1,\lambda x_2,...,\lambda x_n,...).
+    \end{align}
+    Then $(L^p,+,\cdot)$ is a vector space.
+    We define $\vabs{-}_p:L^p\to\R$ by 
+    \begin{align*}
+        \vabs x_p = \left(\sum_{n=1}^\infty \abs{x_n}^p\right)^{1/p}.
+    \end{align*}
+    Then $(L^p, \vabs{-}_p)$ is a normed linear space.
+    Further, we define $d_p:L^p\times L^p\to\R$ by 
+    \begin{align*}
+        d_p(x,y)=\vabs{x-y}_p=\left(\sum_{n=1}^\infty\abs{x_n-y_n}^p\right)^{1/p}.
+    \end{align*}
+    Then $(L^p,d_p)$ is a metric space.
+\end{lemma}
+
+\begin{lemma}
+    Let the set of all bounded real sequences be denoted by $L^\infty$. Then, together with 
+    the usual operations defined in (\ref{sequence_operations}), $L^\infty$ is a vector space.
+    We define $\vabs{-}_\infty:L^\infty\to\R$ by 
+    \begin{align*}
+        \vabs x_\infty = \sup\{\abs{x_n}:n\in\N\}.
+    \end{align*}
+    Then $(L^\infty,\vabs{-}_\infty)$ is a normed linear space.
+    Further, let $d_\infty:L^\infty\times L^\infty\to\R$ is given by 
+    \begin{align*}
+        d_\infty(x,y)=\vabs{x-y}_\infty = \sup\{\abs{x_1-y_1,x_2-y_2,...}\}.
+    \end{align*}
+    Then $(L^\infty, d_\infty)$ is a metric space.
+\end{lemma}
+
+\begin{lemma}[Minkowski's inequality]
+    Let $p\geq 1$ be a real number. Let $x,y\in L^p$. Then 
+    \begin{align*}
+        \left(\sum_{i=1}^\infty \abs{x_i+y_i}^p\right)^{1/p}
+        \leq \left(\sum_{i=1}^\infty \abs{x_i}^p\right)^{1/p}
+        + \left(\sum_{i=1}^\infty \abs{y_i}^p\right)^{1/p}.
+    \end{align*}
+\end{lemma}
+
+\begin{lemma}[H\"older's inequality]
+    Let $p,q\geq 1$ be real numbers with $1/p+1/q=1$. Let $x\in L^p$ and $y\in L^q$. Then 
+    \begin{align*}
+        \sum_{n=1}^\infty \abs{x_ny_n}\leq 
+        \left(\sum_{n=1}^\infty\abs{x_n}^p\right)^{1/p}
+        \left(\sum_{n=1}^\infty\abs{y_n}^q\right)^{1/q}.
+    \end{align*}
+\end{lemma}
+
+\subsection{Inner products and inner product spaces}
+
+\begin{definition}[Inner product space]
+    Let $X$ be a real vector space over $\R$. An \emph{inner product}
+    is a map $\lra{.,.}:X\times X\to\R$ where for all $x,y,z\in X$ and 
+    $\lambda,\mu\in\R$,
+    \begin{enumerate}
+        \item $\lra{x,x}\geq 0$ with $\lra{x,x}=0$ if and only if $x=0$,
+        \item $\lra{x,y}=\lra{y,x}$,
+        \item $\lra{\lambda x+\mu y,z}=\lambda\lra{x,z}+\mu{y,z}$.
+    \end{enumerate} 
+    A \emph{inner product space} is a pair $(X, \lra{.,.})$ where $X$ is a real 
+    vector space and $\lra{.,.}$ is a norm on $X$.
+\end{definition}
+
+\begin{lemma}
+    Let $(X,\lra{.,.})$ be an inner product space. Let $\vabs{-}:X\to\R$ be given 
+    by 
+    \begin{align*}
+        \vabs x = \sqrt{\lra{x,x}}.
+    \end{align*}
+    Then $(X,\vabs{-})$ is a normed linear space. Further, let $d:X\times X\to\R$
+    be given by 
+    \begin{align*}
+        d(x,y)=\vabs{x-y}.
+    \end{align*}
+    Then $(X,d)$ is a metric space.
+\end{lemma}
+\end{document}
