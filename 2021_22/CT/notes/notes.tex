@@ -1,0 +1,188 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning}
+\mkthmstwounified
+
+\title{Compiling Techniques (SEM6)}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Introduction}
+
+\begin{definition}
+    An \emph{interpreter} is a program that directly executes an executable program,
+    producing the results of executing that program.
+\end{definition}
+\begin{definition}
+    A \emph{compiler} is a program that translates an executable program in one language
+    to an executable program in another language. The compiler may improve the program 
+    in some way.
+\end{definition}
+
+\paragraph{Problems posed by compiler construction}
+\begin{itemize}
+    \item compile-time performance: How long does it take to compile a program?
+    \item run-time performance: How fast is the resulting executable?
+    \item programming language complexity: Are special features being handled well?
+    \item machine complexity: Does the compiler adapt to underlying hardware?
+    \item user interface: Is the user exposed to the compiler infrastructure?
+\end{itemize}
+
+\paragraph{Specification}
+Any compiler must
+\begin{enumerate}
+    \item recognise legal and illegal programs,
+    \item generate correct code,
+    \item manage storage of all variables and code,
+    \item agree with OS \& linker on format for object code, and 
+    \item use higher level notations.
+\end{enumerate}
+
+\paragraph{Related programs} to the compiler are 
+\begin{itemize}
+    \item \emph{pre-processor}: processes macros and directives,
+    \item \emph{assembler}: translates assembly language to actual machine code,
+    \item \emph{linker}: links together various compiled files and/or libraries,
+    \item \emph{debugger}: tightly integrated with compiler; uses meta-information,
+    \item \emph{virtual machines}: executes virtual assembly.
+\end{itemize}
+
+\section{Structure}
+
+\tikzset{
+    interface/.style={
+        minimum width=0cm,
+        minimum height=1cm
+    },
+    component/.style={
+        draw,
+        minimum width=2cm,
+        minimum height=1cm 
+    }
+}
+
+\begin{definition}
+    A \emph{two-pass compiler} consists of a frontend which converts the source code 
+    into an \emph{intermediate representation} (IR), catching all the errors that may occur,
+    and a backend which converts the IR into machine code.
+
+    \begin{center}
+        \begin{tikzpicture}[font=\small,thick]
+            \node[interface] (sourcecode) {Source Code};
+            \node[component, right=of sourcecode] (frontend) {Front-End};
+            \node[component, right=of frontend] (backend) {Back-End};
+            \node[interface, right=of backend] (machinecode) {Machine Code};
+            \node[interface, below=0cm of machinecode] (errors) {Errors};           
+            \draw[-latex] 
+                (sourcecode) edge (frontend)
+                (frontend) edge node[above]{IR} (backend)
+                (backend) edge (machinecode)
+                (frontend) |- (errors);
+        \end{tikzpicture}
+    \end{center}
+\end{definition}
+
+\begin{definition}
+    A \emph{three-pass compiler} consists of the usual frontend and backend as well as 
+    a middle-end which is tasked with improving efficiency (e.g. with respect to time,
+    memory, ...) of the compiled code.
+
+    \begin{center}
+        \begin{tikzpicture}[font=\small,thick]
+            \node[interface] (sourcecode) {Source Code};
+            \node[component, right=of sourcecode] (frontend) {Front-End};
+            \node[component, right=of frontend] (midend) {Middle-End};
+            \node[component, right=of midend] (backend) {Back-End};
+            \node[interface, right=of backend] (machinecode) {Machine Code};
+            \node[interface, below=0cm of machinecode] (errors) {Errors};           
+            \draw[-latex] 
+                (sourcecode) edge (frontend)
+                (frontend) edge node[above]{IR} (midend)
+                (midend) edge node[above]{IR} (backend)
+                (backend) edge (machinecode)
+                (frontend) |- (errors);
+        \end{tikzpicture}
+    \end{center}
+\end{definition}
+
+\subsection{Frontend}
+
+\begin{center}
+    \begin{tikzpicture}[font=\small,thick]
+        \node[interface] (sourcecode) {Source};
+        \node[component, right=.5cm of sourcecode] (lexer) {Lexer};
+        \node[component, right=.5cm of lexer] (parser) {Parser};
+        \node[component, right=.5cm of parser] (semanalyser) {Semantic Analyser};
+        \node[component, right=.5cm of semanalyser] (irgenerator) {IR generator};
+        \node[interface, right=.5cm of irgenerator] (ir) {IR};
+        \node[interface, below=0cm of ir] (errors) {Errors};           
+        \draw[-latex]
+            (sourcecode) edge (lexer)
+            (lexer) edge node[above of=1cm]{token} (parser) 
+            (parser) edge node[above of=1cm]{AST} (semanalyser)
+            (semanalyser) edge node[above of=1cm]{AST} (irgenerator)
+            (irgenerator) edge (ir)
+            (lexer) |- (errors) 
+            (parser) |- (errors)
+            (semanalyser) |- (errors)
+            (irgenerator) |- (errors);
+    \end{tikzpicture}
+\end{center}
+
+\paragraph{Specification} The front-end must 
+\begin{enumerate}
+    \item Recoginise legal and illegal programs,
+    \item report errors in a useful way,
+    \item produce IR and preliminary storage map,
+    \item shape the code for the back end.
+\end{enumerate}
+
+\begin{definition}
+    An \emph{abstract syntax tree} (AST) is a tree representing an expression with
+    respect to a grammar. It is typically much more concise than an a parse tree and 
+    does not contain any unnecessary information.
+\end{definition}
+
+\paragraph{Components} Typically, a front-end consists of 
+\begin{enumerate}
+    \item \emph{lexer}: converts source code to token stream and collects identifier 
+        information; typically consists of \emph{scanner} and \emph{tokeniser}
+    \item \emph{parser}: recognises context-free syntax and converts token stream
+        into AST
+    \item \emph{semantic analyser}: performs context-sensitive analysis, e.g. variable names, types, parentheses
+    \item \emph{IR generator}: converts AST to IR; may not require any work
+\end{enumerate}
+
+\subsection{Backend}
+\begin{center}
+    \begin{tikzpicture}[font=\small,thick]
+        \node[interface] (ir) {IR};
+        \node[component, right=.5cm of ir] (selection) {Instruction Selection}; 
+        \node[component, right=.5cm of selection] (registers) {Register Allocation}; 
+        \node[component, right=.5cm of registers] (scheduling) {Instruction Scheduling}; 
+        \node[interface, right=.5cm of scheduling] (machinecode) {Machine Code};
+        \node[interface, below=0cm of machinecode] (errors) {Errors};
+        \draw[-latex]
+            (ir) edge (selection)
+            (selection) edge node[above of=1cm]{IR} (registers) 
+            (registers) edge node[above of=1cm]{IR} (scheduling)
+            (scheduling) edge (machinecode)
+            (selection) |- (errors) 
+            (registers) |- (errors)
+            (scheduling) |- (errors);
+    \end{tikzpicture}
+\end{center}
+
+\paragraph{Components} Typically, a backend contains the following phases:
+\begin{enumerate}
+    \item \emph{instruction selection}: takes advantage of target features such as addressing modes,
+    \item \emph{register allocaiton}: manages limited number of registers for optimal performance,
+    \item \emph{instruction scheduling}: see instruction selection.
+\end{enumerate}
+
+\end{document}
