@@ -15,8 +15,8 @@
 
 \subsection{Finite automata}
 
-\begin{definition}[Sipser, p. 35]
-    A \emph{finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+\begin{definition}[DFA; Sipser, p. 35]
+    A \emph{deterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
     \begin{enumerate}
         \item $Q$ is a finite set called the \emph{states},
         \item $\Sigma$ is a finite set called the \emph{alphabet},
@@ -70,8 +70,19 @@
 
 \subsection{Nondeterminism}
 
-\begin{definition}[Sipser p. 53]
+\begin{definition}[NFA; Sipser p. 53]
     A \emph{nondeterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+    \begin{enumerate}
+        \item $Q$ is a finite set called the \emph{states},
+        \item $\Sigma$ is a finite set called the \emph{alphabet},
+        \item $\delta:Q\times\Sigma\to\mathcal{P}(Q)$ is the \emph{transition function},
+        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $F\subseteq Q$ is the \emph{set of accept states}.
+    \end{enumerate} 
+\end{definition}
+
+\begin{definition}[$\e$-NFA; Sipser p. 53]
+    An \emph{$\e$-NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
     \begin{enumerate}
         \item $Q$ is a finite set called the \emph{states},
         \item $\Sigma$ is a finite set called the \emph{alphabet},
@@ -82,12 +93,14 @@
 \end{definition}
 
 \begin{theorem}[Sipser p. 55]
-    Every nondeterministic finite automaton has an equivalent deterministic finite automaton.
+    Let $L$ be a language. Then the following statements are equivalent:
+    \begin{enumerate}
+        \item $L$ is regular.
+        \item There exists a DFA $M$ that recognises $L$.
+        \item There exists an NFA $M$ that recognises $L$.
+        \item There exists an $\e$-NFA $M$ that recognises $L$.
+    \end{enumerate}
 \end{theorem}
-
-\begin{corollary}[Sipser p. 56]
-    A language is regular if and only if some nondeterministic finite automaton recognises it. 
-\end{corollary}
 
 \subsection{Regular expressions}
 
@@ -106,6 +119,18 @@
 \begin{theorem}[Sipser p. 66]
     A language is regular if and only if some regular expression describes it. 
 \end{theorem}
+
+\begin{definition}[GNFA; Sipser p. 53]
+    A \emph{generalised NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,q_1)$ where 
+    \begin{enumerate}
+        \item $Q$ is a finite set called the \emph{states},
+        \item $\Sigma$ is a finite set called the \emph{alphabet},
+        \item $\delta:(Q\setminus\{q_0\})\times(Q\setminus\{q_1\})\to R$ is the \emph{transition function},
+        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $q_1\in Q$ is the \emph{accept state},
+    \end{enumerate} 
+    where $R$ is the collection of all regular expressions over the alphabet $\Sigma$.
+\end{definition}
 
 
 \end{document}
