@@ -173,4 +173,108 @@
     \end{align*}
     Then $(X,d)$ is a metric space.
 \end{lemma}
+
+\section{The real line}
+
+\subsection{Open and closed sets}
+
+\begin{definition}
+    A subset $F\subseteq\R$ is said to be \emph{closed} if it contains the limit of all 
+    its convergent sequences, i.e. if $(x_n)_{n\in\N}$ is any sequence with $x_n\in F$
+    for all $n$, and $x_n\to x$ for some $x\in\R$, then $x\in F$. 
+\end{definition}
+
+\begin{proposition}[Notes 2.2]
+    The union of finitely many closed sets is a closed set.
+\end{proposition}
+
+\begin{proposition}[Notes 2.4]
+    The intersection of any family of closed sets is a closed set.
+\end{proposition}
+
+\begin{definition}
+    A subset $G\subseteq\R$ is said to be \emph{open} if it its complement $G^C$ is closed.
+\end{definition}
+
+\begin{proposition}[Notes 2.6]
+    Let $G\subseteq\R$. The following are equivalent:
+    \begin{enumerate}
+        \item $G$ is open.
+        \item For every point $x\in G$, there exists a positive raidus $r$, such that 
+            $(x-r,x+r)\subseteq G$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proposition}[Notes 2.8]
+    The union of any family of open sets is an open set. 
+\end{proposition}
+
+\begin{proposition}[Notes 2.9]
+    The intersection of finitely many open sets is an open set.
+\end{proposition}
+
+\begin{theorem}[Notes 2.10]
+    A subset of the real line is open if and only if it is the union of open intervals.
+\end{theorem}
+
+\begin{theorem}[Notes 2.11]
+    Every open subset of the real line can be written as an at most countable union 
+    of pairwise disjoint open intervals.
+\end{theorem}
+
+\subsection{Compact sets and the Heine-Borel theorem}
+
+\begin{definition}
+    A subset $K\subseteq\R$ is said to be\emph{compact} if every sequence of elements 
+    of $K$ hasa subsequence that converges to an element of $K$. 
+\end{definition}
+
+\begin{theorem}[Notes 2.15]
+    On the real line, a set is compact if it is closed and bounded. 
+\end{theorem}
+
+\begin{theorem}[Notes 2.17]
+    Let $K$ be a compact set on the real line. If $f:K\to\R$ is continuous
+    then it is bounded.
+\end{theorem}
+
+\begin{theorem}[Extreme Value Theorem; Notes 2.18]
+    Let $K$ be a compact set on the real line. If $f:K\to\R$ is continuous
+    then $f$ has a maximum and a minimum.
+\end{theorem}
+
+\begin{definition}
+    Let $E$ be a subset of $\R$. An \emph{open cover} of $E$ is a family 
+    $(G_i)_{i\in I}$ of open sets such that 
+    \begin{align*}
+        E\subseteq \bigcup_{i\in I}G_i.
+    \end{align*}
+    A \emph{subcover} of $(G_i)_{i\in I}$ is a smaller family $(G_i)_{i\in I'}$, 
+    where $I'\subseteq I$, that still covers $E$.
+\end{definition}
+
+\begin{theorem}[Heine-Borel; Notes 2.20]
+    Let $a,b\in\R$ with $a<b$. Every open cover of $[a,b]$ has a finite subcover. 
+\end{theorem}
+
+\begin{theorem}[Notes 2.21]
+    Let $K\subseteq\R$. The following are equivalent:
+    \begin{enumerate}
+        \item $K$ is compact.
+        \item Every open cover of $K$ has a finite subcover.
+    \end{enumerate} 
+\end{theorem}
+
+\subsection{Another look at continuity and uniform continuity}
+
+\begin{proposition}[Notes 2.23]
+    If $K\subseteq\R$ is compact and $f:K\to\R$ is continuous, then $f$ is 
+    uniformly continuous. 
+\end{proposition}
+
+\begin{proposition}[Notes 2.24]
+    A function $f:\R\to\R$ is continuous if and only if the inverse image of every 
+    open set is an open set. 
+\end{proposition}
+
 \end{document}
