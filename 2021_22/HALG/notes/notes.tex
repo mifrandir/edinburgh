@@ -14,37 +14,37 @@
 \subsection{Solutions of simultaneous linear equations}
 
 \begin{definition}
-    Let $F$ be a field. A \emph{system of linear equations} with $n$ equations and 
-    $m$ unknowns are equations 
+    Let $F$ be a field. A \emph{system of linear equations} with $n$ equations and
+    $m$ unknowns are equations
     \begin{align*}
-        a_{11}x_1 + a_{12}x_2 + \cdots + a_{1m}x_m &= b_1\\
-        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2m}x_m &= b_2\\
-         \vdots \\
-        a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nm}x_m &= b_n\\
+        a_{11}x_1 + a_{12}x_2 + \cdots + a_{1m}x_m & = b_1 \\
+        a_{21}x_1 + a_{22}x_2 + \cdots + a_{2m}x_m & = b_2 \\
+        \vdots                                             \\
+        a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nm}x_m & = b_n \\
     \end{align*}
     where $a_{ij},b_i\in F$ are fixed.
 
-    If all $b_i$ are zero, then we call our system \emph{homogeneous}. Every system 
+    If all $b_i$ are zero, then we call our system \emph{homogeneous}. Every system
     has an associated \emph{homogenised} system of equations.
-    The set $L\subseteq F^m$ consisting of all $m$-tuples that satisfy the 
+    The set $L\subseteq F^m$ consisting of all $m$-tuples that satisfy the
     $n$ equations is called the \emph{solution set} of our system.
 \end{definition}
 
 \begin{theorem}[Notes 1.1.4]
     If the solution set of a linear system of equations is non-empty, then we obtain
-    all solutions by adding componentwise an arbitrary solution of the associated 
+    all solutions by adding componentwise an arbitrary solution of the associated
     homogenised system to a fixed soltuion of the system itself.
 \end{theorem}
 
 \subsection{Fields and vector spaces}
 
 \begin{definition}
-    A \emph{field} $F$ is a set with functions 
+    A \emph{field} $F$ is a set with functions
     \begin{align*}
-        + &: F\times F \to F ; (\lambda,\mu) \mapsto \lambda + \mu,\\
-        \cdot &: F\times F \to F ; (\lambda,\mu) \mapsto \lambda \mu
+        +     & : F\times F \to F ; (\lambda,\mu) \mapsto \lambda + \mu, \\
+        \cdot & : F\times F \to F ; (\lambda,\mu) \mapsto \lambda \mu
     \end{align*}
-    such that $(F,+)$ and $(F\setminus{0},\cdot)$ are abelian groups, with 
+    such that $(F,+)$ and $(F\setminus{0},\cdot)$ are abelian groups, with
     \begin{align*}
         \lambda(\mu + \nu) = \lambda \mu + \lambda \nu \in F
     \end{align*}
@@ -52,18 +52,18 @@
 \end{definition}
 
 \begin{definition}
-    A \emph{vector space $V$ over a field $F$} is a pair consisting of an abelian 
-    group $V=(V,+)$ and a mapping 
+    A \emph{vector space $V$ over a field $F$} is a pair consisting of an abelian
+    group $V=(V,+)$ and a mapping
     \begin{align*}
         F\times V\to V:(\lambda,\vec v) \mapsto \lambda \vec v
     \end{align*}
-    such that for all $\lambda,\mu\in F$ and $\vec v,\vec w\in V$ the following 
+    such that for all $\lambda,\mu\in F$ and $\vec v,\vec w\in V$ the following
     identities hold:
     \begin{align*}
-        \lambda(\vec v + \vec w) &= (\lambda\vec v) + (\lambda \vec w)\\
-        (\lambda +\mu)\vec v &= (\lambda\vec v) + (\mu \vec v)\\
-        \lambda(\mu\vec v) &= (\lambda\mu)\vec v\\
-        1_F \vec v &= \vec v
+        \lambda(\vec v + \vec w) & = (\lambda\vec v) + (\lambda \vec w) \\
+        (\lambda +\mu)\vec v     & = (\lambda\vec v) + (\mu \vec v)     \\
+        \lambda(\mu\vec v)       & = (\lambda\mu)\vec v                 \\
+        1_F \vec v               & = \vec v
     \end{align*}
 \end{definition}
 
@@ -77,39 +77,39 @@
 
 \begin{lemma}[Notes 1.2.4]
     If $V$ is a vector space over a field $F$, then $\lambda\vec 0=\vec 0$
-    for all $\lambda F$. Further, if $\lambda\vec v=\vec 0$ then either 
+    for all $\lambda F$. Further, if $\lambda\vec v=\vec 0$ then either
     $\lambda =0$ or $\vec v =\vec 0$.
 \end{lemma}
 
 \begin{definition}
-    The one-element abelian group $V=0$ equipped with the 
-    obvious operation is a vector space over every field, and called the 
+    The one-element abelian group $V=0$ equipped with the
+    obvious operation is a vector space over every field, and called the
     \emph{trivial vector space} or the \emph{zero vector space}.
 \end{definition}
 
 \subsection{Vector subspaces}
 
 \begin{definition}
-    A subset $U$ of a vector space $V$ is called a \emph{vector subspace} or 
+    A subset $U$ of a vector space $V$ is called a \emph{vector subspace} or
     \emph{subspace} if $U$ contains the zero vector and whenever $\vec u,\vec v\in U$
     and $\lambda\in F$ we have $\vec u + \vec v\in U$ and $\lambda\vec v\in U$.
 \end{definition}
 
 \begin{proposition}[Notes 1.4.5]
     Let $T$ be a subset of a vector space $V$ over a field $F$. Then amongst all
-    vector subspaces of $V$ that include $T$ there is a smallest vector subspace 
+    vector subspaces of $V$ that include $T$ there is a smallest vector subspace
     \begin{align*}
         \lra{T} = \lra{T}_F\subseteq V
     \end{align*}
     called the \emph{span of $T$}.
     It can be described as the set of all vectors $\alpha_1\vec v_1+\cdots+\alpha_r\vec v_r$
-    with $\alpha_1,...,\alpha_r\in F$ and $\vec v_1,...,\vec v_r\in T$, together 
+    with $\alpha_1,...,\alpha_r\in F$ and $\vec v_1,...,\vec v_r\in T$, together
     with the zero vector in the case $T=\emptyset$.
 \end{proposition}
 
 \begin{definition}
     A subset $U$ of a vector space $V$ is called a \emph{generating set of $V$}
-    if its span is all of $V$. A vector space that has a finite generating set 
+    if its span is all of $V$. A vector space that has a finite generating set
     is said to be \emph{finitely generated}.
 \end{definition}
 
@@ -117,7 +117,7 @@
 
 \begin{definition}
     A subset $L$ of a vector space $V$ is called \emph{linearly independent}
-    if for all pairwise different vectors $\vec v_1,...,\vec v_r\in L$ and 
+    if for all pairwise different vectors $\vec v_1,...,\vec v_r\in L$ and
     arbitrary scalars $\alpha_1,...,\alpha_r\in F$,
     \begin{align*}
         \alpha_1\vec v_1+\cdots+\alpha_r\vec v_r = \vec 0
@@ -127,17 +127,17 @@
 \end{definition}
 
 \begin{definition}
-    A \emph{basis of a vector space} $V$ is a linearly independent generating 
+    A \emph{basis of a vector space} $V$ is a linearly independent generating
     set in $V$.
 \end{definition}
 
 \begin{theorem}[Notes 1.5.11]
     Let $F$ be a field, $V$ a vector space over $F$ and $\vec v_1,...,\vec v_r\in V$
     vectors. The family $\left(\vec v_i\right)_{1\leq i\leq r}$ is a basis of $V$
-    if and only if the following mapping 
+    if and only if the following mapping
     \begin{align*}
-        \Phi:F^r&\to V\\
-        (\alpha_1,...,\alpha_r)&\mapsto \alpha_1\vec v_1 + \cdots + \alpha_r\vec v_r
+        \Phi:F^r                & \to V                                                \\
+        (\alpha_1,...,\alpha_r) & \mapsto \alpha_1\vec v_1 + \cdots + \alpha_r\vec v_r
     \end{align*}
     is a bijection.
 \end{theorem}
@@ -146,33 +146,33 @@
     The following are equivalent for a subset $E$ of a vectors space $V$:
     \begin{enumerate}
         \item $E$ is a basis of $V$,
-        \item $E$ is minimal among all generating sets, 
+        \item $E$ is minimal among all generating sets,
         \item $E$ is maximal among all linearly independent subsets.
-    \end{enumerate} 
+    \end{enumerate}
 \end{theorem}
 
 \begin{corollary}[Notes 1.5.13]
     Let $V$ be a finitely generated vector space over a field $F$. Then $V$
-    has a basis. 
+    has a basis.
 \end{corollary}
 
 \begin{theorem}[Notes 1.5.14]
     Let $V$ be a vector space.
     \begin{enumerate}
-        \item Let $L\subseteq V$ be a linearly independent subset and $E$ is minimal 
-            amongst all generating sets of $V$ with the property that $L\subseteq E$,
-            then $E$ is a basis. 
+        \item Let $L\subseteq V$ be a linearly independent subset and $E$ is minimal
+              amongst all generating sets of $V$ with the property that $L\subseteq E$,
+              then $E$ is a basis.
         \item If $E\subseteq V$ is a generating set and if $L$ is maximal amongst all
-            linearly independent subsets of $V$ with the property $L\subseteq E$, then 
-            $L$ is a basis.
-    \end{enumerate} 
+              linearly independent subsets of $V$ with the property $L\subseteq E$, then
+              $L$ is a basis.
+    \end{enumerate}
 \end{theorem}
 
 \begin{definition}
     Let $X$ be a set and $F$ a field. The set $\text{Maps}(X,F)$ of all mappings
-    $f:X\to F$ becomes an $F$-vector space with the operations of pointwise 
-    addition and multiplication by a scalar. The subset of all mappings which send 
-    almost all elements of $X$ to zero is a vector subspace 
+    $f:X\to F$ becomes an $F$-vector space with the operations of pointwise
+    addition and multiplication by a scalar. The subset of all mappings which send
+    almost all elements of $X$ to zero is a vector subspace
     \begin{align*}
         F\lra{X}\subseteq \text{Maps}(X,F).
     \end{align*}
@@ -180,15 +180,15 @@
 \end{definition}
 
 \begin{theorem}[Notes 1.5.16]
-    Let $F$ be a field, $V$ and $F$-vector space and $(\vec v_i)_{i\in I}$ a 
+    Let $F$ be a field, $V$ and $F$-vector space and $(\vec v_i)_{i\in I}$ a
     family of vectors from $V$. The following are equivalent:
     \begin{enumerate}
         \item The family $(\vec v_i)_{i\in I}$ is a basis for $V$,
         \item for each vector $\vec v\in V$ there is precisely one family $(a_i)_{i\in I}$
-            of elements in $F$, almost all of which are zero and such that \begin{align*}
-                \vec v = \sum_{i\in I}a_i\vec v_i.
-            \end{align*}
-    \end{enumerate} 
+              of elements in $F$, almost all of which are zero and such that \begin{align*}
+                  \vec v = \sum_{i\in I}a_i\vec v_i.
+              \end{align*}
+    \end{enumerate}
 \end{theorem}
 
 \subsection{Dimension of a vector space}
@@ -198,20 +198,20 @@
     a generating set. Thus if $V$ is a vector space, $L\subset V$ a linearly independent
     subset and $E\subseteq V$ a generating set, then \begin{align*}
         \abs L \leq \abs E.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{theorem}[Steinitz Exchange Theorem; Notes 1.6.2]
-    Let $V$ be a vector space, $L\subset V$ a finite linearly independent subset 
+    Let $V$ be a vector space, $L\subset V$ a finite linearly independent subset
     and $E\subseteq V$ a generating set . Then there is an injection $\phi:L\to E$
     such that $(E\setminus\phi(L))\cup L$ is also a generating set for $V$.
 \end{theorem}
 
 \begin{lemma}[Exchange Lemma; Notes 1.6.3]
-    Let $V$ be a vector space, $M\subseteq V$ a linearly independent subset, and 
+    Let $V$ be a vector space, $M\subseteq V$ a linearly independent subset, and
     $E\subseteq V$ a generating subset, such that $M\subseteq E$. If $\vec w\in V\setminus M$
-    such that $M\cap\{\vec w\}$ is linearly independent, then there exists 
-    $\vec e\in E\setminus M$ such that $\{E\setminus\{\vec e\}\}\cup \{\vec w\}$ is a 
+    such that $M\cap\{\vec w\}$ is linearly independent, then there exists
+    $\vec e\in E\setminus M$ such that $\{E\setminus\{\vec e\}\}\cup \{\vec w\}$ is a
     generating set for $V$.
 \end{lemma}
 
@@ -221,12 +221,12 @@
         \item $V$ has a finite basis.
         \item $V$ cannot have an infinite basis.
         \item Any two bases of $V$ have the same number of elements.
-    \end{enumerate} 
+    \end{enumerate}
 \end{corollary}
 
 \begin{definition}
     The cardinality of a basis of a finitely generated vector space $V$
-    is called the \emph{dimension} of $V$ and will be denoted $\dim V$. 
+    is called the \emph{dimension} of $V$ and will be denoted $\dim V$.
     If $\dim V=\infty$ we say $V$ is \emph{infinite dimensional}.
 \end{definition}
 
@@ -234,35 +234,35 @@
     Let $V$ be a finitely generated vector space.
     \begin{enumerate}
         \item Each linearly independent subset $L\subseteq V$ has at most
-            $\dim V$ elements, and if $\abs L=\dim V$ then $L$ a basis,
-        \item each generating set $E\subset V$ has at least $\dim V$ elements, 
-            and if $\abs E=\dim V$ then $E$ is actually a basis.
-    \end{enumerate} 
+              $\dim V$ elements, and if $\abs L=\dim V$ then $L$ a basis,
+        \item each generating set $E\subset V$ has at least $\dim V$ elements,
+              and if $\abs E=\dim V$ then $E$ is actually a basis.
+    \end{enumerate}
 \end{corollary}
 
 \begin{corollary}[Notes 1.6.8]
-    A proper vector subspace of a finite dimensional vector space has itself a 
-    strictly smaller dimension. 
+    A proper vector subspace of a finite dimensional vector space has itself a
+    strictly smaller dimension.
 \end{corollary}
 
 \subsection{Linear Mappings}
 
 \begin{definition}
     Let $V,W$ be vector spaces over a field $F$. A mapping $f:V\to W$ is called
-    \emph{$F$-linear} or a \emph{homomorphism} if for all $\vec v_1,\vec v_1\in V$ and $\lambda \in F$ we 
-    have 
+    \emph{$F$-linear} or a \emph{homomorphism} if for all $\vec v_1,\vec v_1\in V$ and $\lambda \in F$ we
+    have
     \begin{align*}
-        f(\vec v_1+\vec v_2) &= f(\vec v_1) + f(\vec v_2),\\
-        f(\lambda \vec v_1) &= \lambda f(\vec v_1).
+        f(\vec v_1+\vec v_2) & = f(\vec v_1) + f(\vec v_2), \\
+        f(\lambda \vec v_1)  & = \lambda f(\vec v_1).
     \end{align*}
-    A bijective linear mapping is called an \emph{isomorphism} of vector spaces. 
+    A bijective linear mapping is called an \emph{isomorphism} of vector spaces.
     A homorphism from one vector space to itself is called an \emph{endomorphism}.
- An isomorphism of a vector space to itself is called an \emph{automorphism}.
+    An isomorphism of a vector space to itself is called an \emph{automorphism}.
 \end{definition}
 
 \begin{definition}
-    A point that is sent to itself by a mapping is called a \emph{fixed point} of 
-    the mapping. Given a mapping $f:X\to X$, we denote the set of fixed points 
+    A point that is sent to itself by a mapping is called a \emph{fixed point} of
+    the mapping. Given a mapping $f:X\to X$, we denote the set of fixed points
     \begin{align*}
         X^f = \{x\in X : f(x)=x\}.
     \end{align*}
@@ -270,40 +270,40 @@
 
 \begin{definition}
     Two vector subspaces $V_1,V_2$ of a vector space $V$ are called \emph{complementary}
-    if addition defines a bijection 
+    if addition defines a bijection
     \begin{align*}
         V_1\times V_2 \to V.
     \end{align*}
 \end{definition}
 
 \begin{definition}
-    Let $V$ be a vector space with vector subspaces $V_1,...,V_n$. Then the vector 
+    Let $V$ be a vector space with vector subspaces $V_1,...,V_n$. Then the vector
     subspace of $V$ they generated is called the sum and denoted by $V_1+\cdots+V_n$.
-    If the natural homomorphism given by addition $V_1+\cdots +V_n\to V$ is an 
+    If the natural homomorphism given by addition $V_1+\cdots +V_n\to V$ is an
     injection then we say the \emph{sum of the vector subspaces $V_i$ is direct} and
     we write it as $V_1\oplus\cdots\oplus V_n$.
 \end{definition}
 
 \begin{theorem}[Notes 1.7.7]
-    Let $n$ be a natural number. Then a vector space over a field is isomorphic 
+    Let $n$ be a natural number. Then a vector space over a field is isomorphic
     to $F^n$ if and only if it has dimension $n$.
 \end{theorem}
 
 \begin{lemma}[Notes 1.7.8]
-    Let $V,W$ be vector spaces over $F$ and let $B\subset V$ be a basis. Then 
-    restriction of a mapping gives a bijection 
+    Let $V,W$ be vector spaces over $F$ and let $B\subset V$ be a basis. Then
+    restriction of a mapping gives a bijection
     \begin{align*}
-        \hom_F(V,W)&\to \text{Maps}(B,W)\\
-        f&\mapsto \eval{f}{B}
-    \end{align*} 
+        \hom_F(V,W) & \to \text{Maps}(B,W) \\
+        f           & \mapsto \eval{f}{B}
+    \end{align*}
 \end{lemma}
 
 \begin{proposition}[Notes 1.7.9]
-   Let $V,W$ be vector spaces.
-   \begin{enumerate}
-       \item Every injective mapping $f:V\to W$ has a \emph{left inverse}.
-       \item Every surjective mapping $f:V\to W$ has a \emph{right inverse}.
-   \end{enumerate} 
+    Let $V,W$ be vector spaces.
+    \begin{enumerate}
+        \item Every injective mapping $f:V\to W$ has a \emph{left inverse}.
+        \item Every surjective mapping $f:V\to W$ has a \emph{right inverse}.
+    \end{enumerate}
 \end{proposition}
 
 \subsection{Rank-nullity theorem}
@@ -314,8 +314,8 @@
     The preimage of the zero vector of a linear mapping $f:V\to W$ is denoted by
     \begin{align*}
         \gke(f):=\inv f(0)=\{v\in V : f(v)=0\}
-    \end{align*} 
-    and is called the \emph{kernel} of the linear mapping $f$. The dimension of the 
+    \end{align*}
+    and is called the \emph{kernel} of the linear mapping $f$. The dimension of the
     kernel $\dim(\gke V)$ is called the nullity of $f$.
 \end{definition}
 
@@ -327,7 +327,7 @@
     Let $f:V\to W$ be a linear mapping between two vector spaces. Then
     \begin{align*}
         \dim V = \dim(\gke f) + \dim(\gim f).
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{corollary}
@@ -336,5 +336,108 @@
         \dim(U+W)+\dim(U\cap W) = \dim U + \dim W.
     \end{align*}
 \end{corollary}
+
+\section{Linear mappings and matrices}
+
+\subsection{Linear mappings $F^m\to F^n$ and matrices}
+
+\begin{theorem}[Notes 2.1.1]
+    Let $F$ be a field and let $m,n\in\N$. There is a bijection between the space of
+    linear mappings $F^m\to F^n$ and the set of matrices with $n$ rows and $m$
+    columns and entries in $F$:
+    \begin{align*}
+        M:\Hom_F(F^m,F^n) & \tilde\to\Mat(n\times m; F) \\
+        f                 & \mapsto  \left[f\right]
+    \end{align*}
+    This attaches to each linear mapping $f$ its \emph{representing matrix
+        $M(f):=\left[f\right]$}. The columns of this matrix are the images under $f$
+    of the standard basis elements of $F^m$:
+    \begin{align*}
+        \left[f\right]:=(f(\vec e_1)|\cdots|f(\vec e_m)).
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    Let $n,m,l\in\N$, $F$ a field, and let $A\in\Mat(n\times m; F)$ and
+    $B\in\Mat(m\times l; F)$ be matrices. The \emph{product}
+    $A\circ B=AB\in\Mat(n\times l; F)$ is the matrix defined by
+    \begin{align*}
+        (AB)_{ik} = \sum_{j=1}^m A_{ij}B_{jk}.
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Notes 2.1.8]
+    Let $g:F^l\to F^m$ and $f:F^m\to F^n$ be linear mappings. The representing matrix
+    of their composition is the product of their representing matrices:
+    \begin{align*}
+        \left[f\circ g\right]=\left[f\right]\circ\left[g\right].
+    \end{align*}
+\end{theorem}
+
+\begin{proposition}[Notes 2.1.9]
+    Let $k,l,m,n\in\N$, $A,A'\in\Mat(n\times m;F)$, $B,B'\in\Mat(m\times l;F)$,
+    $C\in\Mat(l\times k; F)$ and $I=I_m$ the $(m\times m)$-identity matrix.
+    Then the following hold:
+    \begin{align*}
+        (A+A')B & = AB + A'B, \\
+        A(B+B') & = AB + AB', \\
+        IB      & = B,        \\
+        AI      & = A,        \\
+        (AB)C   & = A(BC).
+    \end{align*}
+\end{proposition}
+
+\subsection{Basic properties of matrices}
+
+\begin{definition}
+    A matrix $A$ is called \emph{invertible} if there exist matrices $B$ and $C$
+    such that $BA=I$ and $AC=I$.
+\end{definition}
+
+\begin{definition}
+    Let $A\in\Mat(n\times n;F)$. If $A$ is invertible then we denote by $\inv A$
+    the unique square matrix such that $A\inv A=\inv AA=I$. This gives rise to the
+    \emph{general linear group of $(n\times n)$-matrices}, written as 
+    \begin{align*}
+        \GL(n;F) := \Mat(n;F)^\times.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    An \emph{elementary matrix} is a square matrix that differes from the identity
+    matrix in at most one entry.
+\end{definition}
+
+\begin{theorem}[Notes 2.2.3]
+    Every square matrix with entries in a field can be written as a product of
+    elementary matrices.
+\end{theorem}
+
+\begin{definition}[Smith Normal Form]
+    Any matrix whose only non-zero entries lie on the diagonal, and which has
+    first $1$s along the diagonal and then $0$s, is said to be in \emph{Smith Normal Form}.
+\end{definition}
+
+\begin{theorem}[Notes 2.2.5]
+    For each matrix $A\in\Mat(n\times m;F)$ there exist invertible matrices $P$
+    and $Q$ such that $PAQ$ is a matrix in Smith Normal Form.
+\end{theorem}
+
+\begin{definition}
+    The \emph{column rank} of a matrix $A\in\Mat(n\times m;F)$ is the dimension of
+    the subspace of $F^n$ generated by the columns of $A$. Similarly, the \emph{row
+    rank} of $A$ is the dimension of the subspace of $F^m$ generated by the rows 
+    of $A$.
+\end{definition}
+
+\begin{theorem}[Notes 2.2.8]
+    The column rank and the row rank of any matrix are equal.
+\end{theorem}
+
+\begin{definition}
+    The \emph{rank of a matrix} $A\in\Mat(n\times m;F)$, written $\rank(A)$, is the column rank and the
+    row rank of $A$. Further, if $\rank(A) = \min\{m,n\}$, we say $A$ has 
+    \emph{full rank}.
+\end{definition}
 
 \end{document}
