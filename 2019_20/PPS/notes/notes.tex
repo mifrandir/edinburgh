@@ -123,7 +123,7 @@
 \end{theorem}
 \begin{theorem}
     \textbf{AM-GM Inequality}\\
-    Let $n\in\N$ and $x_1, x_2, ..., x_n \geq 0$. Then 
+    Let $n\in\N$ and $x_1, x_2, ..., x_n \geq 0$. Then
     \begin{align*}
         (x_1\cdot x_2\cdots x_n)^{\frac{1}{n}}\leq\frac{x_1+\cdots+x_n}{n}.
     \end{align*}
@@ -139,8 +139,8 @@
     For $x\in\R$, we define the \textbf{absolute value} of $x$ to be
     \begin{align*}
         \vert x \vert = \begin{cases}
-            x &\text{if } x \geq 0\\
-            -x &\text{if } x < 0
+            x  & \text{if } x \geq 0 \\
+            -x & \text{if } x < 0
         \end{cases}
     \end{align*}
 \end{definition}
@@ -189,9 +189,9 @@
     Let $A\subseteq\R$.
     \begin{itemize}
         \item $A$ is said to be \textbf{bounded above} if $\exists M\in\R\st\forall x\in A,x\leq M$.\\
-        The number $M$ is called an \textbf{upper bound} of $A$.
+              The number $M$ is called an \textbf{upper bound} of $A$.
         \item Similarly, $A$ is said to be \textbf{bounded below} if $\exists m\in\R\st\forall x\in A,x\geq m$.\\
-        The number $m$ is called a \textbf{lower bound} of $A$.
+              The number $m$ is called a \textbf{lower bound} of $A$.
         \item We say $A$ is \textbf{bounded} if it is bounded above and below.
     \end{itemize}
 \end{definition}
@@ -335,7 +335,7 @@
 \end{theorem}
 \section{Complex Numbers}
 \begin{definition}
-    \textbf{Complex Numbers.} Define $i$ to be a number such that $i^2 = -1$. 
+    \textbf{Complex Numbers.} Define $i$ to be a number such that $i^2 = -1$.
     The \textbf{complex numbers} are any number of the form
     \begin{align*}
         z = x+iy \text{ where } x,y\in\R.
@@ -363,7 +363,7 @@
     \end{itemize}
 \end{theorem}
 \begin{definition}
-    Let $z\not=0$ be a complex number. 
+    Let $z\not=0$ be a complex number.
     Let $r=|z|$ and let the \textbf{argument} of $z$ be the angle $\theta\in[0,2\pi)$ between the line from $0$ to $z$ and the positive $x$-axis. We can then write
     \begin{align*}
         z = r(\cos\theta+i\sin\theta)=re^{i\theta}.
@@ -376,7 +376,7 @@
 \begin{theorem}
     \textbf{A very special case of DM's Theorem}. If we let $z=re^{i\theta}$, and $n\in\N$ then
     \begin{align*}
-        z^n = r^ne^{in\theta},\\
+        z^n = r^ne^{in\theta}, \\
         z^{-n} = r^{-n}e^{-in\theta}.
     \end{align*}
 \end{theorem}
@@ -457,10 +457,10 @@
     \begin{itemize}
         \item (Existence) Then $n$ is equal to a product $n=p_1^{r_1}\cdots p_k^{r_k}$ of powers of prime numbers where $p_1<...<p_k$ and $r_i>0$ for all $i$.
         \item (Uniqueness) The factorization is unique: If we also have
-        \begin{align*}
-            p_1^{r_1}\cdots p_k^{r_k}=n=q_1^{s_1}\cdots q_l^{s_l}
-        \end{align*}
-        where $q_1<\cdots <q_l$ are primes and $s_i>0$, then $k=l$, $p_i=q_i$, and $r_i=s_i$ for all $i$.
+              \begin{align*}
+                  p_1^{r_1}\cdots p_k^{r_k}=n=q_1^{s_1}\cdots q_l^{s_l}
+              \end{align*}
+              where $q_1<\cdots <q_l$ are primes and $s_i>0$, then $k=l$, $p_i=q_i$, and $r_i=s_i$ for all $i$.
     \end{itemize}
 \end{theorem}
 \begin{lemma}
@@ -473,7 +473,7 @@
     \textbf{Uniqueness of prime decomposition.} Every integer $n$ can be written as a unique product of powers of primes $n=p_1^{r_1}\cdots p_k^{r_k}$.
 \end{lemma}
 \begin{theorem}
-    Let $n=p_1^{a_1}\cdots p_k^{a_k}$ be a prime decomposition (i.e. $p_i$s are prime, $p_1<\cdots<p_k$, and $a_i>0$). Then $m$ divides $n$ iff 
+    Let $n=p_1^{a_1}\cdots p_k^{a_k}$ be a prime decomposition (i.e. $p_i$s are prime, $p_1<\cdots<p_k$, and $a_i>0$). Then $m$ divides $n$ iff
     \begin{align*}
         m=p_1^{b_1}\cdots p_k^{b_k}, \text{ with each }0\leq b_i \leq a.
     \end{align*}
@@ -497,7 +497,7 @@
     Let $n$ be a positive integer. Then $\sqrt{n}\in\mathbb{Q}$ iff $n$ is a perfect square.
 \end{theorem}
 \begin{theorem}
-      If $a,b\in\N$ are coprime, and $ab$ is an $n$th power, then so are $a$ and $b$.
+    If $a,b\in\N$ are coprime, and $ab$ is an $n$th power, then so are $a$ and $b$.
 \end{theorem}
 \section{Modular Arithmetic}
 \begin{definition}
@@ -525,13 +525,13 @@
     \end{enumerate}
 \end{theorem}
 \begin{proposition}
-    Let $a$ and $m$ be coprime. If $x,y\in \Z$ and $xa\equiv ya \mod m$, then $x\equiv y \mod m$. In particular, if $p$ is prime, $p\not|a$, and $xa\equiv ya \mod p$, then $x\equiv y \mod p$. 
+    Let $a$ and $m$ be coprime. If $x,y\in \Z$ and $xa\equiv ya \mod m$, then $x\equiv y \mod m$. In particular, if $p$ is prime, $p\not|a$, and $xa\equiv ya \mod p$, then $x\equiv y \mod p$.
 \end{proposition}
 \begin{theorem}
     The equation $ax\equiv b \mod m$ has a solution iff $hcf(a,m)|b$.
 \end{theorem}
 \begin{theorem}
-    \textbf{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then 
+    \textbf{Fermat's Little Theorem (FLT).} If $p$ is prime and $p\not|a\in\Z$, then
     \begin{align*}
         a^{p-1}\equiv 1 \mod p.
     \end{align*}
@@ -577,9 +577,9 @@
         \item \textbf{reflexive} if $a\sim a$ for all $a\in S$,
         \item \textbf{symmetric} if for all $a,b\in S$, we have $a\sim b \Leftrightarrow b\sim a$, and
         \item \textbf{transitive} if for all $a,b,c\in S$, we have
-        \begin{align*}
-            a\sim b \sim c \Rightarrow a \sim c.
-        \end{align*}
+              \begin{align*}
+                  a\sim b \sim c \Rightarrow a \sim c.
+              \end{align*}
     \end{itemize}
     If $\sim$ satisfies all three of these properties, we say $\sim$ is an \textbf{equivalence relation}.
 \end{definition}
@@ -591,7 +591,7 @@
     The set of \textbf{equivalence classes} is the set $\{\cl(x) | x \in S\}$.
 \end{definition}
 \begin{proposition}
-    If $\sim$ is an equivalence relation on a set $S$, then the equivalence classes form a partition of $S$. 
+    If $\sim$ is an equivalence relation on a set $S$, then the equivalence classes form a partition of $S$.
 \end{proposition}
 \section{Functions}
 \begin{definition}
@@ -601,13 +601,13 @@
     Let $f:X\to Y$ be a function. We say
     \begin{itemize}
         \item $f$ is \textbf{surjective} if
-        \begin{align*}
-            \forall y \in Y,\: \exists x \in X \st f(x) = y,
-        \end{align*}
+              \begin{align*}
+                  \forall y \in Y,\: \exists x \in X \st f(x) = y,
+              \end{align*}
         \item $f$ is \textbf{injective} if
-        \begin{align*}
-            \forall x,y \in X,\: f(x)=f(y) \Rightarrow x = y,
-        \end{align*}
+              \begin{align*}
+                  \forall x,y \in X,\: f(x)=f(y) \Rightarrow x = y,
+              \end{align*}
         \item $f$ is \textbf{bijective} if it is injective and surjective.
     \end{itemize}
 \end{definition}
@@ -665,11 +665,11 @@
 \end{theorem}
 \section{Counting}
 \begin{theorem}
-    \textbf{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome. 
+    \textbf{Multiplication Principle.} Let $P$ be a process consisting of $n$ stages and at each stage $i$, there are $a_i$ many choices we can make, and no two distinct choices can result in the same outcome.
     Then after $n$ stages, the total number of outcomes is $a_1\cdot a_2\cdots a_n$.
 \end{theorem}
 \begin{proposition}
-    Let $S$ have $n$ elements. Then the number of subsets is $2^n$.    
+    Let $S$ have $n$ elements. Then the number of subsets is $2^n$.
 \end{proposition}
 \begin{definition}
     Let $S$ be a set of $n$ objects. An \textbf{ordering} of $S$ is a sequence $a_1,...,a_n$ for which each element of $S$ appears exactly once in this sequence.
@@ -678,7 +678,7 @@
     \textbf{Rearrangement Theorem.} Given a set $S$ of $n$ distinct objects, there are $n!$ ways of ordering them.
 \end{theorem}
 \begin{proposition}
-    Let $S$ be a set of $n$ elmeents and $0\leq k \leq n$.    
+    Let $S$ be a set of $n$ elmeents and $0\leq k \leq n$.
     \begin{enumerate}
         \item The number of ways of picking an ordered selection of $k$ elements from $S$ (i.e. an ordered list of elements $a_1, ..., a_k\in S$) is $n^k$.
         \item The number of ways of picking an ordered selection of $k$ distinct elements from $S$ is $\frac{n!}{(n-k)!}$.
@@ -688,12 +688,12 @@
     Given a set $S$ of size $n$ and an integer $0\leq k \leq n$, we let
     \begin{align*}
         \begin{pmatrix}
-            n\\k
+            n \\k
         \end{pmatrix}
     \end{align*}
     denote the number of subsets of $S$ of size $k$. If $k>n$, we just set $\begin{pmatrix}
-        n\\k
-    \end{pmatrix}=0$.
+            n \\k
+        \end{pmatrix}=0$.
 \end{definition}
 \begin{theorem}
     For integers $0\leq k \leq n$, we have
@@ -721,7 +721,7 @@
     \end{align*}
 \end{definition}
 \begin{theorem}
-    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots r_k=n$ and $k\geq 2$, 
+    Given nonnegative integers $r_1, ..., r_k$ such that $r_1+\cdots r_k=n$ and $k\geq 2$,
     \begin{align*}
         \binom{n}{r_1, ..., r_k}=\frac{n!}{r_1!r_2!\cdots r_k!}.
     \end{align*}
@@ -765,17 +765,17 @@
     \begin{itemize}
         \item for any $f,g\in S_n$, $f\circ g\in S_n$,
         \item for any $f,g,h\in S_n$, one has
-        \begin{align*}
-            f\circ \left(g\circ h\right)=\left(f\circ g\right)\circ h,
-        \end{align*}
+              \begin{align*}
+                  f\circ \left(g\circ h\right)=\left(f\circ g\right)\circ h,
+              \end{align*}
         \item there is a unique permutation $\iota \in S_n$ such that for all $f\in S_n$
-        \begin{align*}
-            f\circ \iota = \iota \circ f = f,
-        \end{align*}
+              \begin{align*}
+                  f\circ \iota = \iota \circ f = f,
+              \end{align*}
         \item for any $f\in S_n$, there is a unique $f^{-1}\in S_n$ such that
-        \begin{align*}
-            f\circ f^{-1}=f^{-1}\circ f = \iota.
-        \end{align*}
+              \begin{align*}
+                  f\circ f^{-1}=f^{-1}\circ f = \iota.
+              \end{align*}
     \end{itemize}
 \end{lemma}
 \begin{definition}
@@ -783,7 +783,7 @@
     \begin{align*}
         f(a_1)=a_2,\: f(a_2)=a_3,...,\: f(a_{r-1})=a_r,\: f(a_r)=a_1
     \end{align*}
-    and 
+    and
     \begin{align*}
         f(k)=k \Leftrightarrow k\not\in \{a_1,a_2,...,a_r\}
     \end{align*}
@@ -800,7 +800,7 @@
     If $f=(a_1\:a_2\:\cdots\: a_r)$ and $g=(b_1\:b_2\:\cdots\:b_2)$ where $\{a_1,...,a_r\}$ and $\{b_1,..., b_n\}$ are disjoint sets, we say that $f$ and $g$ are \textbf{disjoint} in $S_n$.
 \end{definition}
 \begin{proposition}
-    If $f$ and $g$ are disjoint cycles in $S_n$, then $fg=gf$.    
+    If $f$ and $g$ are disjoint cycles in $S_n$, then $fg=gf$.
 \end{proposition}
 \begin{theorem}
     Any permutation $f\in S_n$ is a composition of disjoint cycles, that is, $f=f_1\cdots f_k$ where $f_1,...,f_k$ are disjoint cycles.
@@ -838,9 +838,9 @@
         \item For any $f,g\in S_n$, we have $\sgn(fg)=\sgn(f)\sgn(g)$.
         \item The signature of a cycle of length $r$ is $(-1)^{r-1}$.
         \item For every permutation $f\in S_n$, let $f=\sigma_1\sigma_2\cdots \sigma_s$ where $\sigma_1,...,\sigma_s$ are disjoint cycles of lengths $r_1,...,r_s$. Then
-        \begin{align*}
-            \sgn(f)=(-1)^{r_1-1}(-1)^{r_2-1}(-1)^{r_3-1}\cdots(-1)^{r_s-1}.
-        \end{align*}
+              \begin{align*}
+                  \sgn(f)=(-1)^{r_1-1}(-1)^{r_2-1}(-1)^{r_3-1}\cdots(-1)^{r_s-1}.
+              \end{align*}
         \item If $f\in S_n$, then $\sgn(f)=\sgn(f^{-1})$.
     \end{enumerate}
 \end{lemma}

@@ -18,7 +18,7 @@ that
 where $B_n\sim\Binom(n,1/2)$. By finding the appropriate interval $I$
 for $B_{1000}$ such that
 \begin{align*}
-    B_{1000}\in I\Rightarrow X_{1000}\in [-20, 20]
+  B_{1000}\in I\Rightarrow X_{1000}\in [-20, 20]
 \end{align*}
 we can use this to simplify:
 \begin{align*}
@@ -39,15 +39,15 @@ We find the following table:
 \begin{center}
   \begin{tabular}{| c | c c c c c | c |}
     \hline
-    \backslashbox{S}{D} & -2 & -1 & 0 & 1 & 2 & \\
+    \backslashbox{S}{D} & -2  & -1  & 0   & 1   & 2   &     \\
     \hline
-    2 & 0   & 0   & 1/9 & 0   & 0   & 1/9\\
-    3 & 0   & 1/9 & 0   & 1/9 & 0   & 2/9\\
-    4 & 1/9 & 0   & 1/9 & 0   & 1/9 & 3/9\\
-    5 & 0   & 1/9 & 0   & 1/9 & 0   & 2/9\\
-    6 & 0   & 0   & 1/9 & 0   & 0   & 1/9\\ 
+    2                   & 0   & 0   & 1/9 & 0   & 0   & 1/9 \\
+    3                   & 0   & 1/9 & 0   & 1/9 & 0   & 2/9 \\
+    4                   & 1/9 & 0   & 1/9 & 0   & 1/9 & 3/9 \\
+    5                   & 0   & 1/9 & 0   & 1/9 & 0   & 2/9 \\
+    6                   & 0   & 0   & 1/9 & 0   & 0   & 1/9 \\
     \hline
-    & 1/9   & 2/9 & 3/9 & 2/9 & 1/9 & 1\\
+                        & 1/9 & 2/9 & 3/9 & 2/9 & 1/9 & 1   \\
     \hline
   \end{tabular}
 \end{center}
@@ -56,7 +56,7 @@ Thus $D=-2\Rightarrow S=4$. Therefore the we find the probabilities of the first
 \begin{align*}
   \P(D=-2 \text{ and } S=4) = 1/9 \text{ and }\forall k \not=4,\: \P(D=-2 \text{ and } S = k) = 0 .
 \end{align*}
-We get the value $1/9$ because $X$ and $Y$ can take $3$ values each, 
+We get the value $1/9$ because $X$ and $Y$ can take $3$ values each,
 thus there are $9$ values the pair $(X,Y)$
 can take and there is only one such pair that leads to $D=-2$.\\
 You can see that $\E(S)=4$ and $\E(D)=0$. We know that
@@ -92,12 +92,12 @@ than $a$:
   \item $C:|X_1-X_2|<a$.
 \end{enumerate}
 The cases 1 to 4 are the ones where at least one of the outer
-pieces is shorter than $a$. The fifth cases is where the middle section 
+pieces is shorter than $a$. The fifth cases is where the middle section
 is shorter than $a$. The probabilities of these events are
 \begin{align*}
-  \P(A) &= \P(A_1) + \P(A_2) = 2a,\\
-  \P(B) &= \P(B_1) + \P(B_2) = 2a,\\
-  \P(C) &= \P(X_1-a\leq X_2 \leq X_1+a) \approx 2a.
+  \P(A) & = \P(A_1) + \P(A_2) = 2a,                  \\
+  \P(B) & = \P(B_1) + \P(B_2) = 2a,                  \\
+  \P(C) & = \P(X_1-a\leq X_2 \leq X_1+a) \approx 2a.
 \end{align*}
 Note that the probability for $C$ is only $2a$ if $X_2$ is not too close to
 either edge of the interval. Since $a\to 0$, we assume this is not the case.
@@ -111,7 +111,7 @@ to determine the total probability:
 Notice that the probabilities will be, in terms of orders of magnitude,
 similar to $a$ to the power of the number of events involved. For example
 \begin{align*}
-    \log_{10}(\P(A\cap B)) = \log_{10}(4a^2) \approx \log_{10}(a^2).
+  \log_{10}(\P(A\cap B)) = \log_{10}(4a^2) \approx \log_{10}(a^2).
 \end{align*}
 The argument is more complicated for the intersections involving $C$ but
 it works in a similar way.\\

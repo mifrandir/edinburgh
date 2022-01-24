@@ -13,9 +13,9 @@
 
 To evaluate
 \begin{align*}
-  I=\int_C \left(y\ih - x\jh\right)\cdot d\vec r 
+  I=\int_C \left(y\ih - x\jh\right)\cdot d\vec r
 \end{align*}
-with $C$ as described in the question, we need to split $I$ into its 
+with $C$ as described in the question, we need to split $I$ into its
 parts:
 \begin{align*}
   I = \int_{C_\alpha} \vec G \cdot d\vec r + \int_{C_\beta} \vec G \cdot d\vec r = I_1 + I_2
@@ -51,14 +51,14 @@ Inserting this let's us find $I$:
 We have the transformation $(u,v,w)\to(x,y,z)$ defined by the equations
 \begin{align}
   \label{eq1}
-  u &= x + y + z, \\
+  u   & = x + y + z, \\
   \label{eq2}
-  uv &= y + z,\\
+  uv  & = y + z,     \\
   \label{eq3}
-  uvw &= z.
+  uvw & = z.
 \end{align}
 To find the Jacobian, we need to find $x$, $y$ and $z$ in terms of $u$, $v$ and $w$.
-The equation for $z(u,v,w)$ follows from (\ref{eq3}) directly. 
+The equation for $z(u,v,w)$ follows from (\ref{eq3}) directly.
 We can insert this into (\ref{eq2}) to find
 $y(u,v,w)$ and with (\ref{eq1}) this leads to $x(u,v,w)$. We get
 \begin{align*}
@@ -66,25 +66,25 @@ $y(u,v,w)$ and with (\ref{eq1}) this leads to $x(u,v,w)$. We get
   y(u,v,w) = uv(1-w),\hs
   z(u,v,w) = uvw.
 \end{align*}
-This lets us write 
+This lets us write
 \begin{align*}
   \frac{\partial(x,y,z)}{\partial(u,v,w)}
   = \begin{vmatrix}
-    1-v & -u & 0\\
-    v(1-w) & u(1-w) & -uv\\
-    vw & uw & uv
+    1-v    & -u     & 0   \\
+    v(1-w) & u(1-w) & -uv \\
+    vw     & uw     & uv
   \end{vmatrix}
 \end{align*}
 We expand via the first row to get
 \begin{align*}
   \frac{\partial(x,y,z)}{\partial(u,v,w)}
   = (1-v)\begin{vmatrix}
-    u(1-w) &-uv\\
-    uw &uv
+    u(1-w) & -uv \\
+    uw     & uv
   \end{vmatrix}
   + (-u)\begin{vmatrix}
-    v(1-w) &-uv\\
-    vw & uv
+    v(1-w) & -uv \\
+    vw     & uv
   \end{vmatrix}.
 \end{align*}
 By applying the formula for $2\times 2$ determinants and
@@ -103,11 +103,11 @@ We apply the transformation to get
 \end{align*}
 Using \emph{Fubini's Theorem} this may be solved with relative ease:
 \begin{align*}
-  I &= \int_0^1 \int_0^1 \left[e^{-u^3}u^2 v w\right]_0^1dv\,du
-  =\int_0^1 \int_0^1 e^{-u^3}u^2 v\:dv\,du\\
-  &=\int_0^1 \left[\frac{1}{2}e^{-u^3}u^2v^2\right]_0^1du
-  =\frac{1}{2}\int_0^1 e^{-u^3}u^2\:du\\
-  &=\frac{1}{2}\left[-\frac{1}{3}e^{-u^3}\right]_0^1
+  I & = \int_0^1 \int_0^1 \left[e^{-u^3}u^2 v w\right]_0^1dv\,du
+  =\int_0^1 \int_0^1 e^{-u^3}u^2 v\:dv\,du                       \\
+    & =\int_0^1 \left[\frac{1}{2}e^{-u^3}u^2v^2\right]_0^1du
+  =\frac{1}{2}\int_0^1 e^{-u^3}u^2\:du                           \\
+    & =\frac{1}{2}\left[-\frac{1}{3}e^{-u^3}\right]_0^1
   =\frac{e-1}{6e}.
 \end{align*}
 \end{document}

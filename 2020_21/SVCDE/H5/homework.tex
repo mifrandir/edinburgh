@@ -12,7 +12,7 @@
 \section*{Question 1}
 
 
-Observe that we can write the height of the volume $V$ in terms of $x$ and $y$ as 
+Observe that we can write the height of the volume $V$ in terms of $x$ and $y$ as
 \begin{align*}
   h(x,y) = \sqrt{x^2 + y^2}
 \end{align*}
@@ -25,7 +25,7 @@ with
 \begin{align*}
   D = \{(x,y) : x^2 + y^2 = 2x\}.
 \end{align*}
-We can see that $D$ is the unit circle around the point $(1,0)$. Therefore we can 
+We can see that $D$ is the unit circle around the point $(1,0)$. Therefore we can
 change to polar coordinates with $x=r\cos\theta$ and $y=r\sin\theta$ to find
 \begin{align*}
   V = \int_{-\pi/2}^{\pi/2}\int_0^{2\cos\theta} r^2\: dr\,d\theta.
@@ -34,11 +34,11 @@ We can simplify a bit by observing that $z(r,\theta)=z(r,-\theta)$. This lets us
 \begin{align*}
   V = 2\int_{0}^{\pi/2}\int_0^{2\cos \theta} r^2\: dr\,d\theta.
 \end{align*}
-Solving gives 
+Solving gives
 \begin{align*}
-  V &= 2\int_0^{\pi/2}\left[\frac{1}{3}r^3\right]_0^{2\cos \theta}d\theta
-  =\frac{16}{3}\int_0^{\pi/2}\cos^3 \theta\:d\theta\\
-  &=\frac{16}{3}\left[\sin \theta - \frac{1}{3}\sin^3 \theta\right]_0^{\pi/2}
+  V & = 2\int_0^{\pi/2}\left[\frac{1}{3}r^3\right]_0^{2\cos \theta}d\theta
+  =\frac{16}{3}\int_0^{\pi/2}\cos^3 \theta\:d\theta                              \\
+    & =\frac{16}{3}\left[\sin \theta - \frac{1}{3}\sin^3 \theta\right]_0^{\pi/2}
   =\frac{16}{3}\left(\frac{2}{3}\right) = \frac{32}{9}
 \end{align*}
 as required.
@@ -54,7 +54,7 @@ We have to solve
 with $D=\{(x,y,z) : x\in(-1,2), y\in(-1,0), z\in(0,3)\}$. Since all the limits are constants,
 we can use \emph{Fubini's Theorem} and evaluate
 \begin{align*}
-  I = \int_{-1}^2 \int_{-1}^0 \int_0^3 \left(\frac{z}{1-|x|y}\right)^2\:dz\,dy\,dx. 
+  I = \int_{-1}^2 \int_{-1}^0 \int_0^3 \left(\frac{z}{1-|x|y}\right)^2\:dz\,dy\,dx.
 \end{align*}
 We start with
 \begin{align*}
@@ -66,7 +66,7 @@ Reinserting this, we find
 \end{align*}
 Now we find
 \begin{align*}
-  I_2 (x) = \int_{-1}^0 \frac{9}{(1-|x|y)^2}\:dy 
+  I_2 (x) = \int_{-1}^0 \frac{9}{(1-|x|y)^2}\:dy
   = \frac{9}{|x|}\left[\frac{1}{1-|x|y}\right]_{-1}^0
   = \frac{9}{|x|}\left(1-\frac{1}{1+|x|}\right).
 \end{align*}
@@ -74,13 +74,13 @@ This may be simplified to
 \begin{align*}
   I_2(x)=\frac{9}{|x|+1}
 \end{align*}
-and so, by separating positive and negative $x$ values, 
+and so, by separating positive and negative $x$ values,
 \begin{align*}
-  I &= \int_{-1}^2 \frac{9}{|x|+1}\: dx\\
-  &=-\int_{-1}^0 \frac{9}{1-x}\:dx
-  + \int_0^2 \frac{9}{1+x}\: dx\\
-  &=-9\left[\ln(1-x)\right]_{-1}^0 + 9\left[\ln(1+x)\right]_0^2\\
-  &=9\ln 2 + 9\ln 3 = 9\ln 6
-\end{align*} 
+  I & = \int_{-1}^2 \frac{9}{|x|+1}\: dx                           \\
+    & =-\int_{-1}^0 \frac{9}{1-x}\:dx
+  + \int_0^2 \frac{9}{1+x}\: dx                                    \\
+    & =-9\left[\ln(1-x)\right]_{-1}^0 + 9\left[\ln(1+x)\right]_0^2 \\
+    & =9\ln 2 + 9\ln 3 = 9\ln 6
+\end{align*}
 as required.
 \end{document}

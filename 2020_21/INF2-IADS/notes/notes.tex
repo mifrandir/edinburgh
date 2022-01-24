@@ -22,7 +22,7 @@
 \emph{Asymptotic theory} makes precise quantitive statements about efficiency of algorithms themselves.
 \begin{definition}
 	Let $f,g:\N\to\R_{\geq 0}$ be functions. Then
-	\text{$f\in o(g)$} if, and only if, 
+	\text{$f\in o(g)$} if, and only if,
 	\begin{align*}
 		\forall c>0,\:\exists N\st \forall n \geq N, f(n)<cg(n)
 	\end{align*}
@@ -39,7 +39,7 @@
 \begin{theorem}
 	Let $f,r:\N\to\R_{\geq 0}$ and let $a,b\in\R$. Then
 	\begin{align*}
-		f=o(g) \Leftrightarrow af=o(bg).	
+		f=o(g) \Leftrightarrow af=o(bg).
 	\end{align*}
 \end{theorem}
 \begin{definition}
@@ -78,16 +78,16 @@
 	Assume a recurrence relation $T$ has the form
 	\begin{align*}
 		T(n) = \begin{cases}
-			\Theta(1) &\text{if $n\leq n_0$}\\
-			aT(n/b) + \Theta(n^k) &\text{if $n>n_0$}
+			\Theta(1)             & \text{if $n\leq n_0$} \\
+			aT(n/b) + \Theta(n^k) & \text{if $n>n_0$}
 		\end{cases}.
 	\end{align*}
-	Then, with $e=\log_b a$, 
+	Then, with $e=\log_b a$,
 	\begin{align*}
 		T(n) = \begin{cases}
-			\Theta(n^e) &\text{if $e>k$}\\
-			\Theta(n^k\lg n) &\text{if $e=k$}\\
-			\Theta(n^k) &\text{if $e<k$}
+			\Theta(n^e)      & \text{if $e>k$} \\
+			\Theta(n^k\lg n) & \text{if $e=k$} \\
+			\Theta(n^k)      & \text{if $e<k$}
 		\end{cases}
 	\end{align*}
 \end{theorem}
@@ -186,11 +186,11 @@ def heap_sort(arr):                         # O(n*log(n))
 Algorithm for input array $A$:
 \begin{enumerate}
 	\item If $|A|<2$, do nothing. Otherwise partition the array:
-	\begin{tabular}{|c|c|c|}
-		\hline
-		$\leq$ pivot & pivot & $\geq$pivot\\
-		\hline
-	\end{tabular}
+	      \begin{tabular}{|c|c|c|}
+		      \hline
+		      $\leq$ pivot & pivot & $\geq$pivot \\
+		      \hline
+	      \end{tabular}
 	\item Sort the resulting subarrays recursively.
 \end{enumerate}
 
@@ -218,15 +218,15 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	\begin{tabular}{l | l | l | l}
 		\textbf{Algorithm} & \textbf{Worst-case} & \textbf{Average-case} & \textbf{Best-case}
 		\\\hline
-		BubbleSort & $\Theta(n^2)$     & $\Theta(n^2)$     & $\Theta(1)$ swaps
+		BubbleSort         & $\Theta(n^2)$       & $\Theta(n^2)$         & $\Theta(1)$ swaps
 		\\\hline
-		InsertSort & $\Theta(n^2)$     & $\Theta(n^2)$     & $\Theta(1)$ swaps
+		InsertSort         & $\Theta(n^2)$       & $\Theta(n^2)$         & $\Theta(1)$ swaps
 		\\\hline
-		MergeSort  & $\Theta(n\log n)$ & $\Theta(n\log n)$ & $\Theta(n\log n)$
+		MergeSort          & $\Theta(n\log n)$   & $\Theta(n\log n)$     & $\Theta(n\log n)$
 		\\\hline
-		QuickSort  & $\Theta(n^2)$     & $\Theta(n\log n)$ & $\Theta(n\log n)$
+		QuickSort          & $\Theta(n^2)$       & $\Theta(n\log n)$     & $\Theta(n\log n)$
 		\\\hline
-		HeapSort   & $\Theta(n\log n)$ & $\Theta(n\log n)$ & $\Theta(n\log n)$
+		HeapSort           & $\Theta(n\log n)$   & $\Theta(n\log n)$     & $\Theta(n\log n)$
 	\end{tabular}
 \end{center}
 
@@ -238,42 +238,42 @@ def partition(arr, p, r):                   # O(n), n=r-p
 	A list of items of type $X$ is a datastructure with the
 	following interface:
 	\begin{align*}
-		\textbf{get} &: \Z \to X \\
-		\textbf{set} &: \Z\times X\to\{*\}\\
-		\textbf{cons} &: X\to \{*\}\\
-		\textbf{append} &: X\to \{*\}\\
-		\textbf{insert} &: \Z\times X \to \{*\}\\
-		\textbf{delete} &: \Z\to \{*\}\\
-		\textbf{length} &: \{*\} \to \Z
+		\textbf{get}    & : \Z \to X             \\
+		\textbf{set}    & : \Z\times X\to\{*\}   \\
+		\textbf{cons}   & : X\to \{*\}           \\
+		\textbf{append} & : X\to \{*\}           \\
+		\textbf{insert} & : \Z\times X \to \{*\} \\
+		\textbf{delete} & : \Z\to \{*\}          \\
+		\textbf{length} & : \{*\} \to \Z
 	\end{align*}
 \end{definition}
 
 \subsubsection{Fixed-size arrays}
 \begin{multicols}{2}
-\noindent Strengths:
-\begin{itemize}
-	\item fast \texttt{get} and \texttt{set} operations
-	\item fixed, predictable size; good for memory management
-\end{itemize}
+	\noindent Strengths:
+	\begin{itemize}
+		\item fast \texttt{get} and \texttt{set} operations
+		\item fixed, predictable size; good for memory management
+	\end{itemize}
 
-\noindent Weaknesses:
-\begin{itemize}
-	\item limited size
-	\item unsuitable for computations with unpredictable size
-\end{itemize}
+	\noindent Weaknesses:
+	\begin{itemize}
+		\item limited size
+		\item unsuitable for computations with unpredictable size
+	\end{itemize}
 
-\begin{minted}{python}
+	\begin{minted}{python}
 def get(self, i):
   return self.arr[i]
 \end{minted}
 
-\begin{minted}{python}
+	\begin{minted}{python}
 def append(self, x):
   self.arr[self.n] = x
   self.n += 1
 \end{minted}
 
-\begin{minted}{python}
+	\begin{minted}{python}
 def insert(self, i, x):
   n += 1
   for j in range(n, i-1, -1):
@@ -287,27 +287,27 @@ def insert(self, i, x):
 \begin{multicols}{2}
 
 
-\noindent Strengths:
-\begin{itemize}
-	\item unlimited, variable size
-	\item fast \texttt{get} and \texttt{set}
-	\item fast amortised \texttt{append}
-\end{itemize}
+	\noindent Strengths:
+	\begin{itemize}
+		\item unlimited, variable size
+		\item fast \texttt{get} and \texttt{set}
+		\item fast amortised \texttt{append}
+	\end{itemize}
 
-\noindent Weaknesses:
-\begin{itemize}
-	\item bad worst-case \texttt{append}
-\end{itemize}
+	\noindent Weaknesses:
+	\begin{itemize}
+		\item bad worst-case \texttt{append}
+	\end{itemize}
 
-\begin{pseudo}
-\textbf{function} \textsf{append}$(x)$:												\\+
-  \textbf{if} $n=|A|$:																\\+
-    $B \leftarrow \text{new array of size }\ceil{n\times r}$						\\
-	copy contents of $A$ into $B$													\\
-	$A\leftarrow B$																	\\-
-  $A[n]\leftarrow x$																\\
-  $n\leftarrow n + 1$
-\end{pseudo}
+	\begin{pseudo}
+		\textbf{function} \textsf{append}$(x)$:												\\+
+		\textbf{if} $n=|A|$:																\\+
+		$B \leftarrow \text{new array of size }\ceil{n\times r}$						\\
+		copy contents of $A$ into $B$													\\
+		$A\leftarrow B$																	\\-
+		$A[n]\leftarrow x$																\\
+		$n\leftarrow n + 1$
+	\end{pseudo}
 \end{multicols}
 
 
@@ -316,7 +316,7 @@ def insert(self, i, x):
 
 Strengths:
 \begin{itemize}
-	\item fast insertions and deletion at front 
+	\item fast insertions and deletion at front
 	\item naturally allow for sharing
 \end{itemize}
 
@@ -329,46 +329,46 @@ Weaknesses:
 \subsubsection{Comparison}
 
 \begin{center}
-\begin{tabular}{ l | l | l | l | l | l | l | l }
-	\textbf{Implementation} 
-	& \texttt{get} 
-	& \texttt{set} 
-	& \texttt{cons}
-	& \texttt{append}
-	& \texttt{insert}
-	& \texttt{delete}
-	& \texttt{length}
-	\\
-	\hline
-	Fixed-size array
-	& $O(1)$
-	& $O(1)$
-	& *$O(n)$
-	& *$O(1)$
-	& *$O(n)$
-	& $O(n)$
-	& $O(1)$
-	\\
-	\hline
-	Extensible array
-	& $O(1)$
-	& $O(1)$
-	& $O(n)$
-	& $O(n)$, amortised $O(1)$
-	& $O(n)$
-	& $O(n)$
-	& $O(1)$
-	\\
-	\hline
-	Linked list
-	& $O(n)$
-	& $O(n)$
-	& $O(1)$
-	& $O(n)$
-	& $O(n)$
-	& $O(n)$
-	& $O(1)$
-\end{tabular}
+	\begin{tabular}{ l | l | l | l | l | l | l | l }
+		\textbf{Implementation}
+		 & \texttt{get}
+		 & \texttt{set}
+		 & \texttt{cons}
+		 & \texttt{append}
+		 & \texttt{insert}
+		 & \texttt{delete}
+		 & \texttt{length}
+		\\
+		\hline
+		Fixed-size array
+		 & $O(1)$
+		 & $O(1)$
+		 & *$O(n)$
+		 & *$O(1)$
+		 & *$O(n)$
+		 & $O(n)$
+		 & $O(1)$
+		\\
+		\hline
+		Extensible array
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(n)$
+		 & $O(n)$, amortised $O(1)$
+		 & $O(n)$
+		 & $O(n)$
+		 & $O(1)$
+		\\
+		\hline
+		Linked list
+		 & $O(n)$
+		 & $O(n)$
+		 & $O(1)$
+		 & $O(n)$
+		 & $O(n)$
+		 & $O(n)$
+		 & $O(1)$
+	\end{tabular}
 \end{center}
 
 \subsection{Stacks}
@@ -377,35 +377,35 @@ Weaknesses:
 	A stack containing items of type $X$ is a datastructure with
 	the following interface:
 	\begin{align*}
-		\textbf{empty} &: \{*\}\to\{0, 1\}\\
-		\textbf{peek} &: X \to \{*\}\\
-		\textbf{pop} &: \{*\}\to X\\
-		\textbf{push} &: \{*\}\to X
+		\textbf{empty} & : \{*\}\to\{0, 1\} \\
+		\textbf{peek}  & : X \to \{*\}      \\
+		\textbf{pop}   & : \{*\}\to X       \\
+		\textbf{push}  & : \{*\}\to X
 	\end{align*}
 \end{definition}
 
 \begin{center}
-\begin{tabular}{ l | l | l | l | l}
-	\textbf{Implementation} 
-	& \texttt{empty} 
-	& \texttt{peek} 
-	& \texttt{pop}
-	& \texttt{push}
-	\\
-	\hline
-	Extensible array
-	& $O(1)$
-	& $O(1)$
-	& $O(1)$
-	& $O(n)$, amortised $O(1)$
-	\\
-	\hline
-	Linked list
-	& $O(1)$
-	& $O(1)$
-	& $O(1)$
-	& $O(1)$
-\end{tabular}
+	\begin{tabular}{ l | l | l | l | l}
+		\textbf{Implementation}
+		 & \texttt{empty}
+		 & \texttt{peek}
+		 & \texttt{pop}
+		 & \texttt{push}
+		\\
+		\hline
+		Extensible array
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(n)$, amortised $O(1)$
+		\\
+		\hline
+		Linked list
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(1)$
+	\end{tabular}
 \end{center}
 
 \subsection{Queues}
@@ -414,35 +414,35 @@ Weaknesses:
 	A queue containing items of type $X$ is a datastructure with
 	the following interface:
 	\begin{align*}
-		\textbf{empty} &: \{*\}\to\{0, 1\}\\
-		\textbf{peek} &: X \to \{*\}\\
-		\textbf{dequeue} &: \{*\}\to X\\
-		\textbf{enqueue} &: \{*\}\to X
+		\textbf{empty}   & : \{*\}\to\{0, 1\} \\
+		\textbf{peek}    & : X \to \{*\}      \\
+		\textbf{dequeue} & : \{*\}\to X       \\
+		\textbf{enqueue} & : \{*\}\to X
 	\end{align*}
 \end{definition}
 
 \begin{center}
-\begin{tabular}{ l | l | l | l | l}
-	\textbf{Implementation} 
-	& \texttt{empty} 
-	& \texttt{peek} 
-	& \texttt{dequeue}
-	& \texttt{enqueue}
-	\\
-	\hline
-	Wraparound array
-	& $O(1)$
-	& $O(1)$
-	& $O(1)$
-	& $O(n)$, amortised $O(1)$
-	\\
-	\hline
-	Doubly linked list
-	& $O(1)$
-	& $O(1)$
-	& $O(1)$
-	& $O(1)$
-\end{tabular}
+	\begin{tabular}{ l | l | l | l | l}
+		\textbf{Implementation}
+		 & \texttt{empty}
+		 & \texttt{peek}
+		 & \texttt{dequeue}
+		 & \texttt{enqueue}
+		\\
+		\hline
+		Wraparound array
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(n)$, amortised $O(1)$
+		\\
+		\hline
+		Doubly linked list
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(1)$
+		 & $O(1)$
+	\end{tabular}
 \end{center}
 
 \subsection{Sets and dictionaries}
@@ -451,20 +451,20 @@ Weaknesses:
 \begin{definition}
 	A \emph{finite set} containing values of type $X$ is a datastructure with the following interface
 	\begin{align*}
-		\textbf{contains} &: X\to \{0,1\}\\
-		\textbf{insert} &: X \to \{*\}\\
-		\textbf{delete} &: X \to \{*\}\\
-		\textbf{isEmpty} &: \{*\} \to \{0,1\}
+		\textbf{contains} & : X\to \{0,1\}      \\
+		\textbf{insert}   & : X \to \{*\}       \\
+		\textbf{delete}   & : X \to \{*\}       \\
+		\textbf{isEmpty}  & : \{*\} \to \{0,1\}
 	\end{align*}
 \end{definition}
 \begin{definition}
 	A \emph{dictionary} mapping keys of type $X$ to values of type $Y$
 	is a datastructure with the following interface
 	\begin{align*}
-		\textbf{lookup} &: X \to Y\\
-		\textbf{insert} &: X \times Y \to \{*\}\\
-		\textbf{delete} &: X \to \{*\}\\
-		\textbf{isEmpty} &: \{*\} \to \{0,1\}
+		\textbf{lookup}  & : X \to Y              \\
+		\textbf{insert}  & : X \times Y \to \{*\} \\
+		\textbf{delete}  & : X \to \{*\}          \\
+		\textbf{isEmpty} & : \{*\} \to \{0,1\}
 	\end{align*}
 \end{definition}
 \begin{definition}
@@ -472,7 +472,7 @@ Weaknesses:
 	to store key value pairs $(X,Y)$ in an array of length $m$.\\
 	The \emph{load factor} $\alpha$ is the average number of elements associated with each cell
 	of the underlying array. If $f$ is a perfect hash function, i.e. it maps all inputs uniformly
-	onto $[0,m-1]$, then $\alpha$ is given by 
+	onto $[0,m-1]$, then $\alpha$ is given by
 	\begin{align*}
 		\alpha = n / m.
 	\end{align*}
@@ -485,13 +485,13 @@ Weaknesses:
 	\end{itemize}
 \end{proposition}
 \begin{definition}
-	\emph{Open addressing} is an algorithm to handle hash collisions within a hash table 
+	\emph{Open addressing} is an algorithm to handle hash collisions within a hash table
 	by using a hash function $f: (X, [0,m-1]) \to [0,m-1]$ that generates a permutation of all possible
 	hash codes for each possible input $X$. An element $x\in X$ is then stored the hash code $f(x, i)$
 	if and only if all $f(x,j)$ for $j < i$ are already occupied.
 \end{definition}
 \begin{proposition}
-	In a hash table with load factor $\alpha$ that uses open addressing requires, on average, $1/(1-\alpha)$ 
+	In a hash table with load factor $\alpha$ that uses open addressing requires, on average, $1/(1-\alpha)$
 	probes for an unsuccessful lookup and fewer for a successful one.
 \end{proposition}
 \begin{definition}
@@ -499,10 +499,10 @@ Weaknesses:
 	children are other binary trees.
 \end{definition}
 \begin{definition}
-	An \emph{ordered binary tree} with a given ordering $(<) : X\times X \to \{0, 1\}$ is a binary tree 
+	An \emph{ordered binary tree} with a given ordering $(<) : X\times X \to \{0, 1\}$ is a binary tree
 	with a root $x$ such that
 	\begin{align*}
-		\forall y \in L(x), y.\texttt{key} < x.\texttt{key} 
+		\forall y \in L(x), y.\texttt{key} < x.\texttt{key}
 		\text{ and } \forall y \in R(x), x.\texttt{key} < y.\texttt{key},
 	\end{align*}
 	and both $L(x)$ and $R(x)$ are ordered.
@@ -523,7 +523,7 @@ Weaknesses:
 		\item All paths from the root to a leaf contain the same number $b$ of \texttt{black} nodes.
 		\item The children of a \texttt{red} node are \texttt{black}.
 	\end{enumerate}
-	For every tree with $n$ nodes that satisfies these conditions, 
+	For every tree with $n$ nodes that satisfies these conditions,
 	the height $h$ is bounded by
 	\begin{align*}
 		h\leq 2\lg(n+1)+1.
@@ -532,39 +532,39 @@ Weaknesses:
 
 \paragraph{Comparison}
 \begin{center}
-\begin{tabular}{ l | l | l | l }
-	\textbf{Implementation} & \texttt{contains} & \texttt{insert} & \texttt{delete}\\
-	\hline
-	Linked List (simple) 
-	& $\Theta(n)$, $\Theta(n)$
-	& $\Theta(1)$, $\Theta(1)$
-	& $\Theta(n)$, $\Theta(n)$\\
-	\hline
-	Ordered Linked List (simple) 
-	& $\Theta(\lg n)$, $\Theta(\lg n)$
-	& $\Theta(\lg n)$, $\Theta(\lg n)$
-	& $\Theta(\lg n)$, $\Theta(\lg n)$\\
-	\hline
-	Hash Table (linked bucket list)
-	& $\Theta(\alpha)$, $\Theta(n)$
-	& $\Theta(1)$, $\Theta(1)$
-	& $\Theta(\alpha)$, $\Theta(n)$\\
-	\hline
-	Hash Table (open addressing)
-	& $\Theta(1/(1-\alpha))$, $\Theta(n)$
-	& $\Theta(1/(1-\alpha))$, $\Theta(n)$
-	& - \\
-	\hline
-	Ordered Binary Tree
-	& $\Theta(\lg n)$, $\Theta(n)$
-	& $\Theta(\lg n)$, $\Theta(n)$ 
-	& $\Theta(\lg n)$, $\Theta(n)$\\
-	\hline
-	Red-Black Tree
-	& $\Theta(\lg n)$, $\Theta(\lg n)$
-	& $\Theta(\lg n)$, $\Theta(\lg n)$
-	& $\Theta(\lg n)$, $\Theta(\lg n)$
-\end{tabular}
+	\begin{tabular}{ l | l | l | l }
+		\textbf{Implementation} & \texttt{contains}                   & \texttt{insert} & \texttt{delete} \\
+		\hline
+		Linked List (simple)
+		                        & $\Theta(n)$, $\Theta(n)$
+		                        & $\Theta(1)$, $\Theta(1)$
+		                        & $\Theta(n)$, $\Theta(n)$                                                \\
+		\hline
+		Ordered Linked List (simple)
+		                        & $\Theta(\lg n)$, $\Theta(\lg n)$
+		                        & $\Theta(\lg n)$, $\Theta(\lg n)$
+		                        & $\Theta(\lg n)$, $\Theta(\lg n)$                                        \\
+		\hline
+		Hash Table (linked bucket list)
+		                        & $\Theta(\alpha)$, $\Theta(n)$
+		                        & $\Theta(1)$, $\Theta(1)$
+		                        & $\Theta(\alpha)$, $\Theta(n)$                                           \\
+		\hline
+		Hash Table (open addressing)
+		                        & $\Theta(1/(1-\alpha))$, $\Theta(n)$
+		                        & $\Theta(1/(1-\alpha))$, $\Theta(n)$
+		                        & -                                                                       \\
+		\hline
+		Ordered Binary Tree
+		                        & $\Theta(\lg n)$, $\Theta(n)$
+		                        & $\Theta(\lg n)$, $\Theta(n)$
+		                        & $\Theta(\lg n)$, $\Theta(n)$                                            \\
+		\hline
+		Red-Black Tree
+		                        & $\Theta(\lg n)$, $\Theta(\lg n)$
+		                        & $\Theta(\lg n)$, $\Theta(\lg n)$
+		                        & $\Theta(\lg n)$, $\Theta(\lg n)$
+	\end{tabular}
 \end{center}
 
 
@@ -588,21 +588,21 @@ Weaknesses:
 	The heap operations have the following runtimes:
 	\\
 	\begin{center}
-	\begin{tabular}{| l | l |}
-		\hline
-		Operation & Runtime\\
-		\hline
-		Max & $\Theta(1)$\\
-		\hline
-		Heapify & $O(\lg(n))$\\
-		\hline
-		Extract-Max & $O(\lg(n))$\\
-		\hline
-		Insert & $O(\lg(n))$\\
-		\hline
-		Build & $O(n)$\\
-		\hline
-	\end{tabular}
+		\begin{tabular}{| l | l |}
+			\hline
+			Operation   & Runtime     \\
+			\hline
+			Max         & $\Theta(1)$ \\
+			\hline
+			Heapify     & $O(\lg(n))$ \\
+			\hline
+			Extract-Max & $O(\lg(n))$ \\
+			\hline
+			Insert      & $O(\lg(n))$ \\
+			\hline
+			Build       & $O(n)$      \\
+			\hline
+		\end{tabular}
 	\end{center}
 \end{theorem}
 
@@ -633,47 +633,47 @@ Weaknesses:
 \begin{definition}
 	Let $G=(V,E)$ be a graph with $n$ vertices $V=\{v_1, ..., v_n\}$.
 	Then the \emph{adjacency matrix} of $G$ is the $n\times n$ matrix
-	$A=(a_{ij})_{i,j\in[n]}$ with 
+	$A=(a_{ij})_{i,j\in[n]}$ with
 	\begin{align*}
 		a_{ij} = \begin{cases}
-			1 &\text{if } (v_i,v_j)\in E\\
-			0 &\text{otherwise}
+			1 & \text{if } (v_i,v_j)\in E \\
+			0 & \text{otherwise}
 		\end{cases}.
 	\end{align*}
 \end{definition}
 
 \begin{theorem}
-	Let $G=(V,E)$ with $|V|=n$ and $|E|=m$. Then the following 
+	Let $G=(V,E)$ with $|V|=n$ and $|E|=m$. Then the following
 	complexities apply:
 	\begin{center}
-	\begin{tabular}{| l | c | c |}
-		\hline
-		 Measure & Matrix & List\\
-		\hline
-		Space & $\Theta(n^2)$ & $\Theta(n+m)$ \\
-		\hline
-		Time to check if $w$ adjacent to $v$ & $\Theta(1)$ & $\Theta(\text{out}(v))$\\
-		\hline
-		Time to visit all $w$ adjacent to $v$ & $\Theta(n)$ & $\Theta(\text{out}(v))$\\
-		\hline
-		Time to visit all edges & $\Theta(n^2)$ & $\Theta(n+m)$\\
-		\hline
-	\end{tabular}
-\end{center}
-\begin{definition}
-	A graph $G=(V,E)$ with $|V|=n$ and $|E|=m$ is said to be
-	\begin{itemize}
-		\item \emph{dense} if $m$ is close to $n^2$,
-		\item \emph{sparse} if $m$ is much smaller than $n^2$. 
-	\end{itemize}
-\end{definition}
+		\begin{tabular}{| l | c | c |}
+			\hline
+			Measure                               & Matrix        & List                    \\
+			\hline
+			Space                                 & $\Theta(n^2)$ & $\Theta(n+m)$           \\
+			\hline
+			Time to check if $w$ adjacent to $v$  & $\Theta(1)$   & $\Theta(\text{out}(v))$ \\
+			\hline
+			Time to visit all $w$ adjacent to $v$ & $\Theta(n)$   & $\Theta(\text{out}(v))$ \\
+			\hline
+			Time to visit all edges               & $\Theta(n^2)$ & $\Theta(n+m)$           \\
+			\hline
+		\end{tabular}
+	\end{center}
+	\begin{definition}
+		A graph $G=(V,E)$ with $|V|=n$ and $|E|=m$ is said to be
+		\begin{itemize}
+			\item \emph{dense} if $m$ is close to $n^2$,
+			\item \emph{sparse} if $m$ is much smaller than $n^2$.
+		\end{itemize}
+	\end{definition}
 \end{theorem}
 
 \subsection{Graph traversal}
 
 \begin{definition}
 	A \emph{traversal} is a strategy for visiting all vertices of a graph.
-\end{definition} 
+\end{definition}
 
 \begin{lemma}
 	For a directed graph $G=(V,E)$ with $m$ edges,
@@ -687,36 +687,36 @@ Weaknesses:
 \end{lemma}
 
 \begin{pseudo}
-\textbf{function} \textsf{dfs}$(G)$:											\\+
+	\textbf{function} \textsf{dfs}$(G)$:											\\+
 	$\textsf{visited}\leftarrow\text{empty set}$								\\
 	\textbf{for all} $v$ in $V$:												\\+
-		\textbf{if} $v\not\in\textsf{visited}$:									\\+
-		$\textsf{dfsFromVertex}(G, v, $\textsf{visited}$)$						\\---
-																				\\
-\textbf{function} \textsf{dfsFromVertex}$(G,v,\textsf{visited})$: 				\\+
+	\textbf{if} $v\not\in\textsf{visited}$:									\\+
+	$\textsf{dfsFromVertex}(G, v, $\textsf{visited}$)$						\\---
+	\\
+	\textbf{function} \textsf{dfsFromVertex}$(G,v,\textsf{visited})$: 				\\+
 	$S\leftarrow \textsf{empty stack}$											\\
 	$S.\textsf{push}(v)$														\\
 	\textbf{while not} $S.\textsf{isEmpty}()$:									\\+
-		$u\leftarrow S.\textsf{pop}()$											\\
-		\textbf{if} $u\in \textsf{visited}$:									\\+
-			\textbf{continue}													\\-
-		$\textsf{visited}.\textsf{insert}(u)$									\\
-		\textbf{for all} $w$ adjacent to $u$:									\\+
-			$S.\textsf{push}(w)$
+	$u\leftarrow S.\textsf{pop}()$											\\
+	\textbf{if} $u\in \textsf{visited}$:									\\+
+	\textbf{continue}													\\-
+	$\textsf{visited}.\textsf{insert}(u)$									\\
+	\textbf{for all} $w$ adjacent to $u$:									\\+
+	$S.\textsf{push}(w)$
 \end{pseudo}
 
 \begin{pseudo}
-\textbf{function} \textsf{dfsRec}$(G)$:											\\+
+	\textbf{function} \textsf{dfsRec}$(G)$:											\\+
 	$\textsf{visited}\leftarrow\text{empty set}$								\\
 	\textbf{for all} $v$ in $V$:												\\+
-		\textbf{if} $v\not\in\textsf{visited}$:									\\+
-		$\textsf{dfsFromVertexRec}(G, v, $\textsf{visited}$)$					\\---
-																				\\
-\textbf{function} \textsf{dfsFromVertexRec}$(G, v, $\textsf{visited}$)$:		\\+
-    $\textsf{visited}.\textsf{insert}(v)$										\\
-    \textbf{for all} $w$ adjacent to $v$:										\\+
-		\textbf{if} $w\not\in\textsf{visited}$:									\\+
-			\textsf{dfsFromVertexRec}$(G, w, \textsf{visited})$
+	\textbf{if} $v\not\in\textsf{visited}$:									\\+
+	$\textsf{dfsFromVertexRec}(G, v, $\textsf{visited}$)$					\\---
+	\\
+	\textbf{function} \textsf{dfsFromVertexRec}$(G, v, $\textsf{visited}$)$:		\\+
+	$\textsf{visited}.\textsf{insert}(v)$										\\
+	\textbf{for all} $w$ adjacent to $v$:										\\+
+	\textbf{if} $w\not\in\textsf{visited}$:									\\+
+	\textsf{dfsFromVertexRec}$(G, w, \textsf{visited})$
 \end{pseudo}
 
 \begin{definition}
@@ -748,7 +748,7 @@ Weaknesses:
 	has been started and terminated. Then for all vertices $w$ we have:
 	\begin{enumerate}
 		\item If $w$ is not yet visited and reachable from $v$, then $w$ will be
-		finished before $v$.
+		      finished before $v$.
 		\item If $w$ is visited, but not yet finished, then $v$ is reachable from $w$.
 	\end{enumerate}
 \end{lemma}
@@ -762,24 +762,24 @@ Weaknesses:
 \end{theorem}
 
 \begin{pseudo}
-\textbf{function} \textsf{topSort}$(G=(V,E))$:										\\+
+	\textbf{function} \textsf{topSort}$(G=(V,E))$:										\\+
 	$\textsf{state}\leftarrow\text{array of $\abs{V}$ colours
-		initialised to \textsf{white}}$												\\
+			initialised to \textsf{white}}$												\\
 	$L\leftarrow\text{empty linked list}$											\\
 	\textbf{for all} $v\in V$:														\\+
-		\textbf{if} $\textsf{state}[v] = \textsf{white}$:							\\+
-			\textsf{softFromVertex}$(G,v,L)$										\\--
-    \textbf{return} $L$																\\-
+	\textbf{if} $\textsf{state}[v] = \textsf{white}$:							\\+
+	\textsf{softFromVertex}$(G,v,L)$										\\--
+	\textbf{return} $L$																\\-
 \end{pseudo}
 
 \begin{pseudo}
-\textbf{function} \textsf{softFromVertex}$(G,v,L)$:									\\+
+	\textbf{function} \textsf{softFromVertex}$(G,v,L)$:									\\+
 	$\textsf{state}[v]\leftarrow\textsf{grey}$										\\
 	\textbf{for all} $w$ adjacent to $v$:											\\+
-		\textbf{if} $\textsf{state}[w] = \textsf{white}$:							\\+
-			\textsf{sortFromVertex}$(G,w)$											\\-
-		\textbf{else if} $\textsf{state}[w] = \textsf{grey}$:						\\+
-			\textbf{fail} "Cycle detected" 											\\--
+	\textbf{if} $\textsf{state}[w] = \textsf{white}$:							\\+
+	\textsf{sortFromVertex}$(G,w)$											\\-
+	\textbf{else if} $\textsf{state}[w] = \textsf{grey}$:						\\+
+	\textbf{fail} "Cycle detected" 											\\--
 	$\textsf{state}[v]\leftarrow \textsf{black}$									\\
 	$L.\textsf{cons}(v)$
 \end{pseudo}
@@ -788,9 +788,9 @@ Weaknesses:
 
 \begin{definition}[L15]
 	Let $G=(V,E)$ be an undriected graph. Then a subset $C\subseteq V$ is
-	(\emph{strongly}) \emph{connected} if for all $v,w\in C$ there is a path 
+	(\emph{strongly}) \emph{connected} if for all $v,w\in C$ there is a path
 	from $v$ to $w$. A \emph{connected component} of $G$ is a \emph{maximum
-	connected subset} $C\subseteq V$, i.e. there is no connected subset
+		connected subset} $C\subseteq V$, i.e. there is no connected subset
 	$C'\subseteq V$ such that $C'\subset C$. $G$ is \emph{connected} if
 	it only has one connected component.
 \end{definition}
@@ -798,44 +798,44 @@ Weaknesses:
 \begin{corollary}
 	Let $G=(V,E)$ be undirected. Each vertex $v\in V$ is contained in exactly
 	one connected component. Further, the connected component that contains $v$
-	is precisely the set of all vertices that are reachable from $v$. 
+	is precisely the set of all vertices that are reachable from $v$.
 \end{corollary}
 
 \begin{pseudo}
-\textbf{function} \textsf{connectedComponent}$(G)$:									\\+
+	\textbf{function} \textsf{connectedComponent}$(G)$:									\\+
 	$\textsf{visited}\leftarrow\text{empty set}$									\\
 	$\textsf{components}\leftarrow\text{empty set}$									\\
 	\textbf{for all} $v$ in $V$:													\\+
-		\textbf{if} $v\not\in\textsf{visited}$:										\\+
-			$C\leftarrow\textsf{empty set}$											\\
-			$\textsf{ccFromVertex}(G, v, $\textsf{visited}$, C)$					\\
-			$\textsf{components}.\textsf{insert}(C)$								\\--
+	\textbf{if} $v\not\in\textsf{visited}$:										\\+
+	$C\leftarrow\textsf{empty set}$											\\
+	$\textsf{ccFromVertex}(G, v, $\textsf{visited}$, C)$					\\
+	$\textsf{components}.\textsf{insert}(C)$								\\--
 	\textbf{return} \textsf{components}												\\-
-																					\\
-\textbf{function} \textsf{ccFromVertex}$(G, v, $\textsf{visited}$, C)$:				\\+
-    $\textsf{visited}.\textsf{insert}(v)$											\\
+	\\
+	\textbf{function} \textsf{ccFromVertex}$(G, v, $\textsf{visited}$, C)$:				\\+
+	$\textsf{visited}.\textsf{insert}(v)$											\\
 	$C.\textsf{insert}(v)$															\\
-    \textbf{for all} $w$ adjacent to $v$:											\\+
-		\textbf{if} $w\not\in\textsf{visited}$:										\\+
-			\textsf{ccFromVertex}$(G, w, \textsf{visited}, C)$
+	\textbf{for all} $w$ adjacent to $v$:											\\+
+	\textbf{if} $w\not\in\textsf{visited}$:										\\+
+	\textsf{ccFromVertex}$(G, w, \textsf{visited}, C)$
 \end{pseudo}
-	
+
 \section{Dynamic programming}
 
 \subsection{Principles}
 \begin{definition}[L16]
 	The \emph{principles of dynamic programming} are:
 	\begin{enumerate}[label=(dp\arabic*)]
-		\item Need is to see that computing the optimum solution for our original 
-			instance can be achieved by finding solutions to problems of the same 
-			type, and combining them.
-		\item Solution needs to be expressible in terms of a \emph{recurrence}, 
-			where the RHS contains one or more recursive calls for smaller 
-			instances of the same problem.
-		\item We need to be able to organise storage for the results for all 
-			possible subproblems.
-		\item We need an algorithm to control the order in which subproblems 
-			are solved.
+		\item Need is to see that computing the optimum solution for our original
+		      instance can be achieved by finding solutions to problems of the same
+		      type, and combining them.
+		\item Solution needs to be expressible in terms of a \emph{recurrence},
+		      where the RHS contains one or more recursive calls for smaller
+		      instances of the same problem.
+		\item We need to be able to organise storage for the results for all
+		      possible subproblems.
+		\item We need an algorithm to control the order in which subproblems
+		      are solved.
 	\end{enumerate}
 \end{definition}
 
@@ -848,20 +848,20 @@ Weaknesses:
 \end{definition}
 
 \begin{pseudo}
-\textbf{function} \textsf{dpCoinChanging}$(v, c_1, ..., c_k)$:					\\+
+	\textbf{function} \textsf{dpCoinChanging}$(v, c_1, ..., c_k)$:					\\+
 	$c\leftarrow\text{array of length $k$ holding $c_1, ..., c_k$}$				\\
 	$C,P\leftarrow\text{arrays of length $v+1$ containing $\infty$}$			\\
 	$C[0]\leftarrow 0,C[1]\leftarrow 1$											\\
 	\textbf{for} $w$ \textbf{from} $2$ \textbf{to} $v$:							\\+
-		\textbf{for} $i$ \textbf{from} $1$ \textbf{to} $k$:						\\+
-			\textbf{if} $c[i]\leq w$ and $C[w-c[i]]+1<C[w]$:					\\+
-				$C[w]\leftarrow 1 + C[w-c[i]]$									\\
-				$P[w]\leftarrow i$												\\---
+	\textbf{for} $i$ \textbf{from} $1$ \textbf{to} $k$:						\\+
+	\textbf{if} $c[i]\leq w$ and $C[w-c[i]]+1<C[w]$:					\\+
+	$C[w]\leftarrow 1 + C[w-c[i]]$									\\
+	$P[w]\leftarrow i$												\\---
 	$S\leftarrow\text{array of length $k$ containing $0$}$						\\
 	\textbf{while} $v>0$:														\\+
-		$i\leftarrow P[v]$														\\
-		$S[i]\leftarrow S[i]+1$													\\
-		$v\leftarrow v - c[i]$													\\-
+	$i\leftarrow P[v]$														\\
+	$S[i]\leftarrow S[i]+1$													\\
+	$v\leftarrow v - c[i]$													\\-
 	\textbf{return} $S$
 \end{pseudo}
 
@@ -873,12 +873,12 @@ Weaknesses:
 \subsection{Seam Carving}
 
 \begin{definition}[Seams; L17]
-	Given an $m\times n$ matrix $A$, a \emph{vertical seam} is a finite sequence 
+	Given an $m\times n$ matrix $A$, a \emph{vertical seam} is a finite sequence
 	$(s_k)_{k\leq m}$ of natural numbers such that
 	\begin{align*}
 		\forall i\leq m,\: 1 < s_i < n\hs\text{and}\hs\forall i<m,\: \abs{s_i - s_{i+1}} \leq 1.
 	\end{align*}
-	A \emph{horizontal seam} of $A$ is a finite sequence $(s_k)_{k\leq n}$ of 
+	A \emph{horizontal seam} of $A$ is a finite sequence $(s_k)_{k\leq n}$ of
 	natural numbers such that
 	\begin{align*}
 		\forall j\leq n,\: 1 < s_j < m\hs\text{and}\hs\forall j<n,\: \abs{s_j - s_{j+1}} \leq 1.
@@ -890,8 +890,8 @@ Weaknesses:
 	energy function. Then the \emph{energy} of a seam $s=(s_k)_{k\in\N}$ is defined as
 	\begin{align*}
 		e(s) := \begin{cases}
-			\sum_{i=1}^m e_A(i,s_i) &\text{if } s \text{ is a vertical seam},\\
-			\sum_{j=1}^m e_A(s_j,j) &\text{if } s \text{ is a horizontal seam}.
+			\sum_{i=1}^m e_A(i,s_i) & \text{if } s \text{ is a vertical seam},   \\
+			\sum_{j=1}^m e_A(s_j,j) & \text{if } s \text{ is a horizontal seam}.
 		\end{cases}
 	\end{align*}
 \end{definition}
@@ -912,7 +912,7 @@ Weaknesses:
 		\hs \text{and} \hs
 		\begin{bmatrix}
 			-1 & -2 & -1 \\
-			0  &  0 &  0 \\
+			0  & 0  & 0  \\
 			+1 & +2 & +1
 		\end{bmatrix}
 	\end{align*}
@@ -924,12 +924,12 @@ Weaknesses:
 	\begin{align*}
 		\forall i \leq m,\: e_A(i,1) = e_A(i,n) = \infty.
 	\end{align*}
-	Then, for every $\lra{i,j}\in[m]\times[n]$, the minimum cost $c_A(i,j)$ 
+	Then, for every $\lra{i,j}\in[m]\times[n]$, the minimum cost $c_A(i,j)$
 	of a vertical seam ending in $\lra{i,j}$ is given by
 	\begin{align*}
 		c_A(i,j) = e_A(i,j) + \begin{cases}
-			0 &\text{if }i=1,\\
-			m_{i-1,j} &\text{if }i>1
+			0         & \text{if }i=1, \\
+			m_{i-1,j} & \text{if }i>1
 		\end{cases}
 	\end{align*}
 	where $m_{i,j}$ is
@@ -939,28 +939,28 @@ Weaknesses:
 \end{theorem}
 
 \begin{pseudo}
-\textbf{function} \textsf{dpVerticalSeam}$(A, m, n)$:						\\+
+	\textbf{function} \textsf{dpVerticalSeam}$(A, m, n)$:						\\+
 	$\textsf{opt},p\leftarrow\text{arrays of size $m\times n$}$ (1-based)	\\
 	\textbf{for $j$ from $1$ to $n$}:										\\+
-		\textbf{for $i$ from $1$ to $m$}:									\\+
-			$e[i,j]\leftarrow e_A(i,j)$										\\-
-		$\textsf{opt}[1,j]\leftarrow e[1,j]$								\\
-		$p[1,j]\leftarrow 0$												\\-
+	\textbf{for $i$ from $1$ to $m$}:									\\+
+	$e[i,j]\leftarrow e_A(i,j)$										\\-
+	$\textsf{opt}[1,j]\leftarrow e[1,j]$								\\
+	$p[1,j]\leftarrow 0$												\\-
 	\textbf{for $i$ from $1$ to $m$}:										\\+
-		\textbf{for $j$ from $1$ to $n$}:									\\+
-			$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j]$				\\
-			$p[i,j]\leftarrow 0$											\\
-			\textbf{if} $\textsf{opt}[i-1,j-1]<\textsf{opt}[i,j]$:			\\+
-				$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j-1]$			\\
-				$p[i,j]\leftarrow -1$										\\-
-			\textbf{if} $\textsf{opt}[i-1,j+1]<\textsf{opt}[i,j]$:			\\+
-				$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j+1]$			\\
-				$p[i,j]\leftarrow +1$										\\-
-			$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i,j]+e[i,j]$			\\--
+	\textbf{for $j$ from $1$ to $n$}:									\\+
+	$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j]$				\\
+	$p[i,j]\leftarrow 0$											\\
+	\textbf{if} $\textsf{opt}[i-1,j-1]<\textsf{opt}[i,j]$:			\\+
+	$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j-1]$			\\
+	$p[i,j]\leftarrow -1$										\\-
+	\textbf{if} $\textsf{opt}[i-1,j+1]<\textsf{opt}[i,j]$:			\\+
+	$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i-1,j+1]$			\\
+	$p[i,j]\leftarrow +1$										\\-
+	$\textsf{opt}[i,j]\leftarrow\textsf{opt}[i,j]+e[i,j]$			\\--
 	$j'\leftarrow 2$														\\
 	\textbf{for $j$ from $1$ to $n$}:										\\+
-		\textbf{if} $\textsf{opt}[m,j]<\textsf{opt}[m,j']$:					\\+
-			$j'\leftarrow j$												\\--
+	\textbf{if} $\textsf{opt}[m,j]<\textsf{opt}[m,j']$:					\\+
+	$j'\leftarrow j$												\\--
 	\textbf{return} $\lra{m,j'}, p$
 
 \end{pseudo}
@@ -975,12 +975,12 @@ Weaknesses:
 	Given a graph or digraph $G=(V,E)$ together with a weight function
 	$w:E\to\R$, compute an $n\times n$ matrix $D$ such that $D[i,j]$
 	is the value of the shortest path w.r.t. $w$ from $i$ to $j$, for
-	every $0\leq i,j\leq n-1$.	
+	every $0\leq i,j\leq n-1$.
 \end{definition}
 
 \begin{definition}[L18]
 	Let $u,v\in V$ and suppose we have a path $p=e_1,...,e_{\abs p}$ from
-	$u$ to $v$. Then the cost $d_p$ of this path is 
+	$u$ to $v$. Then the cost $d_p$ of this path is
 	\begin{align*}
 		d_p = \sum_{h=1}^{\abs p} w(e_h).
 	\end{align*}
@@ -1001,12 +1001,12 @@ Weaknesses:
 	restricted to $V_k$. Then, for $0\leq i,j<n$ and $k\geq 0$, let
 	\begin{align*}
 		d_{ij}^{<k}=\begin{cases}
-			0 & 
-			i=j, \\
-			\min\{d_p:p\in P_k, p\text{ is from $v_i$ to $v_j$}\} & 
+			0                                                     &
+			i=j,                                                      \\
+			\min\{d_p:p\in P_k, p\text{ is from $v_i$ to $v_j$}\} &
 			i\not=j, \text{path from $v_i$ to $v_j$ exists in $P_k$}, \\
-			\infty &
-			i\not=j, \text{path from $v_i$ to $v_j$ does not exist in $P_k$}. 
+			\infty                                                &
+			i\not=j, \text{path from $v_i$ to $v_j$ does not exist in $P_k$}.
 		\end{cases}
 	\end{align*}
 	Then we define $D^{<k}=(d_{ij}^{<k})_{0\leq i,j\leq n-1}$. We call $D^{<k}$
@@ -1014,19 +1014,19 @@ Weaknesses:
 \end{definition}
 
 \begin{theorem}[L18]
-	Let $0\leq i,j<n$. If $k>0$, then 
+	Let $0\leq i,j<n$. If $k>0$, then
 	\begin{align*}
 		D^{<k+1}[i,j]=\begin{cases}
-			0 & \text{if $i=j$}, \\
+			0                                           & \text{if $i=j$},  \\
 			\min\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\} & \text{otherwise}.
 		\end{cases}
 	\end{align*}
 	Further,
 	\begin{align*}
 		D^{<0}[i,j] = \begin{cases}
-			0 		& \text{if $i=j$}, \\
-			w(i,j)  & \text{if $i\not=j$, $(i,j)\in E$}, \\
-			\infty  & \text{if $i\not=j$, $(i,j)\not\in E$}.
+			0      & \text{if $i=j$},                       \\
+			w(i,j) & \text{if $i\not=j$, $(i,j)\in E$},     \\
+			\infty & \text{if $i\not=j$, $(i,j)\not\in E$}.
 		\end{cases}
 	\end{align*}
 	For all $x\in\R$ we define $x+\infty = \infty + x = \infty + \infty = \infty$,
@@ -1034,13 +1034,13 @@ Weaknesses:
 \end{theorem}
 
 \begin{pseudo}
-\textbf{function} \textsf{FloydWarshall}$(G=(V,E), w)$:\\+
+	\textbf{function} \textsf{FloydWarshall}$(G=(V,E), w)$:\\+
 	$D^{<0}, ..., D^{<n+1}\leftarrow \text{arrays of size $|V|\times |V|$}$	\\
 	\textbf{for $k$ from $0$ to $n-1$}:										\\+
-		\textbf{for $i$ from $0$ to $n-1$}:									\\+
-			\textbf{for $j$ from $0$ to $n-1$}: 							\\+
-				$D^{<k+1}[i,j]\leftarrow \min
-					\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\}$				\\---
+	\textbf{for $i$ from $0$ to $n-1$}:									\\+
+	\textbf{for $j$ from $0$ to $n-1$}: 							\\+
+	$D^{<k+1}[i,j]\leftarrow \min
+		\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\}$				\\---
 	\textbf{return} $D^{<n+1}$
 \end{pseudo}
 
@@ -1058,8 +1058,8 @@ Weaknesses:
 		\item $\Sigma$ is an alphabet,
 		\item $q_0\in Q$ is the initial state,
 		\item $F\subseteq Q$ is a set of accepting states,
-		\item $\delta:Q\times \Sigma \to\mathcal{P}(Q)$ is a transition function 
-			(where $\mathcal{P}(Q)$ is the powerset of $Q$),
+		\item $\delta:Q\times \Sigma \to\mathcal{P}(Q)$ is a transition function
+		      (where $\mathcal{P}(Q)$ is the powerset of $Q$),
 	\end{itemize}
 	together with a \emph{probability label} $p_{q,a,q'}\in[0,1]$ for every
 	$\lra{q,a,q'}\in\Delta$ such that for every $q\in Q$, $a\in\Sigma$, we have
@@ -1069,60 +1069,60 @@ Weaknesses:
 \end{definition}
 
 \begin{definition}[L19]
-	A \emph{Hidden Markov Model} is a state-machine $M=\lra{Q, \Sigma, \Delta, P, 
-	\{b_q:q\in Q\}, \pi}$ with $\Delta\subseteq Q\times Q$ where
+	A \emph{Hidden Markov Model} is a state-machine $M=\lra{Q, \Sigma, \Delta, P,
+			\{b_q:q\in Q\}, \pi}$ with $\Delta\subseteq Q\times Q$ where
 	\begin{itemize}
 		\item $Q$ is a set of states,
 		\item $\Sigma$ is an alphabet
 		\item $\Delta:Q\to\mathcal{P}(Q)$ is a transition function
-		\item $P$ is a $\abs Q \times \abs Q$ \emph{transition matrix} 
-			defining a probability label $p_{q,q'}\in[0,1]$ for every 
-			$\lra{q,q'}\in\Delta$ such that for every $q\in Q$ we have 
-			\begin{align*}
-				\sum_{q'\in Q}p_{q,q'} = 1.
-			\end{align*}
-        \item every $b_q$ defines a probability distribution on $\Sigma$ 
-			for every $q\in Q$, $b_q$ defining the distribution of 
-			\emph{emission} from $\Sigma$ associated with state $q$. For all
-			$q\in Q$ we require \begin{align*}
-				\sum_{a\in\Sigma} b_q(a) = 1.
-			\end{align*}
-        \item A distribution $\pi$ to describe the starting state.
+		\item $P$ is a $\abs Q \times \abs Q$ \emph{transition matrix}
+		      defining a probability label $p_{q,q'}\in[0,1]$ for every
+		      $\lra{q,q'}\in\Delta$ such that for every $q\in Q$ we have
+		      \begin{align*}
+			      \sum_{q'\in Q}p_{q,q'} = 1.
+		      \end{align*}
+		\item every $b_q$ defines a probability distribution on $\Sigma$
+		      for every $q\in Q$, $b_q$ defining the distribution of
+		      \emph{emission} from $\Sigma$ associated with state $q$. For all
+		      $q\in Q$ we require \begin{align*}
+			      \sum_{a\in\Sigma} b_q(a) = 1.
+		      \end{align*}
+		\item A distribution $\pi$ to describe the starting state.
 	\end{itemize}
 \end{definition}
 
 \begin{definition}[Max likelihood path]
 	Given a HMM defined by $M=\lra{Q,\Sigma,\Delta,P,\{b_q:q\in Q\},\pi}$, and
 	a sequence $s\in\Sigma^*$, what is the \emph{most likely path} through $M$
-	to have generated $s$?	
+	to have generated $s$?
 \end{definition}
 
 \begin{theorem}[L19]
 	The max likelihood path through a HMM given by $M=\lra{Q,\Sigma,\Delta,
-	P,\{b_q:q\in Q\},\pi}$ to have generated a string $s$ can be calculated 
+			P,\{b_q:q\in Q\},\pi}$ to have generated a string $s$ can be calculated
 	using the algorithm below.
 	\begin{pseudo}
 		\textbf{function} \textsf{Viterbi}$(M=\lra{Q,\Sigma,\Delta, P,
-			\{b_q:q\in Q\},\pi}, s=s_1...s_n)$:									\\+
-			$\textsf{mlp}, \textsf{prev}
-				\leftarrow \text{arrays of size $n\times\abs Q$}$				\\
-			\textbf{for} $q\in Q$:												\\+
-				$\textsf{mlp}[1,q]\leftarrow\pi_q\times b_{q,s_1}$				\\-
-			\textbf{for $i$ from $2$ to $n$}:									\\+
-				\textbf{for $q\in Q$}:											\\+
-					$\textsf{mlp}[i,q]\leftarrow 0$								\\
-					\textbf{for $q'\in Q$}:										\\+
-						$\textsf{trans}\leftarrow p_{q',q}\times b_{q,s_i}$	\\
-						\textbf{if} $\textsf{trans}\times\textsf{mlp}[i-1,q']>
-							\textsf{mlp}[i,q]$:									\\+
-							$\textsf{mlp}[i,q]\leftarrow
-								\textsf{trans}\times\textsf{mlp}[i-1,q']$		\\
-							$\textsf{prev}[i,q]\leftarrow q'$					\\----
-			$\textsf{max}\leftarrow 0$											\\
-			\textbf{for $q\in Q$}:												\\+
-				\textbf{if} $\textsf{mlp}[n,q]>\textsf{max}$:					\\+
-					$\textsf{max}\leftarrow\textsf{mlp}[n,q]$					\\--
-			\textbf{return} \textsf{max}
+				\{b_q:q\in Q\},\pi}, s=s_1...s_n)$:									\\+
+		$\textsf{mlp}, \textsf{prev}
+			\leftarrow \text{arrays of size $n\times\abs Q$}$				\\
+		\textbf{for} $q\in Q$:												\\+
+		$\textsf{mlp}[1,q]\leftarrow\pi_q\times b_{q,s_1}$				\\-
+		\textbf{for $i$ from $2$ to $n$}:									\\+
+		\textbf{for $q\in Q$}:											\\+
+		$\textsf{mlp}[i,q]\leftarrow 0$								\\
+		\textbf{for $q'\in Q$}:										\\+
+		$\textsf{trans}\leftarrow p_{q',q}\times b_{q,s_i}$	\\
+		\textbf{if} $\textsf{trans}\times\textsf{mlp}[i-1,q']>
+			\textsf{mlp}[i,q]$:									\\+
+		$\textsf{mlp}[i,q]\leftarrow
+			\textsf{trans}\times\textsf{mlp}[i-1,q']$		\\
+		$\textsf{prev}[i,q]\leftarrow q'$					\\----
+		$\textsf{max}\leftarrow 0$											\\
+		\textbf{for $q\in Q$}:												\\+
+		\textbf{if} $\textsf{mlp}[n,q]>\textsf{max}$:					\\+
+		$\textsf{max}\leftarrow\textsf{mlp}[n,q]$					\\--
+		\textbf{return} \textsf{max}
 	\end{pseudo}
 	$\textsf{Viterbi}(M, s=s_1\cdots s_n)$ runs in $\Theta(n\cdot\abs{Q}^2)$ time
 	and takes $\Theta(n\cdot\abs Q)$ space.
@@ -1134,8 +1134,8 @@ Weaknesses:
 	An \emph{alignment} of two sequences $s\in\Sigma^m$, $t\in\Sigma^n$ is
 	any padding (with some $-$ insertions) $s'$ of $s$, and $t'$ of $t$ such that
 	\begin{align*}
-		\abs{s'}&=\abs{t'},\\
-		(s'_i\not=-)&\text{ or }(t'_i\not=-)\hs\text{for all }i\in[|s'|].
+		\abs{s'}     & =\abs{t'},                                           \\
+		(s'_i\not=-) & \text{ or }(t'_i\not=-)\hs\text{for all }i\in[|s'|].
 	\end{align*}
 \end{definition}
 
@@ -1150,19 +1150,19 @@ Weaknesses:
 \end{definition}
 
 \begin{theorem}
-	The edit distance $d$ between two strings $s_m=(s_k)_{k\leq m}$ 
-	and $t_n=(t_k)_{k\leq n}$ is given by 
+	The edit distance $d$ between two strings $s_m=(s_k)_{k\leq m}$
+	and $t_n=(t_k)_{k\leq n}$ is given by
 	\begin{align*}
 		d(s_m,t_n) = \begin{cases}
-			m &\text{if }n=0,\\
-			n &\text{if }m=0,\\
-			d(s_{m-1}, t_{n-1}) &\text{if }s_m=t_n,\\
-			1 + h_{m,n} &\text{if }s_m\not=t_n
+			m                   & \text{if }n=0,        \\
+			n                   & \text{if }m=0,        \\
+			d(s_{m-1}, t_{n-1}) & \text{if }s_m=t_n,    \\
+			1 + h_{m,n}         & \text{if }s_m\not=t_n
 		\end{cases}
 	\end{align*}
 	where $h$ is given as
 	\begin{align*}
-		h_{m,n}= 1 + \min\{d(s_{m-1},t_{n-1}), d(s_{m-1}, t_n), d(s_m, t_{n-1})\}.	
+		h_{m,n}= 1 + \min\{d(s_{m-1},t_{n-1}), d(s_{m-1}, t_n), d(s_m, t_{n-1})\}.
 	\end{align*}
 \end{theorem}
 
@@ -1188,23 +1188,23 @@ Weaknesses:
 	grammar in Chomsky normal form.
 	\begin{pseudo}
 		\textbf{function} \textsf{CYK}$(s,G)$:\\+
-			$n\leftarrow\text{length}(s)$\\
-			$\text{table}\leftarrow\text{Matrix }A_{ij}\text{ for }(i,j)\in[0,n-1][n]$\\
-			\textbf{for} $j\in\{1,..,n\}$:\\+
-				\textbf{for} $(X\to t)\in G$:\\+
-					\textbf{if} $t=s[j-1]$:\\+
-						add $X$ to table$[j-1,j]$\\--
-				\textbf{for} $i\in\{j-2,..,0\}$:\\+
-					\textbf{for} $k\in\{i+1,..,,j-1\}$:\\+
-						\textbf{for} $(X\to YZ)\in G$:\\+
-							\textbf{if} $Y\in\text{table}[i,k]$ and $Z\in\text{table}[k,j]$:\\+
-								add $X$ to table$[i,j]$\\-----
-            \textbf{return} table
-    \end{pseudo}
+		$n\leftarrow\text{length}(s)$\\
+		$\text{table}\leftarrow\text{Matrix }A_{ij}\text{ for }(i,j)\in[0,n-1][n]$\\
+		\textbf{for} $j\in\{1,..,n\}$:\\+
+		\textbf{for} $(X\to t)\in G$:\\+
+		\textbf{if} $t=s[j-1]$:\\+
+		add $X$ to table$[j-1,j]$\\--
+		\textbf{for} $i\in\{j-2,..,0\}$:\\+
+		\textbf{for} $k\in\{i+1,..,,j-1\}$:\\+
+		\textbf{for} $(X\to YZ)\in G$:\\+
+		\textbf{if} $Y\in\text{table}[i,k]$ and $Z\in\text{table}[k,j]$:\\+
+		add $X$ to table$[i,j]$\\-----
+		\textbf{return} table
+	\end{pseudo}
 \end{definition}
 
 \begin{theorem}
-	Given a grammar $G$ in Chomsky normal form with $n$ 
+	Given a grammar $G$ in Chomsky normal form with $n$
 	productions and an input of length $n$, the run time
 	of the CYK algorithm is $O(mn^3)$.
 \end{theorem}
@@ -1212,36 +1212,36 @@ Weaknesses:
 \begin{definition}[L22]
 	A context free language is called \emph{LL(1)} if, during
 	parsing, the current token and the current non-terminal fully
-	deteremine which rule to apply.	
+	deteremine which rule to apply.
 \end{definition}
 
 \begin{theorem}
-	An LL(1) language with a pre-generated parse table may be 
+	An LL(1) language with a pre-generated parse table may be
 	parsed with the following algorithm in $\Theta(n)$ time.
 
-\begin{pseudo}
-\textbf{function} \textsf{LL1Parse}$(T, S, w=w_1\cdots w_n)$:		\\+
-	$i \leftarrow 1$												\\
-	$Q \leftarrow\text{stack with single entry$S$}$					\\
-	\textbf{while} $Q$ not empty:									\\+
+	\begin{pseudo}
+		\textbf{function} \textsf{LL1Parse}$(T, S, w=w_1\cdots w_n)$:		\\+
+		$i \leftarrow 1$												\\
+		$Q \leftarrow\text{stack with single entry$S$}$					\\
+		\textbf{while} $Q$ not empty:									\\+
 		$x\leftarrow Q.\textsf{peek}()$								\\
 		\textbf{if} $x$ is non-terminal:							\\+
-			\textbf{match} $T[x,w_i]$:								\\+
-				\textbf{case} blank:								\\+
-					\textbf{fail}									\\-
-				\textbf{case} rule $x\to\beta$:						\\+
-					$Q.\textsf{pop}()$								\\
-					\textbf{for} $s\in\textsf{reversed}(\beta)$:	\\+
-						$Q.\textsf{push}(s)$						\\----
+		\textbf{match} $T[x,w_i]$:								\\+
+		\textbf{case} blank:								\\+
+		\textbf{fail}									\\-
+		\textbf{case} rule $x\to\beta$:						\\+
+		$Q.\textsf{pop}()$								\\
+		\textbf{for} $s\in\textsf{reversed}(\beta)$:	\\+
+		$Q.\textsf{push}(s)$						\\----
 		\textbf{else if} $x = w_i$:									\\+
-			$Q.\textsf{pop}()$										\\
-			$i\leftarrow i+1$										\\-
+		$Q.\textsf{pop}()$										\\
+		$i\leftarrow i+1$										\\-
 		\textbf{else}:												\\+
-			\textbf{fail}											\\--
-	\textbf{if} $w_i=\$$:											\\+
+		\textbf{fail}											\\--
+		\textbf{if} $w_i=\$$:											\\+
 		\textbf{return}												\\-
-	\textbf{fail}
-\end{pseudo}
+		\textbf{fail}
+	\end{pseudo}
 \end{theorem}
 
 \section{P and NP}
@@ -1250,7 +1250,7 @@ Weaknesses:
 
 \begin{definition}
 	A computational problem $Q$ is solvable in \emph{polynomial
-	time} if there is some fixed $r\in\R$, and some deterministic
+		time} if there is some fixed $r\in\R$, and some deterministic
 	algorithm $A$, which returns a correct solution for every
 	instance $\mathcal{J}$ in time at most $O(\abs{\mathcal{J}}^r)$.
 \end{definition}
@@ -1273,7 +1273,7 @@ Weaknesses:
 
 \begin{definition}
 	Consider a decision problem $Q$ with respect to its collection
-	of potential solutions $S$. We say that a two-parameter algorithm 
+	of potential solutions $S$. We say that a two-parameter algorithm
 	$A$ is a \emph{verifier} for $Q$ iff for all instances
 	$\mathcal{J}$ of $Q$
 	\begin{align*}
@@ -1324,11 +1324,11 @@ Weaknesses:
 	The corresponding decision problem SAT is:
 	Given a CNF formula $\Phi=C_1\wedge\cdots\wedge C_m$ over
 	variables $\{x_1,...,x_n\}$, determine whether there is some
-	satisfying assignment for $\Phi$.	
+	satisfying assignment for $\Phi$.
 \end{definition}
 
 \begin{theorem}[Cook-Levin]
-	SAT is NP-complete.	
+	SAT is NP-complete.
 \end{theorem}
 
 \begin{definition}
@@ -1375,7 +1375,7 @@ Weaknesses:
 \subsubsection{Polynomial-time approximation}
 
 \begin{definition}[$\alpha$-approximation]
-	Consider some optimisation problem \textsf{OPT} where for a given 
+	Consider some optimisation problem \textsf{OPT} where for a given
 	instance $\mathcal{J}$, and the set of feasible solutions $y$,
 	$\textsf{OPT}(\mathcal{J})$ is the cost/value of the optimum $y$.\\
 	An algorithm $A$ is said to be an $\alpha$-approximation for \textsf{OPT}
@@ -1383,8 +1383,8 @@ Weaknesses:
 	$A(\mathcal{J})$ satisfying
 	\begin{align*}
 		A(\mathcal{J}) \begin{cases}
-			\leq \alpha \cdot \textsf{OPT}(\mathcal{J}) &\text{if \textsf{OPT} is a minimisation problem},\\
-			\geq 1/\alpha \cdot \textsf{OPT}(\mathcal{J}) &\text{if \textsf{OPT} is a maximisation problem}.
+			\leq \alpha \cdot \textsf{OPT}(\mathcal{J})   & \text{if \textsf{OPT} is a minimisation problem}, \\
+			\geq 1/\alpha \cdot \textsf{OPT}(\mathcal{J}) & \text{if \textsf{OPT} is a maximisation problem}.
 		\end{cases}
 	\end{align*}
 \end{definition}
@@ -1397,38 +1397,38 @@ Weaknesses:
 
 \begin{theorem}
 	The following algorithm is a 2-approximation for the vertex cover
-	problem.	
+	problem.
 	\begin{pseudo}
-	\textbf{function} \textsf{Approx-Vertex-Cover}$(G=(V,E))$:\\+
+		\textbf{function} \textsf{Approx-Vertex-Cover}$(G=(V,E))$:\\+
 		$C\leftarrow \emptyset$\\
 		$E'\leftarrow\emptyset$\\
 		\textbf{while} $E'\not=\emptyset$:\\+
-			$(u,v)\leftarrow\textsf{some edge in }E'$\\
-			$C\leftarrow C\cup\{u,v\}$\\
-			$E'\leftarrow E'\setminus\{(a,b)\in E : \{a,b\}\cap\{u,v\}\not=\emptyset\}$\\-
+		$(u,v)\leftarrow\textsf{some edge in }E'$\\
+		$C\leftarrow C\cup\{u,v\}$\\
+		$E'\leftarrow E'\setminus\{(a,b)\in E : \{a,b\}\cap\{u,v\}\not=\emptyset\}$\\-
 		\textbf{return} $C$
 	\end{pseudo}
 \end{theorem}
 
 \begin{definition}[MAX 3-SAT]
 	Given a 3-CNF formula $\Phi=C_1\wedge\cdots\wedge C_m$ over the variables
-	$x_1, ..., x_n$, determine the maximum number $k$ of clauses $C_i$ such 
-	that there exists an assignment of binary values to $x_1, ..., x_n$ that 
+	$x_1, ..., x_n$, determine the maximum number $k$ of clauses $C_i$ such
+	that there exists an assignment of binary values to $x_1, ..., x_n$ that
 	makes $k$ clauses satisfied.
 \end{definition}
 
 \begin{theorem}
 	The following algorithm is a $7/8$-approximation for \textsf{MAX 3-SAT}:
 	\begin{pseudo}
-	\textbf{function} \textsf{Greedy-3-SAT}$(\Phi, n, m)$:\\+
+		\textbf{function} \textsf{Greedy-3-SAT}$(\Phi, n, m)$:\\+
 		\textbf{for} $i\in\{1,...,n\}$:\\+
-			$E_0 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=0)$\\
-			$E_1 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=1)$\\
-			\textbf{if} $E_0\geq E_1$:\\+
-				$b_i\leftarrow 0$\\-
-			\textbf{else}:\\+
-				$b_i\leftarrow 1$\\-
-			Update $\Phi$ by fixing $x_i=b_i$\\-
+		$E_0 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=0)$\\
+		$E_1 \leftarrow E(Y|x_1=b_1, ...,x_{i-1}=b_{i-1},x_i=1)$\\
+		\textbf{if} $E_0\geq E_1$:\\+
+		$b_i\leftarrow 0$\\-
+		\textbf{else}:\\+
+		$b_i\leftarrow 1$\\-
+		Update $\Phi$ by fixing $x_i=b_i$\\-
 		\textbf{return }$\vec b$
 	\end{pseudo}
 \end{theorem}
@@ -1443,14 +1443,14 @@ Weaknesses:
 \subsubsection{Na\"ive backtracking}
 
 \begin{pseudo}
-\textbf{function} \textsf{SAT-backtrack}$(\Phi=C_1\wedge\cdots\wedge C_m, \mathcal{J}, b)$:\\+
+	\textbf{function} \textsf{SAT-backtrack}$(\Phi=C_1\wedge\cdots\wedge C_m, \mathcal{J}, b)$:\\+
 	\textbf{if} $m=0$:\\+ \textbf{return} \textsf{true}\\-
 	\textbf{if} $\exists$ empty clause in $\Phi$:\\+
-		\textbf{return} \textsf{false}\\-
-    $i\leftarrow\text{some index in $[n]\setminus\mathcal{J}$}$\\
+	\textbf{return} \textsf{false}\\-
+	$i\leftarrow\text{some index in $[n]\setminus\mathcal{J}$}$\\
 	$\Phi'\leftarrow\Phi(x_i\leftarrow 0)$\\
 	\textbf{if} \textsf{SAT-backtrack}$(\Phi', \mathcal{J}\cup\{i\}, b\cup\{x_i=0\})$:\\+
-		\textbf{return} \textsf{true}\\-
+	\textbf{return} \textsf{true}\\-
 	$\Phi'\leftarrow\Phi(x_i\leftarrow 1)$\\
 	\textbf{return} \textsf{SAT-backtrack}$(\Phi',\mathcal{J}\cup\{i\}, b\cup\{x_i=1\})$
 \end{pseudo}
@@ -1458,17 +1458,17 @@ Weaknesses:
 \subsubsection{Davis, Putnam, Logemann, Loveland (DPLL)}
 
 \begin{pseudo}
-\textbf{function} \textsf{DPLL}$(\Phi=C_1\wedge\cdots\wedge C_m)$:\\+
+	\textbf{function} \textsf{DPLL}$(\Phi=C_1\wedge\cdots\wedge C_m)$:\\+
 	\textbf{if} every literal in $\Phi$ is pure:\\+\textbf{return} \textsf{true}\\-
 	\textbf{if} some clause in $\Phi$ is empty:\\+\textbf{return} \textsf{false}\\-
 	\textbf{while} $\exists$ unit clause $l$ in $\Phi$:\\+
-		\textbf{if} $l$ is $x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 1)$\\-
-		\textbf{else if} $l$ is $\neg x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 0)$\\--
+	\textbf{if} $l$ is $x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 1)$\\-
+	\textbf{else if} $l$ is $\neg x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 0)$\\--
 	\textbf{while} $\exists$ pure literal $l$ in $\Phi$:\\+
-		\textbf{if} $l$ is $x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 1)$\\-
-		\textbf{else if} $l$ is $\neg x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 0)$\\--
-    $x\leftarrow\text{undetermined variable in }\Phi$\\
-	\textbf{return} \textsf{DPLL}$(\Phi(x\leftarrow 0))$ 
+	\textbf{if} $l$ is $x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 1)$\\-
+	\textbf{else if} $l$ is $\neg x_i$:\\+$\Phi\leftarrow\Phi(x_i\leftarrow 0)$\\--
+	$x\leftarrow\text{undetermined variable in }\Phi$\\
+	\textbf{return} \textsf{DPLL}$(\Phi(x\leftarrow 0))$
 	\textbf{or}     \textsf{DPLL}$(\Phi(x\leftarrow 1))$
 \end{pseudo}
 
@@ -1517,9 +1517,9 @@ Weaknesses:
 	an exit. Let $m,n\in\N$. Then the function $h$ given by
 	\begin{align*}
 		h(m,n)=\begin{cases}
-			0 &\text{if machine $m$ halts on input $n$,}\\
-			1 &\text{otherwise}
-		\end{cases}	
+			0 & \text{if machine $m$ halts on input $n$,} \\
+			1 & \text{otherwise}
+		\end{cases}
 	\end{align*}
 	is not RM-computable.
 \end{theorem}

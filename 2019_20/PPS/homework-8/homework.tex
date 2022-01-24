@@ -10,33 +10,33 @@
 \maketitle
 \section*{Problem 1}
 \begin{claim}
-  Let $S$ be the set of functions $f:\R\to\R$ and let $\sim$ be a relation on $S$ such that $f\sim g$ if $f(x)=g(x)$ except possibly at finitely many points. 
+  Let $S$ be the set of functions $f:\R\to\R$ and let $\sim$ be a relation on $S$ such that $f\sim g$ if $f(x)=g(x)$ except possibly at finitely many points.
   Then $\sim$ is an equivalence relation.
 \end{claim}
 \begin{proof}
   The relation is reflexive since $f(x)=f(x)$ for all $x\in\R$.\\
-  Let $A\subset \R$ be a finite set such that 
+  Let $A\subset \R$ be a finite set such that
   $
     x \in A \Leftrightarrow f(x)\not= g(x)
   $
   for some $f,g\in S$.
-  Then 
+  Then
   $
     x\in A \Leftrightarrow g(x)\not=f(x)
   $
   and, since $A$ is still finite, $\sim$ is symmetric.\\
-  Let $f,g,h \in S$ and let $A$ and $B$ be finite sets such that 
+  Let $f,g,h \in S$ and let $A$ and $B$ be finite sets such that
   \begin{align*}
-    x\in A \Leftrightarrow f(x)\not= g(x),\\
+    x\in A \Leftrightarrow f(x)\not= g(x), \\
     x\in B \Leftrightarrow g(x)\not= h(x).
   \end{align*}
   This implies that $f\sim g$ and $g\sim h$. Since for all $x\not\in A\cup B$
   \begin{align*}
     f(x)=g(x)=h(x)
   \end{align*}
-  we conclude that $C\subseteq A \cup B$ where $C$ is the set such that $x\in C \Leftrightarrow f(x)\not=h(x)$. 
+  we conclude that $C\subseteq A \cup B$ where $C$ is the set such that $x\in C \Leftrightarrow f(x)\not=h(x)$.
   Since $A$ and $B$ are finite, so is $C$ and thus $f\sim h$ which makes $\sim$ transitive.\\
-  Since $\sim$ is reflexive, symmetric and transitive, it is an equivalence relation. 
+  Since $\sim$ is reflexive, symmetric and transitive, it is an equivalence relation.
 \end{proof}
 \section*{Problem 2}
 \begin{claim}
@@ -51,7 +51,7 @@
   \begin{align*}
     f\left(\{x\}\right)=\{f(x)\},
   \end{align*}
-  but 
+  but
   \begin{align*}
     f^{-1}\left(f(\{x\})\right)=f^{-1}\left(\{f(x)\}\right)=\{x,y\}\not=\{x\}.
   \end{align*}
@@ -68,7 +68,7 @@
   \begin{align*}
     f^{-1}(f(A)) = A.
   \end{align*}
-  This proves $Q\Rightarrow P$.\\  
+  This proves $Q\Rightarrow P$.\\
   Since $P\Rightarrow Q$ and $Q\Rightarrow P$, $P\Leftrightarrow Q$.
 \end{proof}
 \section*{Problem 3}
@@ -81,7 +81,7 @@
     Let $f:X\to Y$ and $g:Y\to Z$ be functions such that $f\circ g$ is bijective. Then $f$ is injective.
   \end{lemma}
   \begin{proof}
-    By contradiction. Assume $f$ is not injective, i.e. 
+    By contradiction. Assume $f$ is not injective, i.e.
     \begin{align*}
       \exists x,y \in X \st x \not= y \text{ and } f(x) = f(y).
     \end{align*}
@@ -130,5 +130,5 @@
   Thus the assumption has to be unsatisfiable and $f$ is always bijective.
 \end{proof}
 \emph{Note: The step between the statements \ref{eq1} and \ref{eq2} might seem arbitrary but you can see why it is true if you plug all of $Y$ into $g$.
-You then get $g(y)=z$, $g(f(x))=(f\circ g)(x)$ and $g(Y)=Z$. Since $y_1=y_2\Leftrightarrow g(y_1)=g(y_2)$, both statements are still equivalent after the transformation of $Y$ with $g$.}
+  You then get $g(y)=z$, $g(f(x))=(f\circ g)(x)$ and $g(Y)=Z$. Since $y_1=y_2\Leftrightarrow g(y_1)=g(y_2)$, both statements are still equivalent after the transformation of $Y$ with $g$.}
 \end{document}

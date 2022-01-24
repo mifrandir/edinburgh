@@ -62,8 +62,8 @@ Since $X\sim\text{Binom(5,p)}$, we get
 \end{align*}
 which may be simplified to
 \begin{align*}
-  p^5+5p^4(1-p) &= \nicefrac{1}{2}\\
-  \Leftrightarrow 5p^4-4p^5&=\nicefrac{1}{2}
+  p^5+5p^4(1-p)             & = \nicefrac{1}{2} \\
+  \Leftrightarrow 5p^4-4p^5 & =\nicefrac{1}{2}
 \end{align*}
 Finding an exact solution to this polynomial is unrealistic.
 Therefore we can use Wolfram Alpha to compute three possible real solutions:
@@ -81,25 +81,25 @@ probability, we get
 
 
 Let $X_i$ be a Bernoulli random variable for the state of the switch described in the
-problem on a given day $i$ and let $A_i$ be the event that $X_i=1$ on the $i$th day, 
-i.e. the switch is "on" on that day. 
-Using the \emph{law of total probability} we find for the probability of the switch 
+problem on a given day $i$ and let $A_i$ be the event that $X_i=1$ on the $i$th day,
+i.e. the switch is "on" on that day.
+Using the \emph{law of total probability} we find for the probability of the switch
 being "on" on day $i$
 \begin{align*}
   \P(A_{i+1}) = \P(A^c_i)\P(A^c_i | A_{i+1}) + \P(A_i)\P(A_i|A_{i+1})
 \end{align*}
-Since all days are claimed to be 
+Since all days are claimed to be
 identical, we assume that there exists a $p\in[0,1]$ such that for all $i$,
 $\P(A_i)=p$. Thus
 \begin{align*}
   p = (1-p)\P(A^c_i|A_{i+1}) + p\P(A_i|A_{i+1}).
 \end{align*}
-The remaining probabilities, namely $\P(A^c_i|A_{i+1})=1/4$ and $\P(A_i|A_{i+1})=1/2$, 
+The remaining probabilities, namely $\P(A^c_i|A_{i+1})=1/4$ and $\P(A_i|A_{i+1})=1/2$,
 are given in the question. Inserting them results in the equation
 \begin{align*}
   p=\frac{1-p}{4} + \frac{p}{2}.
 \end{align*}
-We can solve for $p$ to find 
+We can solve for $p$ to find
 \begin{align*}
   p=\frac{1}{3}
 \end{align*}

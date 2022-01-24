@@ -10,23 +10,23 @@
 The given statement is true. Proof:\\
 Let $A$ be an $n\times n$ matrix where
 \begin{align*}
-    A&=\begin{bmatrix}
-        \vec a_1&\vec a_2&\cdots&\vec a_n
+    A & =\begin{bmatrix}
+        \vec a_1 & \vec a_2 & \cdots & \vec a_n
     \end{bmatrix}
 \end{align*}
 and
 \begin{align*}
-    A\vec v &= \lambda\vec v.
+    A\vec v & = \lambda\vec v.
 \end{align*}
 According to the definition of the matrix multiplication we get
 \begin{align*}
-    A\vec v &= \begin{bmatrix}
-        v_1a_{11} + v_2a_{12} + \cdots + v_na_{1n}\\
-        v_1a_{21} + v_2a_{22} + \cdots + v_na_{2n}\\
-        \vdots\\
+    A\vec v & = \begin{bmatrix}
+        v_1a_{11} + v_2a_{12} + \cdots + v_na_{1n} \\
+        v_1a_{21} + v_2a_{22} + \cdots + v_na_{2n} \\
+        \vdots                                     \\
         v_1a_{n1} + v_2a_{n2} + \cdots + v_na_{nn}
-    \end{bmatrix}\\
-    &= v_1\vec a_1 + v_2\vec a_2 + \cdots + v_n\vec a_n = \lambda \vec v
+    \end{bmatrix}                                         \\
+            & = v_1\vec a_1 + v_2\vec a_2 + \cdots + v_n\vec a_n = \lambda \vec v
 \end{align*}
 Therefore, with $\lambda\not=0$,
 \begin{align*}
@@ -36,7 +36,7 @@ which shows that the eigenvector $\vec v$ of $A$ is a linear combination of the 
 \section*{Dec 14: A4}
 \subsection*{(a)}
 The given statement is false. Proof:\\
-We know that, in general, 
+We know that, in general,
 \begin{align*}
     A\vec v = \lambda\vec v \Rightarrow A^2\vec v = \lambda^2\vec v
 \end{align*}
@@ -46,7 +46,7 @@ Thus the eigenvalues of $AB=A^2$ are $\lambda_1^2, \lambda_2^2, ..., \lambda_n^2
 Let $A$ be the $2\times2$ matrix
 \begin{align*}
     A = \begin{bmatrix}
-        2 &0\\ 0& 3
+        2 & 0 \\ 0& 3
     \end{bmatrix}.
 \end{align*}
 Therefore $\lambda_1=2$ and $\lambda_2=3$ are eigenvalues of $A$. You can see that the matrix $A^2$ only has the eigenvalues $\lambda_3=4$ and $\lambda_4=9$. Therefore neither $\lambda_1$ nor $\lambda_2$ are eigenvalues of $A^2=AB$ even though they are both eigenvalues of $A$ and $B$. $\square$
@@ -58,10 +58,10 @@ Let $A$ and $B$ be two $n\times n$ matrices and let
 \end{align*}
 Therefore
 \begin{align*}
-    AB\vec v &= A(B\vec v)\\
-    &= A(\lambda_B\vec v)\\
-    &= \lambda_B(A\vec v)\\
-    &=\lambda_A\lambda_B\vec v
+    AB\vec v & = A(B\vec v)              \\
+             & = A(\lambda_B\vec v)      \\
+             & = \lambda_B(A\vec v)      \\
+             & =\lambda_A\lambda_B\vec v
 \end{align*}
 Therefore $\vec v$ is an eigenvector of $AB$ with eigenvalue $\lambda_{AB}=\lambda_A\lambda_B$. $\square$
 \end{document}

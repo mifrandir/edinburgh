@@ -13,16 +13,16 @@
    and its derivative $f'$ is bounded on $I$. Then $f$ is uniformly convergent.
 \end{claim*}
 \begin{proof}
-   Find $M$ such that $\abs{f'(x)} \leq M$ for all $x\in I$. By the 
+   Find $M$ such that $\abs{f'(x)} \leq M$ for all $x\in I$. By the
    \emph{Mean Value Theorem} we know that for any closed interval $[a,b]\subset I$,
    \begin{align*}
       -M(b-a) \leq f(b) - f(a) \leq M(b-a)
    \end{align*}
-   or equivalently 
+   or equivalently
    \begin{align*}
       \abs{f(b)-f(a)} \leq M(b-a).
    \end{align*}
-   Fix $\e>0$. We choose $\delta = \e/M$. Let $x,y\in I$ be such that $\abs{x-y}<\delta$ 
+   Fix $\e>0$. We choose $\delta = \e/M$. Let $x,y\in I$ be such that $\abs{x-y}<\delta$
    and assume without loss of generality that $x>y$. Then
    \begin{align*}
       \abs{f(x) - f(y)} \leq M(x-y) = M\abs{x-y} < M\delta = \e.
@@ -33,7 +33,7 @@
 
 \begin{claim*}
    Let $I$ be any interval in $\R$. A function $f:I\to\R$ is uniformly continuous
-   on $I$ if and only if whenever $s_n,t_n\in I$ are sequences such that 
+   on $I$ if and only if whenever $s_n,t_n\in I$ are sequences such that
    $\abs{s_n-t_n}\to 0$, then $\abs{f(s_n)-f(t_n)}\to 0$.
 \end{claim*}
 \begin{proof}
@@ -42,26 +42,26 @@
    as $n\to\infty$. Let $\e>0$ and choose $\delta > 0$
    such that for all $x,y\in I$ where $\abs{x-y}<\delta$,
    \begin{align*}
-      \abs{f(x)-f(y)}<\e. 
+      \abs{f(x)-f(y)}<\e.
    \end{align*}
    Then choose $N$ such that for all $n>N$,
    \begin{align*}
       \abs{s_n-t_n} < \delta.
    \end{align*}
-   Then for all $n>N$ we have $\abs{s_n-t_n}<\delta$ which implies $\abs{f(s_n)-f(t_n)}<\e$ 
+   Then for all $n>N$ we have $\abs{s_n-t_n}<\delta$ which implies $\abs{f(s_n)-f(t_n)}<\e$
    by definition.
 
-   ($\Leftarrow$) By contradiction. 
-   Let $f:I\to\R$ be such that whenever $\abs{s_n-t_n}\to 0$, we have 
+   ($\Leftarrow$) By contradiction.
+   Let $f:I\to\R$ be such that whenever $\abs{s_n-t_n}\to 0$, we have
    $\abs{f(s_n)-f(t_n)}\to 0$.  Assume $f:I\to\R$ is not uniformly continuous.
-   Then there exists $\e > 0$ such that for all $\delta>0$ there are $x,y\in I$ for 
-   which $\abs{x-y}<\delta$ but $\abs{f(x)-f(y)}\geq \e$. Find such $\e>0$. Then let 
-   $(\delta_n)$ be a sequence where $\delta_n>0$ for all $n\in\N$ and $\delta_n\to 0$ as $n\to\infty$. 
+   Then there exists $\e > 0$ such that for all $\delta>0$ there are $x,y\in I$ for
+   which $\abs{x-y}<\delta$ but $\abs{f(x)-f(y)}\geq \e$. Find such $\e>0$. Then let
+   $(\delta_n)$ be a sequence where $\delta_n>0$ for all $n\in\N$ and $\delta_n\to 0$ as $n\to\infty$.
    Then for each $n\in\N$ find $s_n,t_n$ such that
    \begin{align*}
       \abs{s_n-t_n} < \delta_n \hs\text{but}\hs \abs{f(s_n)-f(t_n)} \geq \e.
    \end{align*}
-   Observe that by the \emph{Squeeze Theorem} $\abs{s_n-t_n}\to 0$, but clearly 
+   Observe that by the \emph{Squeeze Theorem} $\abs{s_n-t_n}\to 0$, but clearly
    $\abs{f(s_n)-f(t_n)}\not\to 0$. This contradicts the premise and thereby proves that $f$
    is uniformly continuous on $I$.
 \end{proof}
@@ -75,7 +75,7 @@
    By contradiction. Assume $f$ is not uniformly continuous. Then there exists an $\e>0$
    such that for all $\delta > 0$ there are $x,y\in[a,b]$ such that $\abs{x-y}<\delta$
    but $\abs{f(x)-f(y)}\geq\e$. Fix $\e>0$. Let $(\delta_n)$ be such that $\delta_n\to 0$
-   as $n\to\infty$ and $\delta_n > 0$ for all $n\in\N$. Find $x_n,y_n\in[a,b]$ such that 
+   as $n\to\infty$ and $\delta_n > 0$ for all $n\in\N$. Find $x_n,y_n\in[a,b]$ such that
    $\abs{x_n-y_n}<\delta_n$ but
    \begin{align}
       \label{geqe}
@@ -83,8 +83,8 @@
    \end{align}
 
    By the \emph{Bolzano-Weierstrass theorem} there must be a subsequence $x_{n_k}$
-   such that $x_{n_k}\to L\in\R$ as $k\to\infty$. In particular, fix $\e'>0$. Then there 
-   exists $K_1\in\N$ such that for all $k>K_1$, 
+   such that $x_{n_k}\to L\in\R$ as $k\to\infty$. In particular, fix $\e'>0$. Then there
+   exists $K_1\in\N$ such that for all $k>K_1$,
    \begin{align*}
       \abs{x_{n_k}-L}<\frac{\e'}{2},
    \end{align*}
@@ -92,9 +92,9 @@
    \begin{align*}
       \abs{x_{n_k}-y_{n_k}} < \frac{\e'}{2}.
    \end{align*}
-   Choose $K=\max\{K_1,K_2\}$. Then for all $k>K$, $\abs{y_{n_k} - L} < \e'$. Thus 
+   Choose $K=\max\{K_1,K_2\}$. Then for all $k>K$, $\abs{y_{n_k} - L} < \e'$. Thus
    $y_{n_k} \to L$ as $k\to\infty$.
-   Therefore 
+   Therefore
    \begin{align*}
       \lim_{k\to\infty} \abs{f(x_{n_k})-f(y_{n_k})}
       = \abs{\lim_{k\to\infty} f(x_{n_k})-\lim_{k\to\infty} f(y_{n_k})}

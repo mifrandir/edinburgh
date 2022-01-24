@@ -27,7 +27,7 @@ Since, by definition, $\P(A_n|B)=1$, this simplifies to
   \P(B|A_n) = \frac{\P(B)}{\P(A_n)}.
 \end{align}
 Further, we know $\P(B)=1/1000$. We can use the \emph{Law of Total
-Probability} to find
+  Probability} to find
 \begin{align*}
   \P(A_n)=\P(A_n|B)\P(B) + \P(A_n|B^c)\P(B^c)
   =\frac{1}{1000}+\frac{999}{1000}\left(\frac{1}{2}\right)^n.
@@ -66,9 +66,9 @@ We can move the constants out of the sum to find
 \begin{align*}
   X_n = 2\sum_{i=1}^n W_i - n.
 \end{align*}
-Since a binomial random variable with $n$ trials is, by definition, the 
+Since a binomial random variable with $n$ trials is, by definition, the
 sum of $n$ Bernoulli variables, we can define $B_n\sim\Binom(n,1/2)$
-and write 
+and write
 \begin{align*}
   X_n = 2B_n - n
 \end{align*}
@@ -167,8 +167,8 @@ In the case $r>1$ we can apply \emph{L'H\^opital's rule} as follows:
 Thus, in general,
 \begin{align*}
   L = \begin{cases}
-    r^k &\text{if }r<1\\
-    1 &\text{if }r>1
+    r^k & \text{if }r<1 \\
+    1   & \text{if }r>1
   \end{cases}.
 \end{align*}
 Thus, if we were to remove the upper bound $n$ and extend the walk to the entirety

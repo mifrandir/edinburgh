@@ -15,7 +15,7 @@ Data representation affects
 \begin{itemize}
 	\item complexity of circuits
 	\item cost
-	\item speed 
+	\item speed
 	\item reliability
 \end{itemize}
 \subsection{The bit}
@@ -48,10 +48,10 @@ Idea:
 	\item Want: $X + (-X) = 0$
 	\item With fixed length arithmetic: $X + (-X) \equiv 0 \mod 2^N$
 	\item Approach:
-	\begin{itemize}
-		\item Represent $-X$ as $2^N-X$
-		\item Then $X + (-X) = X + (2^N - X) = 2^N$ and $2^N \equiv 0 \mod 2^N$
-	\end{itemize}
+	      \begin{itemize}
+		      \item Represent $-X$ as $2^N-X$
+		      \item Then $X + (-X) = X + (2^N - X) = 2^N$ and $2^N \equiv 0 \mod 2^N$
+	      \end{itemize}
 \end{itemize}
 Properties:
 \begin{itemize}
@@ -60,7 +60,7 @@ Properties:
 	\item $A-B$ is the same as $A+(-B)$; same circuit
 	\item Operations do not depend on the operands' signs
 	\item Range is asymmetric: $[-2^{n-1}, 2^{n-1}-1]$
-	\item Two kinds of overflows 
+	\item Two kinds of overflows
 \end{itemize}
 \subsubsection{Sign extension}
 Process of converting from a smaller to a larger representation.
@@ -72,29 +72,29 @@ MSB is extended to all the new bits.
 \end{enumerate}
 \begin{tabular}{| c | c | c | c |}
 	\hline
-	Operation & Operand A & Operand B & Result of Overflow\\
+	Operation & Operand A & Operand B & Result of Overflow \\
 	\hline
-	$A + B$ & $\geq 0$ & $\geq 0$ & $<0$\\
+	$A + B$   & $\geq 0$  & $\geq 0$  & $<0$               \\
 	\hline
-	$A + B$ & $< 0$    & $< 0$    & $\geq 0$\\
+	$A + B$   & $< 0$     & $< 0$     & $\geq 0$           \\
 	\hline
-	$A - B$ & $\geq 0$ & $< 0$    & $<0$\\
+	$A - B$   & $\geq 0$  & $< 0$     & $<0$               \\
 	\hline
-	$A - B$ & $< 0$    & $\geq 0$ & $\geq 0$\\
+	$A - B$   & $< 0$     & $\geq 0$  & $\geq 0$           \\
 	\hline
 \end{tabular}
 \subsection{Shifting}
 Moving the bits of a number left or right.
 \begin{itemize}
 	\item left shifts: \begin{itemize}
-		\item zeros fill in the empty bits
-		\item equivalent to multiplication by $2$
-	\end{itemize}
+		      \item zeros fill in the empty bits
+		      \item equivalent to multiplication by $2$
+	      \end{itemize}
 	\item right shifts \begin{itemize}
-		\item logical shift: fill with zero, for non-numerical data
-		\item arithmetic shift: fill with MSB, for two's complement numbers
-		\item equivalent to integer division by $2$
-	\end{itemize}
+		      \item logical shift: fill with zero, for non-numerical data
+		      \item arithmetic shift: fill with MSB, for two's complement numbers
+		      \item equivalent to integer division by $2$
+	      \end{itemize}
 \end{itemize}
 \subsection{Floating point numbers}
 \subsubsection{Normalised scientific notation}
@@ -112,12 +112,12 @@ Advantages:
 32 bit:
 \begin{tabular}{| l | l | l | l |}
 	\hline
-	word length & sign ($S$) & exponent ($E$) & mantissa ($M$)\\
+	word length & sign ($S$) & exponent ($E$) & mantissa ($M$) \\
 	\hline
 	\hline
-	32 bit & 1 bit & 8 bits & 23 bits\\
+	32 bit      & 1 bit      & 8 bits         & 23 bits        \\
 	\hline
-	64 bit & 1 bit & 11 bits & 52 bits\\
+	64 bit      & 1 bit      & 11 bits        & 52 bits        \\
 	\hline
 \end{tabular}\\\\
 This results in the number
@@ -141,11 +141,11 @@ This results in the number
 	\item variable length
 	\item computer needs to know where it ends
 	\item options:
-	\begin{itemize}
-		\item last character is \T{NULL} (C)
-		\item length is stored with the string itself (Java)
-		\item stored in separate variable 
-	\end{itemize}
+	      \begin{itemize}
+		      \item last character is \T{NULL} (C)
+		      \item length is stored with the string itself (Java)
+		      \item stored in separate variable
+	      \end{itemize}
 \end{itemize}
 \section{Design Principles}
 \begin{enumerate}
@@ -160,7 +160,7 @@ This results in the number
 	the software and the hardware.
 	\begin{itemize}
 		\item Collection of all machine instructions recognised by
-					a particular processor.
+		      a particular processor.
 		\item privilege levels, memory managment, etc.
 		\item abstracts away implementation details away from the user
 		\item enables multiple implementations of the same ISA
@@ -171,7 +171,7 @@ This results in the number
 	\begin{itemize}
 		\item makes it easy for humans to read and write machine code
 		\item 1-to-1 mapping between a machine instructions and a corresponding
-			    assembly instruction
+		      assembly instruction
 	\end{itemize}
 \end{definition}
 \subsection{Instructions}
@@ -181,12 +181,12 @@ This results in the number
 
 \begin{tabular}{| l | l | l | l |}
 	\hline
-	Category & Instruction & Example & Meaning	\\
+	Category   & Instruction & Example                & Meaning                \\
 	\hline
 	\hline
-	Arithmetic & add & \T{add \$s1,\$s2,\$s3} & \T{\$s1 = \$s2 + \$s3} \\
+	Arithmetic & add         & \T{add \$s1,\$s2,\$s3} & \T{\$s1 = \$s2 + \$s3} \\
 	\hline
-	Arithmetic & sub & \T{sub \$s1,\$s2,\$s3} & \T{\$s1 = \$s2 - \$s3} \\
+	Arithmetic & sub         & \T{sub \$s1,\$s2,\$s3} & \T{\$s1 = \$s2 - \$s3} \\
 	\hline
 \end{tabular}
 \subsection{Fields}
@@ -198,30 +198,30 @@ This results in the number
 	\item \textbf{shamt}: Shift amount
 	\item \textbf{funct}: Function
 \end{itemize}
-\newcommand{\cellw}{1.3cm}	
+\newcommand{\cellw}{1.3cm}
 \begin{tabular}{l l}
 	\textbf{R-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} |}
 		\hline
-		op & rs & rt & rd & shamt & funct \\
-		\hline 
-		6 bits & 5 bits & 5 bits & 5 bits & 5 bits & 6 bits\\
-		\hline	
-	\end{tabular}\\\\
+		op     & rs     & rt     & rd     & shamt  & funct  \\
+		\hline
+		6 bits & 5 bits & 5 bits & 5 bits & 5 bits & 6 bits \\
+		\hline
+	\end{tabular} \\\\
 	\textbf{I-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} | p{\cellw} | p{\cellw} p{\cellw} p{\cellw} |}
 		\hline
-		op & rs & rt & address & & \\
+		op     & rs     & rt     & address &  & \\
 		\hline
-		6 bits & 5 bits & 5 bits & 16 bits & & \\
+		6 bits & 5 bits & 5 bits & 16 bits &  & \\
 		\hline
-	\end{tabular}\\\\
+	\end{tabular} \\\\
 	\textbf{J-type:} &
 	\begin{tabular}{| p{\cellw} | p{\cellw} p{\cellw} p{\cellw} p{\cellw} p{\cellw} |}
 		\hline
-		op & address & & & & \\
+		op     & address &  &  &  & \\
 		\hline
-		6 bits & 26 bits & & & & \\
+		6 bits & 26 bits &  &  &  & \\
 		\hline
 	\end{tabular}
 \end{tabular}
@@ -341,14 +341,14 @@ More info at \emph{P\&H, Section 3.9, Page 158}.
 \subsection{Binary digital logic circuits}
 \begin{itemize}
 	\item Two voltage levels \begin{itemize}
-		\item built from transistors
-		\item analog circuits not very suitable for generic computing
-		\item digital logic with more than two states is not practical 
-	\end{itemize}
-    \item types of circuits \begin{itemize}
-		\item combinational logic: outputs depend only on inputs
-		\item sequential logic: outputs depend on inputs and state
-	\end{itemize}
+		      \item built from transistors
+		      \item analog circuits not very suitable for generic computing
+		      \item digital logic with more than two states is not practical
+	      \end{itemize}
+	\item types of circuits \begin{itemize}
+		      \item combinational logic: outputs depend only on inputs
+		      \item sequential logic: outputs depend on inputs and state
+	      \end{itemize}
 \end{itemize}
 \subsection{Gates}
 \begin{itemize}
@@ -368,11 +368,11 @@ Sets of functional complete gates
 	The multiplexer $z:\Z_2^3\to\Z_2$ is defined as
 	\begin{align*}
 		z(i_0,i_1,c) = \begin{cases}
-			i_0 &\text{iff }c=0\\
-			i_1 &\text{iff }c=1
+			i_0 & \text{iff }c=0 \\
+			i_1 & \text{iff }c=1
 		\end{cases}
 	\end{align*}
-	In terms of boolean expression, $z$ is equivalent to the following 
+	In terms of boolean expression, $z$ is equivalent to the following
 	\begin{align*}
 		z(i_0,i_1,c) = \neg c i_0 \vee ci_1.
 	\end{align*}
@@ -381,9 +381,9 @@ Sets of functional complete gates
 Because building circuits for many inputs is complicated, we need modules.
 \begin{itemize}
 	\item Full adder: $f:\Z_2^3\to\Z_2^2$\begin{itemize}
-		\item $f_s(a,b,c_{in})=\bar{a}\bar{b}c\vee \bar{a}b\bar{c} \vee a\bar{b}\bar{c} \vee abc$
-		\item $f_{c_{out}}(a,b,c_in)=bc\vee ac\vee ab$
-	\end{itemize}
+		      \item $f_s(a,b,c_{in})=\bar{a}\bar{b}c\vee \bar{a}b\bar{c} \vee a\bar{b}\bar{c} \vee abc$
+		      \item $f_{c_{out}}(a,b,c_in)=bc\vee ac\vee ab$
+	      \end{itemize}
 	\item Ripple carry adder (n-bit): Chain of n full adders
 \end{itemize}
 \subsection{Propagation delay}
@@ -404,7 +404,7 @@ $\Rightarrow$ 65 gates are necessary to compute the final bit of the sum.
 	\item sequences of inputs generate sequences of outputs $\Rightarrow$ \textbf{sequential logic}
 \end{itemize}
 Simplest memory element: $O_t = I_t \vee O_{t-1}$ where $O_{t-1}$ is the feedback from the last
-computation. 
+computation.
 \subsection{Memory}
 SR Latch:
 \begin{itemize}
@@ -423,9 +423,9 @@ Problem: Different paths may have different delays. This leads to invalid output
 	\item single input $D$, $R=\neg D$ and $S=D$
 	\item clock before inputs to SR latch
 	\item behaviour: \begin{itemize}
-		\item $Q$ does not change when clock is $0$
-		\item $Q$ can change while clock is $1$
-	\end{itemize}
+		      \item $Q$ does not change when clock is $0$
+		      \item $Q$ can change while clock is $1$
+	      \end{itemize}
 \end{itemize}
 \textbf{Edge-triggered D flip-flop}:
 \begin{itemize}
@@ -436,19 +436,19 @@ Problem: Different paths may have different delays. This leads to invalid output
 	\item tie multiple $D$ flip-flops together using a common clock
 \end{itemize}
 \begin{definition}
-Difference between latch and flip flop:
-\begin{enumerate}
-	\item A latch is \textbf{level triggered}.
-	\item A flip flop is \textbf{edge triggered}.
-\end{enumerate}
+	Difference between latch and flip flop:
+	\begin{enumerate}
+		\item A latch is \textbf{level triggered}.
+		\item A flip flop is \textbf{edge triggered}.
+	\end{enumerate}
 \end{definition}
 \section{Processor Design}
 \subsection{Measuring processor speed}
 \begin{theorem}
 	\label{exectime}
-	For any program we find 
+	For any program we find
 	\begin{align*}
-		\text{exectution time} 
+		\text{exectution time}
 		= \frac{\text{instruction count} \times \text{cycle time}}{\text{clock frequency}}.
 	\end{align*}
 \end{theorem}
@@ -471,7 +471,7 @@ Difference between latch and flip flop:
 \begin{itemize}
 	\item actually the first step
 	\item write $\texttt{PC}=\texttt{PC}+4$ immediately
-	\item this is \textbf{concurrent} with everything else, but clock stops the PC output from changing 
+	\item this is \textbf{concurrent} with everything else, but clock stops the PC output from changing
 \end{itemize}
 \subsubsection{R-Format Instructions}
 \begin{enumerate}
@@ -490,13 +490,13 @@ Difference between latch and flip flop:
 \begin{enumerate}
 	\item Read register operands
 	\item Compare operands \begin{itemize}
-		\item use ALU, subtract and check ALU's Zero output 
-	\end{itemize}
+		      \item use ALU, subtract and check ALU's Zero output
+	      \end{itemize}
 	\item Calculate target address \begin{itemize}
-		\item sign-extend the immediate
-		\item shift left 2 places
-		\item add to $\texttt{PC}+4$
-	\end{itemize}
+		      \item sign-extend the immediate
+		      \item shift left 2 places
+		      \item add to $\texttt{PC}+4$
+	      \end{itemize}
 \end{enumerate}
 \subsubsection{Handling Merging Wires}
 \begin{itemize}
@@ -527,7 +527,7 @@ Components:
 \textbf{Data required in subsequent cycles must be stored somewhere.}
 \begin{itemize}
 	\item used by subsequent instructions: registers \& memory
-	\item used by current instruction: special registers (not visible to programmer) 
+	\item used by current instruction: special registers (not visible to programmer)
 \end{itemize}
 \subsubsection{Process}
 \textbf{Cycle 1:} Fetch (access memory)
@@ -597,7 +597,7 @@ repeat this pattern infinitely. Number of cycles per instruction in modern proce
 Programmers want:
 \begin{itemize}
 	\item large
-	\item fast 
+	\item fast
 	\item random access
 \end{itemize}
 \Rightarrow not with a single kind of memory.
@@ -618,11 +618,11 @@ Use a combination of memory kinds
 
 \begin{definition}[Temporal Locality]
 	A recently accessed memory location (instruction or data) is likely to be accessed again in the
-	near future.	
+	near future.
 \end{definition}
 \begin{definition}[Spatial Locality]
 	Memory locations (instructions or data) close to a recently accessed location are likely to be
-	accessed in the near future.	
+	accessed in the near future.
 \end{definition}
 \begin{theorem}
 	Locality exists in programs because
@@ -656,7 +656,7 @@ Addresses temporal locality:
 \begin{itemize}
 	\item registers: words (4-8 bytes)
 	\item cache: blocks (16-128 bytes)
-	\item main memory: pages (1KB-2MB) 
+	\item main memory: pages (1KB-2MB)
 \end{itemize}
 
 \subsection{Data transfers}
@@ -665,7 +665,7 @@ Addresses temporal locality:
 \begin{itemize}
 	\item Software (compiler): Between registers and cache/main memory
 	\item Software (OS): Between main memory and storage
-	\item Hardware: Between main memory and cache 
+	\item Hardware: Between main memory and cache
 \end{itemize}
 
 
@@ -676,10 +676,10 @@ Addresses temporal locality:
 	\item Occurs between cache memory and main memory levels
 	\item Programmer \& processor both oblivious to where data resides
 	\item cache hardware manages transfers between levels \begin{itemize}
-		\item automatic in response to memory accesses
-		\item memory always has a copy of cached data
-		\item cache data may be more recent
-	\end{itemize}
+		      \item automatic in response to memory accesses
+		      \item memory always has a copy of cached data
+		      \item cache data may be more recent
+	      \end{itemize}
 \end{itemize}
 
 \subsection{Caches}
@@ -735,7 +735,7 @@ How to mapp 32-bit address to a much smaller memory?
 	for the longest time gets evicted.
 \end{definition}
 \begin{definition}
-	\textbf{FIFO} is a replacement strategy where the cached blocks get evicted in the same order they are 
+	\textbf{FIFO} is a replacement strategy where the cached blocks get evicted in the same order they are
 	allocated in.
 \end{definition}
 
@@ -751,7 +751,7 @@ How to mapp 32-bit address to a much smaller memory?
 
 \begin{itemize}
 	\item split the cache into groups of $m$ blocks each (\textbf{m-way set-associative})
-	\item a given block can only go into one set, but anywhere withing that set 
+	\item a given block can only go into one set, but anywhere withing that set
 	\item compromise between DM and FA caches
 	\item typical degree of associativity is 2-16
 \end{itemize}
@@ -778,7 +778,7 @@ How to mapp 32-bit address to a much smaller memory?
 \end{definition}
 
 \begin{definition}
-	\textbf{Write allocate} is a strategy where on a cache miss a block 
+	\textbf{Write allocate} is a strategy where on a cache miss a block
 	is brought into the cache and written to.
 	\begin{itemize}
 		\item useful if no locality exists
@@ -848,7 +848,7 @@ How to mapp 32-bit address to a much smaller memory?
 \subsubsection{Moving pages to/from memory}
 
 \begin{itemize}
-	\item pages are allocated on demand 
+	\item pages are allocated on demand
 	\item pages are replaced and swapped to disk when system runs out of free page frames
 	\item access to a swapped-out page causes a \textbf{page-fault}
 \end{itemize}
@@ -863,10 +863,10 @@ Status bits:
 
 \begin{itemize}
 	\item each PTE can have permission bits \begin{itemize}
-		\item W: read \& write
-		\item R: read-only
-		\item E: execute-only
-	\end{itemize}
+		      \item W: read \& write
+		      \item R: read-only
+		      \item E: execute-only
+	      \end{itemize}
 	\item per-process memory protection
 	\item Important: Only OS can change page tables
 \end{itemize}
@@ -875,16 +875,16 @@ Status bits:
 
 \begin{itemize}
 	\item small, fully-associative cache of PTEs \begin{itemize}
-		\item Each TLB entry holds translation info
-		\item Tag: $V$, Entry: $F$
-	\end{itemize}
+		      \item Each TLB entry holds translation info
+		      \item Tag: $V$, Entry: $F$
+	      \end{itemize}
 	\item small and fast table in hardware, located close to CPU
 	\item when page not in TLB: access the page table and save the translation
 	\item status bits: \begin{itemize}
-		\item V indicates a valid entry
-		\item D indicates whether page has been modified
-		\item R, W, X permission bits
-	\end{itemize} 
+		      \item V indicates a valid entry
+		      \item D indicates whether page has been modified
+		      \item R, W, X permission bits
+	      \end{itemize}
 \end{itemize}
 
 \section{Exceptions \& Processor Management}
@@ -981,7 +981,7 @@ Advantages of Dual Mode architecture:
 
 Managing Processes:
 \begin{itemize}
-	\item processes are managed by the OS kernel 
+	\item processes are managed by the OS kernel
 	\item scheduler chooses which process to run next
 \end{itemize}
 

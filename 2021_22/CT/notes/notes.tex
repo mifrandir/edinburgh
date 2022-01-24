@@ -20,7 +20,7 @@
 \end{definition}
 \begin{definition}
     A \emph{compiler} is a program that translates an executable program in one language
-    to an executable program in another language. The compiler may improve the program 
+    to an executable program in another language. The compiler may improve the program
     in some way.
 \end{definition}
 
@@ -39,11 +39,11 @@ Any compiler must
     \item recognise legal and illegal programs,
     \item generate correct code,
     \item manage storage of all variables and code,
-    \item agree with OS \& linker on format for object code, and 
+    \item agree with OS \& linker on format for object code, and
     \item use higher level notations.
 \end{enumerate}
 
-\paragraph{Related programs} to the compiler are 
+\paragraph{Related programs} to the compiler are
 \begin{itemize}
     \item \emph{pre-processor}: processes macros and directives,
     \item \emph{assembler}: translates assembly language to actual machine code,
@@ -56,18 +56,18 @@ Any compiler must
 
 \tikzset{
     interface/.style={
-        minimum width=0cm,
-        minimum height=1cm
-    },
+            minimum width=0cm,
+            minimum height=1cm
+        },
     component/.style={
-        draw,
-        minimum width=2cm,
-        minimum height=1cm 
-    }
+            draw,
+            minimum width=2cm,
+            minimum height=1cm
+        }
 }
 
 \begin{definition}
-    A \emph{two-pass compiler} consists of a frontend which converts the source code 
+    A \emph{two-pass compiler} consists of a frontend which converts the source code
     into an \emph{intermediate representation} (IR), catching all the errors that may occur,
     and a backend which converts the IR into machine code.
 
@@ -77,18 +77,18 @@ Any compiler must
             \node[component, right=of sourcecode] (frontend) {Front-End};
             \node[component, right=of frontend] (backend) {Back-End};
             \node[interface, right=of backend] (machinecode) {Machine Code};
-            \node[interface, below=0cm of machinecode] (errors) {Errors};           
-            \draw[-latex] 
-                (sourcecode) edge (frontend)
-                (frontend) edge node[above]{IR} (backend)
-                (backend) edge (machinecode)
-                (frontend) |- (errors);
+            \node[interface, below=0cm of machinecode] (errors) {Errors};
+            \draw[-latex]
+            (sourcecode) edge (frontend)
+            (frontend) edge node[above]{IR} (backend)
+            (backend) edge (machinecode)
+            (frontend) |- (errors);
         \end{tikzpicture}
     \end{center}
 \end{definition}
 
 \begin{definition}
-    A \emph{three-pass compiler} consists of the usual frontend and backend as well as 
+    A \emph{three-pass compiler} consists of the usual frontend and backend as well as
     a middle-end which is tasked with improving efficiency (e.g. with respect to time,
     memory, ...) of the compiled code.
 
@@ -99,13 +99,13 @@ Any compiler must
             \node[component, right=of frontend] (midend) {Middle-End};
             \node[component, right=of midend] (backend) {Back-End};
             \node[interface, right=of backend] (machinecode) {Machine Code};
-            \node[interface, below=0cm of machinecode] (errors) {Errors};           
-            \draw[-latex] 
-                (sourcecode) edge (frontend)
-                (frontend) edge node[above]{IR} (midend)
-                (midend) edge node[above]{IR} (backend)
-                (backend) edge (machinecode)
-                (frontend) |- (errors);
+            \node[interface, below=0cm of machinecode] (errors) {Errors};
+            \draw[-latex]
+            (sourcecode) edge (frontend)
+            (frontend) edge node[above]{IR} (midend)
+            (midend) edge node[above]{IR} (backend)
+            (backend) edge (machinecode)
+            (frontend) |- (errors);
         \end{tikzpicture}
     \end{center}
 \end{definition}
@@ -120,21 +120,21 @@ Any compiler must
         \node[component, right=.5cm of parser] (semanalyser) {Semantic Analyser};
         \node[component, right=.5cm of semanalyser] (irgenerator) {IR generator};
         \node[interface, right=.5cm of irgenerator] (ir) {IR};
-        \node[interface, below=0cm of ir] (errors) {Errors};           
+        \node[interface, below=0cm of ir] (errors) {Errors};
         \draw[-latex]
-            (sourcecode) edge (lexer)
-            (lexer) edge node[above of=1cm]{token} (parser) 
-            (parser) edge node[above of=1cm]{AST} (semanalyser)
-            (semanalyser) edge node[above of=1cm]{AST} (irgenerator)
-            (irgenerator) edge (ir)
-            (lexer) |- (errors) 
-            (parser) |- (errors)
-            (semanalyser) |- (errors)
-            (irgenerator) |- (errors);
+        (sourcecode) edge (lexer)
+        (lexer) edge node[above of=1cm]{token} (parser)
+        (parser) edge node[above of=1cm]{AST} (semanalyser)
+        (semanalyser) edge node[above of=1cm]{AST} (irgenerator)
+        (irgenerator) edge (ir)
+        (lexer) |- (errors)
+        (parser) |- (errors)
+        (semanalyser) |- (errors)
+        (irgenerator) |- (errors);
     \end{tikzpicture}
 \end{center}
 
-\paragraph{Specification} The front-end must 
+\paragraph{Specification} The front-end must
 \begin{enumerate}
     \item Recoginise legal and illegal programs,
     \item report errors in a useful way,
@@ -144,16 +144,16 @@ Any compiler must
 
 \begin{definition}
     An \emph{abstract syntax tree} (AST) is a tree representing an expression with
-    respect to a grammar. It is typically much more concise than an a parse tree and 
+    respect to a grammar. It is typically much more concise than an a parse tree and
     does not contain any unnecessary information.
 \end{definition}
 
-\paragraph{Components} Typically, a front-end consists of 
+\paragraph{Components} Typically, a front-end consists of
 \begin{enumerate}
-    \item \emph{lexer}: converts source code to token stream and collects identifier 
-        information; typically consists of \emph{scanner} and \emph{tokeniser}
+    \item \emph{lexer}: converts source code to token stream and collects identifier
+          information; typically consists of \emph{scanner} and \emph{tokeniser}
     \item \emph{parser}: recognises context-free syntax and converts token stream
-        into AST
+          into AST
     \item \emph{semantic analyser}: performs context-sensitive analysis, e.g. variable names, types, parentheses
     \item \emph{IR generator}: converts AST to IR; may not require any work
 \end{enumerate}
@@ -162,19 +162,19 @@ Any compiler must
 \begin{center}
     \begin{tikzpicture}[font=\small,thick]
         \node[interface] (ir) {IR};
-        \node[component, right=.5cm of ir] (selection) {Instruction Selection}; 
-        \node[component, right=.5cm of selection] (registers) {Register Allocation}; 
-        \node[component, right=.5cm of registers] (scheduling) {Instruction Scheduling}; 
+        \node[component, right=.5cm of ir] (selection) {Instruction Selection};
+        \node[component, right=.5cm of selection] (registers) {Register Allocation};
+        \node[component, right=.5cm of registers] (scheduling) {Instruction Scheduling};
         \node[interface, right=.5cm of scheduling] (machinecode) {Machine Code};
         \node[interface, below=0cm of machinecode] (errors) {Errors};
         \draw[-latex]
-            (ir) edge (selection)
-            (selection) edge node[above of=1cm]{IR} (registers) 
-            (registers) edge node[above of=1cm]{IR} (scheduling)
-            (scheduling) edge (machinecode)
-            (selection) |- (errors) 
-            (registers) |- (errors)
-            (scheduling) |- (errors);
+        (ir) edge (selection)
+        (selection) edge node[above of=1cm]{IR} (registers)
+        (registers) edge node[above of=1cm]{IR} (scheduling)
+        (scheduling) edge (machinecode)
+        (selection) |- (errors)
+        (registers) |- (errors)
+        (scheduling) |- (errors);
     \end{tikzpicture}
 \end{center}
 

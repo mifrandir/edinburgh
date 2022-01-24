@@ -12,29 +12,29 @@
   Let $f$ and $g$ be permutations such that
   \begin{align*}
     \begin{aligned}
-    f = \begin{pmatrix}
-      1&2&3&4&5&6&7\\
-      3&1&5&7&2&6&4
-    \end{pmatrix},
+      f = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+        3 & 1 & 5 & 7 & 2 & 6 & 4
+      \end{pmatrix},
     \end{aligned}
     \hspace{1cm}
     \begin{aligned}
-    g = \begin{pmatrix}
-      1&2&3&4&5&6&7\\
-      3&1&7&6&4&5&2
-    \end{pmatrix}.
+      g = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+        3 & 1 & 7 & 6 & 4 & 5 & 2
+      \end{pmatrix}.
     \end{aligned}
   \end{align*}
   Then $f^{-100}g^{146}f^{301}=g^2f$ where
   \begin{align*}
     g^2f=\begin{pmatrix}
-      1&2&3&4&5&6&7\\
-      2&5&1&7&3&6&4
+      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+      2 & 5 & 1 & 7 & 3 & 6 & 4
     \end{pmatrix}.
   \end{align*}
 \end{claim}
 \begin{proof}
-  By using \emph{Lemma 7.6} in the notes we can apply modular arithmetic to simplify the problem. 
+  By using \emph{Lemma 7.6} in the notes we can apply modular arithmetic to simplify the problem.
   We see that, since the order of $f$ and thus $f^{-1}$ is $4$, $f^{-100} = f^{0} = \iota$.
   Similarly we get that $g^{146}=g^2$ and $f^{301}=f$ since $g$ has order $6$. Therefore
   \begin{align*}
@@ -43,8 +43,8 @@
   With $g=(1\:3\:7\:2)(4\:6\:5)$, we can find $g^2=(1\:7)(2\:3)(4\:5\:6)$. Now we can work out $g^2f$ in matrix notation to get
   \begin{align*}
     g^2f=\begin{pmatrix}
-      1&2&3&4&5&6&7\\
-      2&5&1&7&3&6&4
+      1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+      2 & 5 & 1 & 7 & 3 & 6 & 4
     \end{pmatrix}.
   \end{align*}
 \end{proof}
@@ -53,8 +53,8 @@
   Let $f$ be a permutation such that
   \begin{align*}
     f=\begin{pmatrix}
-      1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16\\
-      1&9&2&10&3&11&4&12&5&13&6&14&7&15&8&16
+      1 & 2 & 3 & 4  & 5 & 6  & 7 & 8  & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 \\
+      1 & 9 & 2 & 10 & 3 & 11 & 4 & 12 & 5 & 13 & 6  & 14 & 7  & 15 & 8  & 16
     \end{pmatrix}.
   \end{align*}
   Then there exists no $k\in\N$ such that $f^k$ only swaps two consecutive numbers.
@@ -67,9 +67,9 @@
   we can use \emph{Lemma 7.7} in the notes to find that $f$ has order $4$.
   It is therefore enough to list all the permutations $f^2$ to $f^4$ to prove that the desired criterion is never met.
   \begin{align*}
-    f^2&=(2\:5)(3\:9)(4\:13)(7\:10)(12\:15)(8\:14),\\
-    f^3&=(2\:3\:5\:9)(4\:7\:13\:10)(6\:11)(12\:8\:15\:14),\\
-    f^4&=\iota.
+    f^2 & =(2\:5)(3\:9)(4\:13)(7\:10)(12\:15)(8\:14),        \\
+    f^3 & =(2\:3\:5\:9)(4\:7\:13\:10)(6\:11)(12\:8\:15\:14), \\
+    f^4 & =\iota.
   \end{align*}
   Since none of these permutations is a single cycle with two consecutive numbers, it is impossible to achieve this with any number of repetitions.
 \end{proof}
@@ -80,9 +80,9 @@
 \begin{proof}
   Let $m\in\N$. Assume $h^m=\iota$. Then
   \begin{align*}
-    h^m = (fgf^{-1})^m= f g^m f^{-1}&=\iota\\
-    \Leftrightarrow f^{-1}f g^m f^{-1}f&=f^{-1}f\\
-    \Leftrightarrow g^m&=\iota
+    h^m = (fgf^{-1})^m= f g^m f^{-1}    & =\iota   \\
+    \Leftrightarrow f^{-1}f g^m f^{-1}f & =f^{-1}f \\
+    \Leftrightarrow g^m                 & =\iota
   \end{align*}
   Now assume $g^m=\iota$. Then
   \begin{align*}

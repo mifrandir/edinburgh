@@ -10,29 +10,29 @@
 \section*{Question 1}
 
 \emph{The proof below is obviously wrong as $x^n$ may be zero,
-but I have not been able to find smooth parameters for $\beta$ that are defined everywhere.}
+   but I have not been able to find smooth parameters for $\beta$ that are defined everywhere.}
 
 \begin{claim*}
-   Let $\alpha\in\Omega^1(\R^n)$ be a $1$-form such that 
+   Let $\alpha\in\Omega^1(\R^n)$ be a $1$-form such that
    \begin{align*}
       \alpha=\sum_{i=1}^n x^idx^i.
    \end{align*}
-   Then there exists $\beta\in\Omega^{n-1}(\R^n\setminus\{\vec 0\})$ such that 
+   Then there exists $\beta\in\Omega^{n-1}(\R^n\setminus\{\vec 0\})$ such that
    \begin{align*}
       \alpha\wedge\beta = dx^1\wedge\cdots\wedge dx^n.
    \end{align*}
 \end{claim*}
 \begin{proof}
-   Let 
+   Let
    \begin{align*}
       \beta = \frac{(-1)^{n-1}}{x^n}dx^1\wedge\cdots\wedge dx^{n-1}.
    \end{align*}
-   Then we have 
+   Then we have
    \begin{align*}
-      \alpha\wedge\beta &= \left(\sum_{i=1}^n x^idx^i\right) \wedge \left(\frac{(-1)^{n-1}}{x^n}dx^1\wedge\cdots\wedge dx^{n-1}\right)\\
-                        &= \sum_{i=1}^n \frac{(-1)^{n-1}x^i}{x^n}dx^i\wedge dx^1 \wedge \cdots dx^{n-1}.
+      \alpha\wedge\beta & = \left(\sum_{i=1}^n x^idx^i\right) \wedge \left(\frac{(-1)^{n-1}}{x^n}dx^1\wedge\cdots\wedge dx^{n-1}\right) \\
+                        & = \sum_{i=1}^n \frac{(-1)^{n-1}x^i}{x^n}dx^i\wedge dx^1 \wedge \cdots dx^{n-1}.
    \end{align*}
-   However, for all $1\leq i\leq n-1$ the wedge product is zero due to the repeated $dx^i$. Thus 
+   However, for all $1\leq i\leq n-1$ the wedge product is zero due to the repeated $dx^i$. Thus
    \begin{align*}
       \alpha\wedge\beta = \frac{(-1)^{n-1}x^n}{x^n}dx^n\wedge dx^1\wedge\cdots\wedge dx^{n-1}=dx^1\wedge\cdots\wedge dx^n.
    \end{align*}
@@ -40,7 +40,7 @@ but I have not been able to find smooth parameters for $\beta$ that are defined 
 
 \section*{Question 2}
 
-Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)\}\subset\R^3$ and 
+Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)\}\subset\R^3$ and
 \begin{align*}
    \vec x(z,\phi)=\begin{pmatrix}
       \cosh z \cos\phi \\ \cosh z \sin\phi \\ z
@@ -48,20 +48,20 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
 \end{align*}
 
 \begin{claim*}
-   $\vec x$ is regular and the first fundamental form is 
+   $\vec x$ is regular and the first fundamental form is
    \begin{align*}
       I= (\cosh^2 z)(dz)^2 + (\cosh^2 z) (d\phi)^2.
    \end{align*}
 \end{claim*}
 \begin{proof}
-   We calculate 
+   We calculate
    \begin{align}
       \label{dirderiv1}
-      \vec x_z &= \sinh z \cos\phi \frac{\p }{\p x^1} 
-      + \sinh z \sin\phi \frac{\p }{\p x^2} 
-      + \frac{\p }{\p x^3},\\
+      \vec x_z    & = \sinh z \cos\phi \frac{\p }{\p x^1}
+      + \sinh z \sin\phi \frac{\p }{\p x^2}
+      + \frac{\p }{\p x^3},                                \\
       \label{dirderiv2}
-      \vec x_\phi &= -\cosh z \sin\phi \frac{\p }{\p x^1} 
+      \vec x_\phi & = -\cosh z \sin\phi \frac{\p }{\p x^1}
       + \cosh z\cos\phi\frac{\p }{\p x^2}.
    \end{align}
    Firstly, we observe that both $\vec x_z$ and $\vec x_\phi$ are non-zero on $D$.
@@ -70,39 +70,39 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
       \vec x_z \cdot \vec x_\phi = -\sinh z\cosh z\sin\phi\cos\phi + \sinh z\cosh z\sin\phi\cos\phi
       = 0.
    \end{align*}
-   Therfore $\vec x_z$ and $\vec x_\phi$ are non-zero and perpendicular everywhere, making them linearly 
+   Therfore $\vec x_z$ and $\vec x_\phi$ are non-zero and perpendicular everywhere, making them linearly
    independent. By definition, this shows that $\vec x$ is a regular local surface.
-   Further, we have 
+   Further, we have
    \begin{align*}
-      (dx^1)^2 &= (\sinh z\cos\phi dz - \cosh z \sin\phi d\phi)^2\\
-      &=\sinh^2 z \cos^2\phi(dz)^2
-      -2\sinh z\cosh z\sin\phi\cos\phi dzd\phi+\cosh^2z\sin^2\phi(d\phi)^2,\\
-      (dx^2)^2 &= (\sinh z\sin\phi dz + \cosh z \cos\phi d\phi)^2\\
-      &=\sinh^2 z\sin^2\phi (dz)^2 + 2\sinh z\cosh z\sin\phi\cos\phi dzd\phi + \cosh^2 z\cos^2\phi(d\phi)^2,\\
-      (dx^3)^2 &=(dz)^2.
+      (dx^1)^2 & = (\sinh z\cos\phi dz - \cosh z \sin\phi d\phi)^2                                                     \\
+               & =\sinh^2 z \cos^2\phi(dz)^2
+      -2\sinh z\cosh z\sin\phi\cos\phi dzd\phi+\cosh^2z\sin^2\phi(d\phi)^2,                                            \\
+      (dx^2)^2 & = (\sinh z\sin\phi dz + \cosh z \cos\phi d\phi)^2                                                     \\
+               & =\sinh^2 z\sin^2\phi (dz)^2 + 2\sinh z\cosh z\sin\phi\cos\phi dzd\phi + \cosh^2 z\cos^2\phi(d\phi)^2, \\
+      (dx^3)^2 & =(dz)^2.
    \end{align*}
-   Therefore, by definition, 
+   Therefore, by definition,
    \begin{align*}
       I=d\vec x\cdot d\vec x = (\cosh^2 z)(dz)^2 + (\cosh^2 z) (d\phi)^2.
    \end{align*}
 \end{proof}
 
 \begin{claim*}
-   The unit normal of $\vec x$ at a point $(z,\phi)\in D$ is 
+   The unit normal of $\vec x$ at a point $(z,\phi)\in D$ is
    \begin{align*}
-      \vec N(z, \phi) = \frac{-\cos\phi \frac{\p }{\p x^1}-\sin\phi\frac{\p }{\p x^2}+\sinh z\frac{\p }{\p x^3}}{\cosh z}. 
+      \vec N(z, \phi) = \frac{-\cos\phi \frac{\p }{\p x^1}-\sin\phi\frac{\p }{\p x^2}+\sinh z\frac{\p }{\p x^3}}{\cosh z}.
    \end{align*}
 \end{claim*}
 \begin{proof}
-   By definition, we have 
+   By definition, we have
    \begin{align*}
       \vec N(p) = \frac{\vec x_z \times \vec x_\phi}{\abs{\vec x_z \times \vec x_\phi}}.
    \end{align*}
-   We use (\ref{dirderiv1}) and (\ref{dirderiv2}) to claculate 
+   We use (\ref{dirderiv1}) and (\ref{dirderiv2}) to claculate
    \begin{align*}
       \vec x_z\times \vec x_\phi = -\cosh z \cos\phi \frac{\p }{\p x^1}-\cosh z \sin\phi\frac{\p }{\p x^2}+\sinh z\cosh z \frac{\p }{\p x^3}
    \end{align*}
-   and then 
+   and then
    \begin{align*}
       \abs{\vec x_z\times \vec x_\phi} = \sqrt{(1 + \sinh^2 z)\cosh^2 z} = \cosh^2 z.
    \end{align*}
@@ -110,42 +110,42 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
 \end{proof}
 
 \begin{claim*}
-   The second fundamental form of $\vec x$ at a point $(z,\phi)\in D$ is 
+   The second fundamental form of $\vec x$ at a point $(z,\phi)\in D$ is
    \begin{align*}
       \I = -(dz)^2+(d\phi)^2.
    \end{align*}
 \end{claim*}
 
 \begin{proof}
-   We calculate 
+   We calculate
    \begin{align*}
-      dN_1 &= d\left(-\frac{\cos\phi}{\cosh z}\right) = \left(\frac{\sinh z\cos\phi}{\cosh^2z}\right)dz + \left(\frac{\sin\phi}{\cosh z}\right)d\phi,\\
-      dN_2 &= d\left(-\frac{\sin\phi}{\cosh z}\right) = \left(\frac{\sinh z\sin\phi}{\cosh^2 z}\right)dz - \left(\frac{\cos\phi}{\cosh z}\right)d\phi,\\
-      dN_3 &= d\left(\frac{\sinh z}{\cosh z}\right)   = \left(\frac{1}{\cosh^2 z}\right)dz
+      dN_1 & = d\left(-\frac{\cos\phi}{\cosh z}\right) = \left(\frac{\sinh z\cos\phi}{\cosh^2z}\right)dz + \left(\frac{\sin\phi}{\cosh z}\right)d\phi,  \\
+      dN_2 & = d\left(-\frac{\sin\phi}{\cosh z}\right) = \left(\frac{\sinh z\sin\phi}{\cosh^2 z}\right)dz - \left(\frac{\cos\phi}{\cosh z}\right)d\phi, \\
+      dN_3 & = d\left(\frac{\sinh z}{\cosh z}\right)   = \left(\frac{1}{\cosh^2 z}\right)dz
    \end{align*}
-   We use this and our calculations for $d\vec x$ to find 
+   We use this and our calculations for $d\vec x$ to find
    \begin{align*}
       \I = -d\vec x \cdot d\vec N = -(dz)^2 +(d\phi)^2.
    \end{align*}
 \end{proof}
 
 \begin{claim*}
-   The principal curvatures of $\vec x$ at $(z,\phi)\in D$ are 
+   The principal curvatures of $\vec x$ at $(z,\phi)\in D$ are
    \begin{align*}
       k_1 = \frac{1}{\cosh^2 z}, \hs k_2 = -\frac{1}{\cosh^2 z}
    \end{align*}
-   and thus 
+   and thus
    \begin{align*}
       H=0,\hs K=-\frac{1}{\cosh^4 z}.
    \end{align*}
 \end{claim*}
 \begin{proof}
-   The first and second fundamental form are represented by the following 
+   The first and second fundamental form are represented by the following
    matrices:
    \begin{align*}
       I = \begin{pmatrix}
          \cosh^2 z & 0 \\ 0 & \cosh^2 z
-      \end{pmatrix}, \hs 
+      \end{pmatrix}, \hs
       \I = \begin{pmatrix}
          -1 & 0 \\ 0 & 1
       \end{pmatrix}.
@@ -154,22 +154,22 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    \begin{align*}
       \det(\I-kI)=0
    \end{align*}
-   which holds if and only if 
+   which holds if and only if
    \begin{align*}
       (1+k\cosh^2 z)(1-k\cosh^2 z) = 0.
    \end{align*}
    Thus $k_1=1/\cosh^2 z$ and $k_2=-1/\cosh^2 z$.
-   By definition, we then have 
+   By definition, we then have
    \begin{align*}
-      H&=\frac{1}{2}(k_1+k_2)=0,\\
-      K&=k_1k_2=-\frac{1}{\cosh^4 z}.
+      H & =\frac{1}{2}(k_1+k_2)=0,      \\
+      K & =k_1k_2=-\frac{1}{\cosh^4 z}.
    \end{align*}
 \end{proof}
 
 \section*{Question 3}
 
 \begin{claim*}
-   Let $\Sigma\subset\E^3$ be a regular surface, that meets a plane $P\subset\E^3$ in a 
+   Let $\Sigma\subset\E^3$ be a regular surface, that meets a plane $P\subset\E^3$ in a
    single point $\vec p$. Then $P$ coincides with the tangent plane of $\Sigma$ at $\vec p$,
    $T_{\vec p}\Sigma$.
 \end{claim*}
@@ -178,7 +178,7 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    \begin{align*}
       \vec n \cdot (\vec x - \vec p) = 0 \hs\text{for all }\vec x\in P
    \end{align*}
-   where we assume without loss of generality that $\vec n$ is a unit vector. Then the 
+   where we assume without loss of generality that $\vec n$ is a unit vector. Then the
    distance of any point $\vec x\in\E^3$ the distance to $P$ is
    \begin{align*}
       D(\vec x) = \vec n \cdot (\vec x - \vec p).
@@ -186,7 +186,7 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
    Further, since $\Sigma$ is regular, there exists a local regular surface
    $\vec y: D\subset\R^3\to \E^3$ such that $\vec p \in\vec y(D)$ and $\vec y(D)=U\cap\Sigma$
    for some open set $U\subset\R^3$.
-   The distance of a point on this surface given by $(u,v)\in D$ then is 
+   The distance of a point on this surface given by $(u,v)\in D$ then is
    \begin{align*}
       D(\vec y(u,v)) = \vec n \cdot (\vec y(u,v) - \vec p) =: g(u,v).
    \end{align*}
@@ -197,36 +197,36 @@ Let $\vec x: D\to\E^3$ be a local surface defined by $D=\{z\in\R,\phi\in(0,2\pi)
          \frac{\p g}{\p u} & \frac{\p g}{\p v}
       \end{bmatrix}.
    \end{align*}
-   Note that the $1\times1$ matrix $\left[\eval{\frac{\p g}{\p v}}{q}\right]$ is invertible 
-   at $q\in D$ where $\vec y(q) = \vec p$ if and only if 
+   Note that the $1\times1$ matrix $\left[\eval{\frac{\p g}{\p v}}{q}\right]$ is invertible
+   at $q\in D$ where $\vec y(q) = \vec p$ if and only if
    \begin{align}
       \label{non_tangent}
       \eval{\frac{\p g}{\p v}}{q} = \vec n \cdot \vec y_v(q)\not= 0.
    \end{align}
-   Assume, for contradiction, that $P$ does not coincide with the tangent space 
-   $T_{\vec p}\Sigma$. Then we know that at $q$ either 
+   Assume, for contradiction, that $P$ does not coincide with the tangent space
+   $T_{\vec p}\Sigma$. Then we know that at $q$ either
    \begin{align*}
       \vec n \cdot \vec y_u(q) \not=0, \hs\text{or}\hs \vec n \cdot \vec y_v(q) \not=0.
    \end{align*}
    This is because $\vec y$ is regular so $\vec y_u$ and $\vec y_v$ must be linearly independent
-   and span $T_{\vec p} \Sigma$. Since we could reparameterise to swap $\vec y_u$ and $\vec y_v$, 
+   and span $T_{\vec p} \Sigma$. Since we could reparameterise to swap $\vec y_u$ and $\vec y_v$,
    we can assume without loss of generality that the latter inequality holds.
    We therefore have (\ref{non_tangent}).
-   
-   By the \emph{Implicit Function Theorem} there must exist a function 
+
+   By the \emph{Implicit Function Theorem} there must exist a function
    \begin{align*}
       \Phi : E \subset \R \to \R
    \end{align*}
    defined on an open set $E\subset \R$ such that there exists an open set $\tilde D$
-   with $q\in \tilde D\subset D$ such that 
+   with $q\in \tilde D\subset D$ such that
    \begin{align*}
       \tilde D \cap (\R \subset \R^2) = E,
    \end{align*}
-   and such that for all $\tilde q \in \tilde D$ we have 
+   and such that for all $\tilde q \in \tilde D$ we have
    \begin{align*}
       g(\tilde q) = g(q) \hs\Leftrightarrow\hs \tilde q = (r, \Phi(r)) \hs \text{for some $r\in E$}.
    \end{align*}
-   Since $E$ is open, there exists more than one such $r$. This implies that there 
+   Since $E$ is open, there exists more than one such $r$. This implies that there
    is more than one point on $\Sigma$ where the distance to $P$ is zero which contradicts the premise.
    Therefore $P$ and $T_{\vec p}\Sigma$ must coincide.
 \end{proof}

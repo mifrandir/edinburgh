@@ -32,35 +32,35 @@
         \item Objects: $A$, $B$, $C$, \dots
         \item Arrows: $f$, $g$, $h$, \dots
         \item For each arrow $f$, there are given objects \begin{align*}
-            \dom(f),\hs \cod(f)
-        \end{align*}
-        called the \emph{domain} and \emph{codomain} of $f$. We write
-        \begin{align*}
-            f:A\to B
-        \end{align*}
-        to indicate that $A=\dom(f)$ and $B=\cod(f)$.
+                  \dom(f),\hs \cod(f)
+              \end{align*}
+              called the \emph{domain} and \emph{codomain} of $f$. We write
+              \begin{align*}
+                  f:A\to B
+              \end{align*}
+              to indicate that $A=\dom(f)$ and $B=\cod(f)$.
         \item Given arrows $f:A\to B$ and $g:B\to C$, that is, with \begin{align*}
-            \cod(f) = \dom(g)
-        \end{align*}
-        there is given an arrow
-        \begin{align*}
-            g\circ f: A\to C
-        \end{align*}
-        called the \emph{composite} of $f$ and $g$.
+                  \cod(f) = \dom(g)
+              \end{align*}
+              there is given an arrow
+              \begin{align*}
+                  g\circ f: A\to C
+              \end{align*}
+              called the \emph{composite} of $f$ and $g$.
         \item For each object $A$ there is given an arrow \begin{align*}
-            1_A : A\to A
-        \end{align*}
-        called the \emph{identity arrow} of $A$.
+                  1_A : A\to A
+              \end{align*}
+              called the \emph{identity arrow} of $A$.
     \end{itemize}
     These data are required to satisfy the following laws \begin{enumerate}[label=C\arabic*.]
         \item \emph{Associativity}: \begin{align*}
-            f \circ (g \circ h) = (f\circ g) \circ h
-        \end{align*}
-        for all arrows $f:A\to B$, $g:B\to C$, $h:C\to D$.
+                  f \circ (g \circ h) = (f\circ g) \circ h
+              \end{align*}
+              for all arrows $f:A\to B$, $g:B\to C$, $h:C\to D$.
         \item \emph{Unit}: \begin{align*}
-            f \circ 1_A = f = 1_B \circ f
-        \end{align*}
-        for all $f:A\to B$.
+                  f \circ 1_A = f = 1_B \circ f
+              \end{align*}
+              for all $f:A\to B$.
     \end{enumerate}
 \end{definition}
 
@@ -69,7 +69,7 @@
 \begin{definition}[Posets and monotone functions]
     A partially ordered set or \emph{poset} is a set $A$ equipped
     with a binary relation $a\leq_A b$ such that the following conditions
-    hold for all $a,b,c\in A$: 
+    hold for all $a,b,c\in A$:
     \begin{enumerate}[label=P\arabic*.]
         \item \emph{reflexivity}: $a\leq_A a$.
         \item \emph{transitivity}: If $a\leq_A b$ and $b\leq_A c$, then $a\leq_A c$.
@@ -100,8 +100,8 @@
     $\cdot : M\times M \to M$ and a unit element $u\in M$ such that
     for all $x,y,z\in M$
     \begin{align*}
-        x\cdot (y\cdot z) = (x\cdot y) \cdot z 
-    \end{align*} 
+        x\cdot (y\cdot z) = (x\cdot y) \cdot z
+    \end{align*}
     and
     \begin{align*}
         u \cdot x = x = x \cdot u.
@@ -141,7 +141,7 @@
 \begin{definition}[Isomorphism; Awodey 1.3]
     In any category $\cat{C}$, an arrow $f:A\to B$ is called an
     \emph{isomorphism} if there exists an arrow $g:B\to A$ in
-    $\cat{C}$ such that 
+    $\cat{C}$ such that
     \begin{align*}
         g\circ f = 1_A\hs\text{and}\hs f\circ g = 1_B.
     \end{align*}
@@ -167,7 +167,7 @@
     as
     \begin{align*}
         \cat{C}\times\cat{D}
-    \end{align*} 
+    \end{align*}
     has objects of the form $(C,D)$ for $C\in\cat{C}$ and $D\in\cat{D}$,
     and arrows of the form
     \begin{align*}
@@ -182,11 +182,11 @@
     is an arrow $f:D\to C$ in $\cat C$. We write
     \begin{align*}
         f^* : D^* \to C^*
-    \end{align*} 
+    \end{align*}
     in $\catop C$ for $f:C\to D$ in $\cat C$. We further define
     \begin{align*}
-         (1_{C^*}) &= (1_C)^*,\\ 
-         f^*\circ g^*&= (g\circ f)^*.
+        (1_{C^*})    & = (1_C)^*,      \\
+        f^*\circ g^* & = (g\circ f)^*.
     \end{align*}
     There are two obvious projection functors
     \begin{center}
@@ -202,7 +202,7 @@
     The \emph{arrow category} $\catar C$ of a category $\cat C$
     has the arrows of $\cat C$ as objects and an arrow $g$ from
     $f:A\to B$ to $f':A'\to B'$ in $\catar C$ is a pair of arrows
-    $g=(g_1, g_2)$ in $\cat C$ such that 
+    $g=(g_1, g_2)$ in $\cat C$ such that
     \begin{align*}
         g_2\circ f = f'\circ g_1.
     \end{align*}
@@ -223,10 +223,10 @@
     $a:X\to X'$ in $\cat C$ such that $f'\circ a = f$.\\
     Note that there is a functor $U:\cat C/C \to \cat C$ defined by
     \begin{align*}
-        U(A:X\to C) &= X 
-        &&\text{for all objects }A\in\cat C/C,\\
-        U(f:(A:X\to C)\to(B:X'\to C))&= a:X\to X' 
-        &&\text{for all arrows }f\in\cat C/C.
+        U(A:X\to C)                   & = X
+                                      &             & \text{for all objects }A\in\cat C/C, \\
+        U(f:(A:X\to C)\to(B:X'\to C)) & = a:X\to X'
+                                      &             & \text{for all arrows }f\in\cat C/C.
     \end{align*}
     Further, if $g:C\to D\in\cat C$ is any arrow, then there is a composition
     functor,
@@ -241,9 +241,9 @@
 \begin{definition}[UMP of $M(A)$]
     Every monoid $N$ has an underlying set $\abs N$, and every monoid
     homomorphism $f:N\to M$ has an underlying function $\abs f: \abs N
-    \to \abs M$.
+        \to \abs M$.
     The free monoid $M(A)$ on a set $A$ is defined to be
-    the monoid with the \emph{universal mapping property}. 
+    the monoid with the \emph{universal mapping property}.
     I.e. there is a function $i:A\to \abs{M(A)}$, and given any
     monoid $N$ and any function $f:A\to\abs N$, there is a
     \emph{unique} monoid homomorphism $\bar f: M(A)\to N$
@@ -251,7 +251,7 @@
 \end{definition}
 
 \begin{proposition}[Awodey 1.9]
-    Given a set $A$, the \emph{Kleene colosure} $A^*$ containing 
+    Given a set $A$, the \emph{Kleene colosure} $A^*$ containing
     all the finite sequences of elements of $A$ has the UMP of the
     free monoid on $A$.
 \end{proposition}
@@ -273,7 +273,7 @@
     The free category on a graph has the UMP. I.e. there is a graph
     homomorphism $i:G\to\abs{\cat C(G)}$, and given any category $\cat D$
     and any graph homomorphism $h:G\to\abs D$, there is a unique functor
-    $\bar h:\cat C(G)\to \cat D$ with $\abs{\bar h}\circ i = h$.    
+    $\bar h:\cat C(G)\to \cat D$ with $\abs{\bar h}\circ i = h$.
 \end{definition}
 
 \subsection{Foundations}
@@ -303,7 +303,7 @@
     In any category $\cat C$, an arrow $f:A\to B$ is called a
     \begin{itemize}
         \item \emph{monomorphism} and we write $f:A\mono B$, if given any $g,h:C\to A$, $fg=fh$ implies $g=h$,
-        \item \emph{epimorphism} and we write $f:A\epi B$, if given any $i,j:B\to D$, $if=jf$ implies $i=j$. 
+        \item \emph{epimorphism} and we write $f:A\epi B$, if given any $i,j:B\to D$, $if=jf$ implies $i=j$.
     \end{itemize}
 \end{definition}
 
@@ -334,14 +334,14 @@
     In any category $\cat C$, an object
     \begin{itemize}
         \item $0$ is \emph{initial} if for any object $C$ there is a unique morphism
-        \[0\to C,\]
+              \[0\to C,\]
         \item $1$ is \emph{terminal} if for any object $C$ there is a unique morphism
-        \[C\to 1.\]
+              \[C\to 1.\]
     \end{itemize}
 \end{definition}
 
 \begin{proposition}[Awodey 2.10]
-    Initial (terminal) objects are unique up to isomorphism.    
+    Initial (terminal) objects are unique up to isomorphism.
 \end{proposition}
 
 \subsection{Generalised elements}
@@ -357,7 +357,7 @@
     form
     \begin{align*}
         x: X\to A
-    \end{align*} 
+    \end{align*}
     with arbitrary domain $X\in\cat C$ is called a \emph{generalised element}.
 \end{definition}
 
@@ -385,8 +385,8 @@
     such that $x_1=p_1u$ and $x_2=p_2u$.
     \begin{center}
         \begin{tikzcd}
-        & X \ar{dl}[swap]{x_1} \ar[d, dotted, "u"] \ar{dr}{x_2} \\
-        A & P \ar{l}{p_1} \ar{r}[swap]{p_2} & B
+            & X \ar{dl}[swap]{x_1} \ar[d, dotted, "u"] \ar{dr}{x_2} \\
+            A & P \ar{l}{p_1} \ar{r}[swap]{p_2} & B
         \end{tikzcd}
     \end{center}
     We write $P=A\times B$.
@@ -409,7 +409,7 @@
     Let $g:B\to B'$ be an arrow in $\cat C$. Then the function
     defined by
     \begin{align*}
-        \Hom(A, g):\Hom(A,B)\to\Hom(A,B'),\\
+        \Hom(A, g):\Hom(A,B)\to\Hom(A,B'), \\
         (f:A\to B) \mapsto (g\circ f:A\to B\to B'),
     \end{align*}
     i.e. $\Hom(A,g)(f)=g\circ f$, determines a functor
@@ -463,7 +463,7 @@
 
 \begin{corollary}[Awodey 2.22]
     For any object $X$ in a category $\cat C$ with products, the representable
-    functor 
+    functor
     \begin{align*}
         \Hom_{\cat C}(X, -) : \cat C \to \cat{Sets}
     \end{align*}
@@ -480,7 +480,7 @@
     its dual $\Sigma^*$
     \begin{align*}
         \text{CT}\Rightarrow \Sigma \text{\hs implies\hs} \text{CT}\Rightarrow \Sigma^*.
-    \end{align*} 
+    \end{align*}
 \end{proposition}
 
 \begin{proposition}[Conceptual duality; Awodey 3.2]
@@ -498,8 +498,8 @@
     and $x_2=up_2$.
     \begin{center}
         \begin{tikzcd}
-        & X & \\
-        A \ar{ur}{x_1} \ar{r}[swap]{q_1} & Q \ar[u, dotted, "u"] & B \ar[l, "q_2"] \ar{ul}[swap]{x_2}
+            & X & \\
+            A \ar{ur}{x_1} \ar{r}[swap]{q_1} & Q \ar[u, dotted, "u"] & B \ar[l, "q_2"] \ar{ul}[swap]{x_2}
         \end{tikzcd}
     \end{center}
     We write $Q=A+B$.
@@ -520,7 +520,7 @@
 \subsection{Equalisers}
 
 \begin{definition}[Equaliser; Awodey 3.13]
-    In any category $\cat C$, given parallel arrows 
+    In any category $\cat C$, given parallel arrows
     \begin{align*}
         f,g: A\to B
     \end{align*}
@@ -554,7 +554,7 @@
     For every monoid $M$ there are sets $R$ and $G$ and a coequaliser diagram,
     \begin{center}
         \begin{tikzcd}
-            F(R) \arrow[r, shift left=.3ex, "r_1"] 
+            F(R) \arrow[r, shift left=.3ex, "r_1"]
             \arrow[r, shift right=.3ex, swap, "r_2"] & F(G)
             \arrow[r] & M
         \end{tikzcd}
@@ -571,11 +571,11 @@
 
     \begin{center}
         \begin{tikzcd}
-        G\times G\arrow[r, "m"] & G & G \arrow[l, swap, "i"]\\
-        & 1 \arrow[u, "u"]
+            G\times G\arrow[r, "m"] & G & G \arrow[l, swap, "i"]\\
+            & 1 \arrow[u, "u"]
         \end{tikzcd}
     \end{center}
-    
+
     satisfying the following conditions, for all generalised elements
     \begin{align*}
         x,y,z:Z\to G,
@@ -583,39 +583,39 @@
 
     \begin{enumerate}
         \item $m$ is associative, that is, the following commutes: \begin{center}
-            \begin{tikzcd}
-                {(G\times G)\times G} \arrow[d, swap, "m\times 1"] \arrow[rr, "\cong"] & & {G\times(G\times G)} \arrow[d, "1\times m"]\\
-                {G\times G}\arrow[dr, swap, "m"] & & G\times G\arrow[dl, "m"]\\
-                & G &
-            \end{tikzcd}
-        \end{center}
-        where $\cong$ is the canonical associativity isomorphism for products. I.e. \begin{align*}
-            m\circ \lra{m\circ \lra{x,y}, z} = m\circ\lra{x,m\circ\lra{y,z}}.
-        \end{align*}
+                  \begin{tikzcd}
+                      {(G\times G)\times G} \arrow[d, swap, "m\times 1"] \arrow[rr, "\cong"] & & {G\times(G\times G)} \arrow[d, "1\times m"]\\
+                      {G\times G}\arrow[dr, swap, "m"] & & G\times G\arrow[dl, "m"]\\
+                      & G &
+                  \end{tikzcd}
+              \end{center}
+              where $\cong$ is the canonical associativity isomorphism for products. I.e. \begin{align*}
+                  m\circ \lra{m\circ \lra{x,y}, z} = m\circ\lra{x,m\circ\lra{y,z}}.
+              \end{align*}
         \item $u$ is a unit for $m$, that is, both triangles in the following commute: \begin{center}
-            \begin{tikzcd}
-                G \arrow[d, swap, "\lra{1_G, u}"] \arrow[dr, "1_G"] \arrow[r, "\lra{u, 1_G}"] 
-                & G\times G\arrow[d, "m"]\\
-                G\times G \arrow[r, swap, "m"]
-                & G
-            \end{tikzcd}
-        \end{center}
-        I.e. \begin{align*}
-            m\circ\lra{x,u} = x = m\circ\lra{u, x}.
-        \end{align*}
+                  \begin{tikzcd}
+                      G \arrow[d, swap, "\lra{1_G, u}"] \arrow[dr, "1_G"] \arrow[r, "\lra{u, 1_G}"]
+                      & G\times G\arrow[d, "m"]\\
+                      G\times G \arrow[r, swap, "m"]
+                      & G
+                  \end{tikzcd}
+              \end{center}
+              I.e. \begin{align*}
+                  m\circ\lra{x,u} = x = m\circ\lra{u, x}.
+              \end{align*}
         \item $i$ is an inverse with respect to $m$, that is, both sides of the following commute: \begin{center}
-            \begin{tikzcd}
-                G\times G \arrow[d, swap, "1_G\times i"] & 
-                G \arrow[l, swap, "\Delta"] \arrow[d, "u"] \arrow[r, "\Delta"] &
-                G\times G \arrow[d, "i\times 1_G"] \\
-                G\times G \arrow[r, swap, "m"] &
-                G &
-                G\times G \arrow[l, "m"]
-            \end{tikzcd}
-        \end{center}
-        I.e. \begin{align*}
-            m\circ\lra{x,i\circ x} = u = m\circ\lra{i\circ x, x}
-        \end{align*}
+                  \begin{tikzcd}
+                      G\times G \arrow[d, swap, "1_G\times i"] &
+                      G \arrow[l, swap, "\Delta"] \arrow[d, "u"] \arrow[r, "\Delta"] &
+                      G\times G \arrow[d, "i\times 1_G"] \\
+                      G\times G \arrow[r, swap, "m"] &
+                      G &
+                      G\times G \arrow[l, "m"]
+                  \end{tikzcd}
+              \end{center}
+              I.e. \begin{align*}
+                  m\circ\lra{x,i\circ x} = u = m\circ\lra{i\circ x, x}
+              \end{align*}
     \end{enumerate}
 \end{definition}
 
@@ -624,26 +624,26 @@
     such that
     \begin{enumerate}
         \item $h$ preserves $m$: \begin{center}
-            \begin{tikzcd}
-                G\times G \arrow[d, swap, "m"] \arrow[r, "h\times h"] &
-                H\times H \arrow[d, "m"] \\
-                G \arrow[r, swap, "h"] &
-                H
-            \end{tikzcd}
-        \end{center}
+                  \begin{tikzcd}
+                      G\times G \arrow[d, swap, "m"] \arrow[r, "h\times h"] &
+                      H\times H \arrow[d, "m"] \\
+                      G \arrow[r, swap, "h"] &
+                      H
+                  \end{tikzcd}
+              \end{center}
         \item $h$ preserves $u$: \begin{center}
-            \begin{tikzcd}
-                G \arrow[r, swap, "h"] & H \\
-                1 \arrow[u, "u"] \arrow[ur, swap, "u"]
-            \end{tikzcd}
-        \end{center}
+                  \begin{tikzcd}
+                      G \arrow[r, swap, "h"] & H \\
+                      1 \arrow[u, "u"] \arrow[ur, swap, "u"]
+                  \end{tikzcd}
+              \end{center}
         \item $h$ perserves $i$: \begin{center}
-            \begin{tikzcd}
-                G \arrow[r, "h"] \arrow[d, swap, "i"] &
-                H \arrow[d, "i"] \\
-                G \arrow[r, swap, "h"] & H
-            \end{tikzcd}
-        \end{center}
+                  \begin{tikzcd}
+                      G \arrow[r, "h"] \arrow[d, swap, "i"] &
+                      H \arrow[d, "i"] \\
+                      G \arrow[r, swap, "h"] & H
+                  \end{tikzcd}
+              \end{center}
     \end{enumerate}
 \end{definition}
 
@@ -663,7 +663,7 @@
 \end{proposition}
 
 \begin{corollary}[Awodey p. 79]
-    The groups in the category of groups are exactly the abelian groups. 
+    The groups in the category of groups are exactly the abelian groups.
 \end{corollary}
 
 \begin{definition}[Awodey p. 79]
@@ -684,12 +684,12 @@
 \begin{theorem}[Awodey p. 83]
     Every group homomorphism $h:G\to H$ has a kernel $\ker(h)=\inv h(u)$
     which is a normal subgroup of $G$ with the property that, for any normal
-    subgroup $N\subseteq G$ 
+    subgroup $N\subseteq G$
     \begin{align*}
         N\subseteq \ker(h)
     \end{align*}
     iff there is a (necessarily unique) homomorphism
-    $\bar h:G/N\to H$ with $\bar h \circ \pi = h$ where 
+    $\bar h:G/N\to H$ with $\bar h \circ \pi = h$ where
     $\pi:G\to G/N$ takes every element of $G$ to its
     coset: $g\mapsto [g]$.
 \end{theorem}
@@ -701,20 +701,20 @@
     $f\sim g$ on arrows such that
     \begin{enumerate}
         \item $f\sim g$ implies $\dom(f) = \dom(g)$ and $\cod(f) = \cod(g)$, \begin{center}
-            \begin{tikzcd}
-                \bullet \arrow[r, shift left=.3ex, "f"] \arrow[r, swap, shift right=.3ex, "g"] & \bullet
-            \end{tikzcd}
-        \end{center}
+                  \begin{tikzcd}
+                      \bullet \arrow[r, shift left=.3ex, "f"] \arrow[r, swap, shift right=.3ex, "g"] & \bullet
+                  \end{tikzcd}
+              \end{center}
         \item $f\sim g$ implies $bfa\sim bga$ for all arrows $a:A\to X$ and $b:Y\to B$, where
-        $\dom(f) = X = \dom(g)$ and $\cod(f) = Y = \cod(g)$, \begin{center}
-            \begin{tikzcd}
-                \bullet \arrow[r, "a"] &
-                \bullet \arrow[r, shift left=.3ex, "f"] \arrow[r, swap, shift right=.3ex, "g"] &
-                \bullet \arrow[r, "b"] &
-                \bullet
-            \end{tikzcd}
-        \end{center}
-    \end{enumerate} 
+              $\dom(f) = X = \dom(g)$ and $\cod(f) = Y = \cod(g)$, \begin{center}
+                  \begin{tikzcd}
+                      \bullet \arrow[r, "a"] &
+                      \bullet \arrow[r, shift left=.3ex, "f"] \arrow[r, swap, shift right=.3ex, "g"] &
+                      \bullet \arrow[r, "b"] &
+                      \bullet
+                  \end{tikzcd}
+              \end{center}
+    \end{enumerate}
 \end{definition}
 
 \begin{corollary}
@@ -737,7 +737,7 @@
 \subsection{Subobjects}
 
 \begin{definition}[Awodey p. 89]
-    A \emph{subobject} of an object $X$ in a category $\cat C$ is 
+    A \emph{subobject} of an object $X$ in a category $\cat C$ is
     a monomorphism $m:M\mono X$.
 \end{definition}
 
@@ -752,7 +752,7 @@
 \subsection{Pullbacks}
 
 \begin{definition}[Awodey p. 92]
-    If any category $\cat C$, given arrows $f,g$ with $\cod(f)=\cod(g)$, 
+    If any category $\cat C$, given arrows $f,g$ with $\cod(f)=\cod(g)$,
     the \emph{pullback} of $f$ and $g$ consists of arrows such that $fp_1=gp_2$
     and universal with this property. That is, given any $z_1:Z\to A$ and
     $z_2:Z\to B$ with $fz_1=gz_2$, there exists a unique $u:Z\to P$ with
@@ -808,11 +808,11 @@
             B \arrow[r, swap, "g"] &
             C
         \end{tikzcd}
-    \end{center} 
+    \end{center}
     \begin{enumerate}
         \item If the two squares are pullbacks, so is the outer rectangle. Thus, \begin{align*}
-            A\times_B (B\times_C D) \cong A\times_C D.
-        \end{align*}
+                  A\times_B (B\times_C D) \cong A\times_C D.
+              \end{align*}
         \item If the right square and the outer rectangle are pullbacks, so is the left square.
     \end{enumerate}
 \end{lemma}
@@ -859,8 +859,8 @@
     where for any $m$ and its pullback $m'$ along $f$ we define
     the map
     \begin{align*}
-        \inv f: \Sub(B)&\to\Sub(A),\\
-        m &\mapsto m'.
+        \inv f: \Sub(B) & \to\Sub(A), \\
+        m               & \mapsto m'.
     \end{align*}
 \end{corollary}
 
@@ -868,7 +868,7 @@
 
 \begin{definition}[Cones; Awodey p. 101]
     Let $\cat J$ and $\cat C$ be categories. A \emph{diagram of type} $\cat J$
-    in $\cat C$ is a functor. 
+    in $\cat C$ is a functor.
     \begin{align*}
         D:\cat J \to \cat C.
     \end{align*}
@@ -882,7 +882,7 @@
     \begin{align*}
         \left(c_j:C\to D_j\right)_{j\in\cat J}
     \end{align*}
-    such that for each arrow $\alpha:i\to j$ in $\cat J$, 
+    such that for each arrow $\alpha:i\to j$ in $\cat J$,
     the following triangle commutes
     \begin{center}
         \begin{tikzcd}
@@ -909,7 +909,7 @@
     A \emph{limit} of a diagram $D:\cat J \to \cat C$ is a terminal object in the
     category $\cat{Cone}(D)$. A \emph{finite limit} is a limit of a diagram on
     a finite index category $\cat J$.
-\end{definition} 
+\end{definition}
 
 \begin{proposition}[Awodey p. 105]
     Let $\cat C$ be a category. Then the following are equivalent:
@@ -927,7 +927,7 @@
     $Fp_j:FL\to FD_j$ is then a limit for the diagram $FD:\cat J\to\cat D$. Briefly,
     \begin{align*}
         F(\catlim D_j)\cong \catlim F(D_j).
-    \end{align*} 
+    \end{align*}
     A functor that preserves all limits is said to be \emph{continuous}.
 \end{definition}
 
@@ -937,8 +937,8 @@
 
 \begin{definition}[Awodey p. 107]
     A functor of the form $F:\catop C\to \cat D$ is called a \emph{contravariant
-    functor} on $\cat C$. Explicitly, such a functor takes $f:A\to B$ to $F(f):
-    F(B)\to F(A)$ and $F(g\circ f)=F(f)\circ F(g)$.
+        functor} on $\cat C$. Explicitly, such a functor takes $f:A\to B$ to $F(f):
+        F(B)\to F(A)$ and $F(g\circ f)=F(f)\circ F(g)$.
 \end{definition}
 
 \begin{corollary}
@@ -953,7 +953,7 @@
     there is a unique cone $\bar{p_j}:\bar L \to C_j$ with $F(\bar L) = L$ and
     $F(\bar{p_j})=p_j$, which furthermore, is a limit for $C$. Briefly, every limit
     in $\cat D$ is the image of a unique cone in $\cat C$, which is a limit there.
-    The notion of \emph{creating colimits} is dfined analogously. 
+    The notion of \emph{creating colimits} is dfined analogously.
 \end{definition}
 
 \begin{proposition}
@@ -970,7 +970,7 @@
     of objects $B$ and $C$ consists of an object
     \begin{align*}
         C^B
-    \end{align*} 
+    \end{align*}
     and an arrow
     \begin{align*}
         \epsilon:C^B\times B \to C
@@ -1011,51 +1011,51 @@
     fixed object $A$ is a functor
     \begin{align*}
         (-)^A:\cat C\to\cat C.
-    \end{align*} 
+    \end{align*}
 \end{proposition}
 
 \begin{proposition}[Awodey p. 134]
     A category $\cat C$ is a CCC iff it has the following structure:
-    
+
     \begin{itemize}
         \item A distinguished object $1$, and for each object $C$ there
-        is given an arrow \begin{align*}
-            !_C:C\to 1
-        \end{align*}
-        such that for each arrow $f:C\to 1$, \begin{align*}
-            f=!_C.
-        \end{align*}
+              is given an arrow \begin{align*}
+                  !_C:C\to 1
+              \end{align*}
+              such that for each arrow $f:C\to 1$, \begin{align*}
+                  f=!_C.
+              \end{align*}
         \item For each pair of objects $A$, $B$, there is given an object
-        $A\times B$ and arrows, \begin{align*}
-            p_1:A\times B \to A\hs\text{and}\hs p_2:A\times B\to B
-        \end{align*}
-        and for each pair of arrows $f:Z\to A$ and $g:Z\to B$, there is given
-        an arrow, \begin{align*}
-            \lra{f,g}:Z\to A\times B
-        \end{align*}
-        such that \begin{align*}
-            p_1\lra{f,g}&=f\\
-            p_2\lra{f,g}&=g\\
-            \lra{p_1h,p_2h}&=h &\text{for all }h:Z\to A\times B.
-        \end{align*}
-        \item For each pair of objects $A$, $B$, there is given an object 
-        $B^A$ and an arrow, \begin{align*}
-            \epsilon : B^A\times B \to B
-        \end{align*}
-        and for each arrow $f:Z\times A \to B$, there is given an arrow \begin{align*}
-            \tilde{f}:Z\to B^A
-        \end{align*}
-        such that \begin{align*}
-            \epsilon\circ(\tilde f \times 1_A)=f
-        \end{align*}
-        and \begin{align*}
-            \widetilde{(\epsilon\circ(g\times 1_A))}=g
-        \end{align*}
-        for all $g:Z\to B^A$. Here, and generally, for any $a:X\to A$ and
-        $b:Y\to B$, we write
-        \begin{align*}
-            a\times b = \lra{a\circ p_1, b\circ p_2}:X\times Y\to A\times B.
-        \end{align*}
+              $A\times B$ and arrows, \begin{align*}
+                  p_1:A\times B \to A\hs\text{and}\hs p_2:A\times B\to B
+              \end{align*}
+              and for each pair of arrows $f:Z\to A$ and $g:Z\to B$, there is given
+              an arrow, \begin{align*}
+                  \lra{f,g}:Z\to A\times B
+              \end{align*}
+              such that \begin{align*}
+                  p_1\lra{f,g}    & =f                                    \\
+                  p_2\lra{f,g}    & =g                                    \\
+                  \lra{p_1h,p_2h} & =h & \text{for all }h:Z\to A\times B.
+              \end{align*}
+        \item For each pair of objects $A$, $B$, there is given an object
+              $B^A$ and an arrow, \begin{align*}
+                  \epsilon : B^A\times B \to B
+              \end{align*}
+              and for each arrow $f:Z\times A \to B$, there is given an arrow \begin{align*}
+                  \tilde{f}:Z\to B^A
+              \end{align*}
+              such that \begin{align*}
+                  \epsilon\circ(\tilde f \times 1_A)=f
+              \end{align*}
+              and \begin{align*}
+                  \widetilde{(\epsilon\circ(g\times 1_A))}=g
+              \end{align*}
+              for all $g:Z\to B^A$. Here, and generally, for any $a:X\to A$ and
+              $b:Y\to B$, we write
+              \begin{align*}
+                  a\times b = \lra{a\circ p_1, b\circ p_2}:X\times Y\to A\times B.
+              \end{align*}
     \end{itemize}
 \end{proposition}
 
@@ -1067,9 +1067,9 @@
         \item Finite meets: $1$ and $p\wedge q$,
         \item Finite joins: $0$ and $p\vee q$,
         \item Exponentials: for each $a$, $b$, an element $a\Rightarrow b$
-            such that \begin{align*}
-                a\wedge b \leq c \hs\text{iff}\hs a\leq b\Rightarrow c.
-            \end{align*}
+              such that \begin{align*}
+                  a\wedge b \leq c \hs\text{iff}\hs a\leq b\Rightarrow c.
+              \end{align*}
     \end{enumerate}
 \end{definition}
 
@@ -1085,14 +1085,14 @@
     infinite distributive law
     \begin{align*}
         a\wedge\left(\bigvee_i b_i\right)=\bigvee_i (a\wedge b_i).
-    \end{align*} 
+    \end{align*}
 \end{proposition}
 
 \subsection{\lambda-calculus}
 
 \begin{definition}
-    A \emph{theory} $\mathcal{L}$ in the $\lambda$-calculus is a set 
-    of basic types and terms, together with a set of equations between 
+    A \emph{theory} $\mathcal{L}$ in the $\lambda$-calculus is a set
+    of basic types and terms, together with a set of equations between
     terms.
 \end{definition}
 
@@ -1102,14 +1102,14 @@
     and arrows of $\cat C$:
     \begin{align*}
         X\text{ basic type} \hs
-        &\mapsto\hs\eqc X \text{ object} \\
+         & \mapsto\hs\eqc X \text{ object}                   \\
         b:A\to B\text{ basic term} \hs
-        &\mapsto\hs \eqc b: \eqc A \to \eqc B\text{ arrow}
+         & \mapsto\hs \eqc b: \eqc A \to \eqc B\text{ arrow}
     \end{align*}
-    such that 
+    such that
     \begin{align*}
-        \eqc{A\times B} &= \eqc A \times \eqc B \\
-        \eqc{\lra{f,g}} &= \lra{\eqc f, \eqc g}\\
+        \eqc{A\times B} & = \eqc A \times \eqc B \\
+        \eqc{\lra{f,g}} & = \lra{\eqc f, \eqc g} \\
         \text{etc.}
     \end{align*}
     and
@@ -1124,15 +1124,15 @@
     following:
     \begin{enumerate}
         \item For any terms $a,b,\mathcal{L}\vdash a = b$ iff
-            for all models $M$ in CCCs, $[\![a]\!]_M=[\![b]\!]_M$.
-        \item Moreover, for any type $A$, there is a closed $t:A$ iff for all models $M$ in CCCs, there is an arrow $1\to\eqc{A}_M$. 
+              for all models $M$ in CCCs, $[\![a]\!]_M=[\![b]\!]_M$.
+        \item Moreover, for any type $A$, there is a closed $t:A$ iff for all models $M$ in CCCs, there is an arrow $1\to\eqc{A}_M$.
     \end{enumerate}
 \end{proposition}
 
 \subsection{Variable sets}
 
 \begin{definition}
-    Let $I$ be a poset. Then for each $i\in I$ we define 
+    Let $I$ be a poset. Then for each $i\in I$ we define
     the upper set above $i$ as
     \begin{align*}
         \upset(i) \coloneqq \{j\in I : i\leq j\}
@@ -1150,7 +1150,7 @@
     between worlds $i$ and propositions $p$,
     \begin{align*}
         i\Vdash p,
-    \end{align*}    
+    \end{align*}
     read "$p$ holds at $i$". This relation is assumed to satisfy the
     following conditions:
     \begin{enumerate}[label=(\arabic*)]
@@ -1166,12 +1166,12 @@
 \end{definition}
 
 \begin{theorem}[Kripke completeness for IPC; Awodey p. 140]
-   A propositional formula $p$ is provable from the rules for IPC
-   iff it holds in all Kripke models, that is, iff $I\Vdash p$ for all
-   reations $\Vdash$ over all posets $I$,
-   \begin{align*}
-       \text{IPC}\vdash p \hs\text{iff}\hs I\Vdash p\hs\text{for all $I$}.
-   \end{align*} 
+    A propositional formula $p$ is provable from the rules for IPC
+    iff it holds in all Kripke models, that is, iff $I\Vdash p$ for all
+    reations $\Vdash$ over all posets $I$,
+    \begin{align*}
+        \text{IPC}\vdash p \hs\text{iff}\hs I\Vdash p\hs\text{for all $I$}.
+    \end{align*}
 \end{theorem}
 
 \begin{proposition}
@@ -1186,7 +1186,7 @@
 \begin{definition}
     Given a poset $I$, an \emph{$I$-indexed set} is a family of sets
     $(A_i)_{i\in I}$ together with transition functions $\alpha_{ij}:
-    A_i\to A_j$ for each $i\leq j$, satisfying the compatibility
+        A_i\to A_j$ for each $i\leq j$, satisfying the compatibility
     conditions:
     \begin{itemize}
         \item $\alpha_{ik}=\alpha_{jk}\circ\alpha_{ij}$ whenever $i\leq j\leq k$,
@@ -1196,7 +1196,7 @@
 
 \begin{proposition}[Awodey p. 143]
     For any poset $I$, the category $\cat{Sets}^I$ of $I$-indexed sets
-    and functions is cartesian closed.    
+    and functions is cartesian closed.
 \end{proposition}
 
 \begin{definition}[Awodey p. 144]
@@ -1209,7 +1209,7 @@
     For every CCC $\cat C$, there is a poset $I$ and a functor,
     \begin{align*}
         y : \cat C \mono \cat{Sets}^I,
-    \end{align*} 
+    \end{align*}
     that is injective on both objects and arrows and preserves CCC structure.
     Moreover, every map between objects in the image of $y$ is itself in the
     image of $y$.
@@ -1223,15 +1223,15 @@
     A functor $F:\cat C \to \cat C$ is said to be
     \begin{itemize}
         \item \emph{injective (resp. surjective) on objects} if the object part
-            $F_0:\cat C_0 \to \cat D_0$ is injective.
+              $F_0:\cat C_0 \to \cat D_0$ is injective.
         \item \emph{injective (resp. surjective) on arrows} if the arrow part
-            $F_1:\cat C_1 \to \cat D_1$ is injective.
+              $F_1:\cat C_1 \to \cat D_1$ is injective.
         \item \emph{faithful} if for all $A,B\in \cat C_0$ the map \begin{align*}
-            F_{A,B}:\Hom_{\cat C}(A,B)\to\Hom_{\cat D}(FA,FB)
-        \end{align*}
-        defined by $f\mapsto F(f)$ is injective.
+                  F_{A,B}:\Hom_{\cat C}(A,B)\to\Hom_{\cat D}(FA,FB)
+              \end{align*}
+              defined by $f\mapsto F(f)$ is injective.
         \item \emph{full} if $F_{A,B}$ is always surjective.
-    \end{itemize} 
+    \end{itemize}
 \end{definition}
 
 \subsection{Representable structure}
@@ -1243,7 +1243,7 @@
 \end{definition}
 
 \begin{proposition}[Special case of Stone Duality; Awodey p. 155]
-    Every Boolean algebra $B$ is isomorphic to one consisting of subsets 
+    Every Boolean algebra $B$ is isomorphic to one consisting of subsets
     of some set $X$, equipped with the set-theoretical Boolean operations.
 \end{proposition}
 
@@ -1253,13 +1253,13 @@
     For categories $\cat C$, $\cat D$ and functors
     \begin{align*}
         F, G: \cat C \to \cat D
-    \end{align*} 
+    \end{align*}
     a \emph{natural transformation} $\vartheta:F\to G$ is a family of
     arrows in $\cat D$
     \begin{align*}
         (\vartheta_C: FC\to GC)_{C\in\cat C_0}
     \end{align*}
-    such that, for any $f:C\to C'$ in $\cat C$, one has 
+    such that, for any $f:C\to C'$ in $\cat C$, one has
     \begin{align*}
         \vartheta_{C'}\circ F(f) = G(f) \circ \vartheta_C,
     \end{align*}
@@ -1274,7 +1274,7 @@
     \end{center}
     Given such a natural transformation $\vartheta: F\to G$, the
     $\cat D$-arrow $\vartheta_C:FC\to GC$ is called the \emph{component
-    of $\vartheta$ at $C$}.
+        of $\vartheta$ at $C$}.
 \end{definition}
 
 \begin{definition}[Awodey p. 158]
@@ -1282,7 +1282,7 @@
     \begin{itemize}
         \item objects: functors $F:\cat C \to \cat D$,
         \item arrows: natural transformations $\vartheta:F\to G$.
-    \end{itemize} 
+    \end{itemize}
     For each object $F$, the natural transformation $1_F$ has components
     \begin{align*}
         (1_F)_C = 1_{FC}:FC\to FC
@@ -1298,19 +1298,19 @@
     A \emph{natural isomorphism} is a natural transformation
     \begin{align*}
         \vartheta: F\to G
-    \end{align*} 
+    \end{align*}
     which is an isomorphism in the functor category $\cat{Fun}(\cat C, \cat D)$.
 \end{definition}
 
 \begin{lemma}[Awodey p. 159]
     A natural transformation $\vartheta:F\to G$ is a natural isomorphism
-    iff each component $\vartheta_C:FC\to GC$ is an isomorphism. 
+    iff each component $\vartheta_C:FC\to GC$ is an isomorphism.
 \end{lemma}
 
 \subsection{Exponentials of categories}
 
 \begin{proposition}[Awodey p. 161]
-    $\cat{Cat}$ is cartesian closed, with the exponentials 
+    $\cat{Cat}$ is cartesian closed, with the exponentials
     \begin{align*}
         \cat D^{\cat C} = \text{Fun}(\cat C, \cat D).
     \end{align*}
@@ -1319,23 +1319,23 @@
 \begin{lemma}[Bifunctor lemma; Awodey p. 161]
     Given categories $\cat A, \cat B$, and $\cat C$, a map of arrows and objects,
     \begin{align*}
-        F_0 : \cat A_0 \times \cat B_0 \to \cat C_0\\
+        F_0 : \cat A_0 \times \cat B_0 \to \cat C_0 \\
         F_1 : \cat A_1 \times \cat B_1 \to \cat C_1
-    \end{align*} 
+    \end{align*}
     is a functor $F:\cat A \times \cat B \to \cat C$ iff
     \begin{enumerate}
-        \item $F$ is functorial in each argument: $F(A, -):\cat B \to \cat C$ and 
-            $F(-, B):\cat A \to \cat C$ are functors for all $A\in\cat A_0$ and $B\in \cat B_0$
+        \item $F$ is functorial in each argument: $F(A, -):\cat B \to \cat C$ and
+              $F(-, B):\cat A \to \cat C$ are functors for all $A\in\cat A_0$ and $B\in \cat B_0$
         \item $F$ satisfies the following "interchange law." Given $\alpha: A\to A'\in \cat A$ and
-            $\beta: B\to B'\in \cat B$, the following commutes: 
-            \begin{center}
-                \begin{tikzcd}
-                    F(A,B) \arrow[r, "{F(A,\beta)}"] \arrow[d, "{F(\alpha, B)}"] &
-                    F(A,B') \arrow[d, "{F(\alpha, B')}"] \\
-                    F(A',B) \arrow[r, "{F(A',\beta)}"] &
-                    F(A',B')
-                \end{tikzcd} 
-            \end{center}
+              $\beta: B\to B'\in \cat B$, the following commutes:
+              \begin{center}
+                  \begin{tikzcd}
+                      F(A,B) \arrow[r, "{F(A,\beta)}"] \arrow[d, "{F(\alpha, B)}"] &
+                      F(A,B') \arrow[d, "{F(\alpha, B')}"] \\
+                      F(A',B) \arrow[r, "{F(A',\beta)}"] &
+                      F(A',B')
+                  \end{tikzcd}
+              \end{center}
     \end{enumerate}
 \end{lemma}
 

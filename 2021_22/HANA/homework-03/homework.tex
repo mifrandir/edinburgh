@@ -10,11 +10,11 @@
 \section{Workshop 3 - Question 1}
 
 \begin{claim}
-   There exists a series $\sum_{n=1}^\infty a_n$ that diverges even though the 
+   There exists a series $\sum_{n=1}^\infty a_n$ that diverges even though the
    series $(a_n)$ converges.
 \end{claim}
 \begin{proof}
-   Let $a_n=1/n$. Then $a_n\to 0$ as $n\to\infty$ but the harmonic series 
+   Let $a_n=1/n$. Then $a_n\to 0$ as $n\to\infty$ but the harmonic series
    $\sum_{n=1}^\infty a_n$ is known to diverge.
 \end{proof}
 
@@ -23,7 +23,7 @@
    $a_n\to 0$ as $n\to\infty$.
 \end{claim}
 \begin{proof}
-   Let $a_n=1/n$. Then $a_n\to 0$ as $n\to\infty$ but the harmonic series 
+   Let $a_n=1/n$. Then $a_n\to 0$ as $n\to\infty$ but the harmonic series
    $\sum_{n=1}^\infty a_n$ is known to diverge.
 \end{proof}
 
@@ -33,7 +33,7 @@
 \end{claim}
 \begin{proof}
    Let $a_n=(-1)^n/n$. By the \emph{Alternating Series Test}, the series $\sum_{n=1}^\infty a_n$
-   converges. However, 
+   converges. However,
    \begin{align}
       \sum_{n=1}^\infty \abs{a_n} = \sum_{n=1}^\infty \frac{1}{n}
    \end{align}
@@ -48,12 +48,12 @@
 \end{claim}
 \begin{proof}
    By contradiction. Assume that $\sum_{n=1}^\infty n^pa_n$ converges. Then the sequence $(n^pa_n)$
-   must converge to zero and therefore it must be bounded. Choose $M\in\R$ such 
+   must converge to zero and therefore it must be bounded. Choose $M\in\R$ such
    that
    \begin{align*}
       \abs{n^pa_n}\leq M.
    \end{align*}
-   Observe that $n^p > 0$ for all $n\in\N$. Therefore, the above implies 
+   Observe that $n^p > 0$ for all $n\in\N$. Therefore, the above implies
    \begin{align*}
       n^p\abs{a_n} \leq M
    \end{align*}
@@ -83,26 +83,26 @@
    Pick $N$ such that $\abs{x_n}<\sqrt{\e}$ for all $n>N$. Then, for all $n>N$ we have
    \begin{align*}
       \abs{f(x_n) - f(0)} = \begin{cases}
-         \abs{x_n^2} &\text{if $x_n$ is rational},\\
-         0           &\text{if $x_n$ is irrational}.
+         \abs{x_n^2} & \text{if $x_n$ is rational},   \\
+         0           & \text{if $x_n$ is irrational}.
       \end{cases}
    \end{align*}
    Note that either way, $\abs{f(x_n)-f(0)}<\e$ and thus $f(x_n)\to 0$ as $n\to\infty$.
    This shows that $f$ is continuous at $0$. Now consider
    \begin{align*}
-      \lim_{h\to 0} \frac{f(h) - f(0)}{h} = \lim_{h\to 0} \frac{f(h)}{h}. 
+      \lim_{h\to 0} \frac{f(h) - f(0)}{h} = \lim_{h\to 0} \frac{f(h)}{h}.
    \end{align*}
-   Let $\e>0$. Let $\delta = \sqrt{h}$. Then for all $0 < \abs{h} < \delta$, 
+   Let $\e>0$. Let $\delta = \sqrt{h}$. Then for all $0 < \abs{h} < \delta$,
    \begin{align}
       \abs{\frac{f(h)}{h}} = \begin{cases}
-         h^2/h = h, &\text{if $h$ is rational},\\
-         0        , &\text{if $h$ is irrational}. 
+         h^2/h = h, & \text{if $h$ is rational},   \\
+         0        , & \text{if $h$ is irrational}.
       \end{cases}
    \end{align}
    In both cases, $\abs{f(h)/h}<\e$. Thus $f$ is differentiable at $0$ and $f'(0)=0$.
 
    Consider a sequence of rational numbers $(x_n)$ such that $x_n\to L$ where $L\not=0$.
-   Then clearly 
+   Then clearly
    \begin{align}
       \lim_{n\to\infty} f(x_n) = L^2.
    \end{align}

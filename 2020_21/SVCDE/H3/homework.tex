@@ -13,9 +13,9 @@
 
 We have
 \begin{align*}
-  z &= f(x,y),\\
-  x &= r\cos t,\\
-  y &= r\sin t.
+  z & = f(x,y),  \\
+  x & = r\cos t, \\
+  y & = r\sin t.
 \end{align*}
 We want to show that
 \begin{align*}
@@ -30,48 +30,48 @@ or equivalently
 Note the following derivatives of $x$ and $y$:
 \begin{align*}
   \begin{array}{l l}
-  x_r = \cos t &\hspace{1cm} y_r = \sin t\\
-  x_t = -r\sin t &\hspace{1cm} y_t = r\cos t\\
-  x_{tt} = -r\cos t &\hspace{1cm} y_{tt} = -r\sin t
+    x_r = \cos t      & \hspace{1cm} y_r = \sin t      \\
+    x_t = -r\sin t    & \hspace{1cm} y_t = r\cos t     \\
+    x_{tt} = -r\cos t & \hspace{1cm} y_{tt} = -r\sin t
   \end{array}
 \end{align*}
 We start by determining $z_r$ and $z_t$:
 \begin{align*}
-  z_r &= z_x x_r + z_y y_r = z_x \cos t + z_y \sin t,\\
-  z_t &= z_x x_t + z_y y_t = z_x (-r\sin t) + z_y r\cos t
+  z_r & = z_x x_r + z_y y_r = z_x \cos t + z_y \sin t,     \\
+  z_t & = z_x x_t + z_y y_t = z_x (-r\sin t) + z_y r\cos t
 \end{align*}
-This follows directly from the \emph{Chain Rule}. 
+This follows directly from the \emph{Chain Rule}.
 Let us now find $z_{rr}$ and $z_{tt}$. We know
 \begin{align*}
-    z_{rr} &= (z_x x_r + z_y y_r)_r = (z_x x_r)_r + (z_y y_r)_r
+  z_{rr} & = (z_x x_r + z_y y_r)_r = (z_x x_r)_r + (z_y y_r)_r
 \end{align*}
 and since $x_r = \cos t$ and $y_r = \cos t$ do not depend on $r$
 \begin{align*}
-  z_{rr} &= (z_{xr})\cos t + (z_y)_r \sin t \\
-  &=(z_{xx}x_r + z_{xy}y_r)\cos t + (z_{xy}x_r + z_{yy}y_r)\sin t\\
-  &=z_{xx}\cos^2 t + 2 z_{xy}\sin t\cos t + z_{yy}\sin^2 t.
+  z_{rr} & = (z_{xr})\cos t + (z_y)_r \sin t                              \\
+         & =(z_{xx}x_r + z_{xy}y_r)\cos t + (z_{xy}x_r + z_{yy}y_r)\sin t \\
+         & =z_{xx}\cos^2 t + 2 z_{xy}\sin t\cos t + z_{yy}\sin^2 t.
 \end{align*}
 Note that \emph{Clairaut's Theorem} is being used a lot and without special notice in this hand-in. Further
 \begin{align*}
-  z_{tt} &= (z_x x_t + z_y y_t)_t = (z_x x_t)_t + (z_y y_t)_t\\
-  &=(z_{xx}x_t + z_{xy}y_t)x_t + z_x x_{tt}
-  + (z_{xy}x_t + z_{yy}y_t)y_t + z_y y_{tt}\\
-  &= z_{xx}r^2\sin^2 t - 2z_{xy}r^2\sin t\cos t + z_{yy}r^2\cos^2 t -z_x r\cos t - z_y r\sin t.
+  z_{tt} & = (z_x x_t + z_y y_t)_t = (z_x x_t)_t + (z_y y_t)_t                                          \\
+         & =(z_{xx}x_t + z_{xy}y_t)x_t + z_x x_{tt}
+  + (z_{xy}x_t + z_{yy}y_t)y_t + z_y y_{tt}                                                             \\
+         & = z_{xx}r^2\sin^2 t - 2z_{xy}r^2\sin t\cos t + z_{yy}r^2\cos^2 t -z_x r\cos t - z_y r\sin t.
 \end{align*}
 To show equation \ref{eq1} we need to evaluate the right-hand side of the equation by inserting
 $z_{rr}$, $z_r$ and $z_{tt}$. We get
 \begin{align*}
-  &z_{rr} + a(t)z_r + b(t)z_{tt}\\
-  &=z_{xx}\cos^2 t + 2 z_{xy}\sin t\cos t + z_{yy}\sin^2 t\\
-  &+a(r)\left(z_x \cos t + z_y \sin t\right)\\
-  &+b(r)\left(z_{xx}r^2\sin^2 t - 2z_{xy}r^2\sin t\cos t + z_{yy}r^2\cos^2 t-z_x r\cos t - z_y r\sin t\right).
+   & z_{rr} + a(t)z_r + b(t)z_{tt}                                                                               \\
+   & =z_{xx}\cos^2 t + 2 z_{xy}\sin t\cos t + z_{yy}\sin^2 t                                                     \\
+   & +a(r)\left(z_x \cos t + z_y \sin t\right)                                                                   \\
+   & +b(r)\left(z_{xx}r^2\sin^2 t - 2z_{xy}r^2\sin t\cos t + z_{yy}r^2\cos^2 t-z_x r\cos t - z_y r\sin t\right).
 \end{align*}
 At this point we observe that, if $b(r)=1/r^2$, both $z_{xx}$ and $z_{yy}$ will
 be without any factor. We therefore try it and obtain
 \begin{align*}
-  z_{rr} + a(t)z_r + \frac{1}{r^2}z_{tt} &= z_{xx}+z_{yy} + a(r)(z_x\cos t + z_y\sin t)
-  -z_x\frac{\cos t}{r}-z_y \frac{\sin t}{r}\\
-  &= z_{xx}+z_{yy} + \left(a(r)-\frac{1}{r}\right)(z_x\cos t+z_y \sin t).
+  z_{rr} + a(t)z_r + \frac{1}{r^2}z_{tt} & = z_{xx}+z_{yy} + a(r)(z_x\cos t + z_y\sin t)
+  -z_x\frac{\cos t}{r}-z_y \frac{\sin t}{r}                                                                       \\
+                                         & = z_{xx}+z_{yy} + \left(a(r)-\frac{1}{r}\right)(z_x\cos t+z_y \sin t).
 \end{align*}
 Now we see that $a(r)=1/r$ is required to get
 \begin{align*}
@@ -106,11 +106,11 @@ Further, observe that
 and
 \begin{align*}
   D(1,1) = \det \begin{pmatrix}
-    2 & 0\\
+    2 & 0 \\
     0 & 2
   \end{pmatrix}
   = 4 > 0.
 \end{align*}
-Applying the test from \emph{Section 2.7.1} of the notes, we find 
+Applying the test from \emph{Section 2.7.1} of the notes, we find
 that the function $f$ has a local minimum at $(1,1)$.
 \end{document}

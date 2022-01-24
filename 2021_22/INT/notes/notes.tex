@@ -12,14 +12,14 @@
 \section{Pythagorean triples}
 
 \begin{definition}
-    Three natural numbers $(a,b,c)$ are called a \emph{pythagorean triple} if 
+    Three natural numbers $(a,b,c)$ are called a \emph{pythagorean triple} if
     \begin{align*}
         a^2 + b^2 = c^2.
     \end{align*}
 \end{definition}
 
 \begin{lemma}
-    If $(a,b,c)$ is a pythagorean triple and $d$ is any positive integer then 
+    If $(a,b,c)$ is a pythagorean triple and $d$ is any positive integer then
     so is $(da,db,dc)$.
 \end{lemma}
 
@@ -28,7 +28,7 @@
 \end{definition}
 
 \begin{theorem}
-    Every primitive pythagorean triple $(a,b,c)$ with $a$ odd satsifies 
+    Every primitive pythagorean triple $(a,b,c)$ with $a$ odd satsifies
     \begin{align*}
         a=s,\hs b=\frac{s^2-t^2}{2},\hs c=\frac{s^2+t^2}{2},
     \end{align*}
@@ -42,10 +42,10 @@
 \end{theorem}
 
 \begin{theorem}[Division algorithm]
-    Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $q,r\in\Z$ such that 
+    Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $q,r\in\Z$ such that
     \begin{align*}
         a = qb + r
-    \end{align*} 
+    \end{align*}
     and $0\leq r<b$. $q$ is called the quotient and $r$ is called the remainder.
 \end{theorem}
 
@@ -55,28 +55,28 @@
 \end{definition}
 
 \begin{definition}
-    Let $a,b\in\Z$, not both zero. The greatest common divisor of $a$ and $b$ is the largest integer 
+    Let $a,b\in\Z$, not both zero. The greatest common divisor of $a$ and $b$ is the largest integer
     that divides both of them. Note $\gcd(a,b)$ is well-defined and $1\leq\gcd(a,b)\leq\min(a,b)$.
 \end{definition}
 
 \begin{lemma}[Bezout]
-    Let $a,b\in\Z$, not both zero. Then there exist $s,t\in\Z$ such that 
-    $as + bt = \gcd(a,b)$. Moreover, any common divisor of $a$ and $b$ divides $\gcd(a,b)$.  
+    Let $a,b\in\Z$, not both zero. Then there exist $s,t\in\Z$ such that
+    $as + bt = \gcd(a,b)$. Moreover, any common divisor of $a$ and $b$ divides $\gcd(a,b)$.
 \end{lemma}
 
 \begin{theorem}
     Let $a,b\in Z$ such that $a\geq b>0$.
-    The Euclidean algorithm described below always gives the greatest common divisor of 
+    The Euclidean algorithm described below always gives the greatest common divisor of
     $a$ and $b$.
     \begin{enumerate}
         \item There exist unique integers $q_1,r_1$ such that $a=q_1b+r_1$, $0\leq r_1<b$.
         \item Assuming that $r_1>0$, then we can apply the division algorithm to the pair
-            $b,r_1$ and get $b=q_2r_1 + r_2$, $0\leq r_2<r_1$. If $r_2>0$ we may divide 
-            $r_1$ by $r_2$, and so on.
+              $b,r_1$ and get $b=q_2r_1 + r_2$, $0\leq r_2<r_1$. If $r_2>0$ we may divide
+              $r_1$ by $r_2$, and so on.
         \item Continuing in this way, we eventually get \begin{align*}
-            r_k=q_{k+2}r_{k+1}+r_{k+2}
-        \end{align*}
-        with $r_{k+2}=0$ for some $k$.
+                  r_k=q_{k+2}r_{k+1}+r_{k+2}
+              \end{align*}
+              with $r_{k+2}=0$ for some $k$.
         \item We have $r_{k+1}=\gcd(a,b)$.
     \end{enumerate}
 \end{theorem}

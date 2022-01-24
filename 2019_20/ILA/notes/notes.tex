@@ -34,16 +34,16 @@
     If
     \begin{gather*}
         \vec u = \begin{bmatrix}
-            u_1\\u_2\\\vdots\\u_n
+            u_1 \\u_2\\\vdots\\u_n
         \end{bmatrix} \text{  and  }
         \vec v = \begin{bmatrix}
-            v_1\\v_2\\\vdots\\v_n
+            v_1 \\v_2\\\vdots\\v_n
         \end{bmatrix}
     \end{gather*}
     then the \textbf{dot product $\vec u \cdot \vec v$} of $\vec u$ and $\vec v$ is defined by
     \begin{gather*}
         \vec u \cdot \vec v = u_1v_1 + u_2v_2 + \cdots + u_nv_n
-    \end{gather*} 
+    \end{gather*}
 \end{definition}
 \begin{theorem}
     Let $\vec u$, $\vec v$ and $\vec w$ be vectors in $\mathbb{R}^n$ and let $c$ be a scalar. Then
@@ -114,8 +114,8 @@
     \end{gather*}
     where $\vec p$ is a specific point on $l$ and $\vec n \not= 0$ is a normal vector for $l$.\\
     The \textbf{general form of the equation of $l$} is $ax+by=c$, where $\vec n = \begin{bmatrix}
-        a\\textbf    
-    \end{bmatrix}$ is a normal vector for $l$.
+            a \\textbf
+        \end{bmatrix}$ is a normal vector for $l$.
 \end{definition}
 \begin{definition}
     The \textbf{vector form of the equation of a line} in $\mathbb{R}^2$ or $\mathbb{R}^3$ is
@@ -132,8 +132,8 @@
     \end{gather*}
     where $\vec p$ is a specific point on $\mathcal{P}$ and $\vec n \not= 0$ is a normal vector for $\mathcal{P}$.\\
     The \textbf{general form of the equation of $\mathcal{P}$} is $ax + by + cz = d$, where $\vec n = \begin{bmatrix}
-        a \\ b \\ c
-    \end{bmatrix}$ is a normal vector for $\mathcal{P}$.
+            a \\ b \\ c
+        \end{bmatrix}$ is a normal vector for $\mathcal{P}$.
 \end{definition}
 \begin{definition}
     The \textbf{vector form of the equation of a plane $\mathcal{P}$} in $\mathbb{R}^3$ is
@@ -187,7 +187,7 @@
 \begin{definition}
     A matrix is in \textbf{reduced row echelon form (RREF)} if it satisfies the following properties:
     \begin{enumerate}
-        \item It is in REF. 
+        \item It is in REF.
         \item The leading entry in each nonzero row is a 1.
         \item Each column containing a leading 1 has zeros everywhere else.
     \end{enumerate}
@@ -302,7 +302,7 @@
 \begin{definition}
     If $A$ is an $n\times n$ matrix, an \textbf{inverse} of $A$ is an $n\times n$ matrix $A'$ with the property that
     \begin{gather*}
-        AA'=I\text{  and  } A'A = I 
+        AA'=I\text{  and  } A'A = I
     \end{gather*}
     where $I = I_n$ is the $n\times n$ identity matrix. If such an $A'$ exists, then $A$ is called \textbf{invertible}.
 \end{definition}
@@ -318,31 +318,31 @@
 \begin{theorem}
     \begin{enumerate}
         \item If $A$ is an invertible matrix, then $A^{-1}$ is invertible and
-        \begin{gather*}
-            (A^{-1})^{-1} = A
-        \end{gather*}
+              \begin{gather*}
+                  (A^{-1})^{-1} = A
+              \end{gather*}
         \item If $A$ is an invertible matrix and $c$ is a nonzero scalar, then $cA$ is an invertible matrix and \begin{gather*}
-            (cA)^{-1} = \frac{1}{c}A^{-1}
-        \end{gather*}
+                  (cA)^{-1} = \frac{1}{c}A^{-1}
+              \end{gather*}
         \item If $A$ and $B$ are invertible matrices of the same size, then $AB$ is invertible and \begin{gather*}
-            (AB)^{-1} = B^{-1} A^{-1}
-        \end{gather*}
+                  (AB)^{-1} = B^{-1} A^{-1}
+              \end{gather*}
         \item If $A$ is an invertible matrix, then $A^\intercal$ is invertible and \begin{gather*}
-            (A^\intercal)^{-1}=(A^{-1})^\intercal
-        \end{gather*}
+                  (A^\intercal)^{-1}=(A^{-1})^\intercal
+              \end{gather*}
         \item If $A$ is an invertible matrix, then $A^n$ is invertible for all nonnegative integers $n$ and \begin{gather*}
-            (A^n)^{-1} = (A^{-1})^n
-        \end{gather*}
+                  (A^n)^{-1} = (A^{-1})^n
+              \end{gather*}
     \end{enumerate}
 \end{theorem}
 \begin{definition}
-    If $A$ is an invertible matrix and $n$ is a positive integer, then $A^{-n}$ is defined by 
+    If $A$ is an invertible matrix and $n$ is a positive integer, then $A^{-n}$ is defined by
     \begin{gather*}
         A^{-n} = (A^{-1})^n = (A^n)^{-1}
     \end{gather*}
 \end{definition}
 \begin{definition}
-    An \textbf{elementary matrix} is any matrix that can be obtained by performing an elementary row operation on an identity matrix. 
+    An \textbf{elementary matrix} is any matrix that can be obtained by performing an elementary row operation on an identity matrix.
 \end{definition}
 \begin{theorem}
     Let $E$ be the elementary matrix obtained by performing an elementary row operation on $I_n$. If the same elementary row operation is performed on a $n\times r$ matrix $A$ the result is the same as the matrix $EA$.
@@ -497,7 +497,7 @@
     Let $S$ be a subspace of $\mathbb{R}^n$ and let $\mathcal{B}=\{\vec v_1, \vec v_2, ..., \vec v_k\}$ be a basis for $S$. Let $\vec v$ be a vector in $S$, and write $\vec v = c_1\vec v_1 + c_2\vec v_2 + \cdots + c_k\vec v_k$. Then $c_1, c_2, ..., c_k$ are called the \textbf{coordiantes of $v$ with respect to $\mathcal{B}$}, and the column vector
     \begin{gather*}
         [\vec v]_\mathcal{B} = \begin{bmatrix}
-            c_1\\c_2\\\vdots\\c_k
+            c_1 \\c_2\\\vdots\\c_k
         \end{bmatrix}
     \end{gather*}
     is called the \textbf{coordinate vector of $\vec v$ with respect to $\mathcal{B}$}.
@@ -505,12 +505,12 @@
 \setcounter{subsection}{5}
 \subsection{Linear Transformations}
 \begin{definition}
-    A \textbf{transformation} $T$ from $\mathbb{R}^n$ (\textbf{domain}) to $\mathbb{R}^m$ (\textbf{codomain}) is a rule which assigns to each vector $\vec v$ in $\mathbb{R}^n$ a unique vector $T(\vec v)$ (\textbf{image} of $\vec v$ under $T$) in $\mathbb{R}^m$. 
+    A \textbf{transformation} $T$ from $\mathbb{R}^n$ (\textbf{domain}) to $\mathbb{R}^m$ (\textbf{codomain}) is a rule which assigns to each vector $\vec v$ in $\mathbb{R}^n$ a unique vector $T(\vec v)$ (\textbf{image} of $\vec v$ under $T$) in $\mathbb{R}^m$.
     The \textbf{range} of $T$ is the set of all possible vectors $T(\vec v)$
 \end{definition}
 \begin{definition}
-   $T:\mathbb{R}^n \to \mathbb{R}^m$ is a \textbf{linear transformation} iff
-    \begin{align*}        
+    $T:\mathbb{R}^n \to \mathbb{R}^m$ is a \textbf{linear transformation} iff
+    \begin{align*}
         \forall \vec v_1, \vec v_2 \in \mathbb{R}^n.\:\forall c_1, c_2 \in \mathbb{R}.\: T(c_1\vec v_1 + c_2\vec v_2) = c_1T(\vec v_1) + c_2T(\vec v_2)
     \end{align*}
 \end{definition}
@@ -518,7 +518,7 @@
     All matrix transformations $T_A:\mathbb{R}^n\to\mathbb{R}^m$ are linear transformations.
 \end{theorem}
 \begin{theorem}
-    Let $T:\mathbb{R}^n\to\mathbb{R}^m$ be a linear transformation. Then $T=T_A$ where $A$ (\textbf{the standard matrix} of $T$) is the $m\times n$ matrix 
+    Let $T:\mathbb{R}^n\to\mathbb{R}^m$ be a linear transformation. Then $T=T_A$ where $A$ (\textbf{the standard matrix} of $T$) is the $m\times n$ matrix
     \begin{align*}
         A = \begin{bmatrix}
             T(\vec e_1) & T(\vec e_2) & \cdots & T(\vec e_n)
@@ -540,7 +540,7 @@
     \end{align*}
 \end{theorem}
 \begin{definition}
-    Let $S$ and $T$ be linear transformations from $\mathbb{R}^n$ to $\mathbb{R}^n$.\\ 
+    Let $S$ and $T$ be linear transformations from $\mathbb{R}^n$ to $\mathbb{R}^n$.\\
     Then $S$ and $T$ are \textbf{inverse transformations} if $S\circ T= I_n$ and $T\circ S=I_n$.
 \end{definition}
 \begin{theorem}
@@ -566,8 +566,8 @@
     If $G$ is a graph with $n$ vertices, then its \textbf{adjacency matrix} is the $n\times n$ matrix $A$ defined by
     \begin{gather*}
         a_{ij} = \begin{cases}
-            1 &\text{if there is an edge between vertices $i$ and $j$}\\
-            0 &\text{otherwise}
+            1 & \text{if there is an edge between vertices $i$ and $j$} \\
+            0 & \text{otherwise}
         \end{cases}
     \end{gather*}
 \end{definition}
@@ -575,8 +575,8 @@
     If $G$ is a digraph with $n$ vertices, then its \textbf{adjacency matrix} is the $n\times n$ matrix $A$ defined by
     \begin{gather*}
         a_{ij} = \begin{cases}
-            1 &\text{if there is an edge from vertices $i$ and $j$}\\
-            0 &\text{otherwise}
+            1 & \text{if there is an edge from vertices $i$ and $j$} \\
+            0 & \text{otherwise}
         \end{cases}
     \end{gather*}
 \end{definition}
@@ -591,23 +591,23 @@
 \subsection{Determinants}
 \begin{definition}
     Let $A=\begin{bmatrix}
-        a_{11} &a_{12} &a_{13}\\ 
-        a_{21} &a_{22} &a_{23}\\ 
-        a_{31} &a_{32} &a_{33}
-    \end{bmatrix}$.
+            a_{11} & a_{12} & a_{13} \\
+            a_{21} & a_{22} & a_{23} \\
+            a_{31} & a_{32} & a_{33}
+        \end{bmatrix}$.
     Then the \textbf{determinant} of $A$ is the scalar
     \begin{align*}
         det A = |A| = a_{11}\left|\begin{array}{ccc}
-            a_{22} &a_{23}\\ 
-            a_{32} &a_{33}
+            a_{22} & a_{23} \\
+            a_{32} & a_{33}
         \end{array}\right| -
         a_{12}\left|\begin{array}{ccc}
-            a_{21} &a_{23}\\ 
-            a_{31} &a_{33}
+            a_{21} & a_{23} \\
+            a_{31} & a_{33}
         \end{array}\right| +
         a_{13}\left|\begin{array}{ccc}
-            a_{21} &a_{22}\\ 
-            a_{31} &a_{32}
+            a_{21} & a_{22} \\
+            a_{31} & a_{32}
         \end{array}\right|
     \end{align*}
     For any matrix $A$, $A_{ij}$ is called the \textbf{(i,j)-minor} of $A$.
@@ -631,13 +631,13 @@
 \begin{theorem}
     The determinant of an $n\times n$ matrix $A=[a_{ij}]$, where $n\geq 2$, can be computed as
     \begin{align*}
-        det A &= a_{i1}C_{i1}+a_{i2}C_{i2} + \cdots + a_{in}C_{in}\\
-        &= \sum_{j=1}^n a_{ij}C_{ij}
+        det A & = a_{i1}C_{i1}+a_{i2}C_{i2} + \cdots + a_{in}C_{in} \\
+              & = \sum_{j=1}^n a_{ij}C_{ij}
     \end{align*}
     (the \textbf{cofactor expansion along the $i$th row}) and also as
     \begin{align*}
-        det A &= a_{1j}C_{1j}+a_{2j}C_{2j} + \cdots + a_{nj}C_{nj}\\
-        &= \sum_{i=1}^n a_{ij}C_{ij}
+        det A & = a_{1j}C_{1j}+a_{2j}C_{2j} + \cdots + a_{nj}C_{nj} \\
+              & = \sum_{i=1}^n a_{ij}C_{ij}
     \end{align*}
     (the \textbf{cofactor expansion along the $j$th column}).
 \end{theorem}
@@ -830,7 +830,7 @@
     \end{align*}
 \end{theorem}
 \begin{definition}
-    A set of vectors in $\mathbb{R}^n$ is an \textbf{orthonormal set} if it is an orthogonal set of unit vectors. An \textbf{orthonormal basis} for a subspace $W$ of $\mathbb{R}^n$ is a basis of $W$ that is an orthonormal set. 
+    A set of vectors in $\mathbb{R}^n$ is an \textbf{orthonormal set} if it is an orthogonal set of unit vectors. An \textbf{orthonormal basis} for a subspace $W$ of $\mathbb{R}^n$ is a basis of $W$ that is an orthonormal set.
 \end{definition}
 \begin{theorem}
     Let $\{\vec q_1, \vec q_2, ..., \vec q_k\}$ be an orthonormal basis for a subspace $W$ of $\mathbb{R}^n$ and let $\vec w\in W$. Then
@@ -888,8 +888,8 @@
 \begin{theorem}
     Let $A$ be an $m\times n$ matrix. Then the orthogonal complement of the row space of $A$ is the null space of $A$, and the orthogonal complement of the column space of $A$ is the null space of $A^\intercal $:
     \begin{align*}
-        (row(A))^{\perp}&=null(A)\\
-        (col(A))^{\perp}&=null(A^\intercal )
+        (row(A))^{\perp} & =null(A)            \\
+        (col(A))^{\perp} & =null(A^\intercal )
     \end{align*}
 \end{theorem}
 \begin{definition}
@@ -907,15 +907,15 @@
     \textbf{The Orthogonal Decomposition Theorem}\\
     Let $W$ be a subspace of $\mathbb{R}^n$ and let $\vec v$ be a vector in $\mathbb{R}^n$.
     Then there are unique vectors $\vec w$ in $W$ and $\vec w^{\perp}$ in $W^{\perp}$ such that
-\begin{align*}
-    \vec v = \vec w + \vec w^{\perp}.
-\end{align*}
+    \begin{align*}
+        \vec v = \vec w + \vec w^{\perp}.
+    \end{align*}
 \end{theorem}
 \setcounter{theorem}{12}
 \begin{theorem}
     If $W$ is a subspace of $\mathbb{R}^n$, then
     \begin{align*}
-        \dim W + \dim W^{\perp} = n        
+        \dim W + \dim W^{\perp} = n
     \end{align*}
 \end{theorem}
 \setcounter{theorem}{14}
@@ -924,8 +924,8 @@
     \textbf{The Gram-Schmidt Process}\\
     Let $\{\vec x_1, ..., \vec x_k\}$ be a basis for a subspace $W$ of $\mathbb{R}^n$ and define the following for all $i\in\{1,...,k\}$:
     \begin{align*}
-        \vec v_i &= \vec x_i - \sum^{i-1}_{j=1} proj_{\vec v_i}(\vec x_i)\\
-        W_i &= span(\vec x_1, ..., \vec x_i)
+        \vec v_i & = \vec x_i - \sum^{i-1}_{j=1} proj_{\vec v_i}(\vec x_i) \\
+        W_i      & = span(\vec x_1, ..., \vec x_i)
     \end{align*}
     Then for each $i=1, ..., k$, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W_i$. In particular, $\{\vec v_1, ..., \vec v_k\}$ is an orthogonal basis for $W$.
 \end{theorem}
@@ -965,8 +965,8 @@
     \textbf{The Principal Axes Theorem}\\
     Every quadratic form can be diagonalized. Specifically, if $A$ is the $n\times n$ symmetric matrix associated with the quadratic form $\vec x^\intercal A\vec x$ and if $Q$ is an orthogonal matrix such that $Q^\intercal AQ=D$ is a diagonal matrix, then the change of variable $\vec x = Q\vec y$ transforms the quadratic form $\vec x^\intercal A\vec x$ into the quadratic form $\vec y^\intercal D\vec y$, which has no cross-product terms.
     If the eigenvalues of $A$ are $\lambda_1, ...,\lambda_n$ and $y=\begin{bmatrix}
-        y_1 &\cdots &y_n
-    \end{bmatrix}^\intercal $, then
+            y_1 & \cdots & y_n
+        \end{bmatrix}^\intercal $, then
     \begin{align*}
         \vec x^\intercal A\vec x = \vec y^\intercal D\vec y = \lambda_1 y_1^2+\cdots+\lambda_n y_n^2
     \end{align*}
@@ -997,7 +997,7 @@
     \begin{enumerate}
         \item $\lambda_1\geq f(\vec x)\geq \lambda_n$
         \item The maximum value of $f(\vec x)$ is $\lambda_1$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_1$.
-        \item The minimum value of $f(\vec x)$ is $\lambda_n$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_n$. 
+        \item The minimum value of $f(\vec x)$ is $\lambda_n$, and it occurs when $\vec x$ is a unit eigenvector corresponding to $\lambda_n$.
     \end{enumerate}
 \end{theorem}
 \end{document}

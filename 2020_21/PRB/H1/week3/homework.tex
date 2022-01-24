@@ -12,12 +12,12 @@
 
 
 Let $E$ be the experiment of rolling three D6 and let $X$ be the number of 6s rolled.
-Then let $A$ be the event that $X\geq 1$ and let $B$ be the event that $X=2$. 
+Then let $A$ be the event that $X\geq 1$ and let $B$ be the event that $X=2$.
 We are interested in $\P(A|B)$. By definition, we find
 \begin{align*}
   \P(A|B) = \frac{\P(A\cap B)}{\P(A)}.
 \end{align*}
-Observe that 
+Observe that
 \begin{align*}
   \P(A\cap B) = \P(X\geq 1 \text{ and } X = 2) = \P(X=2) = \P(B)
 \end{align*}
@@ -46,14 +46,14 @@ Then we can use \emph{the law of total probability} to find
 \end{align*}
 For each $i$ we know
 \begin{align*}
-  \P(A_i) = \frac{1}{3} 
+  \P(A_i) = \frac{1}{3}
 \end{align*}
 since there are three dice that are equally likely to be chosen and
 \begin{align*}
   \P(A_i|X=1) = \frac{1}{i}
 \end{align*}
 by definition of D$i$.
-Thus 
+Thus
 \begin{align*}
   \P(X=1) = \frac{1}{3}\left(\frac{1}{4}+\frac{1}{5}+\frac{1}{6}\right)=\frac{37}{180}.
 \end{align*}
@@ -71,8 +71,8 @@ Inserting the expected values for each D$i$ we find
 
 
 Let $X$ be a Bernoulli random variable for the state of the switch described in the
-problem and let $A_i$ be the event that $X=1$ on the $i$th day, i.e. the switch is 
-"on" on that day. Lets consider the transition between two days where $\P(E\to F)$ 
+problem and let $A_i$ be the event that $X=1$ on the $i$th day, i.e. the switch is
+"on" on that day. Lets consider the transition between two days where $\P(E\to F)$
 means the probability given $E$ occurred on the first day that $F$ occurs on the
 second day. We find for the probability of the switch being on on day $i$
 \begin{align*}
@@ -83,12 +83,12 @@ identical, $\P(A_{i+1})=p=\P(A_i)$. Thus
 \begin{align*}
   p = (1-p)\P(A^c_i|A_{i+1}) + p\P(A_i|A_{i+1}).
 \end{align*}
-The remaining probabilities, i.e. $\P(A^c_i|A_{i+1})=1/4$ and $\P(A_i|A_{i+1})=1/2$, 
+The remaining probabilities, i.e. $\P(A^c_i|A_{i+1})=1/4$ and $\P(A_i|A_{i+1})=1/2$,
 are given in the question. Inserting them results in the equation
 \begin{align*}
   p=\frac{1-p}{4} + \frac{p}{2}.
 \end{align*}
-We can solve for $p$ to find 
+We can solve for $p$ to find
 \begin{align*}
   p=\frac{1}{3}
 \end{align*}

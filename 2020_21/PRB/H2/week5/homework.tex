@@ -43,15 +43,15 @@ It makes sense that $\E(W) = \E(X) = \E(Y) = \E(Z)$ if we define $W$ to be the m
 it means that $W$ is most likely to be the closest to the middle of the intervall and thus the expected value.\\
 
 \emph{Note: I could not use the Beta distribution as I don't have
-a clue how it works or what its parameters $\alpha$ and $\beta$ are.
-As far as I can tell it hasn't been explained in the notes so I don't
-think it's required to do this.}
+  a clue how it works or what its parameters $\alpha$ and $\beta$ are.
+  As far as I can tell it hasn't been explained in the notes so I don't
+  think it's required to do this.}
 
 
 \section*{P 5.2}
 
 
-We have a random variable $X$ with a generating function 
+We have a random variable $X$ with a generating function
 \begin{align*}
   G_X(s) = \frac{1}{2-s^2}.
 \end{align*}
@@ -93,7 +93,7 @@ and
 \section*{P 5.3}
 
 
-We have a random variable $Y\sim\Geom(1/6)$. Therefore 
+We have a random variable $Y\sim\Geom(1/6)$. Therefore
 \begin{align*}
   \P(Y=k) = \left(\frac{5}{6}\right)^{k-1}\left(\frac{1}{6}\right).
 \end{align*}
@@ -135,10 +135,10 @@ and insert this result to find
 
 
 We have a random variable $X_n\sim\Binom(n,1/2)$. We define
-$A_n = X_n / n$ to be the average of all the $n$ coin flips. 
+$A_n = X_n / n$ to be the average of all the $n$ coin flips.
 We know
 \begin{align*}
-  \E(A_n) = \frac{1}{2} \text{ and } 
+  \E(A_n) = \frac{1}{2} \text{ and }
   \V(A_n) = \V\left(\frac{1}{n}X_n\right) = \frac{npq}{n^2} = \frac{1}{4n}.
 \end{align*}
 Using \emph{Chebyshev's inequality} with $a=k\sigma$, we know
@@ -152,10 +152,10 @@ We choose $k=5$ to get
 which is greater than $0.95$ and thus suitable for our purpose.
 We want $a=1/100$ and thus
 \begin{align*}
-  5\sigma &= \frac{1}{100}\\
-  \Leftrightarrow \frac{25}{4n} &= \frac{1}{10^4}\\
-  \Leftrightarrow 4n &= 25\cdot 10^4\\
-  \Leftrightarrow n &= 62500.
+  5\sigma                       & = \frac{1}{100}  \\
+  \Leftrightarrow \frac{25}{4n} & = \frac{1}{10^4} \\
+  \Leftrightarrow 4n            & = 25\cdot 10^4   \\
+  \Leftrightarrow n             & = 62500.
 \end{align*}
 Note that this is not the lowest $n$ can be, but rather a conservative
 estimate that is guranteed to work.

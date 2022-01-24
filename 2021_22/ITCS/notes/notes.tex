@@ -16,25 +16,25 @@
 \subsection{Finite automata}
 
 \begin{definition}[DFA; Sipser, p. 35]
-    A \emph{deterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+    A \emph{deterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where
     \begin{enumerate}
         \item $Q$ is a finite set called the \emph{states},
         \item $\Sigma$ is a finite set called the \emph{alphabet},
         \item $\delta:Q\times\Sigma\to Q$ is the \emph{transition function},
-        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $q_0\in Q$ is the \emph{start state}, and
         \item $F\subseteq Q$ is the \emph{set of accept states}.
-    \end{enumerate} 
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}
-    A \emph{language} $A$ over an alphabet $\Sigma$ is a set such that for all 
+    A \emph{language} $A$ over an alphabet $\Sigma$ is a set such that for all
     $w\in A$ there exist $w_1,w_2,...,w_n\in\Sigma$ such that $w=w_1w_2\cdots w_n$.
-    
-    A finite automaton $M=(Q,\Sigma,\delta,q_0,F)$ accepts a word $w=w_1\cdots w_n\in A$ 
-    if there exists a sequence of states $r_0,...,r_n\in Q$ such that 
+
+    A finite automaton $M=(Q,\Sigma,\delta,q_0,F)$ accepts a word $w=w_1\cdots w_n\in A$
+    if there exists a sequence of states $r_0,...,r_n\in Q$ such that
     \begin{enumerate}
         \item $r_0=q_0$,
-        \item $\delta(r_i,w_{i+1})=r_{i+1}$, for $i<n$, and 
+        \item $\delta(r_i,w_{i+1})=r_{i+1}$, for $i<n$, and
         \item $r_n\in F$.
     \end{enumerate}
     We say $M$ recognises $A$ if and only if $A=\{w : M\text{ accepts }w\}$.
@@ -59,37 +59,37 @@
 
 \begin{theorem}[Pumping lemma; Sipser p. 78]
     If $A$ is a regular language, then there is a number $p$ where if $s$
-    is any string in $A$ of length at least $p$, then $s$ may be divided 
+    is any string in $A$ of length at least $p$, then $s$ may be divided
     into three pieces, $s=xyz$, satisfying the following conditions:
     \begin{enumerate}
         \item for each $i\geq 0$, $xy^iz\in A$,
-        \item $\abs y > 0$, and 
+        \item $\abs y > 0$, and
         \item $\abs{xy} \leq p$.
-    \end{enumerate} 
+    \end{enumerate}
 \end{theorem}
 
 \subsection{Nondeterminism}
 
 \begin{definition}[NFA; Sipser p. 53]
-    A \emph{nondeterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+    A \emph{nondeterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where
     \begin{enumerate}
         \item $Q$ is a finite set called the \emph{states},
         \item $\Sigma$ is a finite set called the \emph{alphabet},
         \item $\delta:Q\times\Sigma\to\mathcal{P}(Q)$ is the \emph{transition function},
-        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $q_0\in Q$ is the \emph{start state}, and
         \item $F\subseteq Q$ is the \emph{set of accept states}.
-    \end{enumerate} 
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}[$\e$-NFA; Sipser p. 53]
-    An \emph{$\e$-NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where 
+    An \emph{$\e$-NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where
     \begin{enumerate}
         \item $Q$ is a finite set called the \emph{states},
         \item $\Sigma$ is a finite set called the \emph{alphabet},
         \item $\delta:Q\times\Sigma_\e\to \mathcal{P}(Q)$ is the \emph{transition function},
-        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $q_0\in Q$ is the \emph{start state}, and
         \item $F\subseteq Q$ is the \emph{set of accept states}.
-    \end{enumerate} 
+    \end{enumerate}
 \end{definition}
 
 \begin{theorem}[Sipser p. 55]
@@ -113,22 +113,22 @@
         \item $R=(R_1\cup R_2)$, where $R_1,R_2$ are regular expressions,
         \item $R=(R_1\circ R_2)$, where $R_1,R_2$ are regular expressions, or
         \item $R=(R_1^*)$, where $R_1$ is a regular expression.
-    \end{enumerate} 
+    \end{enumerate}
 \end{definition}
 
 \begin{theorem}[Sipser p. 66]
-    A language is regular if and only if some regular expression describes it. 
+    A language is regular if and only if some regular expression describes it.
 \end{theorem}
 
 \begin{definition}[GNFA; Sipser p. 53]
-    A \emph{generalised NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,q_1)$ where 
+    A \emph{generalised NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,q_1)$ where
     \begin{enumerate}
         \item $Q$ is a finite set called the \emph{states},
         \item $\Sigma$ is a finite set called the \emph{alphabet},
         \item $\delta:(Q\setminus\{q_0\})\times(Q\setminus\{q_1\})\to R$ is the \emph{transition function},
-        \item $q_0\in Q$ is the \emph{start state}, and 
+        \item $q_0\in Q$ is the \emph{start state}, and
         \item $q_1\in Q$ is the \emph{accept state},
-    \end{enumerate} 
+    \end{enumerate}
     where $R$ is the collection of all regular expressions over the alphabet $\Sigma$.
 \end{definition}
 
@@ -143,13 +143,13 @@
         \item $\Sigma$ is a finite set called the \emph{terminals},
         \item $R\subseteq V\times(V\cup\Sigma)^*$ is a finite set of \emph{rules},
         \item $S\in V$ is the \emph{start variable}.
-    \end{enumerate} 
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}
     Let $G=(V,\Sigma,R,S)$ be a CFG and let $u,v\in(V\cup\Sigma)^*$.
     We say \emph{$u$ derives $v$}, written $u\Rightarrow^* v$, if $u=v$ or if a sequence
-    $u_1,...,u_k$ exists for $k\geq 0$ such that 
+    $u_1,...,u_k$ exists for $k\geq 0$ such that
     \begin{align*}
         u\Rightarrow u_1 \Rightarrow ... \Rightarrow u_k \Rightarrow v.
     \end{align*}
@@ -158,16 +158,16 @@
 \end{definition}
 
 \begin{definition}[Sipser p. 108]
-    A string $w$ is derived \emph{ambiguously} in CFG $G$ if it has 
-    two or more different leftmost derivations. Grammar $G$ is \emph{ambiguous} if it 
-    generates some string ambiguously. 
+    A string $w$ is derived \emph{ambiguously} in CFG $G$ if it has
+    two or more different leftmost derivations. Grammar $G$ is \emph{ambiguous} if it
+    generates some string ambiguously.
     A language which is only generated by ambiguous grammars is called \emph{inherently
-    ambiguous}.
+        ambiguous}.
 \end{definition}
 
 \begin{definition}[Sipser p. 109]
-    A CFG $G=(V,\Sigma,R,S)$ is in \emph{Chomsky normal form} if every rule is of the 
-    form 
+    A CFG $G=(V,\Sigma,R,S)$ is in \emph{Chomsky normal form} if every rule is of the
+    form
     \begin{align*}
         A\to BC, \hs
         A\to a, \hs
@@ -177,35 +177,35 @@
 \end{definition}
 
 \begin{theorem}[Sipser p. 109]
-    Any CFL is generated by a CFG in Chomsky normal form. 
+    Any CFL is generated by a CFG in Chomsky normal form.
 \end{theorem}
 
 \subsection{Pushdown automata}
 
 \begin{definition}[Sipser p. 113]
     A \emph{pushdown automaton} (PDA) is a 6-tuple $(Q,\Sigma,\Gamma,\delta,q_0,F)$,
-    where 
+    where
     \begin{enumerate}
         \item $Q$ is the finite set of states,
         \item $\Sigma$ is the finite input alphabet,
         \item $\Gamma$ is a finite set called the \emph{stack alphabet},
         \item $\delta:Q\times \Sigma_\e\times\Gamma_\e\to\mathcal{P}(Q\times\Gamma_\e)$ is the transition function,
-        \item $q_0\in Q$ is the start state, and 
+        \item $q_0\in Q$ is the start state, and
         \item $F\subseteq Q$ is the set of accept states.
     \end{enumerate}
     Let $M=(Q,\Sigma,\Gamma,\delta,q_0,F)$ and $w=w_1\cdots w_m$, where
-    $w_1,...,w_m\in\Sigma_\e$. Then $M$ accepts $w$ if there exists a sequence of 
-    states $r_0,...,r_m\in Q$ and strings $s_0,...,s_m\in\Gamma^*$ such that 
+    $w_1,...,w_m\in\Sigma_\e$. Then $M$ accepts $w$ if there exists a sequence of
+    states $r_0,...,r_m\in Q$ and strings $s_0,...,s_m\in\Gamma^*$ such that
     \begin{enumerate}
         \item $r_0=q_0$ and $s_0=\e$,
         \item for $i<m$, we have $(r_{i+1},b)\in\delta(r_i,w_{i+1},a)$, where $s_i=at$
-            and $s_{i+1}=bt$ for some $a,b\in\Gamma_\e$ and $t\in\Gamma^*$,
+              and $s_{i+1}=bt$ for some $a,b\in\Gamma_\e$ and $t\in\Gamma^*$,
         \item $r_m\in F$.
     \end{enumerate}
 \end{definition}
 
 \begin{theorem}[Sipser p. 117]
-    A language is context-free if and only if a pushdown automaton recognises it. 
+    A language is context-free if and only if a pushdown automaton recognises it.
 \end{theorem}
 
 \begin{corollary}[Sipser p. 124]
@@ -216,37 +216,37 @@
 
 \begin{theorem}[Pumping lemma for context-free languages; Sipser p. 125]
     If $A$ is a context-free language, then there is a number $p$ where,
-    if $s$ is any string in $A$ of length at least $p$, then $s$ may be 
-    divided into five pieces $s=uvxyz$ such that 
+    if $s$ is any string in $A$ of length at least $p$, then $s$ may be
+    divided into five pieces $s=uvxyz$ such that
     \begin{enumerate}
         \item for each $i\geq 0$ $uv^ixy^iz\in A$,
-        \item $\abs{vy}>0$, and 
+        \item $\abs{vy}>0$, and
         \item $\abs{vxy}\leq p$.
-    \end{enumerate} 
+    \end{enumerate}
 \end{theorem}
 
 \subsection{Deterministic context-free languages}
 
-Let $G=(V,\Sigma,R,S)$ be a CFG. 
+Let $G=(V,\Sigma,R,S)$ be a CFG.
 
 \begin{definition}[Sipser p. 130]
     A \emph{deterministic PDA} is a 6-tuple $(Q,\Sigma,\Gamma,\delta,q_0,F)$,
-    where 
+    where
     \begin{enumerate}
         \item $Q$ is the finite set of states,
         \item $\Sigma$ is the finite input alphabet,
         \item $\Gamma$ is the finite stack alphabet,
-        \item $\delta:Q\times\Sigma_\e\times\Gamma_\e\to(Q\times\Gamma_\e)\cup\{\emptyset\}$ is the transition function 
-        \item $q_0\in Q$ is the start state, and 
+        \item $\delta:Q\times\Sigma_\e\times\Gamma_\e\to(Q\times\Gamma_\e)\cup\{\emptyset\}$ is the transition function
+        \item $q_0\in Q$ is the start state, and
         \item $F\subseteq Q$ is the set of accept states.
     \end{enumerate}
-    The transition function $\delta$ must satisfy the following condition. For every 
+    The transition function $\delta$ must satisfy the following condition. For every
     $q\in Q$, $a\in\Sigma$, and $x\in\Gamma$, exactly one of the values
     \begin{align*}
         \delta(q,a,x),\hs \delta(q,a,\e),\hs \delta(q,\e,x),\hs \delta(q,\e,\e)
     \end{align*}
     is not $\emptyset$. The language accepted by a DPDA is called a \emph{deterministic
-    context-free language} (DCFL).
+        context-free language} (DCFL).
 \end{definition}
 
 \begin{lemma}[Sipser p. 132]
@@ -258,7 +258,7 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 \end{theorem}
 
 \begin{definition}[Sipser p. 134]
-    Let $A$ be a language. Then the \emph{endmarked language} $A\!\dashv$ is given by 
+    Let $A$ be a language. Then the \emph{endmarked language} $A\!\dashv$ is given by
     \begin{align*}
         A\!\dashv\: = \{w\!\dashv\:: w \in A\}.
     \end{align*}
@@ -270,8 +270,8 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 
 \begin{definition}[Sipser p. 136]
     Let $u,v\in(V\cup\Sigma)^*$. We say $u$
-    \emph{reduces} $v$, written $u\Leftarrow^*v$ if there exists a sequence 
-    $u_1,...,u_k$ for $k\geq 0$ such that 
+    \emph{reduces} $v$, written $u\Leftarrow^*v$ if there exists a sequence
+    $u_1,...,u_k$ for $k\geq 0$ such that
     \begin{align*}
         u = u_1 \Leftarrow ... \Leftarrow u_k \Leftarrow v.
     \end{align*}
@@ -283,13 +283,13 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
     In a \emph{leftmost reduction}, each reducing string is reduced only after all
     other reducing strings that lie entirely to its left.
 
-    Let $w\in L(G)$ and let $u_1,...,u_k$ be a leftmost reduction of $w$. 
-    Let $T\to h$ be a rule in $R$ such that $u_i=xhy$ and $u_{i+1}=xTy$ for some $x,y$ and some 
+    Let $w\in L(G)$ and let $u_1,...,u_k$ be a leftmost reduction of $w$.
+    Let $T\to h$ be a rule in $R$ such that $u_i=xhy$ and $u_{i+1}=xTy$ for some $x,y$ and some
     $i<k$. Then $h$ together with the rule $T\to h$ is called a \emph{handle} of $u_i$.
 \end{definition}
 
 \begin{definition}[Sipser p. 136]
-    A string $u\in(V\cup\Sigma)^*$ is called \emph{valid} if 
+    A string $u\in(V\cup\Sigma)^*$ is called \emph{valid} if
     there exists a word $w\in L(G)$ and a leftmost reduction $u_1,...,u_k$ such that $u=u_i$ for
     some $i\leq k$.
 \end{definition}
@@ -299,7 +299,7 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 \end{lemma}
 
 \begin{definition}[Forced handles; Sipser p. 138]
-    A handle $h$ of a valid string $v=xhy$ with respect to $G$ is \emph{forced} if $h$ is 
+    A handle $h$ of a valid string $v=xhy$ with respect to $G$ is \emph{forced} if $h$ is
     the unique handle in every valid string $xh\hat y$ where $\hat y\in\Sigma^*$.
 \end{definition}
 
@@ -309,33 +309,33 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 
 \begin{lemma}[Sipser p. 140]
     \label{klemma}
-    Let $G=(V,\Sigma,R,S)$ be a DCFG and let $K$ be an NFA such that the states correspond to 
+    Let $G=(V,\Sigma,R,S)$ be a DCFG and let $K$ be an NFA such that the states correspond to
     dotted rules in $G$, i.e. for every rule $B\to u_1\cdots u_k$ with $u_1,...,u_k\in V\cup\Sigma$
     there are $k+1$ dotted rules
     \begin{align*}
-        B&\to .u_1u_2\cdots u_k\\
-        B&\to u_1.u_2\cdots u_k\\
-        B&\to u_1u_2.\cdots u_k\\
-        &\hs\vdots\\
-        B&\to u_1u_2\cdots .u_k\\
-        B&\to u_1u_2\cdots u_k,
+        B & \to .u_1u_2\cdots u_k \\
+        B & \to u_1.u_2\cdots u_k \\
+        B & \to u_1u_2.\cdots u_k \\
+          & \hs\vdots             \\
+        B & \to u_1u_2\cdots .u_k \\
+        B & \to u_1u_2\cdots u_k,
     \end{align*}
-    the transitions correspond to shift-moves, where for some rule $B\to uav$ we transition from 
-    $B\to u.av$ to $B\to ua.v$ upon reading $a$, and $\e$-moves, where for some rules 
-    $B\to uCv$ and $C\to r$ we $\e$-transition from $B\to u.Cv$ to $C\to r.$ and the accept states 
+    the transitions correspond to shift-moves, where for some rule $B\to uav$ we transition from
+    $B\to u.av$ to $B\to ua.v$ upon reading $a$, and $\e$-moves, where for some rules
+    $B\to uCv$ and $C\to r$ we $\e$-transition from $B\to u.Cv$ to $C\to r.$ and the accept states
     are all $B\to u.$.
 
-    Then $K$ may enter state $T\to u.v$ on reading input $z$ if and only if $z=xu$ and 
+    Then $K$ may enter state $T\to u.v$ on reading input $z$ if and only if $z=xu$ and
     $xuvy$ is a valid string with handle $uv$ and reducing rule $T\to uv$, for some $y\in\Sigma^*$.
-    Further, $K$ may enter accept state $T\to h.$ on input $z$ if and only if $z=xh$ and $h$ is a 
+    Further, $K$ may enter accept state $T\to h.$ on input $z$ if and only if $z=xh$ and $h$ is a
     handle of some valid string $xhy$ with reducing rule $T\to h$.
 \end{lemma}
 
 \begin{theorem}[DK-test; Sipser p. 143]
-    Let $DK$ be the DFA corresponding to the NFA $K$ from (\ref{klemma}). Then $G$ is a 
+    Let $DK$ be the DFA corresponding to the NFA $K$ from (\ref{klemma}). Then $G$ is a
     DCFG if and only if every one of $DK$'s accept states contains
     \begin{enumerate}
-        \item exactly one completed rule, and 
+        \item exactly one completed rule, and
         \item no dotted rule of the form $B\to u.av$ for $a\in\Sigma$.
     \end{enumerate}
 \end{theorem}
@@ -345,16 +345,16 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 \end{theorem}
 
 \begin{definition}[LR(k) grammar; Sipser p. 152]
-    A handle $h$ of a valid string $v=xhy$ with respect to CFG $G$ is \emph{forced by lookahead k} 
-    if $h$ is the unique handle in every valid string $xh\hat y$ where $\hat y\in\Sigma^*$ and 
+    A handle $h$ of a valid string $v=xhy$ with respect to CFG $G$ is \emph{forced by lookahead k}
+    if $h$ is the unique handle in every valid string $xh\hat y$ where $\hat y\in\Sigma^*$ and
     $y$ and $\hat y$ do not differ in their first $k$ symbols.
 
-    An $LR(k)$ grammar is a CFG grammar such that the handle of every valid string is forced by 
+    An $LR(k)$ grammar is a CFG grammar such that the handle of every valid string is forced by
     lookahead $k$.
 \end{definition}
 
 \begin{theorem}[Sipser p. 154]
-    An endmarked language is generated by an $LR(1)$ grammar if and only if it is a DCFL. 
+    An endmarked language is generated by an $LR(1)$ grammar if and only if it is a DCFL.
 \end{theorem}
 
 \end{document}

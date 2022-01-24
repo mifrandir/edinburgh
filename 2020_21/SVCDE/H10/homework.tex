@@ -17,15 +17,15 @@ Consider the ODE
     \label{ode1}
     (1-x^2)\frac{d^2y}{dx^2} - x\frac{dy}{dx} = 2
 \end{align}
-for $x\in [-1,1]$. Observe that (\ref{ode1}) has the form 
+for $x\in [-1,1]$. Observe that (\ref{ode1}) has the form
 \begin{align*}
     F(y'',y',x)=0.
 \end{align*}
-Thus we can use the substitution $v(x)=dy/dx$ to get the linear 
+Thus we can use the substitution $v(x)=dy/dx$ to get the linear
 first-order ODE
 \begin{align}
     \label{ode2}
-    (1-x^2)\frac{dv}{dx}-(xv+2) = 0. 
+    (1-x^2)\frac{dv}{dx}-(xv+2) = 0.
 \end{align}
 We notice that (\ref{ode2}) is not exact but an integrating factor $\mu$ may
 be found by solving the first-order, linear, seprarable ODE
@@ -34,8 +34,8 @@ be found by solving the first-order, linear, seprarable ODE
 \end{align*}
 where
 \begin{align*}
-    M(x,v) &= -xv-2\\
-    N(x,v) &= 1-x^2
+    M(x,v) & = -xv-2 \\
+    N(x,v) & = 1-x^2
 \end{align*}
 because $(M_v-N_x)/N$ only depends on $x$. We get the following equation for
 $\mu$:
@@ -46,15 +46,15 @@ By separating the variables and integrating w.r.t. $x$, we obtain
 \begin{align*}
     \int \frac{1}{\mu}d\mu = \int \frac{x}{1-x^2}dx
 \end{align*}
-which may be solved to find 
+which may be solved to find
 \begin{align*}
-    \ln\mu &= -\frac{1}{2}\ln(1-x^2)+C_1\\
-    \Leftrightarrow \mu &=\frac{C_2}{\sqrt{1-x^2}}.
+    \ln\mu              & = -\frac{1}{2}\ln(1-x^2)+C_1 \\
+    \Leftrightarrow \mu & =\frac{C_2}{\sqrt{1-x^2}}.
 \end{align*}
 Since we are only interested in a particular integrating factor, we can
 let $C_2=1$. Since
 \begin{align*}
-    \frac{\p}{\p v}(\mu M) = \frac{\p}{\p v}\left(\frac{-xv-2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}},\\
+    \frac{\p}{\p v}(\mu M) = \frac{\p}{\p v}\left(\frac{-xv-2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}}, \\
     \frac{\p}{\p x}(\mu N) = \frac{\p}{\p x}\left(\frac{1-x^2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}}
 \end{align*}
 and thus $\p \mu M/\p v = \p \mu N/\p x$, we know that $\mu$ is a valid integrating factor.
@@ -68,8 +68,8 @@ We now require a function $\psi(x,v)$ such that
 \end{align*}
 We find the following integrals
 \begin{align*}
-    \int \mu M\:dx &= \int -\frac{xv+2}{\sqrt{1-x^2}}\:dx = v\sqrt{1-x^2}-2\arcsin(x)+C_3,\\
-    \int \mu N\:dv &= \int \sqrt{1-x^2}\:dv =v\sqrt{1-x^2}+C_4.
+    \int \mu M\:dx & = \int -\frac{xv+2}{\sqrt{1-x^2}}\:dx = v\sqrt{1-x^2}-2\arcsin(x)+C_3, \\
+    \int \mu N\:dv & = \int \sqrt{1-x^2}\:dv =v\sqrt{1-x^2}+C_4.
 \end{align*}
 This leads one possible choice of $\psi$:
 \begin{align*}
@@ -77,7 +77,7 @@ This leads one possible choice of $\psi$:
 \end{align*}
 Thus we have the implicit solution of the ODE (\ref{ode2})
 \begin{align*}
-   v\sqrt{1-x^2} - 2\arcsin(x) = C_5,
+    v\sqrt{1-x^2} - 2\arcsin(x) = C_5,
 \end{align*}
 or explicitly
 \begin{align*}
@@ -85,17 +85,17 @@ or explicitly
 \end{align*}
 By definition of $v$, we know
 \begin{align*}
-    y(x) &= \int v(x)\:dx = \int \frac{C_5 + 2\arcsin(x)}{\sqrt{1-x^2}}\:dx\\
-    &=\int \frac{C_5}{\sqrt{1-x^2}}\:dx +\int \frac{2\arcsin(x)}{\sqrt{1-x^2}}\:dx\\
-    &=\arcsin^2(x)+C_5\arcsin(x)+C_6
+    y(x) & = \int v(x)\:dx = \int \frac{C_5 + 2\arcsin(x)}{\sqrt{1-x^2}}\:dx             \\
+         & =\int \frac{C_5}{\sqrt{1-x^2}}\:dx +\int \frac{2\arcsin(x)}{\sqrt{1-x^2}}\:dx \\
+         & =\arcsin^2(x)+C_5\arcsin(x)+C_6
 \end{align*}
 Therefore, we have the general solution to the ODE (\ref{ode1})
 \begin{align*}
     y(x) = \arcsin^2(x)+C_a\arcsin(x)+C_b.
 \end{align*}
 \emph{Note: An alternative, arguably more elegant way of writing this is \begin{align*}
-    y(x)=\left(\arcsin(x)+C_\alpha\right)^2+C_\beta.
-\end{align*}}
+        y(x)=\left(\arcsin(x)+C_\alpha\right)^2+C_\beta.
+    \end{align*}}
 \section*{Question 2}
 
 Consider the linear inhomogeneous ODE with constant coefficients
@@ -129,7 +129,7 @@ we find the trial solution
 \end{align*}
 Inserting into (\ref{ode3}) gives
 \begin{align*}
-    Ce^{-3x}(2-12x+9x^2)+Ce^{-3x}(12x-18x^2)+Ce^{-3x}(9x^2) = e^{-3x}\\
+    Ce^{-3x}(2-12x+9x^2)+Ce^{-3x}(12x-18x^2)+Ce^{-3x}(9x^2) = e^{-3x} \\
     \Leftrightarrow 2Ce^{-3x} = e^{-3x}
 \end{align*}
 and thus $C=1/2$. The general solution then is

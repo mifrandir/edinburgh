@@ -17,8 +17,8 @@ Let $X\sim\Poiss(1.5)$ be the number of patients that arrive in half an hour. Th
 \end{align*}
 and
 \begin{align*}
-  \P(X \leq 3) &= \sum_{i=0}^3 \P(X=i)=e^{-3/2}\sum_{i=0}^3 \frac{(3/2)^i}{i!}\\
-  &=e^{-3/2} (1+\frac{3}{2}+\frac{3^2}{2^3}+\frac{3^2}{2^4})
+  \P(X \leq 3) & = \sum_{i=0}^3 \P(X=i)=e^{-3/2}\sum_{i=0}^3 \frac{(3/2)^i}{i!} \\
+               & =e^{-3/2} (1+\frac{3}{2}+\frac{3^2}{2^3}+\frac{3^2}{2^4})
   \approx 0.934.
 \end{align*}
 Thus
@@ -48,7 +48,7 @@ Since, by definition, $\P(A_n|B)=1$, this simplifies to
   \P(B|A_n) = \frac{\P(B)}{\P(A_n)}.
 \end{align}
 Further, we know $\P(B)=1/1000$. We can use the \emph{Law of Total
-Probability} to find
+  Probability} to find
 \begin{align*}
   \P(A_n)=\P(A_n|B)\P(B) + \P(A_n|B^c)\P(B^c)
   =\frac{1}{1000}+\frac{999}{1000}\left(\frac{1}{2}\right)^n.
@@ -74,9 +74,9 @@ We can verify this:
 
 Let the number of occurrences be $X\sim\Poiss(\lambda t)$. Then
 \begin{align*}
-  \P(X=0)&=e^{-\lambda t},\\
-  \P(X=1)&=\lambda te^{-\lambda t}.
-\end{align*} 
+  \P(X=0) & =e^{-\lambda t},          \\
+  \P(X=1) & =\lambda te^{-\lambda t}.
+\end{align*}
 We can add both of these to find
 \begin{align*}
   \P(X\leq 1) = (1+\lambda t)e^{-\lambda t}.
@@ -101,7 +101,7 @@ Thus $T_2$ has a Gamma distribution.
 
 Observe that we are only interested in the sequences containing even numbers.
 Therefore, there are three possible outcomes $S=\{2,4,6\}$. Further,
-we stop the experiment once we roll a six. Therefore we can model the 
+we stop the experiment once we roll a six. Therefore we can model the
 number of rolls up to and including the first six with a geometric random
 variable $X\sim\Geom(1/3)$. We find
 \begin{align*}

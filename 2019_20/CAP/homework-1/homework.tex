@@ -13,14 +13,14 @@
 You can find it on the attached sheet.
 \subsection*{b)}
 \begin{align*}
-  \lim_{x\to n^-}f(x)=1\\
+  \lim_{x\to n^-}f(x)=1 \\
   \lim_{x\to n^+}f(x)=0
 \end{align*}
 Why is this the case? First off, you can see that $f$ is continuous in every interval $(n,n+1)$ for every integer $n\in Z$, because $\floor{x}$ and $x$ are both continuous in these intervals.\\
-Within the interval $f(x)$ is directly proportional to $x$, because $\floor{x}$ does not change. 
-This means that to the right-hand side, $f(x)$ approaches the biggest possible difference between a real number and the maximum integer less than or equal to it. 
+Within the interval $f(x)$ is directly proportional to $x$, because $\floor{x}$ does not change.
+This means that to the right-hand side, $f(x)$ approaches the biggest possible difference between a real number and the maximum integer less than or equal to it.
 This difference approaches $1$. Thus the limit from the left is solved.\\
-The limit from the right follows the same rules. 
+The limit from the right follows the same rules.
 Since $f$ is periodic, it approaches the lowest possible difference $x-\floor{x}$.
 Since $x\geq\floor{x}$ for all $x\in\mathbb{R}$ by definition, $f$ is at its minimum wherever $x=\floor{x}$.
 This is the case when $x\in\mathbb{Z}$.
@@ -33,9 +33,9 @@ were $\mathbb{Z}$ is the set of all integers and $\mathbb{R}$ is the set of all 
 \section*{Question 2}
 \begin{align*}
   f(x)=\begin{cases}
-    \frac{x^2-4}{x-2} &\text{if }x<2\\
-    ax^2-bx+3 &\text{if }2\leq x<3\\
-    2x-a+b &\text{if }3\leq x
+    \frac{x^2-4}{x-2} & \text{if }x<2       \\
+    ax^2-bx+3         & \text{if }2\leq x<3 \\
+    2x-a+b            & \text{if }3\leq x
   \end{cases}
 \end{align*}
 The first part does not contain any $a$ or $b$. Therefore we can start by calculating
@@ -48,24 +48,24 @@ For $f$ to be continuous at $2$ we thus need $f(2)=4$. Thus
 \end{align*}
 This is our first equation. Further we need to let $\lim_{x\to3^-}f(x)=f(3)$. This gives
 \begin{align*}
-  \lim_{x\to 3^-}f(x)&=f(3)\\ 
-  \Leftrightarrow 9a-3b+3&=6-a+b\\
-  \Leftrightarrow 10a-4b&=3
+  \lim_{x\to 3^-}f(x)     & =f(3)  \\
+  \Leftrightarrow 9a-3b+3 & =6-a+b \\
+  \Leftrightarrow 10a-4b  & =3
 \end{align*}
 Solving these two equations for $a$ and $b$ gives $a=b=\nicefrac{1}{2}$.\\
 Let's verify our solution:
 \begin{align*}
-  f(x) &= \begin{cases}
-    \frac{x^2-4}{x-2} &\text{if } x < 2\\
-    \frac{1}{2}x^2-\frac{1}{2}x+3 &\text{if } 2\leq x < 3\\
-    2x &\text{if } 3 \leq x
-  \end{cases}\\
-  \lim_{x\to 2^-}f(x)&=4\\
-  \lim_{x\to 2^+}f(x)&=f(2)=2-1+3=4\\
-  \Rightarrow \lim_{x\to 2}f(x) &= f(2) = 4\\
-  \lim_{x\to 3^-}f(x)&=\frac{9}{2}-\frac{3}{2}+3=3+3=6\\
-  \lim_{x\to 3^+}f(x)&=f(3)=2\cdot 3 =6\\
-  \Rightarrow \lim_{x\to 3}f(x) &= f(3) = 6
+  f(x)                          & = \begin{cases}
+    \frac{x^2-4}{x-2}             & \text{if } x < 2       \\
+    \frac{1}{2}x^2-\frac{1}{2}x+3 & \text{if } 2\leq x < 3 \\
+    2x                            & \text{if } 3 \leq x
+  \end{cases}      \\
+  \lim_{x\to 2^-}f(x)           & =4                               \\
+  \lim_{x\to 2^+}f(x)           & =f(2)=2-1+3=4                    \\
+  \Rightarrow \lim_{x\to 2}f(x) & = f(2) = 4                       \\
+  \lim_{x\to 3^-}f(x)           & =\frac{9}{2}-\frac{3}{2}+3=3+3=6 \\
+  \lim_{x\to 3^+}f(x)           & =f(3)=2\cdot 3 =6                \\
+  \Rightarrow \lim_{x\to 3}f(x) & = f(3) = 6
 \end{align*}
 Thus $f$ is now continuous everywhere.
 \end{document}

@@ -23,11 +23,11 @@
         \item \emph{Associativity}: $(a+b)+c=a+(b+c)$ and $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
         \item \emph{Commutativity}: $a+b=b+a$ and $a\cdot b=b\cdot a$.
         \item \emph{Additive Identity}: There exists a unique element $0\in\R$ such that $0+a=a$ for all $a\in\R$.
-        \item \emph{Multiplicative Identity}: There exists a uniqeue element 
+        \item \emph{Multiplicative Identity}: There exists a uniqeue element
               $1\in\R$ such that $1\not=0$ and $1\cdot a=a$ for all $a\in\R$
         \item \emph{Additive Inverses}: For every $a\in\R$ there is a unique
               element $-a\in\R$ such that $a+(-a)=0$.
-        \item \emph{Multiplicative Inverses}: For every $a\in\R$ and $a\not=0$ there exists a unique 
+        \item \emph{Multiplicative Inverses}: For every $a\in\R$ and $a\not=0$ there exists a unique
               element $\inv a\in\R$ such that $a\cdot(\inv a) = 1$.
         \item \emph{Distributivity}: For all $a,b,c\in\R$, $a\cdot(b+c)=a\cdot b +a\cdot c$.
     \end{enumerate}
@@ -37,17 +37,17 @@
     There exists a relation $<$ on $\R$ which has the following properties:
     \begin{enumerate}[label=O\arabic*]
         \item \emph{Trichotomy}: Given $a,b\in\R$ one and only one of the following statements hold \begin{align*}
-            a<b,\hs b>a,\hs a=b.
-        \end{align*}
+                  a<b,\hs b>a,\hs a=b.
+              \end{align*}
         \item \emph{Transitivity}: If $a<b$ and $b<c$, then $a<c$.
         \item \emph{Additivity}: If $a<b$ and $c\in\R$, then $a+c<b+c$.
         \item \emph{Multiplicativity}: \begin{align*}
-            a < b \text{ and } c > 0 \hs \Rightarrow \hs ac < bc
-        \end{align*}
-        and \begin{align*}
-            a < b \text{ and } c < 0 \hs \Rightarrow \hs bc < ac.
-        \end{align*}
-    \end{enumerate} 
+                  a < b \text{ and } c > 0 \hs \Rightarrow \hs ac < bc
+              \end{align*}
+              and \begin{align*}
+                  a < b \text{ and } c < 0 \hs \Rightarrow \hs bc < ac.
+              \end{align*}
+    \end{enumerate}
 \end{definition*}
 
 \setcounter{theorem}{3}
@@ -64,7 +64,7 @@
         \item If $s(n)=s(m)$ then $n=m$.
         \item There does not exists $n\in\N_0$ with $s(n)=0$.
         \item If $0\in A\subset \N$ and if $n\in A$ implies $s(n)\in A$ then $A=\N_0$.
-    \end{enumerate} 
+    \end{enumerate}
 \end{definition*}
 
 \begin{definition*}
@@ -92,8 +92,8 @@
     Let $a\in\R$. The \emph{absolute value} of $a$ is the number $|a|$ defined by
     \begin{align*}
         |a|=\begin{cases}
-            a,&\text{if } a\geq 0,\\
-            -a,&\text{if } a < 0.
+            a,  & \text{if } a\geq 0, \\
+            -a, & \text{if } a < 0.
         \end{cases}
     \end{align*}
 \end{definition}
@@ -142,19 +142,19 @@
         \item The set $E$ is said to be bounded above if there is $M\in\R$ such that $a\leq M$ for all $a\in E$.
         \item A real number $M$ is called an upper bound of the set $E$ if $a\leq M$ for all $a\in E$.
         \item A real number $s$ is called the \emph{suprenum} of the set $E$ if \begin{itemize}
-            \item $s$ is an upper bound of $E$
-            \item $s\leq M$ for all upper bounds $M$ of the set $E$.
-        \end{itemize}
-        If such a number $s$ exists, we write $s=\sup E$.
+                  \item $s$ is an upper bound of $E$
+                  \item $s\leq M$ for all upper bounds $M$ of the set $E$.
+              \end{itemize}
+              If such a number $s$ exists, we write $s=\sup E$.
     \end{itemize}
 \end{definition}
 
 \setcounter{theorem}{3}
 \begin{lemma}
-    If a set has a supremum, it only has one supremum.    
+    If a set has a supremum, it only has one supremum.
 \end{lemma}
 
-\begin{theorem}[Approximation Property for Suprema] 
+\begin{theorem}[Approximation Property for Suprema]
     If the set $E\subset\R$ has a supremum then for any positive number $\e>0$ there exists $a\in E$
     such that
     \begin{align*}
@@ -167,16 +167,16 @@
 \end{lemma}
 
 \begin{definition*}[Completeness Axiom]
-    If $E\subset\R$ is nonempty and bounded above, then $E$ has a supremum. 
+    If $E\subset\R$ is nonempty and bounded above, then $E$ has a supremum.
 \end{definition*}
 
 \begin{theorem}[Archimedean Principle]
-    Given positive real numbers $a,b\in\R$ there is an integer $n\in\N$ such that $b<na$. 
+    Given positive real numbers $a,b\in\R$ there is an integer $n\in\N$ such that $b<na$.
 \end{theorem}
 
 \setcounter{theorem}{8}
 \begin{theorem}[Density of rational numbers]
-    Let $a<b$ be real numbers. Then there exists $q\in\Q$ such that $q\in(a,b)$. 
+    Let $a<b$ be real numbers. Then there exists $q\in\Q$ such that $q\in(a,b)$.
 \end{theorem}
 
 \begin{definition}
@@ -185,10 +185,10 @@
         \item The set $E$ is said to be bounded below if there is $m\in\R$ such that $m\leq a$ for all $a\in E$.
         \item A number $m$ is called a lower bound of the set $E$ if $m\leq a$ for all $a\in E$.
         \item A number $t$ is called an \emph{infimum} of the set $E$ if \begin{itemize}
-            \item $t$ is a lower bound of $E$,
-            \item $m\leq t$ for all lower bounds $m$ of the set $E$.
-        \end{itemize}
-        If the number $t$ exists we write $t=\inf E$.
+                  \item $t$ is a lower bound of $E$,
+                  \item $m\leq t$ for all lower bounds $m$ of the set $E$.
+              \end{itemize}
+              If the number $t$ exists we write $t=\inf E$.
     \end{itemize}
 \end{definition}
 
@@ -196,11 +196,11 @@
     Let $E\subset\R$ be nonempty.
     \begin{itemize}
         \item Set $E$ has a supremum if and only if the set $-E$ has an infimum. Also \begin{align*}
-            \inf(-E) = -\sup E.
-        \end{align*}
+                  \inf(-E) = -\sup E.
+              \end{align*}
         \item Set $E$ has an infimum if and only if the set $-E$ has a supremum. Also \begin{align*}
-            \sup(-E) = -\inf E.
-        \end{align*}
+                  \sup(-E) = -\inf E.
+              \end{align*}
     \end{itemize}
 \end{theorem}
 
@@ -209,7 +209,7 @@
     \begin{itemize}
         \item if $B$ is bounded above then $\sup A\leq\sup B$.
         \item if $B$ is bounded below then $\inf A\geq\inf B$.
-    \end{itemize} 
+    \end{itemize}
 \end{lemma}
 
 
@@ -259,9 +259,9 @@
     Suppose that $(x_n)$, $(y_n)$ and $(w_n)$ are real sequences.
     \begin{itemize}
         \item If both $x_n\to a$ and $y_n\to a$ as $n\to \infty$ and if \begin{align*}
-            x_n\leq w_n\leq y_n,\hs \forall n\geq N_0,
-        \end{align*}
-        then $w_n\to a$ as $n\to\infty$.
+                  x_n\leq w_n\leq y_n,\hs \forall n\geq N_0,
+              \end{align*}
+              then $w_n\to a$ as $n\to\infty$.
         \item if $x_n\to0$ and $(y_n)$ is bounded then the product $x_ny_n\to 0$ as $n\to\infty$.
     \end{itemize}
 \end{theorem}
@@ -278,17 +278,17 @@
     convergent then
     \begin{enumerate}
         \item \begin{align*}
-            \lim_{n\to\infty}(x_n+y_n=\lim_{n\to\infty}x_n + \lim_{n\to\infty}y_n.
-        \end{align*}
+                  \lim_{n\to\infty}(x_n+y_n=\lim_{n\to\infty}x_n + \lim_{n\to\infty}y_n.
+              \end{align*}
         \item \begin{align*}
-            \lim_{n\to\infty}(\alpha x_n) = \alpha\lim_{n\to\infty}x_n.
-        \end{align*}
+                  \lim_{n\to\infty}(\alpha x_n) = \alpha\lim_{n\to\infty}x_n.
+              \end{align*}
         \item \begin{align*}
-            \lim_{n\to\infty}(x_n\cdot y_n) = \left(\lim_{n\to\infty}x_n\right)\cdot\left(\lim_{n\to\infty}y_n\right).
-        \end{align*}
+                  \lim_{n\to\infty}(x_n\cdot y_n) = \left(\lim_{n\to\infty}x_n\right)\cdot\left(\lim_{n\to\infty}y_n\right).
+              \end{align*}
         \item If in addition $\lim_{n\to\infty}y_n\not=0$ and $y_n\not=0$ for all $n\in\N$ then \begin{align*}
-            \lim_{n\to\infty}\frac{x_n}{y_n}=\frac{\lim_{n\to\infty x_n}}{\lim_{n\to\infty}y_n}.
-        \end{align*}
+                  \lim_{n\to\infty}\frac{x_n}{y_n}=\frac{\lim_{n\to\infty x_n}}{\lim_{n\to\infty}y_n}.
+              \end{align*}
     \end{enumerate}
 \end{theorem}
 
@@ -317,7 +317,7 @@
     exist and if
     \begin{align*}
         x_n\leq y_n \hs \text{for all } n\geq N \hs \text{for some }N\in\N
-    \end{align*} 
+    \end{align*}
     then
     \begin{align*}
         \lim_{n\to\infty}x_n\leq \lim_{n\to\infty}y_n.
@@ -345,7 +345,7 @@
     Let $(x_n)$ be an unbounded monotone sequence of real numbers.
     \begin{enumerate}
         \item If $(x_n)$ is an unbounded and increasing sequence then $\lim_{n\to\infty} x_n = \infty$.
-        \item If $(x_n)$ is an unbounded and decreasing sequence then $\lim_{n\to\infty} x_n = -\infty$. 
+        \item If $(x_n)$ is an unbounded and decreasing sequence then $\lim_{n\to\infty} x_n = -\infty$.
     \end{enumerate}
 \end{theorem}
 
@@ -399,13 +399,13 @@
     \begin{align*}
         \sum_{k=1}^\infty a_k\hs\text{converges}
     \end{align*}
-    then $(a_n)$ converges to $0$. 
+    then $(a_n)$ converges to $0$.
 \end{theorem}
 
 \begin{theorem}[Telescopic series]
     Let $(b_k)$ be a convergent sequence of real numbers. Then
     \begin{align*}
-        \sum_{k=1}^\infty (b_k - b_{k+1})=b_1-\lim_{k\to\infty}b_k. 
+        \sum_{k=1}^\infty (b_k - b_{k+1})=b_1-\lim_{k\to\infty}b_k.
     \end{align*}
 \end{theorem}
 
@@ -414,7 +414,7 @@
     Let $x\in\R$ and $N\in\{0,1,2,...\}=\N_0$. Then the series
     \begin{align*}
         \sum_{k=N}^\infty x^k\hs\text{converges if and only if }|x|<1.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{theorem}
@@ -446,7 +446,7 @@
     \begin{itemize}
         \item If $\sum_{k=1}^\infty b_k<\infty$ then $\sum_{k=1}^\infty a_k < \infty$.
         \item If $\sum_{k=1}^\infty a_k = \infty$ then $\sum_{k=1}^\infty b_k = \infty$.
-    \end{itemize} 
+    \end{itemize}
 \end{theorem}
 
 \begin{theorem}[Integral test]
@@ -460,7 +460,7 @@
 
 \setcounter{theorem}{6}
 \begin{theorem}[Limit comparison test]
-    Suppose that $0\leq a_k$, $0<b_k$ for large $k$ and that  
+    Suppose that $0\leq a_k$, $0<b_k$ for large $k$ and that
     \begin{align*}
         L=\lim_{n\to\infty}\frac{a_n}{b_n}\hs\text{exists as an extended real number}.
     \end{align*}
@@ -476,7 +476,7 @@
 \begin{definition}
     Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. We say that $S$ converges
     absolutely if $\sum_{k=1}^\infty \abs{a_k}<\infty$. We say that the series
-    $S$ converges conditionally if $S$ converges but $\sum_{k=1}^\infty\abs{a_k}$ 
+    $S$ converges conditionally if $S$ converges but $\sum_{k=1}^\infty\abs{a_k}$
     diverges.
 \end{definition}
 
@@ -491,7 +491,7 @@
     \begin{itemize}
         \item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
         \item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
-    \end{itemize} 
+    \end{itemize}
 \end{theorem}
 
 \setcounter{theorem}{4}
@@ -511,7 +511,7 @@
     $a_k\to 0$ as $k\to\infty$. Then the series
     \begin{align*}
         \sum_{k=1}^\infty (-1)^k a_k\hs\text{is convergent}.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{corollary}
@@ -541,7 +541,7 @@
 \setcounter{theorem}{2}
 \begin{theorem}
     Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the
-    following functions are continuous on $D$. 
+    following functions are continuous on $D$.
     \begin{enumerate}
         \item $\alpha f$,
         \item $f+g$,
@@ -587,7 +587,7 @@
     $I$. Denote by
     \begin{align*}
         m=\inf\{f(x):x\in I\},\hs M=\sup\{f(x):x\in I\}.
-    \end{align*} 
+    \end{align*}
     Then there exist points $x_m,x_M\in I$ such that
     \begin{align*}
         f(x_m)=m\hs\text{and}\hs f(x_M)=M.
@@ -612,12 +612,12 @@
     exists $x_0\in(a,b)$ such that
     \begin{align*}
         f(x_0)=y_0.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{theorem}[Bolzano's theorem]
-    Let $f(x)$ be continuous on $[a,b]$ such that $f(a)f(b)<0$, 
-    then there exists $c\in(a,b)$ such that $f(c)=0$. 
+    Let $f(x)$ be continuous on $[a,b]$ such that $f(a)f(b)<0$,
+    then there exists $c\in(a,b)$ such that $f(c)=0$.
 \end{theorem}
 
 \setcounter{theorem}{8}
@@ -643,7 +643,7 @@
     Let $f:\dom(f)\to\R$ and $a$ an element of the extended real numbers. We say
     that
     \begin{align*}
-        \lim_{x\to a^{\dom(f)}}f(x)=L  
+        \lim_{x\to a^{\dom(f)}}f(x)=L
     \end{align*}
     for some extended real number $L$ if
     for every sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
@@ -664,9 +664,9 @@
     Let $b\in\R$.
     \begin{itemize}
         \item Let $f$ be a function defined on some interval $I=(b,\infty)$.
-        We define $\lim_{x\to\infty}f(x)$ to be $\lim_{x\to\infty^I}f(x)$.
+              We define $\lim_{x\to\infty}f(x)$ to be $\lim_{x\to\infty^I}f(x)$.
         \item Let $f$ be a function defined on some interval $I=(-\infty, b)$.
-        We define $\lim_{x\to-\infty}f(x)$ to be $\lim_{x\to-\infty^I}f(x).$
+              We define $\lim_{x\to-\infty}f(x)$ to be $\lim_{x\to-\infty^I}f(x).$
     \end{itemize}
 \end{definition}
 
@@ -726,7 +726,7 @@
     point $a\in\R$ if $f$ is defined at some open interval containing
     $a$ and the limit
     \begin{align*}
-        f'(a) := \lim_{x\to a}\frac{f(x)-f(a)}{x-a} 
+        f'(a) := \lim_{x\to a}\frac{f(x)-f(a)}{x-a}
     \end{align*}
     exists. The number $f'(a)$ is called the derivative of $f$
     at point $a$.
@@ -744,26 +744,26 @@
 \end{definition}
 
 \begin{theorem}[Ross, 28.2]
-    If $f$ is differentiable at $a$, then $f$ is continuous at $a$. 
+    If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
 \end{theorem}
 
 \begin{definition}
     Let $I$ be a non-degenerate interval.
     \begin{enumerate}[label=(\arabic*)]
         \item A function $f:I\to\R$ is said to be differentiable on $I$
-        if \[f'_I(a):= \lim_{x\to a'}\frac{f(x)-f(a)}{x-a}\] exists and is
-        finite at every $a\in I$.
+              if \[f'_I(a):= \lim_{x\to a'}\frac{f(x)-f(a)}{x-a}\] exists and is
+              finite at every $a\in I$.
         \item $f$ is said to be continuously differentiable on $I$ if $f'_I$
-        exists and is continuous on $I$.
+              exists and is continuous on $I$.
     \end{enumerate}
 \end{definition}
 
 \begin{definition*}
-   Let $I$ be a non-degenerate interval. For each $n\in\Z_{\geq 0}$, we write
-   $C^n(I)$ to denote the collection of real functions whose $n$-th derivative
-   exists and is continuous on $I$.\\
-   \indent
-   Furthermore $C^\infty(I)$ means the intersection $\bigcap_{n\in\N}C^n(I)$. 
+    Let $I$ be a non-degenerate interval. For each $n\in\Z_{\geq 0}$, we write
+    $C^n(I)$ to denote the collection of real functions whose $n$-th derivative
+    exists and is continuous on $I$.\\
+    \indent
+    Furthermore $C^\infty(I)$ means the intersection $\bigcap_{n\in\N}C^n(I)$.
 \end{definition*}
 
 \subsection{Differentiability theorems}
@@ -773,11 +773,11 @@
     differentiable at $a$, then $f+g$, $f\cdot g$, $\alpha f$ and
     (if $g(a)\not=0$) also $f/g$ are all differentiable at $a$. We have
     \begin{align*}
-        (\alpha f)'(a) &= \alpha f'(a),\\
-        (f+g)'(a) &= f'(a) + g'(a),\\
-        (f\cdot g)'(a) &= f'(a)g(a)+f(a)g'(a),\\
-        \left(\frac{f}{g}\right)'(a)&=\frac{f'(a)g(a)-f(a)g'(a)}{(g(a))^2}.
-    \end{align*} 
+        (\alpha f)'(a)               & = \alpha f'(a),                        \\
+        (f+g)'(a)                    & = f'(a) + g'(a),                       \\
+        (f\cdot g)'(a)               & = f'(a)g(a)+f(a)g'(a),                 \\
+        \left(\frac{f}{g}\right)'(a) & =\frac{f'(a)g(a)-f(a)g'(a)}{(g(a))^2}.
+    \end{align*}
 \end{theorem}
 
 \begin{theorem}[Ross, 28.4]
@@ -785,15 +785,15 @@
     differentiable at $f(a)$, then $g\circ f$ is differentiable at $a$ and
     \begin{align*}
         (g\circ f)'(a) = g'(f(a))f'(a).
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{theorem}(Power Rule)
     Let $n\in \N$ and $q\in\Q$. Then
     \begin{enumerate}[label=(\arabic*)]
         \item $(x^n)'=nx^{n-1}$ for all $x\in\R$,
-        \item $(x^q)'=qx^{q-1}$ for all $x\in\R_{>0}$. 
-    \end{enumerate} 
+        \item $(x^q)'=qx^{q-1}$ for all $x\in\R_{>0}$.
+    \end{enumerate}
 \end{theorem}
 
 \subsection{Mean Value Theorem}
@@ -808,38 +808,38 @@
     Suppose $a,b\in\R$ with $a<b$.
     \begin{enumerate}
         \item If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$
-        then tere is $c\in(a,b)$ such that \[f(b)-f(a)=f'(c)(b-a).\]
+              then tere is $c\in(a,b)$ such that \[f(b)-f(a)=f'(c)(b-a).\]
         \item If $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$
-        then there is $c\in(a,b)$ such that
-        \[f'(c)(g(b)-g(a))=g'(c)(f(b)-f(a)).\]
-    \end{enumerate} 
+              then there is $c\in(a,b)$ such that
+              \[f'(c)(g(b)-g(a))=g'(c)(f(b)-f(a)).\]
+    \end{enumerate}
 \end{theorem}
 
 \begin{lemma*}[Bernoulli's inequality]
     Let $a>0$, $\delta \geq -1$. Then
     \begin{align*}
-        (1+\delta)^\alpha&\leq 1+\delta\alpha,\hs\text{if }\alpha\in(0,1],\\
-        (1+\delta)^\alpha&\geq 1+\delta\alpha,\hs\text{if }\alpha\in[1,\infty).
-    \end{align*} 
+        (1+\delta)^\alpha & \leq 1+\delta\alpha,\hs\text{if }\alpha\in(0,1],      \\
+        (1+\delta)^\alpha & \geq 1+\delta\alpha,\hs\text{if }\alpha\in[1,\infty).
+    \end{align*}
 \end{lemma*}
 
 \subsection{Monotone functions and the inverse functions theorem}
 
 \setcounter{theorem}{1}
 \begin{theorem}[Ross, 29.7]
-   Let $a<b$ be real and $f$ be continuous on $[a,b]$ and differentiable
-   on $(a,b)$.
-   \begin{enumerate}[label=(\arabic*)]
-       \item If $f'(x)>0$ for all $x\in(a,b)$ then $f$ is strictly increasing on $[a,b]$.
-       \item If $f'(x)<0$ for all $x\in(a,b)$ then $f$ is strictly decreasing on $[a,b]$.
-       \item If $f'(x)=0$ for all $x\in(a,b)$ then $f$ is constant on $[a,b]$. 
-   \end{enumerate} 
+    Let $a<b$ be real and $f$ be continuous on $[a,b]$ and differentiable
+    on $(a,b)$.
+    \begin{enumerate}[label=(\arabic*)]
+        \item If $f'(x)>0$ for all $x\in(a,b)$ then $f$ is strictly increasing on $[a,b]$.
+        \item If $f'(x)<0$ for all $x\in(a,b)$ then $f$ is strictly decreasing on $[a,b]$.
+        \item If $f'(x)=0$ for all $x\in(a,b)$ then $f$ is constant on $[a,b]$.
+    \end{enumerate}
 \end{theorem}
 
 \begin{theorem}
     Let $f$ be injective and continuous on an interval $I$. Then $f$ is strictly
     monotone on $I$ and the inverse function $\inv f$ is continuous and
-    strictly monotone on $f(I)$. 
+    strictly monotone on $f(I)$.
 \end{theorem}
 
 \setcounter{theorem}{4}
@@ -889,6 +889,6 @@
     $x$ and $x_0$, such that
     \begin{align*}
         f(x)=P_n^{f,x_0}(x) +\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 \end{document}

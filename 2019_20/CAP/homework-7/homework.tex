@@ -17,7 +17,7 @@ With $u=e^{-x^5}$ and $du=-5x^4e^{-x^5}dx$, we get
 \end{align*}
 Now we can calculate the improper integral
 \begin{align*}
-  \int_0^\infty x^4e^{-x^5}dx &= \lim_{x\to\infty}\left(I(x)-I(0)\right)
+  \int_0^\infty x^4e^{-x^5}dx & = \lim_{x\to\infty}\left(I(x)-I(0)\right)
   = \frac{1}{5}-\frac{1}{5}\lim_{x\to\infty}e^{-x^5}=\frac{1}{5}.
 \end{align*}
 Therefore the integral converges to $\frac{1}{5}$.
@@ -70,18 +70,18 @@ Since the integral is well-defined, it is also convergent.
   and then using the \emph{Comparison Theorem}.\\
   Firstly, observe that since
   \begin{align*}
-    &\forall x \geq 0,\: \arctan x \geq 0,\\
-    &\forall x \geq 0,\: e^x \geq 0,
-  \end{align*} 
+     & \forall x \geq 0,\: \arctan x \geq 0, \\
+     & \forall x \geq 0,\: e^x \geq 0,
+  \end{align*}
   and therefore $\forall x \geq 0,\: \frac{\arctan x}{2+e^x}\geq 0$.\\
   Secondly, note that $\forall x \in \R,\: \arctan x < \frac{\pi}{2}$. Thus we can say that
   \begin{align*}
     \frac{\arctan x}{2+e^x}<\frac{\pi}{2}\left(\frac{1}{2+e^x}\right).
   \end{align*}
-  Further, 
+  Further,
   \begin{align*}
     \frac{1}{2+e^x}<\frac{1}{e^x}
-  \end{align*} 
+  \end{align*}
   and thus
   \begin{align*}
     \frac{\arctan x}{2+e^x}<\frac{\pi}{2}e^{-x}.
@@ -90,10 +90,10 @@ Since the integral is well-defined, it is also convergent.
   \begin{align*}
     \int_0^\infty \frac{\pi}{2}e^{-x}dx = \frac{\pi}{2}\int_0^\infty e^{-x}dx = -\frac{\pi}{2}\left[e^{-x}\right]^\infty_0=\frac{\pi}{2},
   \end{align*}
-  the improper integral $\int_0^\infty \frac{\pi}{2}e^{-x}dx$ is convergent. Using the \emph{Comparison Theorem} with 
+  the improper integral $\int_0^\infty \frac{\pi}{2}e^{-x}dx$ is convergent. Using the \emph{Comparison Theorem} with
   \begin{align*}
-    f(x)&=\frac{\pi}{2}e^{-x},\\
-    g(x)&=\frac{\arctan x}{2+e^x},
+    f(x) & =\frac{\pi}{2}e^{-x},     \\
+    g(x) & =\frac{\arctan x}{2+e^x},
   \end{align*}
   we can conclude that
   \begin{align*}
@@ -117,15 +117,15 @@ Since the integral is well-defined, it is also convergent.
   \end{align*}
   Secondly, note that
   \begin{align*}
-    \frac{1}{x}&<\frac{1}{(1+x^5)^{1/6}}\\
-    \Leftrightarrow x &>(1+x^5)^{1/6}\\
-    \Leftrightarrow x^6 &> 1+x^5
+    \frac{1}{x}         & <\frac{1}{(1+x^5)^{1/6}} \\
+    \Leftrightarrow x   & >(1+x^5)^{1/6}           \\
+    \Leftrightarrow x^6 & > 1+x^5
   \end{align*}
   which is true for all $x\geq 2$, because $2^6 > 1 + 2^5$, both $x^6$ and $1+x^5$ are continuous on $\R$ and the points of intersection are at $x\approx -0.88$ and $x\approx 1.29$, both of which are less than $2$.\\
   Since we know the improper integral $\int_2^\infty \frac{1}{x}\:dx$ is divergent, we can use the \emph{Comparison Theorem} with
   \begin{align*}
-    g(x)&=\frac{1}{x},\\
-    f(x)&=\frac{1}{(1+x^5)^{1/6}},
+    g(x) & =\frac{1}{x},             \\
+    f(x) & =\frac{1}{(1+x^5)^{1/6}},
   \end{align*}
   to show that $\int_2^\infty \frac{dx}{(1+x^5)^{1/6}}$ is divergent, too.
 \end{proof}

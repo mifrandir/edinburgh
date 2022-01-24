@@ -35,7 +35,7 @@ Let $\sum_{n=1}^\infty a_n$ be a series of real numbers.
         \sum_{n=N+1}^\infty a_n \hs\text{and}\hs \sum_{n=N+1}^\infty a_n^4.
     \end{align*}
     Observe that since $n>N$ we have $a_n<1$ and thus $a_n^4 < a_n$ for all
-    $n$. By the \emph{Comparison Test} we conclude that because 
+    $n$. By the \emph{Comparison Test} we conclude that because
     $\sum_{n=N+1}^\infty a_n$ converges, so does $\sum_{n=N+1}^\infty a_n^4$.
     Now consider the partial sums
     \begin{align*}
@@ -44,13 +44,13 @@ Let $\sum_{n=1}^\infty a_n$ be a series of real numbers.
     Note that we can rewrite $S_n$ as
     \begin{align*}
         S_n = \begin{cases}
-            \sum_{k=1}^n a_k^4 &\text{if }n \leq N,\\
-            \sum_{k=1}^{N} a_k^4 + S'_n &\text{if }n>N.
+            \sum_{k=1}^n a_k^4          & \text{if }n \leq N, \\
+            \sum_{k=1}^{N} a_k^4 + S'_n & \text{if }n>N.
         \end{cases}
     \end{align*}
     So we find
     \begin{align*}
-        \sum_{n=1}^\infty a_n^4 = \lim_{n\to\infty} S_n 
+        \sum_{n=1}^\infty a_n^4 = \lim_{n\to\infty} S_n
         = \sum_{n=1}^N a_n^4 + \lim_{n\to\infty} S'_n.
     \end{align*}
     Since $\sum_{n=N+1}^\infty a_n^4$ converges and $\sum_{n=1}^N a_n^4$ is
@@ -111,7 +111,7 @@ numbers that converges to a real number $L$.
     \begin{align*}
         \frac{n^2}{n^4x_n+1}\leq\frac{n^2}{n^4x_n} =\frac{1}{n^2x_n}.
     \end{align*}
-    Then by the \emph{Definition of the Limit} for any $\e>0$ 
+    Then by the \emph{Definition of the Limit} for any $\e>0$
     we have some $N\in\N$ such that $x_n>L-\e$ for all $n>N$.
     We pick an $\e$ such that $L-\e<1$ and choose $N$ accordingly.
     Thus
@@ -139,7 +139,7 @@ numbers that converges to a real number $L$.
 \end{proof}
 
 \begin{claim}
-    If $L=0$, then the series 
+    If $L=0$, then the series
     \begin{align*}
         \sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
     \end{align*}

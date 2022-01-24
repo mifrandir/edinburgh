@@ -45,10 +45,10 @@
   \end{align*}
   By \emph{Liebeck, Proposition 13.3} this allows us to cycle through the four possible values of $x\mod 4$:
   \begin{align*}
-    x\equiv 0 \mod 4 &\Rightarrow x(x-1) \equiv 0\cdot 4 \equiv 0 \mod 4,\\
-    x\equiv 1 \mod 4 &\Rightarrow x(x-1) \equiv 1\cdot 0 \equiv 0 \mod 4,\\
-    x\equiv 2 \mod 4 &\Rightarrow x(x-1) \equiv 2\cdot 1 \equiv 2 \mod 4,\\
-    x\equiv 3 \mod 4 &\Rightarrow x(x-1) \equiv 3\cdot 2 \equiv 2 \mod 4.
+    x\equiv 0 \mod 4 & \Rightarrow x(x-1) \equiv 0\cdot 4 \equiv 0 \mod 4, \\
+    x\equiv 1 \mod 4 & \Rightarrow x(x-1) \equiv 1\cdot 0 \equiv 0 \mod 4, \\
+    x\equiv 2 \mod 4 & \Rightarrow x(x-1) \equiv 2\cdot 1 \equiv 2 \mod 4, \\
+    x\equiv 3 \mod 4 & \Rightarrow x(x-1) \equiv 3\cdot 2 \equiv 2 \mod 4.
   \end{align*}
   Therefore there is no value $x$ such that $x(x-1)\equiv 1 \mod 4$.
   This contradicts our assumption.
@@ -63,22 +63,22 @@
   This lets us set $x,y\geq 0$ without loss of generality.\\
   We can factorize as follows:
   \begin{align*}
-    x^2&=y^4-77\\
-    \Leftrightarrow 77&=y^4-x^2\\
-    \Leftrightarrow 77&=(y^2+x)(y^2-x).
+    x^2                & =y^4-77          \\
+    \Leftrightarrow 77 & =y^4-x^2         \\
+    \Leftrightarrow 77 & =(y^2+x)(y^2-x).
   \end{align*}
   Since $y^2+x\geq 0$ and $77>0$, $y^2-x$ has to be greater than zero, too.
   Since $77=7\cdot 11$, there are two possible values for the two factors.
   Firstly,
   \begin{align*}
-    y^2+x = 77\\
+    y^2+x = 77 \\
     y^2-x = 1.
   \end{align*}
   By solving we get $x=38$ and $y^2=39$. Since $\sqrt{39}\not\in\Z$, this does not result in a valid solution.
   Secondly,
   \begin{align*}
-    y^2+x&=11\\
-    y^2-x&=7.
+    y^2+x & =11 \\
+    y^2-x & =7.
   \end{align*}
   This gives $y^2=9\Rightarrow y=3$ and $x=2$, which is the only solution where $x,y\geq 0$.
   Note that, since $x\geq 0$, $y^2+x\geq y^2-x$ and thus we do not switch the factors and solve again.\\

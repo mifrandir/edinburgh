@@ -15,11 +15,11 @@ If we write these lines in vector form, we get the following equation:
 \begin{align}
     l: \vec x =
     \begin{bmatrix}
-        0\\
+        0 \\
         c
     \end{bmatrix}
     + r \begin{bmatrix}
-        1\\
+        1 \\
         m
     \end{bmatrix};
     r \in \mathbb{R}
@@ -28,50 +28,50 @@ Let's look at two lines, $l_1$ and $l_2$, which are supposed to be perpendicular
 \begin{align}
     l_1: \vec x =
     \begin{bmatrix}
-        0\\
+        0 \\
         c_1
     \end{bmatrix}
     + r \begin{bmatrix}
-        1\\
+        1 \\
         m_1
     \end{bmatrix};
-    r \in \mathbb{R}\\
+    r \in \mathbb{R} \\
     l_2: \vec x =
     \begin{bmatrix}
-        0\\
+        0 \\
         c_2
     \end{bmatrix}
     + s \begin{bmatrix}
-        1\\
+        1 \\
         m_2
     \end{bmatrix};
-    s \in \mathbb{R}   
+    s \in \mathbb{R}
 \end{align}
 Those lines are perpendicular iff
 \begin{align}
     \begin{bmatrix}
-        1\\m_1
+        1 \\m_1
     \end{bmatrix}
     \cdot \begin{bmatrix}
-        1\\m_2
+        1 \\m_2
     \end{bmatrix}
-    &= 0\\
-    \Leftrightarrow 1+m_1m_2 &=0\\ \Leftrightarrow m_1m_2 &= -1\:\:\:\square
+                             & = 0 \\
+    \Leftrightarrow 1+m_1m_2 & =0  \\ \Leftrightarrow m_1m_2 &= -1\:\:\:\square
 \end{align}
 \section*{Q42}
 Let $P_1$ and $P_2$ be parallel planes in $\mathbb{R}^3$:
 \begin{align}
-    P_1:ax+by+cz=d_1\\
+    P_1:ax+by+cz=d_1 \\
     P_2:ax+by+cz=d_2
 \end{align}
 Additionally let $B\in P_1$. Then we know that the following is true for the distance of $P_1$ and $P_2$:
 \begin{align}
-    d(P_1,P_2)&=d(B,P_2)
+    d(P_1,P_2) & =d(B,P_2)
     =\frac{\vert ax_B+dy_B+cz_B-d_2\vert}{\sqrt{a^2+b^2+c^2}}
 \end{align}
 With $ax_B+by_B+cz_B=d_1$ and $\vec n=\begin{bmatrix}
-   a\\b\\c
-\end{bmatrix}$:
+        a \\b\\c
+    \end{bmatrix}$:
 \begin{align}
     d(P_1, P_2)=\frac{\vert d_1-d_2\vert}{\vert \vec n \vert}\:\:\:\square
 \end{align}

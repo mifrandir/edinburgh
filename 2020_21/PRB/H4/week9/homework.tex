@@ -14,15 +14,15 @@ We find the following table:
 \begin{center}
   \begin{tabular}{| c | c c c c c | c |}
     \hline
-    \backslashbox{S}{D} & -2 & -1 & 0 & 1 & 2 & \\
+    \backslashbox{S}{D} & -2  & -1  & 0   & 1   & 2   &     \\
     \hline
-    2 & 0   & 0   & 1/9 & 0   & 0   & 1/9\\
-    3 & 0   & 1/9 & 0   & 1/9 & 0   & 2/9\\
-    4 & 1/9 & 0   & 1/9 & 0   & 1/9 & 3/9\\
-    5 & 0   & 1/9 & 0   & 1/9 & 0   & 2/9\\
-    6 & 0   & 0   & 1/9 & 0   & 0   & 1/9\\ 
+    2                   & 0   & 0   & 1/9 & 0   & 0   & 1/9 \\
+    3                   & 0   & 1/9 & 0   & 1/9 & 0   & 2/9 \\
+    4                   & 1/9 & 0   & 1/9 & 0   & 1/9 & 3/9 \\
+    5                   & 0   & 1/9 & 0   & 1/9 & 0   & 2/9 \\
+    6                   & 0   & 0   & 1/9 & 0   & 0   & 1/9 \\
     \hline
-    & 1/9   & 2/9 & 3/9 & 2/9 & 1/9 & 1\\
+                        & 1/9 & 2/9 & 3/9 & 2/9 & 1/9 & 1   \\
     \hline
   \end{tabular}
 \end{center}
@@ -31,7 +31,7 @@ Thus $D=-2\Rightarrow S=4$. Therefore the we find the probabilities of the first
 \begin{align*}
   \P(D=-2 \text{ and } S=2) = 1/9 \text{ and }\forall k \not=4,\: \P(D=-2 \text{ and } S = k) = 0 .
 \end{align*}
-We get the value $1/9$ because $X$ and $Y$ can take $3$ values each, 
+We get the value $1/9$ because $X$ and $Y$ can take $3$ values each,
 thus there are $9$ values the pair $(X,Y)$
 can take and there is only one such pair that leads to $D=-2$.\\
 You can see that $\E(S)=4$ and $\E(D)=0$. We know that
@@ -67,12 +67,12 @@ than $a$:
   \item $C:|X_1-X_2|<a$.
 \end{enumerate}
 The cases 1 to 4 are the ones where at least one of the outer
-pieces is shorter than $a$. The fifth cases is where the middle section 
+pieces is shorter than $a$. The fifth cases is where the middle section
 is shorter than $a$. The probabilities of these events are
 \begin{align*}
-  \P(A) &= \P(A_1) + \P(A_2) = 2a,\\
-  \P(B) &= \P(B_1) + \P(B_2) = 2a,\\
-  \P(C) &= \P(X_1-a\leq X_2 \leq X_1+a) = 2a.
+  \P(A) & = \P(A_1) + \P(A_2) = 2a,            \\
+  \P(B) & = \P(B_1) + \P(B_2) = 2a,            \\
+  \P(C) & = \P(X_1-a\leq X_2 \leq X_1+a) = 2a.
 \end{align*}
 Since the events $A,B,C$ are not pairwise mututally exclusive,
 we have to use the \emph{Inclusion-exclusion principle}
@@ -97,14 +97,14 @@ For $k>1$ we find
 \begin{align*}
   f_{n,k}(0) = \frac{n!}{(k-1)!(n-k)!}0^{k-1}(1-0)^{n-k} = 0.
 \end{align*}
-This makes sense because $f_{n,k}$ is the distribution of 
+This makes sense because $f_{n,k}$ is the distribution of
 the $k$th smallest in a set of $n$ independent, uniformly distributed
-random variables $X_1, ..., X_n$ on $[0,1]$. 
-An $X_i$ is the $k$th smallest if and only if 
+random variables $X_1, ..., X_n$ on $[0,1]$.
+An $X_i$ is the $k$th smallest if and only if
 \begin{align*}
   |\{j \in [1,n]\:|\: X_j < X_i\}| = k-1.
 \end{align*} In other words, for an $X_i$ to be
-the $k$th smallest, there need to be $k-1$ distinct $X_j$ that are strictly 
+the $k$th smallest, there need to be $k-1$ distinct $X_j$ that are strictly
 less than $X_i$. Since $0$ is the smallest value in the range of
 all $X_i$, there can never be another $X_j$ smaller than that.
 Therefore, the probability of $0$ being the value of the $k$th smallest

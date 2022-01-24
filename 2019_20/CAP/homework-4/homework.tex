@@ -17,58 +17,58 @@ and
 Then, to find the domain and range of $f$, we need to find them for $g$ and $\arctan$:
 \begin{align*}
   \begin{aligned}
-    \dom \arctan(x) &= \mathbb{R}\\
-    \dom g(x) &= \mathbb{R} \setminus \{-1\}
+    \dom \arctan(x) & = \mathbb{R}                  \\
+    \dom g(x)       & = \mathbb{R} \setminus \{-1\}
   \end{aligned}
   \hspace{1cm}
   \begin{aligned}
-    \range \arctan(x) &= \left(-\frac{\pi}{2}, \frac{\pi}{2}\right)\\
-    \range g(x) &= \mathbb{R}\setminus\{1\}
+    \range \arctan(x) & = \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \\
+    \range g(x)       & = \mathbb{R}\setminus\{1\}
   \end{aligned}
 \end{align*}
-Since arctan is defined on $\mathbb{R}$, $\dom f(x) = \dom g(x)$. The range of $f$ can be easily determined: 
+Since arctan is defined on $\mathbb{R}$, $\dom f(x) = \dom g(x)$. The range of $f$ can be easily determined:
 \begin{align*}
   \range f(x) = \range g(x) \cap \range \arctan(x) = \left(-\frac{\pi}{2}, \frac{\pi}{2}\right) \setminus \{1\}.
 \end{align*}
 Now, let's find asymptotes. First we need to look at the behaviour of $g$ at infinity and its undefined point.
 \begin{align*}
   \begin{aligned}
-    \lim_{x\to\infty}g(x) &= 1\\
-    \lim_{x\to-\infty}g(x) &= 1
+    \lim_{x\to\infty}g(x)  & = 1 \\
+    \lim_{x\to-\infty}g(x) & = 1
   \end{aligned}
   \hspace{1cm}
   \begin{aligned}
-    \lim_{x\to-1^-}g(x)&=\infty\\
-    \lim_{x\to-1^+}g(x)&=-\infty
+    \lim_{x\to-1^-}g(x) & =\infty  \\
+    \lim_{x\to-1^+}g(x) & =-\infty
   \end{aligned}
 \end{align*}
 Observe as well that $g(x)<1$ as $x\to\infty$ and $g(x)>1$ as $x\to-\infty$. Now we can apply this information to $f$.
 \begin{align*}
   \begin{aligned}
-    \lim_{x\to\infty}f(x) &= \lim_{x\to 1}\arctan(x)=\frac{\pi}{4}\\
-    \lim_{x\to-\infty}f(x) &= \lim_{x\to 1}\arctan(x)=\frac{\pi}{4}
+    \lim_{x\to\infty}f(x)  & = \lim_{x\to 1}\arctan(x)=\frac{\pi}{4} \\
+    \lim_{x\to-\infty}f(x) & = \lim_{x\to 1}\arctan(x)=\frac{\pi}{4}
   \end{aligned}
   \hspace{1cm}
   \begin{aligned}
-    \lim_{x\to-1^-}f(x) &= \lim_{x\to\infty}\arctan(x)= \frac{\pi}{2}\\
-    \lim_{x\to-1^+}f(x) &= \lim_{x\to\infty}\arctan(x)=-\frac{\pi}{2}
+    \lim_{x\to-1^-}f(x) & = \lim_{x\to\infty}\arctan(x)= \frac{\pi}{2} \\
+    \lim_{x\to-1^+}f(x) & = \lim_{x\to\infty}\arctan(x)=-\frac{\pi}{2}
   \end{aligned}
 \end{align*}
 Now, due to our observation earlier and the fact that $\arctan(x)$ is strictly increasing, we can say that $f(x)<\frac{\pi}{4}$ as $x\to\infty$ and $g(x)>\frac{\pi}{4}$ as $x\to -\infty$.\\
 The last thing we need to find before we deal with the derivative, are the intercepts. Luckily, $\arctan(x)=0$ iff $x=0$. Thus, we need to find the roots of $g(x)$ to find the roots of $f(x)$.
 \begin{align*}
-  g(x)=\frac{x-1}{x+1}&=0\\
-  \Leftrightarrow x-1 = 0\\
+  g(x)=\frac{x-1}{x+1} & =0 \\
+  \Leftrightarrow x-1 = 0   \\
   \Leftrightarrow x = 1.
 \end{align*}
 So $f(x)=0$ iff $x=1$. The $y$-intercept is $\arctan(-1)=-\frac{\pi}{4}$.\\\\
 Now, let's find the first derivative:
 \begin{align*}
-  \frac{d}{dx}f(x) &=\frac{d}{dg}\arctan(g)\frac{d}{dx}g(x)\\
-  &=\frac{1}{g^2(x)+1}\left(\frac{(x+1)-(x-1)}{(x+1)^2}\right)\\
-  &=\frac{1}{\left(\frac{x-1}{x+1}\right)^2+1}\frac{2}{(x+1)^2}\\
-  &=\frac{2}{(x-1)^2+(x+1)^2} = \frac{2}{2x^2+2}\\
-  &=\frac{1}{x^2+1}
+  \frac{d}{dx}f(x) & =\frac{d}{dg}\arctan(g)\frac{d}{dx}g(x)                      \\
+                   & =\frac{1}{g^2(x)+1}\left(\frac{(x+1)-(x-1)}{(x+1)^2}\right)  \\
+                   & =\frac{1}{\left(\frac{x-1}{x+1}\right)^2+1}\frac{2}{(x+1)^2} \\
+                   & =\frac{2}{(x-1)^2+(x+1)^2} = \frac{2}{2x^2+2}                \\
+                   & =\frac{1}{x^2+1}
 \end{align*}
 Usually we would now do the same things as we did for $f$, just in regards to the derivative. Luckily, we are very observant and notice that
 \begin{align*}
@@ -78,12 +78,12 @@ Since we know the general shape of the $\arctan(x)$ function (strictly increasin
 \section*{Question 2}
 Let's model the distance of each boat as functions:
 \begin{align*}
-  s_1(t)&=20\\
-  s_2(t)&=15-15t=15(1-t)
+  s_1(t) & =20             \\
+  s_2(t) & =15-15t=15(1-t)
 \end{align*}
 where the distance $s$ is in kilometers and the time $t$ is in hours after 2 pm. Now we can use the Pythagorean theorem to get the distance $d$ of the two boats at any time $t$:
 \begin{align*}
-  s(t)&=\sqrt{s_1^2(t)+s_2^2(t)}=5\sqrt{9-18t+25t^2}
+  s(t) & =\sqrt{s_1^2(t)+s_2^2(t)}=5\sqrt{9-18t+25t^2}
 \end{align*}
 To minimize this function, we need to find the derivative:
 \begin{align*}
@@ -91,9 +91,9 @@ To minimize this function, we need to find the derivative:
 \end{align*}
 Thus
 \begin{align*}
-  \frac{ds}{dt}&=0\\
-  \Leftrightarrow 5(25t-9)&=0\\
-  \Leftrightarrow t&=\frac{9}{25}.
+  \frac{ds}{dt}            & =0             \\
+  \Leftrightarrow 5(25t-9) & =0             \\
+  \Leftrightarrow t        & =\frac{9}{25}.
 \end{align*}
 Now we need to find the second derivative to check that this is actually a minimum. We get
 \begin{align*}

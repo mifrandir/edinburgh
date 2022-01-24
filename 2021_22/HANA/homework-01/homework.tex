@@ -24,11 +24,11 @@
       through a bijection $\psi:\Z^{n+1}\to\N$. Thus we have an injective
       function $f\circ\inv\psi:\N\to P_n$.
       By \emph{Wade, Lemma 1.40} this means that $P_n$ is at most countable.\\
-      Now consider the set of solutions to all degree $n$ polynomials with 
+      Now consider the set of solutions to all degree $n$ polynomials with
       integer coefficients $S_n$. Observe that every $p\in P_n$ has at most
       $n$ real solutions, so the set $S_p$ of all real solutions for $p$ is
       finite and therefore at most countable.
-      We now have 
+      We now have
       \begin{align*}
          S_n = \bigcup_{p\in P_n} S_p.
       \end{align*}
@@ -68,22 +68,22 @@
          \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
          \frac{1}{n}\sum_{k=1}^n \abs{a_k - a}.
       \end{align*}
-      We can split the sum to find 
+      We can split the sum to find
       \begin{align*}
-         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq 
+         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
          \frac{1}{n}\sum_{k=1}^{N-1} \abs{a_k - a} + \frac{1}{n}\sum_{k=N}^n \abs{a_k-a}.
       \end{align*}
       Since $\abs{a_n}\leq M$ and $a\leq M$, we have $\abs{a_n-a}\leq 2M$ in general.
       We now find the upper bound
       \begin{align*}
-         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq 
+         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
          \frac{2M(N-1)}{n} + \frac{\e(n-N+1)}{n}.
       \end{align*}
       Here $M,N$ are fixed. We let $n\to\infty$. The first term goes to zero, while
       the second is less than $\e$. Hence for all $n>N$ we have
       \begin{align*}
          \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} < \e.
-      \end{align*} 
+      \end{align*}
    \end{proof}
 \end{claim}
 \begin{claim}
@@ -102,7 +102,7 @@
       \begin{align*}
          -1 \leq a_1 + \cdots + a_n \leq 1
       \end{align*}
-      for all $n\in\N$. Therefore, we have 
+      for all $n\in\N$. Therefore, we have
       \begin{align*}
          -\frac{1}{n}\leq \frac{a_1+\cdots+a_n}{n} \leq \frac{1}{n}.
       \end{align*}

@@ -17,7 +17,7 @@ Observe that
 \begin{align*}
   X=X_1 + X_2 + \cdots X_{96}
 \end{align*}
-where each $X_i$ is a Bernoulli random variable that is $1$ if, 
+where each $X_i$ is a Bernoulli random variable that is $1$ if,
 and only if, there are exactly two heads and two tails in the tosses
 $[i, i+3]$. Furthermore, we can define $Y_i$ as the number of heads
 in each of these intervalls. Since $Y_i\sim \text{Binom}(4,0.5)$,
@@ -86,8 +86,8 @@ Since $X\sim\text{Binom(5,p)}$, we get
 \end{align*}
 which may be simplified to
 \begin{align*}
-  p^5+5p^4(1-p) &= \nicefrac{1}{2}\\
-  \Leftrightarrow 5p^4-4p^5&=\nicefrac{1}{2}
+  p^5+5p^4(1-p)             & = \nicefrac{1}{2} \\
+  \Leftrightarrow 5p^4-4p^5 & =\nicefrac{1}{2}
 \end{align*}
 Finding an exact solution to this polynomial is unrealistic.
 Therefore we can use Wolfram Alpha to compute three possible real solutions:
@@ -108,14 +108,14 @@ Let there be two players: Alice and Bob. Let Alice be the one to pick
 a coin and let Bob be the one to guess. Then we define the following
 events:
 \begin{align*}
-  A:&\:\text{"Alice picks a 10 pence coin.", and}\\
-  B:&\:\text{"Bob guesses it's a 20 pence coin."}.
+  A: & \:\text{"Alice picks a 10 pence coin.", and}  \\
+  B: & \:\text{"Bob guesses it's a 20 pence coin."}.
 \end{align*}
-Therefore $\P(A)=p$ and $\P(B)=s$. 
+Therefore $\P(A)=p$ and $\P(B)=s$.
 Now, let $X$ be Bobs winnings. Then we find
 \begin{align*}
-  \P(X=10) &= \P(A\cap B^c) = \P(A)\P(B^c) = p(1-s),\text{ and}\\
-  \P(X=20) &= \P(A^c\cap B) = \P(A^c)\P(B) = (1-p)s.
+  \P(X=10) & = \P(A\cap B^c) = \P(A)\P(B^c) = p(1-s),\text{ and} \\
+  \P(X=20) & = \P(A^c\cap B) = \P(A^c)\P(B) = (1-p)s.
 \end{align*}
 Thus the expected value of $X$ is
 \begin{align*}
@@ -145,42 +145,42 @@ Therefore, for all $p$ and $s$, the extreme values lie on the boundaries
 of the intervall $[0,1]$. Thus we can classify the choices of $(p,s)$ with
 respect to $(\nicefrac{2}{3}, \nicefrac{1}{3}$). Since the extreme values
 in the quadrants around that point are at the corners of the range of
-$f$ and we assume that both players are trying to maximise their 
+$f$ and we assume that both players are trying to maximise their
 winnings/minimise their losses it only makes sense to choose either
 $0$ or $1$ if they think their opponent is more likely to pick one of the
 sides (with respect to $\nicefrac{1}{3}$ or $\nicefrac{2}{3}$) for their
 probability. Let us therefore investigate the following values of $f$:
 \begin{align*}
-  f(0,0)&=0,\\
-  f(0,1)&=20,\\
-  f(1,0)&=10,\\
-  f(1,1)&=0.
+  f(0,0) & =0,  \\
+  f(0,1) & =20, \\
+  f(1,0) & =10, \\
+  f(1,1) & =0.
 \end{align*}
 This shows that picking $p$ and $s$ is the same as picking either
 coin from both players point of view. Assuming that neither player
 can predict what the other will choose, this leaves us with the following
 suggestions, if we assume both players are aware of their sensible options.\\
-Alice should not pick $p=0$ as this gives her a $50\%$ chance of losing 
-(again, assuming both $p<\nicefrac{2}{3}$ and $p>\nicefrac{2}{3}$ 
+Alice should not pick $p=0$ as this gives her a $50\%$ chance of losing
+(again, assuming both $p<\nicefrac{2}{3}$ and $p>\nicefrac{2}{3}$
 are equally likely values for $s$)
 which is the same for $p=1$ but here she only puts 10 pence on the line.
 We don't need to consider Bob picking $s=\nicefrac{1}{3}$ from Alices
 point of view because Alice cannot influence $\E(X)$ in that case anyways.
-This leaves the last option for Alice as $p=\nicefrac{2}{3}$. 
-By Choosing this, Alice can force $\E(X)=\nicefrac{20}{3}$. 
-We can see that this is worse than the expected value of the 
-expected value when choosing $p=1$ which is $10\cdot\nicefrac{1}{2}=5$. 
-Thus \emph{if Alice has no reason to believe that Bob is more likely 
-to choose either $p\leq\nicefrac{2}{3}$ or $p\leq\nicefrac{2}{3}$
-she should pick $s=1$}.\\
+This leaves the last option for Alice as $p=\nicefrac{2}{3}$.
+By Choosing this, Alice can force $\E(X)=\nicefrac{20}{3}$.
+We can see that this is worse than the expected value of the
+expected value when choosing $p=1$ which is $10\cdot\nicefrac{1}{2}=5$.
+Thus \emph{if Alice has no reason to believe that Bob is more likely
+  to choose either $p\leq\nicefrac{2}{3}$ or $p\leq\nicefrac{2}{3}$
+  she should pick $s=1$}.\\
 Similarly, it does not make a lot of sense for Bob to choose $s=0$.
-From his point of view, it is not sensible to force 
-$\E(X)=\nicefrac{20}{3}$ with $s=\frac{1}{3}$ because he has to 
-assume that the expected value of the expected value 
+From his point of view, it is not sensible to force
+$\E(X)=\nicefrac{20}{3}$ with $s=\frac{1}{3}$ because he has to
+assume that the expected value of the expected value
 after choosing $s=1$ is $20\cdot \frac{1}{2}=10$.\\
 This line of thinking leads to the possibility that Alice \emph{and}
 Bob are equally as likely to choose either $0$ or $1$. This lets us
 estimate an expected value of the expected value as $7.5$. Interestingly
-this is greater than what Alice could have forced the expected value to 
+this is greater than what Alice could have forced the expected value to
 be.
 \end{document}

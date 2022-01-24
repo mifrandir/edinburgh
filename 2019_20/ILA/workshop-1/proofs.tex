@@ -37,12 +37,12 @@ Therefore the following is also true:
 \end{align}
 Now we can do the following transformation with $\vec{u}, \vec{v} \in \mathbb{R}^n$:
 \begin{align}
-    (\vec{u}+\vec{v})\cdot(\vec{u}-\vec{v})&
-    =\sum_{k=1}^n (u_k+v_k)\cdot(u_k-v_k)\\
-    &=\sum_{k=1}^n u_k^2 - v_k^2
-    =\sum_{k=1}^n u_k^2 -\sum_{k=1}^n v_k^2 
-    =\vec{u}\cdot\vec{u}-\vec{v}\cdot\vec{v}\\
-    &=\vert\vec{u}\vert^2-\vert\vec{v}\vert^2
+    (\vec{u}+\vec{v})\cdot(\vec{u}-\vec{v}) &
+    =\sum_{k=1}^n (u_k+v_k)\cdot(u_k-v_k)                                              \\
+                                            & =\sum_{k=1}^n u_k^2 - v_k^2
+    =\sum_{k=1}^n u_k^2 -\sum_{k=1}^n v_k^2
+    =\vec{u}\cdot\vec{u}-\vec{v}\cdot\vec{v}                                           \\
+                                            & =\vert\vec{u}\vert^2-\vert\vec{v}\vert^2
 \end{align}
 \section{Page 30, Task 62}
 \subsection{Subtask (a)}
@@ -54,43 +54,43 @@ The task is to proof the following equation with $\vec{u}, \vec{v}\in\mathbb{R}^
 We're going to expand the left-hand side:
 \begin{align}
     \vert\vec{u}+\vec{v}\vert^2 + \vert\vec{u}-\vec{v}\vert^2
-    &=\sum_{k=1}^n(u_k+v_k)^2+\sum_{k=1}^n (u_k-v_k)\\
-    &=\sum_{k=1}^n u_k^2+2 u_k v_k+v_k^2 + \sum_{k=1}^n u_k^2-2 u_k v_k + v_k^2\\
-    &=\sum_{k=1}^n 2u_k^2+2v_k^2
-    =2\vec{u}\cdot\vec{u}+2\vec{v}\cdot\vec{v}\\
-    &=2\vert\vec{u}\vert^2+2\vert\vec{v}\vert^2
+     & =\sum_{k=1}^n(u_k+v_k)^2+\sum_{k=1}^n (u_k-v_k)                            \\
+     & =\sum_{k=1}^n u_k^2+2 u_k v_k+v_k^2 + \sum_{k=1}^n u_k^2-2 u_k v_k + v_k^2 \\
+     & =\sum_{k=1}^n 2u_k^2+2v_k^2
+    =2\vec{u}\cdot\vec{u}+2\vec{v}\cdot\vec{v}                                    \\
+     & =2\vert\vec{u}\vert^2+2\vert\vec{v}\vert^2
 \end{align}
 \subsection{Subtask (b)}
 The drawing of the diagram is left as an exercise to the reader.\\
-What whe can infer from the diagram is that the squares of the magnitudes of the two diagonals of a parallelogram equal the squares of the magnitudes of the four sides. 
+What whe can infer from the diagram is that the squares of the magnitudes of the two diagonals of a parallelogram equal the squares of the magnitudes of the four sides.
 \section{Page 30, Taks 63}
 The task is to proof the following equation with $\vec{u}, \vec{v}\in\mathbb{R}^n$:
 \begin{align}
     \frac{1}{4}\vert \vec{u}+\vec{v}\vert^2-\frac{1}{4}\vert \vec{u}-\vec{v}\vert^2
-    &=\vec{u}\cdot\vec{v}
+     & =\vec{u}\cdot\vec{v}
 \end{align}
 To do this, we expand the left-hand side:
 \begin{align}
     \frac{1}{4}\vert \vec{u}+\vec{v}\vert^2-\frac{1}{4}\vert \vec{u}-\vec{v}\vert^2
-    &=\frac{1}{4}\sum_{k=1}^n(u_k+v_k)^2 - \frac{1}{4}\sum_{k=1}^n(u_k-v_k)^2\\
-    &=\frac{1}{4}\sum_{k=1}^n(u_k^2+2u_k v_k+v_k^2)-\frac{1}{4}\sum_{k=1}^n(u_k^2-2u_k v_k+v_k^2)\\
-    &=\frac{1}{4}\sum_{k=1}^n(4u_k v_k) 
-    = \sum_{k=1}^n u_k v_k\\
-    &=\vec{u}\cdot\vec{v}
+     & =\frac{1}{4}\sum_{k=1}^n(u_k+v_k)^2 - \frac{1}{4}\sum_{k=1}^n(u_k-v_k)^2                     \\
+     & =\frac{1}{4}\sum_{k=1}^n(u_k^2+2u_k v_k+v_k^2)-\frac{1}{4}\sum_{k=1}^n(u_k^2-2u_k v_k+v_k^2) \\
+     & =\frac{1}{4}\sum_{k=1}^n(4u_k v_k)
+    = \sum_{k=1}^n u_k v_k                                                                          \\
+     & =\vec{u}\cdot\vec{v}
 \end{align}
 \section{Page 31, Task 64}
 \subsection{Subtask (a)}
 The task is to prove the following equation iff the vectors $\vec{u}, \vec{v}\in\mathbb{R}^n$ are orthogonal.
 \begin{align}
-    \vert\vec{u}+\vec{v}\vert = \vert\vec{u}-\vec{v}\vert 
+    \vert\vec{u}+\vec{v}\vert = \vert\vec{u}-\vec{v}\vert
 \end{align}
 Expanding both sides yields:
 \begin{align}
     \vec{u}\cdot\vec{u}+2(\vec{u}\cdot\vec{v})+\vec{v}\cdot\vec{v}
-    &=\vec{u}\cdot\vec{u}-2(\vec{u}\cdot\vec{v})+\vec{v}\cdot\vec{v}
-    &\vert - (\vec{u}\cdot\vec{u}+\vec{v}\cdot\vec{v})\\
+     & =\vec{u}\cdot\vec{u}-2(\vec{u}\cdot\vec{v})+\vec{v}\cdot\vec{v}
+     & \vert - (\vec{u}\cdot\vec{u}+\vec{v}\cdot\vec{v})               \\
     2(\vec{u}\cdot\vec{v})
-    &=-2(\vec{u}\cdot\vec{v})
+     & =-2(\vec{u}\cdot\vec{v})
 \end{align}
 This equation is true iff $\vec{u}\cdot\vec{v}=0$ which is the case iff $\vec{u}$ and $\vec{v}$ are orthogonal.
 \subsection{Subtask (b)}
@@ -108,28 +108,28 @@ where $P_r$ is the point which is on the line segment $\bar{AB}$ with a distance
 \section{Page 32, Task 2}
 With respect to Figure 1.43 in the book, we can write the following equations:
 \begin{align}
-    \vec{P}=\frac{\vec{A}+\vec{C}}{2}\\
+    \vec{P}=\frac{\vec{A}+\vec{C}}{2} \\
     \vec{Q}=\frac{\vec{B}+\vec{C}}{2}
 \end{align}
 Thus we can represent the vector $\vec{PQ}$ in the following way:
 \begin{align}
-    \vec{PQ}&=\vec{Q}-\vec{P}\\
-    &=\frac{\vec{B}+\vec{C}}{2}-\frac{\vec{A}+\vec{C}}{2}
-    =\frac{\vec{B}-\vec{A}}{2}\\
-    &=\frac{1}{2}\vec{AB}
+    \vec{PQ} & =\vec{Q}-\vec{P}                                     \\
+             & =\frac{\vec{B}+\vec{C}}{2}-\frac{\vec{A}+\vec{C}}{2}
+    =\frac{\vec{B}-\vec{A}}{2}                                      \\
+             & =\frac{1}{2}\vec{AB}
 \end{align}
 Since $\bar{AB}$ is a side of the triangle, the line $\bar{PQ}$ has to be parallel to it. Additionally, we know that $\bar{AB}$ is exactly twice as long as $\bar{PQ}$.
 \section{Page 32, Task 3}
 With respect to Figure 1.44 in the book, we can write the following equation:
 \begin{align}
-    \vec{AD}&=\vec{AB}+\vec{BC}+\vec{CD}
+    \vec{AD} & =\vec{AB}+\vec{BC}+\vec{CD}
 \end{align}
 This let's us write down the equations for one side of the parallelogram $\vec{RS}$:
 \begin{align}
-   \vec{RS}&=\frac{\vec{CD}-\vec{AD}}{2}\\
-   &=\frac{\vec{CD}-\vec{AB}-\vec{BC}-\vec{CD}}{2}
-   =-\frac{\vec{AB}+\vec{BC}}{2}\\
-   &=\vec{QP}
+    \vec{RS} & =\frac{\vec{CD}-\vec{AD}}{2}                   \\
+             & =\frac{\vec{CD}-\vec{AB}-\vec{BC}-\vec{CD}}{2}
+    =-\frac{\vec{AB}+\vec{BC}}{2}                             \\
+             & =\vec{QP}
 \end{align}
 Since the sides $\bar{RS}$ and $\bar{QP}$ can be represented using the same vector, they have the same length and are parallel. Thus the quadrilateral $PQRS$ is a parallelogram.\\
 NOTE: This is true for every vector space $\mathbb{R}^n$. This proof did not require any special aspect of $\mathbb{R}^2$.

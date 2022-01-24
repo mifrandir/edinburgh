@@ -8,7 +8,7 @@
 \maketitle
 
 
-\section*{P 4.1} 
+\section*{P 4.1}
 
 
 Let $f_X$ be the pdf of a random variable $X$ with
@@ -21,12 +21,12 @@ Then we require
 \end{align*}
 We find
 \begin{align*}
-   k\int_0^1 x^n dx = k\left[\frac{1}{n+1}x^{n+1}\right]_0^1 = \frac{k}{n+1}.
+  k\int_0^1 x^n dx = k\left[\frac{1}{n+1}x^{n+1}\right]_0^1 = \frac{k}{n+1}.
 \end{align*}
 Therefore, $k=n+1$ is required to make $f_X$ a pdf.\\
-Now 
+Now
 \begin{align*}
-  \P(X\leq 1/2) = \int_0^{1/2} (n+1)x^n dx = \left[x^{n+1}\right]_0^{1/2} 
+  \P(X\leq 1/2) = \int_0^{1/2} (n+1)x^n dx = \left[x^{n+1}\right]_0^{1/2}
   =\frac{1}{2^{n+1}},
 \end{align*}
 and
@@ -34,7 +34,7 @@ and
   \E(X) = \int_0^1 x f_X(x) dx = \int_0^1 (n+1)x^{n+1} dx
   = \left[\frac{n+1}{n+2}x^{n+2}\right]_0^1 = \frac{n+1}{n+2}.
 \end{align*}
-We see that 
+We see that
 \begin{align*}
   \lim_{n\to\infty} \P(X\leq 1/2) = 0
 \end{align*}
@@ -43,7 +43,7 @@ and
   \lim_{n\to\infty} \E(X) = 1.
 \end{align*}
 This is intuitively true because $f_X$ gets steeper with increasing
-$n$ and thus the fraction of the area under the graph to the left 
+$n$ and thus the fraction of the area under the graph to the left
 gets smaller and smaller while the center of gravity moves closer to
 $x=1$.
 
@@ -53,7 +53,7 @@ $x=1$.
 
 We know that
 \begin{align*}
-  \P(a \leq X \leq b) = \int_a^b f_X(x) dx 
+  \P(a \leq X \leq b) = \int_a^b f_X(x) dx
 \end{align*}
 and therefore
 \begin{align*}
@@ -69,7 +69,7 @@ Therefore
 \end{align*}
 Obsesrve that, since $X$ is continuous,
 \begin{align*}
-  \P(X \leq x) = \P(X < x). 
+  \P(X \leq x) = \P(X < x).
 \end{align*}
 Thus, by applying the definition, we find
 \begin{align*}
@@ -95,7 +95,7 @@ distribution, we find
   = \frac{(k-1)!}{(r-1)!(k-r)!}\left(\frac{1}{6}\right)^r\left(\frac{5}{6}\right)^{k-r}
 \end{align*}
 as required. \\
-We can write $X=X_1+X_2+\cdots X_r$ with $X_i\sim \Geom(r)$ for all $i$. 
+We can write $X=X_1+X_2+\cdots X_r$ with $X_i\sim \Geom(r)$ for all $i$.
 Using the \emph{Law of Total Probability for Expected Values}, we find
 \begin{align*}
   \E(X) = \E(X_1) + \E(X_2) + \cdots + \E(X_r) = r\E(X_1).
@@ -109,12 +109,12 @@ Using \emph{Proposition 4.1.3} from the nodes, we find $\E(X_1) = 1/p$ and thus
 \section*{P 4.4}
 
 
-Let the random variables $X$, $Y$ and $Z$ have 
+Let the random variables $X$, $Y$ and $Z$ have
 the pdfs $f_X(x)=f_Y(x)=f_Z(x)=1$. Let $A$, $B$ and $C$
 be the same random variables but assigned in such a way that
 $A\leq B\leq C$ all the time. Then, since $X,Y,Z$ have identical pdfs,
 there are $6$ equally likely mappings to $A,B,C$.
-You can see that $B=W$ as specified in the question. For $f_W$, 
+You can see that $B=W$ as specified in the question. For $f_W$,
 we thus find
 \begin{align*}
   f_W(x) = 6\left(\P(A \leq x)\P(x \leq C)\right).
@@ -131,7 +131,7 @@ We can check $F_W(1) = 3\cdot 1^2 - 2 \cdot 1^3 = 1$. Further, we can
 calculate
 \begin{align*}
   \P\left(\frac{1}{3}\leq W \leq \frac{2}{3}\right)
-  &= F_W\left(\frac{2}{3}\right) - F_W\left(\frac{1}{3}\right)
+   & = F_W\left(\frac{2}{3}\right) - F_W\left(\frac{1}{3}\right)
   = 1 - \frac{14}{27} = \frac{13}{27}.
 \end{align*}
 \end{document}

@@ -11,23 +11,23 @@
 \section*{Question 1}
 
 
-We have 
+We have
 \begin{align*}
   \vec F = (1+2xy+y^2+yz^2)\ih + (x^2+e^y+2xy+xz^2)\jh + 2xyz\kh.
 \end{align*}
 
 \subsection*{(a) and (b)}
 
-Since finding a potential function $\phi$ such that $\vec F = \grad\phi$ 
+Since finding a potential function $\phi$ such that $\vec F = \grad\phi$
 will show that $\vec F$ is conservative, we can solve (a) implicitly.
 To find a suitable $\phi$ we need to find anti-derivatives of all the components
 of $\vec F$. We find
 \begin{align*}
-  \int \vec F\cdot \ih\: dx &= x + x^2y + xy^2 + xyz^2 + C_x,\\
-  \int \vec F\cdot \jh\: dy &= x^2y+e^y+xy^2+xyz^2+C_y,\\
-  \int \vec F\cdot \kh\: dz &= xyz^2 + C_z.
+  \int \vec F\cdot \ih\: dx & = x + x^2y + xy^2 + xyz^2 + C_x, \\
+  \int \vec F\cdot \jh\: dy & = x^2y+e^y+xy^2+xyz^2+C_y,       \\
+  \int \vec F\cdot \kh\: dz & = xyz^2 + C_z.
 \end{align*}
-Notice how every summand that depends on more than one of $x,y,z$ appears 
+Notice how every summand that depends on more than one of $x,y,z$ appears
 in all the relevant anti-derivatives. Thus we can inspect to find
 \begin{align}
   \label{eqphi}
@@ -51,12 +51,12 @@ and write
 Furthermore, we know $\vec F=\grad\phi$ for the function $\phi$ given in (\ref{eqphi}).
 Using this and applying the \emph{Fundamental Theorem of Line Integrals}, we find
 \begin{align*}
-  I &= \int_P \grad \phi\cdot d\vec s = \phi(\vec s(b))-\phi(\vec s(a)) \\
-  &= \phi(2,0,2)-\phi(0,0,0) = 3 - 1 = 2.
+  I & = \int_P \grad \phi\cdot d\vec s = \phi(\vec s(b))-\phi(\vec s(a)) \\
+    & = \phi(2,0,2)-\phi(0,0,0) = 3 - 1 = 2.
 \end{align*}
 \emph{Note: We don't specify all of $P$ because we're only interested in the start
-and end points. If required, we could define $P$ as the straight line between
-the two points of interest.}
+  and end points. If required, we could define $P$ as the straight line between
+  the two points of interest.}
 
 
 \section*{Question 2}
@@ -92,14 +92,14 @@ where $u$ is the constant
   \label{equ}
   u = \sqrt{1+\frac{c^2}{a^2}+\frac{c^2}{b^2}}.
 \end{align}
-Thus 
+Thus
 \begin{align*}
-  A &= u\int_0^a [y]_0^{b-bx/a}=u\int_0^a\left(b - \frac{b}{a}x\right)dx\\
-  &= bu \left[x-\frac{x^2}{2a}\right]_0^a = \frac{1}{2}abu.
+  A & = u\int_0^a [y]_0^{b-bx/a}=u\int_0^a\left(b - \frac{b}{a}x\right)dx \\
+    & = bu \left[x-\frac{x^2}{2a}\right]_0^a = \frac{1}{2}abu.
 \end{align*}
 Re-inserting the substitution (\ref{equ}) then yields
 \begin{align*}
-  A &= \frac{1}{2}ab\sqrt{1+\frac{c^2}{a^2}+\frac{c^2}{b^2}}
+  A & = \frac{1}{2}ab\sqrt{1+\frac{c^2}{a^2}+\frac{c^2}{b^2}}
   = \frac{1}{2}\sqrt{a^2b^2+c^2b^2+c^2a^2}
 \end{align*}
 as required.
