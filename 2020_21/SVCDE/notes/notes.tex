@@ -14,7 +14,7 @@
 
 
 
-(see ILA notes)
+ (see ILA notes)
 \setcounter{subsection}{4}
 
 
@@ -32,7 +32,7 @@
     This is the case if, and only if, the limits for all the components of $\vec f$ exist.\\
     A vector function $\vec r(t)$ is \textbf{continuous} at $t=a$ if
     \begin{align*}
-        \lim_{t\to a} \vec r (t) = \vec r (a). 
+        \lim_{t\to a} \vec r (t) = \vec r (a).
     \end{align*}
 \end{definition}
 
@@ -74,7 +74,7 @@
 \begin{theorem}{Fundamental Theorem of Calculus}
     \begin{align*}
         \int_a^b \vec v(t) dt = \left[\vec V(t)\right]^b_a = \vec V(b) - \vec V(a)
-    \end{align*} 
+    \end{align*}
     where $\vec V'(t) = \vec v(t)$.
 \end{theorem}
 
@@ -101,7 +101,7 @@
     A curve is \textbf{smooth} if it has a smooth parameterisation.
 \end{definition}
 \begin{definition}
-    For a smooth curved traced out by the position vector $\vec r(t)$ with the unit tangent vector 
+    For a smooth curved traced out by the position vector $\vec r(t)$ with the unit tangent vector
     $\vec T(t)$ the \textbf{curvature} $\kappa$ is defined as
     \begin{align*}
         \kappa = \left|\frac{d\vec T}{ds}\right|=\frac{\left| \vec T'(t)\right|}{\left|\vec r'(t)\right|}
@@ -132,8 +132,8 @@
 \end{definition}
 \begin{theorem}
     \begin{align*}
-        \vec N(t) &= \vec B(t) \times \vec T(t)\\
-        \vec T(t) &= \vec N(t) \times \vec B(t)
+        \vec N(t) & = \vec B(t) \times \vec T(t) \\
+        \vec T(t) & = \vec N(t) \times \vec B(t)
     \end{align*}
 \end{theorem}
 
@@ -184,8 +184,8 @@
     Note: The definition is independent of the direction of approach to the
     limit point $\vec p$. Thus, if
     \begin{align*}
-        &f(\vec x)\to L_1 \text{ as } \vec x\to\vec p \text{ along a path } C_1, \text{ and}\\
-        &f(\vec x)\to L_2 \text{ as } \vec x\to\vec p \text{ along a path } C_2
+         & f(\vec x)\to L_1 \text{ as } \vec x\to\vec p \text{ along a path } C_1, \text{ and} \\
+         & f(\vec x)\to L_2 \text{ as } \vec x\to\vec p \text{ along a path } C_2
     \end{align*}
     where $L_1 \not= L_2$, then $\lim_{\vec x\to\vec p} f(\vec x)$ does not exist.
 \end{definition}
@@ -193,15 +193,15 @@
     The limit laws carry over from functions of one variable case:
     \begin{enumerate}
         \item $\lim_{\vec x\to\vec p}\left(f(\vec x)\pm g(\vec x)\right) =
-               \lim_{\vec x\to\vec p}f(\vec x)\pm\lim_{\vec x\to\vec p}g(\vec x)$.
+                  \lim_{\vec x\to\vec p}f(\vec x)\pm\lim_{\vec x\to\vec p}g(\vec x)$.
         \item $\lim_{\vec x\to\vec p}\left(cf(\vec x)\right) =
-              c\lim_{\vec x\to\vec p}f(\vec x)$ where $c$ is a constant.
+                  c\lim_{\vec x\to\vec p}f(\vec x)$ where $c$ is a constant.
         \item $\lim_{\vec x\to\vec p}\left(f(\vec x)g(\vec x)\right) =
-               \left(\lim_{\vec x\to\vec p}f(\vec x)\right)
-               \left(\lim_{\vec x\to\vec p}g(\vec x)\right)$.
+                  \left(\lim_{\vec x\to\vec p}f(\vec x)\right)
+                  \left(\lim_{\vec x\to\vec p}g(\vec x)\right)$.
         \item $\lim_{\vec x\to\vec p}\frac{f(\vec x)}{g(\vec x)}
-               =\frac{\lim_{\vec x\to\vec p}f(\vec x)}{\lim_{\vec x\to\vec p}g(\vec x)}$
-               provided that $\lim_{\vec x\to\vec p}g(\vec x)\not=0$.
+                  =\frac{\lim_{\vec x\to\vec p}f(\vec x)}{\lim_{\vec x\to\vec p}g(\vec x)}$
+              provided that $\lim_{\vec x\to\vec p}g(\vec x)\not=0$.
     \end{enumerate}
 \end{theorem}
 
@@ -213,7 +213,7 @@
     \begin{align*}
         \lim_{\vec x\to \vec p}f(\vec x) = f(\vec p);
     \end{align*}
-    and $f$ is \textbf{continuous on $S\subseteq D$} if it is continuous at 
+    and $f$ is \textbf{continuous on $S\subseteq D$} if it is continuous at
     every point in $S$.
 \end{definition}
 
@@ -232,14 +232,14 @@
 \end{definition}
 Notation for higher derivatives:
 \begin{align*}
-    (f_x)_x \equiv f_{xx} \equiv f_{11} 
-    &\equiv \frac{\p}{\p x}\frac{\p f}{\p x} 
+    (f_x)_x \equiv f_{xx} \equiv f_{11}
+     & \equiv \frac{\p}{\p x}\frac{\p f}{\p x}
     \equiv \frac{\p^2 f}{\p x^2}
-    \equiv \frac{\p^2 z}{\p x^2}\\
-    (f_x)_y \equiv f_{xy} \equiv f_{12} 
-    &\equiv \frac{\p}{\p y}\frac{\p f}{\p x} 
+    \equiv \frac{\p^2 z}{\p x^2}               \\
+    (f_x)_y \equiv f_{xy} \equiv f_{12}
+     & \equiv \frac{\p}{\p y}\frac{\p f}{\p x}
     \equiv \frac{\p^2 f}{\p y \p x}
-    \equiv \frac{\p^2 z}{\p y \p x}\\
+    \equiv \frac{\p^2 z}{\p y \p x}            \\
 \end{align*}
 \begin{theorem}[Clairaut's Theorem]
     Suppose $f(x,y)$ is defined on a disk $D$ containing the point $(a,b)$.
@@ -286,7 +286,7 @@ Notation for higher derivatives:
     $(a,b)$ to the point $(a+\Delta x, b+\Delta y)$. The
     corresponding \textbf{increment} in $z$ is
     \begin{align*}
-        \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y 
+        \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
         + \epsilon_1\Delta x + \epsilon_2\Delta y.
     \end{align*}
     The function $f(x,y)$ is \textbf{differentiable} if $\Delta z$
@@ -295,7 +295,7 @@ Notation for higher derivatives:
         \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
         + \epsilon_1\Delta x + \epsilon_2\Delta y
     \end{align*}
-    where $\epsilon_1, \epsilon_2 \to 0$ as 
+    where $\epsilon_1, \epsilon_2 \to 0$ as
     $(\Delta x, \Delta y)\to(0,0)$.
 \end{definition}
 \begin{theorem}
@@ -311,7 +311,7 @@ Notation for higher derivatives:
     defined to be independent variables. The \textbf{total differential} $dz$
     is then defined as
     \begin{align*}
-        dz = f_x(x,y)dx + f_y(x,y)dy 
+        dz = f_x(x,y)dx + f_y(x,y)dy
         = \frac{\p z}{\p x}dx + \frac{\p z}{\p y}dy.
     \end{align*}
 \end{definition}
@@ -342,7 +342,7 @@ Notation for higher derivatives:
         \text{\hs and\hs}
         \frac{\p z}{\p t}=\frac{\p z}{\p x}\frac{\p x}{\p t}
         + \frac{\p z}{\p y}\frac{\p y}{\p t}.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 \begin{theorem}[Chain rule - general case]
     Suppose that $z$ is a differentiable function of the $n$ variables
@@ -354,7 +354,7 @@ Notation for higher derivatives:
         + \frac{\p z}{\p x_2}\frac{\p x_2}{\p t_i}
         + \cdots
         + \frac{\p z}{\p x_n}\frac{\p x_n}{\p t_i}
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \subsubsection{Implicit differentiation}
@@ -369,8 +369,8 @@ Notation for higher derivatives:
     differentiate paritally w.r.t. $x$:
     \begin{align*}
         \frac{\p F}{\p x}\frac{\p x}{\p x}+\frac{\p F}{\p y}\frac{\p y}{\p x}
-        + \frac{\p F}{\p z}\frac{\p z}{\p x} &= 0\\
-        \frac{\p F}{\p x} + \frac{\p F}{\p z}\frac{\p z}{\p x} &= 0
+        + \frac{\p F}{\p z}\frac{\p z}{\p x}                   & = 0 \\
+        \frac{\p F}{\p x} + \frac{\p F}{\p z}\frac{\p z}{\p x} & = 0
     \end{align*}
 \end{definition}
 \begin{theorem}[Implicit Function Theorem]
@@ -379,7 +379,7 @@ Notation for higher derivatives:
     continuous inside the sphere, then
     \begin{align*}
         F(x,y,z)=0
-    \end{align*} 
+    \end{align*}
     defines $z$ as a differentiable function of $x$ and $y$ near the
     point $(a,b,c)$.
 \end{theorem}
@@ -418,7 +418,7 @@ Notation for higher derivatives:
 \end{definition}
 \begin{theorem}
     The directional derivative may be expressed in terms of gradients
-    as 
+    as
     \begin{align*}
         D_{\vec u}f(x,y)=\grad f(x,y)\cdot \vec u
     \end{align*}
@@ -429,7 +429,7 @@ Notation for higher derivatives:
 \begin{definition}
     The gradient vector of $f(x,y,z)$ is
     \begin{align*}
-        \vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih 
+        \vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih
         + \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
     \end{align*}
 \end{definition}
@@ -464,7 +464,7 @@ Notation for higher derivatives:
         \grad F(x_0, y_0, z_0)\cdot \dv r(t_0) = 0.
     \end{align*}
     Thus the gradient vector at $(x_0, y_0, z_0)$ is perpendicular to the
-    tangent vector $\dv r(t)$ for any curve $C$ that passes through 
+    tangent vector $\dv r(t)$ for any curve $C$ that passes through
     $(x_0, y_0, z_0)$.
 \end{theorem}
 \begin{definition}
@@ -482,7 +482,7 @@ Notation for higher derivatives:
 \begin{definition}
     The \textbf{normal line} to surface $S$ at $(x_0, y_0, z_0)$ is the line
     passing through $(x_0, y_0, z_0)$ that is perpendicular to the tangent
-    plane. Thus its direction is given by the gradient vector 
+    plane. Thus its direction is given by the gradient vector
     $\grad F(x_0, y_0, z_0)$.
 \end{definition}
 \begin{theorem}
@@ -536,8 +536,8 @@ Notation for higher derivatives:
     \begin{align*}
         D = f_{xx}(a,b)f_{yy}(a,b) -\left(f_{xy}(a,b)\right)^2
         = \det\begin{bmatrix}
-            f_{xx}(a,b) &f_{xy}(a,b)\\
-            f_{xy}(a,b) &f_{yy}(a,b) 
+            f_{xx}(a,b) & f_{xy}(a,b) \\
+            f_{xy}(a,b) & f_{yy}(a,b)
         \end{bmatrix}
     \end{align*}
     \begin{enumerate}
@@ -554,18 +554,18 @@ Notation for higher derivatives:
     Properties of sets in $\R^2$:
     \begin{itemize}
         \item A point $(a,b)$ is a \textbf{boundary point} of a set $D$ if
-        every disk with centre $(a,b)$ contains points in $D$ and also points
-        not in $D$.
+              every disk with centre $(a,b)$ contains points in $D$ and also points
+              not in $D$.
         \item A \textbf{closed set} is one that contains all its boundary points.
         \item A \textbf{bounded set} is one taht is contained within some disk, i.e.
-        one that is finite in extent.
+              one that is finite in extent.
     \end{itemize}
 \end{definition}
 \begin{theorem}[Extreme Value Theorem]
     If $f(x,y)$ is continuous on a closed, bounded set $D$ in $\R^2$, then
     then $f(x,y)$ attains an absolute maximum value $f(x_1, y_1)$ and an
     absolute minimum value $f(x_2, y_2)$ at some points $(x_1, y_1)$ and
-    $(x_2, y_2)$ in $D$. 
+    $(x_2, y_2)$ in $D$.
 \end{theorem}
 
 
@@ -589,7 +589,7 @@ Notation for higher derivatives:
     among the critical points of the \textbf{Lagrangian function}
     \begin{align*}
         L(x,y,\lambda)=f(x,y)+\lambda g(x,y).
-    \end{align*} 
+    \end{align*}
     The number $\lambda$ is called a \textbf{Lagrange multiplier}.
 \end{theorem}
 
@@ -642,10 +642,10 @@ Notation for higher derivatives:
     Let $c\in\R$ be a constant. Then
     \begin{align*}
         \di_R cf(x,y)dA = c\di_R f(x,y)dA.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f(x,y)\geq g(x,y)$ for all $(x,y)\in R$ then 
+    If $f(x,y)\geq g(x,y)$ for all $(x,y)\in R$ then
     \begin{align*}
         \di_R f(x,y)dA \geq \di_R g(x,y) dA.
     \end{align*}
@@ -654,16 +654,16 @@ Notation for higher derivatives:
 \subsection{Iterated integrals}
 
 \begin{theorem}[Fubini's Theorem]
-    If $f(x,y)$ is continuous on the rectangle $R=[a,b]\times[c,d]$ then 
+    If $f(x,y)$ is continuous on the rectangle $R=[a,b]\times[c,d]$ then
     \begin{align*}
-        \di_r f(x,y)dA = \int_a^b \int_c^d f(x,y)\:dydx 
+        \di_r f(x,y)dA = \int_a^b \int_c^d f(x,y)\:dydx
         = \int_c^d \int_a^b f(x,y)\:dxdy.
     \end{align*}
     More generally, this holds if $f(x,y)$ is bounded on $R$ and is
     discontinuous only on a finite number of smooth curves.
 \end{theorem}
 \begin{lemma}
-    Suppose that $f(x,y)$ can be written as $f(x,y)=g(x)h(y)$ 
+    Suppose that $f(x,y)$ can be written as $f(x,y)=g(x)h(y)$
     on $R=[a,b]\times[c,d]$. Then
     \begin{align*}
         \di_R f(x,y)dA = \int_a^b g(x)dx \int_c^d h(y)dy.
@@ -681,8 +681,8 @@ Notation for higher derivatives:
     with domain $R$ per
     \begin{align*}
         F(x,y)=\begin{cases}
-            f(x,y) &\text{if } (x,y)\in D\\
-            0      &\text{if } (x,y)\not\in D
+            f(x,y) & \text{if } (x,y)\in D     \\
+            0      & \text{if } (x,y)\not\in D
         \end{cases}
     \end{align*}
     Thus the double integral of $f(x,y)$ over $D$ is defined as
@@ -710,7 +710,7 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f(x,y)=1$, then 
+    If $f(x,y)=1$, then
     \begin{align*}
         \di_D f(x,y)dA = A(D).
     \end{align*}
@@ -737,7 +737,7 @@ Notation for higher derivatives:
 \end{theorem}
 
 
-\subsection{Triple integrals} 
+\subsection{Triple integrals}
 
 
 \begin{definition}
@@ -750,10 +750,10 @@ Notation for higher derivatives:
 \end{definition}
 \begin{theorem}[Fubini's Theorem for triple integrals]
     If $f(x,y,z)$ is continuous on the rectangular box $B=[a,b]\times[b,c]\times[w,v]$,
-    then 
+    then
     \begin{align*}
         \ti_B f(x,y,z) dV = \int_v^w\int_c^d \int_a^b f(x,y,z)\:dxdydx.
-    \end{align*} 
+    \end{align*}
     The iterated integrals can be evaluated in any order.
 \end{theorem}
 \begin{definition}
@@ -761,7 +761,7 @@ Notation for higher derivatives:
     is defined as
     \begin{align*}
         f_{ave} = \frac{1}{V(E)}\ti_E f(x,y,z)dV.
-    \end{align*} 
+    \end{align*}
 \end{definition}
 
 
@@ -809,7 +809,7 @@ Notation for higher derivatives:
     where the radial distance $\phi=\sqrt{x^2+y^2+z^2}$.
 \end{definition}
 \begin{theorem}
-    The formula for \textbf{triple integration in spherical coordinates} over a region $E$ 
+    The formula for \textbf{triple integration in spherical coordinates} over a region $E$
     given by
     \begin{align*}
         E=\{(\rho,\theta,\phi):a\leq\rho\leq b,\alpha\leq\theta\leq\beta, c\leq\phi\leq d\}
@@ -838,8 +838,8 @@ Notation for higher derivatives:
         =\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
         - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
         =\begin{vmatrix}
-            \frac{\partial x}{\partial u} &\frac{\partial x}{\partial v}\\
-            \frac{\partial y}{\partial u} &\frac{\partial y}{\partial v}
+            \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+            \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
         \end{vmatrix}.
     \end{align*}
     We regard $x$ and $y$ as independent functions of $u$ and $v$ if the Jacobian is nonzero.
@@ -866,9 +866,9 @@ Notation for higher derivatives:
     The Jacobian of this transformation is the $3\times3$ matrix determinant
     \begin{align*}
         \frac{\partial(x,y,z)}{\partial(u,v,w)}=\begin{vmatrix}
-            \frac{\partial x}{\partial u}&\frac{\partial x}{\partial v}&\frac{\partial x}{\partial w}\\
-            \frac{\partial y}{\partial u}&\frac{\partial y}{\partial v}&\frac{\partial y}{\partial w}\\
-            \frac{\partial z}{\partial u}&\frac{\partial z}{\partial v}&\frac{\partial z}{\partial w}
+            \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+            \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+            \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
         \end{vmatrix}.
     \end{align*}
 \end{definition}
@@ -878,7 +878,7 @@ Notation for higher derivatives:
     $x$, $y$ and $z$ are continuous in $S$ and the corresponding Jacobian is nonzero,
     then
     \begin{align*}
-       \ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw. 
+        \ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw.
     \end{align*}
 \end{theorem}
 
@@ -914,7 +914,7 @@ Notation for higher derivatives:
     \begin{align*}
         \vec r(t) = x(t)\ih + y(t)\jh
     \end{align*}
-    where the parameter $t\in[a,b]$. Assume that $C$ is smooth. 
+    where the parameter $t\in[a,b]$. Assume that $C$ is smooth.
     If $f(x,y)$ is continuous on $C$, then the \textbf{line integral of $f$ along $C$} is
     defined as
     \begin{align*}
@@ -924,8 +924,8 @@ Notation for higher derivatives:
 \begin{theorem}
     The line integral of $f$ along the curve $C$ may be caculated as
     \begin{align*}
-        \int_C f(x,y)ds = \int_a^b f(x(t), y(t))\sqrt{\left(\frac{dx}{dt}\right)^2 + 
-        \left(\frac{dy}{dt}\right)^2}dt.
+        \int_C f(x,y)ds = \int_a^b f(x(t), y(t))\sqrt{\left(\frac{dx}{dt}\right)^2 +
+            \left(\frac{dy}{dt}\right)^2}dt.
     \end{align*}
 \end{theorem}
 \begin{theorem}
@@ -940,7 +940,7 @@ Notation for higher derivatives:
     If a curve $C$ is parameterised by $t\in[a,b]$ such that its start point is $A$
     (at $t=a$) and its end point is $B$ (at $t=b$), then
     \begin{align*}
-        \int_{-C} f(x,y)dx = -\int_C f(x,y)dx,\hs 
+        \int_{-C} f(x,y)dx = -\int_C f(x,y)dx,\hs
         \int_{-C}f(x,y)dy = -\int_C f(x,y)dy
     \end{align*}
     This is not the case if we integrate with respect to the arc length, i.e.
@@ -1001,7 +1001,7 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    Let $C$ be a smooth curve specified by the position vector function 
+    Let $C$ be a smooth curve specified by the position vector function
     $\vec r(t)$, $t\in[a,b]$. If $f$ is a diffferentiable function
     whose gradient vector $\grad f$ is continuous on $C$, then
     \begin{align*}
@@ -1066,7 +1066,7 @@ Notation for higher derivatives:
         \item A \textbf{simple curve} is one that does not intersect itself anywhere
               between its start and end.
         \item A \textbf{simply-connected region} in the plane is a connected region $D$
-              such that every simple closed curve in $D$ encloses only points that 
+              such that every simple closed curve in $D$ encloses only points that
               are in $D$.
     \end{itemize}
 \end{definition}
@@ -1091,7 +1091,7 @@ Notation for higher derivatives:
     $D$, then
     \begin{align*}
         \int_C P\:dx + Q\:dy = \di_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 
@@ -1106,7 +1106,7 @@ Notation for higher derivatives:
         \curl\vec F = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\ih
         +\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\jh
         +\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\kh.
-    \end{align*} 
+    \end{align*}
     We can write curl as
     \begin{align*}
         \curl\vec F = \grad \times \vec F.
@@ -1129,11 +1129,11 @@ Notation for higher derivatives:
     \end{align*}
 \end{theorem}
 \begin{definition}
-    The Laplace operator can be applied to a vector field $\vec F$ where 
+    The Laplace operator can be applied to a vector field $\vec F$ where
     \begin{align*}
         \vec F(x,y,z) =P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh
     \end{align*}
-    per 
+    per
     \begin{align*}
         \nabla^2 \vec F = \nabla^2 P\ih + \nabla^2 Q\jh + \nabla^2 R\kh.
     \end{align*}
@@ -1158,7 +1158,7 @@ Notation for higher derivatives:
     \begin{align*}
         \int_C\vec F \cdot d\vec r = \int_C Pdx + Qdy.
     \end{align*}
-    If we regard $\vec F$ as a vector field on $\R^3$ with thrid component $0$, 
+    If we regard $\vec F$ as a vector field on $\R^3$ with thrid component $0$,
     we can write Green's Theorem as
     \begin{align*}
         \int_C\vec F \cdot d\vec r = \di_D\left(\curl\vec F(x,y)\right)\cdot\kh dA.
@@ -1199,9 +1199,9 @@ Notation for higher derivatives:
         \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh.
     \end{align*}
     If $\vec r_u \times\vec r_v\not=\vec 0$ then the surface is called \textbf{smooth}.\\
-     For a smooth surface, the \textbf{tangent plane} at $P_0$ is the plane containing
-              $\vec r(u_0,v_0)+\vec r_u(u_0,v_0)$ and $\vec r(u_0,v_0)+\vec r_v(u_0,v_0)$ and the vector
-              $\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
+    For a smooth surface, the \textbf{tangent plane} at $P_0$ is the plane containing
+    $\vec r(u_0,v_0)+\vec r_u(u_0,v_0)$ and $\vec r(u_0,v_0)+\vec r_v(u_0,v_0)$ and the vector
+    $\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
 
 \end{definition}
 
@@ -1252,7 +1252,7 @@ Notation for higher derivatives:
 \subsubsection{Graphs}
 
 \begin{theorem}
-    Consider the surface $S$ which is given by $z=g(x,y)$. Then the surface integral 
+    Consider the surface $S$ which is given by $z=g(x,y)$. Then the surface integral
     of $f(x,y,z)$ has the formula
     \begin{align*}
         \di_S f(x,y,z)dS = \di_D f(x,y,g(x,y))\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\:dA
@@ -1303,8 +1303,8 @@ Notation for higher derivatives:
 
 \begin{definition}
     If $\vec F(x,y,z)$ is a continuous vector field defined on an oriented surface $S$ with
-    unit normal vector field $\hat n(x,y,z)$, then the \textbf{surface integral of $\vec F$ over 
-    $S$} is
+    unit normal vector field $\hat n(x,y,z)$, then the \textbf{surface integral of $\vec F$ over
+        $S$} is
     \begin{align*}
         \di_S \vec F\cdot d\vec S = \di_S \vec F\cdot \hat n\:dS.
     \end{align*}
@@ -1321,7 +1321,7 @@ Notation for higher derivatives:
     region in $\R^3$ that contains $S$. Then
     \begin{align*}
         \int_C \vec F\cdot d\vec r = \di_S \curl \vec F\cdot d\vec S.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 \begin{corollary}
     If $S_1$ and $S_2$ are oriented surfaces with the same oriented boundary $C$ then
@@ -1339,8 +1339,8 @@ Notation for higher derivatives:
     A \textbf{simple} 3-dimensional region $E$ may be specified in three different ways:
     \begin{align*}
         E=\begin{cases}
-            \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\}\\
-            \{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\}\\
+            \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\} \\
+            \{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\} \\
             \{(x,y,z)|(x,z)\in D_{xz}, u_5(x,z)\leq y \leq u_6(x,z)\}
         \end{cases}
     \end{align*}
@@ -1420,12 +1420,12 @@ Notation for higher derivatives:
     may be solved by the \textbf{method of integrating factors}; i.e.
     \begin{itemize}
         \item multiply both sides of the ODE by the \textbf{integrating factor} $e^{\int P(x)dx}$ to give\begin{align*}
-            e^{\int P(x)dx}\left[\frac{dy}{dx}+P(x)y\right]&= e^{\int P(x)dx}Q(x)\\
-            \Leftrightarrow \frac{d}{dx}\left(e^{\int P(x)dx}y\right)&=e^{\int P(x)dx}Q(x)
-        \end{align*}
+                  e^{\int P(x)dx}\left[\frac{dy}{dx}+P(x)y\right]           & = e^{\int P(x)dx}Q(x) \\
+                  \Leftrightarrow \frac{d}{dx}\left(e^{\int P(x)dx}y\right) & =e^{\int P(x)dx}Q(x)
+              \end{align*}
         \item then integrating both sides w.r.t. $x$ yields \begin{align*}
-            y = \frac{1}{e^{\int P(x)dx}}\left[\int e^{\int P(x)dx}Q(x)dx + C\right].
-        \end{align*}
+                  y = \frac{1}{e^{\int P(x)dx}}\left[\int e^{\int P(x)dx}Q(x)dx + C\right].
+              \end{align*}
     \end{itemize}
 \end{theorem}
 
@@ -1440,8 +1440,8 @@ Notation for higher derivatives:
     \end{align*}
     and its solution can be found by integrating per
     \begin{align*}
-        \int \frac{1}{h(y)}\frac{dy}{dx}dx &= \int g(x)dx, \\
-        \int \frac{1}{h(y)}dy &= \int g(x)dx,
+        \int \frac{1}{h(y)}\frac{dy}{dx}dx & = \int g(x)dx, \\
+        \int \frac{1}{h(y)}dy              & = \int g(x)dx,
     \end{align*}
     if $h(y)\not=0$.
 \end{theorem}
@@ -1480,8 +1480,8 @@ Notation for higher derivatives:
 \begin{theorem}
     If an ODE is exact, then it may be written as
     \begin{align*}
-        \frac{\p\psi}{\p x}+\frac{\p\psi}{\p y}\frac{dy}{dx}&=0\\
-        \Leftrightarrow \frac{d}{dx}\psi(x,y)&=0.
+        \frac{\p\psi}{\p x}+\frac{\p\psi}{\p y}\frac{dy}{dx} & =0  \\
+        \Leftrightarrow \frac{d}{dx}\psi(x,y)                & =0.
     \end{align*}
     Integrating gives the solution implicitly as
     \begin{align*}
@@ -1515,7 +1515,7 @@ Notation for higher derivatives:
 \end{theorem}
 
 \begin{theorem}
-    If 
+    If
     \begin{align*}
         \frac{M_y-N_x}{N}=f(x),
     \end{align*}
@@ -1576,7 +1576,7 @@ Notation for higher derivatives:
     segment, i.e.
     \begin{align*}
         y_1 = y_0+f(t_0, y_0)h,\hs y_2=y_1+f(t_1,y_1)h,\hs ...
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 
@@ -1613,8 +1613,8 @@ Notation for higher derivatives:
     determinant
     \begin{align*}
         W(y_1, y_2) = \begin{vmatrix}
-            y_1 & y_2 \\
-            y'_1& y'_2\\
+            y_1  & y_2  \\
+            y'_1 & y'_2 \\
         \end{vmatrix} = y_1y'_2 - y'_1y_2.
     \end{align*}
 \end{definition}
@@ -1630,7 +1630,7 @@ Notation for higher derivatives:
     Suppose that $y_1$, $y_2$ are two solutions to the homogeneous ODE
     \begin{align*}
         y'' + p(t)y' + q(t)y = 0
-    \end{align*} 
+    \end{align*}
     where $p$, $q$ are continuous on an open interval $I$. Then the
     Wronskian
     \begin{align*}
@@ -1639,8 +1639,8 @@ Notation for higher derivatives:
     where the constant $C$ depends on $y_1$, $y_2$ but not $t$.
     Furthermore, there are only two possibilities:
     \begin{align*}
-        W(y_1,y_2)&=0\hs \forall t \in I, \text{ or}\\
-        W(y_1,y_2)&\not=0\hs \forall t \in I.
+        W(y_1,y_2) & =0\hs \forall t \in I, \text{ or} \\
+        W(y_1,y_2) & \not=0\hs \forall t \in I.
     \end{align*}
 \end{theorem}
 \begin{theorem}
@@ -1673,7 +1673,7 @@ Notation for higher derivatives:
         y=C_1y_1(t)+C_2y_2(t)
     \end{align*}
     is called the \textbf{general solution}; every \textbf{particular solution}
-    to the homogeneous ODE can be found by assigning values to the 
+    to the homogeneous ODE can be found by assigning values to the
     constants $C_1$ and $C_2$.
 \end{definition}
 \begin{definition}
@@ -1692,21 +1692,21 @@ Notation for higher derivatives:
 \subsection{Linear homogeneous ODEs with constant coefficients}
 
 \begin{theorem}
-Consider the linear homogeneous ODE with constant coefficients
-\begin{align}
-    \label{linode}
-    ay'' + by' + cy = 0
-\end{align}
-where $a$, $b$, $c$ are real-valued constants and $a\not=0$.
-Then 
-\begin{align*}
-    y(t)=e^{rt}
-\end{align*}
-is a solution to (\ref{linode}) provided that $r$ is a root of the
-\textbf{characteristic equation}
-\begin{align*}
-    ar^2 + br + c = 0.
-\end{align*}
+    Consider the linear homogeneous ODE with constant coefficients
+    \begin{align}
+        \label{linode}
+        ay'' + by' + cy = 0
+    \end{align}
+    where $a$, $b$, $c$ are real-valued constants and $a\not=0$.
+    Then
+    \begin{align*}
+        y(t)=e^{rt}
+    \end{align*}
+    is a solution to (\ref{linode}) provided that $r$ is a root of the
+    \textbf{characteristic equation}
+    \begin{align*}
+        ar^2 + br + c = 0.
+    \end{align*}
 \end{theorem}
 \begin{theorem}
     If the characteristic equation has real-valued and distinct roots,
@@ -1745,7 +1745,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
         \label{linoden}
         ay'' + by' + cy = g(t)
     \end{align}
-    where $a$, $b$, $c$ are real-valued constants and $a\not=0$. Then 
+    where $a$, $b$, $c$ are real-valued constants and $a\not=0$. Then
     the corresponding homogeneous ODE (\ref{linode}) is called a
     \textbf{complementary equation}.
 \end{definition}
@@ -1771,29 +1771,29 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     \end{align*}
     where $y_c(t) = C_1y_1(t) + C_2y_2(t)$ is the general solution of the
     corresponding complementary equation.\\
-    $y_c(t)$ is called the \textbf{complementary function}. 
+    $y_c(t)$ is called the \textbf{complementary function}.
 \end{theorem}
 
 \subsubsection{Method of undetermined coefficients}
 
 \begin{itemize}
     \item Case 1: $g(t)=Me^{kt}$ \begin{itemize}
-        \item If $k$ is not a root of the characteristic equation, try $y_p(t)=Ce^{kt}$,
-        \item if $k$ is a root of the characteristic equation, try $y_p(t)=Cte^{kt}$,
-        \item if $k$ is a repeated root of the characteristic equation, try $y_p(t)=Ct^2e^{kt}$.
-    \end{itemize}
+              \item If $k$ is not a root of the characteristic equation, try $y_p(t)=Ce^{kt}$,
+              \item if $k$ is a root of the characteristic equation, try $y_p(t)=Cte^{kt}$,
+              \item if $k$ is a repeated root of the characteristic equation, try $y_p(t)=Ct^2e^{kt}$.
+          \end{itemize}
     \item Case 2: $g(t)=M\cos(kt) + N\sin(kt)$ \begin{itemize}
-        \item If $\pm ik$ are not roots of the characteristic equation, try $y_p(t)=C\cos(kt)+D\sin(kt)$,
-        \item if $\pm ik$ are roots of the characteristic equation, try $y_p(t)=t(C\cos(kt)+D\sin(kt))$.
-    \end{itemize}
+              \item If $\pm ik$ are not roots of the characteristic equation, try $y_p(t)=C\cos(kt)+D\sin(kt)$,
+              \item if $\pm ik$ are roots of the characteristic equation, try $y_p(t)=t(C\cos(kt)+D\sin(kt))$.
+          \end{itemize}
     \item Case 3: $g(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots + a_1t+a_0$ \begin{itemize}
-        \item If $0$ is not a root of the characteristic equation, try $y_p(t)=b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1t+b_0$,
-        \item if $0$ is a root of the characteristic equation, try $y_p(t) = t(b_n t^n + b_{n-1}t^{n-1} + \cdots + b_1 t + b_0)$,
-        \item if $0$ is a repeated root of the characteristic equation, try $y_p(t)=t^2(b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1 t+b_0)$.
-    \end{itemize}
+              \item If $0$ is not a root of the characteristic equation, try $y_p(t)=b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1t+b_0$,
+              \item if $0$ is a root of the characteristic equation, try $y_p(t) = t(b_n t^n + b_{n-1}t^{n-1} + \cdots + b_1 t + b_0)$,
+              \item if $0$ is a repeated root of the characteristic equation, try $y_p(t)=t^2(b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1 t+b_0)$.
+          \end{itemize}
     \item Case 4: $g(t)=\Pi_{i=0}^n g_i(t)$ where all $g_i$ are of the form in cases 1-3 \begin{itemize}
-        \item Try the product of the trial functions in the corresponding cases.
-    \end{itemize}
+              \item Try the product of the trial functions in the corresponding cases.
+          \end{itemize}
 \end{itemize}
 
 \subsubsection{Method of variation of parameters}
@@ -1811,7 +1811,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     \end{align*}
     where
     \begin{align*}
-        y_p(t) = -y_1(t)\int\frac{y_2(t)g(t)}{aW(y_1,y_2)}\:dt 
+        y_p(t) = -y_1(t)\int\frac{y_2(t)g(t)}{aW(y_1,y_2)}\:dt
         + y_2(t) \int \frac{y_1(t)g(t)}{aW(y_1,y_2)}\:dt.
     \end{align*}
 \end{theorem}
@@ -1867,7 +1867,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     \end{align*}
     the ODE (\ref{euler}) simplifies to a constant-coefficient ODE:
     \begin{align*}
-        a\frac{d^2y}{dt^2}+(b-a)\frac{dy}{dt}+cy=0. 
+        a\frac{d^2y}{dt^2}+(b-a)\frac{dy}{dt}+cy=0.
     \end{align*}
 \end{theorem}
 
@@ -1929,7 +1929,7 @@ is a solution to (\ref{linode}) provided that $r$ is a root of the
     If
     \begin{align*}
         \sum_{n=0}^\infty a_n(x-b)^n = \sum_{n=0}^\infty c_n(x-b)^n
-    \end{align*} 
+    \end{align*}
     for every point $x$ in an open interval $I$ centred on $x=b$, then $a_n=c_n$
     for all $n\geq 0$.
 \end{theorem}
@@ -1945,8 +1945,8 @@ where the functions $P(x)$, $Q(x)$, $R(x)$ are analytic at a point $x=a$.
 We can express (\ref{shl}) as
 \begin{align}
     \label{shl2}
-    \frac{d^2y}{dx^2}+p(x)\frac{dy}{dx}+q(x)y(x)=0 
-\end{align} 
+    \frac{d^2y}{dx^2}+p(x)\frac{dy}{dx}+q(x)y(x)=0
+\end{align}
 where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
 \begin{definition}
     The point $x=a$ is an \textbf{ordinary point} of (\ref{shl2}) provided that
@@ -1998,22 +1998,22 @@ where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
 \begin{theorem}[Method of Frobenius]
     Let $r_1\geq r_2$ be the roots of the indical equation (\ref{indic}).
     Then, for $0<x<\rho$, there exists a solution of the ODE (\ref{shl2}) of the
-    form 
+    form
     \begin{align*}
         y_1(x)=x^{r_1} \sum_{n=0}^\infty a_nx^n,\hs(a\not=0).
-    \end{align*} 
+    \end{align*}
     A second linearly independent solution $y_2$ is given as follows:
     \begin{itemize}
         \item if $r_1-r_2$ is neither zero nor a positive integer then \begin{align*}
-            y_2(x) = x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b_0\not=0),
-        \end{align*}
+                  y_2(x) = x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b_0\not=0),
+              \end{align*}
         \item if $r_1-r_2$ is a positive integer then \begin{align*}
-            y_2(x) = Dy_1(x)\ln x + x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b\not=0)
-        \end{align*}
-        where the constant $D$ may or may not be zero,
+                  y_2(x) = Dy_1(x)\ln x + x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b\not=0)
+              \end{align*}
+              where the constant $D$ may or may not be zero,
         \item if $r_1-r_2=0$ then \begin{align*}
-            y_2(x) = y_1(x)\ln x + x^{r_1}\sum_{n=1}^\infty b_nx^n.
-        \end{align*}
+                  y_2(x) = y_1(x)\ln x + x^{r_1}\sum_{n=1}^\infty b_nx^n.
+              \end{align*}
     \end{itemize}
 \end{theorem}
 \end{document}

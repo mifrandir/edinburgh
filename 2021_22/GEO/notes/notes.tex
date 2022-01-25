@@ -18,14 +18,14 @@
     A \emph{real vector space} $V$ is a set together with two operations, which obey the following
     axioms; for all $u,v,w\in V$ and $a,b\in\R$
     \begin{align*}
-        \vec u + (\vec v + \vec w) &= (\vec u + \vec v) + \vec w\\
-        \vec v + \vec w &= \vec w + \vec v \\
-        \vec v + \vec 0 &= \vec v \\
-        \vec v + (-\vec v) &= \vec 0 \\
-        a(\vec v + \vec w) &= a\vec v + a\vec w \\
-        (a+b)\vec v &= a\vec v + b\vec v \\
-        a(b\vec v) &= (ab)\vec v\\
-        1\vec v &= \vec v
+        \vec u + (\vec v + \vec w) & = (\vec u + \vec v) + \vec w \\
+        \vec v + \vec w            & = \vec w + \vec v            \\
+        \vec v + \vec 0            & = \vec v                     \\
+        \vec v + (-\vec v)         & = \vec 0                     \\
+        a(\vec v + \vec w)         & = a\vec v + a\vec w          \\
+        (a+b)\vec v                & = a\vec v + b\vec v          \\
+        a(b\vec v)                 & = (ab)\vec v                 \\
+        1\vec v                    & = \vec v
     \end{align*}
 \end{definition}
 
@@ -48,7 +48,7 @@
         V^* = \{\phi : V\to K : \phi \text{ $K$-linear}\}.
     \end{align*}
     Given a basis $(\vec e_1,..., \vec e_n)$ for $V$, we have a basis $(\alpha_1, ..., \alpha_n)$,
-    given by 
+    given by
     \begin{align*}
         \alpha_i(\vec e_j) = \delta_j^i.
     \end{align*}
@@ -56,7 +56,7 @@
 
 \begin{definition}[Dual maps]
     Let $V,W$ be a vector spaces over $K$ and $f:V\to W$ a linear map between them.
-    Then there exists a canonical linear map 
+    Then there exists a canonical linear map
     \begin{align*}
         f^*:W^*\to V^*
     \end{align*}
@@ -75,22 +75,22 @@
 
 \begin{lemma}
     Let $V,W$ be vector spaces with bases $\vec v_1,...,\vec v_n$ and $\vec w_1,...,\vec w_n$,
-    respectively. Then let $f:V\to W$ be a linear map such that $f$ is represented by a matrix 
-    $A$, by multiplication on the left, then $f^*:W^*\to V^*$ is represented by $A$ as well, 
+    respectively. Then let $f:V\to W$ be a linear map such that $f$ is represented by a matrix
+    $A$, by multiplication on the left, then $f^*:W^*\to V^*$ is represented by $A$ as well,
     by multiplication on the right.
 \end{lemma}
 
 \begin{lemma}
-    Let $V$ be finite-dimensional. Then $\lra{.,.}:V\times V\to K$ is non-degenerate if and only if 
+    Let $V$ be finite-dimensional. Then $\lra{.,.}:V\times V\to K$ is non-degenerate if and only if
     $f_{\lra{.,.}}:V\to V^*$ is an isomorphism.
 \end{lemma}
 
 \begin{lemma}
-    The bilinear map $\lra{.,.}$ is symmetric if and only if 
+    The bilinear map $\lra{.,.}$ is symmetric if and only if
     \begin{align*}
         f_{\lra{.,.}}=f_{\lra{.,.}}^*
     \end{align*}
-    and anti-symmetric if and only if 
+    and anti-symmetric if and only if
     \begin{align*}
         f_{\lra{.,.}}=-f_{\lra{.,.}}^*.
     \end{align*}
@@ -100,27 +100,27 @@
 \subsection{The inverse and implicit function theorems}
 
 \begin{theorem}[Inverse Function Theorem (one dimension); Notes 2.12]
-    Let $f:(a,b)\subset \R \to \R$ be a smooth real-valued function defined on an 
+    Let $f:(a,b)\subset \R \to \R$ be a smooth real-valued function defined on an
     interval. If, for some $p\in(a,b)$, we have that $f'(p)\not=0$, then there exists
     a subinterval $(c,d)\subset(a,b)$ containing $p$ such that $f$ restricted to $(c,d)$
     is invertible, and the inverse function is also smooth. Moreover, if
     $g:f(c,d)\to(c,d)$ is the inverse function, then
     \begin{align*}
         g'(f(p))=\frac{1}{f'(p)}.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{theorem}[Inverse Function Theorem; Notes 2.14]
-    Let 
+    Let
     \begin{align*}
-        F = (f^1,...,f^n):D\subset \R^n\to\R^n\\
+        F = (f^1,...,f^n):D\subset \R^n\to\R^n \\
         (x^1,...,x^n)\mapsto (f^1(x^1,...,x^n), ..., f^n(x^1,...,x^n))
-    \end{align*} 
-    be a smooth function defined on an open set $D\subset\R^n$, with Jacobian matrix 
+    \end{align*}
+    be a smooth function defined on an open set $D\subset\R^n$, with Jacobian matrix
     \begin{align*}
         J_F(p)=\left[\eval{\frac{\p f^i}{\p x^j}}{p}\right]
     \end{align*}
-    If, at any point $p\in D$, $J_F(p)$ is invertible as a matrix, then there exists 
+    If, at any point $p\in D$, $J_F(p)$ is invertible as a matrix, then there exists
     an open set $\tilde D\subset D\subset \R^n$ containing $p$ such that $F|_{\tilde D}$
     is invertible.
     Moreover, if $G:E\subset\R^n\to \R^n$ is the inverse:
@@ -134,28 +134,28 @@
 \end{theorem}
 
 \begin{theorem}[Implicit Function Theorem; Notes 2.15]
-    Let  
+    Let
     \begin{align*}
-        F = (f^1,...,f^m):D\subset \R^{n+m}\to\R^m\\
-    \end{align*} 
+        F = (f^1,...,f^m):D\subset \R^{n+m}\to\R^m \\
+    \end{align*}
     be a smooth function defined on an open set $D\subset\R^{n+m}$ such that
     \begin{align*}
         (x^1,...,x^n,y^1,...,y^n)\mapsto (f^1(x^1,...,x^n,y^1,...,y^m), ..., f^n(x^1,...,x^n,y^1,...,y^m))
-    \end{align*} 
+    \end{align*}
     with Jacobian matrix
     \begin{align*}
         J_F = \begin{bmatrix}
-            \frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n}&\frac{\p f^1}{\p y^1} & \cdots &\frac{\p f^1}{\p y^m}\\
-            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
-            \frac{\p f^m}{\p x^1} & \cdots & \frac{\p f^m}{\p x^n}&\frac{\p f^m}{\p y^1} & \cdots &\frac{\p f^m}{\p y^m}
+            \frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n} & \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
+            \vdots                & \ddots & \vdots                & \vdots                & \ddots & \vdots                \\
+            \frac{\p f^m}{\p x^1} & \cdots & \frac{\p f^m}{\p x^n} & \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
         \end{bmatrix}.
     \end{align*}
-    If, at some point fixed $p\in D$, we have that the matrix 
+    If, at some point fixed $p\in D$, we have that the matrix
     \begin{align*}
         \begin{bmatrix}
-             \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
-             \vdots & \ddots & \vdots \\
-             \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
+            \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
+            \vdots                & \ddots & \vdots                \\
+            \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
         \end{bmatrix}
     \end{align*}
     is invertible,
@@ -163,27 +163,27 @@
     \begin{align*}
         \Phi : E \subset \R^n \to \R^m
     \end{align*}
-    (the \emph{implicit function}) defined on an open set $E\subset \R^n$, such that 
+    (the \emph{implicit function}) defined on an open set $E\subset \R^n$, such that
     the following hold:
     \begin{enumerate}
         \item There exists an open set $\tilde D$ with $p\in \tilde D\subset D\subset\R^{n+m}$ of $p$, such that  \begin{align*}
-            \tilde D \cap (\R^n\subset\R^{n+m})=E,
-        \end{align*}
-        and such that for all $\tilde p\in\tilde D$ we have \begin{align*}
-            F(\tilde p) = F(p) \hs\Leftrightarrow\hs \tilde p =(x^1,...,x^n,\Phi(x^1,...,x^n)) \hs\text{for some}\hs (x^1,...,x^n)\in E;
-        \end{align*}
+                  \tilde D \cap (\R^n\subset\R^{n+m})=E,
+              \end{align*}
+              and such that for all $\tilde p\in\tilde D$ we have \begin{align*}
+                  F(\tilde p) = F(p) \hs\Leftrightarrow\hs \tilde p =(x^1,...,x^n,\Phi(x^1,...,x^n)) \hs\text{for some}\hs (x^1,...,x^n)\in E;
+              \end{align*}
         \item for all $q\in E$, we have that the Jacobian matrix is given by \begin{align*}
-            J_\Phi(q)=-\inv{\begin{bmatrix}
-                \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
-                \vdots                & \ddots & \vdots \\
-                \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m} 
-            \end{bmatrix}}
-            \begin{bmatrix}
-                \frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n} \\
-                \vdots                & \ddots & \vdots \\
-                \frac{\p f^m}{\p x^1} & \cdots & \frac{\p f^m}{\p x^n} 
-            \end{bmatrix}.
-        \end{align*}
+                  J_\Phi(q)=-\inv{\begin{bmatrix}
+                          \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
+                          \vdots                & \ddots & \vdots                \\
+                          \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
+                      \end{bmatrix}}
+                  \begin{bmatrix}
+                      \frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n} \\
+                      \vdots                & \ddots & \vdots                \\
+                      \frac{\p f^m}{\p x^1} & \cdots & \frac{\p f^m}{\p x^n}
+                  \end{bmatrix}.
+              \end{align*}
     \end{enumerate}
 \end{theorem}
 
@@ -196,9 +196,9 @@
     $\vec x : (a,b) \to \E^n$,
     \begin{align*}
         t \mapsto\vec x(t) = \begin{pmatrix}
-            x^1(t)\\
-            x^2(t)\\
-            \vdots\\
+            x^1(t) \\
+            x^2(t) \\
+            \vdots \\
             x^n(t)
         \end{pmatrix}.
     \end{align*}
@@ -208,15 +208,15 @@
     The \emph{velocity vector} of the curve $\vec x(t)$ is given by
     \begin{align*}
         \vec x'(t) = \begin{pmatrix}
-            (x^1)'(t)\\
-            (x^2)'(t)\\
-            \vdots\\
+            (x^1)'(t) \\
+            (x^2)'(t) \\
+            \vdots    \\
             (x^n)'(t)
         \end{pmatrix}.
     \end{align*}
     A curve $\vec x(t)$ is \emph{regular} if its velocity $\vec x'(t)\not=0$
     for all $t\in(a,b)$. The \emph{tangent line} to a regular curve $\vec x(t)$
-    at $\vec x(t^0)$ is the line 
+    at $\vec x(t^0)$ is the line
     \begin{align*}
         \{\vec x(t^0)+\lambda\vec x'(t^0) : \lambda \in\R\}.
     \end{align*}
@@ -256,7 +256,7 @@
 \end{definition}
 
 \begin{definition}
-    The \emph{unit tangent} vector field along a regular curve $\vec x(t)$ is 
+    The \emph{unit tangent} vector field along a regular curve $\vec x(t)$ is
     \begin{align*}
         \vec T(t) = \frac{\vec x'(t)}{\abs{x'(t)}}.
     \end{align*}
@@ -301,23 +301,23 @@
 \end{definition}
 
 \begin{theorem}
-    Let $\vec x(t)$ be a biregular space curve in $\E^3$. Then the Frenet-Serret 
-    frame $\vec T(t), \vec N(t), \vec B(t)$ along $\vec x(t)$ satisfies the 
+    Let $\vec x(t)$ be a biregular space curve in $\E^3$. Then the Frenet-Serret
+    frame $\vec T(t), \vec N(t), \vec B(t)$ along $\vec x(t)$ satisfies the
     \emph{structure equations}:
     \begin{align*}
         \begin{pmatrix}
-            \vec T\\
-            \vec N\\
+            \vec T \\
+            \vec N \\
             \vec B
         \end{pmatrix}'
         = v\begin{pmatrix}
-            0       & \kappa & 0 \\
+            0       & \kappa & 0    \\
             -\kappa & 0      & \tau \\
             0       & -\tau  & 0
         \end{pmatrix}
         \begin{pmatrix}
-            \vec T\\
-            \vec N\\
+            \vec T \\
+            \vec N \\
             \vec B
         \end{pmatrix}.
     \end{align*}
@@ -329,7 +329,7 @@
 \end{theorem}
 
 \begin{definition}
-    The \emph{osculating plane} at a point on a curve is the plane spanned by $\vec T$ and 
+    The \emph{osculating plane} at a point on a curve is the plane spanned by $\vec T$ and
     $\vec N$. Intuitively, the torsion measures how fast the curve is twisting out of htis plane.
 \end{definition}
 
@@ -388,8 +388,8 @@
     Let $p\in\E^3$. Then a derivative operator acting on functions $f:\E^3\to\R$
     at $p$ is the map
     \begin{align*}
-        v^k \eval{\frac{\p }{\p x^k}}{p} : 
-        f \mapsto v^k \eval{\frac{\p f}{\p x^k}}{p}    
+        v^k \eval{\frac{\p }{\p x^k}}{p} :
+        f \mapsto v^k \eval{\frac{\p f}{\p x^k}}{p}
     \end{align*}
     for some coefficients $v^1,...,v^n$.
 \end{definition}
@@ -400,7 +400,7 @@
     \begin{align*}
         T_p D =\left\lbrace v^i \eval{\frac{\p}{\p x^i}}{p}: v^1,...,v^n\in\R\right\rbrace.
     \end{align*}
-    A smooth \emph{vector field} on $D$ is a smooth map $\vec v$ which assigns to each 
+    A smooth \emph{vector field} on $D$ is a smooth map $\vec v$ which assigns to each
     $p\in D$ an element in $T_pD$; in other words,
     it is a differential operator
     \begin{align*}
@@ -428,14 +428,14 @@
 
 \begin{theorem}[Notes 4.4]
     For any $D\subseteq \R^n$ and $p\in D$ the tangent space $T_pD$ is a real vector space
-    of dimension $n$. The set of tangent vectors 
+    of dimension $n$. The set of tangent vectors
     $\left\lbrace\eval{\frac{\p }{\p x^1}}{p}, ...,\eval{\frac{\p }{\p x^n}}{p}\right\rbrace$
     is a basis of $T_pD$.
 \end{theorem}
 
 \begin{definition}
     Given a vector field $\vec v$ and a smooth function $f:D\to\R$,
-    we can define a function 
+    we can define a function
     \begin{align*}
         \vec v(f) = v^i\frac{\p f}{\p x^i}.
     \end{align*}
@@ -444,10 +444,10 @@
 \begin{proposition}[Notes 4.7]
     For all vector fields $\vec v,\vec w$ and functions $f,g$, the following identities hold:
     \begin{align*}
-        (\vec v+\vec w)(f) &= \vec v(f) + \vec w(f)\\
-        (f\vec v)(g)  &= f\vec v(g) \\
-        \vec v(f+g)   &= \vec v(f) + \vec v(g) \\
-        \vec v(fg)    &= g\vec v(f) + f\vec v(g)
+        (\vec v+\vec w)(f) & = \vec v(f) + \vec w(f)   \\
+        (f\vec v)(g)       & = f\vec v(g)              \\
+        \vec v(f+g)        & = \vec v(f) + \vec v(g)   \\
+        \vec v(fg)         & = g\vec v(f) + f\vec v(g)
     \end{align*}
 \end{proposition}
 
@@ -460,7 +460,7 @@
     \begin{align*}
         c'(t)=(x^1(t), x^2(t), ..., x^n(t))
     \end{align*}
-    is non-vanishing for all $t\in(a,b)$. 
+    is non-vanishing for all $t\in(a,b)$.
     We say a curve $c$ \emph{passes through $p\in D$} if $c(0)=p$.
 \end{definition}
 
@@ -473,27 +473,27 @@
 \end{proposition}
 
 \begin{corollary}
-    There is a one-to-one correspondence between velocities of curves that pass through 
-    $p\in D$ and tangent vectors $T_pD$. By (standard) abuse of notation sometimes 
+    There is a one-to-one correspondence between velocities of curves that pass through
+    $p\in D$ and tangent vectors $T_pD$. By (standard) abuse of notation sometimes
     we denote $c'_p$ by the corresponding velocity $c'(0)$.
 \end{corollary}
 
 \begin{definition}[Notes Exercise 4.30]
-    Let $\vec u,\vec v$ be vector fields. Then the \emph{Lie bracket} is defined as 
+    Let $\vec u,\vec v$ be vector fields. Then the \emph{Lie bracket} is defined as
     \begin{align*}
-        [\vec u, \vec v] = \vec u(\vec v(f)) - \vec v(\vec u(f)) 
+        [\vec u, \vec v] = \vec u(\vec v(f)) - \vec v(\vec u(f))
         = \left(\vec u(v^k)-\vec v(u^k)\right)\frac{\p f}{\p x^k}.
     \end{align*}
 \end{definition}
 
 \begin{lemma}
     Let $\vec u, \vec v, \vec w$ be vector fields and let $f$ be a
-    function. Then 
+    function. Then
     \begin{align*}
-        [\vec v, \vec u] &= -[\vec u, \vec v],\\
-        [\vec u, [\vec v, \vec w]] + [\vec v, [\vec w, \vec u]] + [\vec w, [\vec u, \vec v]] &= 0,\\
-        [f\vec u, \vec v] &= f[\vec u,\vec v]-\vec v(f)\vec u,\\
-        [\vec u, f\vec v] &= f[\vec u,\vec v]+\vec v(f)\vec u.
+        [\vec v, \vec u]                                                                     & = -[\vec u, \vec v],                \\
+        [\vec u, [\vec v, \vec w]] + [\vec v, [\vec w, \vec u]] + [\vec w, [\vec u, \vec v]] & = 0,                                \\
+        [f\vec u, \vec v]                                                                    & = f[\vec u,\vec v]-\vec v(f)\vec u, \\
+        [\vec u, f\vec v]                                                                    & = f[\vec u,\vec v]+\vec v(f)\vec u.
     \end{align*}
 \end{lemma}
 
@@ -514,8 +514,8 @@
     $\left\lbrace\eval{\frac{\p }{\p x^i}}p\right\rbrace$:
     \begin{align*}
         \eval{dx^j}p\left(\eval{\frac{\p }{\p x^k}}p\right)= \begin{cases}
-            1, &\text{if } j = k\\
-            0, &\text{otherwise}.
+            1, & \text{if } j = k  \\
+            0, & \text{otherwise}.
         \end{cases}
     \end{align*}
     Equivalently, $\eval{dx^i}{p}$ are defined by their action on an arbitrary tangent vector
@@ -526,7 +526,7 @@
 \end{definition}
 
 \begin{lemma}[Notes, Remark 4.13]
-    $T_p^*D$ is a vector space of dimension $n$ with basis 
+    $T_p^*D$ is a vector space of dimension $n$ with basis
     $\left\lbrace \eval{dx^1}{p},...,\eval{dx^n}{p}\right\rbrace$ called the dual basis to
     $\left\lbrace \eval{\frac{\p }{\p x^1}}{p}, ..., \eval{\frac{\p }{\p x^n}}{p}\right\rbrace$.
 \end{lemma}
@@ -537,8 +537,8 @@
     \begin{align*}
         \alpha = \alpha_i dx^i
     \end{align*}
-    where $\alpha_i:D\to\R$ are smooth functions. Given 1-forms $\alpha=\alpha_idx^i$ and 
-    $\beta=\beta_idx^i$ and a function $f$ on $D$, addition and scalar multiplication of 
+    where $\alpha_i:D\to\R$ are smooth functions. Given 1-forms $\alpha=\alpha_idx^i$ and
+    $\beta=\beta_idx^i$ and a function $f$ on $D$, addition and scalar multiplication of
     1-forms are given by
     \begin{align*}
         \alpha + \beta = (\alpha_i + \beta_i)dx^i,\hs f\alpha = (f\alpha_i)dx^i.
@@ -549,12 +549,12 @@
     If $\alpha=\alpha_i dx^i\in T_p^*D$ and $\vec v=v^i\frac{\p }{\p x^i}\in T_pD$,
     then $\alpha(\vec v)$ is the smooth function
     \begin{align*}
-        \alpha(\vec v) = \alpha_i v^i.    
+        \alpha(\vec v) = \alpha_i v^i.
     \end{align*}
 \end{lemma}
 
 \begin{definition}
-    Given a smooth function $f$, its \emph{exterior derivative} is the 1-form 
+    Given a smooth function $f$, its \emph{exterior derivative} is the 1-form
     $df$ defined by
     \begin{align*}
         (df)(\vec v) = \vec v(f)
@@ -566,7 +566,7 @@
 \end{definition}
 
 \begin{proposition}[Notes 4.20]
-    For any functions $f,g$, we have 
+    For any functions $f,g$, we have
     \begin{itemize}
         \item $d(f+g)=df + dg$,
         \item $d(fg) =fdg + gdf$,
@@ -578,7 +578,7 @@
 
 \begin{definition}
     Let $c:[a,b]\to D$ be a curve and $\alpha$ a 1-form on $D$. The \emph{integral
-    of $\alpha$ over the curve $c$} is 
+        of $\alpha$ over the curve $c$} is
     \begin{align*}
         \int_c \alpha = \int_a^b \alpha(c'(t))\:dt
     \end{align*}
@@ -597,7 +597,7 @@
 \end{corollary}
 
 \begin{proposition}
-    If $\tilde c$ is a reparametrisation of $c$ and $\alpha$ is a 1-form then 
+    If $\tilde c$ is a reparametrisation of $c$ and $\alpha$ is a 1-form then
     \begin{align*}
         \int_c \alpha = \pm \int_{\tilde c} \alpha,
     \end{align*}
@@ -611,7 +611,7 @@
     \begin{align*}
         c^*\alpha :=  \alpha(c'(t))dt.
     \end{align*}
-    The integral of $\alpha$ over $c$ may now be thought of as the integral of the pull-back 
+    The integral of $\alpha$ over $c$ may now be thought of as the integral of the pull-back
     $c^*\alpha$ over the interval $[a,b]$.
 \end{definition}
 
@@ -630,17 +630,17 @@
     by the following bilinear and alternating map,
     \begin{align*}
         (\alpha\wedge\beta)(v,w) = \alpha(v)\beta(w) - \alpha(w)\beta(v) = \begin{vmatrix}
-            \alpha(v) &\alpha(w) \\
-            \beta(v) &\beta(w)
+            \alpha(v) & \alpha(w) \\
+            \beta(v)  & \beta(w)
         \end{vmatrix}.
     \end{align*}
     More generally, the wedge product of $k$ $1$-forms $\alpha^1,\alpha^2,...,\alpha^k$ can be defined as a
     map acting on $k$ vectors $v_1,v_2,...,v_k$
     \begin{align*}
         (\alpha^1\wedge\cdots\wedge\alpha^k)(v_1,...,v_k) = \begin{vmatrix}
-            \alpha^1(v_1) &\cdots &\alpha^1(v_k)\\
-            \vdots &\ddots &\vdots \\ 
-            \alpha^k(v_1) &\cdots &\aleph^k(v_k)
+            \alpha^1(v_1) & \cdots & \alpha^1(v_k) \\
+            \vdots        & \ddots & \vdots        \\
+            \alpha^k(v_1) & \cdots & \aleph^k(v_k)
         \end{vmatrix}.
     \end{align*}
     The resulting map is linear in each vector separately and changes sign if any pair of vectors is exchanged.
@@ -662,8 +662,8 @@
         \alpha=\alpha_Idx^I
     \end{align*}
     where $\alpha_I:D\to\R$ are smooth functions, and the sum happens over all multi-indices
-    $I$ with $\abs{I}=k$. Given two differential $k$ forms $\alpha,\beta$ and a function $f$ 
-    the differential $k$-forms $\alpha+\beta$ and $f\alpha$ are 
+    $I$ with $\abs{I}=k$. Given two differential $k$ forms $\alpha,\beta$ and a function $f$
+    the differential $k$-forms $\alpha+\beta$ and $f\alpha$ are
     \begin{align*}
         \alpha + \beta = (\alpha_I + \beta_I)dx^I, \hs f\alpha = f\alpha_I dx^I.
     \end{align*}
@@ -677,7 +677,7 @@
     \begin{align*}
         (\alpha_Idx^I) \wedge (\beta_Jdx^J) = \alpha_I\beta_Jdx^I\wedge dx^J.
     \end{align*}
-    Then the wedge product defines a bilinear map 
+    Then the wedge product defines a bilinear map
     \begin{align*}
         \wedge : \Omega^k(D) \times \Omega^l(D) \to \Omega^{k+l} (D).
     \end{align*}
@@ -688,7 +688,7 @@
     \begin{align*}
         \alpha\wedge\beta = (-1)^{kl} \beta \wedge \alpha.
     \end{align*}
-    Note that if $f\in\Omega^0(D)$ is a function, then we define 
+    Note that if $f\in\Omega^0(D)$ is a function, then we define
     \begin{align*}
         f\wedge\beta = f\beta
     \end{align*}
@@ -699,21 +699,21 @@
 
 \begin{definition}
     If $\alpha=\alpha_Idx^I\in\Omega^k(D)$, then its \emph{exterior derivative} $d\alpha\in\Omega^{k+1}(D)$
-    is 
+    is
     \begin{align*}
         d\alpha = d\alpha_I \wedge dx^I
     \end{align*}
-    where $d\alpha_I$ denotes the exterior derivative of the function $\alpha_I$. Note that 
+    where $d\alpha_I$ denotes the exterior derivative of the function $\alpha_I$. Note that
     a consequence of this definition is $d(dx^I) = d(1)\wedge dx^I=0$.
 \end{definition}
 
 \begin{theorem}
     The exterior derivative $d:\Omega^k(D)\to \Omega^{k+1}(D)$ is a linear map satisfying
-    the following properties 
+    the following properties
     \begin{enumerate}
         \item $d$ obeys the graded derivation property, for any $\alpha\in\Omega^k(D)$ \begin{align*}
-            d(\alpha \wedge \beta) = d\alpha\wedge\beta +(-1)^k\alpha\wedge d\beta.
-        \end{align*}
+                  d(\alpha \wedge \beta) = d\alpha\wedge\beta +(-1)^k\alpha\wedge d\beta.
+              \end{align*}
         \item $d(d\alpha)=0$ for any $\alpha\in\Omega^k(D)$, or more compactly $d^2=0$.
     \end{enumerate}
 \end{theorem}
@@ -728,7 +728,7 @@
 \end{lemma}
 
 \begin{lemma}[Notes Exercise 5.35]
-    Let $f,g:D\to\R$ be functions. Define $\alpha=fdg$. Then $\alpha\wedge d\alpha=0$. 
+    Let $f,g:D\to\R$ be functions. Define $\alpha=fdg$. Then $\alpha\wedge d\alpha=0$.
 \end{lemma}
 
 \subsection{Integration in $\R^n$}
@@ -744,7 +744,7 @@
 \end{definition}
 
 \begin{proposition}
-    Let $(x^1,...,x^n)$ be oriented coordinates for $\R^n$. Let $(y^1, ..., y^n)$ be 
+    Let $(x^1,...,x^n)$ be oriented coordinates for $\R^n$. Let $(y^1, ..., y^n)$ be
     smooth functions on $\R^n$. Then
     \begin{align*}
         dy^1\wedge\cdots\wedge dy^n = \frac{\p(y^1,...,y^n)}{\p(x^1,...,x^n)}dx^1\wedge\cdots\wedge dx^n,
@@ -753,7 +753,7 @@
 \end{proposition}
 
 \begin{definition}
-    Let $(x^1,...,x^n)$ be oriented coordinates on $D\subseteq \R^n$ and write 
+    Let $(x^1,...,x^n)$ be oriented coordinates on $D\subseteq \R^n$ and write
     \begin{align*}
         \omega = f(x^1, ..., x^n)dx^1\wedge\cdots\wedge dx^n\in\Omega^n(D).
     \end{align*}
@@ -780,12 +780,12 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
     Given a local surface $\vec x:D\to\E^3$ we define the \emph{directional derivatives}
     $\vec x_{u^1},\vec x_{u^2}:D\to\E^3$,
     \begin{align*}
-        \vec x_{u^1} = \frac{\p x^i}{\p u^1}\frac{\p}{\p x^i}, \hs 
+        \vec x_{u^1} = \frac{\p x^i}{\p u^1}\frac{\p}{\p x^i}, \hs
         \vec x_{u^2} = \frac{\p x^i}{\p u^2}\frac{\p}{\p x^i}.
     \end{align*}
-    For every point $p\in D$, these are vectors in $T_{\vec x(p)}\E^3$, which we will 
+    For every point $p\in D$, these are vectors in $T_{\vec x(p)}\E^3$, which we will
     identify with $\E^3$ itself. We say that a local surface $\vec x$ is \emph{regular
-    at $p\in D$} if $\vec x_{u^1}(p)$ and $\vec x_{u^2}(p)$ are linearly independent.
+        at $p\in D$} if $\vec x_{u^1}(p)$ and $\vec x_{u^2}(p)$ are linearly independent.
     A local surface is \emph{regular} if it is regular for all $p\in D$.
 \end{definition}
 
@@ -796,10 +796,10 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
 \end{definition}
 
 \begin{definition}
-    At a regular point on a local surface, the plane spanned by $\vec x_{u^1}(p)$ 
+    At a regular point on a local surface, the plane spanned by $\vec x_{u^1}(p)$
     and $\vec x_{u^2}(p)$ is the \emph{tangent plane to the surface at $\vec x(p)$},
     which we denote by $T_{\vec x(p)}S$. At a regular point, the \emph{unit normal}
-    to the surface is 
+    to the surface is
     \begin{align*}
         \vec N(p)=\frac{\vec x_{u^1}(p)\times\vec x_{u^2}(p)}{\abs{\vec x_{u^1}(p)\times\vec x_{u^2}(p)}}.
     \end{align*}
@@ -815,8 +815,8 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
 \subsection{Standard surfaces}
 
 \begin{definition}
-    Let $g:D\to\R$ be a smooth function. The \emph{graph of} $g$ is the local surface 
-    defined by 
+    Let $g:D\to\R$ be a smooth function. The \emph{graph of} $g$ is the local surface
+    defined by
     \begin{align*}
         \vec x(u^1, u^2) = (u^1, u^2, g(u^1, u^2)).
     \end{align*}
@@ -842,8 +842,8 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
 \end{proposition}
 
 \begin{definition}
-    A \emph{surface of revolution} with profile curve $f(u)>0$ is a local 
-    surface of the form 
+    A \emph{surface of revolution} with profile curve $f(u)>0$ is a local
+    surface of the form
     \begin{align*}
         \vec x(u, \phi) = (f(u)\cos\phi,f(u)\sin\phi,u).
     \end{align*}
@@ -852,12 +852,12 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
 \end{definition}
 
 \begin{definition}
-    A \emph{ruled surface} is a surface $\vec x:D_1\times D_2\to\E^3$ of the form 
+    A \emph{ruled surface} is a surface $\vec x:D_1\times D_2\to\E^3$ of the form
     \begin{align*}
         \vec x(u,v)= \vec z(u) + v\vec p(u)
     \end{align*}
     where $\vec z,\vec p:D_1\to\E^3$.
-    Notice that curves of constant $u$ are straight lines in $\E^3$ through 
+    Notice that curves of constant $u$ are straight lines in $\E^3$ through
     $\vec z(u)$ in the direction $\vec p(u)$.
 \end{definition}
 
@@ -868,12 +868,12 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
 Let $D\subseteq\R^n$ with coordinates $(x^1,...,x^n)$.
 
 \begin{definition}
-    A symmetric bilinear form on $T_pD$ is a bilinear map $B:T_pD\times T_pD 
-    \to\R$ such that $B(\vec v,\vec w)=B(\vec w,\vec v)$ for all $\vec v,\vec w\in T_pD$. Given two $1$-forms
+    A symmetric bilinear form on $T_pD$ is a bilinear map $B:T_pD\times T_pD
+        \to\R$ such that $B(\vec v,\vec w)=B(\vec w,\vec v)$ for all $\vec v,\vec w\in T_pD$. Given two $1$-forms
     $\alpha$, $\beta$ at $p\in D$ define a symmetric bilinear form $\alpha\beta$
-    on $T_pD$ by 
+    on $T_pD$ by
     \begin{align*}
-        (\alpha\beta)(\vec v, \vec w) = \frac{1}{2}(\alpha(\vec v)\beta(\vec w) \alpha(\vec w)\beta(\vec v)) 
+        (\alpha\beta)(\vec v, \vec w) = \frac{1}{2}(\alpha(\vec v)\beta(\vec w) \alpha(\vec w)\beta(\vec v))
     \end{align*}
     where $v,w\in T_pD$. Note that $\alpha\beta=\beta\alpha$ and we write $\alpha^2$
     for $\alpha\alpha$.
@@ -889,16 +889,16 @@ Let $D\subseteq\R^n$ with coordinates $(x^1,...,x^n)$.
 \end{definition}
 
 \begin{corollary}[Notes Example 7.3]
-    The dot product in $\E^n$ is given by the symmetric form 
+    The dot product in $\E^n$ is given by the symmetric form
     \begin{align*}
         g(\vec v, \vec w) = \delta_{ij} v^i w^i.
     \end{align*}
 \end{corollary}
 
 \begin{definition}
-    A (Riemannian) \emph{metric} on $D$ is a symmetric tensor $g=g_{ij}dx^idx^j$ 
+    A (Riemannian) \emph{metric} on $D$ is a symmetric tensor $g=g_{ij}dx^idx^j$
     which is positive definite at each point; $g(\vec v,\vec v)\geq 0$ for all
-    $\vec v \in T_pD$, with equality if and only if $v=0$. Equivalently, it is a 
+    $\vec v \in T_pD$, with equality if and only if $v=0$. Equivalently, it is a
     choice for each $p\in D$ of an inner product on $T_pD$.
 \end{definition}
 
@@ -913,7 +913,7 @@ Let $D\subseteq\R^2$ with coordinates $(u^1,u^2)$.
 
 \begin{definition}
     Given a regular local surface $\vec x: D\to\E^3$, the \emph{first fundamental form}
-    is defined by 
+    is defined by
     \begin{align*}
         I = d\vec x \cdot d\vec x.,
     \end{align*}
@@ -932,8 +932,8 @@ Let $D\subseteq\R^2$ with coordinates $(u^1,u^2)$.
     where $E,F,G$ are functions on $D$ given by
     \begin{align}
         \label{fff}
-        E=\vec x_{u^1} \cdot \vec x_{u^1},\hs 
-        F=\vec x_{u^1} \cdot \vec x_{u^2},\hs 
+        E=\vec x_{u^1} \cdot \vec x_{u^1},\hs
+        F=\vec x_{u^1} \cdot \vec x_{u^2},\hs
         G=\vec x_{u^2} \cdot \vec x_{u^2}.
     \end{align}
 \end{proposition}
@@ -943,7 +943,7 @@ Let $D\subseteq\R^2$ with coordinates $(u^1,u^2)$.
 
 \begin{definition}
     Given a regular local surface $\vec x: D\to\E^3$, the \emph{second fundamental form}
-    is defined by 
+    is defined by
     \begin{align*}
         \I = -d\vec x\cdot d\vec N,
     \end{align*}
@@ -958,8 +958,8 @@ Let $D\subseteq\R^2$ with coordinates $(u^1,u^2)$.
     where $l,m,n$ are functions on $D$ given by
     \begin{align}
         \label{sff}
-        l=-\vec x_{u^1}\cdot\vec N_{u^1}, \hs 
-        m=-\vec x_{u^1}\cdot\vec N_{u^2}, \hs 
+        l=-\vec x_{u^1}\cdot\vec N_{u^1}, \hs
+        m=-\vec x_{u^1}\cdot\vec N_{u^2}, \hs
         n=-\vec x_{u^2}\cdot\vec N_{u^2}.
     \end{align}
 \end{proposition}
@@ -973,16 +973,16 @@ Let $D\subseteq\R^2$ be a domain and $\vec x:D\to\E^3$ a regular surface.
 Let $V$ be a real vector space and $A,B:V^2\to\R$ be symmetric bilinear forms.
 
 \begin{definition}
-    The \emph{eigenvalues of $B$ with respect to $A$} are roots of the polynomial 
+    The \emph{eigenvalues of $B$ with respect to $A$} are roots of the polynomial
     \begin{align*}
         \det(B-\lambda A) = 0,
     \end{align*}
-    where by abuse of notation $A,B$ are the matrices of the symmetric forms $A,B$ relative to the 
+    where by abuse of notation $A,B$ are the matrices of the symmetric forms $A,B$ relative to the
     basis, i.e. $A_{ij}=A(\vec e_i,\vec e_j)$ and $B_{ij}=B(\vec e_i,\vec e_j)$.
 \end{definition}
 
 \begin{lemma}[Notes 8.1]
-    Then the eigenvalues and eigenvectors of $B$ with respect 
+    Then the eigenvalues and eigenvectors of $B$ with respect
     to $A$ are independent of the basis chosen.
 \end{lemma}
 
@@ -1012,11 +1012,11 @@ Let $V$ be a real vector space and $A,B:V^2\to\R$ be symmetric bilinear forms.
 \end{definition}
 
 \begin{proposition}[Notes 8.5]
-    The Gauss and mean curvature are smooth functions on $D$ given by 
+    The Gauss and mean curvature are smooth functions on $D$ given by
     \begin{align*}
         K=\frac{ln-m^2}{EG-F^2},\hs
         H=\frac{lG+nE-2mF}{2(EG-F^2)}
-    \end{align*} 
+    \end{align*}
     where $E,F,G$ and $l,m,n$ are as in (\ref{fff}) and (\ref{sff}).
 \end{proposition}
 
@@ -1025,21 +1025,21 @@ Let $V$ be a real vector space and $A,B:V^2\to\R$ be symmetric bilinear forms.
 \subsection{Curves on surfaces}
 
 Let $D\subseteq\R^2$ be a domain with coordinates $(u,v)$.
-Let $c:[a,b]\to D$ be a curve with $c(t)=(u(t),v(t))$ and let $\vec x: D\to\E^3$ be a 
+Let $c:[a,b]\to D$ be a curve with $c(t)=(u(t),v(t))$ and let $\vec x: D\to\E^3$ be a
 local surface.
 
 \begin{lemma}[Notes 9.1]
-    We have 
+    We have
     \begin{align*}
-        \vec x' := \frac{d}{dt}\vec x(c(t)) = d\vec x(c')\hs\text{and}\hs 
+        \vec x' := \frac{d}{dt}\vec x(c(t)) = d\vec x(c')\hs\text{and}\hs
         \vec N' := \frac{d}{dt}\vec N(c(t)) = d\vec N(c').
     \end{align*}
-    where $c'$ is the tangent vector to the curve $c$ in $D$, so that 
+    where $c'$ is the tangent vector to the curve $c$ in $D$, so that
     $c'=u'\frac{\p }{\p u}+v'\frac{\p }{\p v}$.
 \end{lemma}
 
 \begin{proposition}[Notes 9.2]
-    The arclength of the curve $\vec x(c(t))$, $t\in[a,b]$, lying on a surface is 
+    The arclength of the curve $\vec x(c(t))$, $t\in[a,b]$, lying on a surface is
     \begin{align*}
         s = \int_a^b \sqrt{I(c',c')}\:dt
     \end{align*}
@@ -1057,13 +1057,13 @@ local surface.
 \subsection{Invariance under Euclidean motions}
 
 \begin{theorem}[Notes 9.7]
-    Let $\vec x: D\to\E^3$ and $\vec{\hat x}:D\to\E^3$ be two surfaces related by a 
-    Euclidean motion, so 
+    Let $\vec x: D\to\E^3$ and $\vec{\hat x}:D\to\E^3$ be two surfaces related by a
+    Euclidean motion, so
     \begin{align*}
         \vec{\hat x} (u,v) = A\vec x(u,v)+\vec a
     \end{align*}
     forall $(u,v)\in D$ where $A$ is an orthogonal matrix with $\det A=1$ and $\vec a\in\E^3$
-    Then we have 
+    Then we have
     \begin{align*}
         \hat I = I \hs \text{and} \hs \hat\I = \I
     \end{align*}
@@ -1074,13 +1074,13 @@ local surface.
 \end{theorem}
 
 \begin{theorem}[Fundamental theorem of surfaces]
-    The converse of the above is also true: two surfaces with the same first and second 
+    The converse of the above is also true: two surfaces with the same first and second
     fundamental forms must be related by a Euclidean motion.
 \end{theorem}
 
 \begin{proposition}[Notes 9.9]
-    Under an orientation reversing isometry, the principal curvatures and the mean curvature 
-    change sign but the Gauss curvature is unaffected. 
+    Under an orientation reversing isometry, the principal curvatures and the mean curvature
+    change sign but the Gauss curvature is unaffected.
 \end{proposition}
 
 \subsection{Taylor series}
@@ -1088,8 +1088,8 @@ local surface.
 \begin{proposition}[Notes 9.10]
     Let $\vec p \in \vec x(D)$ be apoint on a regular local surface. By a Euclidean motion,
     choose $\vec p$ to be at the origin and the unit normal at that point to be along the positive
-    $x^3$-axis so $T_{\vec p}S$ is the $(x^1,x^2)$ plane. Near $\vec p$ we can parametrise 
-    the surface as the graph 
+    $x^3$-axis so $T_{\vec p}S$ is the $(x^1,x^2)$ plane. Near $\vec p$ we can parametrise
+    the surface as the graph
     \begin{align*}
         \vec x(u,v)=\begin{pmatrix}
             u \\ v \\ f(u,v)
@@ -1097,15 +1097,15 @@ local surface.
     \end{align*}
     where at the origin
     \begin{align*}
-        I_{(0,0)}&=(du)^2+(dv)^2,\\
-        \I_{(0,0)}&=f_{uu}(0,0)(du)^2+2f_{uv}(0,0)dudv+f_{vv}(0,0)(dv)^2.
+        I_{(0,0)}  & =(du)^2+(dv)^2,                                        \\
+        \I_{(0,0)} & =f_{uu}(0,0)(du)^2+2f_{uv}(0,0)dudv+f_{vv}(0,0)(dv)^2.
     \end{align*}
 \end{proposition}
 
 \begin{proposition}[Notes 9.11]
-    In setup of the previous Proposition, suppose the $x^1$, $x^2$ axes correspond 
+    In setup of the previous Proposition, suppose the $x^1$, $x^2$ axes correspond
     to the principal directions. Then the Taylor series of the surface near the origin
-    is 
+    is
     \begin{align*}
         x^3 = f(x^1, x^2) = \frac{k_1}{2}(x^1)^2 + \frac{k_2}{2}(x^2)^2 + \text{higher order terms}
     \end{align*}
@@ -1115,7 +1115,7 @@ local surface.
 \begin{corollary}[Notes 9.12]
     If $K>0$ at a point then the surface is bowl-shaped around that point and if $K<0$ the it is
     saddle-shaped. If $K=0$ at a point then there are two possibilities: if both principal
-    curvatures are zero, then the surface is planar around that point; otherwise it's like 
+    curvatures are zero, then the surface is planar around that point; otherwise it's like
     a bent plane.
 \end{corollary}
 
@@ -1138,12 +1138,12 @@ local surface.
 \end{theorem}
 
 \begin{theorem}[Notes 9.20]
-    A regular local surface has $\I = \lambda I$ where $\lambda \not=0$ is a constant iff 
+    A regular local surface has $\I = \lambda I$ where $\lambda \not=0$ is a constant iff
     the surface is (a piece of) a sphere with radius $1/\abs\lambda$.
 \end{theorem}
 
 \begin{definition}
-    An \emph{umbilical point} on a surface is a point where $k_1=k_2$. Consequently all 
+    An \emph{umbilical point} on a surface is a point where $k_1=k_2$. Consequently all
     directions are principal at such a point.
 \end{definition}
 
@@ -1152,7 +1152,7 @@ local surface.
 \end{lemma}
 
 \begin{theorem}[Notes 9.23]
-    A regular local surface for which every point is umbilical, is either part of a sphere 
+    A regular local surface for which every point is umbilical, is either part of a sphere
     or a plane.
 \end{theorem}
 
@@ -1165,7 +1165,7 @@ local surface.
     for $i=1,2,3$ such that for all $\vec u\in D$ the $\vec e_i(\vec u)$ form an oriented orthonormal
     basis of $\E^3$.
 
-    Orthonormal means 
+    Orthonormal means
     \begin{align*}
         \vec e_i(\vec u) \cdot \vec e_j(\vec u) = \delta_{ij}
     \end{align*}
@@ -1173,22 +1173,22 @@ local surface.
 \end{definition}
 
 \begin{definition}
-    If $\vec v:D\to\E^3$, given by 
+    If $\vec v:D\to\E^3$, given by
     \begin{align*}
         \vec v(\vec u)=\vec v(u^1,...,u^n)=\begin{pmatrix}
-            v^1(u^1,...,u^n)\\ 
-            v^2(u^1,...,u^n)\\
+            v^1(u^1,...,u^n) \\
+            v^2(u^1,...,u^n) \\
             v^3(u^1,...,u^n)
         \end{pmatrix}
     \end{align*}
     is an $\E^3$-valued function on $D$, then we write $d\vec v$ for its entry
-    by entry exterior derivative 
+    by entry exterior derivative
     \begin{align*}
         d\vec v = \begin{pmatrix}
             dv^1 \\ dv^2 \\ dv^3
         \end{pmatrix}.
     \end{align*}
-    We refer to an object like $d\vec v$ as a \emph{matrix of $1$-forms on $D$} or as a 
+    We refer to an object like $d\vec v$ as a \emph{matrix of $1$-forms on $D$} or as a
     \emph{$\E^3$-valued $1$-form on $D$}. If $\vec w:D\to\E^3$ is a vector field on $D$, then we write
     \begin{align*}
         d\vec v(w) = \begin{pmatrix}
@@ -1202,7 +1202,7 @@ local surface.
 Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving frame.
 
 \begin{definition}
-    The $1$-forms $\theta^1,\theta^2,\theta^3$ are defined by 
+    The $1$-forms $\theta^1,\theta^2,\theta^3$ are defined by
     \begin{align*}
         \theta^i = \vec e_i \cdot d\vec x \in \Omega^1(D)
     \end{align*}
@@ -1210,12 +1210,12 @@ Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving fra
 \end{definition}
 
 \begin{definition}
-    The $1$-forms $\omega_i^j=\vec e_j\cdot d\vec e_i\in\Omega^1(D)$ are called the 
+    The $1$-forms $\omega_i^j=\vec e_j\cdot d\vec e_i\in\Omega^1(D)$ are called the
     \emph{connection $1$-forms} and by definition satisfy $d\vec e_i = \vec e_j\omega_i^j$.
 \end{definition}
 
 \begin{proposition}
-    The connection $1$-forms $\omega_j^i$ are related by the antisymmetry property: 
+    The connection $1$-forms $\omega_j^i$ are related by the antisymmetry property:
     \begin{align*}
         \omega_i^j = -\omega_j^i
     \end{align*}
@@ -1223,7 +1223,7 @@ Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving fra
 \end{proposition}
 
 \begin{lemma}
-    We denote 
+    We denote
     \begin{align*}
         \vec w = \begin{pmatrix}
             0           & \omega_2^1  & \omega_3^1 \\
@@ -1231,35 +1231,35 @@ Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving fra
             -\omega_3^1 & -\omega_3^2 & 0
         \end{pmatrix}
     \end{align*}
-    and 
+    and
     \begin{align*}
         d\vec E = \begin{pmatrix}
             d\vec e_1 & d\vec e_2 & d\vec e_3
         \end{pmatrix}.
     \end{align*}
-    Then 
+    Then
     \begin{align*}
         d\vec E = \vec E\vec\omega.
     \end{align*}
 \end{lemma}
 
 \begin{theorem}
-    The \emph{first sturcture equations} are 
+    The \emph{first sturcture equations} are
     \begin{align*}
         d\vec\theta + \vec w \wedge \vec \theta = 0,
     \end{align*}
-    or equivalently 
+    or equivalently
     \begin{align*}
         d\theta^i + \omega_j^i \wedge \theta^j = 0,\hs i=1,2,3.
     \end{align*}
 \end{theorem}
 
 \begin{theorem}
-    The \emph{second structure equations} are 
+    The \emph{second structure equations} are
     \begin{align*}
         d\vec\omega + \vec \omega \wedge\vec \omega = 0,
     \end{align*}
-    or equivalently 
+    or equivalently
     \begin{align*}
         d\omega_j^i + \omega_k^i\wedge\omega_j^k=0.
     \end{align*}
@@ -1277,45 +1277,45 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{definition}
 
 \begin{proposition}[Notes 11.2]
-    The first and second structure equations for a regular local surface 
+    The first and second structure equations for a regular local surface
     with respect to an adapted frame, give the \emph{structure equations
-    of a surface}:
+        of a surface}:
     \begin{align*}
-        d\theta^1 + \omega_2^1\wedge\theta^2 = 0\\
-        d\theta^2 + \omega_1^2\wedge\theta^1 = 0\\
-        \omega_1^3\wedge\theta^1 + \omega_2^3\wedge\theta^2 = 0\\
-        d\omega_2^1+\omega_3^1\wedge\omega_2^3 = 0\\
-        d\omega_3^1 + \omega_2^1 \wedge \omega_3^2 = 0\\
+        d\theta^1 + \omega_2^1\wedge\theta^2 = 0                \\
+        d\theta^2 + \omega_1^2\wedge\theta^1 = 0                \\
+        \omega_1^3\wedge\theta^1 + \omega_2^3\wedge\theta^2 = 0 \\
+        d\omega_2^1+\omega_3^1\wedge\omega_2^3 = 0              \\
+        d\omega_3^1 + \omega_2^1 \wedge \omega_3^2 = 0          \\
         d\omega_3^2 + \omega_1^2 \wedge \omega_3^1 = 0
     \end{align*}
 \end{proposition}
 
 \begin{lemma}[Notes 11.3]
-    $\{\theta^1, \theta^2\}$ is a basis for $\Omega^1(D)$. 
+    $\{\theta^1, \theta^2\}$ is a basis for $\Omega^1(D)$.
 \end{lemma}
 
 \begin{lemma}[Notes 11.4]
-    There are unique functions $a,b,c$ on $D$ such that 
+    There are unique functions $a,b,c$ on $D$ such that
     \begin{align*}
-        \omega_3^1 = a\theta^1+b\theta^2,\\
+        \omega_3^1 = a\theta^1+b\theta^2, \\
         \omega_3^2 = b\theta^1+c\theta^2.
     \end{align*}
 \end{lemma}
 
 \begin{proposition}[Notes 11.5]
-    The first and second fundamental forms are 
+    The first and second fundamental forms are
     \begin{align*}
-        I = (\theta^1)^2 + (\theta^2)^2,\hs 
+        I = (\theta^1)^2 + (\theta^2)^2,\hs
         \I = -a(\theta^1)^2-2b\theta^1\theta^2-c(\theta^2)^2.
     \end{align*}
-    The Gauss curvature $K$ and the mean curvature $H$ are given by 
+    The Gauss curvature $K$ and the mean curvature $H$ are given by
     \begin{align*}
         K=ac-b^2, \hs H=-\frac{1}{2}(a+c).
     \end{align*}
 \end{proposition}
 
 \begin{proposition}[Notes 11.6]
-    The Gauss equation is equivalent to 
+    The Gauss equation is equivalent to
     \begin{align*}
         d\omega_2^1 = K\theta^1\wedge\theta^2.
     \end{align*}
@@ -1324,8 +1324,8 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \subsection{Gauss's Theorema Egregium}
 
 \begin{proposition}[Notes 11.9]
-    Let $\vec x:D\to\E^3$ be a regular local surface with first fundamental form 
-    $I$ and $\theta^1$, $\theta^2$ be $1$-forms on $D$ such that 
+    Let $\vec x:D\to\E^3$ be a regular local surface with first fundamental form
+    $I$ and $\theta^1$, $\theta^2$ be $1$-forms on $D$ such that
     \begin{align*}
         I = (\theta^1)^2+(\theta^2)^2.
     \end{align*}
@@ -1342,20 +1342,20 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     Isometric surfaces have the same Gauss curvature.
 \end{theorem}
 \begin{proof}
-    The result follows because of the following algorithm for computing the Gauss curvature 
+    The result follows because of the following algorithm for computing the Gauss curvature
     of a regular local surface depends only on $I$.
     \begin{itemize}
         \item Find $1$-forms $\theta^1,\theta^2$ such that \begin{align*}
-            I = (\theta^1)^2 + (\theta^2)^2.
-        \end{align*}
+                  I = (\theta^1)^2 + (\theta^2)^2.
+              \end{align*}
         \item Solve the first structure equations for a surface \begin{align*}
-            d\theta^1 + \omega_2^1 \wedge \theta^2 = 0\hs\text{and}\hs
-            d\theta^2 + \omega_1^2 \wedge \theta^1 = 0
-        \end{align*}
-        for the connection form $\omega_2^1$.
+                  d\theta^1 + \omega_2^1 \wedge \theta^2 = 0\hs\text{and}\hs
+                  d\theta^2 + \omega_1^2 \wedge \theta^1 = 0
+              \end{align*}
+              for the connection form $\omega_2^1$.
         \item Calculate $K$ from the equivalent of the Gauss equation: \begin{align*}
-            d\omega_2^1 = K\theta^1\wedge\theta^2.
-        \end{align*}
+                  d\omega_2^1 = K\theta^1\wedge\theta^2.
+              \end{align*}
     \end{itemize}
 \end{proof}
 
@@ -1364,8 +1364,8 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \subsection{In Euclidean space}
 
 \begin{definition}
-    Let $\vec x:[a,b]\to\E^n$ be a unit speed curve in Euclidean space joining two points 
-    $\vec x(a),\vec x(b)\in\E^n$. Consider a $1$-parameter family of \emph{nearby} curves 
+    Let $\vec x:[a,b]\to\E^n$ be a unit speed curve in Euclidean space joining two points
+    $\vec x(a),\vec x(b)\in\E^n$. Consider a $1$-parameter family of \emph{nearby} curves
     \begin{align*}
         \vec x_\e (t) = \vec x(t) + \e\vec y(t)
     \end{align*}
@@ -1374,8 +1374,8 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{definition}
 
 \begin{definition}
-    We say a unit speed curve $\vec x(t)$ as above has a \emph{stationary length} if 
-    the length of nearby curves $s_\e = \int_a^b \abs{\vec x'_c} dt$ satisfies 
+    We say a unit speed curve $\vec x(t)$ as above has a \emph{stationary length} if
+    the length of nearby curves $s_\e = \int_a^b \abs{\vec x'_c} dt$ satisfies
     \begin{align*}
         \eval{\frac{ds_\e}{d\e }}{\e=0}=0
     \end{align*}
@@ -1383,14 +1383,14 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{definition}
 
 \begin{proposition}[Notes 12.3]
-    A unit speed curve $\vec x(t)$ in Euclidean space has stationary length if and only if 
+    A unit speed curve $\vec x(t)$ in Euclidean space has stationary length if and only if
     it is the straight line joining the two end points.
 \end{proposition}
 
 \subsection{On surfaces}
 
 \begin{definition}
-    A curve $\vec x(c(t))$ on a surface has \emph{stationary length} if 
+    A curve $\vec x(c(t))$ on a surface has \emph{stationary length} if
     \begin{align*}
         \eval{\frac{ds_\e}{d\e}}{\e=0}=0
     \end{align*}
@@ -1399,7 +1399,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \begin{definition}
     A unit speed curve $\vec x(c(t))$ lying in a surface is \emph{geodesic} if its acceleration
-    is everywhere normal to the surface, that is, 
+    is everywhere normal to the surface, that is,
     \begin{align*}
         \frac{d^2}{dt^2}\vec x(c(t)) = A(t)\vec N(c(t)).
     \end{align*}
@@ -1411,10 +1411,10 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{proposition}
 
 \begin{proposition}[Notes 12.9]
-    A curve $\vec x(c(t))$ lying in a surface is a geodesic if and only if, in an adapted frame 
+    A curve $\vec x(c(t))$ lying in a surface is a geodesic if and only if, in an adapted frame
     it obeys the \emph{geodesic equations}
     \begin{align*}
-        \frac{d}{dt}(\theta^1 (c')) + \omega_2^1(c')\theta^2(c') = 0,\\
+        \frac{d}{dt}(\theta^1 (c')) + \omega_2^1(c')\theta^2(c') = 0, \\
         \frac{d}{dt}(\theta^2 (c')) + \omega_1^2(c')\theta^1(c') = 0,
     \end{align*}
     and the \emph{energy equation}
@@ -1428,7 +1428,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     \begin{align*}
         E = (\theta^1(c'))^2 + (\theta^2(c'))^2
     \end{align*}
-    is constant is a consequence of the geodesic equations. Setting it to one just means we get 
+    is constant is a consequence of the geodesic equations. Setting it to one just means we get
     curves of unit speed, rather than some constant speed.
 \end{proposition}
 
@@ -1446,26 +1446,26 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \section{The hyperbolic plane}
 
 \begin{definition}
-    \emph{Two-dimensional hyperbolic space} is the upper half plane 
+    \emph{Two-dimensional hyperbolic space} is the upper half plane
     \begin{align*}
         H = \{(x,y) : x > 0\}\subset\R^2
     \end{align*}
-    equipped with the first fundamental form given by 
+    equipped with the first fundamental form given by
     \begin{align*}
         I = \frac{(dx)^2 + (dy)^2}{y^2}.
     \end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 13.2]
-    Hyperbolic space has $K=-1$.    
+    Hyperbolic space has $K=-1$.
 \end{theorem}
 
 \begin{theorem}[Hilbert]
-    No complete regular surface of constant negative Gauss curvature exists in $\E^3$. 
+    No complete regular surface of constant negative Gauss curvature exists in $\E^3$.
 \end{theorem}
 
 \begin{theorem}[Nash]
-    Every Riemannian manifold can be isometrically immersed in some $\E^n$. 
+    Every Riemannian manifold can be isometrically immersed in some $\E^n$.
 \end{theorem}
 
 \section{Integration over surfaces}
@@ -1473,16 +1473,16 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \subsection{Integration of 2-forms over surfaces}
 
 \begin{definition}
-    Let $\vec x:D\to\R^3$ define a local surface 
+    Let $\vec x:D\to\R^3$ define a local surface
     \begin{align*}
         \vec x(u,v)=(x^1(u,v), x^2(u,v), x^3(u,v)).
     \end{align*}
-    Let 
+    Let
     \begin{align*}
         \alpha = \alpha_{12}dx^1\wedge dx^2 + \alpha_{13}dx^1\wedge dx^3 + \alpha_{23}dx^2\wedge dx^3
     \end{align*}
     be a $2$-form on $\R^3$. We define the \emph{pull-back} $x^*\alpha$ of $\alpha$ by the map $x$
-    to be the $2$-form on $D$ given by 
+    to be the $2$-form on $D$ given by
     \begin{align*}
         x^*\alpha = \alpha_{12}(\vec x(u,v))dx^1\wedge dx^2+ \alpha_{13}(\vec x(u,v))dx^1\wedge dx^3 + \alpha_{23}(\vec x(u,v))dx^2\wedge dx^3
     \end{align*}
@@ -1490,8 +1490,8 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{definition}
 
 \begin{definition}
-    Let $\vec x:D\to\R^3$ be a local surface and let $\alpha$ be a $2$-form on $\R^3$. We define 
-    the \emph{integral} of $\alpha$ over the local surface to be 
+    Let $\vec x:D\to\R^3$ be a local surface and let $\alpha$ be a $2$-form on $\R^3$. We define
+    the \emph{integral} of $\alpha$ over the local surface to be
     \begin{align*}
         \int_{\vec x(D)} \alpha = \int_D \vec x^*\alpha.
     \end{align*}
@@ -1499,12 +1499,12 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \begin{definition}
     If $\Sigma$ is an oriented regular surface, the integral over $\Sigma$ of a $2$-form $\alpha$
-    is defined by writing $\Sigma$ as a union of images of regular oriented local surfaces, and 
-    adding the integrals of $\alpha$ over these local surfaces. 
+    is defined by writing $\Sigma$ as a union of images of regular oriented local surfaces, and
+    adding the integrals of $\alpha$ over these local surfaces.
 \end{definition}
 
 \begin{definition}
-    A $1$-dimensional submanifold of $\R^3$ is a regular curve, a $2$-dimensional submanifold of 
+    A $1$-dimensional submanifold of $\R^3$ is a regular curve, a $2$-dimensional submanifold of
     $\R^3$ is a regular surface, a $3$-dimensional submanifold of $\R^3$ is a domain.
 \end{definition}
 
@@ -1512,16 +1512,16 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
     Let $\Sigma$ be an oriented surface in $\R^3$ with boundary an oriented curve $C$.
     The \emph{induced orientation} on $C$ is such that if $(u_1,u_2)$ is an oriented coordinate
     chart on $\Sigma$ such that $u_1\leq 0$ and $u_1=0$ is the boundary, then $u_2$ is an
-    oriented coordinate on $C$. 
-    
-    Let $M$ be a $3$-dimensional submanifold of $\R^3$ bounded by 
+    oriented coordinate on $C$.
+
+    Let $M$ be a $3$-dimensional submanifold of $\R^3$ bounded by
     an oriented surface $\Sigma$. The induced orientation on $\Sigma$ is such that $(u_1,u_2,u_3)$
     is an oriented coordinate chart on $M$ such that $u_1\leq 0$ and $u_1=0$ is the boundary,
     then $(u_2,u_3)$ are oriented coordinates on $\Sigma$.
 \end{definition}
 
 \begin{theorem}[Stokes]
-    Let $\Sigma$ be a $k$-dimensional oriented closed and bounded submanifold in $\R^n$ with 
+    Let $\Sigma$ be a $k$-dimensional oriented closed and bounded submanifold in $\R^n$ with
     boundary $\sigma\Sigma$ given the induced orientation and $\alpha\in\Omega^{k-1}(\Sigma)$.
     Then
     \begin{align*}
@@ -1530,27 +1530,27 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{theorem}
 
 \begin{corollary}[Green]
-    Let $D\subset\R^2$ with boundary curve $C$. The induced orientation on $C$ from 
-    the standard orientation on $D$ is anti-clockwise. Then Stokes' theorem for the $1$-form 
-    $\alpha=P(x,y)dx + Q(x,y)dy$ is 
+    Let $D\subset\R^2$ with boundary curve $C$. The induced orientation on $C$ from
+    the standard orientation on $D$ is anti-clockwise. Then Stokes' theorem for the $1$-form
+    $\alpha=P(x,y)dx + Q(x,y)dy$ is
     \begin{align*}
-        \int_C(Pdx + Qdy) = \int_D\left(\frac{\p Q}{\p x}-\frac{\p P}{\p y}\right)dx\wedge dy. 
-    \end{align*} 
+        \int_C(Pdx + Qdy) = \int_D\left(\frac{\p Q}{\p x}-\frac{\p P}{\p y}\right)dx\wedge dy.
+    \end{align*}
 \end{corollary}
 
 \subsection{Integration of functions over surfaces}
 
 \begin{definition}
-    Given a local surface $\vec x:D\to\E^3$, the integral of a 
-    function $f:\E^3\to\R$ over $\vec x$ is 
+    Given a local surface $\vec x:D\to\E^3$, the integral of a
+    function $f:\E^3\to\R$ over $\vec x$ is
     \begin{align*}
         \int_{\vec x(D)} = \int_D f(\vec x(u,v))\abs{\vec x_u \times \vec x_v}dudv.
     \end{align*}
 \end{definition}
 
 \begin{lemma}[Notes 14.15]
-    For a local surface $\abs{\vec x_u \times \vec x_v}=\sqrt{\det I}$. Hence the area 
-    of $\vec x$ is 
+    For a local surface $\abs{\vec x_u \times \vec x_v}=\sqrt{\det I}$. Hence the area
+    of $\vec x$ is
     \begin{align*}
         A = \int_D \sqrt{\det I}dudv.
     \end{align*}
@@ -1565,16 +1565,16 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{lemma}
 
 \begin{corollary}[Notes 14.17]
-    Let $\vec x: D\to\E^3$ be a local surface and $f:\E^3\to\R$ be a function. Then 
-    the integral of $f$ over the surface is given by 
+    Let $\vec x: D\to\E^3$ be a local surface and $f:\E^3\to\R$ be a function. Then
+    the integral of $f$ over the surface is given by
     \begin{align*}
         \int_{\vec x(D)} f = \int_D f(\vec x(u,v))\theta^1\wedge\theta^2.
     \end{align*}
-    In particular, 
+    In particular,
     \begin{align*}
         A = \int_D \theta^1\wedge\theta^2
     \end{align*}
-    gives the area of the local surface. 
+    gives the area of the local surface.
 \end{corollary}
 
 \section{Gauss-Bonnet theorem}
@@ -1582,18 +1582,18 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \subsection{Geodesic triangles}
 
 \begin{definition}
-    A \emph{geodesic triangle} $\Delta$ in a surface is three points each joined to the other 
-    two by geodesics. We assume our triangles are sufficiently small that they fit in the image 
+    A \emph{geodesic triangle} $\Delta$ in a surface is three points each joined to the other
+    two by geodesics. We assume our triangles are sufficiently small that they fit in the image
     of a single local surface on which we have an adapted frame.
 \end{definition}
 
 \begin{proposition}[Notes 15.2]
     Let $t\mapsto \vec x(c(t)), t\in[a,b]$, be a geodesic in a local surface and $(\vec e_1, \vec e_2)$
-    be an adapted moving frame for the surface. Let $\theta(t)$ be such that 
+    be an adapted moving frame for the surface. Let $\theta(t)$ be such that
     \begin{align*}
         \vec x' = \cos(\theta(t)) \vec e_1 + \sin(\theta(t)) \vec e_2
     \end{align*}
-    along the geodesic. Then 
+    along the geodesic. Then
     \begin{align*}
         \theta'(t) = \omega_2^1 (c'(t)).
     \end{align*}
@@ -1601,7 +1601,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \begin{theorem}[Notes 15.3]
     Let $\Delta$ be a geodesic triangle on a local surface with interior angles $\alpha$, $\beta$,
-    $\gamma$. Assume $\Delta$ is contractible to a point. Then 
+    $\gamma$. Assume $\Delta$ is contractible to a point. Then
     \begin{align*}
         \int_\Delta K\theta^1\wedge\theta^2 = \alpha + \beta + \gamma - \pi.
     \end{align*}
@@ -1609,7 +1609,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \begin{corollary}[Notes 15.4]
     Let $\Delta$ be a geodesic triangle with angles $\alpha,\beta,\gamma$ and area $A(\Delta)$.
-    We have 
+    We have
     \begin{enumerate}
         \item on the plane, $\alpha+\beta+\gamma = \pi$;
         \item on the unit sphere, $\alpha + \beta + \gamma = \pi + A(\Delta) > \pi$;
@@ -1621,8 +1621,8 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 
 \begin{definition}
     Dissect $\Sigma$ into polygons. Let $V$ be the number of vertices , $E$ the number of edges
-    and $F$ the number of faces of the dissection. The \emph{Euler characteristic} of the 
-    dissected surface is 
+    and $F$ the number of faces of the dissection. The \emph{Euler characteristic} of the
+    dissected surface is
     \begin{align*}
         \chi(\Sigma) = V - E + F.
     \end{align*}
@@ -1634,7 +1634,7 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{proposition}
 
 \begin{definition}
-    The \emph{torus} is the surface of revolution whose profile is a circle 
+    The \emph{torus} is the surface of revolution whose profile is a circle
     \begin{align*}
         (f(u)-a)^2 + u^2 = b
     \end{align*}
@@ -1642,20 +1642,20 @@ Let $\vec x: D \to \E^3$ be an oriented local surface.
 \end{definition}
 
 \begin{theorem}[Gauss-Bonnet]
-    Let $\Sigma$ be an oriented closed and bounded surface with no boundary. Then 
+    Let $\Sigma$ be an oriented closed and bounded surface with no boundary. Then
     \begin{align*}
         \chi(\Sigma) = \frac{1}{2\pi}\int_\Sigma K.
-    \end{align*} 
+    \end{align*}
 \end{theorem}
 
 \begin{corollary}[Notes 15.15]
     Suppose $\Sigma$ is any surface obtained by a smooth deformation of a sphere,
-    so $\chi=2$. Then there must be a point on $\Sigma$ where $K>0$. 
+    so $\chi=2$. Then there must be a point on $\Sigma$ where $K>0$.
 \end{corollary}
 
 \begin{corollary}[Notes 15.16]
-    Suppose $\Sigma$ is any surface obtained by a smooth deformation of a torus, 
-    so $\chi=0$. Then the Gauss curvature of $\Sigma$ must change sign. 
+    Suppose $\Sigma$ is any surface obtained by a smooth deformation of a torus,
+    so $\chi=0$. Then the Gauss curvature of $\Sigma$ must change sign.
 \end{corollary}
 
 \end{document}
