@@ -54,15 +54,35 @@
     such that $b=ac$.
 \end{definition}
 
-\begin{definition}
-    Let $a,b\in\Z$, not both zero. The greatest common divisor of $a$ and $b$ is the largest integer
+\begin{definition}[gcd, lcm]
+    Let $a,b\in\Z$, not both zero. The \emph{greatest common divisor} of $a$ and $b$ is the largest integer
     that divides both of them. Note $\gcd(a,b)$ is well-defined and $1\leq\gcd(a,b)\leq\min(a,b)$.
+
+    Similarly, the \emph{least common multiple} of $a$ and $b$ is the smallest 
+    integer that is divided by both of them. Note $\lcm(a,b)$ is well-defined
+    and $\max(a,b)\leq\lcm(a,b)\leq ab$.
 \end{definition}
+
+\begin{proposition}[Boocher 3.3]
+    Let $\gcd(a,b)=d$. Then $\gcd(a/d,b/d)=1$.
+\end{proposition}
+
+\begin{proposition}[Boocher 3.4]
+    For all integers $a,b,c$, $\gcd(a+cb,b)=\gcd(a,b)$.
+\end{proposition}
 
 \begin{lemma}[Bezout]
     Let $a,b\in\Z$, not both zero. Then there exist $s,t\in\Z$ such that
     $as + bt = \gcd(a,b)$. Moreover, any common divisor of $a$ and $b$ divides $\gcd(a,b)$.
 \end{lemma}
+
+\begin{corollary}[Boocher 3.7]
+    The set of linear combinations of two integers $a,b$ is equal to the set 
+    of multiples of $\gcd(a,b)$:
+    \begin{align*}
+        \{ax+by : x,y\in\Z \} = \{k\gcd(a,b):k\in\Z\}=\gcd(a,b)\Z.
+    \end{align*}
+\end{corollary}
 
 \begin{theorem}
     Let $a,b\in Z$ such that $a\geq b>0$.
@@ -79,6 +99,129 @@
               with $r_{k+2}=0$ for some $k$.
         \item We have $r_{k+1}=\gcd(a,b)$.
     \end{enumerate}
+\end{theorem}
+
+\section{The primes}
+
+\begin{theorem}[Fundamental theorem of arithmetic]
+    Every $n\in\N$ has a unique representation as a product of primes:
+    \begin{align*}
+        n = p_1^{e_1}\cdots p_k^{e_k}.
+    \end{align*}
+\end{theorem}
+
+\begin{proposition}[Boocher 2.3]
+    Suppose $p,n,m\in\N$ with $p$ prime and $p|nm$. Then either $p|m$ or $p|n$ or both.
+\end{proposition}
+
+\begin{proposition}[Boocher 3.2]
+    Given $m,n\in\N$ let $p_1,...,p_k$ be the primes dividing $mn$, and write 
+    \begin{align*}
+        m = p_1^{e_1}\cdots p_k^{e_k}, \hs n = p_1^{f_1}\cdots p_k^{f_k}
+    \end{align*}
+    where $e_i,f_i\geq 0$ for all $0<i\leq k$. Then 
+    \begin{enumerate}
+        \item $\gcd(m,n)=p_1^{\min(e_i,f_i)}\cdots p_k^{\min(e_k,f_k)}$;
+        \item $\lcm(m,n)=p_1^{\max(e_i,f_i)}\cdots p_k^{\max(e_k,f_k)}$;
+        \item $\gcd(m,n)\cdot\lcm(m,n)=mn$;
+        \item \begin{align*}
+            \gcd\left(\frac{n}{\gcd(n,m)},\frac{\lcm(n,m)}{n}\right)=1.
+        \end{align*}
+    \end{enumerate}
+\end{proposition}
+
+\begin{theorem}[Boocher 2.5]
+    If $n$ is composite then it must be divisible by some prime $p\leq\sqrt{n}$. 
+\end{theorem}
+
+\begin{theorem}[Euclid; Boocher 2.6]
+    There are infinitely many prime numbers. 
+\end{theorem}
+
+\begin{theorem}[Dirichlet; Boocher 2.7]
+    If $a$ and $b$ are positive integers not divisible by the same prime then there are
+    infinitely many primes of the form $ak+b$. 
+\end{theorem}
+
+\begin{theorem}[Boocher 2.8]
+    The sum of the reciprocals of the primes diverges
+    \begin{align*}
+        \sum_{i=1}^\infty \frac{1}{p_i} \to \infty
+    \end{align*} 
+    where $p_1,p_2,...,p_n,...$ are all prime numbers.
+\end{theorem}
+
+\begin{theorem}[Boocher 2.9]
+    When $n$ is large, the number of primes less than $x$ is approximately equal to
+    $x/\ln x$. I.e. 
+    \begin{align*}
+        \lim_{x\to\infty} \frac{\pi(x)}{x/\ln(x)}=1.
+    \end{align*} 
+\end{theorem}
+
+\begin{conjecture}[Twin prime; Boocher 2.10]
+    There are infinitely many prime numbers $p$ such that 
+    $p+2$ is also prime.
+\end{conjecture}
+
+\begin{conjecture}[Goldbach; Boocher 2.11]
+    Every even integer larger than $2$ can be written as the 
+    sum of two primes
+\end{conjecture}
+
+\section{Rings}
+
+\begin{definition}[Ring]
+    A \emph{ring} $(X,+,\cdot)$ is a set $X$ equipped with two binary operations
+    $+,\cdot:X\times X\to X$ such that $(X,+)$ is an abelian group, $(X,\cdot)$
+    is a monoid and the following equalities hold for all $a,b,c\in X$:
+    \begin{align*}
+        a       \cdot (b + c)   = a \cdot b + a \cdot c, \\
+        (a+b)   \cdot c         = a \cdot c + b \cdot c.
+    \end{align*}
+\end{definition}
+
+\begin{definition}[Commutative ring]
+    A ring $(X,+,\cdot)$ where for all $a,b,c\in X$, $a\cdot(b\cdot c) = (a\cdot b)\cdot c$
+    is called a \emph{commutative ring}.
+\end{definition}
+
+\begin{definition}[Unital ring]
+    A ring $(X,+,\cdot)$ where there exists an element $1\in X$ such that 
+    for all $a\in X$, $1\cdot a = a \cdot 1 = a$ is called a \emph{unital ring}.
+\end{definition}
+
+\begin{definition}[Commutative ring with identity]
+    A ring which is commutative and unital is called a \emph{commutative ring
+    with identity}.
+\end{definition}
+
+\section{Congruences}
+
+\begin{definition}[Congruence]
+    The congruence $a\equiv b\mod n$ means that the difference $(a-b)$ is 
+    divisible by $n$.
+\end{definition}
+
+\begin{definition}
+    A \emph{complete system of residues modulo $n$} is a set of integers 
+    such that every integer is congruent modulo $n$ to exactly one integer 
+    in the set. A \emph{least positive residue} for an integer $a$ is the 
+    positive integer $b$ such that $a\equiv b \mod n$.
+\end{definition}
+
+\begin{theorem}
+    If $a,b,c,d\in\Z$ and $n\in\N$ with $a\equiv b\mod n$ and $c\equiv d\mod n$
+    then 
+    \begin{align*}
+        a+c & \equiv b+d \mod n,\\
+        a-c & \equiv b-d \mod n,\\
+        ac  & \equiv bd  \mod n.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}[Wilson]
+    If $p$ is prime then $(p-1)!\equiv -1 \mod p$. 
 \end{theorem}
 
 \end{document}
