@@ -14,7 +14,7 @@
     Let $h:G\to H$ be a group homomorphism. Then
     \begin{align}
         \label{iff}
-        h\text{ is injective}\hs\Leftrightarrow\hs \gke h = \{e_G\}.
+        h\text{ is injective}\hs\Leftrightarrow\hs \ker h = \{e_G\}.
     \end{align}
 \end{claim*}
 \begin{proof}
@@ -25,21 +25,21 @@
     \end{align}
     for all $g_1,g_2\in G$. From \emph{Lemma 3.1.5} from the notes
     we know that $h(e_G) = e_H$ where $e_G$. By definition of the kernel of
-    a group homomorphism this implies $e_G\in\gke h$. Now let
-    $g\in\gke h$. Thus $h(g) = e_H$. Then, as shown above,
+    a group homomorphism this implies $e_G\in\ker h$. Now let
+    $g\in\ker h$. Thus $h(g) = e_H$. Then, as shown above,
     \begin{align*}
         h(g) = e_H = h(e_G)
     \end{align*}
     and by (\ref{inj}) $g=e_G$ follows. Therefore
     \begin{align*}
-        \gke h = \{e_G\}.
+        \ker h = \{e_G\}.
     \end{align*}
     We have shown
     \begin{align}
         \label{if}
-        h\text{ is injective}\hs\Rightarrow\hs \gke h = \{e_G\}.
+        h\text{ is injective}\hs\Rightarrow\hs \ker h = \{e_G\}.
     \end{align}
-    Now assume $\gke h = \{e_G\}$. Let $g_1,g_2\in G$ such that
+    Now assume $\ker h = \{e_G\}$. Let $g_1,g_2\in G$ such that
     \begin{align*}
         h(g_1) = h(g_2).
     \end{align*}
@@ -55,7 +55,7 @@
     \begin{align*}
         e_H = h(g_2\inv g_1).
     \end{align*}
-    By the premise $\gke h = \{e_G\}$ and the definition of $\gke h$,
+    By the premise $\ker h = \{e_G\}$ and the definition of $\ker h$,
     we have
     \begin{align*}
         h(g) = e_H \hs\Leftrightarrow\hs g=e_G
@@ -71,7 +71,7 @@
     follows. This shows
     \begin{align}
         \label{onlyif}
-        h\text{ is injective}\hs\Leftarrow\hs \gke h = \{e_G\}.
+        h\text{ is injective}\hs\Leftarrow\hs \ker h = \{e_G\}.
     \end{align}
     Since (\ref{if}) and (\ref{onlyif}) hold, we have shown (\ref{iff}).
 \end{proof}

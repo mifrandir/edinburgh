@@ -15,25 +15,25 @@
 \begin{adjustwidth}{2em}{0pt}
   \begin{lemma}
     \label{l1}
-    Let $x,y\in\C$. Then $\lneg{x+y}=\lneg{x}+\lneg{y}$.
+    Let $x,y\in\C$. Then $\overline{x+y}=\overline{x}+\overline{y}$.
   \end{lemma}
   \begin{proof}
     Let $x=a+bi$ and $y=c+di$. Then
     \begin{align*}
-      \lneg{x}+\lneg{y}=a-bi+c-di=a+c-i(b+d)=\lneg{a+c+i(b+d)}=\lneg{x+y}.
+      \overline{x}+\overline{y}=a-bi+c-di=a+c-i(b+d)=\overline{a+c+i(b+d)}=\overline{x+y}.
     \end{align*}
   \end{proof}
   \begin{lemma}
     \label{l2}
-    Let $x,y\in\C$. Then $x\lneg{y}+\lneg{x}y=2\Re({x\lneg{y}})$.
+    Let $x,y\in\C$. Then $x\overline{y}+\overline{x}y=2\Re({x\overline{y}})$.
   \end{lemma}
   \begin{proof}
     Let $x=a+bi$ and $y=c+di$. Then
     \begin{align*}
-      x\lneg{y}+\lneg{x}y & =(a+bi)(c-di)+(a-bi)(c+di)           \\
+      x\overline{y}+\overline{x}y & =(a+bi)(c-di)+(a-bi)(c+di)           \\
                           & =(ac+bd-adi+bci)+(ac+bd+adi-bci)     \\
                           & =2ac+2bd=2\Re(ac+bd)                 \\
-                          & =2\Re((a+bi)(c-di))=2\Re(x\lneg{y}).
+                          & =2\Re((a+bi)(c-di))=2\Re(x\overline{y}).
     \end{align*}
   \end{proof}
   \begin{lemma}
@@ -76,25 +76,25 @@
   \end{align*}
   Let us now consider the left side.
   \begin{align*}
-    |x+y|^2=(x+y)\lneg{(x+y)}
+    |x+y|^2=(x+y)\overline{(x+y)}
   \end{align*}
   By Lemma \ref{l1}, we get
   \begin{align*}
-    (x+y)\lneg{(x+y)} & =(x+y)(\lneg{x}+\lneg{y})                \\
-                      & =x\lneg{x}+y\lneg{y}+x\lneg{y}+\lneg{x}y \\
-                      & =|x|^2+|y|^2+x\lneg{y}+\lneg{x}y.
+    (x+y)\overline{(x+y)} & =(x+y)(\overline{x}+\overline{y})                \\
+                      & =x\overline{x}+y\overline{y}+x\overline{y}+\overline{x}y \\
+                      & =|x|^2+|y|^2+x\overline{y}+\overline{x}y.
   \end{align*}
   Now we can use Lemma \ref{l2} to get
   \begin{align*}
-    |x|^2+|y|^2+x\lneg{y}+\lneg{x}y & =|x|^2+|y|^2+2\Re(x\lneg{y}).
+    |x|^2+|y|^2+x\overline{y}+\overline{x}y & =|x|^2+|y|^2+2\Re(x\overline{y}).
   \end{align*}
   With Lemma \ref{l3}:
   \begin{align*}
-    |x|^2+|y|^2+2\Re(x\lneg{y})\leq |x|^2+|y|^2+2|x\lneg{y}|.
+    |x|^2+|y|^2+2\Re(x\overline{y})\leq |x|^2+|y|^2+2|x\overline{y}|.
   \end{align*}
-  Now we can use Lemma \ref{l4} and the fact that $|x|=|\lneg{x}|$ to factorize:
+  Now we can use Lemma \ref{l4} and the fact that $|x|=|\overline{x}|$ to factorize:
   \begin{align*}
-    |x|^2+|y|^2+2|x\lneg{y}| = |x|^2+|y|^2+2|x||y| = (|x|+|y|)^2.
+    |x|^2+|y|^2+2|x\overline{y}| = |x|^2+|y|^2+2|x||y| = (|x|+|y|)^2.
   \end{align*}
   Thus we get
   \begin{align*}

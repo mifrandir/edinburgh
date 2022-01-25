@@ -678,19 +678,19 @@ Optimisation: Managing data better, e.g. $k$-d trees.
 
 \textbf{Bootstrap procedure for finding the mean}\\
 Consider a sample of $n$ data points with mean
-$\lneg x$. We take $B$ bootstrap samples.
+$\overline x$. We take $B$ bootstrap samples.
 Then the procedure is
 \begin{enumerate}
 	\item For $j\in[1,B]$ \begin{enumerate}
 		\item Take sample $x^*$ of size $n$ from the sample \emph{with replacement}
-		\item Compute the sample mean of the new sample $\lneg{x_j^*}$
+		\item Compute the sample mean of the new sample $\overline{x_j^*}$
 	\end{enumerate} 
 	\item Find the centiles of the distribution at $100\alpha/2$ and $100(1-\alpha/2)$
-		  by arranging the sample means $\lneg x^*_j$ in ascending order and pick
-		  $\lneg x^*_j$ at $$k=\alpha(B+1)/2$$ to be the lower end of the CI and pick
-		  $\lneg x^*_j$ at $$k=B-\alpha(B+1)/2$$ to be the upper end of the CI.
+		  by arranging the sample means $\overline x^*_j$ in ascending order and pick
+		  $\overline x^*_j$ at $$k=\alpha(B+1)/2$$ to be the lower end of the CI and pick
+		  $\overline x^*_j$ at $$k=B-\alpha(B+1)/2$$ to be the upper end of the CI.
     \item We can compute the boostrap estimator fo the variance of the mean \begin{align*}
-		s^2_{\text{boot}} = \frac{\sum_{j=1}^B(\lneg x_j^*-\lneg x)^2}{B-1}
+		s^2_{\text{boot}} = \frac{\sum_{j=1}^B(\overline x_j^*-\overline x)^2}{B-1}
 	\end{align*}
 \end{enumerate}
 
@@ -705,10 +705,10 @@ Then the procedure is
 \end{definition}
 
 \begin{theorem}
-	Let $\lneg X$ be random sample of size $n$ from a normal distribution
+	Let $\overline X$ be random sample of size $n$ from a normal distribution
 	with mean $\mu$. Then the random variable
 	\begin{align*}
-		T=\frac{\lneg X - \mu}{\hat\sigma_{\lneg X}}
+		T=\frac{\overline X - \mu}{\hat\sigma_{\overline X}}
 	\end{align*}
 	is distributed as a $t$-distribution with $n-1$ degrees of freedom.
 \end{theorem}
@@ -785,7 +785,7 @@ Then the procedure is
 	The \emph{odds ratio} of an event $A$ with respect to another event
 	$B$ is given by 
 	\begin{align*}
-		\text{OR}(x) = \frac{\text{Odds}(A|B)}{\text{Odds}\left(A|\lneg B\right)}.
+		\text{OR}(x) = \frac{\text{Odds}(A|B)}{\text{Odds}\left(A|\overline B\right)}.
 	\end{align*}
 \end{definition}
 
@@ -1007,7 +1007,7 @@ The bootstrap procedure is
 \begin{theorem}
 	The estimated standard error in the estimator for $\hat\beta_1$ is
 	\begin{align*}
-		\hat\sigma_{\hat\beta_1}=s_{\hat\beta_1}=\frac{s}{\sqrt{\sum_{i=1}^n (x_i-\lneg{x})^2}}
+		\hat\sigma_{\hat\beta_1}=s_{\hat\beta_1}=\frac{s}{\sqrt{\sum_{i=1}^n (x_i-\overline{x})^2}}
 	\end{align*}
 	where $s$ is the estimate for $\sigma$, the standard deviation of
 	residuals

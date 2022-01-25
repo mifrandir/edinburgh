@@ -1,10 +1,13 @@
 #!/usr/bin/python
-import os, sys, subprocess, time
+import os
+import sys
+import subprocess
+import time
 
 OUT_DIR = "./out"
 TEX_CMD = [
     "latexmk", "-lualatex", "-synctex=1", "-file-line-error", "-shell-escape",
-    "--interaction=errorstopmode"
+    "--interaction=nonstopmode"
 ]
 
 
@@ -12,11 +15,17 @@ def compile_with_recipe(tex_file):
     tex_dir = os.path.dirname(tex_file)
     tex_file_name = os.path.basename(tex_file)
     cmd = TEX_CMD + [f"-outdir=.", tex_file_name]
-    return subprocess.run(cmd,
-                          stdout=subprocess.PIPE,
-                          stderr=subprocess.PIPE,
-                          cwd=tex_dir,
-                          timeout=100)
+    p = subprocess.run(cmd,
+                       stdout=subprocess.PIPE,
+                       stderr=subprocess.PIPE,
+                       cwd=tex_dir,
+                       timeout=100)
+    if p.returncode:
+        print(" in directory", tex_dir, flush=True)
+        print(">", ' '.join(cmd), flush=True)
+    else:
+        print("...", end='', flush=True)
+    return p
 
 
 def is_target(tex_path):
@@ -36,7 +45,7 @@ def compile_pdf(tex_path):
             flush=True)
         return 0
     t = time.time()
-    print(f"Compiling {tex_path}...", end='', flush=True)
+    print(f"Compiling {tex_path}", end='', flush=True)
     tex_path_no_ext, _ = os.path.splitext(tex_path)
     p = compile_with_recipe(tex_path)
     if p.returncode:
@@ -65,7 +74,7 @@ def find_all_tex():
     targets = []
     for r, _, f in os.walk(os.curdir):
         targets.extend(map(lambda x, r=r: os.path.join(r, x), f))
-    return list(filter(is_target, targets))
+    return sorted(list(filter(is_target, targets)))
 
 
 def default_build():
@@ -75,7 +84,8 @@ def default_build():
     num_compiled = 0
     for s in sources:
         num_compiled += compile_pdf(s)
-    print(f"Compiled {num_compiled} files in {time.time() - t:.2f} seconds.")
+    print(
+        f"Compiled {num_compiled} of {len(sources)} files in {time.time() - t:.2f} seconds.")
 
 
 def prep_dirs():

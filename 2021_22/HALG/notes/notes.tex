@@ -309,14 +309,14 @@
 \subsection{Rank-nullity theorem}
 
 \begin{definition}
-    The \emph{image} of a linear mapping $f:V\to W$ is the subset $\gim(f)=f(V)\subset W$.
-    The dimension of the image $\dim(\gim V)$ is called the rank of $f$.
+    The \emph{image} of a linear mapping $f:V\to W$ is the subset $\img(f)=f(V)\subset W$.
+    The dimension of the image $\dim(\img V)$ is called the rank of $f$.
     The preimage of the zero vector of a linear mapping $f:V\to W$ is denoted by
     \begin{align*}
-        \gke(f):=\inv f(0)=\{v\in V : f(v)=0\}
+        \ker(f):=\inv f(0)=\{v\in V : f(v)=0\}
     \end{align*}
     and is called the \emph{kernel} of the linear mapping $f$. The dimension of the
-    kernel $\dim(\gke V)$ is called the nullity of $f$.
+    kernel $\dim(\ker V)$ is called the nullity of $f$.
 \end{definition}
 
 \begin{lemma}[Notes 1.8.2]
@@ -326,7 +326,7 @@
 \begin{theorem}[Rank-Nullity Theorem; Notes 1.8.4]
     Let $f:V\to W$ be a linear mapping between two vector spaces. Then
     \begin{align*}
-        \dim V = \dim(\gke f) + \dim(\gim f).
+        \dim V = \dim(\ker f) + \dim(\img f).
     \end{align*}
 \end{theorem}
 

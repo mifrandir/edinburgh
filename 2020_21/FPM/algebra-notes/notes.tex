@@ -466,10 +466,10 @@
     Let $\phi:G\to H$ be a group homomorphism.
     \begin{enumerate}
         \item The \emph{image} of $\phi$ is defined to be \begin{align*}
-                  \gim\phi := \{h\in H \sv h=\phi(g)\text{ for some }g\in G\}.
+                  \img\phi := \{h\in H \sv h=\phi(g)\text{ for some }g\in G\}.
               \end{align*}
         \item We define the \emph{kernel} of $\phi$ to be \begin{align*}
-                  \gke \phi := \{g\in G \sv \phi(g) = e_H\}.
+                  \ker \phi := \{g\in G \sv \phi(g) = e_H\}.
               \end{align*}
     \end{enumerate}
 \end{definition}
@@ -482,14 +482,14 @@
 
 
 \begin{proposition}
-    Let $\phi:G\to H$ be a group homomorphism. Then $\gke\phi\triangleleft G$.
+    Let $\phi:G\to H$ be a group homomorphism. Then $\ker\phi\triangleleft G$.
 \end{proposition}
 
 \begin{proposition}
     Let $\phi: G\to H$ be a group homomorphism. Then
     \begin{enumerate}
-        \item $\phi:G\to H$ is injective if and only if $\gke\phi=\{e_G\}$.
-        \item If $\phi:G\to H$ is injective, then $\phi$ gives an isomorphism $G\cong \gim\phi$.
+        \item $\phi:G\to H$ is injective if and only if $\ker\phi=\{e_G\}$.
+        \item If $\phi:G\to H$ is injective, then $\phi$ gives an isomorphism $G\cong \img\phi$.
     \end{enumerate}
 \end{proposition}
 
@@ -787,7 +787,7 @@
     \begin{enumerate}
         \item An action of $G$ on $X$ is equivalent ot a group homomorphism $\phi:G\to\bij(X)$.
         \item The action is faithful if and only if $\phi$ is injective.
-        \item If the action is faithful, then $\phi$ gives an isomorphism of $G$ with $\gim\phi\leq\bij(X)$.
+        \item If the action is faithful, then $\phi$ gives an isomorphism of $G$ with $\img\phi\leq\bij(X)$.
     \end{enumerate}
 \end{theorem}
 
