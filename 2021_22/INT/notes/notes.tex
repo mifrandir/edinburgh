@@ -41,6 +41,8 @@
     Every non-empty set of positive integers contains a least element.
 \end{theorem}
 
+\subsection{Division and remainders}
+
 \begin{theorem}[Division algorithm]
     Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $q,r\in\Z$ such that
     \begin{align*}
@@ -101,7 +103,7 @@
     \end{enumerate}
 \end{theorem}
 
-\section{The primes}
+\subsection{Primes}
 
 \begin{theorem}[Fundamental theorem of arithmetic]
     Every $n\in\N$ has a unique representation as a product of primes:
@@ -219,6 +221,18 @@
         ac  & \equiv bd  \mod n.
     \end{align*} 
 \end{theorem}
+
+\begin{definition}[Ring of integers modulo $n$]
+    Let $n\in\N$ and $a,b,c\in\Z$. Let $\Z_n$ denote the set of equivalence
+    classes due to congruence and denote the equivalence class of $a\in\Z$ by 
+    $\left[a\right]_n\in\Z_n=\Z/n\Z$. We define the operations $+,.:\Z_n\times\Z_n\to\Z_n$
+    by 
+    \begin{align*}
+        \left[a\right]_n +     \left[b\right]_n   & = \left[a+b\right]_n,\\
+        \left[a\right]_n \cdot \left[b\right]     & = \left[ab\right]_n.
+    \end{align*}
+    Then \emph{the ring of integers modulo $n$} is $\Z_n=(\Z_n,+,\cdot)$.
+\end{definition}
 
 \begin{theorem}[Wilson]
     If $p$ is prime then $(p-1)!\equiv -1 \mod p$. 
