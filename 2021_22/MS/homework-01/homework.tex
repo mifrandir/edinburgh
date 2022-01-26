@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\DeclareMathOperator{\diam}{diam}
+\begin{document}
+\title{Metric Spaces: Assignment 1}
+\author{Franz Miltz (UNN: S1971811)}
+\date{26 January 2021}
+\maketitle
+
+\begin{claim*}[1a]
+   Let $X=\R$, $d$ be the standard metric and $A=\{1,2,3\}$. Then $\diam A = 2$.
+   \begin{proof}
+      Note we have the following values for $d$:
+      \begin{align*}
+         d(1,1) = d(2,2) = d(3,3) = 0,\\
+         d(1,2) = d(2,1) = d(2,3) = d(3,2) = 1,\\
+         d(1,3) = d(3,1) = 2.
+      \end{align*} 
+      Thus $\{d(a,a'):a,a'\in A\}=\{0,1,2\}$ and $\diam A = 2$.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[1b]
+   Let $X=\R$, $d$ be the standard metric and $A=\{1,2,3\}$. Then $\diam A=1$. 
+   \begin{proof}
+      We observe $d(1,2)=1$. Further, by definition, $d(x,y)\leq 1$ for all $x,y\in X$. 
+      Since $d$ attains its global maximum for values in $A$, we have $\diam A=1$.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+   Let $X=\R$, $d$ be the standard metric, $c\in\R$, $r>0$ and $A=(c-r,c+r)$. Then 
+   $\diam A = 2r$.
+   \begin{proof}
+      Assume $\diam A = 2r-\e$ for some $\e>0$. Note $\e\leq 2r$ as $\diam A \geq 0$. 
+      We choose $x=c-r+\e/4$ and $y=c+r-\e/4$. Note $x,y\in A$. Now we have 
+      \begin{align*}
+         d(x,y) = \abs{\left(c+r-\frac{\e}{4}\right)-\left(c-r+\frac{\e}{4}\right)}
+         = \abs{2r-\frac{\e}{2}} > 2r - \e = \diam A.
+      \end{align*}
+      This contradicts the assumption. Therefore $\diam A \geq 2r$.
+
+      Assume $\diam A = 2r+\e$ for some $\e>0$. Then there exist $x,y\in A$ such that 
+      $d(x,y) > 2r+\e/2$. Without loss of generality we assume $x\geq y$. Then 
+      \begin{align*}
+          x > y + 2r + \frac{\e}{2}.
+      \end{align*}
+      However, $y > c - r$, thus 
+      \begin{align*}
+         x > c - r + 2r + \frac{\e}{2} = c + r + \frac{\e}{2} > c + r.
+      \end{align*}
+      Therefore $x\not\in A$, contradicting the premise. We find $\diam A \leq 2r$. 
+      The claim follows immediately.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[3]
+   Let $X=\R$, $d$ be the standard metrix and let $A\subseteq\R$ be non-empty and bounded. 
+   Then 
+   \begin{align*}
+      \diam A = \sup A - \inf A.
+   \end{align*}
+   \begin{proof}
+      Assume $\diam A = \sup A - \inf A + \e$ for some $\e>0$. Then there exist $x,y\in A$
+      such that $d(x,y) > \sup A - \inf A + \e$. We assume without loss of generality 
+      $x\geq y$. We find 
+      \begin{align*}
+         d(x,y) = x - y > \sup A - \inf A + \e.
+      \end{align*}
+      However, by definition, $y \geq \inf A$. Therefore $x > \sup A + \e$ - contradiction.
+      We conclude that
+      \begin{align}
+         \label{leqsupinf} 
+         \diam A \leq \sup A - \inf A.
+      \end{align} 
+
+      Now assume $\diam A = \sup A - \inf A - \e$ for some $\e > 0$. Note $\e \leq \sup A
+      - \inf A$ as $\diam A \geq 0$. There exist $x,y\in A$ such that 
+      \begin{align*}
+         x > \sup A - \frac{\e}{2}, \hs 
+         y < \inf A + \frac{\e}{2}.
+      \end{align*}
+      We note $x\geq y$. However, now
+      \begin{align*}
+         d(x,y) 
+         = x-y 
+         > \left(\sup A - \frac{\e}{2}\right) - \left(\inf A + \frac{\e}{2}\right) 
+         = \sup A - \inf A - \e
+         = \diam A.
+      \end{align*}
+      This is a contradiction. Therefore 
+      \begin{align}
+         \label{geqsupinf}
+         \diam A \geq \sup A - \inf A.
+      \end{align}
+      Combining (\ref{leqsupinf}) and (\ref{geqsupinf}) the claim follows.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[4]
+   Let $(X,d)$ be a metric space and $S,T\subseteq X$ be non-empty with finite diameters.
+   If $S\cap T\not=\emptyset$ then
+   \begin{align}
+      \diam(S\cup T) \leq \diam S + \diam T.
+   \end{align}
+   \begin{proof}
+      Consider $x,y\in S\cup T$. Note if $x,y\in S$ then 
+      \begin{align*}
+         d(x,y) \leq \diam S \leq \diam S + \diam T,
+      \end{align*}
+      and if $x,y\in T$ then 
+      \begin{align*}
+         d(x,y) \leq \diam T \leq \diam S + \diam T.
+      \end{align*}
+      Finally, assume without loss of generality $x\in S$ and $y\in T$. We may choose
+      $z\in S\cap T$ and use the triangle inequality to find 
+      \begin{align*}
+         d(x,y) \leq d(x,z) + d(y,z).
+      \end{align*}
+      However, by definition of $\diam$, we have $d(x,z) \leq \diam S$ and $d(y,z) \leq \diam T$.
+      I.e. 
+      \begin{align*}
+         d(x,y) \leq \diam S + \diam T.
+      \end{align*}
+      Therefore, for all $x,y\in S\cup T$, $d(x,y) \leq \diam S + \diam T$. The claim follows.
+   \end{proof}
+\end{claim*}
+
+\emph{Note: The above does not hold if $S\cap T=\emptyset$. Consider $X=\R$, $d$ standard,
+$S=\{0\}$, and $T=\{1\}$. Then $\diam S + \diam T = 0$ but $\diam (S\cup T) = 1$.}
+
+\end{document}
