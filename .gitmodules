@@ -46,3 +46,6 @@
 [submodule "latex-preamble"]
 	path = preamble
 	url = git@github.com:MiltFra/latex-preamble.git
+[submodule "2021_22/CT/cw1"]
+	path = 2021_22/CT/cw1
+	url = git@github.com:compiling-techniques/cw1-parser-MiltFra.git
