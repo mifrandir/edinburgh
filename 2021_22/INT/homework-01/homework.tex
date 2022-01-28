@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\DeclareMathOperator{\diam}{diam}
+\begin{document}
+\title{Introduction to Number Theory: Homework 1}
+\author{Franz Miltz (UNN: S1971811)}
+\date{7 February 2022}
+\maketitle
+
+\begin{claim*}[1]
+   Let $p>0$ be prime and let $q\in\N$ such that $\phi\left(p^2\right) = \phi\left(q^2\right)$.
+   Then $p=q$.
+   \begin{proof}
+      Note that $p$ is prime, thus by \emph{Boocher, Proposition 11.9} we
+      have $\phi\left(p^2\right)=\phi\left(q^2\right)=p(p-1)$. Assume $p\not= q$. 
+      Then $q$ cannot be prime, i.e. there exist distinct primes $q_1,...,q_k$ and natural
+      numbers $e_1,...,e_k$ such that
+      \begin{align*}
+         q = q_1^{e_1}\cdots q_k^{e_k}.
+      \end{align*}
+      However, note that $\phi$ is multiplicative by \emph{Boocher, Theorem 11.10}
+      so 
+      \begin{align}
+         \label{factorisation}
+         \phi(p^2)=\phi(q^2)=\phi\left(q_1^{2e_1}\cdots q_k^{2e_k}\right)
+         =\phi\left(q_1^{2e_1}\right)\cdots\phi\left(q_k^{2e_k}\right).
+      \end{align}
+      We observe that $p$ divides $\phi\left(q_i^{2e_i}\right)$ for some $i$.
+      Further, $\phi\left(q_i^k\right)=q_i^{k-1}(q_i-1)$. There are two possibilities:
+      \begin{enumerate}
+         \item $p|q_i^{2e_i-1}$. Since $p$ and $q_i$ are prime, this implies 
+            $p=q_i$, i.e. $p|q$. If $q=p^m$ for some $m>1$, then \begin{align*}
+               \phi\left(q^2\right)=p^{2k-1}(p-1)=p^{2k-3}\phi\left(p^2\right)
+               >\phi\left(p^2\right).
+            \end{align*}
+            This is a contradiction. Thus there exists another prime number $r$
+            such that $r|q$ and $r\not=p$. However, by multiplicativity of $\phi$,
+            then 
+            \begin{align*}
+              \phi\left(q^2\right) 
+              =    \phi\left(pr\right)
+              \geq \phi\left(p^2\right)\phi\left(r^2\right)
+              >    \phi\left(p^2\right) ,
+            \end{align*}
+            contradicting the premise.
+         \item $p|q_i-1$. Then we note $p\leq q_i-1$ so $p<q_i$.  Clearly, 
+            \begin{align*}
+               \phi\left(p^2\right)=p(p-1)<q_i(q_i-1)=\phi\left(q_i^2\right).
+            \end{align*}
+            However, $\phi\left(q_i^2\right)\leq \phi\left(q^2\right)$ by 
+            (\ref{factorisation}) and $\phi(n)\geq 1$ for $n\in\N$. Thus 
+            $\phi\left(p^2\right)<\phi\left(q^2\right)$, contradicting the premise.
+      \end{enumerate}
+      Since the assumption leads to a contradiction in all cases, we conclude 
+      that $p=q$.
+   \end{proof}
+\end{claim*}
+
+
+\end{document}
