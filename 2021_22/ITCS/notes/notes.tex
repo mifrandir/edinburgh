@@ -363,7 +363,7 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 
 \begin{definition}[Turing machine; Sipser p. 168]
     A \emph{Turing machine} is a 7-tuple, $(Q, \Sigma, \Gamma, \delta, q_0, q_a, q_r)$,
-    where $Q,\Sigma,\Gamma$ are all finite sets and 
+    where $Q,\Sigma,\Gamma$ are all finite sets and
     \begin{enumerate}
         \item $Q$ is the set of states,
         \item $\Sigma$ is the input alphabet not containing the \emph{blank symbol $\sqcup$},
@@ -381,7 +381,7 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 \end{definition}
 
 \begin{definition}[Sipser p. 170]
-    A \emph{decider} is a Turing machine that always halts. A language is called 
+    A \emph{decider} is a Turing machine that always halts. A language is called
     \emph{Turing-decidable} or \emph{recursive} if some Turing machine decides it.
 \end{definition}
 
@@ -397,8 +397,107 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 \end{theorem}
 
 \begin{corollary}[Sipser p. 180]
-    A language is decidable if and only if some nondeterministic Turing machine 
+    A language is decidable if and only if some nondeterministic Turing machine
     decides it.
 \end{corollary}
+
+\section{Register machines}
+
+\subsection{Programs}
+
+\begin{definition}[Notes I.1]
+    A \emph{register machine} (RM) has a fixed number of registers $R_0,...,R_{m-1}$
+    which each hold a natural number and a fixed program, i.e. a sequence of
+    instructions $P=I_0,...,I_{n-1}$. Each instruction is one of
+    \begin{enumerate}
+        \item $\inc(i)$, to add $1$ to $R_i$, or
+        \item $\decjz(i,j)$, if $R_i=0$ then go to $I_j$, else substract $1$ from $R_i$.
+    \end{enumerate}
+    Instructions are exectued instructions in order, except when
+    a jump is triggered.
+\end{definition}
+
+\begin{definition}[Notes I.2]
+    A \emph{state} of a register machien $M$ as above is a tuple $(R_0,...,R_{m-1},C)$
+    where $R_i\in\N$ is the value of register $i$, and $0\leq C\leq n$ is the
+    \emph{program counter}.
+
+    The next state function is a partial function from states to states, defined
+    as follows: if $s=(R_0,...,R_{m-1},C)$ is a state then $\text{next}(s)$ is undefined
+    if $C=n$ and otherwise is $s'=(R'_0,...,R'_{m-1},C')$ where
+    \begin{itemize}
+        \item if $I_C = \inc(i)$ then $C'=C+1$ and $R'_i = R_i + 1$ and $R'_k=R_k$ for $k\not=i$;
+        \item if $I_C=\decjz(i,j)$ and $R_i>0$ then $C'=C+1$ and $R'_i=R_i-1$ and $R'_k = k$ for $k\not = i$;
+        \item if $I_C=\decjz(i,j)$ and $R_i=0$ then $C'=j$ and $R'_k=R_k$ for all $k$.
+    \end{itemize}
+    We write $s\to s'$ if $s'=\text{next}(s)$.
+
+    An \emph{input} for $M$ is a tuple $R=(R_0,...,R_{m-1})$ of values for the registers.
+    A \emph{run} of $M$ on input $R$ is a sequence of states $(R_0,...,R_{m-1},0)=s_0\to s_1\to\dots$
+    such that either the sequence is infinite or the sequence is finite and the final
+    state $s_f$ has no next state. The \emph{output} of $M$ on input $R$ is the tuple
+    $R'$ of register values in state $s_f$, or undefined if there is no final state.
+\end{definition}
+
+\begin{definition}[Notes I.3]
+    An \emph{extended register machine program} comprises
+    \begin{itemize}
+        \item A set $L$ of labels,
+        \item a sequence $I_0,...,I_{n-1}$ of extended instructions,
+        \item a labelling function $\text{lab}:L\to\{0,..,n\}$, and
+        \item a list $D_0,...,D_l$ of macro definitions.
+    \end{itemize}
+    An extended instruction is
+    \begin{itemize}
+        \item $\inc(i)$ or $\decjz(i,j)$ where $i$ is either an integer or a macro
+              register parameter and $j$ is a non-negative integer, or a label, or
+              a macro label paramerter, or
+        \item a macro invocation, which has the form $\text{NAME}(i_1,...,i_r,j_1,...,j_s)$,
+              where NAME is defined in the macro definition list, $i_1,...,i_r$ and $j_1,...j_s$
+              are as for $i$ and $j$ above, and $r$ and $s$ match the number of parameters
+              in the definition.
+    \end{itemize}
+    In either case, a macro parameter can only occur in the body of a macro definition
+    and must be one of the parameters of the definition.
+
+    A macro definition has the form $\text{NAME}(\rho_1,...,\rho_r,\lambda_1,...,\lambda_s)=H_0\cdots H_t$
+    where the $\rho_i$ are the $r$ register parameters, the $\lambda_i$ are the $s$
+    label parameters and the $H_k$ are extended instructions forming the body of the
+    definition.
+\end{definition}
+
+\subsection{Pairing and encoding functions}
+
+\begin{definition}[Notes I.5]
+    A \emph{pairing function} is an injective function $\lra{-,-}_2:\N\times\N\to\N$.
+    If $z=\lra{x,y}_2$ then we may write $z_0:=x$ and $z_1:=y$.
+\end{definition}
+
+\begin{theorem}
+    Let $M$ be a general RM. Then there exists a 2-register RM $M'$ such that
+    $M'$ computes a suitable encoding of $M$.
+\end{theorem}
+
+\begin{definition}
+    Let $M$ be a register machine and let $R$ be the register contents $R_0,...,R_{m-1}$,
+    $P=I_0,...,I_{n-1}$ be the program itself and let $C$ be the program counter.
+    Let $\lra{-,-}$ be a sequence encoding function.
+
+    We define the RM coding function $[-]$ by:
+    \begin{align*}
+        [\inc(i)]     & = \lra{0,i}                   \\
+        [\decjz(i,j)] & = \lra{1,\lra{i,j}}           \\
+        [P]           & = \lra{[I_0], ..., [I_{n-1}]} \\
+        [R]           & = \lra{R_0, ..., R_{m-1}}     \\
+        [M]           & = \lra{[P], [R], C}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Notes I.7]
+    There is a register machine $U$ which takes as input the code $\left[M\right]$ of the
+    initial state of an arbitrary RM $M$ and gives as output the code of the final
+    state, if there is one. If $M$ does not halt, $U$ does not halt on input
+    $\left[M\right]$.
+\end{theorem}
 
 \end{document}
