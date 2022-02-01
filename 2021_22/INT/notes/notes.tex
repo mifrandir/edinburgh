@@ -240,6 +240,72 @@
 
 \section{Chinese remainder theorem}
 
+\begin{theorem}[Chinese remainder theorem]
+    Let $m_1,...,m_k\in\N$ be pairwise coprime and let $a_1,...,a_k\in\Z$. Then there exists a 
+    unique $0\leq x<m_1\cdots m_k$ such that 
+    \begin{align*}
+        x\equiv a_1 & \mod m_1\\
+                    & \vdots\\
+        x\equiv a_k & \mod m_k
+    \end{align*}
+    \begin{proof}
+        \begin{enumerate}
+            \item Let $N=m_1\cdots m_k$ and $N_i=N/m_i$, for every $i$.
+            \item Fix $i$. There exists a solution to the congruence \begin{align*}
+                N_ix\equiv 1 \mod m_i
+            \end{align*}
+            because to find a solution to this congruence is equivalent to find a solution to 
+            the equation 
+            \begin{align*}
+                N_ix +m_iy=1
+            \end{align*}
+            and $\gcd(N_i,m_i)=1$ so a solution exist by \emph{Bezout's Lemma}.
+            \item Let $x_i\in\Z$ be such that \begin{align*}
+                N_ix_i\equiv 1 \mod m_i.
+            \end{align*}
+            \item Denote $x=\sum_{i=1}^k a_iN_ix_i$. Then $x\equiv a_i \mod m_i$ for all $i$.
+            \item Observe that $x'=x+jN$ also satisfies $x'\equiv a_i \mod m_i$ for all $i$.
+            \item Notice on the other hand that if $x,x'$ are solutions to the system above, then 
+                $x-x'\equiv 0 \mod m_i$ for all $i$.
+        \end{enumerate}
+    \end{proof}
+\end{theorem}
+
+\begin{theorem}
+    Let $m,n\in\Z$ be coprime. Let $a\in\Z$ then the congruence
+    \begin{align*}
+        x \equiv a \mod mn
+    \end{align*}
+    has the same solutions in integers as the system of congruences 
+    \begin{align*}
+        x \equiv a \mod m\\
+        x \equiv a \mod n
+    \end{align*}
+\end{theorem}
+
 \section{Eulers theorem}
+
+\begin{definition}
+    The \emph{Euler function $\phi(n)$} is defined as the number of natural numbers not exceeding 
+    $n$ which are coprime with $n$ and $\phi(1)=1$.
+\end{definition}
+
+\begin{theorem}[Euler]
+    Let $n>1$ be a natural number and let $a\in\Z$ such that $n$ and $a$ are coprime. Then 
+    \begin{align*}
+        a^{\phi(n)}-1 \equiv 0 \mod n.
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}
+    If $m,n$ are coprime then $\phi(m\cdot n)=\phi(m)\cdot\phi(n)$.
+\end{theorem}
+
+\begin{theorem}
+    Let $m>1$. Suppose that $p_1,...,p_k$ are all distinct primes that divide $m$. Then 
+    \begin{align*}
+        \phi(m) = m\prod_{i=1}^k \left(1-\frac{1}{p_i}\right).
+    \end{align*}
+\end{theorem}
 
 \end{document}
