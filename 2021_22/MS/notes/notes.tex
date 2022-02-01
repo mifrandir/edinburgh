@@ -222,6 +222,28 @@
     of pairwise disjoint open intervals.
 \end{theorem}
 
+\subsection{Another look at continuity and uniform continuity}
+
+\begin{proposition}[Notes 2.23]
+    If $K\subseteq\R$ is compact and $f:K\to\R$ is continuous, then $f$ is
+    uniformly continuous.
+\end{proposition}
+
+\begin{proposition}[Notes 2.24]
+    A function $f:\R\to\R$ is continuous if and only if the inverse image of every
+    open set is an open set.
+\end{proposition}
+
+\begin{definition}
+    Let $A\subseteq\R$. A subset $G\subseteq A$ is said to be \emph{relatively open}
+    if there exists an open subset $O\subseteq\R$ such that $G=A\cap O$.
+\end{definition}
+
+\begin{theorem}
+    Let $A\subseteq\R$. A function $f:A\to\R$ is continuous if and only if the inverse
+    image $\inv f(G)$ of every open set $G$ is a relatively open subset of $A$.
+\end{theorem}
+
 \subsection{Compact sets and the Heine-Borel theorem}
 
 \begin{definition}
@@ -265,28 +287,16 @@
     \end{enumerate}
 \end{theorem}
 
-\subsection{Another look at continuity and uniform continuity}
-
-\begin{proposition}[Notes 2.23]
-    If $K\subseteq\R$ is compact and $f:K\to\R$ is continuous, then $f$ is
-    uniformly continuous.
-\end{proposition}
-
-\begin{proposition}[Notes 2.24]
-    A function $f:\R\to\R$ is continuous if and only if the inverse image of every
-    open set is an open set.
-\end{proposition}
-
 \section{Open balls}
 
 \begin{definition}
     Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. The \emph{open ball} with center $c$
-    and radius $r$, denoted by $B(c,r)$, is the set of all elements of $X$ whose distance 
-    from $c$ is less than $r$, i.e. 
+    and radius $r$, denoted by $B(c,r)$, is the set of all elements of $X$ whose distance
+    from $c$ is less than $r$, i.e.
     \begin{align*}
         B(c,r) = \{x\in X : d(x,c)<r\}.
     \end{align*}
-    Thet set 
+    Thet set
     \begin{align*}
         \{x\in X: d(x,c)\leq r\}
     \end{align*}
@@ -294,8 +304,8 @@
 \end{definition}
 
 \begin{proposition}[Notes 3.7]
-    Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. For every point $x$ in the open 
-    ball $B(c,r)$ there exists a positive number $r'$ such that $B(x,r')\subseteq B(c,r)$. 
+    Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. For every point $x$ in the open
+    ball $B(c,r)$ there exists a positive number $r'$ such that $B(x,r')\subseteq B(c,r)$.
 \end{proposition}
 
 \end{document}
