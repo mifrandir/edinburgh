@@ -12,46 +12,49 @@
    Then $p=q$.
    \begin{proof}
       Note that $p$ is prime, thus by \emph{Boocher, Proposition 11.9} we
-      have $\phi\left(p^2\right)=\phi\left(q^2\right)=p(p-1)$. Assume $p\not= q$. 
+      have $\phi\left(p^2\right)=\phi\left(q^2\right)=p(p-1)$. Assume $p\not= q$.
       Then $q$ cannot be prime, i.e. there exist distinct primes $q_1,...,q_k$ and natural
       numbers $e_1,...,e_k$ such that
       \begin{align*}
          q = q_1^{e_1}\cdots q_k^{e_k}.
       \end{align*}
       However, note that $\phi$ is multiplicative by \emph{Boocher, Theorem 11.10}
-      so 
+      so
       \begin{align}
          \label{factorisation}
-         \phi(p^2)=\phi(q^2)=\phi\left(q_1^{2e_1}\cdots q_k^{2e_k}\right)
+         \phi(p^2)
+         =\phi(q^2)
+         =\phi\left(\left(q_1^{e_1}\cdots q_k^{e_k}\right)^2\right)
+         =\phi\left(q_1^{2e_1}\cdots q_k^{2e_k}\right)
          =\phi\left(q_1^{2e_1}\right)\cdots\phi\left(q_k^{2e_k}\right).
       \end{align}
-      We observe that $p$ divides $\phi\left(q_i^{2e_i}\right)$ for some $i$.
-      Further, $\phi\left(q_i^k\right)=q_i^{k-1}(q_i-1)$. There are two possibilities:
+      We observe that $p|\phi\left(q_i^{2e_i}\right)$ for some $i$.
+      Further, $\phi\left(q_i^k\right)=q_i^{k-1}(q_i-1)$. Now there are two possibilities:
       \begin{enumerate}
-         \item $p|q_i^{2e_i-1}$. Since $p$ and $q_i$ are prime, this implies 
-            $p=q_i$, i.e. $p|q$. If $q=p^m$ for some $m>1$, then \begin{align*}
-               \phi\left(q^2\right)=p^{2k-1}(p-1)=p^{2k-3}\phi\left(p^2\right)
-               >\phi\left(p^2\right).
-            \end{align*}
-            This is a contradiction. Thus there exists another prime number $r$
-            such that $r|q$ and $r\not=p$. However, by multiplicativity of $\phi$,
-            then 
-            \begin{align*}
-              \phi\left(q^2\right) 
-              =    \phi\left(pr\right)
-              \geq \phi\left(p^2\right)\phi\left(r^2\right)
-              >    \phi\left(p^2\right) ,
-            \end{align*}
-            contradicting the premise.
-         \item $p|q_i-1$. Then we note $p\leq q_i-1$ so $p<q_i$.  Clearly, 
-            \begin{align*}
-               \phi\left(p^2\right)=p(p-1)<q_i(q_i-1)=\phi\left(q_i^2\right).
-            \end{align*}
-            However, $\phi\left(q_i^2\right)\leq \phi\left(q^2\right)$ by 
-            (\ref{factorisation}) and $\phi(n)\geq 1$ for $n\in\N$. Thus 
-            $\phi\left(p^2\right)<\phi\left(q^2\right)$, contradicting the premise.
+         \item $p|q_i^{2e_i-1}$. Since $p$ and $q_i$ are prime, this implies
+               $p=q_i$, i.e. $p|q$. If $q=p^m$ for some $m>1$, then \begin{align*}
+                  \phi\left(q^2\right)=p^{2k-1}(p-1)=p^{2k-3}\phi\left(p^2\right)
+                  >\phi\left(p^2\right).
+               \end{align*}
+               This is a contradiction. Thus there must exist another prime number $r$
+               such that $r|q$ and $r\not=p$. However, by multiplicativity of $\phi$,
+               then
+               \begin{align*}
+                  \phi\left(q^2\right)
+                  \geq \phi\left((pr)^2\right)
+                  = \phi\left(p^2\right)\phi\left(r^2\right)
+                  >    \phi\left(p^2\right) ,
+               \end{align*}
+               contradicting the premise again.
+         \item $p|q_i-1$. Then we note $p\leq q_i-1$ so $p<q_i$.  Clearly,
+               \begin{align*}
+                  \phi\left(p^2\right)=p(p-1)<q_i(q_i-1)=\phi\left(q_i^2\right).
+               \end{align*}
+               However, $\phi\left(q_i^2\right)\leq \phi\left(q^2\right)$ using
+               (\ref{factorisation}) and $\phi(n)\geq 1$ for $n\in\N$. Thus
+               $\phi\left(p^2\right)<\phi\left(q^2\right)$; contradiction.
       \end{enumerate}
-      Since the assumption leads to a contradiction in all cases, we conclude 
+      Since the assumption leads to a contradiction in all cases, we conclude
       that $p=q$.
    \end{proof}
 \end{claim*}
