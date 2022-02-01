@@ -440,4 +440,90 @@
     \emph{full rank}.
 \end{definition}
 
+\subsection{Abstract linear mappings and matrices}
+
+\begin{theorem}[Notes 2.3.1]
+    Let $F$ be a field, $V$ and $W$ vector spaces over $F$ with ordered bases $A=(\vec v_1,...,\vec v_m)$
+    and $B=(\vec w_1,...,\vec w_n)$. Then to each linear mapping $f:V\to W$ we associate a 
+    \emph{representing matrix} $\repr{B}{f}{A}$ whose entries $a_{ij}$ are defined by the 
+    identity
+    \begin{align*}
+        f(\vec v_j) = a_{1j}\vec w_1 + \cdots + a_{nj}\vec w_n \in W.
+    \end{align*}
+    This produces an isomorphism of vector spaces:
+    \begin{align*}
+        M^A_B:\Hom_F(V,W)           & \tilde\to \Mat(n\times m; F)\\
+        f                           &   \mapsto \repr{B}{f}{A}
+    \end{align*}
+\end{theorem}
+
+\begin{theorem}[Notes 2.3.2]
+    Let $F$ be a field and $U,V,W$ finite dimensional vector spaces over $F$ with ordered bases 
+    $A,B,C$. If $f:U\to V$ and $g:V\to W$ are linear mappings, then the representing matrix of 
+    the composition $g\circ f:U\to W$ is the matrix product of the representing matrices of 
+    $f$ and $g$:
+    \begin{align*}
+        \repr{c}{g\circ f}{A}=\repr{C}{g}{B}\circ\repr{B}{f}{A}
+    \end{align*} 
+\end{theorem}
+
+\begin{definition}
+    Let $V$ be a finite dimensional vector space with an ordered basis $A=(\vec v_1,...,\vec v_m)$.
+    We will denote the inverse to the bijection $\Phi_A:F^m\to V,(\alpha_1,...,\alpha_m)^T\mapsto \alpha_1\vec v_1+\cdots+\alpha_m\vec v_m$
+    by
+    \begin{align*}
+        \vec v \mapsto \lrepr{A}{\vec v}
+    \end{align*}
+    The column vector $\lrepr{A}{\vec v}$ is called the \emph{representation of the vector $\vec v$
+    with respect to the basis $A$}.
+\end{definition}
+
+\begin{theorem}[Notes 2.3.4]
+    Let $V,W$ be finite dimensional $F$-vector spaces with ordered bases $A,B$ and let $f:V\to W$
+    be a linear mapping. The following holds for all $\vec v\in V$:
+    \begin{align*}
+        \lrepr{B}{f(\vec v)}=\repr{B}{f}{A} \circ \lrepr{A}{\vec v}.
+    \end{align*}
+\end{theorem}
+
+\subsection{Change of matrix by change of basis}
+
+\begin{definition}
+    Let $A=(\vec v_1, ...,\vec v_n)$ and $B=(\vec w_1,...,\vec w_n)$ be ordered bases of the same 
+    $F$-vector space $V$. Then the matrix representing the identity mapping with respect to the 
+    bases 
+    \begin{align*}
+        \repr{B}{1_V}{A}
+    \end{align*}
+    is called the \emph{change of basis matrix}. By definition, its entries are given by the 
+    equalities $\vec v_j=\sum_{i=1}^n a_{ij}\vec w_i$.
+\end{definition}
+
+\begin{theorem}[Notes 2.4.3]
+    Let $V,W$ be finite dimensional $F$-vector spaces and let $f:V\to W$ be a linear mapping.
+    Suppose that $A,A'$ are ordered bases of $V$ and $B,B'$ are ordered bases of $W$. Then 
+    \begin{align*}
+        \repr{B'}{f}{A'} = \repr{B'}{1_W}{B}\circ\repr{B}{f}{A}\circ\repr{A}{1_V}{A'}.
+    \end{align*} 
+\end{theorem}
+
+\begin{corollary}[Notes 2.4.4]
+    Let $V$ be a finite dimensional vector space and let $f:V\to V$ be an endomorphism of $V$.
+    Suppose that $A,A'$ are ordered bases of $V$. Then 
+    \begin{align*}
+        \repr{A'}{f}{A'}=\inv{\repr{A}{1_V}{A'}}\circ\repr{A}{f}{A}\circ\repr{A}{1_V}{A'}.
+    \end{align*} 
+\end{corollary}
+
+\begin{theorem}[Notes 2.4.5]
+    Let $f:V\to W$ be a linear mapping between finite dimensional $F$-vector spaces. There exist
+    and ordered basis $A$ of $V$ and an ordered basis $B$ of $W$ such that the representing matrix
+    $\repr{B}{f}{A}$ has zero entries everywhere except possibly on the diagonal, and along the 
+    diagonal there are $1$'s first, followed by $0$'s.
+\end{theorem}
+
+\begin{definition}
+    The \emph{trace} $\tr(A)$ of a square matrix $A$ is defined to be the sum of its diagonal entries.
+\end{definition}
+
 \end{document}
