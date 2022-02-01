@@ -277,4 +277,25 @@
     open set is an open set.
 \end{proposition}
 
+\section{Open balls}
+
+\begin{definition}
+    Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. The \emph{open ball} with center $c$
+    and radius $r$, denoted by $B(c,r)$, is the set of all elements of $X$ whose distance 
+    from $c$ is less than $r$, i.e. 
+    \begin{align*}
+        B(c,r) = \{x\in X : d(x,c)<r\}.
+    \end{align*}
+    Thet set 
+    \begin{align*}
+        \{x\in X: d(x,c)\leq r\}
+    \end{align*}
+    is called the \emph{closed ball} with center $c$ and radius $r$.
+\end{definition}
+
+\begin{proposition}[Notes 3.7]
+    Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. For every point $x$ in the open 
+    ball $B(c,r)$ there exists a positive number $r'$ such that $B(x,r')\subseteq B(c,r)$. 
+\end{proposition}
+
 \end{document}
