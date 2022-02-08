@@ -320,23 +320,23 @@ Let $(X,d)$ be a metric space.
 \end{definition}
 
 \begin{definition}
-    Let $G\subseteq X$. Then $G$ is \emph{open} if 
-    every point in $G$ is an interior point of $G$, i.e. for every $x\in G$ there exists 
+    Let $G\subseteq X$. Then $G$ is \emph{open} if
+    every point in $G$ is an interior point of $G$, i.e. for every $x\in G$ there exists
     $r>0$ such that $B(x,r)\subseteq G$.
 \end{definition}
 
 \begin{theorem}[Notes 4.6]
-    Let $(G_i)_{i\in I}$ be any family of open subsets of $X$. Then the union 
+    Let $(G_i)_{i\in I}$ be any family of open subsets of $X$. Then the union
     $\bigcup_{i\in I} G_i$ is open.
 \end{theorem}
 
 \begin{theorem}[Notes 4.7]
     Let $G_1,...,G_n\subset X$ be open. Then the intersection $G_1\cap\cdots\cap G_n$
-    is open. 
+    is open.
 \end{theorem}
 
 \begin{proposition}[Notes 4.9]
-    A set in a metric space is open iff it can be written as a union of open balls. 
+    A set in a metric space is open iff it can be written as a union of open balls.
 \end{proposition}
 
 \begin{definition}
@@ -345,22 +345,22 @@ Let $(X,d)$ be a metric space.
 \end{definition}
 
 \begin{proposition}[Notes 4.10]
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $G\subseteq Y$. The following 
+    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $G\subseteq Y$. The following
     are equivalent
     \begin{itemize}
         \item $G$ is open in the metric space $(Y,d_Y)$;
         \item there exists $O\subseteq X$ that is open in the metric space $(X,d)$ such that $G=O\cap Y$.
-    \end{itemize} 
+    \end{itemize}
 \end{proposition}
 
 \begin{proposition}[Notes, Exercise 4.11]
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ such that $Y$ is open and non-empty. Then a 
-    subset $G\subseteq Y$ is open in the metric space $(Y,d_Y)$ iff it is open in the 
+    Let $(Y,d_Y)$ be a subspace of $(X,d)$ such that $Y$ is open and non-empty. Then a
+    subset $G\subseteq Y$ is open in the metric space $(Y,d_Y)$ iff it is open in the
     metric space $(X,d)$.
 \end{proposition}
 
 \begin{definition}
-    A metric space $(X,d)$ is said to be \emph{discrete} if every subset of $X$ is open. 
+    A metric space $(X,d)$ is said to be \emph{discrete} if every subset of $X$ is open.
 \end{definition}
 
 \subsection{Closed sets}
@@ -371,30 +371,30 @@ Let $(X,d)$ be a metric space.
 
 \begin{theorem}[Notes 4.20]
     Let $(F_i)_{i\in I}$ be a family of closed subsets of $X$. Then $\bigcap_{i\in I}F_i$
-    is closed. 
+    is closed.
 \end{theorem}
 
 \begin{theorem}[Notes 4.21]
-    Let $F_1,...,F_n\subseteq X$ be closed. Then $F_1\cup\cdots\cup F_n$ is closed. 
+    Let $F_1,...,F_n\subseteq X$ be closed. Then $F_1\cup\cdots\cup F_n$ is closed.
 \end{theorem}
 
 \begin{definition}
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. Then $F$ is called 
+    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. Then $F$ is called
     \emph{relatively closed} if it is closed in the metric space $(Y,d_Y)$.
 \end{definition}
 
 \begin{proposition}
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. The following are 
+    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. The following are
     equivalent
     \begin{itemize}
         \item $F$ is closed in the metric space $(Y,d_Y)$;
-        \item there exists $C\subset X$ that is closed in the metric space $(X,d)$ such that 
-            $F=C\cap Y$.
+        \item there exists $C\subset X$ that is closed in the metric space $(X,d)$ such that
+              $F=C\cap Y$.
     \end{itemize}
 \end{proposition}
 
 \begin{definition}
-    A set $A\subseteq X$ is called \emph{clopen} if it is both closed and open 
+    A set $A\subseteq X$ is called \emph{clopen} if it is both closed and open
     in the metric space $(X,d)$.
 \end{definition}
 
@@ -417,33 +417,33 @@ Let $(X,d)$ be a metric space.
         \item $A$ is closed iff $A=\overline A$,
         \item $A\subseteq B$ implies $\overline A\subseteq\overline B$,
         \item $\overline{A\cup B} = \overline A \cup \overline B$.
-    \end{itemize} 
+    \end{itemize}
 \end{proposition}
 
 \subsection{Adherent points}
 
 \begin{definition}[Notes 4.27]
     Let $A\subseteq X$ and $x\in X$. We say that $x$ is an \emph{adherent point of $A$}
-    iff, for every $r>0$, we have $B(x,r)\cap A\not=\emptyset$. 
+    iff, for every $r>0$, we have $B(x,r)\cap A\not=\emptyset$.
 \end{definition}
 
 \begin{proposition}[Notes 4.29]
-    Let $A\subseteq X$. A point $x\in X$ is an adherent point of $A$ iff 
-    $x\in\overline A$. 
+    Let $A\subseteq X$. A point $x\in X$ is an adherent point of $A$ iff
+    $x\in\overline A$.
 \end{proposition}
 
 \begin{definition}
     Let $A\subset X$ and $x\in X$.
     \begin{enumerate}
         \item We say that $x$ is an \emph{accumulation point} of $A$ if, for every $r>0$,
-            \begin{align*}
-                B(x,r)\cap A\not=\{x\}.
-            \end{align*}
+              \begin{align*}
+                  B(x,r)\cap A\not=\{x\}.
+              \end{align*}
         \item We say that $x$ is an \emph{isolated point} of $A$ if there exists $r_0>0$
-            such that \begin{align*}
-                B(x,r_0)\cap A = \{x\}.
-            \end{align*}
-    \end{enumerate} 
+              such that \begin{align*}
+                  B(x,r_0)\cap A = \{x\}.
+              \end{align*}
+    \end{enumerate}
 \end{definition}
 
 \subsection{Dense sets}
@@ -454,8 +454,8 @@ Let $(X,d)$ be a metric space.
 \end{definition}
 
 \begin{proposition}[Notes 4.33]
-    A subset $D\subseteq X$ is dense iff it intersects every non-empty open 
-    subset of $X$. 
+    A subset $D\subseteq X$ is dense iff it intersects every non-empty open
+    subset of $X$.
 \end{proposition}
 
 \end{document}
