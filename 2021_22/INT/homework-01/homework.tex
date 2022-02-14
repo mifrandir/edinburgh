@@ -36,13 +36,14 @@
                   \phi\left(q^2\right)=p^{2k-1}(p-1)=p^{2k-3}\phi\left(p^2\right)
                   >\phi\left(p^2\right).
                \end{align*}
-               This is a contradiction. Thus there must exist another prime number $r$
-               such that $r|q$ and $r\not=p$. However, by multiplicativity of $\phi$,
+               This is a contradiction. Thus there must exist another prime $r$ and some 
+               positive integer $s$ such that $q=prs$. However, by multiplicativity of $\phi$,
                then
                \begin{align*}
                   \phi\left(q^2\right)
-                  \geq \phi\left((pr)^2\right)
-                  = \phi\left(p^2\right)\phi\left(r^2\right)
+                  =    \phi\left((prs)^2\right)
+                  =    \phi\left(p^2\right)\phi\left(r^2\right)\phi(s^2)
+                  \geq \phi\left(p^2\right)\phi\left(r^2\right)
                   >    \phi\left(p^2\right) ,
                \end{align*}
                contradicting the premise again.
@@ -62,7 +63,7 @@
 \begin{claim*}[2]
    $\phi(2025)=1593$
    \begin{proof}
-      We note $2025 = 3^4 5^2$..
+      We note $2025 = 3^4 5^2$.
       By multiplicativity of $\phi$ and \emph{Boocher's Notes, Corollary 11.11}
       we obtain
       \begin{align*}
