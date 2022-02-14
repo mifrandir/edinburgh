@@ -61,6 +61,5 @@ A utility to build all LaTeX files has been provided. Some notable dependencies 
 - Pygments,
 - Matplotlib,
 - TeX Live,
-- latexmk,
-- Microsoft fonts (Arial)
+- latexmk
 
