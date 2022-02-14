@@ -385,4 +385,61 @@
     $\Z_p$. 
 \end{theorem}
 
+\section{Coding theory}
+
+\begin{definition}[Lecture 9]
+    A \emph{(block) linear code} $C$ of length $n$ over the finite field $F$ is a subspace of the 
+    $F$-vector space $F^n$.
+\end{definition}
+
+\begin{definition}[Cyclic code; Lecture 9]
+    A linear code $C$ is called cyclic if $c_1\cdots c_n\in C$ implies $c_nc_1\cdots c_{n-1}\in C$.
+\end{definition}
+
+\begin{definition}[Hamming metric; Lecture 10]
+    Let $C$ be a code over a field $F$. The \emph{Hamming metric $d$} on $C$ is the metric 
+    $d:C\times C\to\R$ given by 
+    \begin{align*}
+        d(x,y) = \abs{\{i\in{1,...,n}:x_i\not=y_i\}}
+    \end{align*} 
+    for all $x=x_1\cdots x_n$ and $y=y_1\cdots y_n$.
+    For $x\in C$ we define the \emph{weight} of $x$, $w(x)$ by setting 
+    \begin{align*}
+        w(x)=d(x,0)=\abs\{i\in {1,...,n} : x_i\not=0\}.
+    \end{align*}
+\end{definition}
+
+\begin{lemma}[Lecture 10]
+    Let $C$ be a linear code. Then the minimal distance is equal to the minimal possible weight 
+    of a non-zero codeword in this code.
+\end{lemma}
+
+\begin{definition}[Lecture 10]
+    The triple $(n,k,d)$ comprises the three parameters of a linear code $C$: $n$ is the length of the 
+    codewords, $k$ is the dimension of the code $\dim_F C=k$ an $d$ is the minimal distance of the code.
+\end{definition}
+
+\begin{definition}[Lecture 10]
+    Let $F$ be a field. For any word $x\in F^n$ and any $r\geq 0$, the neighbourhood of $x$ with radius 
+    $r$ is the closed ball 
+    \begin{align*}
+        N_r(x)=\{y\in F^n : d(x,y)\leq r\}. 
+    \end{align*}
+\end{definition}
+
+\begin{lemma}[Lecture 10]
+    If $C$ is a code with the minimal distance $d>2r$, then for any codewords $c,c'\in C$ the neighbourhoods
+    $N_r(c)$ and $N_r(c')$ are disjoint. 
+\end{lemma}
+
+\begin{definition}[Lecture 10]
+    Let $F$ be a field and $C\subseteq F^n$ be a code. A decision rule for $C$ is a function 
+    $\sigma:F^n\to C$ which assigns to each $z\in F^n$ a codeword $c\in C$.
+\end{definition}
+
+\begin{definition}[Minimum distance rule; Lecture 10]
+    The \emph{minimum distance rule} is a decision rule $\sigma:F^n\to C$ such that 
+    whenever $\sigma(x)=c$, for all $c'\in C$, $d(x,c) \leq d(x,c')$.
+\end{definition}
+
 \end{document}
