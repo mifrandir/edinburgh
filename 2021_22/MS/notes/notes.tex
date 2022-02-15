@@ -193,7 +193,7 @@
 \end{proposition}
 
 \begin{definition}
-    A subset $G\subseteq\R$ is said to be \emph{open} if it its complement $G^C$ is closed.
+    A subset $G\subseteq\R$ is said to be \emph{open} if it its complement $G^c$ is closed.
 \end{definition}
 
 \begin{proposition}[Notes 2.6]
@@ -366,7 +366,7 @@ Let $(X,d)$ be a metric space.
 \subsection{Closed sets}
 
 \begin{definition}
-    Let $F\subseteq X$. Then $F$ is \emph{closed} if $F^C$ is open.
+    Let $F\subseteq X$. Then $F$ is \emph{closed} if $F^c$ is open.
 \end{definition}
 
 \begin{theorem}[Notes 4.20]
@@ -398,11 +398,30 @@ Let $(X,d)$ be a metric space.
     in the metric space $(X,d)$.
 \end{definition}
 
-\subsection{Interior of a set}
+\subsection{Interior, exterior, boundary}
 
-\subsection{Exterior and boundary of a set}
+\begin{definition}
+    Let $A\subseteq X$. A point $x\in X$ is called an \emph{interior point} of $A$ if 
+    there exists an open ball $B(x,r)\subseteq A$. The set of all interior points is denoted 
+    $\interior A$ and called \emph{interior} of $A$.
+\end{definition}
 
-\subsection{Closure of a set}
+\begin{definition}
+    Let $A\subseteq X$. A point $x\in X$ is called an \emph{exterior point} of $A$ if 
+    there exists an open ball $B(x,r)\subseteq A^c$. The set of all exterior points is denoted 
+    $\exterior A$ and called \emph{exterior} of $A$.
+\end{definition}
+
+\begin{definition}
+    Let $A\subseteq X$. A point $x\in X$ is called a \emph{boundary point} of $A$ if, for all 
+    $r>0$,
+    \begin{align*}
+        B(x,r)\cap A\not=\emptyset\hs\text{and}\hs B(x,r)\cap A^c\not=\emptyset.
+    \end{align*}
+    The set of all boundary points of $A$ is denoted $\p A$ and is called the boundary of $A$.
+\end{definition}
+
+\subsection{Closure}
 
 \begin{definition}
     Let $A\subseteq X$. The smallest closed set containing $A$, denoted $\overline A$, is called
@@ -419,6 +438,10 @@ Let $(X,d)$ be a metric space.
         \item $\overline{A\cup B} = \overline A \cup \overline B$.
     \end{itemize}
 \end{proposition}
+
+\begin{theorem}[Lectures Week 5, Theorem 2]
+    Let $x\in X$, $A\subseteq X$. Then $x\in\overline A$ iff $\dist(x,A)=0$.
+\end{theorem}
 
 \subsection{Adherent points}
 
@@ -457,5 +480,49 @@ Let $(X,d)$ be a metric space.
     A subset $D\subseteq X$ is dense iff it intersects every non-empty open
     subset of $X$.
 \end{proposition}
+
+\section{Convergent sequences}
+
+\subsection{The metric space $C([a,b])$}
+
+\begin{theorem}
+    Let $a<b$ be real numbers. Then define $X=C([a,b])$ as the set of all continuous functions 
+    $f:[a,b]\to\R$ and the map $d_\infty:X\to X\to\R$ by 
+    \begin{align*}
+        d_\infty(f,g) = \max\{\abs{f(t)-g(t)}: t\in[a,b]\}.
+    \end{align*}
+    Then $(X,d_\infty)$ is a metric space.
+\end{theorem}
+
+\begin{lemma}
+    A sequence $(f_n\in C[a,b])_{n\in N}$ converges to $f\in C[a,b]$ iff $(f_n)_{n\in N}$
+    converges uniformly to $f$.
+\end{lemma}
+
+\section{Continuity}
+
+\subsection{Continuous functions}
+
+\begin{definition}
+    Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. We say $f$ is \emph{continuous
+    at a point $x_0$} in $X$ if, for every positive $\e$, there exists a positive $\delta$, such that,
+    for all $x\in X$ with $d_X(x,x_0)<\delta$ we have $d_Y(f(x),f(x_0))<\e$.
+\end{definition}
+
+\begin{theorem}
+    Let $(X,d_X),(Y,d_Y)$ be metric spaces, $f:X\to Y$ be a function and $x_0\in X$. Then $f$ is continuous
+    at $x_0$ iff, for every open neighbourhood $G$ of $f(x_0)$, there exists an open neighbourhood $O$ of
+    $x_0$, such that, for all $x\in O$, we have $f(x)\in G$.
+\end{theorem}
+
+\begin{definition}
+    Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. We say $f$ is \emph{continuous}
+    if it is continuous at every point in $X$.
+\end{definition}
+
+\begin{theorem}
+    Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. Then $f$ is continuous iff 
+    the inverse image $\inv f(G)$ of any open subset $G\subset Y$ is an open subset of $X$.
+\end{theorem}
 
 \end{document}
