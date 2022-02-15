@@ -703,4 +703,48 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
     $\N$ can be defined by a $\Sigma_0^1$ formula of this logic.
 \end{theorem}
 
+\subsection{Primitive and partial recursion}
+
+\begin{definition}
+    A function $f:\N^n\to\N$ is \emph{primitive recursive} if
+    \begin{enumerate}[label=R\arabic*.]
+        \item $f=0$, or
+        \item $f$ is the successor function, i.e. $f(n)=S(n)=n+1$, or 
+        \item $f$ is a projection function, i.e. for some $i$, $f((x_1,...,x_n))=x_i$, or 
+        \item $f$ is a composition of a $k$-ary function $h$ with $k$ $n$-ary functions $g_1,...,g_k$, i.e.
+            $f(x_1,...,x_m)=h(g_1(x_1,...,x_m),...,g_k(x_1,...,x_m))$ where $h,g_1,...,g_k$ are p.r., or 
+        \item $f$ is given by the \emph{schema of primitive recursion} for some $n-1$-ary function $h$ and 
+            $n+1$-ary function $h$, i.e. 
+            \begin{align*}
+                f(0,x_1,...,x_k)    &= h(x_1,...,x_k)\\
+                f(S(y),x_1,...,x_k) &= g(y,f(y,x_1,...,x_k),x_1,...,x_k)
+            \end{align*}
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Notes I.43]
+    The \emph{Ackermann function} $A:\N^2\to\N$ defined by 
+    \begin{align*}
+        A(0,n) &= S(n) \\
+        A(S(m), 0) &= A(m,S(0)) \\
+        A(S(m), S(n)) &= A(m, A(S(m), n))
+    \end{align*}
+    is not a primitive recursive function.
+\end{theorem}
+
+\begin{definition}
+    A function $f:\N^n\to\N$ is \emph{partial recursive} if it is primitive recursive or 
+    \begin{enumerate}[label=R\arabic*.]
+        \setcounter{enumi}{5}
+        \item for some $(k+1)$-ary total partial recursive function $g$ it is the function $\mu(g)$
+            which returns the least $y$ such that $f(y,x_1,...,x_k)=0$ or is undefined if no such $y$
+            exists.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Notes I.45]
+    The computable functions are exactly the total recursive functions. The computable partial functions 
+    are exactly the partial recursive functions. 
+\end{theorem}
+
 \end{document}
