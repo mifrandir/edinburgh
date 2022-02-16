@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\usepackage{csquotes}
+\begin{document}
+
+\title{Models of Synthetic Measure Theory}
+\author{Franz Miltz}
+\maketitle
+
+Anders Kock formalised synthetic measure theory (SMT) using commutative monads. \cite{kock2011commutative}
+While it turns out that SMT is not actually a theory for the standard measure-theoretic formailsation of probability theory,
+other models have been introduced.
+
+\enquote{[Quasi-Borel spaces] form a new formalization of probability theory replacing measurable spaces; form a cartesian
+closed category and so support higher-order functions; form a well-pointed category and so support good proof principles 
+for equational reasoning; and support continuous probability distributions.} \cite{DBLP:journals/corr/HeunenKSY17} They have been used to validate 
+higher-order Bayesian inference. \cite{DBLP:journals/corr/abs-1711-03219}
+
+I shall investigate quasi-Borel spaces as a model of SMT. I will then explore the extent to which
+the category of categories and functors may be formalised as a model of SMT. This may require carefully restricting 
+my attention to a well-behaved subcategory to avoid size issue and generalising SMT to pseudomonads as in \cite{Marmolejo_no-iterationpseudomonads}
+by re-stating and re-proving the relevant results. I hope to formally relate categorical constructions like products, co-products 
+and co-ends to their intuitive counterparts in probability theory. 
+
+A possible extension is further generalising SMT to use relative pseudomonads \cite{Fiore_relative-pseudomonads2017}.
+
+\bibliography{proposal}{}
+\bibliographystyle{plain}
+
+\end{document}
