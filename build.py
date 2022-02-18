@@ -23,6 +23,9 @@ def compile_with_recipe(tex_file):
     if p.returncode:
         print(" in directory", tex_dir, flush=True)
         print(">", ' '.join(cmd), flush=True)
+        print("--- BEGIN STDERR ---")
+        print(p.stderr.decode("utf-8"))
+        print("---- END STDERR ----")
     else:
         print("...", end='', flush=True)
     return p
