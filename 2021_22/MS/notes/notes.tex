@@ -390,6 +390,10 @@ Let $(X,d)$ be a metric space.
         \item $F$ is closed in the metric space $(Y,d_Y)$;
         \item there exists $C\subset X$ that is closed in the metric space $(X,d)$ such that
               $F=C\cap Y$.
+        \item $F=\overline F$. (\emph{Proposition 4.20})
+        \item $\p F\subseteq F$. (\emph{Notes, Problem 4.43})
+        \item For all accumulation points $x$ of $F$ in $Y$, $x\in F$. (\emph{Notes, Problem 4.47})
+        \item For all sequences $(x_n)_{n\in\N}$ of elements in $F$, $x_n\to x$ implies $x\in F$. (\emph{Proposition 5.9})
     \end{itemize}
 \end{proposition}
 
@@ -483,6 +487,70 @@ Let $(X,d)$ be a metric space.
 
 \section{Convergent sequences}
 
+\subsection{Sequences and their limits}
+
+\begin{definition}
+    Let $(X,d)$ be a metric space. A \emph{sequence} of elements of $X$ is a function defined 
+    on $\N$ with values in $X$. If $x:\N\to\N$ is such a sequence and $n$ is a positive integer
+    we write $x_n:=x(n)$ and we denote the whole sequence by $(x_n)_{n\in\N}$.
+\end{definition}
+
+\begin{definition}
+    Let $(X,d)$ be a metric space. Let $(x_n)_{n\in\N}$ be a sequence of elements of $X$ and let 
+    $x\in X$. We say that $(x_n)_{n\in\N}$ converges to $x$ if the real sequence $(d(x_n,x))_{n\in\N}$
+    converges to zero.
+\end{definition}
+
+\begin{proposition}[Notes 5.3]
+    In a metric space, $x_n\to x$ as $n\to\infty$ iff for every open ball $B$ centered at $x$, there 
+    exists an index $N$, such that, for all $n\geq N$, we have $x_n\in B$.
+\end{proposition}
+
+\begin{proposition}[Notes 5.4]
+    In a metric space, $x_n\to x$ as $n\to\infty$ iff, for every open set $G$ containing $x$, there 
+    exists an index $N$, such that, for all indices $n$ with $n\geq N$, we have $x_n\in G$.
+\end{proposition}
+
+\begin{proposition}[Notes 5.5]
+    Let $(X,d)$ be a metric space, let $(x_n)_{n\in\N}$ be a sequence in $X$ and let $x,x'\in X$.
+    If $x_n\to x$ and $x_n\to x'$ as $n\to\infty$ then $x=x'$. 
+\end{proposition}
+
+\begin{proposition}[Notes 5.6]
+    Let $(X,d)$ be a metric space and let $(x_n)_{n\in\N},(y_n)_{n\in\N}$ be two sequences in $X$
+    that converge to limts $x$ and $y$ respectively. Then $d(x_n,y_n)\to d(x,y)$.
+\end{proposition}
+
+\begin{corollary}[Notes 5.7]
+    Let $(X,d)$ be a metric space, $(x_n)_{n\in\N}$ be a convergent sequence in $X$ with limit $x$,
+    and $y$ be any point in $X$. Then $d(x_n,y)\to d(x,y)$.
+\end{corollary}
+
+\subsection{Bounded sequences}
+
+\begin{definition}
+    A sequence $(x_n)_{n\in\N}$ in a metric space is said to be \emph{bounded} if there exists 
+    a point $c\in X$ and a positive real number $r$ such that, for all $n$, $x_n\in B(c,r)$.
+\end{definition}
+
+\begin{proposition}[Notes 5.10]
+    Let $(X,d)$ be a metric space and $F\subseteq X$. The set $F$ is closed iff the limit of 
+    every convergent sequence of elements of $F$ is an element of $F$.
+\end{proposition}
+
+\subsection{Subsequences}
+
+\begin{definition}
+    Let $(x_n)_{n\in\N}$ be a sequence in a metric space and let $(n_k)_{k\in\N}$ be a strictly
+    increasing sequence of indices. Then the sequence $(x_{n_k})_{k\in\N}$ is called 
+    a subsequence of $(x_n)_{n\in\N}$.
+\end{definition}
+
+\begin{proposition}
+    If a sequence $(x_n)_{n\in\N}$ in a metric space converges to a limit $x$ then every subsequence
+    $(x_{n_k})_{k\in\N}$ converges to $x$.
+\end{proposition}
+
 \subsection{The metric space $C([a,b])$}
 
 \begin{theorem}
@@ -501,26 +569,20 @@ Let $(X,d)$ be a metric space.
 
 \section{Continuity}
 
-\subsection{Continuous functions}
-
 \begin{definition}
     Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. We say $f$ is \emph{continuous
     at a point $x_0$} in $X$ if, for every positive $\e$, there exists a positive $\delta$, such that,
     for all $x\in X$ with $d_X(x,x_0)<\delta$ we have $d_Y(f(x),f(x_0))<\e$.
+    We say $f$ is \emph{continuous} if it is continuous at every point in $X$.
 \end{definition}
 
-\begin{theorem}
+\begin{proposition}[Notes 6.2]
     Let $(X,d_X),(Y,d_Y)$ be metric spaces, $f:X\to Y$ be a function and $x_0\in X$. Then $f$ is continuous
     at $x_0$ iff, for every open neighbourhood $G$ of $f(x_0)$, there exists an open neighbourhood $O$ of
     $x_0$, such that, for all $x\in O$, we have $f(x)\in G$.
-\end{theorem}
+\end{proposition}
 
-\begin{definition}
-    Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. We say $f$ is \emph{continuous}
-    if it is continuous at every point in $X$.
-\end{definition}
-
-\begin{theorem}
+\begin{theorem}[Notes 6.5]
     Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. Then $f$ is continuous iff 
     the inverse image $\inv f(G)$ of any open subset $G\subset Y$ is an open subset of $X$.
 \end{theorem}
