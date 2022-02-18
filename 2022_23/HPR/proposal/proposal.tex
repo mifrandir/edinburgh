@@ -3,26 +3,33 @@
 \usepackage{csquotes}
 \begin{document}
 
-\title{Models of Synthetic Measure Theory}
+\title{Categorical Models of Synthetic Measure Theory}
 \author{Franz Miltz}
 \maketitle
 
-Anders Kock formalised synthetic measure theory (SMT) using commutative monads. \cite{kock2011commutative}
-While it turns out that SMT is not actually a theory for the standard measure-theoretic formailsation of probability theory,
-other models have been introduced.
+Kock formalised synthetic measure theory (SMT) using commutative monads. \cite{kock2011commutative}
+SMT is not a theory for the standard measure-theoretic formailsation of probability theory since it 
+postulates a function space.
 
-\enquote{[Quasi-Borel spaces] form a new formalization of probability theory replacing measurable spaces; form a cartesian
-closed category and so support higher-order functions; form a well-pointed category and so support good proof principles 
-for equational reasoning; and support continuous probability distributions.} \cite{DBLP:journals/corr/HeunenKSY17} They have been used to validate 
-higher-order Bayesian inference. \cite{DBLP:journals/corr/abs-1711-03219}
+My goal for this project is to try and construct non-standard and categorical models for SMT. 
+Since category theory has not been covered in any of my courses, a significant part of the project 
+includes learning more of it and familiarising myself with its methods.
 
-I shall investigate quasi-Borel spaces as a model of SMT. I will then explore the extent to which
-the category of categories and functors may be formalised as a model of SMT. This may require carefully restricting 
-my attention to a well-behaved subcategory to avoid size issue and generalising SMT to pseudomonads as in \cite{Marmolejo_no-iterationpseudomonads}
-by re-stating and re-proving the relevant results. I hope to formally relate categorical constructions like products, co-products 
-and co-ends to their intuitive counterparts in probability theory. 
+Quasi-Borel spaces present a new formalisation of probability theory while forming a cartesian 
+closed category. \cite{DBLP:journals/corr/HeunenKSY17} 
+They have been used to validate higher-order Bayesian inference. \cite{DBLP:journals/corr/abs-1711-03219}
+As a basic goal, I shall investigate quasi-Borel spaces as a model of SMT.
 
-A possible extension is further generalising SMT to use relative pseudomonads \cite{Fiore_relative-pseudomonads2017}.
+To extend this, I will then explore the extent to which the category of categories and functors may
+be formalised as a model of SMT. 
+This will require carefully restricting my attention to a well-behaved subcategory to avoid size 
+issues and generalising SMT to pseudomonads as in \cite{Marmolejo_no-iterationpseudomonads} by 
+generalising and re-proving the relevant results. 
+I hope to formally relate categorical concepts like coends and the Grothendieck construction to 
+their intuitive counterparts in probability theory. 
+
+Beyond that, a possible next step would be to further generalise SMT to use relative pseudomonads,
+side-stepping the aforementioned size issues \cite{Fiore_relative-pseudomonads2017}.
 
 \bibliography{proposal}{}
 \bibliographystyle{plain}
