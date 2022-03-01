@@ -402,13 +402,34 @@ Let $(X,d)$ be a metric space.
     in the metric space $(X,d)$.
 \end{definition}
 
-\subsection{Interior, exterior, boundary}
+\subsection{Interior}
+
+\begin{definition}
+    Let $(X,d)$ be a metric space and $A\subseteq X$. The largest open set contained in $A$
+    is called the interior of $A$ and is denoted $\interior A$.
+\end{definition}
 
 \begin{definition}
     Let $A\subseteq X$. A point $x\in X$ is called an \emph{interior point} of $A$ if 
-    there exists an open ball $B(x,r)\subseteq A$. The set of all interior points is denoted 
-    $\interior A$ and called \emph{interior} of $A$.
+    there exists an open ball $B(x,r)\subseteq A$. 
 \end{definition}
+
+\begin{proposition}[Notes 4.24]
+    Let $(X,d)$ be a metric space and $A,B$ be subsets of $X$. Then 
+    \begin{enumerate}
+        \item $\interior\emptyset=\emptyset$ and $\interior X=X$,
+        \item $\interior(\interior{A})=\interior A$, 
+        \item $A$ is open iff $A=\interior A$,
+        \item if $A\subseteq B$, then $\interior A\subseteq\interior B$.
+    \end{enumerate} 
+\end{proposition}
+
+\begin{proposition}[Notes 4.25]
+    Let $(X,d)$ be a metric space, $A\subseteq X$ and $x\in X$. Then $x\in\interior A$ iff 
+    $x$ is an interior point of $A$.
+\end{proposition}
+
+\subsection{Exterior and boundary}
 
 \begin{definition}
     Let $A\subseteq X$. A point $x\in X$ is called an \emph{exterior point} of $A$ if 
