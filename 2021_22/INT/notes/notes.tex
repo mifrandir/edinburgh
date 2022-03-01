@@ -442,4 +442,74 @@
     whenever $\sigma(x)=c$, for all $c'\in C$, $d(x,c) \leq d(x,c')$.
 \end{definition}
 
+\section{The Legendre symbol}
+
+\begin{definition}
+    Let $p>0$ prime and let $a,b\in\Z$ coprime to $p$.
+    Then the \emph{Legendre symbol} of $a$ modulo $p$, denoted $(a/p)$, is given by 
+    \begin{align*}
+        \left(\frac{a}{p}\right)=\begin{cases}
+            1 &\text{if }a\equiv r^2\mod p\\
+            -1 &\text{if }a\not\equiv r^2\mod p
+        \end{cases}
+    \end{align*}
+\end{definition}
+
+\begin{theorem}[Lecture 11]
+    Let $p>0$ prime and $a\in\Z$ coprime to $p$. Then the following hold 
+    \begin{enumerate}
+        \item If $p>2$ then \begin{align*}
+            \left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}} \mod p.
+        \end{align*}
+        \item Multiplication rule: \begin{align*}
+            \left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=\left(\frac{ab}{p}\right).
+        \end{align*}
+        \item If $a\equiv b$ then \begin{align*}
+            \left(\frac{a}{p}\right)\equiv\left(\frac{b}{p}\right).
+        \end{align*}
+        \item If $p,q>2$, $p\not=q$, and either $p\equiv 1\mod 4$ or $q\equiv 1\mod r$ then \begin{align*}
+            \left(\frac{p}{q}\right)=\left(\frac{q}{p}\right).
+        \end{align*}
+        \item If $p,q>2$, $p\not=q$, and $p,q\equiv 3\mod 4$ then \begin{align*}
+            \left(\frac{p}{q}\right)=-\left(\frac{q}{p}\right).
+        \end{align*}
+    \end{enumerate}
+\end{theorem}
+
+\begin{lemma}[Gauss]
+    Let $p>2$ prime and $a\in\Z$ coprime to $p$. Let $p'=(p-1)/2$. Consider the set 
+    \begin{align*}
+        S=\left\lbrace k\cdot a : 1\leq k\leq p'\right\rbrace
+    \end{align*} 
+    and let $n$ be the number of elements in $S$ that, when reduced modulo $p$ to lie between
+    $-p'$ and $p$, are less than zero. Then 
+    \begin{align*}
+        \left(\frac{a}{p}\right)=(-1)^n.
+    \end{align*}
+\end{lemma}
+
+\section{Gaussian integers}
+
+\begin{definition}
+    Let $R$ be a ring, and let $x$ be any symbol not found in $R$. A polynomial in $x$ over $R$ 
+    is an expression of the form 
+    \begin{align*}
+        \alpha(x)=\sum_{i=0}^\infty a_ix^i
+    \end{align*}
+    where $a_i\in R$ and $a_i=0$ almost everywhere.
+\end{definition}
+
+\begin{definition}
+    Let $\alpha(x)$ and $\gamma(x)$ be polynomials in $x$ over $R$ such that 
+    \begin{align*}
+        \alpha(x)=\sum_{i=0}^\infty a_ix^i,\hs
+        \gamma(x)=\sum_{i=0}^\infty c_ix^i.
+    \end{align*}
+    Then \begin{enumerate}
+        \item $\alpha(x)=\gamma(x)$ iff $a_i=c_i$ for all $i\geq 0$,
+        \item $\alpha(x)+\gamma(x)=\sum_{i=0}^\infty (a_i+c_i)x^i$,
+        \item $\alpha(x)\cdot\gamma(x)=\sum_{i=0}^\infty \sum_{j=0}^i a_jc_{i-j}x^i$.
+    \end{enumerate}
+\end{definition}
+
 \end{document}
