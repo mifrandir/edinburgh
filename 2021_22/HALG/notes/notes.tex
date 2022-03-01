@@ -972,4 +972,133 @@
     \end{align*} 
 \end{theorem}
 
+\section{Determinants and Eigenvalues}
+
+\subsection{Permutations}
+
+\begin{definition}
+    The \emph{$n$-th symmetric group} is the group of bijections from the set $\{1,...,n\}$ to itself
+    and denoted by $S_n$. It is a group under composition and has $n!$ elements.
+\end{definition}
+
+\begin{definition}
+    The \emph{length} $\len:S_n\to\N$ of a permutation $\sigma\in S_n$ is given by 
+    \begin{align*}
+        \len \sigma = \abs{\{(i,j):i<j,\sigma(i)>\sigma(j)\}}.
+    \end{align*}
+    The \emph{sign} $\sgn:S_n\to\{-1,1\}$ of a permutation $\sigma\in S_n$ is then 
+    given by 
+    \begin{align*}
+        \sgn \sigma = (-1)^{\len \sigma}
+    \end{align*}
+\end{definition}
+
+\begin{lemma}[Notes 4.1.5]
+    Let $n\in\N$. Then $\sgn:S_n\to\{-1,1\}$ is a group homomorphism. In particular, for all $\sigma,\tau\in S_n$,
+    \begin{align*}
+        \sgn(\sigma\tau) = (\sgn\sigma)(\sgn\tau).
+    \end{align*}
+\end{lemma}
+
+\begin{definition}
+    Let $n\in\N$. Then the set of even permutations $A_n\subseteq S_n$ is the kernel of the 
+    group homomorphism $\sgn$. In particular, it is a subgroup of $S_n$ called the \emph{alternating
+    group}.
+\end{definition}
+
+\subsection{Determinants}
+
+\begin{definition}
+    Let $R$ be a commutative ring and $n\in\N$. The \emph{determinant} is a mapping 
+    $\det:\Mat(n;R)\to R$ given by 
+    \begin{align*}
+        \det((a_{ij}))=\sum_{\sigma\in S_n}\sgn(\sigma)a_{1\sigma(1)}\cdots a_{n\sigma(n)}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Let $V_1,...,V_n,W$ be $F$-vector spaces. A mapping $H:V_1\times\cdots V_n\to W$
+    is \emph{multilinear} if it is linear in each of its arguments. A multilinear form 
+    $H:V\times \cdots V\to W$ is \emph{alternating} if it vanishes on every $n$-tuple of 
+    elements that has at least two entries equal.
+\end{definition}
+
+\begin{theorem}[Notes 4.3.6]
+    Let $F$ be a field. The mapping 
+    \begin{align*}
+        \det : \Mat(n; F) \to F
+    \end{align*}
+    is the unique alternating bilinear form on $n$-tuples of column vectors with values in $F$
+    that takes the value $1_F$ on the identity matrix.
+\end{theorem}
+
+\begin{theorem}[Notes 4.4.1]
+    Let $R$ be a commutative ring and let $A,B\in\Mat(n; R)$. Then 
+    \begin{align*}
+        \det (AB) = (\det A) (\det B).
+    \end{align*} 
+\end{theorem}
+
+\begin{theorem}[Notes 4.4.2]
+    A matrix $A$ is invertible iff $\det A \not= 0$.
+\end{theorem}
+
+\begin{corollary}
+    Let $A,B$ be square matrices with $A$ invertible. Then
+    \begin{align*}
+        \det (\inv A) = \inv{(\det A)} \hs\text{and}\hs
+        \det (\inv ABA) = \det B.
+    \end{align*} 
+\end{corollary}
+
+\begin{lemma}[Notes 4.4.4]
+    Let $A\in\Mat(n;R)$ with $R$ commutative. Then 
+    \begin{align*}
+        \det A^T = \det A.
+    \end{align*} 
+\end{lemma}
+
+\begin{definition}
+    Let $A\in\Mat(n;R)$ with $R$ commutative and $1\leq i,j\leq n$.  Then the \emph{$(i,j)$ cofactor of $A$} is
+    \begin{align*}
+        C_{ij}=(-1)^{i+j}\det(A\lra{i,j})
+    \end{align*}
+    where $A\lra{i,j}$ is the matrix obtained from $A$ by deleting the $i$-th row and the $j$-th column.
+\end{definition}
+
+\begin{theorem}[Notes 4.4.7]
+    Let $A=(a_{ij})\in\Mat(n; R)$ with $R$ commutative. For a fixed $i$ the $i$-th row expansion 
+    of the determinant is 
+    \begin{align*}
+        \det A = \sum_{j=1}^n a_{ij}C_{ij}
+    \end{align*}
+    and for a fixed $j$ the $j$-th column expansion of the determinant is 
+    \begin{align*}
+        \det A = \sum_{i=1}^n a_{ij}C_{ij}.
+    \end{align*}
+\end{theorem}
+
+\begin{definition}
+    Let $A\in\Mat(R;n)$ with $R$ commutative. The \emph{adjugate matrix $\adj A$} is the 
+    $(n\times n)$ matrix whose entries are $(\adj A)_{ij} = C_{ji}$.
+\end{definition}
+
+\begin{theorem}[Cramer's rule; Notes 4.4.9]
+    Let $A\in\Mat(R;n)$ with $R$ commutative. Then 
+    \begin{align*}
+        A(\adj A) = (\det A)I_n.
+    \end{align*} 
+\end{theorem}
+
+\begin{corollary}[Notes 4.4.11]
+    Let $A\in\Mat(n;R)$ with $R$ commutative. Then $A$ is invertible iff $\det A\in R^\times$. 
+\end{corollary}
+
+\begin{theorem}[Jacobi's formula; Notes 4.4.14]
+    Let $A=(a_{ij})$ where $a_{ij}:\R\to\R$. Then
+    \begin{align*}
+        \frac{d}{dt}\det A = \tr(\adj A)\frac{dA}{dt}.
+    \end{align*} 
+\end{theorem}
+
 \end{document}
