@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{Honours Algebra: Practicing Proof 2}
+\author{Franz Miltz (UNN: S1971811)}
+\date{11 March 2022}
+\maketitle
+\newcommand{\gaussint}{\Z[\sqrt{-1}]}
+We write $i=\sqrt{-1}$ and $\overline x = \overline{r+si} = r - si$.
+\begin{claim*}[1]
+   $\Z[\sqrt{-1}]$ is an integral domain.
+   \begin{proof}
+      Clearly, $\gaussint$ is a non-zero commutative ring. Let $x,y\in\gaussint$ such that 
+      $xy=0$. Assume $x\not=0$ and $y\not=0$. We then have $\overline{xy}=0$ and thus 
+      \begin{align*}
+         (xy)(\overline{xy})=(xy)(\overline x\,\overline y)=(x\overline x)(y\overline y) = 0.
+      \end{align*}
+      However, note that for any $x=r+si\in\Z$, 
+      \begin{align*}
+         x\overline x = r^2-s^2 \in\Z.
+      \end{align*}
+      Thus $x\overline x$ is a zero divisor in $\Z$ contradicting the fact that $\Z$ is an 
+      integral domain. Thus $x=y=0$, proving the claim.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+   The group of units of $\gaussint$ has order four. In particular, $\gaussint^\times = \lra{i}$.
+   \begin{proof}
+      Let $u=a+bi\in\C^\times$. Then there exists $x=c+di\in\C$ such that $(a+bi)(c+di) = 1$.
+      Equivalently,
+      \begin{align*}
+         a+bi = \frac{c-di}{c^2+d^2}.
+      \end{align*}
+      Therefore 
+      \begin{align*}
+         a = \frac{c}{c^2+d^2},\hs b=-\frac{d}{c^2+d^2}.
+      \end{align*}
+      In particular, $a^2+b^2=1$. Note that any unit in $\gaussint$ is also a unit in $\C$. 
+      The integer solutions to $a^2+b^2=1$ are $(a,b)\in\{(0,1),(0,-1),(1,0),(-1,0)\}$.
+      These correspond to $x\in\{i,-i,1,-1\}\supseteq\gaussint^\times$.
+
+      We now note that 
+      \begin{align*}
+         (-1)(-1) = 1,\hs i(-i) = 1
+      \end{align*}
+      and further
+      \begin{align*}
+         i^2 = -1,\hs i^3 = -i, \hs i^4 = 1.
+      \end{align*}
+      Therefore all integer solutions correspond to a unit in $\gaussint$, showing 
+      $\gaussint^\times=\{i,-i,1,-1\}$, and further $i$ is a generator, i.e. $\gaussint^\times=\lra{i}$.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[3]
+   The map $\phi:\gaussint\to\Z_{q}$ given by 
+   \begin{align*}
+      a + bi \mapsto [a]+[n][b]
+   \end{align*}
+   is a surjective ring homorphism.
+   \begin{proof}
+      We note that $(\Z_q,+)$ is an abelian group. Since $n$ and $q$ are coprime, it follows from 
+      \emph{Lagrange's theorem} that the order of $[n]$ in $(\Z_q,+)$ is $q$. Thus 
+      \begin{align*}
+         \Z_q = \lra{[n]} = \{k[n] : k\in\Z\}.
+      \end{align*}
+      Noting $k[n]=[kn]$ by definition of $[n]$, we find 
+      \begin{align*}
+         \Z_q = \{[kn] : k\in\Z\} = \{[k][n] : k\in\Z\} = \{\phi(0+ki):k\in\Z\}.
+      \end{align*}
+      This shows that $\phi$ is surjective.
+
+      Let $(a+bi),(c+di)\in\C$. Then
+      \begin{align*}
+         \phi(a+bi) + \phi(c+di) = [a] + [n][b] + [c] + [n][c] = [a+c] + [n][b+d] = \phi((a+bi) + (c+di))
+      \end{align*}
+      where me made extensive use of the definition of the ring $(\Z_q,+,\times)$.
+      Similarly,
+      \begin{align*}
+         \phi(a+bi)\phi(c+di)=([a]+[n][b])([c]+[n][d])=[ac]+[n][ad+bc]+[n][n][bd].
+      \end{align*}
+      We now note that $[n][n]=[n^2]=[-1]$. Using this, the operations on $\Z_q$ and the above,
+      \begin{align*}
+         \phi(a+bi)\phi(c+di)=[ac-bd]+[n][ad+bc]=\phi((a+bi)(c+di)).
+      \end{align*}
+      This shows that $\phi$ is a ring homorphism.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[4]
+   \begin{align*}
+      \ker\phi = \{(n-i)a+qb + qic:a,b,c\in\Z\}.
+   \end{align*} 
+   \begin{proof}
+      Assume $r+si\in\ker\phi$. Then $\phi(r+si)=[0]$, i.e. 
+      \begin{align*}
+         [r]+[s][n]=[0].
+      \end{align*}
+      Noting once again that $(\Z_q,+)$ is an abelian group, we may rewrite this to 
+      \begin{align*}
+         [r] = -[sn].
+      \end{align*}qa
+      Note that, if $(r,s)$ is a solution to the above, then so is $(r+bq, s+cq)$ for all $bc\in\Z$.
+      We now require 
+      \begin{align*}
+         r \equiv -sn \mod q
+      \end{align*}
+      which holds if and only if $r=-sn + bq$ for all $s\in\Z$ and some $b\in\Z$. Thus $\phi(r+si)=0$
+      if and only if 
+      \begin{align*}
+         r=-an+bq \hs\text{and}\hs s=a+cq\hs\text{for some }a,b,c\in\Z.
+      \end{align*}
+      However, this is clearly equivalent to  
+      \begin{align*}
+         \ker\phi = \{(n-i)a + qb + qic : a,b,c\in\Z\}.
+      \end{align*}
+   \end{proof}
+\end{claim*}
+
+\begin{lemma*}
+   Let $R$ be a ring and $I,J$ ideals. Then there exists a surjective ring homorphism
+   \begin{align*}
+      f:R/I \to R/(I+J)
+   \end{align*}
+   that preserves multiplicative identities.
+   \begin{proof}
+      We define $f:R/I \to R/(I+J)$ by 
+      \begin{align*}
+         x + I \mapsto x + (I + J) \hs \text{for all }x\in R.
+      \end{align*}
+      Since $0_R\in J$, $x+I\subseteq x+(I+J)$ and thus $f$ is clearly surjective. Further, 
+      let $x,y\in R$. Then
+      \begin{align*}
+         f((x+y)+I)=(x+y)+(I+J) = x+(I+J) + y + (I+J) = f(x+I) + f(y+I),
+      \end{align*}
+      and 
+      \begin{align*}
+         f((x+I)(y+I)) = f(xy+I) = xy+(I+J) = (x+(I+J))(y+(I+J)) = f(x+I)f(y+I).
+      \end{align*}
+      Thus $f$ is a ring homorphism. Finally, 
+      \begin{align*}
+         f(1_{R/I}) = f(1+I) = 1+(I+J) = 1_{R/(I+J)}.
+      \end{align*}
+   \end{proof}
+\end{lemma*}
+
+\begin{claim*}[5]
+   The quotient ring $\gaussint/I_n$ is a field if and only if $q=n^2+1$ is prime.
+   \begin{proof}
+      By \emph{Proposition 3.2.16} in the notes, we know that $\Z_q$ is a field if and only if $q$ is prime.
+      It remains to prove that $\Z_q$ is a field iff $\gaussint/I_n$ is.
+
+      Note that $\phi$ is surjective so $\im\phi=\Z_q$. Therefore, by the \emph{First Isomorphism
+      Theorem for Rings}, there exists a ring isomorphism
+      \begin{align*}
+         f:\frac{\gaussint}{\ker\phi}\to\Z_q. 
+      \end{align*}
+      We may then observe
+      \begin{align*}
+         \ker\phi = I_n + \:_{\gaussint}\lra{q,qi}.
+      \end{align*}
+      By the previous lemma we obtain a surjective ring homorphism
+      \begin{align*}
+         g:\frac{\gaussint}{I_n}\to\frac{\gaussint}{\ker\phi}.
+      \end{align*} 
+      This allows for the composition,
+      \begin{align*}
+         f\circ g:\frac{\gaussint}{I_n}\to\Z_q,
+      \end{align*}
+      which itself must also be a surjective ring homorphism that preserves multiplicative
+      identities.  Now, if $x,\inv x\in \gaussint/I_n$ are inverses, so are 
+      $(f\circ g)(x),(f\circ g)(\inv x)\in\Z_q$, and thus if $\gaussint/I_n$ is a field, so 
+      is $\Z_q$.
+
+      Conversely, assume $q$ is prime. Then 
+   \end{proof}
+\end{claim*}
+
+\end{document}
