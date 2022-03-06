@@ -747,4 +747,98 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
     are exactly the partial recursive functions. 
 \end{theorem}
 
+\section{P and NP}
+
+\subsection{Analysis of algorithms}
+
+\begin{definition}
+    The RM architecture is extended with the following instructions:
+    \begin{itemize}
+        \item $\texttt{ADD}(i,j)$ which sets $R_i=R_i+R_j$,
+        \item $\text{SUB}(i,j)$ which sets $R_i=\max\{R_i-R_j,0\}$.
+    \end{itemize}
+    Every instruction is deemed to run in $\Theta(\lg n)$ time where $n$ 
+    is the value of the largest register referred to by the instruction.
+\end{definition}
+
+\subsection{The class P}
+
+\begin{definition}
+    A decision problem $(\N,Q)$ or a function $f:\N\to\N$ is in $P$ or \ptime if 
+    it can be computed by some RM in time $t(n)\in O(n^k)$ for some $k$, where $n$ is the size 
+    of the input instance $d$ or function input $d$, measued as the number of bits, i.e. $\lg(d)$.
+
+    More generally, a decision problem $(D,Q)$ or function $f:D\to D'$ is in $P$ relative to some 
+    measure $\abs d$ of input size if it can be computed in time $O(\abs d^k)$.
+\end{definition}
+
+\begin{definition}
+    A \ptime \emph{reduction} or \emph{polynomial reduction} from $(D,Q)$ to $(D',Q')$ is 
+    a \ptime-computable function $r:D\to D'$ such that $d\in Q$ iff $r(d)\in Q'$.
+    We write $Q\leq^P Q'$ if there exists a polynomial reduction from $Q$ to $Q'$.
+\end{definition}
+
+\begin{definition}
+    $(D,Q)\leq^P_T (D',Q')$ if there exists a polynomially bounded RM, equipped with an oracle 
+    for $Q'$, which decides $Q$.
+\end{definition}
+
+\begin{definition}
+    A \emph{polynomially-bounded Register Machine} is an RM together with a polynomial $f(n)$,
+    such that if the size of the input is $n_0$, then the machine halts and rejects after 
+    executing at most $f(n_0)$ instructions. Without loss of generality, $f(n)$ may be taken to be
+    $n^k$ for some $k\in\N$.
+
+    Thus a problem $Q$ is in $P$ iff it can be computed by some polynomially bounded RM.
+\end{definition}
+
+\subsection{Some intractable problems}
+
+\begin{definition}
+    Let $G=(V,E)$ be a finite graph. A \emph{Hamiltonian path} is a sequence of vertices 
+    $v_1,...,v_n$ where $n=\abs V$, such that $(v,v_{i+1})\in E$ for $i<n$, and $v_i=v_j 
+    \Rightarrow i=j$, for all $1\leq i,j\leq n$.
+
+    The \emph{Hamlitonian Path Problem} (HP) is the set of finite graphs which have a Hamiltonian
+    path. The size of the input is $\abs G = \abs V + \abs E$.
+\end{definition}
+
+\begin{definition}
+    The \texttt{TIMETABLING} problem is the set of all tuples $(S,E,T,C)$ where $S,E,T$ are finite 
+    sets and $C\subseteq S\times E$ is a relation for which there exists a function $t:E\to T$
+    such that, for every $s\in S$ and for every distinct pair $e,e'\in E$ such that $(s,e)\in C$
+    and $(s,e')\in C$, it is the case that $t(e)\not=t(e')$. 
+    The size of the inputs is $\abs S + \abs E + \abs T + \abs C$.
+\end{definition}
+
+\subsection{The class NP}
+
+\begin{definition}
+    \emph{Non-deterministic Register Machines} (NRMs) extend the instruction set with an instruction 
+    $\texttt{MAYBE(j)}$. If $I_i$ is the instruction $\texttt{MAYBE}(j)$, then the next executed instruction 
+    may be either $I_{i+1}$ or $I_j$.
+
+    A \emph{run} of an NRM is any sequence of instructions satisfying the execution rules. An NRM accepts 
+    an input $R_0$ if there exists a run that terminates with a one in $R_0$.
+\end{definition}
+
+\begin{theorem}[Notes II.10]
+    Let $(D,Q)$ be a problem such that there is an NRM $M$ which accepts $d$ iff $d\in Q$.
+    Then there is an RM $M'$ which semi-decides $Q$.
+    
+    Moreover, if $M$ halts on every run then $M'$ decides $Q$.
+\end{theorem}
+
+\begin{definition}
+    A \emph{polynomially-bounded non-deterministic Register Machine} is an NRM together with a polynomial
+    $f$ such that, if the size of the input is $n_0$, then every run of the machine halts and 
+    rejects after executing at most $f(n_0)$ instructions.
+
+    A problem $Q$ is in \nptime iff it can be computed by some polynomially-bounded NRM.
+\end{definition}
+
+\begin{theorem}[Notes II.12]
+    $HP\in NP$ and $\texttt{TIMETABLING}\in NP$.
+\end{theorem}
+
 \end{document}
