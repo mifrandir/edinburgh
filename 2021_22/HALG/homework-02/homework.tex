@@ -6,10 +6,10 @@
 \author{Franz Miltz (UUN: S1971811)}
 \date{11 March 2022}
 \maketitle
-\newcommand{\gaussint}{\Z[\sqrt{-1}]}
+\newcommand{\gaussint}{\Z[i]}
 We write $i=\sqrt{-1}$ and $\overline x = \overline{r+si} = r - si$.
 \begin{claim*}[1]
-   $\Z[\sqrt{-1}]$ is an integral domain.
+   $\Z[i]$ is an integral domain.
    \begin{proof}
       Clearly, $\gaussint$ is a non-zero commutative ring. Let $x,y\in\gaussint$ such that 
       $xy=0$. Assume $x\not=0$ and $y\not=0$. We then have $\overline{xy}=0$ and thus 
@@ -91,90 +91,52 @@ We write $i=\sqrt{-1}$ and $\overline x = \overline{r+si} = r - si$.
 
 \begin{claim*}[4]
    \begin{align*}
-      \ker\phi = \{(n-i)a+qb + qic:a,b,c\in\Z\}.
+      \ker\phi = I_n.
    \end{align*} 
    \begin{proof}
-      Assume $r+si\in\ker\phi$. Then $\phi(r+si)=[0]$, i.e. 
+      Assume $x\in I_n$. Then $x=(r+si)(n-i)$ for some $r,s\in\Z$. We find 
       \begin{align*}
-         [r]+[s][n]=[0].
+         \phi(x)=\phi(rn + s + (sn - r)i) = [rn + s] + [n][sn -r] = [rn + s + sn^2 -rn] = [s(n^2+1)] = [0].
       \end{align*}
-      Noting once again that $(\Z_q,+)$ is an abelian group, we may rewrite this to 
+      Thus $x\in\ker\phi$.
+
+      Assume $x\in\ker\phi$. Then $x=r+si$ for some $r,s\in\Z$. We have
       \begin{align*}
-         [r] = -[sn].
-      \end{align*}qa
-      Note that, if $(r,s)$ is a solution to the above, then so is $(r+bq, s+cq)$ for all $bc\in\Z$.
-      We now require 
-      \begin{align*}
-         r \equiv -sn \mod q
+         \phi(x) = [r] + [n][s] = [0].
       \end{align*}
-      which holds if and only if $r=-sn + bq$ for all $s\in\Z$ and some $b\in\Z$. Thus $\phi(r+si)=0$
-      if and only if 
+      This clearly implies 
       \begin{align*}
-         r=-an+bq \hs\text{and}\hs s=a+cq\hs\text{for some }a,b,c\in\Z.
+         r + sn \equiv 0 \mod q
       \end{align*}
-      However, this is clearly equivalent to  
+      and equivalently 
       \begin{align*}
-         \ker\phi = \{(n-i)a + qb + qic : a,b,c\in\Z\}.
+         r &\equiv -sn \mod q\\
+         \Leftrightarrow rn &\equiv -sn^2 \mod q\\
+         \Leftrightarrow rn - s &\equiv -s(n^2+1) \equiv 0 \mod q
       \end{align*}
+      These imply $q|r+sn$ and $q|rn-s$. We define $a,b\in\Z$ by
+      \begin{align*}
+         a=\frac{rn-s}{n^2+1},\hs 
+         b=\frac{r+sn}{n^2+1}.
+      \end{align*}
+      Now we note that 
+      \begin{align*}
+         a+bi=\frac{rn-s+(r+sn)i}{n^2+1}=\frac{(r+si)(n+i)}{n^2+1}=\frac{r+si}{n-i}.
+      \end{align*}
+      Thus $x=(a+bi)(n-i)\in I_n$ as desired.
    \end{proof}
 \end{claim*}
 
-\begin{lemma*}
-   Let $R$ be a ring and $I,J$ ideals. Then there exists a surjective ring homorphism
-   \begin{align*}
-      f:R/I \to R/(I+J)
-   \end{align*}
-   that preserves multiplicative identities.
-   \begin{proof}
-      We define $f:R/I \to R/(I+J)$ by 
-      \begin{align*}
-         x + I \mapsto x + (I + J) \hs \text{for all }x\in R.
-      \end{align*}
-      Since $0_R\in J$, $x+I\subseteq x+(I+J)$ and thus $f$ is clearly surjective. Further, 
-      let $x,y\in R$. Then
-      \begin{align*}
-         f((x+y)+I)=(x+y)+(I+J) = x+(I+J) + y + (I+J) = f(x+I) + f(y+I),
-      \end{align*}
-      and 
-      \begin{align*}
-         f((x+I)(y+I)) = f(xy+I) = xy+(I+J) = (x+(I+J))(y+(I+J)) = f(x+I)f(y+I).
-      \end{align*}
-      Thus $f$ is a ring homorphism. Finally, 
-      \begin{align*}
-         f(1_{R/I}) = f(1+I) = 1+(I+J) = 1_{R/(I+J)}.
-      \end{align*}
-   \end{proof}
-\end{lemma*}
-
 \begin{claim*}[5]
-   The quotient ring $\gaussint/I_n$ is a field if and only if $q=n^2+1$ is prime.
+   $\gaussint/I_n$ is a field if and only if $q$ is prime.   
    \begin{proof}
-      By \emph{Proposition 3.2.16} in the notes, we know that $\Z_q$ is a field if and only if $q$ is prime.
-      It remains to prove that $\Z_q$ is a field iff $\gaussint/I_n$ is.
-
-      Note that $\phi$ is surjective so $\im\phi=\Z_q$. Therefore, by the \emph{First Isomorphism
+      Firstly, note that $\phi$ is surjective so $\im\phi=\Z_q$. Secondly, by the \emph{First Isomorphism
       Theorem for Rings}, there exists a ring isomorphism
       \begin{align*}
-         f:\frac{\gaussint}{\ker\phi}\to\Z_q. 
+         \frac{\gaussint}{\ker\phi}\cong\Z_q. 
       \end{align*}
-      We may then observe
-      \begin{align*}
-         \ker\phi = I_n + \:_{\gaussint}\lra{q,qi}.
-      \end{align*}
-      By the previous lemma we obtain a surjective ring homorphism
-      \begin{align*}
-         g:\frac{\gaussint}{I_n}\to\frac{\gaussint}{\ker\phi}.
-      \end{align*} 
-      This allows for the composition,
-      \begin{align*}
-         f\circ g:\frac{\gaussint}{I_n}\to\Z_q,
-      \end{align*}
-      which itself must also be a surjective ring homorphism that preserves multiplicative
-      identities.  Now, if $x,\inv x\in \gaussint/I_n$ are inverses, so are 
-      $(f\circ g)(x),(f\circ g)(\inv x)\in\Z_q$, and thus if $\gaussint/I_n$ is a field, so 
-      is $\Z_q$.
-
-      Conversely, assume $q$ is prime. Then 
+      Therefore $\gaussint/I_n$ is a field if and only if $\Z_q$ is.
+      Finally, by \emph{Proposition 3.2.16} in the notes, we know that $\Z_q$ is a field if and only if $q$ is prime.
    \end{proof}
 \end{claim*}
 
