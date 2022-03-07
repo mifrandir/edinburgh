@@ -512,4 +512,44 @@
     \end{enumerate}
 \end{definition}
 
+\begin{definition}
+    The \emph{Gaussian integers} are the subring $\Z[i]\subseteq\C$ given by 
+    \begin{align*}
+        \Z[i]=\{a+bi:a,b\in\Z\}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    A Gaussian integer $z=\Z[i]$ is a unit if there exists $z'\in\Z[i]$ such that 
+    $zz'=1$.
+\end{definition}
+
+\begin{lemma}[Lecture 13]
+    Let $z=a+bi$ be a unit in $\Z[i]$. Then $\abs z=1$ and $z\in\{\pm 1, \pm i\}$.
+\end{lemma}
+
+\begin{definition}
+    Let $z,z'$ be Gaussian integers with $z\not=0$. We say $z$ divides $z'$ if $z'=zw$ for 
+    some $w\in\Z[i]$.
+\end{definition}
+
+\begin{definition}
+    Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is irreducible 
+    if whenever $z=uv$ then either $u$ or $v$ is a unit.
+\end{definition}
+
+\begin{definition}
+    Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is prime if 
+    whenever $z|uv$ for $u,v\in\Z[i]$ it follows that either $z|u$ or $z|v$.
+\end{definition}
+
+\begin{theorem}[Lecture 13]
+    Let $z,w\in\Z[i]$ with $w\not=0$. There exist $q,r\in\Z[i]$ with $z=qw+r$ and $\abs r<\abs w$.
+\end{theorem}
+
+\begin{theorem}[Bezout Lemma]
+    Let $a,b\in\Z[i]$ with $a\not=0$ or $b\not=0$ and let $d=\gcd(a,b)$. Then there exist $s,t\in\Z$
+    such that $as+bt=d$. Moreover, any common divisor of $a$ and $b$ divides $d$. 
+\end{theorem}
+
 \end{document}
