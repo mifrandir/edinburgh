@@ -449,8 +449,8 @@
     Then the \emph{Legendre symbol} of $a$ modulo $p$, denoted $(a/p)$, is given by 
     \begin{align*}
         \left(\frac{a}{p}\right)=\begin{cases}
-            1 &\text{if }a\equiv r^2\mod p\\
-            -1 &\text{if }a\not\equiv r^2\mod p
+            1 &\text{if }a\equiv r^2\mod p\text{ for some $r\in\Z$},\\
+            -1 &\text{if }a\not\equiv r^2\mod p\text{ for all $r\in\Z$}.
         \end{cases}
     \end{align*}
 \end{definition}
@@ -467,7 +467,7 @@
         \item If $a\equiv b$ then \begin{align*}
             \left(\frac{a}{p}\right)\equiv\left(\frac{b}{p}\right).
         \end{align*}
-        \item If $p,q>2$, $p\not=q$, and either $p\equiv 1\mod 4$ or $q\equiv 1\mod r$ then \begin{align*}
+        \item If $p,q>2$, $p\not=q$, and either $p\equiv 1\mod 4$ or $q\equiv 1\mod 4$ then \begin{align*}
             \left(\frac{p}{q}\right)=\left(\frac{q}{p}\right).
         \end{align*}
         \item If $p,q>2$, $p\not=q$, and $p,q\equiv 3\mod 4$ then \begin{align*}
