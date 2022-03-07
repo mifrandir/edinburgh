@@ -1101,4 +1101,93 @@
     \end{align*} 
 \end{theorem}
 
+\subsection{Eigenvalues and Eigenvectors}
+
+\begin{definition}
+    Let $f:V\to V$ be an endomorphism of an $F$-vector space $V$. A scalar $\lambda\in F$ is 
+    an \emph{eigenvalue of $f$} if there exists a non-zero vector $\vec v \in V$ such that 
+    $f(\vec v)=\lambda \vec v$. Each such vector is called an \emph{eigenvector of $f$ with 
+    eigenvalue $\lambda$}. For any $\lambda\in F$, the \emph{eigenspace of $f$ with eigenvalue $\lambda$}
+    is 
+    \begin{align*}
+        E(\lambda,f) = \{\vec v\in V:f(\vec v)=\lambda\vec v\}.
+    \end{align*}
+\end{definition}
+
+\begin{definition}
+    Let $R$ be a commutative ring and let $A\in\Mat(n; R)$ be a square matrix with entries in $R$.
+    The polynomial $\det(xI_n-A)\in R[x]$ is called the \emph{characteristic polynomial of the matrix 
+    $A$}. It is denoted $\chi_(x)$.
+\end{definition}
+
+\begin{theorem}[Notes 4.5.4]
+    Each endomorphism of a non-zero finite dimensional vector space over an algebraically closed field 
+    has an eigenvalue.
+\end{theorem}
+
+\begin{theorem}[Notes 4.5.8]
+    Let $F$ be a field and $A\in\Mat(n;F)$ a square matrix with entries in $F$. The eigenvalues of the 
+    linear mapping $A:F^n\to F^n$ are exactly the roots of the characteristic polynomial $\chi_A$. 
+\end{theorem}
+
+\begin{lemma}[Notes, Remark 4.5.9]
+    Let $A,B\in\Mat(n; R)$ be conjugate, i.e. there exists an invertible $P\in\Mat(n; R)$ such that 
+    $A=PB\inv P$. Then $\chi_A(x)=\chi_B(x)$.
+\end{lemma}
+
+\subsection{Cayley-Hamilton theorem}
+
+\begin{proposition}
+    Let $f:V\to V$ be an endomorphism of a finite dimensional $F$-vector space $V$. The following 
+    statements are equivalent:
+    \begin{enumerate}
+        \item The vector space $V$ hs an ordered basis $B=(\vec v_1,...,\vec v_n)$ such that the matrix 
+            $\repr{B}{f}{B}$ is upper triangular.
+        \item The characteristic polynomial $\chi_f(x)$ of $f$ decomposes into linear factors in $F[x]$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    An endomorphism $f:V\to V$ of an $F$-vector space $V$ is \emph{diagonalisable} if there exists 
+    a basis of $V$ consisting of eigenvectors of $f$.
+
+    A square matrix $A\in\Mat(n;F)$ is \emph{diagonalisable} if the corresponding linear mapping 
+    given by left multiplication by $A$ is.
+\end{definition}
+
+\begin{theorem}
+    A square matrix $A\in\Mat(n;F)$ is diagonalisable if and only if it is conjugate to a diagonal
+    matrix, i.e. there exists an invertible $P\in\Mat(n;F)$ such that 
+    $\inv PAP=\text{diag}(\lambda_1,...,\lambda_n)$.
+\end{theorem}
+
+\begin{lemma}[Notes 4.6.9]
+    Let $f:V\to V$ be an endomorphism of a vector space $V$ and let $\vec v_1,...,\vec v_n$ be 
+    eigenvectors of $f$ with pairwise different eigenvalues $\lambda_1,...,\lambda_n$. Then 
+    the vectors $\vec v_1,...,\vec v_n$ are linearly independent. 
+\end{lemma}
+
+\begin{theorem}[Cayley-Hamilton]
+    Let $A\in\Mat(n;R)$ be a square matrix with entries in a commutative ring $R$. Then evaluating the 
+    characteristic polynomial $\chi_A(x)\in R[x]$ at the matrix $A$ results in zero. 
+\end{theorem}
+
+\subsection{Markov matrices}
+
+\begin{definition}
+    A matrix $M$ whose entries are non-negative and such that the sum of the entries of each 
+    column equals $1$ is a \emph{Markov matrix}.
+\end{definition}
+
+\begin{lemma}[Notes 4.7.6]
+    Suppose that $M\in\Mat(n;\R)$ is a Markov matrix. Then $\lambda=1$ is an eigenvalue of $M$.
+\end{lemma}
+
+\begin{theorem}[Perron]
+    If $M\in\Mat(n;\R)$ is a Markov matrix all of whose entries are positive, then the eigenspace 
+    $E(1,M)$ is one dimensional. There exists a unique basis vector $\vec v\in E(1,M)$ all of whose 
+    entries are positive real numbers, $v_i>0$ for all $i$, and such that the sum of its entries is $1$,
+    $\sum_{i=1}^n v_i=1$. 
+\end{theorem}
+
 \end{document}
