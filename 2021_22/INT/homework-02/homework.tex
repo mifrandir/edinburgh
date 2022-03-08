@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\DeclareMathOperator{\diam}{diam}
+\begin{document}
+\title{Introduction to Number Theory: Homework 2}
+\author{Franz Miltz (UUN: S1971811)}
+\date{11 March 2022}
+\maketitle
+
+\begin{claim*}[1]
+   Let $p$ be prime such that $p=4k+3$ for some $k\in\N$. Let $0<j<p$ be an integer. Then 
+   there exists an integer $r$ such that either $p|j-r^2$ or $p|j+r^2$.
+   \begin{proof}
+      By contradiction. Assume, for all $r\in\Z$, $p$ divides neither $j-r^2$ nor $j+r^2$. 
+      Equivalently, 
+      \begin{align}
+         \label{assumption1}
+         \left(\frac{j}{p}\right)=\left(\frac{-j}{p}\right)=-1,
+      \end{align}
+      i.e. neither $j$ nor $-j$ are quadratic residues modulo $p$. Note that, since $p=4k+3$
+      for some $k$, 
+      \begin{align*}
+         \left(\frac{-1}{p}\right)=(-1)^{2k+1}=-1
+      \end{align*}
+      by \emph{Theorem 7} in the notes for lecture 11. However, using the multiplication rule,
+      (\ref{assumption1}) leads us to
+      \begin{align*}
+         \left(\frac{j}{p}\right) = \left(\frac{-j}{p}\right) 
+                                  = \left(\frac{-1}{p}\right)\left(\frac{j}{p}\right)
+                                  = -\left(\frac{j}{p}\right),
+      \end{align*}
+      a contradiction. The claim follows.
+   \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+   Let $p$ be a prime such that $p=4k+3$ for some $k\in\N$. Then there exist 
+   integers $0<x,y<p$ such that $x^2+y^2+1\equiv 0\mod p$.
+   \begin{proof}
+   \end{proof}
+\end{claim*}
+
+\end{document}
