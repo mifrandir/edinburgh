@@ -1,0 +1,102 @@
+\documentclass{article}
+
+
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\usepackage{extarrows}
+\usepackage{babel}
+\usepackage{tikz-cd}
+\tikzset{
+   commutative diagrams/.cd,
+   arrow style=tikz,
+   diagrams={>=latex}}
+\usetikzlibrary{babel}
+
+
+\begin{document}
+\mkawodeythms
+\title{Cartesian Closed Categories}
+\author{Franz Miltz}
+\maketitle
+\section{Introduction}
+
+In this little excursion we shall have a quick glance towards the beautiful mathematics that 
+one may find in the vast world of category theory. The point of all this is neither to be useful 
+nor to be particularly fleshed out, but instead to provide some food for thought to those who 
+are not content with the mundane lessons taught by university.
+
+\section{Categories}
+
+Unfortunately, even in this little fairy-tale, some house-keeping is required. One may not talk 
+about the wonders of category theory while the reader is yet to find out what a category actually is.
+So, let's get this over with. 
+
+\begin{definition}[Category]
+    A \emph{category} $\cat C$ consists of the following:
+    \begin{itemize}
+        \item $\cat C_0$, the class of \emph{objects}, and
+        \item $\cat C_1$, the class of \emph{arrows} or \emph{morphisms},
+    \end{itemize} 
+    such that 
+    \begin{itemize}
+        \item for each arrow $f\in\cat C_1$ there exist distinguished objects $\dom f,\cod f\in\cat C_0$
+            called the \emph{domain} and \emph{codomain} of $f$. We may write $f:A\to B$ to indicate
+            $\dom f=A$ and $\cod f=B$. Further,
+        \item for each pair of arrows $f:A\to B$ and $g:B\to C$, i.e. whenever $\cod f = \dom g$, there 
+            is given an arrow $g\circ f: A\to C$ called the \emph{composite} of $f$ and $g$ such that 
+            \begin{align*}
+                h \circ (g\circ f) = (h\circ g)\circ f
+            \end{align*}
+            for all $f:A\to B$, $g:B\to C$ and $h:C\to D$. Finally,
+        \item for each object $A\in\cat C$ there is given an arrow $1_A:A\to A$, the \emph{identity} of $A$,
+            such that 
+            \begin{align*}
+                f \circ 1_A = f = 1_B\circ f
+            \end{align*}
+            for all arrows $f:A\to B$.
+    \end{itemize}
+\end{definition}
+\paragraph{Remarks} we make in passing.
+\begin{itemize}
+    \item Neither objects nor arrows are restricted to sets. This is not a coincidence.
+    \item You may ask: `We have $\cat C_0$ and $\cat C_1$, why stop there? What about $\cat C_2$?' I like 
+        your thinking and so do the inventors of higher category theory.
+    \item You may want to think of categories as directed graphs where the vertices are objects and 
+        the edges are arrows.
+\end{itemize}
+
+\paragraph{Examples} are everywhere:
+\begin{itemize}
+    \item sets and functions,
+    \item groups and group homomorphisms,
+    \item vector spaces and linear mappings,
+    \item open subsets $U\subseteq\R$ and continuous functions defined on them.
+\end{itemize}
+The list goes on but we shall stop here for now. Though an interesting example is coming up.
+
+\section{Functors}
+
+\begin{definition}[Functor]
+    A \emph{functor} $F:\cat C\to\cat D$ between categories $\cat C$ and $\cat D$ is a mapping of 
+    objects to objects and arrows to arrows such that 
+    \begin{enumerate}
+        \item $F(f:A\to B)=F(f):F(A)\to F(B)$, 
+        \item $F(1_A)=1_{F(A)}$,
+        \item $F(g\circ f)=F(g)\circ F(f)$.
+    \end{enumerate}
+    In other words, a functor preserves domains, codomains, identities and composites.
+\end{definition}
+
+One may observe that functors are structure preserving maps that are very similar to homomorphism
+of other algebras (e.g. groups, rings, vector spaces, ...). In light of the examples given above, 
+this leads us to a very powerful idea: the category of categories and functors.
+
+\newcommand{\Cat}{\mathbf{Cat}}
+\begin{definition}
+    The category $\Cat$ has as objects small categories and as arrows functors between them.
+\end{definition}
+
+What is a small category? One where the classes of objects and arrows are in fact sets. We restrict 
+our attention to such small categories for now to avoid any possible complications.
+
+\end{document}
