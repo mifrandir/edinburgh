@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{homework-preamble}
+\usepackage{enumitem}
 \DeclareMathOperator{\diam}{diam}
 \begin{document}
 \title{Introduction to Number Theory: Homework 2}
@@ -19,9 +20,10 @@
       \end{align}
       i.e. neither $j$ nor $-j$ are quadratic residues modulo $p$. Note that, since $p=4k+3$
       for some $k$, 
-      \begin{align*}
+      \begin{align}
+         \label{minus_one}
          \left(\frac{-1}{p}\right)=(-1)^{2k+1}=-1
-      \end{align*}
+      \end{align}
       by \emph{Theorem 7} in the notes for lecture 11. However, using the multiplication rule,
       (\ref{assumption1}) leads us to
       \begin{align*}
@@ -37,6 +39,22 @@
    Let $p$ be a prime such that $p=4k+3$ for some $k\in\N$. Then there exist 
    integers $0<x,y<p$ such that $x^2+y^2+1\equiv 0\mod p$.
    \begin{proof}
+      Let $0<y<p$ and $j=1+y^2$. By the previous claim, there exists an $r$ such that 
+      $p|j-r^2$ or $p|j+r^2$. Observe, in either case, $r^2\not\equiv 0\mod p$. We distinguish the following cases:
+      \begin{enumerate}[label=C\arabic*.]
+         \item If for some $y$ there exists an $r$ such that $p|j+r^2$, we immediately find the 
+            solution $1+x^2+y^2\equiv 0\mod p$ where $0<x<p$ such that $x\equiv r\mod p$.
+         \item If for all $y$ there exists an $r$ such that $p|j-r^2$, we have $1+y^2\equiv r^2\mod p$.
+            Note that this implies there exists an $s$ such that $1+r^2\equiv s^2\mod p$. I.e.
+            \begin{align}
+               \label{induction}
+               \left(\frac{i}{p}\right)=1\hs\Longrightarrow\hs \left(\frac{i+1}{p}\right)=1.
+            \end{align}
+            Note $(1/p)=1$.  By applying (\ref{induction}) $p-2$ times starting with $i=1$, we find that 
+            all $1\leq x<p$ are quadratic residues modulo $p$. In particular, we find $p-1\equiv -1\mod p$
+            is a quadratic residue, directly contradicting (\ref{minus_one}).
+      \end{enumerate}
+      Since C2 leads to a contradiction, C1 must hold, thus proving the claim.
    \end{proof}
 \end{claim*}
 
