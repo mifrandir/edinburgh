@@ -44,9 +44,10 @@
     continuous functions defined on $[a,b]$, denoted $C([a,b])$, together with
     the usual operations of addition and scalar multiplication is a vector space.
     Further let $d:C([a,b])\times C([a,b])\to \R$ be given by
-    \begin{align*}
+    \begin{align}
+        \label{metric-cab}
         d(f,g)=\sup\{\abs{f(x)-g(x)}:x\in[a,b]\}.
-    \end{align*}
+    \end{align}
     Then $(C([a,b]),d)$ is a metric space.
 \end{lemma}
 
@@ -607,5 +608,98 @@ Let $(X,d)$ be a metric space.
     Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. Then $f$ is continuous iff 
     the inverse image $\inv f(G)$ of any open subset $G\subset Y$ is an open subset of $X$.
 \end{theorem}
+
+\section{Completeness}
+
+\subsection{Cauchy sequences}
+
+\begin{definition}
+    A sequence $(x_n)_{n\in\N}$ in a metric space $(X,d)$ is said to be a \emph{Cauchy sequence}
+    if, for every positive $\e$ there exists an index $N$, such that, for all indices $n,m$ with 
+    $n,m\geq N$,
+    \begin{align*}
+        d(x_n,x_m)<\e.
+    \end{align*}
+\end{definition}
+
+\begin{proposition}[Notes 7.2]
+    In a metric space, every convergent sequence is a Cauchy sequence. 
+\end{proposition}
+
+\subsection{Complete metric spaces}
+
+\begin{definition}
+    A metric space $(X,d)$ is said to be complete if every Cauchy sequence in $X$ converges to some 
+    $x\in X$.
+\end{definition}
+
+\begin{proposition}[Notes 7.5]
+    $\R^n$ with the Euclidean metric $d_2$ is a complete metric space. 
+\end{proposition}
+
+\begin{proposition}[Notes 7.6]
+    $C([a,b])$ with the supremum metric (\vref{metric-cab}) is complete.
+\end{proposition}
+
+\begin{proposition}[Notes 7.7]
+    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and let $C(X,Y)$ denote the set of all 
+    bounded continuous functions from $X$ to $X$. We define $D:C(X,Y)\times C(X,Y)\to\R$
+    by 
+    \begin{align*}
+        D(f,g)=\sup\{d_Y(f(x),g(x)):x\in X\}.
+    \end{align*}
+    Then $D$ is a metric. If $(Y,d_Y)$ is complete then $(C(X,Y),D)$ is complete.
+\end{proposition}
+
+\begin{proposition}[Notes 7.8]
+    The metric space $L^2$ is complete.
+\end{proposition}
+
+\begin{proposition}[Notes 7.10]
+    If $(X,d)$ is a complete metric space and $F$ is a closed subset of $X$, then 
+    the subspace $(F,d_F)$ is complete.
+\end{proposition}
+
+\begin{proposition}[Notes 7.11]
+    Let $(X,d)$ be a metric space and $F$ be a subset of $X$ such that the subspace $(F,d_F)$
+    is complete. Then $F$ is a closed subset of $X$.
+\end{proposition}
+
+\subsection{Completion of a metric space}
+
+\begin{definition}
+    A metric space $(X,d)$ is said to be bounded iff there exist  $c\in X$
+    and $r>0$ such that $X\subseteq B(c,r)$.
+\end{definition}
+
+\begin{proposition}[Notes 7.14]
+    Let $(X,d)$ be a bounded metric space. For each $x\in X$ we define the function 
+    $f_x:X\to\R$ by $f_x(t)=d(x,t)$. 
+    \begin{enumerate}
+        \item Each $f_x$ is a bounded continuous function.
+        \item For any $x,x'\in X$, \begin{align*}
+            \sup\{\abs{f_X(t)-f_{X'}(t)}:t\in X\}=d(x,x').
+        \end{align*}
+    \end{enumerate}
+\end{proposition}
+
+\begin{definition}
+    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\to Y$ is said to be 
+    an \emph{isometry} if, for all $x,x'\in X$,
+    \begin{align*}
+        d_Y(f(x),f(x')) = d_X(x,x').
+    \end{align*}
+    The metric spaces $(X,d_X)$ and $(Y,d_Y)$ are said to be \emph{isometric} 
+    if there exists an isometry from $X$ onto $Y$.
+\end{definition}
+
+\begin{corollary}
+    Every isometry is injective.
+\end{corollary}
+
+\begin{proposition}[Notes 7.16]
+    For every metric space $(X,d)$, there exists a complete metric space that has a dense subspace 
+    isometric to $X$.
+\end{proposition}
 
 \end{document}
