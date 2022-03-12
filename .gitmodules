@@ -52,3 +52,6 @@
 [submodule "2020_21/INF2-FDS/cw03"]
 	path = 2020_21/INF2-FDS/cw03
 	url = git@github.com:Inf2-FDS-2020-2021/final-project-indivisual-s1971811.git
+[submodule "2021_22/CT/cw2"]
+	path = 2021_22/CT/cw2
+	url = git@github.com:compiling-techniques/cw-2-semantic-analysis-MiltFra.git
