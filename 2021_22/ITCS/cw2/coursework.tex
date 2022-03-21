@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\usepackage{enumitem}
+\mkthms
+
+\title{Introduction to Theoretical Computer Science: Coursework 2}
+\author{}
+\begin{document}
+\maketitle
+\noindent The encoding of the register machine program $P$ as described in the lectures shall be denoted $\enc P$.
+We shall also say that an RM $M$ halts with value $y$ on input $x$ if, given $x$ in $R_0$, $M$ halts 
+with $y$ in $R_0$.
+\renewcommand{\N}{\mathbb{Z}_{\geq 0}}
+\section{Partial functions}
+\begin{claim*}[a, 1]
+    Let $\hat H:\N\times\N\rightharpoonup\N$ be the partial function given by 
+    \begin{align*}
+        \hat H(m,n)=\begin{cases}
+            0 &\text{if $m$ is not the code of any RM program $P$;}\\
+            1 &\text{if $m=\enc P$ for some $P$, and $P$ halts on input $n$;}\\
+            \bot & \text{otherwise}.
+        \end{cases}
+    \end{align*}
+    Then $\hat H$ is computable.
+    \begin{proof}
+        As mentioned in (b), it is easily decidable whether a number $n$ is the code $\enc P$ of a 
+        machine. Further, as used in the proof of \emph{Theorem I.26} of the notes, it is possible 
+        to use the encoding $\enc M$ of an RM $M$ to simulate a single step of the computation and decide whether 
+        $M$ has halted. Combining these, we construct an RM using the following algorithm to compute 
+        $\hat H(m,n)$:
+        \begin{enumerate}
+            \item Decide wether $m$ is an encoding of some $P$. If not, return $0$.
+            \item Encode $\enc M=\lra{m, \lra{n, \lra{}}, 0}$ and store the result in $R_0$.
+            \item While the encoding in $R_0$ is not in a halting state, simulate another step and store the result in $R_0$.
+            \item Return $1$.
+        \end{enumerate}
+        Observe that, if $P$ halts on input $n$, the algorithm above will indeed return $1$. Trivially,
+        if there is no $P$ with encoding $m$, then the algorithm returns $0$.
+        Appealing to the \emph{Church-Turing thesis} and the computabilitiy of the functions involved, 
+        we conclude that there exists a machine that computes the partial function $\hat H$.
+    \end{proof}
+\end{claim*}
+
+\begin{claim*}[a, 2]
+    Let $f:\N\rightharpoonup\N$ be a computable partial function. Then it is undecidable whether $f$ 
+    is total. 
+    \begin{proof}
+        Let $\enc M$ be a register machine state encoding.  Note that the partial function $H_M:\N\to\N$
+        given by $\hat H_M(n)=H(\enc M, n)$ is computable.
+
+        Assume that there exists an RM $I$ that decides whether, given a suitable encoding, a partial
+        function $f:\N\to\N$ is total. Then we may construct an RM $H$ which takes as input an encoding 
+        of a register machine state $\enc M$, encodes the function $\hat H_M$, and runs $I$ on the result.
+        Clearly, $H$ halts in all cases and returns `1' iff $M$ halts on all inputs. In other words,
+        $UH$ decides the uniform halting problem; contradiction.
+    \end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+    The partial function $d:\N\rightharpoonup\N$ given by 
+    \begin{align*}
+        d(n)=\begin{cases}
+            P_n(n)+1 &\text{if $P_n$ returns a result on input $n$;}\\
+            \bot &\text{otherwise,}
+        \end{cases}
+    \end{align*} 
+    where $(P_k)_{k\in\N}$ is the sequence of all register machines, is 
+    computable.
+    \begin{proof}
+        We construct the following machine $M$:
+        \begin{enumerate}
+            \item Given input $n$, compute $\hat H(P_n,n)$.
+            \item Simulate $P_n$ until termination and store the result in $R_0$.
+            \item Increment $R_0$ and halt.
+        \end{enumerate}
+        Clearly, all steps of this computation are possible. In particular, $M$ doesn't halt 
+        if $\hat H(P_n,n)=\bot$ which implies $d(n)=\bot$. This is consistent. Thus $M$ 
+        computes the partial function $d$.
+        
+        \emph{It is worth mentioning that an implicit consequence of the above is $d(k)=\bot$
+        whenever $P_k$ computes $d$.}
+    \end{proof}
+\end{claim*}
+
+\begin{claim*}
+    Let $f:\N\to\N$ be a total function such that $f(n)=d(n)$ for all $n\in\N$ where 
+    $d(n)\not=\bot$. Then $f$ is not computable.
+    \begin{proof}
+        Assume there exists an RM $M$ that computes $f$. Then there exists $k\in\N$ such that 
+        $P_k$ computes $f$. Since $f$ is total, $P_k$ returns $f(k)$ on input $k$. However,
+        then $d(k)=f(k)+1$. This contradicts the premise that $f(k)=d(k)$ whenever $P_k$ terminates 
+        on input $k$.
+    \end{proof}
+\end{claim*}
+\end{document}
