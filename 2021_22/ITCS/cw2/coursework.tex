@@ -286,7 +286,31 @@ with $y$ in $R_0$.
 \begin{claim*}
 	INDSET is NP-complete.
 	\begin{proof}
+		Let $G=(V,E)$ be a graph. We shall denote by $G^c$ the graph that has an edge $(u,v)$ iff $(u,v)\not\in E$.
+		I.e. $G^c=(V, V\times V\setminus E)$. Consider a set of vertices $X\subseteq V$. Then $X$ is an 
+		independent set in $G$ iff, for all distinct $u,v\in X$, $(u,v)\not\in E$. By construction, this is equivalent to 
+		the condition that, for all distinct $u,v\in X$, $(u,v)\in E$.
 
+		In other words, $X$ is an independent set in $G$ iff it is a clique in $G^c$. Therefore solving 
+		INDSET on $(G, k)$ is equivalent to solving CLIQUE on $(G^c, k)$.
+
+		We observe $(G^c)^c=G$. Reducing CLIQUE to INDSET and vice versa is therefore the same as converting 
+		a graph to its complement. This can be done in polynomial time. To see this, one may assume that 
+		$E$ is represented as a flattened adjacency matrix with $\abs V^2$ entries. In this case the
+		conversion is the same as flipping each bit in the representation of $E$ and copying the rest.
+		Na\"ively, this may be done by extracting each bit, fliping it, and inserting it into the new 
+		matrix. This completes the task in $\abs V^2$ polynomial time steps, and therefore in polynomial time 
+		overall.
+
+		We have shown
+		\begin{align}
+			\text{INDSET} \leq_p \text{CLIQUE}
+		\end{align}
+		and 
+		\begin{align}
+			\text{INDSET} \geq_p \text{CLIQUE}.
+		\end{align}
+		As CLIQUE is NP-complete, so is INDSET.
 	\end{proof}
 \end{claim*}
 
