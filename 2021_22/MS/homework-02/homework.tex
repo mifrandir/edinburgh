@@ -8,108 +8,108 @@
 \maketitle
 
 \begin{claim*}[1a]
-   Let $X=\R$ and $d$ the standard metric. Then $\dist(\sqrt 2, \Q)=0$.
-   \begin{proof}
-      Note, for all $x,y\in X$, $d(x,y) \geq 0$ so $0$ is a lower bound for the set 
-      \begin{align*}
-         S=\{d(\sqrt 2,x):x\in\Q\}.
-      \end{align*}
-      Assume $m=\inf S>0$. As a corollary of the \emph{Archimedean property}, we know that 
-      there must exist $x\in\Q$ such that $\sqrt 2 < x < \sqrt{2}+m$. 
-      However, now 
-      \begin{align*}
-         d(\sqrt 2, x) = \abs{\sqrt 2 - x} = x - \sqrt{2} < m.
-      \end{align*}
-      Thus $m$ is not a lower bound of $S$, contradicting our assumption. The claim follows.
-   \end{proof}
+	Let $X=\R$ and $d$ the standard metric. Then $\dist(\sqrt 2, \Q)=0$.
+	\begin{proof}
+		Note, for all $x,y\in X$, $d(x,y) \geq 0$ so $0$ is a lower bound for the set
+		\begin{align*}
+			S=\{d(\sqrt 2,x):x\in\Q\}.
+		\end{align*}
+		Assume $m=\inf S>0$. As a corollary of the \emph{Archimedean property}, we know that
+		there must exist $x\in\Q$ such that $\sqrt 2 < x < \sqrt{2}+m$.
+		However, now
+		\begin{align*}
+			d(\sqrt 2, x) = \abs{\sqrt 2 - x} = x - \sqrt{2} < m.
+		\end{align*}
+		Thus $m$ is not a lower bound of $S$, contradicting our assumption. The claim follows.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[1b]
-   Let $X=\R$ and $d$ the discrete metric. Then $\dist(\sqrt 2, \Q)=1$.
-   \begin{proof}
-      Note $d(x,y)\not=1$ if and only if $x=y$ by definition of $d$. However,
-      $x\not=\sqrt{2}$, for all $x\in\Q$. Thus 
-      \begin{align*}
-         \dist(\sqrt 2,\Q) = \inf\left\lbrace d(\sqrt 2, x) : x\in\Q\right\rbrace = \inf\{1\} = 1.
-      \end{align*}
-   \end{proof}
+	Let $X=\R$ and $d$ the discrete metric. Then $\dist(\sqrt 2, \Q)=1$.
+	\begin{proof}
+		Note $d(x,y)\not=1$ if and only if $x=y$ by definition of $d$. However,
+		$x\not=\sqrt{2}$, for all $x\in\Q$. Thus
+		\begin{align*}
+			\dist(\sqrt 2,\Q) = \inf\left\lbrace d(\sqrt 2, x) : x\in\Q\right\rbrace = \inf\{1\} = 1.
+		\end{align*}
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2]
-   Let $X=\R$ and $d$ the standard metric. Then, for all $x\in\Q$, $d(\sqrt 2, x)\not=\dist(\sqrt 2, \Q)$.
-   \begin{proof}
-      Note $\dist(\sqrt 2, \Q)=0$ as proven above. Further, $d(\sqrt 2, x)=0$ if and only if 
-      $x=\sqrt 2$. Since $\sqrt 2\not\in\Q$ the claim follows.
-   \end{proof}
+	Let $X=\R$ and $d$ the standard metric. Then, for all $x\in\Q$, $d(\sqrt 2, x)\not=\dist(\sqrt 2, \Q)$.
+	\begin{proof}
+		Note $\dist(\sqrt 2, \Q)=0$ as proven above. Further, $d(\sqrt 2, x)=0$ if and only if
+		$x=\sqrt 2$. Since $\sqrt 2\not\in\Q$ the claim follows.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2]
-   Let $X=\R$ and $d$ the discrete metric. Then there exists $x\in\Q$ such that 
-   $d(\sqrt 2, x) = \dist(\sqrt 2, \Q)$.
-   \begin{proof}
-      Note $\dist(\sqrt 2, \Q)=1$ as proven above. Let $x=1$. Then $d(\sqrt 2, x)=1=\dist(\sqrt 2, \Q)$. 
-   \end{proof}
+	Let $X=\R$ and $d$ the discrete metric. Then there exists $x\in\Q$ such that
+	$d(\sqrt 2, x) = \dist(\sqrt 2, \Q)$.
+	\begin{proof}
+		Note $\dist(\sqrt 2, \Q)=1$ as proven above. Let $x=1$. Then $d(\sqrt 2, x)=1=\dist(\sqrt 2, \Q)$.
+	\end{proof}
 \end{claim*}
 
 \begin{lemma*}
-   Let $(X,d)$ be a metric space, $x\in X$ and $A\subseteq X$ non-empty. Then there exists a sequence 
-   $(a_n\in A)_{n\in\N}$ such that $d(x,a_n)\to\dist(x,A)$ as $n\to\infty$.
-   \begin{proof}
-      Let $m=\dist(x,A)$ and
-      \begin{align*}
-         S=\left\lbrace d(x,a):a\in A\right\rbrace.
-      \end{align*}
-      By the approximation property of infima, for all $n$, there exists $d_n\in S$
-      such that $m\leq d_n\leq m+1/n$. For each $d_n\in S$ there must exist $a_n\in A$ 
-      such that $d_n=d(x,a_n)$. By the \emph{Squeeze Theorem}, $d(x,a_n)\to m$ as 
-      $n\to\infty$.
-   \end{proof}
+	Let $(X,d)$ be a metric space, $x\in X$ and $A\subseteq X$ non-empty. Then there exists a sequence
+	$(a_n\in A)_{n\in\N}$ such that $d(x,a_n)\to\dist(x,A)$ as $n\to\infty$.
+	\begin{proof}
+		Let $m=\dist(x,A)$ and
+		\begin{align*}
+			S=\left\lbrace d(x,a):a\in A\right\rbrace.
+		\end{align*}
+		By the approximation property of infima, for all $n$, there exists $d_n\in S$
+		such that $m\leq d_n\leq m+1/n$. For each $d_n\in S$ there must exist $a_n\in A$
+		such that $d_n=d(x,a_n)$. By the \emph{Squeeze Theorem}, $d(x,a_n)\to m$ as
+		$n\to\infty$.
+	\end{proof}
 \end{lemma*}
 
 \begin{claim*}[3]
-   Let $X=\R$, $d$ be the standard metric, $x\in X$ and $K\subseteq X$ be non-empty and compact. 
-   Then there exists $y\in X$ such that $\dist(x,K)=d(x,y)$.
-   \begin{proof}
-      Let $m=\dist(x,K)$ and
-      \begin{align*}
-         S=\{d(x,y):y\in K\}.
-      \end{align*}
-      Using the above lemma, we fix a sequence $(y_n\in K)_{n\in\N}$ such that 
-      $d(x,y_n)\to m$.
-      Because $K$ is compact, there exists a subsequence $(y_{n_k})_{k\in\N}$ of $(y_n)_{n\in\N}$ such that 
-      $y_{n_k} \to y\in K$ as $k\to\infty$. By continuity of the function given by $z\mapsto\abs{x-z}$,
-      we find $\abs{x-y_{n_k}}\to\abs{x-y}=d(x,y)$. However, $\abs{x-y_{n_k}}=d(x,y_{n_k})\to m$. By uniqueness of the 
-      limit, we have 
-      \begin{align*}
-         d(x,y)=\abs{x-y}=m=\dist(x,K).
-      \end{align*}
-   \end{proof}
+	Let $X=\R$, $d$ be the standard metric, $x\in X$ and $K\subseteq X$ be non-empty and compact.
+	Then there exists $y\in X$ such that $\dist(x,K)=d(x,y)$.
+	\begin{proof}
+		Let $m=\dist(x,K)$ and
+		\begin{align*}
+			S=\{d(x,y):y\in K\}.
+		\end{align*}
+		Using the above lemma, we fix a sequence $(y_n\in K)_{n\in\N}$ such that
+		$d(x,y_n)\to m$.
+		Because $K$ is compact, there exists a subsequence $(y_{n_k})_{k\in\N}$ of $(y_n)_{n\in\N}$ such that
+		$y_{n_k} \to y\in K$ as $k\to\infty$. By continuity of the function given by $z\mapsto\abs{x-z}$,
+		we find $\abs{x-y_{n_k}}\to\abs{x-y}=d(x,y)$. However, $\abs{x-y_{n_k}}=d(x,y_{n_k})\to m$. By uniqueness of the
+		limit, we have
+		\begin{align*}
+			d(x,y)=\abs{x-y}=m=\dist(x,K).
+		\end{align*}
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[4]
-   Let $(X,d)$ be a metric space and $A\subseteq X$ non-empty. Then, for all $x,y\in X$, 
-   \begin{align*}
-      \dist(y,A)\leq d(y,x)+\dist(x,A).
-   \end{align*}
-   \begin{proof}
-      Fix $x,y\in X$.
-      We use the above lemma to fix $(z_n\in A)_{n\in\N}$ such that $d(x,z_n)\to\dist(x,A)$.
-      Secondly, we observe $\dist(y,A)\leq d(y,z_n)$ for all $n$. Thus 
-      by \emph{Notes, Proposition 0.50}
-      \begin{align*}
-         \dist(y,A)\leq\lim_{n\to\infty} d(y,z_n). 
-      \end{align*}
-      Similarly, 
-      \begin{align*}
-         d(y,z_n) \leq d(y,x) + d(x,z_n)
-      \end{align*}
-      by definition of a metric space so 
-      \begin{align*}
-         \dist(y,A)  \leq\lim_{n\to\infty} d(y,z_n) 
-                     \leq \lim_{n\to\infty}\left(d(y,x)+d(x,z_n)\right)
-                     =d(y,z)+\dist(x,A).
-      \end{align*}
-   \end{proof}
+	Let $(X,d)$ be a metric space and $A\subseteq X$ non-empty. Then, for all $x,y\in X$,
+	\begin{align*}
+		\dist(y,A)\leq d(y,x)+\dist(x,A).
+	\end{align*}
+	\begin{proof}
+		Fix $x,y\in X$.
+		We use the above lemma to fix $(z_n\in A)_{n\in\N}$ such that $d(x,z_n)\to\dist(x,A)$.
+		Secondly, we observe $\dist(y,A)\leq d(y,z_n)$ for all $n$. Thus
+		by \emph{Notes, Proposition 0.50}
+		\begin{align*}
+			\dist(y,A)\leq\lim_{n\to\infty} d(y,z_n).
+		\end{align*}
+		Similarly,
+		\begin{align*}
+			d(y,z_n) \leq d(y,x) + d(x,z_n)
+		\end{align*}
+		by definition of a metric space so
+		\begin{align*}
+			\dist(y,A)  \leq\lim_{n\to\infty} d(y,z_n)
+			\leq \lim_{n\to\infty}\left(d(y,x)+d(x,z_n)\right)
+			=d(y,z)+\dist(x,A).
+		\end{align*}
+	\end{proof}
 \end{claim*}
 
 \end{document}

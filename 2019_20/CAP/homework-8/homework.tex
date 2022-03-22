@@ -8,30 +8,30 @@
 \section*{Question 1}
 At first, note that the crossection at height $y$ is
 \begin{align*}
-  A(y) = \pi r^2(y)
+	A(y) = \pi r^2(y)
 \end{align*}
 where $r(y)$ is the radius of a crossection at height $y$.
 We can calculate this radius by letting the center of the sphere be at $(0, R)$ where $R$ is the radius of the entire sphere.
 Then we get that $r^2$ is
 \begin{align*}
-  r^2(y) = R^2-(R-y)^2 = y(2R-y)
+	r^2(y) = R^2-(R-y)^2 = y(2R-y)
 \end{align*}
 and thus we can get $A$ as
 \begin{align*}
-  A(y) = \pi y(2R-y).
+	A(y) = \pi y(2R-y).
 \end{align*}
 To calculate the volume, we may now evaluate the following integral over the desired height $h$:
 \begin{align*}
-  V(h)=\int_0^h A(y)\:dy=\pi\left(2R\int_0^h y\:dy - \int_0^h y^2\:dy\right).
+	V(h)=\int_0^h A(y)\:dy=\pi\left(2R\int_0^h y\:dy - \int_0^h y^2\:dy\right).
 \end{align*}
 In general, this gives us
 \begin{align*}
-  V(h)=\pi(Rh^2-\frac{1}{3}h^3).
+	V(h)=\pi(Rh^2-\frac{1}{3}h^3).
 \end{align*}
 If we let $h=2R$, this gives $V(2R)=\frac{4}{3}\pi R^3$, which is the familiar formula for the volume of a sphere.
 To answer the question we can let $R=5$ and $h=8$ to get
 \begin{align*}
-  V(8)=\pi(5\cdot 64-\frac{1}{3}\cdot 512) = \frac{448}{3}\pi\approx 469.145.
+	V(8)=\pi(5\cdot 64-\frac{1}{3}\cdot 512) = \frac{448}{3}\pi\approx 469.145.
 \end{align*}
 Therefore the volume of the part of the sphere that is submerged in water is approximately $469.15\:cm^3$.
 \section*{Question 2}
@@ -43,44 +43,44 @@ Therefore the curve is continuous in said intervall.\\
 Since for $x\in(-\frac{\pi}{2}, \frac{\pi}{2})$, $\sec(x)=e^0=1\Leftrightarrow x=0$, the only point of the curve on the $x$-axis is at $x=0$.
 Observe that
 \begin{align*}
-  \sec(x)=\sec(-x)
+	\sec(x)=\sec(-x)
 \end{align*}
 which means the curve has to be symmetric to the $x$-axis. Also note that
 \begin{align*}
-  \lim_{x\to -\frac{\pi}{2}^+} \sec(x) = \lim_{x\to \frac{\pi}{2}^-} \sec(x) = \infty.
+	\lim_{x\to -\frac{\pi}{2}^+} \sec(x) = \lim_{x\to \frac{\pi}{2}^-} \sec(x) = \infty.
 \end{align*}
 Therefore the curve has to be asymptotic towards $\pm\frac{\pi}{2}$. Let's find the derivative. To do this, we differentiate both sides to get
 \begin{align*}
-  e^ydy = \sin(x)\sec^2(x)dx.
+	e^ydy = \sin(x)\sec^2(x)dx.
 \end{align*}
 Rearranging gives
 \begin{align*}
-  \frac{dy}{dx}=\frac{\sin(x)\sec^2(x)}{e^y}.
+	\frac{dy}{dx}=\frac{\sin(x)\sec^2(x)}{e^y}.
 \end{align*}
 Since we know $e^y=\sec(x)$, we get
 \begin{align*}
-  \frac{dy}{dx}=\sin(x)\sec(x)=\tan(x).
+	\frac{dy}{dx}=\sin(x)\sec(x)=\tan(x).
 \end{align*}
 We know that for $x\in(-\frac{\pi}{2}, \frac{\pi}{2})$, $\tan(x)=0\Leftrightarrow x = 0$. Additionally, since
 \begin{align*}
-  \frac{d^2y}{dx^2}=\sec^2(x)
+	\frac{d^2y}{dx^2}=\sec^2(x)
 \end{align*}
 we know that the curve does not have an inflection point in the given interval and due to the asymptotes we can infer that it has to be concave upwards, too. You can find the resulting sketch at the end of this document.
 \subsection*{Arc length}
 The arc length formula on an intervall $(a,b)$ is given by
 \begin{align*}
-  L=\int_a^b \sqrt{1+\left(\frac{dy}{dx}\right)^2}dx.
+	L=\int_a^b \sqrt{1+\left(\frac{dy}{dx}\right)^2}dx.
 \end{align*}
 With the derivative being $\tan(x)$, we get
 \begin{align*}
-  L=\int_a^b \sqrt{1+\tan^2(x)}\:dx=\int_a^b \sec(x)\:dx=\left[\ln\left|\sec x + \tan x\right|\right]_a^b.
+	L=\int_a^b \sqrt{1+\tan^2(x)}\:dx=\int_a^b \sec(x)\:dx=\left[\ln\left|\sec x + \tan x\right|\right]_a^b.
 \end{align*}
 Plugging in $a=-b$ and using the symmetry we get
 \begin{align*}
-  L=2\ln\left|\sec b + \tan b\right|.
+	L=2\ln\left|\sec b + \tan b\right|.
 \end{align*}
 With $b=\frac{\pi}{4}$ we can calculate the final arc length to be
 \begin{align*}
-  L = 2\ln\left|\sqrt{2}+1\right|\approx 1.76.
+	L = 2\ln\left|\sqrt{2}+1\right|\approx 1.76.
 \end{align*}
 \end{document}

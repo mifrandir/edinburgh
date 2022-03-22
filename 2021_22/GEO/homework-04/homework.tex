@@ -8,123 +8,123 @@
 \maketitle
 \noindent Let $D=\{u,v,z\in\R : u,v\not=0\}$ and let $\vec x:D\to\E^3$ be such that
 \begin{align*}
-   \vec x(u,v,z) = \begin{pmatrix}
-      uv \\ \frac{1}{2}(v^2 - u^2) \\ z
-   \end{pmatrix}
+	\vec x(u,v,z) = \begin{pmatrix}
+		                uv \\ \frac{1}{2}(v^2 - u^2) \\ z
+	                \end{pmatrix}
 \end{align*}
 
 \section*{Question 1}
 
 \begin{claim*}
-   \begin{align}
-      \label{dx}
-      d\vec x = \sqrt{u^2 + v^2}du\vec e_1
-      + \sqrt{u^2 + v^2}dv \vec e_2
-      + dz\vec e_3
-   \end{align}
-   where
-   \begin{align*}
-      \vec e_1 = \frac{1}{\sqrt{u^2 + v^2}}\begin{pmatrix}
-         v \\ -u \\ 0
-      \end{pmatrix} , \hs
-      \vec e_2 = \frac{1}{\sqrt{u^2 + v^2}}\begin{pmatrix}
-         u \\ v \\ 0
-      \end{pmatrix}, \hs
-      \vec e_3 = \begin{pmatrix}
-         0 \\ 0 \\ 1
-      \end{pmatrix}
-   \end{align*}
-   are a moving frame on $D$.
+	\begin{align}
+		\label{dx}
+		d\vec x = \sqrt{u^2 + v^2}du\vec e_1
+		+ \sqrt{u^2 + v^2}dv \vec e_2
+		+ dz\vec e_3
+	\end{align}
+	where
+	\begin{align*}
+		\vec e_1 = \frac{1}{\sqrt{u^2 + v^2}}\begin{pmatrix}
+			                                     v \\ -u \\ 0
+		                                     \end{pmatrix} , \hs
+		\vec e_2 = \frac{1}{\sqrt{u^2 + v^2}}\begin{pmatrix}
+			                                     u \\ v \\ 0
+		                                     \end{pmatrix}, \hs
+		\vec e_3 = \begin{pmatrix}
+			           0 \\ 0 \\ 1
+		           \end{pmatrix}
+	\end{align*}
+	are a moving frame on $D$.
 \end{claim*}
 \begin{proof}
-   Firstly, we calculate
-   \begin{align*}
-      d\vec x = \begin{pmatrix}
-         v du + u dv  \\
-         -u du + v dv \\
-         dz
-      \end{pmatrix}.
-   \end{align*}
-   It's straightforward to verify algebraically that (\ref{dx}) holds. Secondly,
-   we note that $u,v\not=0$ and therefore that the $\vec e_i$ are well-defined on $D$
-   and smooth. Lastly, we observe that
-   \begin{align}
-      \vec e_i \cdot \vec e_j = \delta_i^j,
-   \end{align}
-   making $\{\vec e_1, \vec e_2, \vec e_3\}$ a moving frame.
+	Firstly, we calculate
+	\begin{align*}
+		d\vec x = \begin{pmatrix}
+			          v du + u dv  \\
+			          -u du + v dv \\
+			          dz
+		          \end{pmatrix}.
+	\end{align*}
+	It's straightforward to verify algebraically that (\ref{dx}) holds. Secondly,
+	we note that $u,v\not=0$ and therefore that the $\vec e_i$ are well-defined on $D$
+	and smooth. Lastly, we observe that
+	\begin{align}
+		\vec e_i \cdot \vec e_j = \delta_i^j,
+	\end{align}
+	making $\{\vec e_1, \vec e_2, \vec e_3\}$ a moving frame.
 \end{proof}
 
 \section*{Question 2}
 
 \begin{claim*}
-   The connection 1-forms are
-   \begin{align*}
-      \omega_2^1 = \frac{vdu - udv}{u^2 + v^2},\hs
-      \omega_3^1 = \omega_3^2 = 0.
-   \end{align*}
+	The connection 1-forms are
+	\begin{align*}
+		\omega_2^1 = \frac{vdu - udv}{u^2 + v^2},\hs
+		\omega_3^1 = \omega_3^2 = 0.
+	\end{align*}
 \end{claim*}
 \begin{proof}
-   We begin by computing
-   \begin{align*}
-      d\vec e_2 = \frac{1}{(u^2+v^2)^{3/2}}\begin{pmatrix}
-         v^2du - uvdv   \\
-         - uvdu + u^2dv \\
-         0
-      \end{pmatrix}.
-   \end{align*}
-   This lets us determine
-   \begin{align*}
-      \omega_2^1 = \vec e_1 \cdot d\vec e_2 = \frac{vdu - udv}{u^2 + v^2}.
-   \end{align*}
-   Finally, we note that $d\vec e_3 = \vec 0$ and thus
-   \begin{align}
-      \label{omega0}
-      \omega_3^1 = \vec e_1 \cdot d\vec e_3=0, \hs \omega_3^2 = \vec e_2 \cdot d\vec e_3=0.
-   \end{align}
+	We begin by computing
+	\begin{align*}
+		d\vec e_2 = \frac{1}{(u^2+v^2)^{3/2}}\begin{pmatrix}
+			                                     v^2du - uvdv   \\
+			                                     - uvdu + u^2dv \\
+			                                     0
+		                                     \end{pmatrix}.
+	\end{align*}
+	This lets us determine
+	\begin{align*}
+		\omega_2^1 = \vec e_1 \cdot d\vec e_2 = \frac{vdu - udv}{u^2 + v^2}.
+	\end{align*}
+	Finally, we note that $d\vec e_3 = \vec 0$ and thus
+	\begin{align}
+		\label{omega0}
+		\omega_3^1 = \vec e_1 \cdot d\vec e_3=0, \hs \omega_3^2 = \vec e_2 \cdot d\vec e_3=0.
+	\end{align}
 \end{proof}
 
 \begin{claim*}
-   The structure equations,
-   \begin{align}
-      \label{se1}
-      d\theta^1 + \omega_2^1 \wedge \theta^2 = 0,              \\
-      \label{se2}
-      d\theta^2 + \omega_1^2 \wedge \theta^1 = 0,              \\
-      \label{se3}
-      \omega_1^3\wedge\theta^1 + \omega_2^3\wedge\theta^2 = 0, \\
-      \label{se4}
-      d\omega_2^1+\omega_3^1 \wedge\omega_2^3 = 0,             \\
-      \label{se5}
-      d\omega_3^1 + \omega_2^1 \wedge \omega_3^2 = 0,          \\
-      \label{se6}
-      d\omega_3^2 + \omega_1^2 \wedge \omega_3^1 = 0,
-   \end{align}
-   are satisfied.
+	The structure equations,
+	\begin{align}
+		\label{se1}
+		d\theta^1 + \omega_2^1 \wedge \theta^2 = 0,              \\
+		\label{se2}
+		d\theta^2 + \omega_1^2 \wedge \theta^1 = 0,              \\
+		\label{se3}
+		\omega_1^3\wedge\theta^1 + \omega_2^3\wedge\theta^2 = 0, \\
+		\label{se4}
+		d\omega_2^1+\omega_3^1 \wedge\omega_2^3 = 0,             \\
+		\label{se5}
+		d\omega_3^1 + \omega_2^1 \wedge \omega_3^2 = 0,          \\
+		\label{se6}
+		d\omega_3^2 + \omega_1^2 \wedge \omega_3^1 = 0,
+	\end{align}
+	are satisfied.
 \end{claim*}
 \begin{proof}
-   Consider (\ref{se1}). We compute
-   \begin{align*}
-      d\theta^1 = \frac{v}{\sqrt{u^2+v^2}}dv\wedge du,\hs
-      \omega_2^1 \wedge \theta^2 = \frac{v}{\sqrt{u^2+v^2}}du\wedge dv.
-   \end{align*}
-   Since $dv\wedge du = - du \wedge dv$, the equation holds.
-   Consider (\ref{se2}). We compute
-   \begin{align*}
-      d\theta^2 = \frac{u}{\sqrt{u^2+v^2}}du\wedge dv, \hs
-      \omega_1^2 \wedge \theta^1 = - \frac{u}{\sqrt{u^2 + v^2}}du\wedge dv
-   \end{align*}
-   where we used $\omega_1^2 = - \omega_2^1$. The equation clearly holds.
-   Now we observe that (\ref{se3}), (\ref{se5}) and (\ref{se6}) depend on
-   $\omega_3^2=\omega_3^1=0$ in such a way that they are trivially satisfied.
-   Further, (\ref{se4}) simplifies to
-   \begin{align*}
-      d\omega_2^1 = 0.
-   \end{align*}
-   We calculate
-   \begin{align*}
-      d\omega_2^1 = \frac{u^2-v^2}{u^2+v^2}dv\wedge du + \frac{u^2-v^2}{u^2+v^2}du\wedge dv.
-   \end{align*}
-   Again, by $dv\wedge du = - du \wedge dv$ this clearly holds.
+	Consider (\ref{se1}). We compute
+	\begin{align*}
+		d\theta^1 = \frac{v}{\sqrt{u^2+v^2}}dv\wedge du,\hs
+		\omega_2^1 \wedge \theta^2 = \frac{v}{\sqrt{u^2+v^2}}du\wedge dv.
+	\end{align*}
+	Since $dv\wedge du = - du \wedge dv$, the equation holds.
+	Consider (\ref{se2}). We compute
+	\begin{align*}
+		d\theta^2 = \frac{u}{\sqrt{u^2+v^2}}du\wedge dv, \hs
+		\omega_1^2 \wedge \theta^1 = - \frac{u}{\sqrt{u^2 + v^2}}du\wedge dv
+	\end{align*}
+	where we used $\omega_1^2 = - \omega_2^1$. The equation clearly holds.
+	Now we observe that (\ref{se3}), (\ref{se5}) and (\ref{se6}) depend on
+	$\omega_3^2=\omega_3^1=0$ in such a way that they are trivially satisfied.
+	Further, (\ref{se4}) simplifies to
+	\begin{align*}
+		d\omega_2^1 = 0.
+	\end{align*}
+	We calculate
+	\begin{align*}
+		d\omega_2^1 = \frac{u^2-v^2}{u^2+v^2}dv\wedge du + \frac{u^2-v^2}{u^2+v^2}du\wedge dv.
+	\end{align*}
+	Again, by $dv\wedge du = - du \wedge dv$ this clearly holds.
 \end{proof}
 
 \end{document}

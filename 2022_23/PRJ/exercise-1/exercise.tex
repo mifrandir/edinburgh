@@ -5,78 +5,78 @@
 \begin{document}
 
 \begin{claim*}
-   The category of sets and functions $\cat{Set}$ has all small colimits.
-   In particular, for every small category $\cat J$ and every diagram
-   \begin{align*}
-      \cat D : \cat J \to \cat{Set}
-   \end{align*}
-   there exists a cone $(C, (c_j)_{j\in\cat J})$ where $C,c_j\in\cat{Set}$
-   that is an initial element in the category of cones $\cat{Cone}(\cat D)$.
+	The category of sets and functions $\cat{Set}$ has all small colimits.
+	In particular, for every small category $\cat J$ and every diagram
+	\begin{align*}
+		\cat D : \cat J \to \cat{Set}
+	\end{align*}
+	there exists a cone $(C, (c_j)_{j\in\cat J})$ where $C,c_j\in\cat{Set}$
+	that is an initial element in the category of cones $\cat{Cone}(\cat D)$.
 \end{claim*}
 
 \begin{proof}
-   Consider the following coproduct:
-   \begin{align*}
-      S = \coprod_{j\in\cat J_0} \cat D(j).
-   \end{align*}
-   This is the disjoint union of all the representations of the objects in $\cat J$
-   in $\cat{Set}$. Observe that this can be constructed as follows:
-   \begin{align*}
-      S = \bigcup_{j\in\cat J_0}\{(j, d) : d \in \cat D(j)\}.
-   \end{align*}
-   Therefore
-   \begin{align*}
-      S \subseteq \cat J_0 \times \bigcup_{j\in J_0} \cat D(j).
-   \end{align*}
-   which implies $S$ is a set and thereby an object in $\cat{Set}$.
-   Now define a relation $\sim$ on $S$
-   such that $(i,a)\sim (j,b)$ if and only if
-   \begin{enumerate}[label=R\arabic*.]
-      \item there exists and arrow $\alpha:i\to j\in\cat J$ such that $\cat D(\alpha): a \mapsto b$, or
-      \item there exists and arrow $\alpha:j\to i\in\cat J$ such that $\cat D(\alpha): b \mapsto a$.
-   \end{enumerate}
-   Note the following properties:
-   \begin{itemize}
-      \item \emph{reflexive}: Since $1_i:i\to i$ with $\cat D(1_i)=1_{\cat D(i)}:a\mapsto a$, we have $(i,a)\sim(i,a)$.
-      \item \emph{symmetric}: Assume $(i,a)\sim(j,b)$ due to R1. Then we have $\alpha:i\to j$ with $\cat D(\alpha)(i) = j$.
-            Therefore $(j,b)\sim (i,a)$ by R2. Similarly for the R2 case.
-   \end{itemize}
-   We define another relation $\sim'$ on $S$ such that $x\sim'y$ if and only if
-   \begin{enumerate}[label=E\arabic*.]
-      \item $x\sim y$, or
-      \item there exists a finite family of objects in $S$, $(m_k)_{k\leq n}$, such that \begin{itemize}
-               \item for all $k<n$, $m_k\sim m_{k+1}$, and
-               \item $x=m_1$, and
-               \item $y=m_n$.
-            \end{itemize}
-   \end{enumerate}
-   Note the following properties for all $x,y,z\in S$:
-   \begin{itemize}
-      \item \emph{reflexive}: $x\sim x$ implies $x\sim'x$.
-      \item \emph{symmetric}: Assume $x\sim'y$. Then there exists a finite family $(m_k)_{k\leq n}$ with the properties above.
-            Consider the family $(l_k)_{k\leq n}$ with $l_k = m_{n+1-k}$ for all $k$. Note that since $\sim$ is reflexive,
-            we still have $l_k\sim l_{k+1}$ for all $k<n$. Futher, $y=l_1$ and $x=l_n$. Thus $y\sim'x$.
-      \item \emph{transitive}: Assume $x\sim'y$ and $y\sim'z$. Then there exist families $(m_k)_{k\leq n_1}$ and $(l_k)_{k\leq n_2}$.
-            Now consider the family $(o_k)_{k\leq n+m}$ with \begin{align*}
-               o_k = \begin{cases}
-                  m_k       & \text{if } k\leq n_1, \\
-                  l_{n_1+k} & \text{if } k > n_1.
-               \end{cases}
-            \end{align*}
-            Note that $o_{n_1}=o_{n_1+1}=y$ and $y\sim y$ so $o_k \sim' o_{k+1}$ for all $k<n+m$. We also have $x=o_1$ and $z=o_{n+m}$ so $x\sim'z$.
-   \end{itemize}
-   Therefore, $\sim'$ is an equivalence relation on $S$. Consider the set of equivalence classes $C=S/\sim'$.
-   For each $i\in\cat J_0$ we have an arrow in $\cat{Set}$, i.e. a function,
-   \begin{align*}
-      c_i : \cat D(i) \to C \\
-      x \mapsto [x]
-   \end{align*}
-   where $[x]$ is the equivalence class of $x$ under $\sim'$.
-   Note that  for all $\alpha:i\to j\in\cat J$, $x\in \cat D(i)$ we have $(i,x)\sim'(j,\cat D(\alpha)(x))$ and thus
-   \begin{align*}
-      c_j(\cat D(\alpha)(x)) = [(i,x)] = c_i(x)
-   \end{align*}
-   which makes $(C, (c_i)_{i\in\cat J_0})$ a cocone.
+	Consider the following coproduct:
+	\begin{align*}
+		S = \coprod_{j\in\cat J_0} \cat D(j).
+	\end{align*}
+	This is the disjoint union of all the representations of the objects in $\cat J$
+	in $\cat{Set}$. Observe that this can be constructed as follows:
+	\begin{align*}
+		S = \bigcup_{j\in\cat J_0}\{(j, d) : d \in \cat D(j)\}.
+	\end{align*}
+	Therefore
+	\begin{align*}
+		S \subseteq \cat J_0 \times \bigcup_{j\in J_0} \cat D(j).
+	\end{align*}
+	which implies $S$ is a set and thereby an object in $\cat{Set}$.
+	Now define a relation $\sim$ on $S$
+	such that $(i,a)\sim (j,b)$ if and only if
+	\begin{enumerate}[label=R\arabic*.]
+		\item there exists and arrow $\alpha:i\to j\in\cat J$ such that $\cat D(\alpha): a \mapsto b$, or
+		\item there exists and arrow $\alpha:j\to i\in\cat J$ such that $\cat D(\alpha): b \mapsto a$.
+	\end{enumerate}
+	Note the following properties:
+	\begin{itemize}
+		\item \emph{reflexive}: Since $1_i:i\to i$ with $\cat D(1_i)=1_{\cat D(i)}:a\mapsto a$, we have $(i,a)\sim(i,a)$.
+		\item \emph{symmetric}: Assume $(i,a)\sim(j,b)$ due to R1. Then we have $\alpha:i\to j$ with $\cat D(\alpha)(i) = j$.
+		      Therefore $(j,b)\sim (i,a)$ by R2. Similarly for the R2 case.
+	\end{itemize}
+	We define another relation $\sim'$ on $S$ such that $x\sim'y$ if and only if
+	\begin{enumerate}[label=E\arabic*.]
+		\item $x\sim y$, or
+		\item there exists a finite family of objects in $S$, $(m_k)_{k\leq n}$, such that \begin{itemize}
+			      \item for all $k<n$, $m_k\sim m_{k+1}$, and
+			      \item $x=m_1$, and
+			      \item $y=m_n$.
+		      \end{itemize}
+	\end{enumerate}
+	Note the following properties for all $x,y,z\in S$:
+	\begin{itemize}
+		\item \emph{reflexive}: $x\sim x$ implies $x\sim'x$.
+		\item \emph{symmetric}: Assume $x\sim'y$. Then there exists a finite family $(m_k)_{k\leq n}$ with the properties above.
+		      Consider the family $(l_k)_{k\leq n}$ with $l_k = m_{n+1-k}$ for all $k$. Note that since $\sim$ is reflexive,
+		      we still have $l_k\sim l_{k+1}$ for all $k<n$. Futher, $y=l_1$ and $x=l_n$. Thus $y\sim'x$.
+		\item \emph{transitive}: Assume $x\sim'y$ and $y\sim'z$. Then there exist families $(m_k)_{k\leq n_1}$ and $(l_k)_{k\leq n_2}$.
+		      Now consider the family $(o_k)_{k\leq n+m}$ with \begin{align*}
+			      o_k = \begin{cases}
+				            m_k       & \text{if } k\leq n_1, \\
+				            l_{n_1+k} & \text{if } k > n_1.
+			            \end{cases}
+		      \end{align*}
+		      Note that $o_{n_1}=o_{n_1+1}=y$ and $y\sim y$ so $o_k \sim' o_{k+1}$ for all $k<n+m$. We also have $x=o_1$ and $z=o_{n+m}$ so $x\sim'z$.
+	\end{itemize}
+	Therefore, $\sim'$ is an equivalence relation on $S$. Consider the set of equivalence classes $C=S/\sim'$.
+	For each $i\in\cat J_0$ we have an arrow in $\cat{Set}$, i.e. a function,
+	\begin{align*}
+		c_i : \cat D(i) \to C \\
+		x \mapsto [x]
+	\end{align*}
+	where $[x]$ is the equivalence class of $x$ under $\sim'$.
+	Note that  for all $\alpha:i\to j\in\cat J$, $x\in \cat D(i)$ we have $(i,x)\sim'(j,\cat D(\alpha)(x))$ and thus
+	\begin{align*}
+		c_j(\cat D(\alpha)(x)) = [(i,x)] = c_i(x)
+	\end{align*}
+	which makes $(C, (c_i)_{i\in\cat J_0})$ a cocone.
 \end{proof}
 
 \end{document}

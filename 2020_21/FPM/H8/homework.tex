@@ -10,49 +10,49 @@
 \section*{Problem 1}
 
 \begin{claim*}
-    \begin{align*}
-        \lim_{x\to\infty} \frac{2x^2-3}{x^2+x}=2.
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to\infty} \frac{2x^2-3}{x^2+x}=2.
+	\end{align*}
 \end{claim*}
 
 \begin{proof}
-    Let $M\in\R$. Then choose $\alpha=\max\{1, 5/\e\}$. Now let $x>\alpha$.
-    We have
-    \begin{align*}
-        \abs{f(x)-L} = \abs{\frac{2x^2-3}{x^2+x}-2} = \abs{\frac{2x+3}{x^2+x}}.
-    \end{align*}
-    Observe that $x>1$ and therefore
-    \begin{align*}
-        \abs{f(x)-L} = \frac{2x+3}{x^2+x}< \frac{5x}{x^2+x} = \frac{5}{x+1} < \frac{5}{x}.
-    \end{align*}
-    Since $x>5/\e$, we find
-    \begin{align*}
-        \abs{f(x)-L} < \frac{5}{x} < \frac{5}{5/\e} = \e.
-    \end{align*}
-    By \emph{Ross, Discussion 20.9} the claim follows.
+	Let $M\in\R$. Then choose $\alpha=\max\{1, 5/\e\}$. Now let $x>\alpha$.
+	We have
+	\begin{align*}
+		\abs{f(x)-L} = \abs{\frac{2x^2-3}{x^2+x}-2} = \abs{\frac{2x+3}{x^2+x}}.
+	\end{align*}
+	Observe that $x>1$ and therefore
+	\begin{align*}
+		\abs{f(x)-L} = \frac{2x+3}{x^2+x}< \frac{5x}{x^2+x} = \frac{5}{x+1} < \frac{5}{x}.
+	\end{align*}
+	Since $x>5/\e$, we find
+	\begin{align*}
+		\abs{f(x)-L} < \frac{5}{x} < \frac{5}{5/\e} = \e.
+	\end{align*}
+	By \emph{Ross, Discussion 20.9} the claim follows.
 \end{proof}
 
 \section*{Problem 2}
 
 \begin{claim*}
-    Let $f:[0,\infty)\to[0,\infty)$ be continuous and whenever
-    $(x_n)$ is a sequence of positive real numbers diverging to
-    infinity we have $f(x_n)\to 0$. Then $f$ is bounded on $\dom f$.
+	Let $f:[0,\infty)\to[0,\infty)$ be continuous and whenever
+	$(x_n)$ is a sequence of positive real numbers diverging to
+	infinity we have $f(x_n)\to 0$. Then $f$ is bounded on $\dom f$.
 \end{claim*}
 
 \begin{proof}
-    By \emph{Ross, Definitions 20.1 and 20.3} it follows directly that
-    \begin{align*}
-        \lim_{x\to \infty} f(x) = 0.
-    \end{align*}
-    Using \emph{Ross, Discussion 20.9} we know that there
-    exists $\alpha\in \dom f$ such that for all $x>\alpha$, $f(x)<1$.
-    Thus the function $f$ is bounded above on the interval
-    $(\alpha, \infty)$. Consider the interval $I=[0,\alpha]$. Since $I$
-    is closed and bounded, \emph{Theorem 4.2.2} from the notes implies
-    that $f$ is bounded (above) on $I$. Since $f$ is bounded below by
-    $0$ on $\dom f$ and above on $[0,\alpha]\cup(\alpha,\infty)=\dom f$,
-    $f$ is bounded on its entire domain.
+	By \emph{Ross, Definitions 20.1 and 20.3} it follows directly that
+	\begin{align*}
+		\lim_{x\to \infty} f(x) = 0.
+	\end{align*}
+	Using \emph{Ross, Discussion 20.9} we know that there
+	exists $\alpha\in \dom f$ such that for all $x>\alpha$, $f(x)<1$.
+	Thus the function $f$ is bounded above on the interval
+	$(\alpha, \infty)$. Consider the interval $I=[0,\alpha]$. Since $I$
+	is closed and bounded, \emph{Theorem 4.2.2} from the notes implies
+	that $f$ is bounded (above) on $I$. Since $f$ is bounded below by
+	$0$ on $\dom f$ and above on $[0,\alpha]\cup(\alpha,\infty)=\dom f$,
+	$f$ is bounded on its entire domain.
 \end{proof}
 
 \end{document}

@@ -13,83 +13,83 @@ Let $\sum_{n=1}^\infty a_n$ be a series of real numbers.
 
 \setcounter{section}{1}
 \begin{claim}
-    Let $a_n$ be a sequence such that $a_n\geq 0$ for all $n$. If the
-    series $\sum_{n=1}^\infty a_n$ converges, then the series
-    $\sum_{n=1}^\infty a_n^4$ converges.
+	Let $a_n$ be a sequence such that $a_n\geq 0$ for all $n$. If the
+	series $\sum_{n=1}^\infty a_n$ converges, then the series
+	$\sum_{n=1}^\infty a_n^4$ converges.
 \end{claim}
 \begin{proof}
-    Assume \begin{align*}
-        \forall n.\:a_n\geq 0\hs\text{and}\hs \sum_{n=1}^\infty a_n \in \R.
-    \end{align*}
-    Then by the \emph{Divergence Test} we have
-    \begin{align*}
-        \lim_{n\to\infty} a_n = 0.
-    \end{align*}
-    Further, by the \emph{Definition of the Limit} with $\e = 1$
-    we know that there exists an $N\in\N$ such that
-    \begin{align*}
-        n > N\hs\Rightarrow\hs a_n < 1.
-    \end{align*}
-    Consider the series
-    \begin{align*}
-        \sum_{n=N+1}^\infty a_n \hs\text{and}\hs \sum_{n=N+1}^\infty a_n^4.
-    \end{align*}
-    Observe that since $n>N$ we have $a_n<1$ and thus $a_n^4 < a_n$ for all
-    $n$. By the \emph{Comparison Test} we conclude that because
-    $\sum_{n=N+1}^\infty a_n$ converges, so does $\sum_{n=N+1}^\infty a_n^4$.
-    Now consider the partial sums
-    \begin{align*}
-        S_n = \sum_{k=1}^n a_k^4 \hs\text{and}\hs S'_n = \sum_{k=N+1}^n a_k^4.
-    \end{align*}
-    Note that we can rewrite $S_n$ as
-    \begin{align*}
-        S_n = \begin{cases}
-            \sum_{k=1}^n a_k^4          & \text{if }n \leq N, \\
-            \sum_{k=1}^{N} a_k^4 + S'_n & \text{if }n>N.
-        \end{cases}
-    \end{align*}
-    So we find
-    \begin{align*}
-        \sum_{n=1}^\infty a_n^4 = \lim_{n\to\infty} S_n
-        = \sum_{n=1}^N a_n^4 + \lim_{n\to\infty} S'_n.
-    \end{align*}
-    Since $\sum_{n=N+1}^\infty a_n^4$ converges and $\sum_{n=1}^N a_n^4$ is
-    a real constant, this limit exists and is real. Thus $\sum_{n=1}^\infty a_n^4$ converges.
+	Assume \begin{align*}
+		\forall n.\:a_n\geq 0\hs\text{and}\hs \sum_{n=1}^\infty a_n \in \R.
+	\end{align*}
+	Then by the \emph{Divergence Test} we have
+	\begin{align*}
+		\lim_{n\to\infty} a_n = 0.
+	\end{align*}
+	Further, by the \emph{Definition of the Limit} with $\e = 1$
+	we know that there exists an $N\in\N$ such that
+	\begin{align*}
+		n > N\hs\Rightarrow\hs a_n < 1.
+	\end{align*}
+	Consider the series
+	\begin{align*}
+		\sum_{n=N+1}^\infty a_n \hs\text{and}\hs \sum_{n=N+1}^\infty a_n^4.
+	\end{align*}
+	Observe that since $n>N$ we have $a_n<1$ and thus $a_n^4 < a_n$ for all
+	$n$. By the \emph{Comparison Test} we conclude that because
+	$\sum_{n=N+1}^\infty a_n$ converges, so does $\sum_{n=N+1}^\infty a_n^4$.
+	Now consider the partial sums
+	\begin{align*}
+		S_n = \sum_{k=1}^n a_k^4 \hs\text{and}\hs S'_n = \sum_{k=N+1}^n a_k^4.
+	\end{align*}
+	Note that we can rewrite $S_n$ as
+	\begin{align*}
+		S_n = \begin{cases}
+			      \sum_{k=1}^n a_k^4          & \text{if }n \leq N, \\
+			      \sum_{k=1}^{N} a_k^4 + S'_n & \text{if }n>N.
+		      \end{cases}
+	\end{align*}
+	So we find
+	\begin{align*}
+		\sum_{n=1}^\infty a_n^4 = \lim_{n\to\infty} S_n
+		= \sum_{n=1}^N a_n^4 + \lim_{n\to\infty} S'_n.
+	\end{align*}
+	Since $\sum_{n=N+1}^\infty a_n^4$ converges and $\sum_{n=1}^N a_n^4$ is
+	a real constant, this limit exists and is real. Thus $\sum_{n=1}^\infty a_n^4$ converges.
 \end{proof}
 
 \begin{claim}
-    Let $a_n$ be a sequence such that $a_n\geq 0$. Then if the series
-    $\sum_{n=1}^\infty a_n^4$ converges, $\sum_{n=1}^\infty a_n$ may
-    not converge.
+	Let $a_n$ be a sequence such that $a_n\geq 0$. Then if the series
+	$\sum_{n=1}^\infty a_n^4$ converges, $\sum_{n=1}^\infty a_n$ may
+	not converge.
 \end{claim}
 
 \begin{proof}
-    Consider $a_n = 1/n$. Then we have the converging $p$-series
-    \begin{align*}
-        \sum_{n=1}^\infty a_n^4 = \sum_{n=1}^\infty \frac{1}{n^4}
-    \end{align*}
-    but the diverging harmonic series
-    \begin{align*}
-        \sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \frac{1}{n}.
-    \end{align*}
+	Consider $a_n = 1/n$. Then we have the converging $p$-series
+	\begin{align*}
+		\sum_{n=1}^\infty a_n^4 = \sum_{n=1}^\infty \frac{1}{n^4}
+	\end{align*}
+	but the diverging harmonic series
+	\begin{align*}
+		\sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \frac{1}{n}.
+	\end{align*}
 \end{proof}
 
 \begin{claim}
-    Let $\sum_{n=1}^\infty a_n$ be a converging series. Then
-    $\sum_{n=1}^\infty a_n^4$ may not converge.
+	Let $\sum_{n=1}^\infty a_n$ be a converging series. Then
+	$\sum_{n=1}^\infty a_n^4$ may not converge.
 \end{claim}
 
 \begin{proof}
-    Consider the series
-    \begin{align*}
-        \sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \frac{(-1)^n}{\sqrt[4]{n}}.
-    \end{align*}
-    Observe that $n^{-1/4}$ is strictly decreasing and thus the series converges
-    by \emph{Theorem 3.5.1} from the notes. Now we have
-    \begin{align*}
-        \sum_{n=1}^\infty a_n^4 = \sum_{n=1}^\infty \frac{1}{n}
-    \end{align*}
-    which is the harmonic series and diverges.
+	Consider the series
+	\begin{align*}
+		\sum_{n=1}^\infty a_n = \sum_{n=1}^\infty \frac{(-1)^n}{\sqrt[4]{n}}.
+	\end{align*}
+	Observe that $n^{-1/4}$ is strictly decreasing and thus the series converges
+	by \emph{Theorem 3.5.1} from the notes. Now we have
+	\begin{align*}
+		\sum_{n=1}^\infty a_n^4 = \sum_{n=1}^\infty \frac{1}{n}
+	\end{align*}
+	which is the harmonic series and diverges.
 \end{proof}
 
 \subsection*{Problem 2}
@@ -100,67 +100,67 @@ numbers that converges to a real number $L$.
 \setcounter{section}{2}
 \setcounter{claim}{0}
 \begin{claim}
-    If $L>0$, then the series
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
-    \end{align*}
-    converges.
+	If $L>0$, then the series
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
+	\end{align*}
+	converges.
 \end{claim}
 \begin{proof}
-    Observe
-    \begin{align*}
-        \frac{n^2}{n^4x_n+1}\leq\frac{n^2}{n^4x_n} =\frac{1}{n^2x_n}.
-    \end{align*}
-    Then by the \emph{Definition of the Limit} for any $\e>0$
-    we have some $N\in\N$ such that $x_n>L-\e$ for all $n>N$.
-    We pick an $\e$ such that $L-\e<1$ and choose $N$ accordingly.
-    Thus
-    \begin{align*}
-        \frac{n^2}{n^4x_n+1}\leq\frac{1}{n^2x_n}\leq \frac{1}{n^2(L-\e)}
-    \end{align*}
-    for all $n>N$. Since the $p$-series
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{1}{n^2}
-    \end{align*}
-    converges, it follows from \emph{Theorem 3.1.12} that
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{1}{n^2(L-\e)} = \frac{1}{L-\e}\sum_{n=1}^\infty \frac{1}{n^2}
-    \end{align*}
-    converges and using the \emph{Comparison Test} we find that the series
-    \begin{align*}
-        \sum_{n=N+1}^\infty \frac{n^2}{n^4x_n+1}
-    \end{align*}
-    converges as well. By the same reasoning applied to prove \emph{Claim 1.1}
-    we conclude that the entire series
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
-    \end{align*}
-    converges.
+	Observe
+	\begin{align*}
+		\frac{n^2}{n^4x_n+1}\leq\frac{n^2}{n^4x_n} =\frac{1}{n^2x_n}.
+	\end{align*}
+	Then by the \emph{Definition of the Limit} for any $\e>0$
+	we have some $N\in\N$ such that $x_n>L-\e$ for all $n>N$.
+	We pick an $\e$ such that $L-\e<1$ and choose $N$ accordingly.
+	Thus
+	\begin{align*}
+		\frac{n^2}{n^4x_n+1}\leq\frac{1}{n^2x_n}\leq \frac{1}{n^2(L-\e)}
+	\end{align*}
+	for all $n>N$. Since the $p$-series
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{1}{n^2}
+	\end{align*}
+	converges, it follows from \emph{Theorem 3.1.12} that
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{1}{n^2(L-\e)} = \frac{1}{L-\e}\sum_{n=1}^\infty \frac{1}{n^2}
+	\end{align*}
+	converges and using the \emph{Comparison Test} we find that the series
+	\begin{align*}
+		\sum_{n=N+1}^\infty \frac{n^2}{n^4x_n+1}
+	\end{align*}
+	converges as well. By the same reasoning applied to prove \emph{Claim 1.1}
+	we conclude that the entire series
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
+	\end{align*}
+	converges.
 \end{proof}
 
 \begin{claim}
-    If $L=0$, then the series
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
-    \end{align*}
-    may not converge.
+	If $L=0$, then the series
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
+	\end{align*}
+	may not converge.
 \end{claim}
 \begin{proof}
-    Consider the sequence
-    \begin{align*}
-        x_n = \frac{1}{n^4}.
-    \end{align*}
-    Observe that $x_n>0$ for all $n$ and $x_n\to 0$ as $n\to \infty$.
-    We then have the series
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
-        = \frac{1}{2}\sum_{n=1}^\infty n^2.
-    \end{align*}
-    Since $n^2\to\infty$ as $n\to\infty$, it follows from
-    the \emph{Divergence Test} and \emph{Theorem 3.1.12} that the series
-    \begin{align*}
-        \sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
-    \end{align*}
-    diverges.
+	Consider the sequence
+	\begin{align*}
+		x_n = \frac{1}{n^4}.
+	\end{align*}
+	Observe that $x_n>0$ for all $n$ and $x_n\to 0$ as $n\to \infty$.
+	We then have the series
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
+		= \frac{1}{2}\sum_{n=1}^\infty n^2.
+	\end{align*}
+	Since $n^2\to\infty$ as $n\to\infty$, it follows from
+	the \emph{Divergence Test} and \emph{Theorem 3.1.12} that the series
+	\begin{align*}
+		\sum_{n=1}^\infty \frac{n^2}{n^4x_n+1}
+	\end{align*}
+	diverges.
 \end{proof}
 \end{document}

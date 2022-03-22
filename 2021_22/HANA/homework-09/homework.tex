@@ -10,103 +10,103 @@
 \section*{Workshop 9 - Question 2}
 
 \begin{claim*}
-   Let $f:[a,b]\to\R$. If $f$ is Riemann integrable, then so is $\abs f$.
+	Let $f:[a,b]\to\R$. If $f$ is Riemann integrable, then so is $\abs f$.
 \end{claim*}
 \begin{proof}
-   Let $\e>0$. Assume $f$ is Riemann integrable. Then there exists a partition
-   $a=x_0<\cdots<x_n=b$ such that
-   \begin{align*}
-      \sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x) - f(y)} \lambda(I_j) < \e,\hs
-      \text{where }I_j = (x_{j-1}, x_j).
-   \end{align*}
-   Observe for all $x,y\in[a,b]$,
-   \begin{align*}
-      \abs{f(x)-f(y)} \geq \abs{\abs{f(x)} - \abs{f(y)}}.
-   \end{align*}
-   Thus
-   \begin{align*}
-      \sum_{j=1}^n \sup_{x,y\in I_j} \abs{\abs{f(x)} - \abs{f(y)}} \lambda(I_j)
-      \leq \sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x) - f(y)} \lambda(I_j) < \e.
-   \end{align*}
-   Therefore $\abs f$ is Riemann integrable.
+	Let $\e>0$. Assume $f$ is Riemann integrable. Then there exists a partition
+	$a=x_0<\cdots<x_n=b$ such that
+	\begin{align*}
+		\sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x) - f(y)} \lambda(I_j) < \e,\hs
+		\text{where }I_j = (x_{j-1}, x_j).
+	\end{align*}
+	Observe for all $x,y\in[a,b]$,
+	\begin{align*}
+		\abs{f(x)-f(y)} \geq \abs{\abs{f(x)} - \abs{f(y)}}.
+	\end{align*}
+	Thus
+	\begin{align*}
+		\sum_{j=1}^n \sup_{x,y\in I_j} \abs{\abs{f(x)} - \abs{f(y)}} \lambda(I_j)
+		\leq \sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x) - f(y)} \lambda(I_j) < \e.
+	\end{align*}
+	Therefore $\abs f$ is Riemann integrable.
 \end{proof}
 
 \begin{claim*}
-   There exists $f:[a,b]\to\R$ such that $\abs f$ is integrable but $f$ is not.
+	There exists $f:[a,b]\to\R$ such that $\abs f$ is integrable but $f$ is not.
 \end{claim*}
 \begin{proof}
-   Consider $f = 2\chi_{\Q\cap[0,1]}-1$. Observe that $\abs{f(x)} = 1$ for all $x\in[0,1]$.
-   Therefore $\abs f$ is Riemann integrable. However, $f$ itself cannot be Riemann integrable
-   as $\chi_{\Q\cap[0,1]} = (f+1)/2$ and we know that the Dirichlet function is not Riemann
-   integrable.
+	Consider $f = 2\chi_{\Q\cap[0,1]}-1$. Observe that $\abs{f(x)} = 1$ for all $x\in[0,1]$.
+	Therefore $\abs f$ is Riemann integrable. However, $f$ itself cannot be Riemann integrable
+	as $\chi_{\Q\cap[0,1]} = (f+1)/2$ and we know that the Dirichlet function is not Riemann
+	integrable.
 \end{proof}
 
 \section*{Workshop 9 - Question 3 \& 6}
 
 \begin{claim*}
-   Let $-\infty \leq a < b \leq \infty$. Suppose that $f:(a,b)\to\R$ is integrable
-   on $(u,b)$ for all $u\in(a,b)$. Then $f$ is integrable on $(a,b)$ if and only if
-   there exists $M<\infty$ such that
-   \begin{align}
-      \label{cond}
-      \int_u^a \abs f \leq M, \hs \forall u \in (a,b).
-   \end{align}
-   Additionally, if this holds then
-   \begin{align}
-      \label{intval}
-      \int_a^b f = \lim_{u\to b^-}\int_u^b f.
-   \end{align}
+	Let $-\infty \leq a < b \leq \infty$. Suppose that $f:(a,b)\to\R$ is integrable
+	on $(u,b)$ for all $u\in(a,b)$. Then $f$ is integrable on $(a,b)$ if and only if
+	there exists $M<\infty$ such that
+	\begin{align}
+		\label{cond}
+		\int_u^a \abs f \leq M, \hs \forall u \in (a,b).
+	\end{align}
+	Additionally, if this holds then
+	\begin{align}
+		\label{intval}
+		\int_a^b f = \lim_{u\to b^-}\int_u^b f.
+	\end{align}
 \end{claim*}
 \begin{proof}
-   ($\Rightarrow$) Assume $f$ is integrable on $(a,b)$. Immediately, $\abs f$ must be integrable
-   on $(a,b)$ as well. By \emph{Notes, Theorem 4.8 (c)} we then have
-   \begin{align*}
-      \int_u^b \abs f \leq \int_a^b \abs f = M,
-   \end{align*}
-   for all $u\in(a,b)$ which is precisely (\ref{cond}).
+	($\Rightarrow$) Assume $f$ is integrable on $(a,b)$. Immediately, $\abs f$ must be integrable
+	on $(a,b)$ as well. By \emph{Notes, Theorem 4.8 (c)} we then have
+	\begin{align*}
+		\int_u^b \abs f \leq \int_a^b \abs f = M,
+	\end{align*}
+	for all $u\in(a,b)$ which is precisely (\ref{cond}).
 
-   ($\Leftarrow$) Assume (\ref{cond}) holds for some $M<\infty$. Consider a sequence of numbers
-   $b>u_1>u_2>\cdots>a$ such that $u_n\to a$ as $n\to\infty$. Let $u_0=b$.
-   By \emph{Notes, Theorem 4.8 (d)}, for all $n$ we have
-   \begin{align*}
-      \sum_{j=1}^n \int_{u_j}^{u_{j-1}} \abs f = \int_{u_n}^b \abs f.
-   \end{align*}
-   Using \emph{Notes, Theorem 4.8 (c)}, we then observe that (\ref{cond}) implies
-   \begin{align}
-      \label{newcond}
-      \sum_{j=1}^n \int_{u_j}^{u_{j-1}} \abs f \leq M, \hs \text{for }n=1,2,...
-   \end{align}
-   Further, since the above holds, we also have
-   \begin{align*}
-      \sum_{j=1}^\infty \int_{u_j}^{u_{j-1}} \abs f \leq M,
-   \end{align*}
-   and hence by \emph{Notes, Theorem 4.8 (d)} the function $f$ is integrable on
-   the union of intervals $(u_j, u_{j-1})$ which is $(a,b)$. By the same theorem,
-   we also get (\ref{intval}).
+	($\Leftarrow$) Assume (\ref{cond}) holds for some $M<\infty$. Consider a sequence of numbers
+	$b>u_1>u_2>\cdots>a$ such that $u_n\to a$ as $n\to\infty$. Let $u_0=b$.
+	By \emph{Notes, Theorem 4.8 (d)}, for all $n$ we have
+	\begin{align*}
+		\sum_{j=1}^n \int_{u_j}^{u_{j-1}} \abs f = \int_{u_n}^b \abs f.
+	\end{align*}
+	Using \emph{Notes, Theorem 4.8 (c)}, we then observe that (\ref{cond}) implies
+	\begin{align}
+		\label{newcond}
+		\sum_{j=1}^n \int_{u_j}^{u_{j-1}} \abs f \leq M, \hs \text{for }n=1,2,...
+	\end{align}
+	Further, since the above holds, we also have
+	\begin{align*}
+		\sum_{j=1}^\infty \int_{u_j}^{u_{j-1}} \abs f \leq M,
+	\end{align*}
+	and hence by \emph{Notes, Theorem 4.8 (d)} the function $f$ is integrable on
+	the union of intervals $(u_j, u_{j-1})$ which is $(a,b)$. By the same theorem,
+	we also get (\ref{intval}).
 \end{proof}
 
 \section*{Workshop 9 - Question 10}
 
 \begin{claim*}
-   The function $f(x)=(-1)^{\floor{x}} / \floor{x}$ for $x\geq 1$ is not integrable
-   on $[1, \infty)$.
+	The function $f(x)=(-1)^{\floor{x}} / \floor{x}$ for $x\geq 1$ is not integrable
+	on $[1, \infty)$.
 \end{claim*}
 \begin{proof}
-   Consider the sequence $(v_n)$ given by $v_n = n$. Observe that in order for
-   $f$ to be integrable on $[1,\infty)$, we require
-   \begin{align*}
-      \sum_{j=1}^n \int_{v_j}^{v_{j+1}} \abs f \leq M, \hs \text{for }n = 1,2,...
-   \end{align*}
-   for some $M<\infty$ as proven on the worksheet. However, for all $j$,
-   \begin{align*}
-      \sum_{j=1}^n \int_{v_j}^{v_{j+1}} \abs f
-      = \sum_{j=1}^n \frac{1}{j}
-   \end{align*}
-   which is clearly unbounded as $n\to\infty$.
+	Consider the sequence $(v_n)$ given by $v_n = n$. Observe that in order for
+	$f$ to be integrable on $[1,\infty)$, we require
+	\begin{align*}
+		\sum_{j=1}^n \int_{v_j}^{v_{j+1}} \abs f \leq M, \hs \text{for }n = 1,2,...
+	\end{align*}
+	for some $M<\infty$ as proven on the worksheet. However, for all $j$,
+	\begin{align*}
+		\sum_{j=1}^n \int_{v_j}^{v_{j+1}} \abs f
+		= \sum_{j=1}^n \frac{1}{j}
+	\end{align*}
+	which is clearly unbounded as $n\to\infty$.
 \end{proof}
 
 \emph{Note: So the problem with the given function is that we require the integrals of the
-   absolute values to be bounded which is not the case. The given limit exists due to the alternating
-   signs.}
+	absolute values to be bounded which is not the case. The given limit exists due to the alternating
+	signs.}
 
 \end{document}

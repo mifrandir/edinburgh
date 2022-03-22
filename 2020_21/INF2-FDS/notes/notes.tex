@@ -21,12 +21,12 @@
 	\end{align*}
 \end{definition}
 \begin{definition}
-	The \emph{sample median} $\tilde x$ for a sample $x_1, x_2, ..., x_n$ is defined as 
+	The \emph{sample median} $\tilde x$ for a sample $x_1, x_2, ..., x_n$ is defined as
 	\begin{align*}
 		\tilde x = \begin{cases}
-			x_{(n+1)/2} 				   &\text{if $n$ is odd},\\
-			\frac{1}{2}(x_{n/2}+x_{n/2+1}) &\text{otherwise}.
-		\end{cases}.
+			           x_{(n+1)/2}                    & \text{if $n$ is odd}, \\
+			           \frac{1}{2}(x_{n/2}+x_{n/2+1}) & \text{otherwise}.
+		           \end{cases}.
 	\end{align*}
 \end{definition}
 \begin{theorem}
@@ -116,8 +116,8 @@ Properties of the standardised variable:
 \begin{theorem}
 	The closest line $(\hat\beta_0,\hat\beta_1)$ to a sample $(x,y)$ can be calculated with
 	\begin{align*}
-		\hat\beta_1&=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2},\\
-		\hat\beta_0&=\bar y - \hat\beta_1\bar x.
+		\hat\beta_1 & =\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sum(x_i-\bar x)^2}, \\
+		\hat\beta_0 & =\bar y - \hat\beta_1\bar x.
 	\end{align*}
 \end{theorem}
 Properties of the linear regression line:
@@ -200,23 +200,23 @@ Notes on $R^2$:
 	the $n\times K$ matrix defined as
 	\begin{align*}
 		T = \begin{pmatrix}
-			x^*_{11} & x^*_{12} & \cdots & c^*_{1K}\\
-			x^*_{12} & x^*_{22} & \cdots & c^*_{2K}\\
-			\vdots & \vdots & \ddots & \vdots\\
-			x^*_{1n} & x^*_{2n} &\cdots & c^*_{nK}
-		\end{pmatrix}.
+			    x^*_{11} & x^*_{12} & \cdots & c^*_{1K} \\
+			    x^*_{12} & x^*_{22} & \cdots & c^*_{2K} \\
+			    \vdots   & \vdots   & \ddots & \vdots   \\
+			    x^*_{1n} & x^*_{2n} & \cdots & c^*_{nK}
+		    \end{pmatrix}.
 	\end{align*}
 \end{definition}
 \begin{definition}
 	Let $y^*_i=y_i-\bar y$. Then the \emph{moment matrix} is defined as
 	\begin{align*}
 		X^T y = \begin{pmatrix}
-			\sum x^*_{i1} y^*_i\\
-			\vdots\\
-			\sum x^*_{iK} y^*_i
-		\end{pmatrix}
+			        \sum x^*_{i1} y^*_i \\
+			        \vdots              \\
+			        \sum x^*_{iK} y^*_i
+		        \end{pmatrix}
 	\end{align*}
-	where $y$ is the column vector containing all $y^*_i$.	
+	where $y$ is the column vector containing all $y^*_i$.
 \end{definition}
 \begin{definition}
 	The \emph{covariance matrix} is defined as
@@ -236,9 +236,9 @@ Notes on $R^2$:
 	and
 	\begin{align*}
 		\hat\beta = \begin{pmatrix}
-			\hat\beta_1\\
-			\hat\beta_2
-		\end{pmatrix}
+			            \hat\beta_1 \\
+			            \hat\beta_2
+		            \end{pmatrix}
 		= (X^T X)^{-1}X^T y.
 	\end{align*}
 \end{theorem}
@@ -291,12 +291,12 @@ Note: Adjustment is useful because finding a good fit becomes easier with more v
 \end{definition}
 \begin{theorem}
 	The $i$th principal component of a dataset with the $D\times D$ covariance
-	matrix $S$ is the eigenvector corresponding to the $i$th largest eigenvalue 
+	matrix $S$ is the eigenvector corresponding to the $i$th largest eigenvalue
 	of $S$.
 \end{theorem}
 \begin{proposition}
 	The fraction of the total variance explained by the $i$th principal component
-	is 
+	is
 	\begin{align*}
 		\frac{\lambda_i}{\sum_{j=1}^D \lambda_j}
 	\end{align*}
@@ -360,13 +360,13 @@ Dividing a set of $D$-dimensional data points into $K$ clusters.
 \begin{enumerate}
 	\item Initialise $K$ cluster centres, $\{\vec m_k\}^K_1$
 	\item While not converged: \begin{enumerate}
-		\item Assign each data vector $\vec x_i$ ($i\in[1,n]$) to the closest cluster centre
-		\item Recompute each cluster mean as the mean of the vectors assigned to that cluster
-	\end{enumerate}
+		      \item Assign each data vector $\vec x_i$ ($i\in[1,n]$) to the closest cluster centre
+		      \item Recompute each cluster mean as the mean of the vectors assigned to that cluster
+	      \end{enumerate}
 \end{enumerate}
 \begin{theorem}
 	Let $C_k$ be the set of points in cluster $k$. Then the mean of cluster $k$
-	is 
+	is
 	\begin{align*}
 		\vec m_k=\frac{1}{\abs{C_k}}\sum_{i\in C_k}\vec x_i.
 	\end{align*}
@@ -383,7 +383,7 @@ There are several possible ways to \emph{initialise} the cluster centres, includ
 	\item random data points
 	\item means of random partitions of the input
 	\item data points with extreme values
-	\item perturb mean of data set 
+	\item perturb mean of data set
 \end{itemize}
 \begin{definition}
 	\emph{Convergence} is reached when the assignment of points to clusters
@@ -421,7 +421,7 @@ with the lowest error.
 
 \begin{itemize}
 	\item Batch: update centres after assigning all the values
-	\item Online: update centres after assigning individual values 
+	\item Online: update centres after assigning individual values
 \end{itemize}
 
 
@@ -475,7 +475,7 @@ training data.
 
 \begin{definition}
 	A suitable error function for classification is the number of items
-	that are misclassified. The classification error is often expressed 
+	that are misclassified. The classification error is often expressed
 	as the percentage of the total number of items that is misclassified,
 	the \emph{error rate}.
 \end{definition}
@@ -490,7 +490,7 @@ training data.
 \end{definition}
 \begin{definition}
 	The \emph{training set error rate} is the percentage of misclassifications
-	that the classifier makes on the training set after the learning 
+	that the classifier makes on the training set after the learning
 	algorithm has been applied.\\
 	The \emph{testing set error rate} refers to errors made by the classifier
 	on the testing set.
@@ -517,11 +517,11 @@ training data.
 For an unseen example $\vec x$:
 \begin{enumerate}
 	\item Compute the $n$ distances $d_i=d(\vec x, \vec x_i)$ and the features
-		  of each training example $x_i$, $i\in[0,n]$.
-    \item Sort the distances from lowest to highest and find the indices $i_1,...,i_k$ of the $k$ lowest values of $d_i$.
-    \item Find the classes that belong to the closest points.
-    \item Count the votes for each class and return the one with the largest number.
-    \item If there is a tie, choose randomly, or look at the $k+1$th neighbour to resolve it.
+	      of each training example $x_i$, $i\in[0,n]$.
+	\item Sort the distances from lowest to highest and find the indices $i_1,...,i_k$ of the $k$ lowest values of $d_i$.
+	\item Find the classes that belong to the closest points.
+	\item Count the votes for each class and return the one with the largest number.
+	\item If there is a tie, choose randomly, or look at the $k+1$th neighbour to resolve it.
 \end{enumerate}
 
 \subsubsection{Choosing $k$}
@@ -655,11 +655,11 @@ Optimisation: Managing data better, e.g. $k$-d trees.
 	\begin{align*}
 		\hat\sigma_{\hat\mu}=
 		\begin{cases}
-			\sigma/\sqrt{n} &\text{if $\sigma$ is known},\\
-			S/\sqrt{n} &\text{otherwise}
+			\sigma/\sqrt{n} & \text{if $\sigma$ is known}, \\
+			S/\sqrt{n}      & \text{otherwise}
 		\end{cases}
 	\end{align*}
-	where $S$ is the sample standard deviation.	
+	where $S$ is the sample standard deviation.
 \end{definition}
 
 \subsection{Confidence intervals}
@@ -682,16 +682,16 @@ $\overline x$. We take $B$ bootstrap samples.
 Then the procedure is
 \begin{enumerate}
 	\item For $j\in[1,B]$ \begin{enumerate}
-		\item Take sample $x^*$ of size $n$ from the sample \emph{with replacement}
-		\item Compute the sample mean of the new sample $\overline{x_j^*}$
-	\end{enumerate} 
+		      \item Take sample $x^*$ of size $n$ from the sample \emph{with replacement}
+		      \item Compute the sample mean of the new sample $\overline{x_j^*}$
+	      \end{enumerate}
 	\item Find the centiles of the distribution at $100\alpha/2$ and $100(1-\alpha/2)$
-		  by arranging the sample means $\overline x^*_j$ in ascending order and pick
-		  $\overline x^*_j$ at $$k=\alpha(B+1)/2$$ to be the lower end of the CI and pick
-		  $\overline x^*_j$ at $$k=B-\alpha(B+1)/2$$ to be the upper end of the CI.
-    \item We can compute the boostrap estimator fo the variance of the mean \begin{align*}
-		s^2_{\text{boot}} = \frac{\sum_{j=1}^B(\overline x_j^*-\overline x)^2}{B-1}
-	\end{align*}
+	      by arranging the sample means $\overline x^*_j$ in ascending order and pick
+	      $\overline x^*_j$ at $$k=\alpha(B+1)/2$$ to be the lower end of the CI and pick
+	      $\overline x^*_j$ at $$k=B-\alpha(B+1)/2$$ to be the upper end of the CI.
+	\item We can compute the boostrap estimator fo the variance of the mean \begin{align*}
+		      s^2_{\text{boot}} = \frac{\sum_{j=1}^B(\overline x_j^*-\overline x)^2}{B-1}
+	      \end{align*}
 \end{enumerate}
 
 \subsection{Confidence intervals on the mean for small samples}
@@ -727,19 +727,19 @@ Then the procedure is
 	\emph{test procedure} consists of:
 	\begin{enumerate}
 		\item Deciding on a \emph{test statistic}, which is a function
-			  of the sample data.
+		      of the sample data.
 		\item Determining what the distribution of the test statistic would
-			  be if it arose from the null hypothesis statistical model.k
+		      be if it arose from the null hypothesis statistical model.k
 		\item Either \begin{enumerate}
-			\item Deciding on a \emph{rejection region}, i.e. regions of
-				  the distribution of the test statistic under $H_0$ in
-				  which we should ject $H_0$. Typically, there are extremities
-				  of the distribution. If our test statistic falls in to the
-				  rejection region, reject $H_0$; otherwise, don't reject it.
-			\item Returning a \emph{$p$-value}, which tells us how compatible
-				  the test statistic is with the distribution predicted by chance
-				  from $H_0$.
-		\end{enumerate}
+			      \item Deciding on a \emph{rejection region}, i.e. regions of
+			            the distribution of the test statistic under $H_0$ in
+			            which we should ject $H_0$. Typically, there are extremities
+			            of the distribution. If our test statistic falls in to the
+			            rejection region, reject $H_0$; otherwise, don't reject it.
+			      \item Returning a \emph{$p$-value}, which tells us how compatible
+			            the test statistic is with the distribution predicted by chance
+			            from $H_0$.
+		      \end{enumerate}
 	\end{enumerate}
 \end{definition}
 
@@ -783,7 +783,7 @@ Then the procedure is
 
 \begin{definition}
 	The \emph{odds ratio} of an event $A$ with respect to another event
-	$B$ is given by 
+	$B$ is given by
 	\begin{align*}
 		\text{OR}(x) = \frac{\text{Odds}(A|B)}{\text{Odds}\left(A|\overline B\right)}.
 	\end{align*}
@@ -794,7 +794,7 @@ Then the procedure is
 \begin{definition}
 	The \emph{logistic function} $\sigma:\R\to\R$ is defined as
 	\begin{align*}
-		\sigma(x) = \frac{1}{1+e^{-x}}.	
+		\sigma(x) = \frac{1}{1+e^{-x}}.
 	\end{align*}
 \end{definition}
 
@@ -807,7 +807,7 @@ Then the procedure is
 	Let $Y$ be a dichotomous variable dependent on $x$. Then the probability
 	$\P(Y=1|x)$ may be approximated as
 	\begin{align*}
-		\P(Y=1|x)=\sigma(\beta_0+\beta_1 x) = \frac{1}{1+e^{-\beta_0-\beta_1 x}}.	
+		\P(Y=1|x)=\sigma(\beta_0+\beta_1 x) = \frac{1}{1+e^{-\beta_0-\beta_1 x}}.
 	\end{align*}
 \end{theorem}
 
@@ -828,7 +828,7 @@ Then the procedure is
 \begin{corollary}
 	The logistic prediction model with dependent variable $Y$ and
 	independent variable $x$ and parameters $\beta_0,\beta_1\in\R$
-	may be expressed as 
+	may be expressed as
 	\begin{align*}
 		\logit(\P(Y=1|x)) = \beta_0 + \beta_1 x.
 	\end{align*}
@@ -838,7 +838,7 @@ Then the procedure is
 
 \begin{definition}
 	The logistic regression model for the $n$ independent variables $x^{(1)},
-	..., x^{(n)}$ and dependent variable $Y$ with $n$ parameters
+		..., x^{(n)}$ and dependent variable $Y$ with $n$ parameters
 	$\beta_0,\beta_1, ..., \beta_n$ is given by
 	\begin{align*}
 		\P(Y=1|x^{(1)},...,x^{(n)})=\sigma(\beta_0+\beta_1 x^{(1)}+\cdots + \beta_n x^{(n)}).
@@ -901,12 +901,12 @@ where $n_A,n_B\in\N$ are the actual numbers of successes in either case.
 The bootstrap procedure is
 \begin{enumerate}
 	\item For $j$ in $1,...,B$ \begin{enumerate}
-		\item Sample $n^*_A$ from binomial distribution with parameters $n$ and $\hat p_A$
-		\item Sample $n^*_B$ from binomial distribution with parameters $n$ and $\hat p_B$
-		\item Compute and store difference in proportions \begin{align*}
-			d^*_j = n^*_A/n - n^*_B/n
-		\end{align*}
-	\end{enumerate}
+		      \item Sample $n^*_A$ from binomial distribution with parameters $n$ and $\hat p_A$
+		      \item Sample $n^*_B$ from binomial distribution with parameters $n$ and $\hat p_B$
+		      \item Compute and store difference in proportions \begin{align*}
+			            d^*_j = n^*_A/n - n^*_B/n
+		            \end{align*}
+	      \end{enumerate}
 	\item Plot the bootstrap distribution of $d^*$ and compute the desired quantities
 \end{enumerate}
 
@@ -915,14 +915,14 @@ The bootstrap procedure is
 \begin{theorem}
 	Given a large sample of size $n$, the estimators for A/B testing are
 	\begin{align*}
-		\hat p_A &= \frac{n_A}{n}\\
-		\hat p_B &=\frac{n_B}{n}\\
-		\hat d   &= \hat p_A - \hat p_B\\
-		\hat\sigma_{\hat p_A} &= \sqrt{\frac{np_A(1-p_A)}{n}}\\
-		\hat\sigma_{\hat p_B} &= \sqrt{\frac{np_B(1-p_B)}{n}}\\
-		\hat\sigma_{\hat p_A} &= \sqrt{\frac{p_A(1-p_A)}{n}}\\
-		\hat\sigma_{\hat p_B} &= \sqrt{\frac{np_B(1-p_B)}{n}}\\
-		\hat\sigma_{\hat d}   &= \sqrt{\hat\sigma^2_{\hat p_A} + \hat\sigma^2_{\hat p_B}}
+		\hat p_A              & = \frac{n_A}{n}                                            \\
+		\hat p_B              & =\frac{n_B}{n}                                             \\
+		\hat d                & = \hat p_A - \hat p_B                                      \\
+		\hat\sigma_{\hat p_A} & = \sqrt{\frac{np_A(1-p_A)}{n}}                             \\
+		\hat\sigma_{\hat p_B} & = \sqrt{\frac{np_B(1-p_B)}{n}}                             \\
+		\hat\sigma_{\hat p_A} & = \sqrt{\frac{p_A(1-p_A)}{n}}                              \\
+		\hat\sigma_{\hat p_B} & = \sqrt{\frac{np_B(1-p_B)}{n}}                             \\
+		\hat\sigma_{\hat d}   & = \sqrt{\hat\sigma^2_{\hat p_A} + \hat\sigma^2_{\hat p_B}}
 	\end{align*}
 \end{theorem}
 
@@ -934,7 +934,7 @@ The bootstrap procedure is
 
 \begin{itemize}
 	\item data
-	\item code 
+	\item code
 	\item documentation
 \end{itemize}
 
@@ -944,11 +944,11 @@ The bootstrap procedure is
 \begin{itemize}
 	\item Journal policies
 	\item Data repositories \begin{itemize}
-		\item institutional
-		\item subject-specific
-		\item general
-		\item governmental
-	\end{itemize}
+		      \item institutional
+		      \item subject-specific
+		      \item general
+		      \item governmental
+	      \end{itemize}
 \end{itemize}
 
 
@@ -978,7 +978,7 @@ The bootstrap procedure is
 	\item using same procedure for new dataset (automation not interactivity)
 	\item inconsistent state
 	\item no object-oriented code
-	\item version 
+	\item version
 \end{itemize}
 
 \subsection{Cleaning data}
@@ -987,16 +987,16 @@ The bootstrap procedure is
 	\item save the raw data with details of how to obtain it
 	\item back up the raw data
 	\item save and share clean version of the data \begin{itemize}
-		\item open data format, e.g. CSV, JSON, YAML, XML
-		\item meaningful variable names
-		\item metadata about meaning of columns
-	\end{itemize}
+		      \item open data format, e.g. CSV, JSON, YAML, XML
+		      \item meaningful variable names
+		      \item metadata about meaning of columns
+	      \end{itemize}
 	\item make sure dataset is tidy \begin{itemize}
-		\item one observation per row
-		\item one variable per column
-		\item unit not stored with numbers
-		\item ideally unique ID for each observation
-	\end{itemize}
+		      \item one observation per row
+		      \item one variable per column
+		      \item unit not stored with numbers
+		      \item ideally unique ID for each observation
+	      \end{itemize}
 	\item if generating data, share in a repository
 \end{itemize}
 
@@ -1021,7 +1021,7 @@ The bootstrap procedure is
 	\begin{align*}
 		T=\frac{\hat\beta_1-\beta_1}{S_{\hat\beta_1}}
 	\end{align*}
-	where $\beta_1$ is the true but unknown value. Then $T$ 
+	where $\beta_1$ is the true but unknown value. Then $T$
 	has a $t$-distribution with $n-2$ degrees of freedom.
 	The $100(1-\alpha)\%$ confidence interval of $\beta_1$ is given by
 	\begin{align*}

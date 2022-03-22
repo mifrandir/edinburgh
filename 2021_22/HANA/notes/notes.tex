@@ -17,196 +17,196 @@
 \subsubsection{Nested intervals}
 
 \begin{definition}[Notes 1.1]
-    A sequence $(I_n)_{n\in\N}$ of sets is said to be nested if
-    \begin{align*}
-        I_1 \supset I_2 \supset I_3 \supset \dots
-    \end{align*}
+	A sequence $(I_n)_{n\in\N}$ of sets is said to be nested if
+	\begin{align*}
+		I_1 \supset I_2 \supset I_3 \supset \dots
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Nested Interval Property; Notes 1.1]
-    If $(I_n)_{n\in\N}$ is a nested sequence of nonempty closed bounded intervals then
-    \begin{align*}
-        E=\bigcap_{n\in\N} I_n = \{x\in\R : x \in I_n \text{ for all } n\in\N\}
-    \end{align*}
-    is nonempty.
-    Moreover if $\lambda(I_n)\to 0$, where $\lambda(I_n)$ denotes the length of the
-    interval $I_n$, then $E$ contains exactly one number.
+	If $(I_n)_{n\in\N}$ is a nested sequence of nonempty closed bounded intervals then
+	\begin{align*}
+		E=\bigcap_{n\in\N} I_n = \{x\in\R : x \in I_n \text{ for all } n\in\N\}
+	\end{align*}
+	is nonempty.
+	Moreover if $\lambda(I_n)\to 0$, where $\lambda(I_n)$ denotes the length of the
+	interval $I_n$, then $E$ contains exactly one number.
 \end{theorem}
 
 \subsubsection{Compactness of closed bounded intervals}
 
 \begin{definition}
-    Let $E=[a,b]$ for some real numbers $a\leq b$. Suppose that $(I_\alpha)_{\alpha\in\mathcal{A}}$
-    is a collection of intervals. Then we say that $(I_\alpha)_{\alpha\in\mathcal{A}}$ \textbf{covers}
-    $E$ if
-    \begin{align*}
-        E \subset \bigcup_{\alpha \in \mathcal{A}} I_\alpha.
-    \end{align*}
+	Let $E=[a,b]$ for some real numbers $a\leq b$. Suppose that $(I_\alpha)_{\alpha\in\mathcal{A}}$
+	is a collection of intervals. Then we say that $(I_\alpha)_{\alpha\in\mathcal{A}}$ \textbf{covers}
+	$E$ if
+	\begin{align*}
+		E \subset \bigcup_{\alpha \in \mathcal{A}} I_\alpha.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 1.2]
-    Let $E=[a,b]$ for some real numbers $a\leq b$. Suppose that $(I_\alpha)_{\alpha\in\mathcal{A}}$
-    is an arbitrary collection of open intervals that cover $E$. Then there exists a finite
-    set of indices $\{\alpha_1, \alpha_2, ..., \alpha_n\}$ such that
-    \begin{align*}
-        E \subset I_{\alpha_1} \cup I_{\alpha_2}\cup \cdots \cup I_{\alpha_n}.
-    \end{align*}
-    We say that $(I_{\alpha_i})_{i=1,2,...,n}$ is a finite subcover of $E$.
+	Let $E=[a,b]$ for some real numbers $a\leq b$. Suppose that $(I_\alpha)_{\alpha\in\mathcal{A}}$
+	is an arbitrary collection of open intervals that cover $E$. Then there exists a finite
+	set of indices $\{\alpha_1, \alpha_2, ..., \alpha_n\}$ such that
+	\begin{align*}
+		E \subset I_{\alpha_1} \cup I_{\alpha_2}\cup \cdots \cup I_{\alpha_n}.
+	\end{align*}
+	We say that $(I_{\alpha_i})_{i=1,2,...,n}$ is a finite subcover of $E$.
 \end{theorem}
 
 \subsection{Sequences in $\R$}
 
 \begin{definition}[Notes 1.2]
-    A sequence of real numbers $(x_n)$ is said to \emph{converge} to a real number
-    $a\in\R$ if and only if for every $\e>0$ there is an $N\in\N$ such that
-    \begin{align*}
-        n\geq N \text{ implies } \abs{x_n-a} < \e.
-    \end{align*}
-    The number $a$ is called the limit of the sequence $(x_n)$. A sequence that
-    does not converge to a real number is said to \emph{diverge}.
+	A sequence of real numbers $(x_n)$ is said to \emph{converge} to a real number
+	$a\in\R$ if and only if for every $\e>0$ there is an $N\in\N$ such that
+	\begin{align*}
+		n\geq N \text{ implies } \abs{x_n-a} < \e.
+	\end{align*}
+	The number $a$ is called the limit of the sequence $(x_n)$. A sequence that
+	does not converge to a real number is said to \emph{diverge}.
 \end{definition}
 
 \begin{definition}[Notes 1.3]
-    A sequence $(x_n)$ of numbers $x_n\in\R$ is said to be \emph{Cauchy} if for every $\e>0$ there
-    exists an $N\in\N$ such that
-    \begin{align*}
-        \abs{x_n-x_m}<\e \hs \text{for all }n,m\geq N.
-    \end{align*}
+	A sequence $(x_n)$ of numbers $x_n\in\R$ is said to be \emph{Cauchy} if for every $\e>0$ there
+	exists an $N\in\N$ such that
+	\begin{align*}
+		\abs{x_n-x_m}<\e \hs \text{for all }n,m\geq N.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 1.3]
-    If $(x_n)$ is a convergent sequence of real numbers, then $(x_n)$ is a Cauchy sequence.
+	If $(x_n)$ is a convergent sequence of real numbers, then $(x_n)$ is a Cauchy sequence.
 \end{theorem}
 
 \begin{theorem}[Cauchy]
-    Let $(x_n)$ be a sequence of real numbers. Then $(x_n)$ is a Cauchy sequence if and only
-    if $(x_n)$ is a convergent sequence.
+	Let $(x_n)$ be a sequence of real numbers. Then $(x_n)$ is a Cauchy sequence if and only
+	if $(x_n)$ is a convergent sequence.
 \end{theorem}
 
 \begin{definition}[Notes 1.4]
-    Suppose $(x_n)_{n\in\N}$ is a sequence. A \emph{subsequence} of $(x_n)$ is a sequence of the form
-    $(x_{n_k})_k\in\N$ where for each $k$ there is a positive integer $n_k$ such that
-    \begin{align*}
-        n_1 < n_2 < \cdots n_k < n_{k+1} < ...
-    \end{align*}
+	Suppose $(x_n)_{n\in\N}$ is a sequence. A \emph{subsequence} of $(x_n)$ is a sequence of the form
+	$(x_{n_k})_k\in\N$ where for each $k$ there is a positive integer $n_k$ such that
+	\begin{align*}
+		n_1 < n_2 < \cdots n_k < n_{k+1} < ...
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Bolzano-Weierstrass]
-    Every bounded sequence of real numbers has a convergent subsequence.
+	Every bounded sequence of real numbers has a convergent subsequence.
 \end{theorem}
 
 \begin{definition}[Notes 1.5]
-    If $(x_n)$ is a bounded sequence of real numbers we denote by
-    \begin{align*}
-        \limsup_{n\to\infty} x_n = \lim_{n\to\infty}\left(\sup_{k\geq n}x_k\right),\hs
-        \liminf_{n\to\infty} x_n = \lim_{n\to\infty}\left(\inf_{k\geq n}x_k\right).
-    \end{align*}
+	If $(x_n)$ is a bounded sequence of real numbers we denote by
+	\begin{align*}
+		\limsup_{n\to\infty} x_n = \lim_{n\to\infty}\left(\sup_{k\geq n}x_k\right),\hs
+		\liminf_{n\to\infty} x_n = \lim_{n\to\infty}\left(\inf_{k\geq n}x_k\right).
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 1.6]
-    A sequence $(x_n)$ of real numbers is convergent if and only if $\limsup_{n\to\infty}x_n$
-    and $\liminf_{n\to\infty}x_n$ are real numbers and
-    \begin{align*}
-        \limsup_{n\to\infty}x_n =\liminf_{n\to\infty} x_n.
-    \end{align*}
+	A sequence $(x_n)$ of real numbers is convergent if and only if $\limsup_{n\to\infty}x_n$
+	and $\liminf_{n\to\infty}x_n$ are real numbers and
+	\begin{align*}
+		\limsup_{n\to\infty}x_n =\liminf_{n\to\infty} x_n.
+	\end{align*}
 \end{theorem}
 
 \subsection{Infinite series of real numbers}
 
 \begin{definition}[Notes 1.6]
-    Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. For each $n\in\N$, the partial
-    sum of $S$ of order $n$ is defined by
-    \begin{align*}
-        s_n = \sum_{k=1}^n a_k.
-    \end{align*}
-    $S$ is said to \emph{converge} if and only if its sequence of partial sums $(s_n)$
-    converges to some $s\in\R$ as $n\to\infty$.
+	Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. For each $n\in\N$, the partial
+	sum of $S$ of order $n$ is defined by
+	\begin{align*}
+		s_n = \sum_{k=1}^n a_k.
+	\end{align*}
+	$S$ is said to \emph{converge} if and only if its sequence of partial sums $(s_n)$
+	converges to some $s\in\R$ as $n\to\infty$.
 \end{definition}
 
 \begin{theorem}[Cauchy criterion for series; Notes 1.7]
-    Let $S=\sum_{k=1}^\infty a_k$ be a series. Then the series $S$ is convergent
-    if and only if for any $\e>0$ there exists $N$ such that for all $m\geq n\geq N$
-    we have that
-    \begin{align*}
-        \abs{\sum_{k=n+1}^m}<\e.
-    \end{align*}
+	Let $S=\sum_{k=1}^\infty a_k$ be a series. Then the series $S$ is convergent
+	if and only if for any $\e>0$ there exists $N$ such that for all $m\geq n\geq N$
+	we have that
+	\begin{align*}
+		\abs{\sum_{k=n+1}^m}<\e.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Notes 1.8]
-    Let $S=\sum_{k=1}^\infty a_k$ be an absolutely convergent series. Then
-    \begin{enumerate}
-        \item The series $S$ is convergent.
-        \item Let $z:\N\to\N$ be a bijection. Then the series $\sum_{k=1}^\infty a_{z(k)}$
-              is convergent and \begin{align*}
-                  \sum_{k=1}^\infty a_k = \sum_{k=1}^\infty a_{z(k)}.
-              \end{align*}
-    \end{enumerate}
+	Let $S=\sum_{k=1}^\infty a_k$ be an absolutely convergent series. Then
+	\begin{enumerate}
+		\item The series $S$ is convergent.
+		\item Let $z:\N\to\N$ be a bijection. Then the series $\sum_{k=1}^\infty a_{z(k)}$
+		      is convergent and \begin{align*}
+			      \sum_{k=1}^\infty a_k = \sum_{k=1}^\infty a_{z(k)}.
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Notes 1.9]
-    Let $S=\sum_{k=1}^\infty a_k$ be any conditionally convergent series. Then there
-    exist rearangements $z:\N\to\N$ such that
-    \begin{enumerate}
-        \item For any $r\in\R$ the series $\sum_{k=1}^\infty a_{z(k)}$ is conditionally
-              convergent and its sum is $r$.
-        \item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $+\infty$.
-        \item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $-\infty$.
-        \item The partial sums of the series $\sum_{k=1}^\infty a_{z(k)}$ oscillate between any two real numbers.
-    \end{enumerate}
+	Let $S=\sum_{k=1}^\infty a_k$ be any conditionally convergent series. Then there
+	exist rearangements $z:\N\to\N$ such that
+	\begin{enumerate}
+		\item For any $r\in\R$ the series $\sum_{k=1}^\infty a_{z(k)}$ is conditionally
+		      convergent and its sum is $r$.
+		\item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $+\infty$.
+		\item The series $\sum_{k=1}^\infty a_{z(k)}$ diverges to $-\infty$.
+		\item The partial sums of the series $\sum_{k=1}^\infty a_{z(k)}$ oscillate between any two real numbers.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Continuity of real functions}
 
 \begin{definition}[Notes 1.7]
-    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. We say that $f$ is
-    continuous at some $a\in\dom(f)$ if for any sequence $(x_n)$ whose terms lie in
-    $\dom(f)$ and which converges to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If
-    $f$ is continuous at each $a\in\S\subset\dom(f)$ then we say $f$ is continuos on $S$.
-    If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
+	Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. We say that $f$ is
+	continuous at some $a\in\dom(f)$ if for any sequence $(x_n)$ whose terms lie in
+	$\dom(f)$ and which converges to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If
+	$f$ is continuous at each $a\in\S\subset\dom(f)$ then we say $f$ is continuos on $S$.
+	If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
 \end{definition}
 
 \begin{theorem}[Notes 1.10]
-    Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the following functions
-    are continuous on $D$.
-    \begin{enumerate}
-        \item $\alpha f$;
-        \item $f+g$;
-        \item $fg$.
-    \end{enumerate}
+	Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the following functions
+	are continuous on $D$.
+	\begin{enumerate}
+		\item $\alpha f$;
+		\item $f+g$;
+		\item $fg$.
+	\end{enumerate}
 \end{theorem}
 
 \begin{definition}[Notes 1.8]
-    Let $A,B\subseteq\R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and $f(A)\subseteq B$. The
-    composition of $g$ with $f$ is the function $g\circ f:A\to\R$ defined by
-    \begin{align*}
-        (g\circ f)(x) = g(f(x)),\hs \text{for all }x\in A.
-    \end{align*}
+	Let $A,B\subseteq\R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and $f(A)\subseteq B$. The
+	composition of $g$ with $f$ is the function $g\circ f:A\to\R$ defined by
+	\begin{align*}
+		(g\circ f)(x) = g(f(x)),\hs \text{for all }x\in A.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 1.11]
-    If $f$ is continuous at $a\in\R$ and $g$ is continuous at $f(a)$ then the composition
-    $g\circ f$ is continuous at $a$.
+	If $f$ is continuous at $a\in\R$ and $g$ is continuous at $f(a)$ then the composition
+	$g\circ f$ is continuous at $a$.
 \end{theorem}
 
 \begin{theorem}[Notes 1.12]
-    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. Then $f$ is continuous
-    at $a\in\dom(f)$ if and only if for any $\e>0$ there exists $\delta>0$ such that
-    whenever $x\in\dom(f)$ and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
+	Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. Then $f$ is continuous
+	at $a\in\dom(f)$ if and only if for any $\e>0$ there exists $\delta>0$ such that
+	whenever $x\in\dom(f)$ and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
 \end{theorem}
 
 \begin{theorem}[Intermediate Value]
-    Let $a<b$ be real numbers and $f:[a,b]\to\R$ be a continuous on $[a,b]$.
-    If $f(a)f(b)>0$ then there eixists at least one $c\in(a,b)$ such that $f(c)=0$.
+	Let $a<b$ be real numbers and $f:[a,b]\to\R$ be a continuous on $[a,b]$.
+	If $f(a)f(b)>0$ then there eixists at least one $c\in(a,b)$ such that $f(c)=0$.
 \end{theorem}
 
 \begin{theorem}[Extreme Value]
-    Let $a<b$ be real numbers and $f:[a,b]\to\R$ be continuous on $[a,b]$. Then
-    there exists points $c,d\in[a,b]$ such that
-    \begin{align*}
-        f(c) = \inf\{f(x):x\in[a,b]\},\hs f(d)=\sup\{f(x):x\in[a,b]\}.
-    \end{align*}
-    That is the function $f$ on the interval $[a,b]$ is bounded and attains its minimal
-    and maximal values at some points $c,d\in[a,b]$ respectively.
+	Let $a<b$ be real numbers and $f:[a,b]\to\R$ be continuous on $[a,b]$. Then
+	there exists points $c,d\in[a,b]$ such that
+	\begin{align*}
+		f(c) = \inf\{f(x):x\in[a,b]\},\hs f(d)=\sup\{f(x):x\in[a,b]\}.
+	\end{align*}
+	That is the function $f$ on the interval $[a,b]$ is bounded and attains its minimal
+	and maximal values at some points $c,d\in[a,b]$ respectively.
 \end{theorem}
 
 \section{Uniform convergence}
@@ -214,111 +214,111 @@
 \subsection{Uniform convergence of sequences of functions}
 
 \begin{definition}[Notes 2.1]
-    Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
-    \emph{converge poinwise} on $E$ if and only if $f(x)=\lim_{n\to\infty}f_n(x)$ exists
-    for each $x\in E$.
+	Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
+	\emph{converge poinwise} on $E$ if and only if $f(x)=\lim_{n\to\infty}f_n(x)$ exists
+	for each $x\in E$.
 \end{definition}
 
 \begin{theorem}
-    The pointwise limit does not preserve
-    \begin{itemize}
-        \item continuouity, i.e. all $f_n$ are continuous but $f$ is not,
-        \item differentiability, i.e. all $f_n$ are differentiable but $f$ is not,
-        \item itegrability, i.e. all $f_n$ are integrable but $f$ is not,
-        \item derivatives, i.e. all $f_n$ and $f$ are differentiable, but $(f_n)'\not\to f'$,
-        \item integrals, i.e. all $f_n$ and $f$ are integrable, but $\int_a^b f_n(x)dx\not\to \int_a^b f(x)dx$.
-    \end{itemize}
+	The pointwise limit does not preserve
+	\begin{itemize}
+		\item continuouity, i.e. all $f_n$ are continuous but $f$ is not,
+		\item differentiability, i.e. all $f_n$ are differentiable but $f$ is not,
+		\item itegrability, i.e. all $f_n$ are integrable but $f$ is not,
+		\item derivatives, i.e. all $f_n$ and $f$ are differentiable, but $(f_n)'\not\to f'$,
+		\item integrals, i.e. all $f_n$ and $f$ are integrable, but $\int_a^b f_n(x)dx\not\to \int_a^b f(x)dx$.
+	\end{itemize}
 \end{theorem}
 
 \begin{definition}
-    Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
-    \emph{converge uniformly} on $E$ to a function $f$ if and only if for every $\e>0$ there
-    is an $N\in\N$ such that
-    \begin{align*}
-        n\geq N\hs\text{implies}\hs \abs{f_n(x)-f(x)}<\e
-    \end{align*}
-    for all $x\in E$.
+	Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
+	\emph{converge uniformly} on $E$ to a function $f$ if and only if for every $\e>0$ there
+	is an $N\in\N$ such that
+	\begin{align*}
+		n\geq N\hs\text{implies}\hs \abs{f_n(x)-f(x)}<\e
+	\end{align*}
+	for all $x\in E$.
 \end{definition}
 
 \begin{proposition}
-    The following are equivalent concerning a sequence of functions $f_n:E\to\R$ and $f:E\to\R$:
-    \begin{enumerate}
-        \item $f_n\to f$ uniformly on $E$
-        \item $\sup_{x\in E}\abs{f_n(x)-f(x)}\to 0$ as $n\to\infty$
-        \item there exists a sequence $a_n\to 0$ such that $\abs{f_n(x)-f(x)}\leq a_n$ for all $x\in E$.
-    \end{enumerate}
+	The following are equivalent concerning a sequence of functions $f_n:E\to\R$ and $f:E\to\R$:
+	\begin{enumerate}
+		\item $f_n\to f$ uniformly on $E$
+		\item $\sup_{x\in E}\abs{f_n(x)-f(x)}\to 0$ as $n\to\infty$
+		\item there exists a sequence $a_n\to 0$ such that $\abs{f_n(x)-f(x)}\leq a_n$ for all $x\in E$.
+	\end{enumerate}
 \end{proposition}
 
 \begin{definition}
-    A sequence of functions $f_n$ is said to be \emph{uniformly bounded} on a set $E$ if there
-    is an $M>0$ such that $\abs{f_n(x)}\leq M$ for all $x\in E$ and all $n\in\N$.
+	A sequence of functions $f_n$ is said to be \emph{uniformly bounded} on a set $E$ if there
+	is an $M>0$ such that $\abs{f_n(x)}\leq M$ for all $x\in E$ and all $n\in\N$.
 \end{definition}
 
 \begin{lemma}
-    Let $f_n:E\to\R$ be a sequence of real bounded functions. If $f_n\to f$ uniformly on $E$
-    then $f$ is bounded and $f_n$ is uniformly bounded on $E$.
+	Let $f_n:E\to\R$ be a sequence of real bounded functions. If $f_n\to f$ uniformly on $E$
+	then $f$ is bounded and $f_n$ is uniformly bounded on $E$.
 \end{lemma}
 
 \begin{theorem}[Notes 2.2]
-    Suppose that $f_n\to f$ uniformly on a closed interval $[a,b]$. If each $f_n$ is integrable
-    on $[a,b]$, then so is $f$ and
-    \begin{align*}
-        \lim_{n\to\infty} \int_a^b f_n(x)\:dx = \int_a^b\left(\lim_{n\to\infty}f_n(x)\right)\:dx.
-    \end{align*}
-    In fact, $\lim_{n\to\infty} \int_a^x f_n(t)\:dt = \int_a^x f(t)\:dt$ uniformly for $x\in[a,b]$.
+	Suppose that $f_n\to f$ uniformly on a closed interval $[a,b]$. If each $f_n$ is integrable
+	on $[a,b]$, then so is $f$ and
+	\begin{align*}
+		\lim_{n\to\infty} \int_a^b f_n(x)\:dx = \int_a^b\left(\lim_{n\to\infty}f_n(x)\right)\:dx.
+	\end{align*}
+	In fact, $\lim_{n\to\infty} \int_a^x f_n(t)\:dt = \int_a^x f(t)\:dt$ uniformly for $x\in[a,b]$.
 \end{theorem}
 
 \begin{theorem}[Notes 2.3]
-    Let $(a,b)$ be a bounded interval and suppose that $f_n$ is a sequence of functions which converges
-    at some $x_0\in(a,b)$. If each $f_n$ is differentiable on $(a,b)$, and $f'_n$ converges uniformly
-    on $(a,b)$ as $n\to\infty$, then $f_n$ converges uniformly on $(a,b)$ and
-    \begin{align*}
-        \lim_{n\to\infty}f'_n(x)= \left(\lim_{n\to\infty}f_n(x)\right)'
-    \end{align*}
-    for each $x\in(a,b)$.
+	Let $(a,b)$ be a bounded interval and suppose that $f_n$ is a sequence of functions which converges
+	at some $x_0\in(a,b)$. If each $f_n$ is differentiable on $(a,b)$, and $f'_n$ converges uniformly
+	on $(a,b)$ as $n\to\infty$, then $f_n$ converges uniformly on $(a,b)$ and
+	\begin{align*}
+		\lim_{n\to\infty}f'_n(x)= \left(\lim_{n\to\infty}f_n(x)\right)'
+	\end{align*}
+	for each $x\in(a,b)$.
 \end{theorem}
 
 \subsection{Uniform convergence of series of functions}
 
 \begin{definition}[Notes 2.3]
-    Let $f_k$ be a sequence of real functions defined on some set $E$ and set
-    \begin{align*}
-        s_n(x) = \sum_{k=1}^n f_k(x),\hs x\in E,n\in\N.
-    \end{align*}
-    \begin{enumerate}
-        \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge pointwise} on $E$ iff
-              the sequence $s_n(x)$ converges pointwise on $E$ as $n\to\infty$.
-        \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge uniformly} on $E$ iff
-              the sequence $s_n(x)$ converges uniformly on $E$ as $n\to\infty$.
-        \item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge absolutely (pointwise)} on $E$ iff
-              $\sum_{k=1}^\infty \abs{f_k(x)}$ converges for each $x\in E$.
-    \end{enumerate}
+	Let $f_k$ be a sequence of real functions defined on some set $E$ and set
+	\begin{align*}
+		s_n(x) = \sum_{k=1}^n f_k(x),\hs x\in E,n\in\N.
+	\end{align*}
+	\begin{enumerate}
+		\item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge pointwise} on $E$ iff
+		      the sequence $s_n(x)$ converges pointwise on $E$ as $n\to\infty$.
+		\item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge uniformly} on $E$ iff
+		      the sequence $s_n(x)$ converges uniformly on $E$ as $n\to\infty$.
+		\item The series $\sum_{k=1}^\infty f_k$ is said to \emph{converge absolutely (pointwise)} on $E$ iff
+		      $\sum_{k=1}^\infty \abs{f_k(x)}$ converges for each $x\in E$.
+	\end{enumerate}
 \end{definition}
 
 \begin{theorem}[Notes 2.4]
-    Let $E$ be a nonempty subset of $\R$ and let $(f_k)$ be a sequence of real functions defined on $E$.
-    \begin{enumerate}
-        \item Suppose that $x_0\in E$and that each $f_k$ is continuous at $x_0\in E$.
-              If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is continuos at $x_0\in E$.
-        \item Term-by-term integration: Suppose that $E=[a,b]$ and that each $f_k$ is integrable on $[a,b]$.
-              If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $[a,b]$, then $f$ is integrable on $[a,b]$
-              and \begin{align*}
-                  \int_a^b \sum_{k=1}^\infty f_k(x)\:dx = \sum_{k=1}^\infty \int_a^b f_k(x)\:dx.
-              \end{align*}
-        \item Term-by-term differentiation: Suppse that $E$ is a bounded, open interval and that each
-              $f_k$ is differentiable on $E$. If $\sum_{k=1}^\infty f_k(x_0)$ converges at some $x_0\in E$,
-              and $g=\sum_{k=1}^\infty f'_k$ converges uniformly on $E$, then $f=\sum_{k=1}^\infty f_k$
-              converges uniformly on $E$, is differentiable on $E$, and \begin{align*}
-                  f'(x) = \left(\sum_{k=1}^\infty f_k(x)\right)' = \sum_{k=1}^\infty f'_k(x)= g(x)
-              \end{align*}
-              for $x\in E$.
-    \end{enumerate}
+	Let $E$ be a nonempty subset of $\R$ and let $(f_k)$ be a sequence of real functions defined on $E$.
+	\begin{enumerate}
+		\item Suppose that $x_0\in E$and that each $f_k$ is continuous at $x_0\in E$.
+		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is continuos at $x_0\in E$.
+		\item Term-by-term integration: Suppose that $E=[a,b]$ and that each $f_k$ is integrable on $[a,b]$.
+		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $[a,b]$, then $f$ is integrable on $[a,b]$
+		      and \begin{align*}
+			      \int_a^b \sum_{k=1}^\infty f_k(x)\:dx = \sum_{k=1}^\infty \int_a^b f_k(x)\:dx.
+		      \end{align*}
+		\item Term-by-term differentiation: Suppse that $E$ is a bounded, open interval and that each
+		      $f_k$ is differentiable on $E$. If $\sum_{k=1}^\infty f_k(x_0)$ converges at some $x_0\in E$,
+		      and $g=\sum_{k=1}^\infty f'_k$ converges uniformly on $E$, then $f=\sum_{k=1}^\infty f_k$
+		      converges uniformly on $E$, is differentiable on $E$, and \begin{align*}
+			      f'(x) = \left(\sum_{k=1}^\infty f_k(x)\right)' = \sum_{k=1}^\infty f'_k(x)= g(x)
+		      \end{align*}
+		      for $x\in E$.
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Weierstrass M-test]
-    Let $E$ be a nonempty subset of $\R$, let $f_k:E\to\R$, $k\in\N$, and suppose that $M_k\geq 0$
-    satisfies $\sum_{k=1}^\infty M_k<\infty$. If $\abs{f_k(x)}\leq M_k$ for $k\in\N$ and $x\in E$,
-    $f=\sum_{k=1}^\infty f_k$ converges absolutely and uniformly on $E$.
+	Let $E$ be a nonempty subset of $\R$, let $f_k:E\to\R$, $k\in\N$, and suppose that $M_k\geq 0$
+	satisfies $\sum_{k=1}^\infty M_k<\infty$. If $\abs{f_k(x)}\leq M_k$ for $k\in\N$ and $x\in E$,
+	$f=\sum_{k=1}^\infty f_k$ converges absolutely and uniformly on $E$.
 \end{theorem}
 
 \section{Power series}
@@ -326,63 +326,63 @@
 \subsection{Introduction}
 
 \begin{definition}[Notes 3.1]
-    The \emph{radius of convergence $R$} of the power series
-    \begin{align}
-        \label{ps}
-        \sum_{n=0}^\infty a_n(x-c)^n
-    \end{align}
-    is defined by
-    \begin{align*}
-        R = \sup\{r\geq 0:(a_nr^n) \text{ is bounded}\},
-    \end{align*}
-    unless $(a_nr^n)$ is bounded for all $r\geq 0$, in which case we declare $R=\infty$.
+	The \emph{radius of convergence $R$} of the power series
+	\begin{align}
+		\label{ps}
+		\sum_{n=0}^\infty a_n(x-c)^n
+	\end{align}
+	is defined by
+	\begin{align*}
+		R = \sup\{r\geq 0:(a_nr^n) \text{ is bounded}\},
+	\end{align*}
+	unless $(a_nr^n)$ is bounded for all $r\geq 0$, in which case we declare $R=\infty$.
 \end{definition}
 
 \begin{theorem}[Notes 3.1]
-    Suppose the radius of convergence $E$ of (\ref{ps}) satisfies $0<R<\infty$.
-    If $\abs{x-c}<R$, the power series (\ref{ps}) converges absolutely. If
-    $\abs{x-c}>R$, the power series (\ref{ps}) diverges.
+	Suppose the radius of convergence $E$ of (\ref{ps}) satisfies $0<R<\infty$.
+	If $\abs{x-c}<R$, the power series (\ref{ps}) converges absolutely. If
+	$\abs{x-c}>R$, the power series (\ref{ps}) diverges.
 \end{theorem}
 
 \subsection{Continuity and differentiability of power series}
 
 \begin{theorem}[Notes 3.2]
-    Assume that $R>0$. Suppose that $0<r<R$. Then the series (\ref{ps}) converges
-    uniformly and absolutely on $\abs{x-c}\leq r$ to a continuous function $f$.
-    Hence
-    \begin{align*}
-        f(x) = \sum_{n=0}^\infty a_n(x-c)^n
-    \end{align*}
-    defines a continuous function $f:(c-R, c+R)\to\R$.
+	Assume that $R>0$. Suppose that $0<r<R$. Then the series (\ref{ps}) converges
+	uniformly and absolutely on $\abs{x-c}\leq r$ to a continuous function $f$.
+	Hence
+	\begin{align*}
+		f(x) = \sum_{n=0}^\infty a_n(x-c)^n
+	\end{align*}
+	defines a continuous function $f:(c-R, c+R)\to\R$.
 \end{theorem}
 
 \begin{lemma}[Notes 3.1]
-    The two poer series $\sum_{n=1}^\infty a_n(x-c)^n$ and $\sum_{n=1}^\infty (x-c)^{n-1}$
-    have the same radius of convergence.
+	The two poer series $\sum_{n=1}^\infty a_n(x-c)^n$ and $\sum_{n=1}^\infty (x-c)^{n-1}$
+	have the same radius of convergence.
 \end{lemma}
 
 \begin{theorem}[Notes 3.3]
-    Suppose the radius of convergence of the power series (\ref{ps}) is $R$. Then
-    the function
-    \begin{align*}
-        f(x) = \sum_{n=0}^\infty a_n(x-c)^n
-    \end{align*}
-    is infinitely differentiable on $\abs{x-c} < R$, and for such $x$,
-    \begin{align*}
-        f'(x) = \sum_{n=0}^\infty na_n(x-c)^{n-1}
-    \end{align*}
-    and the series converges absolutely, and also uniformly on $[c-r, c+r]$ for any
-    $r<R$. Moreover,
-    \begin{align*}
-        a_n = \frac{f^{(n)}(c)}{n!}.
-    \end{align*}
+	Suppose the radius of convergence of the power series (\ref{ps}) is $R$. Then
+	the function
+	\begin{align*}
+		f(x) = \sum_{n=0}^\infty a_n(x-c)^n
+	\end{align*}
+	is infinitely differentiable on $\abs{x-c} < R$, and for such $x$,
+	\begin{align*}
+		f'(x) = \sum_{n=0}^\infty na_n(x-c)^{n-1}
+	\end{align*}
+	and the series converges absolutely, and also uniformly on $[c-r, c+r]$ for any
+	$r<R$. Moreover,
+	\begin{align*}
+		a_n = \frac{f^{(n)}(c)}{n!}.
+	\end{align*}
 \end{theorem}
 
 \subsection{Analytic functions}
 
 \begin{definition}
-    A function $f$ is \emph{analytic} on $\{x: \abs{x-c}<r\}$ if there is a power
-    series (\ref{ps}) which converges to $f$ on $\{x: \abs{x-c}<r\}$.
+	A function $f$ is \emph{analytic} on $\{x: \abs{x-c}<r\}$ if there is a power
+	series (\ref{ps}) which converges to $f$ on $\{x: \abs{x-c}<r\}$.
 \end{definition}
 
 \section{Integration}
@@ -390,268 +390,268 @@
 \subsection{Step functions}
 
 \begin{definition}[Notes 4.1]
-    We say that $\phi:\R\to\R$ is a \emph{step function} if there exist real numbers
-    $x_0<x_1<\cdots < x_n$ (for some $n\in\N$) such that
-    \begin{enumerate}
-        \item $\phi(x)=0$ for $x<x_0$ and $x>x_n$,
-        \item $\phi$ is constant on $(x_{j-1}, x_j)$, $1\leq j\leq n$.
-    \end{enumerate}
+	We say that $\phi:\R\to\R$ is a \emph{step function} if there exist real numbers
+	$x_0<x_1<\cdots < x_n$ (for some $n\in\N$) such that
+	\begin{enumerate}
+		\item $\phi(x)=0$ for $x<x_0$ and $x>x_n$,
+		\item $\phi$ is constant on $(x_{j-1}, x_j)$, $1\leq j\leq n$.
+	\end{enumerate}
 \end{definition}
 
 \begin{definition}[Notes 4.2]
-    If $\phi$ is a step function with respect to $\{x_0, x_1, ..., x_n\}$ which takes the
-    value $c_j$ on $(x_{j-1}, x_j)$, then we define
-    \begin{align*}
-        \int \phi = \sum_{j=1}^n c_j(x_j-x_{j-1}).
-    \end{align*}
+	If $\phi$ is a step function with respect to $\{x_0, x_1, ..., x_n\}$ which takes the
+	value $c_j$ on $(x_{j-1}, x_j)$, then we define
+	\begin{align*}
+		\int \phi = \sum_{j=1}^n c_j(x_j-x_{j-1}).
+	\end{align*}
 \end{definition}
 
 \subsection{Lebesgue integrability}
 
 \begin{definition}[Notes 4.3]
-    A function $f:I\to\R$ is said to be \emph{Lebesgue integrable} on an interval
-    $I$ if there exist values $c_j$ and bounded intervals $J_j\subset I$, $j=1,2,3,...$
-    such that
-    \begin{align*}
-        \sum_{j=1}^\infty \abs{c_j}\lambda (J_j) < \infty,
-    \end{align*}
-    and the equality
-    \begin{align*}
-        f(x) = \sum_{j=1}^\infty \abs{c_j}\chi_{J_j}(x)
-    \end{align*}
-    holds for all $x\in I$ at which
-    \begin{align*}
-        \sum_{j=1}^\infty \abs{c_j} X_{J_j}(x) < \infty.
-    \end{align*}
-    We denote by $\int_I f$ the number
-    \begin{align*}
-        \int_I f = \sum_{j=1}^\infty c_j\lambda(J_j)
-    \end{align*}
-    and call it the integral of $f$ over the interval $I$.
+	A function $f:I\to\R$ is said to be \emph{Lebesgue integrable} on an interval
+	$I$ if there exist values $c_j$ and bounded intervals $J_j\subset I$, $j=1,2,3,...$
+	such that
+	\begin{align*}
+		\sum_{j=1}^\infty \abs{c_j}\lambda (J_j) < \infty,
+	\end{align*}
+	and the equality
+	\begin{align*}
+		f(x) = \sum_{j=1}^\infty \abs{c_j}\chi_{J_j}(x)
+	\end{align*}
+	holds for all $x\in I$ at which
+	\begin{align*}
+		\sum_{j=1}^\infty \abs{c_j} X_{J_j}(x) < \infty.
+	\end{align*}
+	We denote by $\int_I f$ the number
+	\begin{align*}
+		\int_I f = \sum_{j=1}^\infty c_j\lambda(J_j)
+	\end{align*}
+	and call it the integral of $f$ over the interval $I$.
 \end{definition}
 
 \begin{theorem}[Notes 4.1]
-    Suppose that $c_j,d_j$ are real numbers and $J_j,K_j$ are bounded intervals
-    for all $j=1,2,3,...$ and
-    \begin{align*}
-        \sum_{j=1}^\infty \abs{c_j}\lambda(J_j)<\infty, \hs
-        \sum_{j=1}^\infty \abs{d_j}\lambda(K_j)<\infty.
-    \end{align*}
-    If
-    \begin{align*}
-        \sum_{j=1}^\infty \abs{c_j}\chi_{J_j}(x) < \infty\hs\text{and}\hs
-        \sum_{j=1}^\infty \abs{d_j}\chi_{K_j}(x) <\infty,
-    \end{align*}
-    then
-    \begin{align*}
-        \sum_{j=1}^\infty c_j\lambda(J_j)= \sum_{j=1}^\infty d_j\lambda(K_j).
-    \end{align*}
+	Suppose that $c_j,d_j$ are real numbers and $J_j,K_j$ are bounded intervals
+	for all $j=1,2,3,...$ and
+	\begin{align*}
+		\sum_{j=1}^\infty \abs{c_j}\lambda(J_j)<\infty, \hs
+		\sum_{j=1}^\infty \abs{d_j}\lambda(K_j)<\infty.
+	\end{align*}
+	If
+	\begin{align*}
+		\sum_{j=1}^\infty \abs{c_j}\chi_{J_j}(x) < \infty\hs\text{and}\hs
+		\sum_{j=1}^\infty \abs{d_j}\chi_{K_j}(x) <\infty,
+	\end{align*}
+	then
+	\begin{align*}
+		\sum_{j=1}^\infty c_j\lambda(J_j)= \sum_{j=1}^\infty d_j\lambda(K_j).
+	\end{align*}
 \end{theorem}
 
 \begin{corollary}
-    Let $\phi:\R\to\R$ be a step functin. Then $\phi$ is (Lebesgue) integrable on $\R$.
+	Let $\phi:\R\to\R$ be a step functin. Then $\phi$ is (Lebesgue) integrable on $\R$.
 \end{corollary}
 
 \begin{corollary}
-    The function $\chi_{\Q\cap[0,1]}$ is (Lebesgue) integrable on $[0,1]$ and its integral is zero.
+	The function $\chi_{\Q\cap[0,1]}$ is (Lebesgue) integrable on $[0,1]$ and its integral is zero.
 \end{corollary}
 
 \subsection{Basic properties}
 
 \begin{theorem}[Notes 4.2]
-    Suppose $f$ and $g$ are integrable on $I$ and $\alpha$ and $\beta$ are real numbers. Then
-    \begin{enumerate}
-        \item $\alpha f + \beta g$ is integrable on $I$ and \begin{align*}
-                  \int_I (\alpha f + \beta g) = \alpha \int_I f + \beta \int_I g.
-              \end{align*}
-        \item If $f\geq 0$ on $I$ then $\int_I f \geq 0$; if $f\geq g$ on $I$ then $\int_I f\geq \int_I g$.
-        \item $\abs f$ is integrable on $I$ and $\abs{\int_I f}\leq \int_I \abs f$.
-        \item $\max\{f,g\}$ and $\min\{f,g\}$ are integrable on $I$.
-        \item If one of the functions is bounded then the product $fg$ is integrable on $I$.
-        \item If $f\geq 0$ with $\int_I f = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
-    \end{enumerate}
+	Suppose $f$ and $g$ are integrable on $I$ and $\alpha$ and $\beta$ are real numbers. Then
+	\begin{enumerate}
+		\item $\alpha f + \beta g$ is integrable on $I$ and \begin{align*}
+			      \int_I (\alpha f + \beta g) = \alpha \int_I f + \beta \int_I g.
+		      \end{align*}
+		\item If $f\geq 0$ on $I$ then $\int_I f \geq 0$; if $f\geq g$ on $I$ then $\int_I f\geq \int_I g$.
+		\item $\abs f$ is integrable on $I$ and $\abs{\int_I f}\leq \int_I \abs f$.
+		\item $\max\{f,g\}$ and $\min\{f,g\}$ are integrable on $I$.
+		\item If one of the functions is bounded then the product $fg$ is integrable on $I$.
+		\item If $f\geq 0$ with $\int_I f = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Riemann integration}
 
 \begin{definition}[Notes 4.4]
-    Let $f:\R\to\R$. We say that $f$ is \emph{Riemann-integrable} if for every
-    $\e>0$ there exist step functions $\phi$ and $\psi$ such that
-    \begin{align*}
-        \phi \leq f \leq \psi
-    \end{align*}
-    and
-    \begin{align*}
-        \int \psi - \int \phi < \e.
-    \end{align*}
+	Let $f:\R\to\R$. We say that $f$ is \emph{Riemann-integrable} if for every
+	$\e>0$ there exist step functions $\phi$ and $\psi$ such that
+	\begin{align*}
+		\phi \leq f \leq \psi
+	\end{align*}
+	and
+	\begin{align*}
+		\int \psi - \int \phi < \e.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 4.5]
-    A function $f:\R\to\R$ is \emph{Riemann-integrable} if and only if
-    \begin{align*}
-        \sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
-        = \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
-    \end{align*}
+	A function $f:\R\to\R$ is \emph{Riemann-integrable} if and only if
+	\begin{align*}
+		\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
+		= \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
+	\end{align*}
 \end{theorem}
 
 \begin{definition}[Notes 4.5]
-    If $f$ is Riemann-integrable we define its Riemann integral $(R) \int f$ as the common
-    value
-    \begin{align*}
-        (R) \int f
-        =\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
-        = \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
-    \end{align*}
+	If $f$ is Riemann-integrable we define its Riemann integral $(R) \int f$ as the common
+	value
+	\begin{align*}
+		(R) \int f
+		=\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
+		= \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Notes 4.6]
-    Suppose that $f:\R\to\R$ is Riemann integrable. Then $f$ is also Lebesgue integrable on $\R$
-    and moreover
-    \begin{align*}
-        (R) \int f = \int f.
-    \end{align*}
+	Suppose that $f:\R\to\R$ is Riemann integrable. Then $f$ is also Lebesgue integrable on $\R$
+	and moreover
+	\begin{align*}
+		(R) \int f = \int f.
+	\end{align*}
 \end{theorem}
 
 \begin{lemma}[Notes 4.1]
-    Let $f:\R\to\R$ be a bounded function with bounded support $[a,b]$. The following are equivalent:
-    \begin{enumerate}
-        \item $f$ is Riemann-integrable.
-        \item for every $\e>0$ there exist $a=x_0<\cdots x_n=b$ such that if $M_j$ and $m_j$
-              denote the supremum and infimum vallues of $f$ on $(x_{j-1}, x_j)$ respectively, then \begin{align*}
-                  \sum_{j=1}^n (M_j-m_j)(x_j-x_{j-1})<\e.
-              \end{align*}
-        \item for every $\e>0$ there exist $a=x_0<\cdots<x_n=b$ such that, with $I_j=(x_{j-1},x_j)$
-              for every $j\geq 1$, \begin{align*}
-                  \sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x)-f(y)}\lambda(I_j)<\e.
-              \end{align*}
-    \end{enumerate}
+	Let $f:\R\to\R$ be a bounded function with bounded support $[a,b]$. The following are equivalent:
+	\begin{enumerate}
+		\item $f$ is Riemann-integrable.
+		\item for every $\e>0$ there exist $a=x_0<\cdots x_n=b$ such that if $M_j$ and $m_j$
+		      denote the supremum and infimum vallues of $f$ on $(x_{j-1}, x_j)$ respectively, then \begin{align*}
+			      \sum_{j=1}^n (M_j-m_j)(x_j-x_{j-1})<\e.
+		      \end{align*}
+		\item for every $\e>0$ there exist $a=x_0<\cdots<x_n=b$ such that, with $I_j=(x_{j-1},x_j)$
+		      for every $j\geq 1$, \begin{align*}
+			      \sum_{j=1}^n \sup_{x,y\in I_j} \abs{f(x)-f(y)}\lambda(I_j)<\e.
+		      \end{align*}
+	\end{enumerate}
 \end{lemma}
 
 \begin{theorem}[Notes 4.7]
-    Suppose that $g:[a,b]\to\R$ and let $f$ be defined by $f(x)=g(x)$ for $x\in[a,b]$ and $f(x)=0$
-    otherwise.
-    \begin{enumerate}
-        \item If $g$ is continuos on $[a,b]$, then $f$ is Riemann-integrable.
-        \item If $g$ is a monotone function, then $f$ is Riemann-integrable.
-    \end{enumerate}
+	Suppose that $g:[a,b]\to\R$ and let $f$ be defined by $f(x)=g(x)$ for $x\in[a,b]$ and $f(x)=0$
+	otherwise.
+	\begin{enumerate}
+		\item If $g$ is continuos on $[a,b]$, then $f$ is Riemann-integrable.
+		\item If $g$ is a monotone function, then $f$ is Riemann-integrable.
+	\end{enumerate}
 \end{theorem}
 
 \begin{corollary*}
-    Let $I=(a,b)$ be a bounded interval and suppose that there exists points $a=x_0<x_1<\cdots<x_n=b$
-    such that a function $f:I\to\R$ is bounded and continuous on each subinterval $(x_j,x_{j+1})$,
-    $j=0,1,...,n$. Then such function is Riemann integrable.
+	Let $I=(a,b)$ be a bounded interval and suppose that there exists points $a=x_0<x_1<\cdots<x_n=b$
+	such that a function $f:I\to\R$ is bounded and continuous on each subinterval $(x_j,x_{j+1})$,
+	$j=0,1,...,n$. Then such function is Riemann integrable.
 \end{corollary*}
 
 \subsection{Dependence on an interval}
 
 \begin{theorem}[Notes 4.8]
-    Let $I$ and $J$ be two intervals such that $J\subset I$.
-    \begin{enumerate}
-        \item If $f$ is integrable on $I$ then $f$ is integrable on $J$.
-        \item If $f$ is integrable on $J$ and simultaneously $f(x)=0$ for all $x\in I\setminus J$
-              then $f$ is integrable on $I$ and \begin{align*}
-                  \int_J f = \int_I f.
-              \end{align*}
-        \item If $f$ is integrable on $I$ and $f(x)\geq 0$ for all $x\in I$ then \begin{align*}
-                  \int_J f \leq \int_I f.
-              \end{align*}
-        \item Suppose that $I$ can be written as the union of disjoint intervals $I_n$ and let $f$
-              be integrable on each of the intervals $I_n$. Then $f$ is integrable on $I$ if and only if
-              \begin{align*}
-                  \sum_{n=1}^\infty \int_{I_n} \abs f < \infty.
-              \end{align*}
-              It then follows that \begin{align*}
-                  \int_I f = \sum_{n=1}^\infty \int_{I_n}f.
-              \end{align*}
-    \end{enumerate}
+	Let $I$ and $J$ be two intervals such that $J\subset I$.
+	\begin{enumerate}
+		\item If $f$ is integrable on $I$ then $f$ is integrable on $J$.
+		\item If $f$ is integrable on $J$ and simultaneously $f(x)=0$ for all $x\in I\setminus J$
+		      then $f$ is integrable on $I$ and \begin{align*}
+			      \int_J f = \int_I f.
+		      \end{align*}
+		\item If $f$ is integrable on $I$ and $f(x)\geq 0$ for all $x\in I$ then \begin{align*}
+			      \int_J f \leq \int_I f.
+		      \end{align*}
+		\item Suppose that $I$ can be written as the union of disjoint intervals $I_n$ and let $f$
+		      be integrable on each of the intervals $I_n$. Then $f$ is integrable on $I$ if and only if
+		      \begin{align*}
+			      \sum_{n=1}^\infty \int_{I_n} \abs f < \infty.
+		      \end{align*}
+		      It then follows that \begin{align*}
+			      \int_I f = \sum_{n=1}^\infty \int_{I_n}f.
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Fundamental Theorem of Calculus}
 
 \begin{theorem}[Notes 4.10]
-    Let $I$ be an interval and let $g:I\to\R$ be integrable on $I$. For all $x\in I$ and
-    some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g$. Suppose $g$ is continuous at $x$
-    for some $x\in I$. Then $G$ is differentiable at $x$ and $G'(x)=g(x)$.
+	Let $I$ be an interval and let $g:I\to\R$ be integrable on $I$. For all $x\in I$ and
+	some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g$. Suppose $g$ is continuous at $x$
+	for some $x\in I$. Then $G$ is differentiable at $x$ and $G'(x)=g(x)$.
 \end{theorem}
 
 \begin{theorem}[Notes 4.11]
-    Suppose $f:I\to\R$ has continuous derivative $f'$ on the interval $I$. Then for any
-    $a,b\in I$
-    \begin{align*}
-        \int_a^b f' = f(b) - f(a).
-    \end{align*}
+	Suppose $f:I\to\R$ has continuous derivative $f'$ on the interval $I$. Then for any
+	$a,b\in I$
+	\begin{align*}
+		\int_a^b f' = f(b) - f(a).
+	\end{align*}
 \end{theorem}
 
 \subsection{Integrability of sequences of functions}
 
 \begin{theorem}[Notes 4.3]
-    Suppose that $(f_n)_{n\in\N}$ is a sequence of functions each of which is integrable on $I$.
-    \begin{enumerate}
-        \item Assume that \begin{align*}
-                  \sum_{n=1}^\infty \int_I \abs{f_n} < \infty.
-              \end{align*}
-              Let $f$ be a function on the interval $I$ such that \begin{align*}
-                  f(x) = \sum_{n=1}^\infty f_n(x)\hs\text{for all $x\in I$ such that }\sum_{n=1}^\infty \abs{f_n(x)}<\infty.
-              \end{align*}
-              Then $f$ is integrable on $I$ and \begin{align*}
-                  \int_I f = \sum_{n=1}^\infty \int_I f_n.
-              \end{align*}
-        \item Assume that each $f_n\geq 0$ on $I$ and let $f(x)=\sum_{n=1}^\infty f_n(x)$ for all $x\in I$. Then $f$
-              is integrable on $I$ if and only if \begin{align*}
-                  \sum_{n=1}^\infty \int_I f_n < \infty.
-              \end{align*}
-    \end{enumerate}
+	Suppose that $(f_n)_{n\in\N}$ is a sequence of functions each of which is integrable on $I$.
+	\begin{enumerate}
+		\item Assume that \begin{align*}
+			      \sum_{n=1}^\infty \int_I \abs{f_n} < \infty.
+		      \end{align*}
+		      Let $f$ be a function on the interval $I$ such that \begin{align*}
+			      f(x) = \sum_{n=1}^\infty f_n(x)\hs\text{for all $x\in I$ such that }\sum_{n=1}^\infty \abs{f_n(x)}<\infty.
+		      \end{align*}
+		      Then $f$ is integrable on $I$ and \begin{align*}
+			      \int_I f = \sum_{n=1}^\infty \int_I f_n.
+		      \end{align*}
+		\item Assume that each $f_n\geq 0$ on $I$ and let $f(x)=\sum_{n=1}^\infty f_n(x)$ for all $x\in I$. Then $f$
+		      is integrable on $I$ if and only if \begin{align*}
+			      \sum_{n=1}^\infty \int_I f_n < \infty.
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Monotone Convergence; Notes 4.4]
-    Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions on an interval $I$. That is
-    $f_1(x) \leq f_2(x) \leq \cdots$ for all $x\in I$. Then let
-    \begin{align*}
-        f(x) = \lim_{n\to\infty}f_n(x),
-    \end{align*}
-    where we allow for the possibility that at some points this limit is infinite. Then $f$ is integrable on $I$
-    if and only if
-    \begin{align*}
-        \sup_{n\in\N}\int_I f_n = \lim_{n\to\infty}\int_I f_n < \infty.
-    \end{align*}
-    Then further,
-    \begin{align*}
-        \int_I f = \lim_{n\to\infty} \int_I f_n.
-    \end{align*}
+	Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions on an interval $I$. That is
+	$f_1(x) \leq f_2(x) \leq \cdots$ for all $x\in I$. Then let
+	\begin{align*}
+		f(x) = \lim_{n\to\infty}f_n(x),
+	\end{align*}
+	where we allow for the possibility that at some points this limit is infinite. Then $f$ is integrable on $I$
+	if and only if
+	\begin{align*}
+		\sup_{n\in\N}\int_I f_n = \lim_{n\to\infty}\int_I f_n < \infty.
+	\end{align*}
+	Then further,
+	\begin{align*}
+		\int_I f = \lim_{n\to\infty} \int_I f_n.
+	\end{align*}
 \end{theorem}
 
 \begin{lemma}[Fatoux; Notes 4.2]
-    Let $(f_n)$ be a sequence of nonnegative integrable functions on an interval $I$. Let
-    \begin{align*}
-        f(x) = \liminf_{n\to\infty} f_n(x), \hs\text{for all $x\in I$}.
-    \end{align*}
-    If $\liminf_{n\to\infty}\int_I f_n<\infty$ then $f$ is integrable on $I$ and
-    \begin{align*}
-        \int_I f \leq \liminf_{n\to\infty} \int_I f_n.
-    \end{align*}
+	Let $(f_n)$ be a sequence of nonnegative integrable functions on an interval $I$. Let
+	\begin{align*}
+		f(x) = \liminf_{n\to\infty} f_n(x), \hs\text{for all $x\in I$}.
+	\end{align*}
+	If $\liminf_{n\to\infty}\int_I f_n<\infty$ then $f$ is integrable on $I$ and
+	\begin{align*}
+		\int_I f \leq \liminf_{n\to\infty} \int_I f_n.
+	\end{align*}
 \end{lemma}
 
 \begin{theorem}[Dominated convergence; Notes 4.12]
-    Let $(f_n)$ be a sequence of integrable functions on an interval $I$ and assume that
-    \begin{align*}
-        f(x) = \lim_{n\to\infty} f_n(x), \hs \text{for all $x\in I$}.
-    \end{align*}
-    Assume also that the sequence $(f_n)$ is dominated by some integrable function $g$, that is
-    \begin{align*}
-        \abs{f_n(x)} \leq g(x), \hs \text{for all $x\in I$ and $n\in\N$.}
-    \end{align*}
-    Then the function $f$ is integrable on $I$ and
-    \begin{align*}
-        \int_I f = \lim_{n\to\infty} \int_I f_n.
-    \end{align*}
+	Let $(f_n)$ be a sequence of integrable functions on an interval $I$ and assume that
+	\begin{align*}
+		f(x) = \lim_{n\to\infty} f_n(x), \hs \text{for all $x\in I$}.
+	\end{align*}
+	Assume also that the sequence $(f_n)$ is dominated by some integrable function $g$, that is
+	\begin{align*}
+		\abs{f_n(x)} \leq g(x), \hs \text{for all $x\in I$ and $n\in\N$.}
+	\end{align*}
+	Then the function $f$ is integrable on $I$ and
+	\begin{align*}
+		\int_I f = \lim_{n\to\infty} \int_I f_n.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Notes 4.13]
-    Let $(a,b)$ be a bounded interval and suppose that $f_n:(a,b)\to\R$ are integrable functions
-    which converge uniformly to a function $f$. Then $f$ is integrable on $(a,b)$ and
-    \begin{align*}
-        \int_a^b f = \lim_{n\to\infty} \int_a^b f_n.
-    \end{align*}
+	Let $(a,b)$ be a bounded interval and suppose that $f_n:(a,b)\to\R$ are integrable functions
+	which converge uniformly to a function $f$. Then $f$ is integrable on $(a,b)$ and
+	\begin{align*}
+		\int_a^b f = \lim_{n\to\infty} \int_a^b f_n.
+	\end{align*}
 \end{theorem}
 
 \section{Fourier series and orthogonality}
@@ -659,192 +659,192 @@
 \subsection{The space $L^2$}
 
 \begin{definition}[Notes 5.1]
-    Define the space $L^2=L^2([a,b])$ as the set of measurable functions $f:[a,b]\to\C$
-    so that the function $x\mapsto \abs{f(x)}^2$ is Lebesgue integrable, i.e.
-    \begin{align*}
-        \vabs{f}_2^2 := \int_a^b \abs{f(x)}^2 dx < \infty.
-    \end{align*}
-    The quantity $\vabs{f}_2$ is called the \emph{$L^2$-norm} of $f$. If $\vabs{f}_2=1$,
-    then we say that $f$ is \emph{$L^2$-normalised}.
+	Define the space $L^2=L^2([a,b])$ as the set of measurable functions $f:[a,b]\to\C$
+	so that the function $x\mapsto \abs{f(x)}^2$ is Lebesgue integrable, i.e.
+	\begin{align*}
+		\vabs{f}_2^2 := \int_a^b \abs{f(x)}^2 dx < \infty.
+	\end{align*}
+	The quantity $\vabs{f}_2$ is called the \emph{$L^2$-norm} of $f$. If $\vabs{f}_2=1$,
+	then we say that $f$ is \emph{$L^2$-normalised}.
 \end{definition}
 
 \begin{definition}[Notes 5.2]
-    For two functions $f,g\in L^2([a,b])$ we define the \emph{inner product} by
-    \begin{align*}
-        \lra{f,g} = \int_a^b f(x)\overline{g(x)}dx.
-    \end{align*}
+	For two functions $f,g\in L^2([a,b])$ we define the \emph{inner product} by
+	\begin{align*}
+		\lra{f,g} = \int_a^b f(x)\overline{g(x)}dx.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Cauchy-Schwarz inequality; Notes 5.1]
-    Let $f,g\in L^2([a,b])$. Then the function $x\mapsto f(x)\overline{g(x)}$ is Lebesgue
-    integrable and we have
-    \begin{align*}
-        \abs{\lra{f,g}}\leq \vabs f_2\vabs g_2.
-    \end{align*}
+	Let $f,g\in L^2([a,b])$. Then the function $x\mapsto f(x)\overline{g(x)}$ is Lebesgue
+	integrable and we have
+	\begin{align*}
+		\abs{\lra{f,g}}\leq \vabs f_2\vabs g_2.
+	\end{align*}
 \end{theorem}
 
 \begin{definition}[Notes 5.3]
-    Let $f,f_1,f_2,...$ be functions in $L^2([a,b])$. We say that the sequence $(f_n)_n$ converges
-    to $f$ in $L^2$ if the sequence
-    \begin{align*}
-        \vabs{f_n - f}_2 = \left(\int_a^b \abs{f_n(x)-f(x)}^2dx\right)^{1/2}
-    \end{align*}
-    converges to zero as $n\to\infty$. We also write $f_n\to f$ in $L^2$.
+	Let $f,f_1,f_2,...$ be functions in $L^2([a,b])$. We say that the sequence $(f_n)_n$ converges
+	to $f$ in $L^2$ if the sequence
+	\begin{align*}
+		\vabs{f_n - f}_2 = \left(\int_a^b \abs{f_n(x)-f(x)}^2dx\right)^{1/2}
+	\end{align*}
+	converges to zero as $n\to\infty$. We also write $f_n\to f$ in $L^2$.
 \end{definition}
 
 \subsection{Orthonormal systems}
 
 \begin{definition}[Notes 5.4]
-    A sequence $(\phi_n)_n$ of $L^2$ functions on $[a,b]$ is called an \emph{orthonormal system on $[a,b]$}
-    if
-    \begin{align*}
-        \lra{\phi_n, \phi_m} = \begin{cases}
-            0, & \text{if }n\not=m, \\
-            1, & \text{if }n=m.
-        \end{cases}
-    \end{align*}
-    The index $n$ may run over any countable set.
+	A sequence $(\phi_n)_n$ of $L^2$ functions on $[a,b]$ is called an \emph{orthonormal system on $[a,b]$}
+	if
+	\begin{align*}
+		\lra{\phi_n, \phi_m} = \begin{cases}
+			                       0, & \text{if }n\not=m, \\
+			                       1, & \text{if }n=m.
+		                       \end{cases}
+	\end{align*}
+	The index $n$ may run over any countable set.
 \end{definition}
 
 \begin{theorem}[Notes 5.2]
-    Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$ and $f\in L^2$. Consider
-    \begin{align}
-        \label{sn}
-        s_N(x) = \sum_{n=1}^N \lra{f,\phi_n}\phi_n(x).
-    \end{align}
-    Denote the linear span of the functions $(\phi_n)_{n=1,...,N}$ by $X_N$. Then
-    \begin{align*}
-        \vabs{f-s_N}_2 \leq \vabs{f-g}_2
-    \end{align*}
-    holds for all $g\in X_N$ with equality if and only if $g=s_N$.
+	Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$ and $f\in L^2$. Consider
+	\begin{align}
+		\label{sn}
+		s_N(x) = \sum_{n=1}^N \lra{f,\phi_n}\phi_n(x).
+	\end{align}
+	Denote the linear span of the functions $(\phi_n)_{n=1,...,N}$ by $X_N$. Then
+	\begin{align*}
+		\vabs{f-s_N}_2 \leq \vabs{f-g}_2
+	\end{align*}
+	holds for all $g\in X_N$ with equality if and only if $g=s_N$.
 \end{theorem}
 
 \begin{theorem}[Bessel's inequality; Notes 5.3]
-    If $(\phi_n)_n$ is an orthonormal system on $[a,b]$ and $f\in L^2$, then
-    \begin{align*}
-        \sum_n \abs{\lra{f,\phi_n}}^2 \leq \vabs f_2^2.
-    \end{align*}
+	If $(\phi_n)_n$ is an orthonormal system on $[a,b]$ and $f\in L^2$, then
+	\begin{align*}
+		\sum_n \abs{\lra{f,\phi_n}}^2 \leq \vabs f_2^2.
+	\end{align*}
 \end{theorem}
 
 \begin{corollary}[Riemann-Lebesgue lemma in $L^2$]
-    Let $(\phi_n)_{n=1,2,...}$ be an orthonormal system and $f\in L^2$, then
-    \begin{align*}
-        \lim_{n\to\infty} \lra{f,\phi_n}=0.
-    \end{align*}
+	Let $(\phi_n)_{n=1,2,...}$ be an orthonormal system and $f\in L^2$, then
+	\begin{align*}
+		\lim_{n\to\infty} \lra{f,\phi_n}=0.
+	\end{align*}
 \end{corollary}
 
 \begin{theorem}[Notes 5.4]
-    Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$. Let $(s_N)_N$ be as in (\ref{sn}).
-    Then $(\phi_n)_n$ is complete if and only if $(s_N)_N$ converges to $f$ in the $L^2$-norm
-    for every $f\in L^2$.
+	Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$. Let $(s_N)_N$ be as in (\ref{sn}).
+	Then $(\phi_n)_n$ is complete if and only if $(s_N)_N$ converges to $f$ in the $L^2$-norm
+	for every $f\in L^2$.
 \end{theorem}
 
 \subsection{Trigonometric polynomials}
 
 \begin{definition}
-    A \emph{trigonometric polynomial} is a function of the form
-    \begin{align*}
-        f(x) = \sum_{n=-N}^N c_ne^{2\pi i n x} \hs (x\in\R),
-    \end{align*}
-    where $N\in\N$ and $c_n\in\C$. If $c_N$ or $c_{-N}$ is non-zero, then $N$ is called the
-    degree of $f$.
+	A \emph{trigonometric polynomial} is a function of the form
+	\begin{align*}
+		f(x) = \sum_{n=-N}^N c_ne^{2\pi i n x} \hs (x\in\R),
+	\end{align*}
+	where $N\in\N$ and $c_n\in\C$. If $c_N$ or $c_{-N}$ is non-zero, then $N$ is called the
+	degree of $f$.
 \end{definition}
 
 \begin{lemma}[Notes 5.1]
-    $(e^{2\pi inx})_{n\in\Z}$ forms an orthonormal system on $[0,1]$. In particular,
-    \begin{enumerate}
-        \item for all $n\in\Z$, \begin{align*}
-                  \int_0^1 e^{2\pi inx}dx = \begin{cases}
-                      0, & \text{if }n\not=0, \\
-                      1, & \text{if }n=0.
-                  \end{cases}
-              \end{align*}
-        \item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial, then \begin{align*}
-                  c_n = \lra{f,\phi_n} = \int_0^1 f(t)e^{-2\pi int}dt.
-              \end{align*}
-    \end{enumerate}
+	$(e^{2\pi inx})_{n\in\Z}$ forms an orthonormal system on $[0,1]$. In particular,
+	\begin{enumerate}
+		\item for all $n\in\Z$, \begin{align*}
+			      \int_0^1 e^{2\pi inx}dx = \begin{cases}
+				                                0, & \text{if }n\not=0, \\
+				                                1, & \text{if }n=0.
+			                                \end{cases}
+		      \end{align*}
+		\item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial, then \begin{align*}
+			      c_n = \lra{f,\phi_n} = \int_0^1 f(t)e^{-2\pi int}dt.
+		      \end{align*}
+	\end{enumerate}
 \end{lemma}
 
 \begin{definition}
-    For a $1$-periodic integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
-    by
-    \begin{align*}
-        \hat f(n) = \int_0^1 f(t)e^{-2\pi int}dt=\lra{f, \phi_n}.
-    \end{align*}
-    The double infinite series
-    \begin{align*}
-        \sum_{n=-\infty}^\infty \hat f(n) e^{2\pi inx}
-    \end{align*}
-    is called the \emph{Fourier series} of $f$.
+	For a $1$-periodic integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
+	by
+	\begin{align*}
+		\hat f(n) = \int_0^1 f(t)e^{-2\pi int}dt=\lra{f, \phi_n}.
+	\end{align*}
+	The double infinite series
+	\begin{align*}
+		\sum_{n=-\infty}^\infty \hat f(n) e^{2\pi inx}
+	\end{align*}
+	is called the \emph{Fourier series} of $f$.
 \end{definition}
 
 \begin{definition}
-    For a $1$-periodic integrable function $f$ we define the partial sums
-    \begin{align*}
-        S_Nf(x)=\sum_{n=-N}^N \hat f(n) e^{2\pi inx}.
-    \end{align*}
+	For a $1$-periodic integrable function $f$ we define the partial sums
+	\begin{align*}
+		S_Nf(x)=\sum_{n=-N}^N \hat f(n) e^{2\pi inx}.
+	\end{align*}
 \end{definition}
 
 \subsection{Convolutions and kernels}
 
 \begin{definition}
-    For two $1$-periodic functions $f,g\in L^2$ we define their \emph{convolutions}
-    by
-    \begin{align*}
-        f*g(x)=\int_0^1 f(t)g(x-t)dt.
-    \end{align*}
+	For two $1$-periodic functions $f,g\in L^2$ we define their \emph{convolutions}
+	by
+	\begin{align*}
+		f*g(x)=\int_0^1 f(t)g(x-t)dt.
+	\end{align*}
 \end{definition}
 
 \begin{lemma}[Notes 5.2]
-    For $1$-periodic functions $f,g\in L^2$,
-    \begin{align*}
-        f*g=g*f.
-    \end{align*}
+	For $1$-periodic functions $f,g\in L^2$,
+	\begin{align*}
+		f*g=g*f.
+	\end{align*}
 \end{lemma}
 
 \begin{definition}
-    The \emph{Dirichlet kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
-    $(D_N)$ defined by
-    \begin{align*}
-        D_N(x)=\sum_{n=-N}^N e^{2\pi inx}.
-    \end{align*}
+	The \emph{Dirichlet kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
+	$(D_N)$ defined by
+	\begin{align*}
+		D_N(x)=\sum_{n=-N}^N e^{2\pi inx}.
+	\end{align*}
 \end{definition}
 
 \begin{lemma}[Notes 5.3]
-    We have
-    \begin{align*}
-        D_N(x)=\frac{\sin(2\pi(N+1/2)x)}{\sin(\pi x)}.
-    \end{align*}
+	We have
+	\begin{align*}
+		D_N(x)=\frac{\sin(2\pi(N+1/2)x)}{\sin(\pi x)}.
+	\end{align*}
 \end{lemma}
 
 \begin{definition}
-    The \emph{Fej\'er kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
-    $(K_N)$ defined by
-    \begin{align*}
-        K_N(x)=\frac{1}{N+1}\sum_{n=0}^ND_n(x).
-    \end{align*}
+	The \emph{Fej\'er kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
+	$(K_N)$ defined by
+	\begin{align*}
+		K_N(x)=\frac{1}{N+1}\sum_{n=0}^ND_n(x).
+	\end{align*}
 \end{definition}
 
 \begin{lemma}[Notes 5.4]
-    We have
-    \begin{align*}
-        K_N(x)=\frac{1}{2(N+1)}\frac{1-\cos(2\pi(N+1)x)}{\sin^2(\pi x)}
-        =\frac{1}{N+1}\left(\frac{\sin(\pi(N+1)x)}{\sin(\pi x)}\right)^2.
-    \end{align*}
+	We have
+	\begin{align*}
+		K_N(x)=\frac{1}{2(N+1)}\frac{1-\cos(2\pi(N+1)x)}{\sin^2(\pi x)}
+		=\frac{1}{N+1}\left(\frac{\sin(\pi(N+1)x)}{\sin(\pi x)}\right)^2.
+	\end{align*}
 \end{lemma}
 
 \begin{theorem}[Fej\'er]
-    For every 1-periodic continuous function $f$,
-    \begin{align*}
-        K_N*f\to f
-    \end{align*}
-    uniformly on $\R$ as $N\to \infty$.
+	For every 1-periodic continuous function $f$,
+	\begin{align*}
+		K_N*f\to f
+	\end{align*}
+	uniformly on $\R$ as $N\to \infty$.
 \end{theorem}
 
 \begin{corollary*}
-    Every 1-periodic continuous function can be uniformly approximated by trigonometric
-    polynomials. That is, for every 1-periodic continuous $f$ there exists a sequence
-    $(f_n)$ of trigonometric polynomials such that $f_n\to f$ uniformly.
+	Every 1-periodic continuous function can be uniformly approximated by trigonometric
+	polynomials. That is, for every 1-periodic continuous $f$ there exists a sequence
+	$(f_n)$ of trigonometric polynomials such that $f_n\to f$ uniformly.
 \end{corollary*}
 
 \end{document}

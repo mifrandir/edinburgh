@@ -10,94 +10,94 @@
 \section*{Problem 1}
 
 \begin{claim*}
-   Let $A=\{\frac{n}{n+1}:n\in\N\}$. Then $\sup A = 1$.
+	Let $A=\{\frac{n}{n+1}:n\in\N\}$. Then $\sup A = 1$.
 \end{claim*}
 \begin{proof}
-   We know
-   \begin{align*}
-      0 \leq 1
-   \end{align*}
-   and therefore
-   \begin{align*}
-      n \leq n + 1
-   \end{align*}
-   and thus
-   \begin{align}
-      \label{ub}
-      \frac{n}{n+1}\leq 1.
-   \end{align}
-   This shows that $1$ is an upper bound of $A$.\\
-   Let $x<1$ be a real number. Then let $N\in\R$ be such that
-   \begin{align*}
-      N = \frac{x}{1-x}.
-   \end{align*}
-   Using the \emph{Archimedian Property, Ross 4.6} we know that there exists
-   an $n\in\N$ such that $n > N$. This results in the inequality
-   \begin{align*}
-      n > \frac{x}{1-x}.
-   \end{align*}
-   We can rearrange this to obtain
-   \begin{align*}
-      n(1-x) > x
-   \end{align*}
-   and
-   \begin{align*}
-      0 > x + xn - n
-   \end{align*}
-   and therefore we have
-   \begin{align}
-      \label{sup}
-      \frac{n}{n+1} > x.
-   \end{align}
-   This shows that any $x<1$ is not an upper bound of $A$.
-   From (\ref{ub}) we know that $1$ is an upper bound and (\ref{sup}) shows
-   that any $x<1$ is not. Therefore we conclude that
-   $1$ is the least upper bound of $A$, i.e.
-   \begin{align*}
-      \sup A = \sup\left\{\frac{n}{n+1}:n\in\N\right\} = 1.
-   \end{align*}
+	We know
+	\begin{align*}
+		0 \leq 1
+	\end{align*}
+	and therefore
+	\begin{align*}
+		n \leq n + 1
+	\end{align*}
+	and thus
+	\begin{align}
+		\label{ub}
+		\frac{n}{n+1}\leq 1.
+	\end{align}
+	This shows that $1$ is an upper bound of $A$.\\
+	Let $x<1$ be a real number. Then let $N\in\R$ be such that
+	\begin{align*}
+		N = \frac{x}{1-x}.
+	\end{align*}
+	Using the \emph{Archimedian Property, Ross 4.6} we know that there exists
+	an $n\in\N$ such that $n > N$. This results in the inequality
+	\begin{align*}
+		n > \frac{x}{1-x}.
+	\end{align*}
+	We can rearrange this to obtain
+	\begin{align*}
+		n(1-x) > x
+	\end{align*}
+	and
+	\begin{align*}
+		0 > x + xn - n
+	\end{align*}
+	and therefore we have
+	\begin{align}
+		\label{sup}
+		\frac{n}{n+1} > x.
+	\end{align}
+	This shows that any $x<1$ is not an upper bound of $A$.
+	From (\ref{ub}) we know that $1$ is an upper bound and (\ref{sup}) shows
+	that any $x<1$ is not. Therefore we conclude that
+	$1$ is the least upper bound of $A$, i.e.
+	\begin{align*}
+		\sup A = \sup\left\{\frac{n}{n+1}:n\in\N\right\} = 1.
+	\end{align*}
 \end{proof}
 
 \section*{Problem 2}
 
 \begin{claim*}
-   \begin{align*}
-      \lim_{n\to\infty}\frac{7n+8}{9n+10}=\frac{7}{9}.
-   \end{align*}
+	\begin{align*}
+		\lim_{n\to\infty}\frac{7n+8}{9n+10}=\frac{7}{9}.
+	\end{align*}
 \end{claim*}
 \begin{proof}
-   Let $\e>0$ be a real number. Then, using the \emph{Archimedian Property,
-      Ross 4.6} we know there exists an $N\in\N$ such that
-   \begin{align*}
-      N > \frac{1}{\e}.
-   \end{align*}
-   For any such $N$, let $n\in\N$ be such that $n>N$. We therefore have the
-   inequality
-   \begin{align}
-      \label{e}
-      n > \frac{1}{\e}\hs\Leftrightarrow\hs \e > \frac{1}{n}=\abs{\frac{1}{n}}.
-   \end{align}
-   Since $2/81<1$ and $90>0$, we have
-   \begin{align*}
-      \abs{\frac{1}{n}}>\abs{\frac{2}{81n}} > \abs{\frac{2}{81n+90}}.
-   \end{align*}
-   This lets us rearrange to find
-   \begin{align*}
-      \abs{\frac{2}{81n+90}} = \abs{\frac{63n+72-(63n-70)}{81n+90}}
-      = \abs{\frac{9(7n+8)-7(9n+10)}{9(9n+10)}}=\abs{\frac{7n+8}{9n+10}-\frac{7}{9}}.
-   \end{align*}
-   We therefore have
-   \begin{align*}
-      \abs{\frac{1}{n}}>\abs{\frac{7n+8}{9n+10}-\frac{7}{9}}.
-   \end{align*}
-   Using (\ref{e}) this shows that
-   \begin{align*}
-      \e > \abs{\frac{7n+8}{9n+10}-\frac{7}{9}}
-   \end{align*}
-   which by \emph{Ross 7.1} shows that
-   \begin{align*}
-      \lim_{n\to\infty}\frac{7n+8}{9n+10}=\frac{7}{9}.
-   \end{align*}
+	Let $\e>0$ be a real number. Then, using the \emph{Archimedian Property,
+		Ross 4.6} we know there exists an $N\in\N$ such that
+	\begin{align*}
+		N > \frac{1}{\e}.
+	\end{align*}
+	For any such $N$, let $n\in\N$ be such that $n>N$. We therefore have the
+	inequality
+	\begin{align}
+		\label{e}
+		n > \frac{1}{\e}\hs\Leftrightarrow\hs \e > \frac{1}{n}=\abs{\frac{1}{n}}.
+	\end{align}
+	Since $2/81<1$ and $90>0$, we have
+	\begin{align*}
+		\abs{\frac{1}{n}}>\abs{\frac{2}{81n}} > \abs{\frac{2}{81n+90}}.
+	\end{align*}
+	This lets us rearrange to find
+	\begin{align*}
+		\abs{\frac{2}{81n+90}} = \abs{\frac{63n+72-(63n-70)}{81n+90}}
+		= \abs{\frac{9(7n+8)-7(9n+10)}{9(9n+10)}}=\abs{\frac{7n+8}{9n+10}-\frac{7}{9}}.
+	\end{align*}
+	We therefore have
+	\begin{align*}
+		\abs{\frac{1}{n}}>\abs{\frac{7n+8}{9n+10}-\frac{7}{9}}.
+	\end{align*}
+	Using (\ref{e}) this shows that
+	\begin{align*}
+		\e > \abs{\frac{7n+8}{9n+10}-\frac{7}{9}}
+	\end{align*}
+	which by \emph{Ross 7.1} shows that
+	\begin{align*}
+		\lim_{n\to\infty}\frac{7n+8}{9n+10}=\frac{7}{9}.
+	\end{align*}
 \end{proof}
 
 \end{document}

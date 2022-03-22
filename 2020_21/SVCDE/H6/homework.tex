@@ -13,35 +13,35 @@
 
 To evaluate
 \begin{align*}
-  I=\int_C \left(y\ih - x\jh\right)\cdot d\vec r
+	I=\int_C \left(y\ih - x\jh\right)\cdot d\vec r
 \end{align*}
 with $C$ as described in the question, we need to split $I$ into its
 parts:
 \begin{align*}
-  I = \int_{C_\alpha} \vec G \cdot d\vec r + \int_{C_\beta} \vec G \cdot d\vec r = I_1 + I_2
+	I = \int_{C_\alpha} \vec G \cdot d\vec r + \int_{C_\beta} \vec G \cdot d\vec r = I_1 + I_2
 \end{align*}
 where $C_\alpha$ is the the part of the circle and $C_\beta$ is the line segment.
 For $I_1$ we find
 \begin{align*}
-  I_1 = \int_{C_\alpha} ydx-xdy.
+	I_1 = \int_{C_\alpha} ydx-xdy.
 \end{align*}
 We parameterise with $x=\cos\theta$ and $y=\sin\theta$.
 This let's us write
 \begin{align*}
-  I_1 = \int_0^{3\pi/2} \left(-\sin^2\theta - \cos^2\theta\right) d\theta
-  =-\int_0^{3\pi/2}d\theta=-\frac{3\pi}{2}.
+	I_1 = \int_0^{3\pi/2} \left(-\sin^2\theta - \cos^2\theta\right) d\theta
+	=-\int_0^{3\pi/2}d\theta=-\frac{3\pi}{2}.
 \end{align*}
 Similarly, we find
 \begin{align*}
-  I_2 = \int_{C_\beta} ydx-xdy.
+	I_2 = \int_{C_\beta} ydx-xdy.
 \end{align*}
 We use the parameterisation $x=t$ and $y=t-1$ to get
 \begin{align*}
-  I_2 = \int_0^1 (t-1-t)dt=-\int_0^1 dt = -1.
+	I_2 = \int_0^1 (t-1-t)dt=-\int_0^1 dt = -1.
 \end{align*}
 Inserting this let's us find $I$:
 \begin{align*}
-  I = -\frac{3\pi}{2}-1 = -\frac{3\pi + 2}{2}.
+	I = -\frac{3\pi}{2}-1 = -\frac{3\pi + 2}{2}.
 \end{align*}
 
 
@@ -50,64 +50,64 @@ Inserting this let's us find $I$:
 
 We have the transformation $(u,v,w)\to(x,y,z)$ defined by the equations
 \begin{align}
-  \label{eq1}
-  u   & = x + y + z, \\
-  \label{eq2}
-  uv  & = y + z,     \\
-  \label{eq3}
-  uvw & = z.
+	\label{eq1}
+	u   & = x + y + z, \\
+	\label{eq2}
+	uv  & = y + z,     \\
+	\label{eq3}
+	uvw & = z.
 \end{align}
 To find the Jacobian, we need to find $x$, $y$ and $z$ in terms of $u$, $v$ and $w$.
 The equation for $z(u,v,w)$ follows from (\ref{eq3}) directly.
 We can insert this into (\ref{eq2}) to find
 $y(u,v,w)$ and with (\ref{eq1}) this leads to $x(u,v,w)$. We get
 \begin{align*}
-  x(u,v,w) = u(1-v),\hs
-  y(u,v,w) = uv(1-w),\hs
-  z(u,v,w) = uvw.
+	x(u,v,w) = u(1-v),\hs
+	y(u,v,w) = uv(1-w),\hs
+	z(u,v,w) = uvw.
 \end{align*}
 This lets us write
 \begin{align*}
-  \frac{\partial(x,y,z)}{\partial(u,v,w)}
-  = \begin{vmatrix}
-    1-v    & -u     & 0   \\
-    v(1-w) & u(1-w) & -uv \\
-    vw     & uw     & uv
-  \end{vmatrix}
+	\frac{\partial(x,y,z)}{\partial(u,v,w)}
+	= \begin{vmatrix}
+		  1-v    & -u     & 0   \\
+		  v(1-w) & u(1-w) & -uv \\
+		  vw     & uw     & uv
+	  \end{vmatrix}
 \end{align*}
 We expand via the first row to get
 \begin{align*}
-  \frac{\partial(x,y,z)}{\partial(u,v,w)}
-  = (1-v)\begin{vmatrix}
-    u(1-w) & -uv \\
-    uw     & uv
-  \end{vmatrix}
-  + (-u)\begin{vmatrix}
-    v(1-w) & -uv \\
-    vw     & uv
-  \end{vmatrix}.
+	\frac{\partial(x,y,z)}{\partial(u,v,w)}
+	= (1-v)\begin{vmatrix}
+		       u(1-w) & -uv \\
+		       uw     & uv
+	       \end{vmatrix}
+	+ (-u)\begin{vmatrix}
+		      v(1-w) & -uv \\
+		      vw     & uv
+	      \end{vmatrix}.
 \end{align*}
 By applying the formula for $2\times 2$ determinants and
 simplifying the result, we find
 \begin{align*}
-  \frac{\partial(x,y,z)}{\partial(u,v,w)} = u^2 v.
+	\frac{\partial(x,y,z)}{\partial(u,v,w)} = u^2 v.
 \end{align*}
 Now we can evaluate
 \begin{align*}
-  I = \ti_T e^{-(x+y+z)^3}dx\,dy\,dz.
+	I = \ti_T e^{-(x+y+z)^3}dx\,dy\,dz.
 \end{align*}
 We apply the transformation to get
 \begin{align*}
-  I = \ti_U e^{-u^3}u^2v\:du\,dv\,dw
-  = \int_0^1\int_0^1\int_0^1 e^{-u^3}u^2\:du\,dv\,dw.
+	I = \ti_U e^{-u^3}u^2v\:du\,dv\,dw
+	= \int_0^1\int_0^1\int_0^1 e^{-u^3}u^2\:du\,dv\,dw.
 \end{align*}
 Using \emph{Fubini's Theorem} this may be solved with relative ease:
 \begin{align*}
-  I & = \int_0^1 \int_0^1 \left[e^{-u^3}u^2 v w\right]_0^1dv\,du
-  =\int_0^1 \int_0^1 e^{-u^3}u^2 v\:dv\,du                       \\
-    & =\int_0^1 \left[\frac{1}{2}e^{-u^3}u^2v^2\right]_0^1du
-  =\frac{1}{2}\int_0^1 e^{-u^3}u^2\:du                           \\
-    & =\frac{1}{2}\left[-\frac{1}{3}e^{-u^3}\right]_0^1
-  =\frac{e-1}{6e}.
+	I & = \int_0^1 \int_0^1 \left[e^{-u^3}u^2 v w\right]_0^1dv\,du
+	=\int_0^1 \int_0^1 e^{-u^3}u^2 v\:dv\,du                       \\
+	  & =\int_0^1 \left[\frac{1}{2}e^{-u^3}u^2v^2\right]_0^1du
+	=\frac{1}{2}\int_0^1 e^{-u^3}u^2\:du                           \\
+	  & =\frac{1}{2}\left[-\frac{1}{3}e^{-u^3}\right]_0^1
+	=\frac{e-1}{6e}.
 \end{align*}
 \end{document}

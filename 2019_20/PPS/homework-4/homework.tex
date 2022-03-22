@@ -10,68 +10,68 @@
 \section*{Task 1}
 \emph{Claim.} Let $n\geq 2$ be an integer. Then the period of the decimal expression for the rational number $\frac{1}{n}$ is at most $n-1$.
 \begin{proof}
-  This is very similar proof of \emph{Lemma 8.4/Corollary 8.5} in the notes.\\
-  Let be an integer $n\geq 2$. Then we can write $x=\nicefrac{1}{n}$. Each step of the long division algorithm $1\overline{)n.000...}$ returns remainders in $[1,n]$.\\
-  Further, let $x=qr+q$, i.e. $x$ divided by $q$ is $r$ with remainder $q$. Then
-  \begin{align*}
-    x = qr+q = q(r+1)+0
-  \end{align*}
-  and therefore the division is incomplete. The result should be $r+1$ and the remainder $0$. If a zero occurs in the division algorithm, all the following digits will be zero, too. Thus making the period $1$.\\
-  We now know that the remainders may only be in the intervall $[1, n)$ if the period is supposed to be greater than $1$. By the \emph{pigeonhole principle} (\emph{Notes, Definition 8.2}), after $n$ steps one of the $n-1$ remainders, call it $k$, must occur twice, thus making the maximum distance between the two occurences of $k$, i.e. the period, $n-1$.
+	This is very similar proof of \emph{Lemma 8.4/Corollary 8.5} in the notes.\\
+	Let be an integer $n\geq 2$. Then we can write $x=\nicefrac{1}{n}$. Each step of the long division algorithm $1\overline{)n.000...}$ returns remainders in $[1,n]$.\\
+	Further, let $x=qr+q$, i.e. $x$ divided by $q$ is $r$ with remainder $q$. Then
+	\begin{align*}
+		x = qr+q = q(r+1)+0
+	\end{align*}
+	and therefore the division is incomplete. The result should be $r+1$ and the remainder $0$. If a zero occurs in the division algorithm, all the following digits will be zero, too. Thus making the period $1$.\\
+	We now know that the remainders may only be in the intervall $[1, n)$ if the period is supposed to be greater than $1$. By the \emph{pigeonhole principle} (\emph{Notes, Definition 8.2}), after $n$ steps one of the $n-1$ remainders, call it $k$, must occur twice, thus making the maximum distance between the two occurences of $k$, i.e. the period, $n-1$.
 
 \end{proof}
 \section*{Task 2}
 \emph{Claim.} Let $x_1=0$ and $x_{n+1}=\frac{x_n^2+1}{2}$. Then $\lim x_n=1$.
 \begin{proof}
-  At first we shall proof that $x_n$ is bounded above by $1$.
-  \begin{adjustwidth}{2em}{0pt}
-    \begin{claim}
-      $x_n<1$ for all $n\in\N$.
-    \end{claim}
-    \begin{claimproof}
-      By induction.\\
-      Observe that $x_1=0<1$.\\
-      Assume that $x_n<1$. Then, since $x_n\geq 0$, $x_n^2<1^2=1$ by \emph{Liebeck, Example 5.4}. With \emph{Rules 5.1, Liebeck} and \emph{Example 5.3, Liebeck} we get that
-      \begin{align*}
-        x_n<1 \Rightarrow \frac{x_n^2+1}{2}<1 \text{ for all } x_n > 0.
-      \end{align*}
-      Notice that \emph{Liebeck} does not include the case of $x_n=0$, but then $\frac{x_n^2+1}{2}=\frac{1}{2}<1$ and thus the condition still holds.
-      With $x_{n+1}=\frac{x^2_n+1}{2}$ we get that $x_n<1\Rightarrow x_{n+1}<1$.\\
-      Since $x_1<1$ and $x_n<1 \Rightarrow x_{n+1}<1$, $x_n<1$ holds for all $n\in\N$.
-    \end{claimproof}
-  \end{adjustwidth}
-  Now we show that $x_n$ is strictly increasing.
-  \begin{adjustwidth}{2em}{0pt}
-    \begin{claim}
-      $x_n<x_{n+1}$ for all $n\in\N$.
-    \end{claim}
-    \begin{claimproof}
-      By induction.\\
-      Observe that $x_1=0<\frac{1}{2}=x_2$.\\
-      Assume that $x_n<x_{n+1}$. Then we can use the rules and examples from \emph{Liebeck, Section 5} and the fact that $x_n>0$ to get the following equivalence:
-      \begin{align*}
-        x_n                               & <x_{n+1}                \\
-        \Leftrightarrow x_n^2             & <x_{n+1}^2              \\
-        \Leftrightarrow x_n^2+1           & <x_{n+1}^2+1            \\
-        \Leftrightarrow \frac{x_n^2+1}{2} & <\frac{x_{n+1}^2+1}{2},
-      \end{align*}
-      which, by definition, is equivalent to $x_{n+1}<x_{n+2}$.\\
-      Since $x_1<x_2$ and $x_n<x_{n+1}\Rightarrow x_{n+1}<x_{n+1}$ we can conclude that $x_n<x_{n+1}$ for all $n\in\N$.
-    \end{claimproof}
-  \end{adjustwidth}
-  Since $x_n$ is bounded above and strictly increasing, $x_n$ is convergent by the \emph{Monotone Convergence Theorem (Notes, Definition 7.1)}. Finding the limit $L$ now becomes equivalent to solving the equation
-  \begin{align*}
-    L=\frac{L^2+1}{2}.
-  \end{align*}
-  We find that there is only one solution $L=1$. Thus $\lim x_n=1$, as desired.
+	At first we shall proof that $x_n$ is bounded above by $1$.
+	\begin{adjustwidth}{2em}{0pt}
+		\begin{claim}
+			$x_n<1$ for all $n\in\N$.
+		\end{claim}
+		\begin{claimproof}
+			By induction.\\
+			Observe that $x_1=0<1$.\\
+			Assume that $x_n<1$. Then, since $x_n\geq 0$, $x_n^2<1^2=1$ by \emph{Liebeck, Example 5.4}. With \emph{Rules 5.1, Liebeck} and \emph{Example 5.3, Liebeck} we get that
+			\begin{align*}
+				x_n<1 \Rightarrow \frac{x_n^2+1}{2}<1 \text{ for all } x_n > 0.
+			\end{align*}
+			Notice that \emph{Liebeck} does not include the case of $x_n=0$, but then $\frac{x_n^2+1}{2}=\frac{1}{2}<1$ and thus the condition still holds.
+			With $x_{n+1}=\frac{x^2_n+1}{2}$ we get that $x_n<1\Rightarrow x_{n+1}<1$.\\
+			Since $x_1<1$ and $x_n<1 \Rightarrow x_{n+1}<1$, $x_n<1$ holds for all $n\in\N$.
+		\end{claimproof}
+	\end{adjustwidth}
+	Now we show that $x_n$ is strictly increasing.
+	\begin{adjustwidth}{2em}{0pt}
+		\begin{claim}
+			$x_n<x_{n+1}$ for all $n\in\N$.
+		\end{claim}
+		\begin{claimproof}
+			By induction.\\
+			Observe that $x_1=0<\frac{1}{2}=x_2$.\\
+			Assume that $x_n<x_{n+1}$. Then we can use the rules and examples from \emph{Liebeck, Section 5} and the fact that $x_n>0$ to get the following equivalence:
+			\begin{align*}
+				x_n                               & <x_{n+1}                \\
+				\Leftrightarrow x_n^2             & <x_{n+1}^2              \\
+				\Leftrightarrow x_n^2+1           & <x_{n+1}^2+1            \\
+				\Leftrightarrow \frac{x_n^2+1}{2} & <\frac{x_{n+1}^2+1}{2},
+			\end{align*}
+			which, by definition, is equivalent to $x_{n+1}<x_{n+2}$.\\
+			Since $x_1<x_2$ and $x_n<x_{n+1}\Rightarrow x_{n+1}<x_{n+1}$ we can conclude that $x_n<x_{n+1}$ for all $n\in\N$.
+		\end{claimproof}
+	\end{adjustwidth}
+	Since $x_n$ is bounded above and strictly increasing, $x_n$ is convergent by the \emph{Monotone Convergence Theorem (Notes, Definition 7.1)}. Finding the limit $L$ now becomes equivalent to solving the equation
+	\begin{align*}
+		L=\frac{L^2+1}{2}.
+	\end{align*}
+	We find that there is only one solution $L=1$. Thus $\lim x_n=1$, as desired.
 \end{proof}
 \section*{Task 3}
 \emph{Claim.} Let $x_n$ be a sequence such that $\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, ...$ are limit points. Then $0$ is also a limit point.
 \begin{proof}
-  By definition of the limit point (\emph{Notes, Defintion 7.2}) there are subsequences within $x_n$ whose limits are $\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, ...$. \\
-  We will now construct a new subsequence $x_{n_k}$ such that $x_{n_k}<\frac{1}{k}$ for all $k\in\N$.\\
-  This is possible, because we can let $x_{n_k}$ be arbitrarily close to $\frac{1}{k+1}$ (which is less than $\frac{1}{k}$) due to the existance of a subsequence with the value $\frac{1}{k+1}$ as a limit point. Of course the $n_k$ need to be chosen in such a way that $n_k<n_{k+1}$ for all $k\in\N$. This is not an issue though, as there are infinetly many values of $x_n$ that are close enough to $\frac{1}{k+1}$ to be less than $\frac{1}{k}$ in each subsequence with the limit $\frac{1}{k+1}$. Therefore there is at least one such value $x_{n_k}$ which appears after $x_{n_{k-1}}$ in the sequence $x_n$.\\
-  Since we now have a subsequence $x_{n_k}$ such that $x_{n_k}<\frac{1}{k}$ for all $k\in\N$ and because $\lim_{k\to\infty} \frac{1}{k} = 0$, $\lim_{k\to\infty} x_{n_k}=0$ and thus $0$ is a limit point of the sequence $x_n$.
+	By definition of the limit point (\emph{Notes, Defintion 7.2}) there are subsequences within $x_n$ whose limits are $\frac{1}{2}, \frac{1}{3}, \frac{1}{4}, ...$. \\
+	We will now construct a new subsequence $x_{n_k}$ such that $x_{n_k}<\frac{1}{k}$ for all $k\in\N$.\\
+	This is possible, because we can let $x_{n_k}$ be arbitrarily close to $\frac{1}{k+1}$ (which is less than $\frac{1}{k}$) due to the existance of a subsequence with the value $\frac{1}{k+1}$ as a limit point. Of course the $n_k$ need to be chosen in such a way that $n_k<n_{k+1}$ for all $k\in\N$. This is not an issue though, as there are infinetly many values of $x_n$ that are close enough to $\frac{1}{k+1}$ to be less than $\frac{1}{k}$ in each subsequence with the limit $\frac{1}{k+1}$. Therefore there is at least one such value $x_{n_k}$ which appears after $x_{n_{k-1}}$ in the sequence $x_n$.\\
+	Since we now have a subsequence $x_{n_k}$ such that $x_{n_k}<\frac{1}{k}$ for all $k\in\N$ and because $\lim_{k\to\infty} \frac{1}{k} = 0$, $\lim_{k\to\infty} x_{n_k}=0$ and thus $0$ is a limit point of the sequence $x_n$.
 \end{proof}
 \emph{Note: I have tried and failed to come up with a reasonable notation for the subsequences of $x_n$ that converge to $\frac{1}{k}$. This has lead to the quite text heavy proof shown above. A good notation would make the argument easier to follow, though.}
 \end{document}

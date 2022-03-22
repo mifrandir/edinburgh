@@ -16,200 +16,200 @@
 \subsection{Algebraic structure of real numbers}
 
 \begin{definition*}
-    The set $\R$ has the following \emph{field properties}
-    under addition ($+$) and multiplication ($\cdot$):
-    \begin{enumerate}[label=F\arabic*]
-        \item \emph{Closure}: $a+b, a\cdot b\in\R$.
-        \item \emph{Associativity}: $(a+b)+c=a+(b+c)$ and $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
-        \item \emph{Commutativity}: $a+b=b+a$ and $a\cdot b=b\cdot a$.
-        \item \emph{Additive Identity}: There exists a unique element $0\in\R$ such that $0+a=a$ for all $a\in\R$.
-        \item \emph{Multiplicative Identity}: There exists a uniqeue element
-              $1\in\R$ such that $1\not=0$ and $1\cdot a=a$ for all $a\in\R$
-        \item \emph{Additive Inverses}: For every $a\in\R$ there is a unique
-              element $-a\in\R$ such that $a+(-a)=0$.
-        \item \emph{Multiplicative Inverses}: For every $a\in\R$ and $a\not=0$ there exists a unique
-              element $\inv a\in\R$ such that $a\cdot(\inv a) = 1$.
-        \item \emph{Distributivity}: For all $a,b,c\in\R$, $a\cdot(b+c)=a\cdot b +a\cdot c$.
-    \end{enumerate}
+	The set $\R$ has the following \emph{field properties}
+	under addition ($+$) and multiplication ($\cdot$):
+	\begin{enumerate}[label=F\arabic*]
+		\item \emph{Closure}: $a+b, a\cdot b\in\R$.
+		\item \emph{Associativity}: $(a+b)+c=a+(b+c)$ and $(a\cdot b)\cdot c=a\cdot(b\cdot c)$.
+		\item \emph{Commutativity}: $a+b=b+a$ and $a\cdot b=b\cdot a$.
+		\item \emph{Additive Identity}: There exists a unique element $0\in\R$ such that $0+a=a$ for all $a\in\R$.
+		\item \emph{Multiplicative Identity}: There exists a uniqeue element
+		      $1\in\R$ such that $1\not=0$ and $1\cdot a=a$ for all $a\in\R$
+		\item \emph{Additive Inverses}: For every $a\in\R$ there is a unique
+		      element $-a\in\R$ such that $a+(-a)=0$.
+		\item \emph{Multiplicative Inverses}: For every $a\in\R$ and $a\not=0$ there exists a unique
+		      element $\inv a\in\R$ such that $a\cdot(\inv a) = 1$.
+		\item \emph{Distributivity}: For all $a,b,c\in\R$, $a\cdot(b+c)=a\cdot b +a\cdot c$.
+	\end{enumerate}
 \end{definition*}
 
 \begin{definition*}
-    There exists a relation $<$ on $\R$ which has the following properties:
-    \begin{enumerate}[label=O\arabic*]
-        \item \emph{Trichotomy}: Given $a,b\in\R$ one and only one of the following statements hold \begin{align*}
-                  a<b,\hs b>a,\hs a=b.
-              \end{align*}
-        \item \emph{Transitivity}: If $a<b$ and $b<c$, then $a<c$.
-        \item \emph{Additivity}: If $a<b$ and $c\in\R$, then $a+c<b+c$.
-        \item \emph{Multiplicativity}: \begin{align*}
-                  a < b \text{ and } c > 0 \hs \Rightarrow \hs ac < bc
-              \end{align*}
-              and \begin{align*}
-                  a < b \text{ and } c < 0 \hs \Rightarrow \hs bc < ac.
-              \end{align*}
-    \end{enumerate}
+	There exists a relation $<$ on $\R$ which has the following properties:
+	\begin{enumerate}[label=O\arabic*]
+		\item \emph{Trichotomy}: Given $a,b\in\R$ one and only one of the following statements hold \begin{align*}
+			      a<b,\hs b>a,\hs a=b.
+		      \end{align*}
+		\item \emph{Transitivity}: If $a<b$ and $b<c$, then $a<c$.
+		\item \emph{Additivity}: If $a<b$ and $c\in\R$, then $a+c<b+c$.
+		\item \emph{Multiplicativity}: \begin{align*}
+			      a < b \text{ and } c > 0 \hs \Rightarrow \hs ac < bc
+		      \end{align*}
+		      and \begin{align*}
+			      a < b \text{ and } c < 0 \hs \Rightarrow \hs bc < ac.
+		      \end{align*}
+	\end{enumerate}
 \end{definition*}
 
 \setcounter{theorem}{3}
 \begin{definition}
-    We shall call a real number $a\in\R$ \emph{positive} if $a>0$. We shall call $a\in\R$
-    \emph{nonnegative} if $a\geq 0$.
+	We shall call a real number $a\in\R$ \emph{positive} if $a>0$. We shall call $a\in\R$
+	\emph{nonnegative} if $a\geq 0$.
 \end{definition}
 
 \begin{definition*}
-    The set $\N_0\subset\R$ has the following properties
-    \begin{enumerate}[label=N\arabic*]
-        \item $0\in\N_0$.
-        \item For any $n\in\N_0$ there exists $s(n)\in\N_0$.
-        \item If $s(n)=s(m)$ then $n=m$.
-        \item There does not exists $n\in\N_0$ with $s(n)=0$.
-        \item If $0\in A\subset \N$ and if $n\in A$ implies $s(n)\in A$ then $A=\N_0$.
-    \end{enumerate}
+	The set $\N_0\subset\R$ has the following properties
+	\begin{enumerate}[label=N\arabic*]
+		\item $0\in\N_0$.
+		\item For any $n\in\N_0$ there exists $s(n)\in\N_0$.
+		\item If $s(n)=s(m)$ then $n=m$.
+		\item There does not exists $n\in\N_0$ with $s(n)=0$.
+		\item If $0\in A\subset \N$ and if $n\in A$ implies $s(n)\in A$ then $A=\N_0$.
+	\end{enumerate}
 \end{definition*}
 
 \begin{definition*}
-    The set $\Z\supset\N_0$ satisfies the following axioms:
-    \begin{enumerate}[label=Z\arabic*]
-        \item Given $n\in\Z$ then there exists $p(n)\in\Z$ such that $s(p(n))=n$.
-        \item If $n\in A\subset\Z$ and $s(n)\in A$ if and only if $n\in A$ then $A=\Z$.
-    \end{enumerate}
+	The set $\Z\supset\N_0$ satisfies the following axioms:
+	\begin{enumerate}[label=Z\arabic*]
+		\item Given $n\in\Z$ then there exists $p(n)\in\Z$ such that $s(p(n))=n$.
+		\item If $n\in A\subset\Z$ and $s(n)\in A$ if and only if $n\in A$ then $A=\Z$.
+	\end{enumerate}
 \end{definition*}
 
 \setcounter{theorem}{5}
 \begin{theorem}
-    Suppose for each $n\in\N_0$ that $P(n)$ is a proposition that satisfies the following
-    properties:
-    \begin{enumerate}
-        \item $P(0)$ is true.
-        \item For everey $k\in\N_0$ for which $P(k)$ is true, $P(k+1)$ is also true.
-    \end{enumerate}
-    Then for every integer $n\in\N_0$ the proposition $P(n)$ is true.
+	Suppose for each $n\in\N_0$ that $P(n)$ is a proposition that satisfies the following
+	properties:
+	\begin{enumerate}
+		\item $P(0)$ is true.
+		\item For everey $k\in\N_0$ for which $P(k)$ is true, $P(k+1)$ is also true.
+	\end{enumerate}
+	Then for every integer $n\in\N_0$ the proposition $P(n)$ is true.
 \end{theorem}
 
 \subsection{The absolute value}
 
 \begin{definition}
-    Let $a\in\R$. The \emph{absolute value} of $a$ is the number $|a|$ defined by
-    \begin{align*}
-        |a|=\begin{cases}
-            a,  & \text{if } a\geq 0, \\
-            -a, & \text{if } a < 0.
-        \end{cases}
-    \end{align*}
+	Let $a\in\R$. The \emph{absolute value} of $a$ is the number $|a|$ defined by
+	\begin{align*}
+		|a|=\begin{cases}
+			    a,  & \text{if } a\geq 0, \\
+			    -a, & \text{if } a < 0.
+		    \end{cases}
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
-    The following statements are true:
-    \begin{itemize}
-        \item The absolute value is multiplicative, i.e. $|ab|=|a||b|$ for all $a,b\in\R$.
-        \item Let $a\in\R$ and $M\geq 0$. Then $|a|\leq M$ if and only if $-M\leq a\leq M$.
-    \end{itemize}
+	The following statements are true:
+	\begin{itemize}
+		\item The absolute value is multiplicative, i.e. $|ab|=|a||b|$ for all $a,b\in\R$.
+		\item Let $a\in\R$ and $M\geq 0$. Then $|a|\leq M$ if and only if $-M\leq a\leq M$.
+	\end{itemize}
 \end{theorem}
 
 \begin{theorem}
-    The absoluste value satisfies the following three properties:
-    \begin{enumerate}
-        \item \emph{Positive definite}: $|a|\geq 0$. $|a|=0$ if and only if $a=0$.
-        \item \emph{Symmetry}: $|a-b|=|b-a|$.
-        \item \emph{Triangle inequality}: $|a+b|\leq |a|+|b|$ and $||a|-|b||\leq |a-b|$.
-    \end{enumerate}
+	The absoluste value satisfies the following three properties:
+	\begin{enumerate}
+		\item \emph{Positive definite}: $|a|\geq 0$. $|a|=0$ if and only if $a=0$.
+		\item \emph{Symmetry}: $|a-b|=|b-a|$.
+		\item \emph{Triangle inequality}: $|a+b|\leq |a|+|b|$ and $||a|-|b||\leq |a-b|$.
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-    Let $x,y\in\R$.
-    \begin{enumerate}
-        \item $x<y+\e$ for all $\e>0$ if and only if $x\leq y$.
-        \item $x>y-\e$ for all $\e>0$ if and only if $x\geq y$.
-        \item $|x|<\e$ for all $\e>0$ if and only if $x=0$.
-    \end{enumerate}
+	Let $x,y\in\R$.
+	\begin{enumerate}
+		\item $x<y+\e$ for all $\e>0$ if and only if $x\leq y$.
+		\item $x>y-\e$ for all $\e>0$ if and only if $x\geq y$.
+		\item $|x|<\e$ for all $\e>0$ if and only if $x=0$.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{The completeness axiom}
 
 \begin{definition}
-    Let $S\subset\R$.
-    \begin{enumerate}
-        \item If there exists $s'\in S$ such that $s\leq s'$ for all $s\in S$ we say $S$ has a
-              \emph{maximum} which is given by $s'$.
-        \item If there exists $s'\in S$ such that $s\geq s'$ for all $s\in S$ we say $S$ has a
-              \emph{minimum} which is given by $s'$.
-    \end{enumerate}
+	Let $S\subset\R$.
+	\begin{enumerate}
+		\item If there exists $s'\in S$ such that $s\leq s'$ for all $s\in S$ we say $S$ has a
+		      \emph{maximum} which is given by $s'$.
+		\item If there exists $s'\in S$ such that $s\geq s'$ for all $s\in S$ we say $S$ has a
+		      \emph{minimum} which is given by $s'$.
+	\end{enumerate}
 \end{definition}
 
 \begin{definition}
-    Let $E\subset\R$ be nonempty.
-    \begin{itemize}
-        \item The set $E$ is said to be bounded above if there is $M\in\R$ such that $a\leq M$ for all $a\in E$.
-        \item A real number $M$ is called an upper bound of the set $E$ if $a\leq M$ for all $a\in E$.
-        \item A real number $s$ is called the \emph{suprenum} of the set $E$ if \begin{itemize}
-                  \item $s$ is an upper bound of $E$
-                  \item $s\leq M$ for all upper bounds $M$ of the set $E$.
-              \end{itemize}
-              If such a number $s$ exists, we write $s=\sup E$.
-    \end{itemize}
+	Let $E\subset\R$ be nonempty.
+	\begin{itemize}
+		\item The set $E$ is said to be bounded above if there is $M\in\R$ such that $a\leq M$ for all $a\in E$.
+		\item A real number $M$ is called an upper bound of the set $E$ if $a\leq M$ for all $a\in E$.
+		\item A real number $s$ is called the \emph{suprenum} of the set $E$ if \begin{itemize}
+			      \item $s$ is an upper bound of $E$
+			      \item $s\leq M$ for all upper bounds $M$ of the set $E$.
+		      \end{itemize}
+		      If such a number $s$ exists, we write $s=\sup E$.
+	\end{itemize}
 \end{definition}
 
 \setcounter{theorem}{3}
 \begin{lemma}
-    If a set has a supremum, it only has one supremum.
+	If a set has a supremum, it only has one supremum.
 \end{lemma}
 
 \begin{theorem}[Approximation Property for Suprema]
-    If the set $E\subset\R$ has a supremum then for any positive number $\e>0$ there exists $a\in E$
-    such that
-    \begin{align*}
-        \sup E -\e < a \leq \sup E.
-    \end{align*}
+	If the set $E\subset\R$ has a supremum then for any positive number $\e>0$ there exists $a\in E$
+	such that
+	\begin{align*}
+		\sup E -\e < a \leq \sup E.
+	\end{align*}
 \end{theorem}
 
 \begin{lemma}
-    If $E\subset\N$ has a supremum then $\sup E\in E$.
+	If $E\subset\N$ has a supremum then $\sup E\in E$.
 \end{lemma}
 
 \begin{definition*}[Completeness Axiom]
-    If $E\subset\R$ is nonempty and bounded above, then $E$ has a supremum.
+	If $E\subset\R$ is nonempty and bounded above, then $E$ has a supremum.
 \end{definition*}
 
 \begin{theorem}[Archimedean Principle]
-    Given positive real numbers $a,b\in\R$ there is an integer $n\in\N$ such that $b<na$.
+	Given positive real numbers $a,b\in\R$ there is an integer $n\in\N$ such that $b<na$.
 \end{theorem}
 
 \setcounter{theorem}{8}
 \begin{theorem}[Density of rational numbers]
-    Let $a<b$ be real numbers. Then there exists $q\in\Q$ such that $q\in(a,b)$.
+	Let $a<b$ be real numbers. Then there exists $q\in\Q$ such that $q\in(a,b)$.
 \end{theorem}
 
 \begin{definition}
-    Let $E\subset\R$ be nonempty.
-    \begin{itemize}
-        \item The set $E$ is said to be bounded below if there is $m\in\R$ such that $m\leq a$ for all $a\in E$.
-        \item A number $m$ is called a lower bound of the set $E$ if $m\leq a$ for all $a\in E$.
-        \item A number $t$ is called an \emph{infimum} of the set $E$ if \begin{itemize}
-                  \item $t$ is a lower bound of $E$,
-                  \item $m\leq t$ for all lower bounds $m$ of the set $E$.
-              \end{itemize}
-              If the number $t$ exists we write $t=\inf E$.
-    \end{itemize}
+	Let $E\subset\R$ be nonempty.
+	\begin{itemize}
+		\item The set $E$ is said to be bounded below if there is $m\in\R$ such that $m\leq a$ for all $a\in E$.
+		\item A number $m$ is called a lower bound of the set $E$ if $m\leq a$ for all $a\in E$.
+		\item A number $t$ is called an \emph{infimum} of the set $E$ if \begin{itemize}
+			      \item $t$ is a lower bound of $E$,
+			      \item $m\leq t$ for all lower bounds $m$ of the set $E$.
+		      \end{itemize}
+		      If the number $t$ exists we write $t=\inf E$.
+	\end{itemize}
 \end{definition}
 
 \begin{theorem}
-    Let $E\subset\R$ be nonempty.
-    \begin{itemize}
-        \item Set $E$ has a supremum if and only if the set $-E$ has an infimum. Also \begin{align*}
-                  \inf(-E) = -\sup E.
-              \end{align*}
-        \item Set $E$ has an infimum if and only if the set $-E$ has a supremum. Also \begin{align*}
-                  \sup(-E) = -\inf E.
-              \end{align*}
-    \end{itemize}
+	Let $E\subset\R$ be nonempty.
+	\begin{itemize}
+		\item Set $E$ has a supremum if and only if the set $-E$ has an infimum. Also \begin{align*}
+			      \inf(-E) = -\sup E.
+		      \end{align*}
+		\item Set $E$ has an infimum if and only if the set $-E$ has a supremum. Also \begin{align*}
+			      \sup(-E) = -\inf E.
+		      \end{align*}
+	\end{itemize}
 \end{theorem}
 
 \begin{lemma}
-    Let $A\subset B$ be two nonempty subsets of $\R$. Then
-    \begin{itemize}
-        \item if $B$ is bounded above then $\sup A\leq\sup B$.
-        \item if $B$ is bounded below then $\inf A\geq\inf B$.
-    \end{itemize}
+	Let $A\subset B$ be two nonempty subsets of $\R$. Then
+	\begin{itemize}
+		\item if $B$ is bounded above then $\sup A\leq\sup B$.
+		\item if $B$ is bounded below then $\inf A\geq\inf B$.
+	\end{itemize}
 \end{lemma}
 
 
@@ -219,156 +219,156 @@
 \subsection{Introduction}
 
 \begin{definition}
-    A sequence of real numbers $(x_n)$ is said to converge to a real number $a$
-    if for every $\e>0$ there is $N\in\N$ such that
-    \begin{align*}
-        \forall n\geq N,\: |x_n-a|<\e.
-    \end{align*}
+	A sequence of real numbers $(x_n)$ is said to converge to a real number $a$
+	if for every $\e>0$ there is $N\in\N$ such that
+	\begin{align*}
+		\forall n\geq N,\: |x_n-a|<\e.
+	\end{align*}
 \end{definition}
 
 \setcounter{theorem}{5}
 \begin{lemma}
-    A sequence has at most one limit.
+	A sequence has at most one limit.
 \end{lemma}
 
 \begin{lemma}
-    Let $(x_n)$ be a sequence of real numbers. If $\lim_{n\to\infty}$ exists then so does
-    $\lim_{n\to\infty}\abs x_n$ and $\lim_{n\to\infty}\abs x_n=\abs{\lim_{n\to\infty}x_n}$.
+	Let $(x_n)$ be a sequence of real numbers. If $\lim_{n\to\infty}$ exists then so does
+	$\lim_{n\to\infty}\abs x_n$ and $\lim_{n\to\infty}\abs x_n=\abs{\lim_{n\to\infty}x_n}$.
 \end{lemma}
 
 \begin{lemma}
-    If $(x_n)$ is a real sequence then $\lim_{n\to\infty}x_n=0$ if and only if $\lim_{n\to\infty}\abs x_n = 0$.
+	If $(x_n)$ is a real sequence then $\lim_{n\to\infty}x_n=0$ if and only if $\lim_{n\to\infty}\abs x_n = 0$.
 \end{lemma}
 
 \begin{definition}
-    Let $(x_n)$ be a sequence of real numbers.
-    \begin{itemize}
-        \item $(x_n)_{n\in\N}$ is \emph{bounded above} if $x_n\leq M$ for some $M\in\R$ and all $n\in\N$.
-        \item $(x_n)_{n\in\N}$ is \emph{bounded below} if $x_n\geq m$ for some $m\in\R$ and all $n\in\N$.
-        \item $(x_n)_{n\in\N}$ is \emph{bounded} if it is bounded above and bounded below.
-    \end{itemize}
+	Let $(x_n)$ be a sequence of real numbers.
+	\begin{itemize}
+		\item $(x_n)_{n\in\N}$ is \emph{bounded above} if $x_n\leq M$ for some $M\in\R$ and all $n\in\N$.
+		\item $(x_n)_{n\in\N}$ is \emph{bounded below} if $x_n\geq m$ for some $m\in\R$ and all $n\in\N$.
+		\item $(x_n)_{n\in\N}$ is \emph{bounded} if it is bounded above and bounded below.
+	\end{itemize}
 \end{definition}
 
 \begin{theorem}
-    Every convergent sequence is bounded.
+	Every convergent sequence is bounded.
 \end{theorem}
 
 \subsection{Limit theorems}
 
 \begin{theorem}
-    Suppose that $(x_n)$, $(y_n)$ and $(w_n)$ are real sequences.
-    \begin{itemize}
-        \item If both $x_n\to a$ and $y_n\to a$ as $n\to \infty$ and if \begin{align*}
-                  x_n\leq w_n\leq y_n,\hs \forall n\geq N_0,
-              \end{align*}
-              then $w_n\to a$ as $n\to\infty$.
-        \item if $x_n\to0$ and $(y_n)$ is bounded then the product $x_ny_n\to 0$ as $n\to\infty$.
-    \end{itemize}
+	Suppose that $(x_n)$, $(y_n)$ and $(w_n)$ are real sequences.
+	\begin{itemize}
+		\item If both $x_n\to a$ and $y_n\to a$ as $n\to \infty$ and if \begin{align*}
+			      x_n\leq w_n\leq y_n,\hs \forall n\geq N_0,
+		      \end{align*}
+		      then $w_n\to a$ as $n\to\infty$.
+		\item if $x_n\to0$ and $(y_n)$ is bounded then the product $x_ny_n\to 0$ as $n\to\infty$.
+	\end{itemize}
 \end{theorem}
 
 \setcounter{theorem}{2}
 \begin{theorem}
-    Let $E\subset\R$. If $E$ has a finite supremum, i.e., $E$ is non-empty and bounded above,
-    then there is a sequence $(x_n)$ with each $x_n\in\E$ such that $x_n\to\sup E$ as $n\to\infty$.
-    An analogous statement holds if $E$ has a finite infimum.
+	Let $E\subset\R$. If $E$ has a finite supremum, i.e., $E$ is non-empty and bounded above,
+	then there is a sequence $(x_n)$ with each $x_n\in\E$ such that $x_n\to\sup E$ as $n\to\infty$.
+	An analogous statement holds if $E$ has a finite infimum.
 \end{theorem}
 
 \begin{theorem}
-    Suppose that $(x_n)$, $(y_n)$ are real sequences and $\alpha\in\R$. If both $(x_n), (y_n)$ are
-    convergent then
-    \begin{enumerate}
-        \item \begin{align*}
-                  \lim_{n\to\infty}(x_n+y_n=\lim_{n\to\infty}x_n + \lim_{n\to\infty}y_n.
-              \end{align*}
-        \item \begin{align*}
-                  \lim_{n\to\infty}(\alpha x_n) = \alpha\lim_{n\to\infty}x_n.
-              \end{align*}
-        \item \begin{align*}
-                  \lim_{n\to\infty}(x_n\cdot y_n) = \left(\lim_{n\to\infty}x_n\right)\cdot\left(\lim_{n\to\infty}y_n\right).
-              \end{align*}
-        \item If in addition $\lim_{n\to\infty}y_n\not=0$ and $y_n\not=0$ for all $n\in\N$ then \begin{align*}
-                  \lim_{n\to\infty}\frac{x_n}{y_n}=\frac{\lim_{n\to\infty x_n}}{\lim_{n\to\infty}y_n}.
-              \end{align*}
-    \end{enumerate}
+	Suppose that $(x_n)$, $(y_n)$ are real sequences and $\alpha\in\R$. If both $(x_n), (y_n)$ are
+	convergent then
+	\begin{enumerate}
+		\item \begin{align*}
+			      \lim_{n\to\infty}(x_n+y_n=\lim_{n\to\infty}x_n + \lim_{n\to\infty}y_n.
+		      \end{align*}
+		\item \begin{align*}
+			      \lim_{n\to\infty}(\alpha x_n) = \alpha\lim_{n\to\infty}x_n.
+		      \end{align*}
+		\item \begin{align*}
+			      \lim_{n\to\infty}(x_n\cdot y_n) = \left(\lim_{n\to\infty}x_n\right)\cdot\left(\lim_{n\to\infty}y_n\right).
+		      \end{align*}
+		\item If in addition $\lim_{n\to\infty}y_n\not=0$ and $y_n\not=0$ for all $n\in\N$ then \begin{align*}
+			      \lim_{n\to\infty}\frac{x_n}{y_n}=\frac{\lim_{n\to\infty x_n}}{\lim_{n\to\infty}y_n}.
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 
 \setcounter{theorem}{5}
 \begin{definition}
-    Let $(x_n)$ be a sequence of real numbers.
-    \begin{enumerate}
-        \item $(x_n)$ is said to diverge to $\infty$ if for each $M\in\R$ there is $N\in\N$ such that
-              for all $n\geq N$ we have $x_n>M$.
-        \item $(x_n)$ is said to diverge to $-\infty$ if for each $m\in\R$ there is $N\in\N$ such that
-              for all $n\geq N$ we have $x_n<m$.
-    \end{enumerate}
+	Let $(x_n)$ be a sequence of real numbers.
+	\begin{enumerate}
+		\item $(x_n)$ is said to diverge to $\infty$ if for each $M\in\R$ there is $N\in\N$ such that
+		      for all $n\geq N$ we have $x_n>M$.
+		\item $(x_n)$ is said to diverge to $-\infty$ if for each $m\in\R$ there is $N\in\N$ such that
+		      for all $n\geq N$ we have $x_n<m$.
+	\end{enumerate}
 \end{definition}
 
 \begin{theorem}
-    Suppose that $(x_n), (y_n)$ are real sequences. If both $\lim_{n\to\infty}x_n$, $\lim_{n\to\infty}y_n$
-    exist and belong to the set of extended real numbers $\R^*$, then
-    \begin{align*}
-        \lim_{n\to\infty}(x_n+y_n)=\lim_{n\to\infty}x_n+\lim_{n\to\infty}y_n,
-    \end{align*}
-    provided the forbidden algebraic operation $\infty-\infty$ does not occur.
+	Suppose that $(x_n), (y_n)$ are real sequences. If both $\lim_{n\to\infty}x_n$, $\lim_{n\to\infty}y_n$
+	exist and belong to the set of extended real numbers $\R^*$, then
+	\begin{align*}
+		\lim_{n\to\infty}(x_n+y_n)=\lim_{n\to\infty}x_n+\lim_{n\to\infty}y_n,
+	\end{align*}
+	provided the forbidden algebraic operation $\infty-\infty$ does not occur.
 \end{theorem}
 
 \begin{theorem}[Comparison theorem for sequences]
-    Suppose that $(x_n),(y_n)$ are real sequences. If both $\lim_{n\to\infty}x_n$, $\lim_{n\to\infty}y_n$
-    exist and if
-    \begin{align*}
-        x_n\leq y_n \hs \text{for all } n\geq N \hs \text{for some }N\in\N
-    \end{align*}
-    then
-    \begin{align*}
-        \lim_{n\to\infty}x_n\leq \lim_{n\to\infty}y_n.
-    \end{align*}
+	Suppose that $(x_n),(y_n)$ are real sequences. If both $\lim_{n\to\infty}x_n$, $\lim_{n\to\infty}y_n$
+	exist and if
+	\begin{align*}
+		x_n\leq y_n \hs \text{for all } n\geq N \hs \text{for some }N\in\N
+	\end{align*}
+	then
+	\begin{align*}
+		\lim_{n\to\infty}x_n\leq \lim_{n\to\infty}y_n.
+	\end{align*}
 \end{theorem}
 
 \subsection{Monotone sequences}
 
 \begin{definition}
-    Let $(x_n)$ be a sequence of real numbers.
-    \begin{enumerate}
-        \item $(x_n)$ is \emph{increasing} if $\forall i,j\in\N,\: i>j \Rightarrow x_i \geq x_j$.
-        \item $(x_n)$ is \emph{decreasing} if $\forall i,j\in\N,\: i>j \Rightarrow x_i \leq x_j$.
-        \item $(x_n)$ is \emph{monotone} if it is either increasing or decreasing.
-    \end{enumerate}
+	Let $(x_n)$ be a sequence of real numbers.
+	\begin{enumerate}
+		\item $(x_n)$ is \emph{increasing} if $\forall i,j\in\N,\: i>j \Rightarrow x_i \geq x_j$.
+		\item $(x_n)$ is \emph{decreasing} if $\forall i,j\in\N,\: i>j \Rightarrow x_i \leq x_j$.
+		\item $(x_n)$ is \emph{monotone} if it is either increasing or decreasing.
+	\end{enumerate}
 \end{definition}
 
 \begin{theorem}[Monotone convergence]
-    If $(x_n)$ is increasing and bounded above or if it is decreasing and bounded below, then
-    $(x_n)$ is convergent.
+	If $(x_n)$ is increasing and bounded above or if it is decreasing and bounded below, then
+	$(x_n)$ is convergent.
 \end{theorem}
 
 \setcounter{theorem}{3}
 \begin{theorem}
-    Let $(x_n)$ be an unbounded monotone sequence of real numbers.
-    \begin{enumerate}
-        \item If $(x_n)$ is an unbounded and increasing sequence then $\lim_{n\to\infty} x_n = \infty$.
-        \item If $(x_n)$ is an unbounded and decreasing sequence then $\lim_{n\to\infty} x_n = -\infty$.
-    \end{enumerate}
+	Let $(x_n)$ be an unbounded monotone sequence of real numbers.
+	\begin{enumerate}
+		\item If $(x_n)$ is an unbounded and increasing sequence then $\lim_{n\to\infty} x_n = \infty$.
+		\item If $(x_n)$ is an unbounded and decreasing sequence then $\lim_{n\to\infty} x_n = -\infty$.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Subsequences}
 
 \begin{definition}
-    A subsequence of a sequence $(x_n)_{n\in\N}$ is a sequence of the form $x_{n_1}, x_{n_2}, x_{n_3}, ...$
-    where $n_1<n_2<n_3<...$ is an increasing sequence of natural numbers.
+	A subsequence of a sequence $(x_n)_{n\in\N}$ is a sequence of the form $x_{n_1}, x_{n_2}, x_{n_3}, ...$
+	where $n_1<n_2<n_3<...$ is an increasing sequence of natural numbers.
 \end{definition}
 
 \begin{lemma}
-    Any subsequence of a convergent sequence is also convergent and has the same limit.
+	Any subsequence of a convergent sequence is also convergent and has the same limit.
 \end{lemma}
 
 \begin{theorem}
-    Let $(x_n)$ be sequence of real numbers.
-    \begin{itemize}
-        \item There exists $t\in\R$ such that for any $\e>0$ there exists infinitely many $n\in\N$
-              for which $\abs{x_n-t}<\e$, if and only if there exists a subsequence of $(x_n)$
-              converging to $t$.
-        \item The sequence $(x_n)$ is not bounded above if and only if there exists a subsequence
-              diverging to $\infty$.
-    \end{itemize}
+	Let $(x_n)$ be sequence of real numbers.
+	\begin{itemize}
+		\item There exists $t\in\R$ such that for any $\e>0$ there exists infinitely many $n\in\N$
+		      for which $\abs{x_n-t}<\e$, if and only if there exists a subsequence of $(x_n)$
+		      converging to $t$.
+		\item The sequence $(x_n)$ is not bounded above if and only if there exists a subsequence
+		      diverging to $\infty$.
+	\end{itemize}
 \end{theorem}
 
 
@@ -378,149 +378,149 @@
 \subsection{Introduction}
 
 \begin{definition}
-    Let $S=\sum_{k=1}^\infty a_k$ be an infinite seires with terms $a_k$.
-    For each $n$ the partial sum of $S$ of order $n$ is defined by
-    \begin{align*}
-        s_n = \sum_{k=1}^n a_k.
-    \end{align*}
+	Let $S=\sum_{k=1}^\infty a_k$ be an infinite seires with terms $a_k$.
+	For each $n$ the partial sum of $S$ of order $n$ is defined by
+	\begin{align*}
+		s_n = \sum_{k=1}^n a_k.
+	\end{align*}
 \end{definition}
 
 \setcounter{theorem}{6}
 \begin{theorem}[Divergence test]
-    Let $(a_k)$ be a sequence of real numbers. If $a_k$ does not
-    converge to zero then the series
-    \begin{align*}
-        \sum_{k=1}^\infty a_k\hs\text{diverges}.
-    \end{align*}
+	Let $(a_k)$ be a sequence of real numbers. If $a_k$ does not
+	converge to zero then the series
+	\begin{align*}
+		\sum_{k=1}^\infty a_k\hs\text{diverges}.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Alternate divergence test]
-    Let $(a_k)$ be a sequence of real numbers. If the series
-    \begin{align*}
-        \sum_{k=1}^\infty a_k\hs\text{converges}
-    \end{align*}
-    then $(a_n)$ converges to $0$.
+	Let $(a_k)$ be a sequence of real numbers. If the series
+	\begin{align*}
+		\sum_{k=1}^\infty a_k\hs\text{converges}
+	\end{align*}
+	then $(a_n)$ converges to $0$.
 \end{theorem}
 
 \begin{theorem}[Telescopic series]
-    Let $(b_k)$ be a convergent sequence of real numbers. Then
-    \begin{align*}
-        \sum_{k=1}^\infty (b_k - b_{k+1})=b_1-\lim_{k\to\infty}b_k.
-    \end{align*}
+	Let $(b_k)$ be a convergent sequence of real numbers. Then
+	\begin{align*}
+		\sum_{k=1}^\infty (b_k - b_{k+1})=b_1-\lim_{k\to\infty}b_k.
+	\end{align*}
 \end{theorem}
 
 \setcounter{theorem}{10}
 \begin{theorem}[Geometric series]
-    Let $x\in\R$ and $N\in\{0,1,2,...\}=\N_0$. Then the series
-    \begin{align*}
-        \sum_{k=N}^\infty x^k\hs\text{converges if and only if }|x|<1.
-    \end{align*}
+	Let $x\in\R$ and $N\in\{0,1,2,...\}=\N_0$. Then the series
+	\begin{align*}
+		\sum_{k=N}^\infty x^k\hs\text{converges if and only if }|x|<1.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    Let $(a_k)$ and $(b_k)$ be real sequences and $\alpha\in\R$. If the
-    series $\sum_{k=1}^\infty a_k$ and $\sum_{k=1}^\infty b_k$ are convergent
-    then
-    \begin{align*}
-        \sum_{k=1}^\infty (a_k+b_k)=\sum_{k=1}^\infty a_k + \sum_{k=1}^\infty b_k
-    \end{align*}
-    and
-    \begin{align*}
-        \sum_{k=1}^\infty (\alpha a_k)=\alpha \sum_{k=1}^\infty a_k.
-    \end{align*}
+	Let $(a_k)$ and $(b_k)$ be real sequences and $\alpha\in\R$. If the
+	series $\sum_{k=1}^\infty a_k$ and $\sum_{k=1}^\infty b_k$ are convergent
+	then
+	\begin{align*}
+		\sum_{k=1}^\infty (a_k+b_k)=\sum_{k=1}^\infty a_k + \sum_{k=1}^\infty b_k
+	\end{align*}
+	and
+	\begin{align*}
+		\sum_{k=1}^\infty (\alpha a_k)=\alpha \sum_{k=1}^\infty a_k.
+	\end{align*}
 \end{theorem}
 
 \subsection{Series with nonnegative terms}
 
 \begin{theorem}
-    Suppose that $a_k\geq 0$ for large $k$. Then $\sum_{k=1}^\infty a_k$ converges
-    if and only if the sequence of partial sums $(s_n)$ is bounded. That is,
-    there exists $M>0$ such that
-    \begin{align*}
-        \abs{\sum_{k=1}^na_k}\leq M,\hs\text{for all }n\in\N
-    \end{align*}
+	Suppose that $a_k\geq 0$ for large $k$. Then $\sum_{k=1}^\infty a_k$ converges
+	if and only if the sequence of partial sums $(s_n)$ is bounded. That is,
+	there exists $M>0$ such that
+	\begin{align*}
+		\abs{\sum_{k=1}^na_k}\leq M,\hs\text{for all }n\in\N
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Comparison test]
-    Suppose that $0\leq a_k\leq b_k$ for large $k$.
-    \begin{itemize}
-        \item If $\sum_{k=1}^\infty b_k<\infty$ then $\sum_{k=1}^\infty a_k < \infty$.
-        \item If $\sum_{k=1}^\infty a_k = \infty$ then $\sum_{k=1}^\infty b_k = \infty$.
-    \end{itemize}
+	Suppose that $0\leq a_k\leq b_k$ for large $k$.
+	\begin{itemize}
+		\item If $\sum_{k=1}^\infty b_k<\infty$ then $\sum_{k=1}^\infty a_k < \infty$.
+		\item If $\sum_{k=1}^\infty a_k = \infty$ then $\sum_{k=1}^\infty b_k = \infty$.
+	\end{itemize}
 \end{theorem}
 
 \begin{theorem}[Integral test]
-    Suppose that $f:[1,\infty)\to\R$ is positive and decreasing on
-    $[1,\infty)$. Let $a_k=f(k)$, $k=1,2,3,...$. Then $\sum_{k=1}^\infty f(k)$
-    converges if and only if the improper integral
-    \begin{align*}
-        \int_1^\infty f(x)\:dx < \infty.
-    \end{align*}
+	Suppose that $f:[1,\infty)\to\R$ is positive and decreasing on
+	$[1,\infty)$. Let $a_k=f(k)$, $k=1,2,3,...$. Then $\sum_{k=1}^\infty f(k)$
+	converges if and only if the improper integral
+	\begin{align*}
+		\int_1^\infty f(x)\:dx < \infty.
+	\end{align*}
 \end{theorem}
 
 \setcounter{theorem}{6}
 \begin{theorem}[Limit comparison test]
-    Suppose that $0\leq a_k$, $0<b_k$ for large $k$ and that
-    \begin{align*}
-        L=\lim_{n\to\infty}\frac{a_n}{b_n}\hs\text{exists as an extended real number}.
-    \end{align*}
-    \begin{itemize}
-        \item If $L\in(0,\infty)$ then $\sum_{k=1}^\infty a_k$ converges if and only if $\sum_{k=1}^\infty b_k$ converges.
-        \item If $L=0$ and $\sum_{k=1}^\infty b_k$ converges then $\sum_{k=1}^\infty a_k$ converges.
-        \item If $L=\infty$ and $\sum_{k=1}^\infty b_k$ diverges then $\sum_{k=1}^\infty a_k$ diverges.
-    \end{itemize}
+	Suppose that $0\leq a_k$, $0<b_k$ for large $k$ and that
+	\begin{align*}
+		L=\lim_{n\to\infty}\frac{a_n}{b_n}\hs\text{exists as an extended real number}.
+	\end{align*}
+	\begin{itemize}
+		\item If $L\in(0,\infty)$ then $\sum_{k=1}^\infty a_k$ converges if and only if $\sum_{k=1}^\infty b_k$ converges.
+		\item If $L=0$ and $\sum_{k=1}^\infty b_k$ converges then $\sum_{k=1}^\infty a_k$ converges.
+		\item If $L=\infty$ and $\sum_{k=1}^\infty b_k$ diverges then $\sum_{k=1}^\infty a_k$ diverges.
+	\end{itemize}
 \end{theorem}
 
 \subsection{Absolute convergence}
 
 \begin{definition}
-    Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. We say that $S$ converges
-    absolutely if $\sum_{k=1}^\infty \abs{a_k}<\infty$. We say that the series
-    $S$ converges conditionally if $S$ converges but $\sum_{k=1}^\infty\abs{a_k}$
-    diverges.
+	Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. We say that $S$ converges
+	absolutely if $\sum_{k=1}^\infty \abs{a_k}<\infty$. We say that the series
+	$S$ converges conditionally if $S$ converges but $\sum_{k=1}^\infty\abs{a_k}$
+	diverges.
 \end{definition}
 
 \begin{theorem}
-    If $\sum_{k=1}^\infty a_k$ converges absolutely, then $\sum_{k=1}^\infty a_k$
-    converges.
+	If $\sum_{k=1}^\infty a_k$ converges absolutely, then $\sum_{k=1}^\infty a_k$
+	converges.
 \end{theorem}
 
 \begin{theorem}[Root test]
-    Let $a_k\in\R$ and assume that $r=\lim_{k\to\infty} \abs{a_k}^{1/k}$
-    exists. If
-    \begin{itemize}
-        \item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
-        \item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
-    \end{itemize}
+	Let $a_k\in\R$ and assume that $r=\lim_{k\to\infty} \abs{a_k}^{1/k}$
+	exists. If
+	\begin{itemize}
+		\item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
+		\item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
+	\end{itemize}
 \end{theorem}
 
 \setcounter{theorem}{4}
 \begin{theorem}[Ratio test]
-    Let $a_k\in\R$ and assume that $r=\lim_{k\to\infty}\frac{\abs{a_{k+1}}}{\abs{a_k}}$
-    exists as an extended real number. If
-    \begin{itemize}
-        \item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
-        \item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
-    \end{itemize}
+	Let $a_k\in\R$ and assume that $r=\lim_{k\to\infty}\frac{\abs{a_{k+1}}}{\abs{a_k}}$
+	exists as an extended real number. If
+	\begin{itemize}
+		\item $r<1$ then the series $\sum_{k=1}^\infty a_k$ converges absolutely.
+		\item $r>1$ then the series $\sum_{k=1}^\infty a_k$ diverges.
+	\end{itemize}
 \end{theorem}
 
 \subsection{Alternating seires}
 
 \begin{theorem}[Alternating series]
-    Let $(a_k)$ be a decreasing sequence of nonnegative numbers such that
-    $a_k\to 0$ as $k\to\infty$. Then the series
-    \begin{align*}
-        \sum_{k=1}^\infty (-1)^k a_k\hs\text{is convergent}.
-    \end{align*}
+	Let $(a_k)$ be a decreasing sequence of nonnegative numbers such that
+	$a_k\to 0$ as $k\to\infty$. Then the series
+	\begin{align*}
+		\sum_{k=1}^\infty (-1)^k a_k\hs\text{is convergent}.
+	\end{align*}
 \end{theorem}
 
 \begin{corollary}
-    The series
-    \begin{align*}
-        \sum_{k=1}^\infty (-1)^k\frac{1}{k},\hs \sum_{k=2}^\infty (-1)^k\frac{1}{\log k},
-        \hs \sum_{k=2}^\infty (-1)^k\frac{1}{k\log k}
-    \end{align*}
-    are all convergent.
+	The series
+	\begin{align*}
+		\sum_{k=1}^\infty (-1)^k\frac{1}{k},\hs \sum_{k=2}^\infty (-1)^k\frac{1}{\log k},
+		\hs \sum_{k=2}^\infty (-1)^k\frac{1}{k\log k}
+	\end{align*}
+	are all convergent.
 \end{corollary}
 
 
@@ -530,189 +530,189 @@
 \subsection{Introduction}
 
 \begin{definition}
-    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$.
-    We say that $f$ is continuous at some $a\in\dom(f)$ if for any
-    sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
-    to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If $f$ is continuous
-    at each $a\in S\subset\dom(f)$ then we say $f$ is continuous on $S$.
-    If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
+	Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$.
+	We say that $f$ is continuous at some $a\in\dom(f)$ if for any
+	sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
+	to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If $f$ is continuous
+	at each $a\in S\subset\dom(f)$ then we say $f$ is continuous on $S$.
+	If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
 \end{definition}
 
 \setcounter{theorem}{2}
 \begin{theorem}
-    Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the
-    following functions are continuous on $D$.
-    \begin{enumerate}
-        \item $\alpha f$,
-        \item $f+g$,
-        \item $fg$.
-    \end{enumerate}
+	Let $f,g:D\to\R$ be continuous on $D$, and let $\alpha\in\R$ then the
+	following functions are continuous on $D$.
+	\begin{enumerate}
+		\item $\alpha f$,
+		\item $f+g$,
+		\item $fg$.
+	\end{enumerate}
 \end{theorem}
 
 \begin{definition}
-    Let $A,B\subseteq \R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and
-    $f(A)\subseteq B$. The composition of $g$ with $f$ is the function
-    $g\circ f:A\to\R$ defined by
-    \begin{align*}
-        (g\circ f)(x) = g(f(x)),\hs\text{for all }x\in A.
-    \end{align*}
+	Let $A,B\subseteq \R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and
+	$f(A)\subseteq B$. The composition of $g$ with $f$ is the function
+	$g\circ f:A\to\R$ defined by
+	\begin{align*}
+		(g\circ f)(x) = g(f(x)),\hs\text{for all }x\in A.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
-    If $f$ is continuous at $a\in\R$ and $g$ is continuous at $f(a)$ then
-    the composition $g\circ f$ is continuous at $a$.
+	If $f$ is continuous at $a\in\R$ and $g$ is continuous at $f(a)$ then
+	the composition $g\circ f$ is continuous at $a$.
 \end{theorem}
 
 \begin{theorem}
-    Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f) \subset\R$.
-    Then $f$ is continuous at $a\in\dom(f)$ if and only if for any
-    $\e>0$ there exists $\delta>0$ such that whenever $x\in\dom(f)$
-    and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
+	Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f) \subset\R$.
+	Then $f$ is continuous at $a\in\dom(f)$ if and only if for any
+	$\e>0$ there exists $\delta>0$ such that whenever $x\in\dom(f)$
+	and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
 \end{theorem}
 
 \subsection{The Extreme and Intermediate Value Theorems}
 
 \begin{definition}
-    Let $E\subset\R$ be nonempty. A function $f:E\to\R$ is said to be
-    bounded on $E$ if
-    \begin{align*}
-        \abs{f(x)}\leq M,\hs\text{for all } x\in E,
-    \end{align*}
-    where $M$ is some (potentially large) real number.
+	Let $E\subset\R$ be nonempty. A function $f:E\to\R$ is said to be
+	bounded on $E$ if
+	\begin{align*}
+		\abs{f(x)}\leq M,\hs\text{for all } x\in E,
+	\end{align*}
+	where $M$ is some (potentially large) real number.
 \end{definition}
 
 \begin{theorem}[Extreme value theorem]
-    Let $I\subset\R$ be a closed and bounded interval. Let
-    $f:I\to\R$ be continuous on $I$. Then $f$ is bounded on the interval
-    $I$. Denote by
-    \begin{align*}
-        m=\inf\{f(x):x\in I\},\hs M=\sup\{f(x):x\in I\}.
-    \end{align*}
-    Then there exist points $x_m,x_M\in I$ such that
-    \begin{align*}
-        f(x_m)=m\hs\text{and}\hs f(x_M)=M.
-    \end{align*}
+	Let $I\subset\R$ be a closed and bounded interval. Let
+	$f:I\to\R$ be continuous on $I$. Then $f$ is bounded on the interval
+	$I$. Denote by
+	\begin{align*}
+		m=\inf\{f(x):x\in I\},\hs M=\sup\{f(x):x\in I\}.
+	\end{align*}
+	Then there exist points $x_m,x_M\in I$ such that
+	\begin{align*}
+		f(x_m)=m\hs\text{and}\hs f(x_M)=M.
+	\end{align*}
 \end{theorem}
 
 \setcounter{theorem}{3}
 \begin{lemma}
-    Let $f:I\to\R$ where $I$ is an open nonempty interval. If $f$ is
-    continuous at a point $a\in I$ and $f(a)>0$ then for some
-    $\delta,\e>0$ we have that
-    \begin{align*}
-        f(x)>\e,\hs \text{for all }x\in(a-\delta, a+\delta).
-    \end{align*}
+	Let $f:I\to\R$ where $I$ is an open nonempty interval. If $f$ is
+	continuous at a point $a\in I$ and $f(a)>0$ then for some
+	$\delta,\e>0$ we have that
+	\begin{align*}
+		f(x)>\e,\hs \text{for all }x\in(a-\delta, a+\delta).
+	\end{align*}
 \end{lemma}
 
 \begin{theorem}[Intermediate value theorem]
-    Let $I$ be a non-degenerate interval and let $f:I\to\R$ be a
-    continuous function. If $a,b\in I$, $a<b$ then $f$ attains,
-    on the interval $(a,b)$, all values between $f(a)$ and $f(b)$.
-    That is to say given $y_0$ between $f(a)$ and $f(b)$ there
-    exists $x_0\in(a,b)$ such that
-    \begin{align*}
-        f(x_0)=y_0.
-    \end{align*}
+	Let $I$ be a non-degenerate interval and let $f:I\to\R$ be a
+	continuous function. If $a,b\in I$, $a<b$ then $f$ attains,
+	on the interval $(a,b)$, all values between $f(a)$ and $f(b)$.
+	That is to say given $y_0$ between $f(a)$ and $f(b)$ there
+	exists $x_0\in(a,b)$ such that
+	\begin{align*}
+		f(x_0)=y_0.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Bolzano's theorem]
-    Let $f(x)$ be continuous on $[a,b]$ such that $f(a)f(b)<0$,
-    then there exists $c\in(a,b)$ such that $f(c)=0$.
+	Let $f(x)$ be continuous on $[a,b]$ such that $f(a)f(b)<0$,
+	then there exists $c\in(a,b)$ such that $f(c)=0$.
 \end{theorem}
 
 \setcounter{theorem}{8}
 \begin{theorem}
-    Let $f:[a,b]\to\R$, $a,b\in\R$ be a continuous function. Then the
-    image of $f$ is an interval or a point.
+	Let $f:[a,b]\to\R$, $a,b\in\R$ be a continuous function. Then the
+	image of $f$ is an interval or a point.
 \end{theorem}
 
 \begin{theorem}
-    Let $f:[a,b]\to\R$ be a strictly increasing function such that
-    the image of $f$ is an interval, then $f$ is continuous on $[a,b]$.
+	Let $f:[a,b]\to\R$ be a strictly increasing function such that
+	the image of $f$ is an interval, then $f$ is continuous on $[a,b]$.
 \end{theorem}
 
 \begin{theorem}
-    Let $f:[a,b]\to\R$ be a continuous strictly increasing function.
-    Then $\inv f:[f(a),f(b)]\to\R$ is a continuous, strictly increasing
-    function.
+	Let $f:[a,b]\to\R$ be a continuous strictly increasing function.
+	Then $\inv f:[f(a),f(b)]\to\R$ is a continuous, strictly increasing
+	function.
 \end{theorem}
 
 \subsection{Limits of functions}
 
 \begin{definition}
-    Let $f:\dom(f)\to\R$ and $a$ an element of the extended real numbers. We say
-    that
-    \begin{align*}
-        \lim_{x\to a^{\dom(f)}}f(x)=L
-    \end{align*}
-    for some extended real number $L$ if
-    for every sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
-    to $a$ we have $\lim_{n\to\infty}f(x_n)=L$.
+	Let $f:\dom(f)\to\R$ and $a$ an element of the extended real numbers. We say
+	that
+	\begin{align*}
+		\lim_{x\to a^{\dom(f)}}f(x)=L
+	\end{align*}
+	for some extended real number $L$ if
+	for every sequence $(x_n)$ whose terms lie in $\dom(f)$ and which converges
+	to $a$ we have $\lim_{n\to\infty}f(x_n)=L$.
 \end{definition}
 
 \begin{definition}
-    Let $a\in\R$ and let $f$ be a function defined on some interval
-    $I$ which contains $a$.
-    \begin{itemize}
-        \item We define the \emph{two-sided limit} $\lim_{x\to a}f(x)$ to be $\lim_{x\to a^{I\setminus\{a\}}}f(x)$.
-        \item We define the \emph{right-hand limit} $\lim_{x\to a+}f(x)$ to be $\lim_{x\to a^{I\cap (a, \infty)}}f(x)$.
-        \item We define the \emph{left-hand limit} $\lim_{x\to a-}f(x)$ to be $\lim_{x\to a^{(-\infty,a)\cap I}}f(x)$.
-    \end{itemize}
+	Let $a\in\R$ and let $f$ be a function defined on some interval
+	$I$ which contains $a$.
+	\begin{itemize}
+		\item We define the \emph{two-sided limit} $\lim_{x\to a}f(x)$ to be $\lim_{x\to a^{I\setminus\{a\}}}f(x)$.
+		\item We define the \emph{right-hand limit} $\lim_{x\to a+}f(x)$ to be $\lim_{x\to a^{I\cap (a, \infty)}}f(x)$.
+		\item We define the \emph{left-hand limit} $\lim_{x\to a-}f(x)$ to be $\lim_{x\to a^{(-\infty,a)\cap I}}f(x)$.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    Let $b\in\R$.
-    \begin{itemize}
-        \item Let $f$ be a function defined on some interval $I=(b,\infty)$.
-              We define $\lim_{x\to\infty}f(x)$ to be $\lim_{x\to\infty^I}f(x)$.
-        \item Let $f$ be a function defined on some interval $I=(-\infty, b)$.
-              We define $\lim_{x\to-\infty}f(x)$ to be $\lim_{x\to-\infty^I}f(x).$
-    \end{itemize}
+	Let $b\in\R$.
+	\begin{itemize}
+		\item Let $f$ be a function defined on some interval $I=(b,\infty)$.
+		      We define $\lim_{x\to\infty}f(x)$ to be $\lim_{x\to\infty^I}f(x)$.
+		\item Let $f$ be a function defined on some interval $I=(-\infty, b)$.
+		      We define $\lim_{x\to-\infty}f(x)$ to be $\lim_{x\to-\infty^I}f(x).$
+	\end{itemize}
 \end{definition}
 
 \begin{theorem}
-    Let $a\in\R$ and let $I$ be an open interval with left end-point
-    $a$. Then $\lim_{x\to a+} f(x)=L$ if for every $\e>0$ there is
-    $\delta>0$ such that
-    \begin{align*}
-        \text{if } a<x<a+\delta \text{ and }x\in I,\hs
-        \text{then}\hs \abs{f(x)-L}<\e.
-    \end{align*}
-    The value $L$ of the limit shall be denoted as $f(a^+)$.
+	Let $a\in\R$ and let $I$ be an open interval with left end-point
+	$a$. Then $\lim_{x\to a+} f(x)=L$ if for every $\e>0$ there is
+	$\delta>0$ such that
+	\begin{align*}
+		\text{if } a<x<a+\delta \text{ and }x\in I,\hs
+		\text{then}\hs \abs{f(x)-L}<\e.
+	\end{align*}
+	The value $L$ of the limit shall be denoted as $f(a^+)$.
 \end{theorem}
 
 \begin{theorem}
-    Let $f$ be a real function. The limit
-    \begin{align*}
-        \lim_{x\to a}f(x)
-    \end{align*}
-    exists and is equal to $L$ if and only if
-    \begin{align*}
-        L=\lim_{x\to a+}f(x)=\lim_{x\to a-}f(x).
-    \end{align*}
+	Let $f$ be a real function. The limit
+	\begin{align*}
+		\lim_{x\to a}f(x)
+	\end{align*}
+	exists and is equal to $L$ if and only if
+	\begin{align*}
+		L=\lim_{x\to a+}f(x)=\lim_{x\to a-}f(x).
+	\end{align*}
 \end{theorem}
 
 \begin{proposition}
-    Let $f$ be a real function and let $a\in\R$. Then
-    $f(x)$ is continuous at $a$ if and only if
-    \begin{align*}
-        \lim_{x\to a}f(x)=f(a).
-    \end{align*}
+	Let $f$ be a real function and let $a\in\R$. Then
+	$f(x)$ is continuous at $a$ if and only if
+	\begin{align*}
+		\lim_{x\to a}f(x)=f(a).
+	\end{align*}
 \end{proposition}
 
 \setcounter{theorem}{9}
 \begin{theorem}
-    Let $a\in\R$, let $I$ be an open interval containing
-    $a$ and let $f,g$ be real functions defined everywhere
-    on $I$ except possibly at $a$. If both $f$ and $g$ have
-    limits as $x$ approaches $a$ and
-    \begin{align*}
-        f(x)\leq g(x),\hs\text{for all }x\in I\setminus\{a\},
-    \end{align*}
-    then
-    \begin{align*}
-        \lim_{x\to a}f(x)\leq\lim_{x\to a} g(x).
-    \end{align*}
+	Let $a\in\R$, let $I$ be an open interval containing
+	$a$ and let $f,g$ be real functions defined everywhere
+	on $I$ except possibly at $a$. If both $f$ and $g$ have
+	limits as $x$ approaches $a$ and
+	\begin{align*}
+		f(x)\leq g(x),\hs\text{for all }x\in I\setminus\{a\},
+	\end{align*}
+	then
+	\begin{align*}
+		\lim_{x\to a}f(x)\leq\lim_{x\to a} g(x).
+	\end{align*}
 \end{theorem}
 
 
@@ -722,173 +722,173 @@
 \subsection{Introduction}
 
 \begin{definition}[Ross, 28.1]
-    A real function $f$ is said to be differentiable at a
-    point $a\in\R$ if $f$ is defined at some open interval containing
-    $a$ and the limit
-    \begin{align*}
-        f'(a) := \lim_{x\to a}\frac{f(x)-f(a)}{x-a}
-    \end{align*}
-    exists. The number $f'(a)$ is called the derivative of $f$
-    at point $a$.
+	A real function $f$ is said to be differentiable at a
+	point $a\in\R$ if $f$ is defined at some open interval containing
+	$a$ and the limit
+	\begin{align*}
+		f'(a) := \lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+	\end{align*}
+	exists. The number $f'(a)$ is called the derivative of $f$
+	at point $a$.
 \end{definition}
 
 \begin{definition}
-    A real function $f$ is said to be differentiable ata point $a\in\R$
-    if $f$ is defined on some open interval containing $a$ and the
-    limit
-    \begin{align*}
-        f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
-    \end{align*}
-    exists. The number $f'(a)$ is called the derivative of $f$
-    at point $a$
+	A real function $f$ is said to be differentiable ata point $a\in\R$
+	if $f$ is defined on some open interval containing $a$ and the
+	limit
+	\begin{align*}
+		f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+	\end{align*}
+	exists. The number $f'(a)$ is called the derivative of $f$
+	at point $a$
 \end{definition}
 
 \begin{theorem}[Ross, 28.2]
-    If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
+	If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
 \end{theorem}
 
 \begin{definition}
-    Let $I$ be a non-degenerate interval.
-    \begin{enumerate}[label=(\arabic*)]
-        \item A function $f:I\to\R$ is said to be differentiable on $I$
-              if \[f'_I(a):= \lim_{x\to a'}\frac{f(x)-f(a)}{x-a}\] exists and is
-              finite at every $a\in I$.
-        \item $f$ is said to be continuously differentiable on $I$ if $f'_I$
-              exists and is continuous on $I$.
-    \end{enumerate}
+	Let $I$ be a non-degenerate interval.
+	\begin{enumerate}[label=(\arabic*)]
+		\item A function $f:I\to\R$ is said to be differentiable on $I$
+		      if \[f'_I(a):= \lim_{x\to a'}\frac{f(x)-f(a)}{x-a}\] exists and is
+		      finite at every $a\in I$.
+		\item $f$ is said to be continuously differentiable on $I$ if $f'_I$
+		      exists and is continuous on $I$.
+	\end{enumerate}
 \end{definition}
 
 \begin{definition*}
-    Let $I$ be a non-degenerate interval. For each $n\in\Z_{\geq 0}$, we write
-    $C^n(I)$ to denote the collection of real functions whose $n$-th derivative
-    exists and is continuous on $I$.\\
-    \indent
-    Furthermore $C^\infty(I)$ means the intersection $\bigcap_{n\in\N}C^n(I)$.
+	Let $I$ be a non-degenerate interval. For each $n\in\Z_{\geq 0}$, we write
+	$C^n(I)$ to denote the collection of real functions whose $n$-th derivative
+	exists and is continuous on $I$.\\
+	\indent
+	Furthermore $C^\infty(I)$ means the intersection $\bigcap_{n\in\N}C^n(I)$.
 \end{definition*}
 
 \subsection{Differentiability theorems}
 
 \begin{theorem}[Ross, 28.3]
-    Let $f,g$ be real functions and $\alpha\in\R$. If $f$ and $g$ are
-    differentiable at $a$, then $f+g$, $f\cdot g$, $\alpha f$ and
-    (if $g(a)\not=0$) also $f/g$ are all differentiable at $a$. We have
-    \begin{align*}
-        (\alpha f)'(a)               & = \alpha f'(a),                        \\
-        (f+g)'(a)                    & = f'(a) + g'(a),                       \\
-        (f\cdot g)'(a)               & = f'(a)g(a)+f(a)g'(a),                 \\
-        \left(\frac{f}{g}\right)'(a) & =\frac{f'(a)g(a)-f(a)g'(a)}{(g(a))^2}.
-    \end{align*}
+	Let $f,g$ be real functions and $\alpha\in\R$. If $f$ and $g$ are
+	differentiable at $a$, then $f+g$, $f\cdot g$, $\alpha f$ and
+	(if $g(a)\not=0$) also $f/g$ are all differentiable at $a$. We have
+	\begin{align*}
+		(\alpha f)'(a)               & = \alpha f'(a),                        \\
+		(f+g)'(a)                    & = f'(a) + g'(a),                       \\
+		(f\cdot g)'(a)               & = f'(a)g(a)+f(a)g'(a),                 \\
+		\left(\frac{f}{g}\right)'(a) & =\frac{f'(a)g(a)-f(a)g'(a)}{(g(a))^2}.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Ross, 28.4]
-    Let $f,g$ be real functions. If $f$ is differentiable at $a$ and $g$ is
-    differentiable at $f(a)$, then $g\circ f$ is differentiable at $a$ and
-    \begin{align*}
-        (g\circ f)'(a) = g'(f(a))f'(a).
-    \end{align*}
+	Let $f,g$ be real functions. If $f$ is differentiable at $a$ and $g$ is
+	differentiable at $f(a)$, then $g\circ f$ is differentiable at $a$ and
+	\begin{align*}
+		(g\circ f)'(a) = g'(f(a))f'(a).
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}(Power Rule)
-    Let $n\in \N$ and $q\in\Q$. Then
-    \begin{enumerate}[label=(\arabic*)]
-        \item $(x^n)'=nx^{n-1}$ for all $x\in\R$,
-        \item $(x^q)'=qx^{q-1}$ for all $x\in\R_{>0}$.
-    \end{enumerate}
+	Let $n\in \N$ and $q\in\Q$. Then
+	\begin{enumerate}[label=(\arabic*)]
+		\item $(x^n)'=nx^{n-1}$ for all $x\in\R$,
+		\item $(x^q)'=qx^{q-1}$ for all $x\in\R_{>0}$.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Mean Value Theorem}
 
 \begin{theorem}[Rolle's Theorem]
-    Suppose $a,b\in\R$ with $a<b$. If $f$ is continuous on $[a,b]$,
-    differentiable on $(a,b)$ and $f(a)=f(b)$, then $f'(c)=0$ for some
-    $c\in(a,b)$.
+	Suppose $a,b\in\R$ with $a<b$. If $f$ is continuous on $[a,b]$,
+	differentiable on $(a,b)$ and $f(a)=f(b)$, then $f'(c)=0$ for some
+	$c\in(a,b)$.
 \end{theorem}
 
 \begin{theorem}[Mean Value Theorem]
-    Suppose $a,b\in\R$ with $a<b$.
-    \begin{enumerate}
-        \item If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$
-              then tere is $c\in(a,b)$ such that \[f(b)-f(a)=f'(c)(b-a).\]
-        \item If $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$
-              then there is $c\in(a,b)$ such that
-              \[f'(c)(g(b)-g(a))=g'(c)(f(b)-f(a)).\]
-    \end{enumerate}
+	Suppose $a,b\in\R$ with $a<b$.
+	\begin{enumerate}
+		\item If $f$ is continuous on $[a,b]$ and differentiable on $(a,b)$
+		      then tere is $c\in(a,b)$ such that \[f(b)-f(a)=f'(c)(b-a).\]
+		\item If $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$
+		      then there is $c\in(a,b)$ such that
+		      \[f'(c)(g(b)-g(a))=g'(c)(f(b)-f(a)).\]
+	\end{enumerate}
 \end{theorem}
 
 \begin{lemma*}[Bernoulli's inequality]
-    Let $a>0$, $\delta \geq -1$. Then
-    \begin{align*}
-        (1+\delta)^\alpha & \leq 1+\delta\alpha,\hs\text{if }\alpha\in(0,1],      \\
-        (1+\delta)^\alpha & \geq 1+\delta\alpha,\hs\text{if }\alpha\in[1,\infty).
-    \end{align*}
+	Let $a>0$, $\delta \geq -1$. Then
+	\begin{align*}
+		(1+\delta)^\alpha & \leq 1+\delta\alpha,\hs\text{if }\alpha\in(0,1],      \\
+		(1+\delta)^\alpha & \geq 1+\delta\alpha,\hs\text{if }\alpha\in[1,\infty).
+	\end{align*}
 \end{lemma*}
 
 \subsection{Monotone functions and the inverse functions theorem}
 
 \setcounter{theorem}{1}
 \begin{theorem}[Ross, 29.7]
-    Let $a<b$ be real and $f$ be continuous on $[a,b]$ and differentiable
-    on $(a,b)$.
-    \begin{enumerate}[label=(\arabic*)]
-        \item If $f'(x)>0$ for all $x\in(a,b)$ then $f$ is strictly increasing on $[a,b]$.
-        \item If $f'(x)<0$ for all $x\in(a,b)$ then $f$ is strictly decreasing on $[a,b]$.
-        \item If $f'(x)=0$ for all $x\in(a,b)$ then $f$ is constant on $[a,b]$.
-    \end{enumerate}
+	Let $a<b$ be real and $f$ be continuous on $[a,b]$ and differentiable
+	on $(a,b)$.
+	\begin{enumerate}[label=(\arabic*)]
+		\item If $f'(x)>0$ for all $x\in(a,b)$ then $f$ is strictly increasing on $[a,b]$.
+		\item If $f'(x)<0$ for all $x\in(a,b)$ then $f$ is strictly decreasing on $[a,b]$.
+		\item If $f'(x)=0$ for all $x\in(a,b)$ then $f$ is constant on $[a,b]$.
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-    Let $f$ be injective and continuous on an interval $I$. Then $f$ is strictly
-    monotone on $I$ and the inverse function $\inv f$ is continuous and
-    strictly monotone on $f(I)$.
+	Let $f$ be injective and continuous on an interval $I$. Then $f$ is strictly
+	monotone on $I$ and the inverse function $\inv f$ is continuous and
+	strictly monotone on $f(I)$.
 \end{theorem}
 
 \setcounter{theorem}{4}
 \begin{theorem}(Inverse function theorem)
-    Let $f$ be injective and continuous on an open interval $I$.
-    If $a\in f(I)$ and $f'$ at the point $\inv f(a)$ exists and is
-    nonzero, then $\inv f$ is differentiable at a and
-    \begin{align*}
-        (\inv f)'(a) = \frac{1}{f'(\inv f(a))}.
-    \end{align*}
+	Let $f$ be injective and continuous on an open interval $I$.
+	If $a\in f(I)$ and $f'$ at the point $\inv f(a)$ exists and is
+	nonzero, then $\inv f$ is differentiable at a and
+	\begin{align*}
+		(\inv f)'(a) = \frac{1}{f'(\inv f(a))}.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[L'Hoptial's Rule]
-    Let $a$ be an extended real number and $I$ an interval that
-    either contains $a$ or has $a$ as an endpoint.\\
-    \indent Let $f,g$ be differentiable on $I\setminus\{a\}$ and
-    $g(x)\not=0\not=g'(x)$ for all $x\in I\setminus\{a\}$. Suppose further
-    that
-    \begin{align*}
-        A=\lim_{x\to a, x\in I}=\lim_{x\to a,x\in I}g(x)
-    \end{align*}
-    is either $0$ or $\infty$. If $B=\lim_{x\to a,x\in I}\frac{f'(x)}{g'(x)}$
-    exists as an extended real number, then
-    \begin{align*}
-        \lim_{x\to a, x\in I}\frac{f(x)}{g(x)}=\lim_{x\to a, x\in I}
-        \frac{f'(x)}{g'(x)}.
-    \end{align*}
+	Let $a$ be an extended real number and $I$ an interval that
+	either contains $a$ or has $a$ as an endpoint.\\
+	\indent Let $f,g$ be differentiable on $I\setminus\{a\}$ and
+	$g(x)\not=0\not=g'(x)$ for all $x\in I\setminus\{a\}$. Suppose further
+	that
+	\begin{align*}
+		A=\lim_{x\to a, x\in I}=\lim_{x\to a,x\in I}g(x)
+	\end{align*}
+	is either $0$ or $\infty$. If $B=\lim_{x\to a,x\in I}\frac{f'(x)}{g'(x)}$
+	exists as an extended real number, then
+	\begin{align*}
+		\lim_{x\to a, x\in I}\frac{f(x)}{g(x)}=\lim_{x\to a, x\in I}
+		\frac{f'(x)}{g'(x)}.
+	\end{align*}
 \end{theorem}
 
 \subsection{Taylor's theorem}
 
 \begin{definition}
-    Let $n\in\N$ and $a<b$ be extended real numbers. If $f:(a,b)\to\R$
-    is a function differentiable $n$-times at a point $x_0\in(a,b)$
-    we call the polynomial
-    \begin{align*}
-        P_n^{f,x_0}(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k
-    \end{align*}
-    \emph{Taylor's polynomial} of degree $n$ at $x_0$. Note that
-    $f^{(0)}=f$, $0!=1$ and $(x-x_0)^0=1$.
+	Let $n\in\N$ and $a<b$ be extended real numbers. If $f:(a,b)\to\R$
+	is a function differentiable $n$-times at a point $x_0\in(a,b)$
+	we call the polynomial
+	\begin{align*}
+		P_n^{f,x_0}(x)=\sum_{k=0}^n\frac{f^{(k)}(x_0)}{k!}(x-x_0)^k
+	\end{align*}
+	\emph{Taylor's polynomial} of degree $n$ at $x_0$. Note that
+	$f^{(0)}=f$, $0!=1$ and $(x-x_0)^0=1$.
 \end{definition}
 
 \begin{theorem}[Taylor's formula]
-    Let $n\in\N$ and $a<b$ be extended real numbers. If $f:(a,b)\to\R$
-    and if $f^{(n+1)}$ exsits on $(a,b)$, then for each $x,x_0\in(a,b)$
-    there exists a number $c$ between $x$ and $x_0$ which depends on $n$,
-    $x$ and $x_0$, such that
-    \begin{align*}
-        f(x)=P_n^{f,x_0}(x) +\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
-    \end{align*}
+	Let $n\in\N$ and $a<b$ be extended real numbers. If $f:(a,b)\to\R$
+	and if $f^{(n+1)}$ exsits on $(a,b)$, then for each $x,x_0\in(a,b)$
+	there exists a number $c$ between $x$ and $x_0$ which depends on $n$,
+	$x$ and $x_0$, such that
+	\begin{align*}
+		f(x)=P_n^{f,x_0}(x) +\frac{f^{(n+1)}(c)}{(n+1)!}(x-x_0)^{n+1}.
+	\end{align*}
 \end{theorem}
 \end{document}

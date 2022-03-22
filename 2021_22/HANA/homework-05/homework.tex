@@ -9,229 +9,229 @@
 
 Let
 \begin{align*}
-   S(x) =\sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!},\hs \text{and}\hs
-   C(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+	S(x) =\sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!},\hs \text{and}\hs
+	C(x) = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
 \end{align*}
 
 \section*{Workshop 5 - Question 2}
 
 \begin{claim*}
-   $S$ is differentiable on $\R$ and $S'=C$.
+	$S$ is differentiable on $\R$ and $S'=C$.
 \end{claim*}
 
 \begin{proof}
-   We shall not prove that the interval of convergence is $(-\infty,\infty)$
-   as this is part of another exercise, but it can be shown easily by
-   applying the \emph{Alternating Series Test}. Let us now focus on the claim above.
+	We shall not prove that the interval of convergence is $(-\infty,\infty)$
+	as this is part of another exercise, but it can be shown easily by
+	applying the \emph{Alternating Series Test}. Let us now focus on the claim above.
 
-   Firstly, observe that we can write
-   \begin{align*}
-      S(x) = \sum_{n=0}^\infty a_n(x-x_0)^n
-   \end{align*}
-   with $x_0 = 0$ and
-   \begin{align*}
-      a_n = \begin{cases}
-         \frac{(-1)^{(n-1)/2}}{n!} & \text{if $n$ is odd},  \\
-         0                         & \text{if $n$ is even}.
-      \end{cases}
-   \end{align*}
-   By \emph{Wade, Theorem 7.30}, it follows that $S$ is differentiable on $\R$
-   and
-   \begin{align*}
-      S'(x) = \sum_{n=1}^\infty na_k(x-x_0)^{n-1}
-      = \sum_{n=0}^\infty (n+1)a_{n+1}x^n.
-   \end{align*}
-   However, observe that for all odd $n$ we have $a_{n+1}=0$
-   and thus we may substitute $n=2k$ and write
-   \begin{align*}
-      S'(x) = \sum_{k=0}^\infty (2k+1)a_{2k+1}x^{2k}
-      = \sum_{k=0}^\infty (2k+1)\frac{(-1)^k x^{2k}}{(2k+1)!}
-      = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!} = C(x).
-   \end{align*}
+	Firstly, observe that we can write
+	\begin{align*}
+		S(x) = \sum_{n=0}^\infty a_n(x-x_0)^n
+	\end{align*}
+	with $x_0 = 0$ and
+	\begin{align*}
+		a_n = \begin{cases}
+			      \frac{(-1)^{(n-1)/2}}{n!} & \text{if $n$ is odd},  \\
+			      0                         & \text{if $n$ is even}.
+		      \end{cases}
+	\end{align*}
+	By \emph{Wade, Theorem 7.30}, it follows that $S$ is differentiable on $\R$
+	and
+	\begin{align*}
+		S'(x) = \sum_{n=1}^\infty na_k(x-x_0)^{n-1}
+		= \sum_{n=0}^\infty (n+1)a_{n+1}x^n.
+	\end{align*}
+	However, observe that for all odd $n$ we have $a_{n+1}=0$
+	and thus we may substitute $n=2k$ and write
+	\begin{align*}
+		S'(x) = \sum_{k=0}^\infty (2k+1)a_{2k+1}x^{2k}
+		= \sum_{k=0}^\infty (2k+1)\frac{(-1)^k x^{2k}}{(2k+1)!}
+		= \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!} = C(x).
+	\end{align*}
 \end{proof}
 
 \subsection*{Workshop 5 - Question 3}
 
 
 \begin{claim*}
-   $C$ is differentiable on $\R$ and $C'=-S$.
+	$C$ is differentiable on $\R$ and $C'=-S$.
 \end{claim*}
 \begin{proof}
-   Let $(a_n)_{n\geq 0}$ be the sequence such that
-   \begin{align*}
-      a_n = \frac{(-1)^{k}x^{2k}}{(2k)!}.
-   \end{align*}
-   Fix $x\not=0$. Then note that
-   \begin{align*}
-      \frac{\abs{a_{n+1}}}{\abs{a_n}} = \frac{x^2}{(2k+2)(2k+1)} \leq \frac{x^2}{4k^2} = \frac{x^2}{4}\left(\frac{1}{k^2}\right)
-   \end{align*}
-   goes to zero. It follows that the series
-   \begin{align*}
-      \sum_{k=0}^\infty a_k = C(x)
-   \end{align*}
-   converges absolutely on $\R\setminus\{0\}$.
-   Sinced the power series always converges at $x=0$, we know that the interval of convergence is $(-\infty,\infty)$.
-   We can now write
-   \begin{align*}
-      C(x) = \sum_{n=0}^\infty \frac{(-1)^{n}x^{2n}}{(2n)!} = \sum_{n=0}^\infty b_n(x-x_0)^n
-   \end{align*}
-   where $x_0=0$ and
-   \begin{align*}
-      b_n = \begin{cases}
-         0                     & \text{if $n$ is odd},  \\
-         \frac{(-1)^{n/2}}{n!} & \text{if $n$ is even}.
-      \end{cases}
-   \end{align*}
-   By \emph{Wade, Theorem 7.30}, it follows that $C$ is differentiable on $\R$ and
-   \begin{align*}
-      C'(x) = \sum_{n=1}^\infty nb_n(x-x_0)^{n-1} = \sum_{n=0}^\infty (n+1)b_{n+1}x^n.
-   \end{align*}
-   However, for every even $n$ we have $b_{n+1}=0$ and thus we may substitute $n=2k+1$ and write
-   \begin{align*}
-      C'(x) = \sum_{k=0}^\infty (2k+2)b_{2k+2}x^{2k+1}
-      = \sum_{k=0}^\infty \frac{(-1)^{k+1}x^{2k+1}}{(2k+1)!}
-      = -S(x).
-   \end{align*}
+	Let $(a_n)_{n\geq 0}$ be the sequence such that
+	\begin{align*}
+		a_n = \frac{(-1)^{k}x^{2k}}{(2k)!}.
+	\end{align*}
+	Fix $x\not=0$. Then note that
+	\begin{align*}
+		\frac{\abs{a_{n+1}}}{\abs{a_n}} = \frac{x^2}{(2k+2)(2k+1)} \leq \frac{x^2}{4k^2} = \frac{x^2}{4}\left(\frac{1}{k^2}\right)
+	\end{align*}
+	goes to zero. It follows that the series
+	\begin{align*}
+		\sum_{k=0}^\infty a_k = C(x)
+	\end{align*}
+	converges absolutely on $\R\setminus\{0\}$.
+	Sinced the power series always converges at $x=0$, we know that the interval of convergence is $(-\infty,\infty)$.
+	We can now write
+	\begin{align*}
+		C(x) = \sum_{n=0}^\infty \frac{(-1)^{n}x^{2n}}{(2n)!} = \sum_{n=0}^\infty b_n(x-x_0)^n
+	\end{align*}
+	where $x_0=0$ and
+	\begin{align*}
+		b_n = \begin{cases}
+			      0                     & \text{if $n$ is odd},  \\
+			      \frac{(-1)^{n/2}}{n!} & \text{if $n$ is even}.
+		      \end{cases}
+	\end{align*}
+	By \emph{Wade, Theorem 7.30}, it follows that $C$ is differentiable on $\R$ and
+	\begin{align*}
+		C'(x) = \sum_{n=1}^\infty nb_n(x-x_0)^{n-1} = \sum_{n=0}^\infty (n+1)b_{n+1}x^n.
+	\end{align*}
+	However, for every even $n$ we have $b_{n+1}=0$ and thus we may substitute $n=2k+1$ and write
+	\begin{align*}
+		C'(x) = \sum_{k=0}^\infty (2k+2)b_{2k+2}x^{2k+1}
+		= \sum_{k=0}^\infty \frac{(-1)^{k+1}x^{2k+1}}{(2k+1)!}
+		= -S(x).
+	\end{align*}
 \end{proof}
 
 \begin{claim*}
-   Then $(C(x))^2 + (S(x))^2 = 1$ for all $x$ and $\abs{S(x)},\abs{C(x)}\leq 1$
-   for all $x$.
+	Then $(C(x))^2 + (S(x))^2 = 1$ for all $x$ and $\abs{S(x)},\abs{C(x)}\leq 1$
+	for all $x$.
 \end{claim*}
 
 \begin{proof}
-   Let $f:\R\to\R$ be such that
-   \begin{align*}
-      f(x) = (C(x))^2 + (S(x))^2.
-   \end{align*}
-   Firstly, observe that $f(0)=1$.
-   Since $C,S\in C^\infty(\R)$, $f$ is differentiable and by the rules of differentiation
-   \begin{align*}
-      f'(x) = 2C(x)C'(x) + 2S(x)S'(x).
-   \end{align*}
-   We now note that $S'=C$ and $C'=-S$, so $f'(x)=0$ everywhere. By the \emph{Mean Value Theorem}
-   it follows that $f$ is constant and since $f(0)=1$, we conclude that $f(x)=1$ for all $x\in\R$.
+	Let $f:\R\to\R$ be such that
+	\begin{align*}
+		f(x) = (C(x))^2 + (S(x))^2.
+	\end{align*}
+	Firstly, observe that $f(0)=1$.
+	Since $C,S\in C^\infty(\R)$, $f$ is differentiable and by the rules of differentiation
+	\begin{align*}
+		f'(x) = 2C(x)C'(x) + 2S(x)S'(x).
+	\end{align*}
+	We now note that $S'=C$ and $C'=-S$, so $f'(x)=0$ everywhere. By the \emph{Mean Value Theorem}
+	it follows that $f$ is constant and since $f(0)=1$, we conclude that $f(x)=1$ for all $x\in\R$.
 
-   Finally, note that
-   \begin{align*}
-      0 \leq (S(x))^2, (C(x))^2 \leq f(x) = 1.
-   \end{align*}
-   Since $\sqrt{x}$ is strictly increasing on $\R_{\geq 0}$ and $\sqrt{1}=1$, it follows that
-   \begin{align*}
-      0 \leq \abs{S(x)}, \abs{C(x)} \leq 1.
-   \end{align*}
+	Finally, note that
+	\begin{align*}
+		0 \leq (S(x))^2, (C(x))^2 \leq f(x) = 1.
+	\end{align*}
+	Since $\sqrt{x}$ is strictly increasing on $\R_{\geq 0}$ and $\sqrt{1}=1$, it follows that
+	\begin{align*}
+		0 \leq \abs{S(x)}, \abs{C(x)} \leq 1.
+	\end{align*}
 \end{proof}
 
 \section*{Workshop 5 - Question 5}
 
 \begin{claim*}
-   Let $0<x\leq \sqrt{6}$. Then $S(x)>0$.
+	Let $0<x\leq \sqrt{6}$. Then $S(x)>0$.
 \end{claim*}
 \begin{proof}
-   Fix $0<x\leq\sqrt{6}$. We regroup
-   \begin{align*}
-      S(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots
-      = \left(x - \frac{x^3}{3!}\right) + \left(\frac{x^5}{5!} - \frac{x^7}{7!}\right) + \cdots
-   \end{align*}
-   We consider a pair of adjacent terms and use $0<x\leq\sqrt{6}$ to find
-   \begin{align*}
-      \frac{x^{2k+1}}{(2k+1)!} - \frac{x^{2k+3}}{(2k+3)!}
-      \geq \frac{x^{2k+1}}{(2k+1)!}-\frac{6x^{2k+1}}{(2k+3)!}
-      = ((2k+3)(2k+2)-6)\frac{x^{2k+1}}{(2k+3)!}
-   \end{align*}
-   where $k\geq 0$.
-   Observe that the second factor is strictly greater than zero. Consider the first factor,
-   \begin{align*}
-      (2k+3)(2k+2) - 6.
-   \end{align*}
-   Note that this is strictly increasing with $k$ and we have
-   \begin{align*}
-      k=0 \hs & \Rightarrow\hs (2k+3)(2k+2) - 6 = 0,  \\
-      k=1 \hs & \Rightarrow\hs (2k+3)(2k+2) - 6 = 14. \\
-   \end{align*}
-   Therefore,
-   \begin{align*}
-      \frac{x^{2k+1}}{(2k+1)!} - \frac{x^{2k+3}}{(2k+3)!} \geq 0
-   \end{align*}
-   for all $k$. Since the strict inequality holds for $k=1$, the claim follows.
+	Fix $0<x\leq\sqrt{6}$. We regroup
+	\begin{align*}
+		S(x) = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \cdots
+		= \left(x - \frac{x^3}{3!}\right) + \left(\frac{x^5}{5!} - \frac{x^7}{7!}\right) + \cdots
+	\end{align*}
+	We consider a pair of adjacent terms and use $0<x\leq\sqrt{6}$ to find
+	\begin{align*}
+		\frac{x^{2k+1}}{(2k+1)!} - \frac{x^{2k+3}}{(2k+3)!}
+		\geq \frac{x^{2k+1}}{(2k+1)!}-\frac{6x^{2k+1}}{(2k+3)!}
+		= ((2k+3)(2k+2)-6)\frac{x^{2k+1}}{(2k+3)!}
+	\end{align*}
+	where $k\geq 0$.
+	Observe that the second factor is strictly greater than zero. Consider the first factor,
+	\begin{align*}
+		(2k+3)(2k+2) - 6.
+	\end{align*}
+	Note that this is strictly increasing with $k$ and we have
+	\begin{align*}
+		k=0 \hs & \Rightarrow\hs (2k+3)(2k+2) - 6 = 0,  \\
+		k=1 \hs & \Rightarrow\hs (2k+3)(2k+2) - 6 = 14. \\
+	\end{align*}
+	Therefore,
+	\begin{align*}
+		\frac{x^{2k+1}}{(2k+1)!} - \frac{x^{2k+3}}{(2k+3)!} \geq 0
+	\end{align*}
+	for all $k$. Since the strict inequality holds for $k=1$, the claim follows.
 \end{proof}
 
 \begin{claim*}
-   Let $0<x\leq \sqrt{2}$. Then $C(x)>0$.
+	Let $0<x\leq \sqrt{2}$. Then $C(x)>0$.
 \end{claim*}
 \begin{proof}
-   Fix $0<x\leq\sqrt{2}$. We regroup
-   \begin{align*}
-      C(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
-      = \left(1 - \frac{x^2}{2!}\right) + \left(\frac{x^4}{4!} - \frac{x^6}{6!}\right) + \cdots
-   \end{align*}
-   We consider a pair of adjacent terms and use $0<x\leq\sqrt{2}$ to find
-   \begin{align*}
-      \frac{x^{2k}}{(2k)!} - \frac{x^{2k+2}}{(2k+2)!}
-      \geq \frac{x^{2k}}{(2k)!}-\frac{2x^{2k}}{(2k+2)!}
-      = ((2k+2)(2k+1)-2)\frac{x^{2k}}{(2k+2)!}
-   \end{align*}
-   where $k\geq 0$.
-   Observe that the second factor is strictly greater than zero. Consider the first factor,
-   \begin{align*}
-      (2k+2)(2k+1) - 2.
-   \end{align*}
-   Note that this is strictly increasing with $k$ and we have
-   \begin{align*}
-      k=0 \hs & \Rightarrow\hs (2k+2)(2k+1) - 2 = 0,  \\
-      k=1 \hs & \Rightarrow\hs (2k+2)(2k+1) - 2 = 12. \\
-   \end{align*}
-   Therefore,
-   \begin{align*}
-      \frac{x^{2k}}{(2k)!} - \frac{x^{2k+2}}{(2k+2)!} \geq 0
-   \end{align*}
-   for all $k$. Since the strict inequality holds for $k=1$, the claim follows.
+	Fix $0<x\leq\sqrt{2}$. We regroup
+	\begin{align*}
+		C(x) = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
+		= \left(1 - \frac{x^2}{2!}\right) + \left(\frac{x^4}{4!} - \frac{x^6}{6!}\right) + \cdots
+	\end{align*}
+	We consider a pair of adjacent terms and use $0<x\leq\sqrt{2}$ to find
+	\begin{align*}
+		\frac{x^{2k}}{(2k)!} - \frac{x^{2k+2}}{(2k+2)!}
+		\geq \frac{x^{2k}}{(2k)!}-\frac{2x^{2k}}{(2k+2)!}
+		= ((2k+2)(2k+1)-2)\frac{x^{2k}}{(2k+2)!}
+	\end{align*}
+	where $k\geq 0$.
+	Observe that the second factor is strictly greater than zero. Consider the first factor,
+	\begin{align*}
+		(2k+2)(2k+1) - 2.
+	\end{align*}
+	Note that this is strictly increasing with $k$ and we have
+	\begin{align*}
+		k=0 \hs & \Rightarrow\hs (2k+2)(2k+1) - 2 = 0,  \\
+		k=1 \hs & \Rightarrow\hs (2k+2)(2k+1) - 2 = 12. \\
+	\end{align*}
+	Therefore,
+	\begin{align*}
+		\frac{x^{2k}}{(2k)!} - \frac{x^{2k+2}}{(2k+2)!} \geq 0
+	\end{align*}
+	for all $k$. Since the strict inequality holds for $k=1$, the claim follows.
 \end{proof}
 \begin{claim*}
-   Let $0\leq x\leq \sqrt{56}$ such that $1-x^2/2!+x^4/4!<0$. Then $C(x)<0$.
+	Let $0\leq x\leq \sqrt{56}$ such that $1-x^2/2!+x^4/4!<0$. Then $C(x)<0$.
 \end{claim*}
 \begin{proof}
-   Fix $0\leq x\leq\sqrt{56}$. We regroup
-   \begin{align}
-      \label{regroup3}
-      C(x)= \left(1 - \frac{x^2}{2!} + \frac{x^4}{4!} \right)
-      - \left(\frac{x^6}{6!}-\frac{x^8}{8!}\right)
-      - \left(\frac{x^{10}}{10!}-\frac{x^{12}}{12!}\right)
-      - \cdots
-   \end{align}
-   Consider a pair of adjacent terms and use $x^2\leq 56$ to find
-   \begin{align*}
-      \frac{x^{2k}}{(2k)!}-\frac{x^{2k+2}}{(2k+2)!} \geq
-      \frac{x^{2k}}{(2k)!}-\frac{56x^{2k}}{(2k+2)!} =
-      ((2k+2)(2k+1)-56)\frac{x^{2k}}{(2k+2)!}
-   \end{align*}
-   where $k\geq 3$. Note again that the factor on the right is strictly
-   greater than zero. When considering the left factor,
-   \begin{align*}
-      (2k+2)(2k+1) - 56,
-   \end{align*}
-   we note that it is strictly increasing with $k$ and we have
-   \begin{align*}
-      k=3 \hs\Rightarrow\hs (2k+2)(2k+1) - 56 = 0.
-   \end{align*}
-   Therefore, for $k\geq 3$,
-   \begin{align*}
-      \frac{x^{2k}}{(2k)!}-\frac{x^{2k+2}}{(2k+2)!}\geq 0.
-   \end{align*}
-   By the premise,
-   \begin{align*}
-      1 - \frac{x^2}{2!} + \frac{x^4}{4!} < 0.
-   \end{align*}
-   Thus all the summands in (\ref{regroup3}) are less than or equal to zero
-   where the first one is guaranteed to be non-zero. $C(x)<0$ follows.
-   Further, we have
-   \begin{align*}
-      0 < 8/5 < \sqrt{49} < \sqrt{56}
-   \end{align*}
-   and
-   \begin{align*}
-      x = 8/5 \hs\Rightarrow\hs 1-\frac{x^2}{2!}+\frac{x^4}{4!} = -\frac{13}{1875} < 0.
-   \end{align*}
-   Thus $C(8/5)<0$.
+	Fix $0\leq x\leq\sqrt{56}$. We regroup
+	\begin{align}
+		\label{regroup3}
+		C(x)= \left(1 - \frac{x^2}{2!} + \frac{x^4}{4!} \right)
+		- \left(\frac{x^6}{6!}-\frac{x^8}{8!}\right)
+		- \left(\frac{x^{10}}{10!}-\frac{x^{12}}{12!}\right)
+		- \cdots
+	\end{align}
+	Consider a pair of adjacent terms and use $x^2\leq 56$ to find
+	\begin{align*}
+		\frac{x^{2k}}{(2k)!}-\frac{x^{2k+2}}{(2k+2)!} \geq
+		\frac{x^{2k}}{(2k)!}-\frac{56x^{2k}}{(2k+2)!} =
+		((2k+2)(2k+1)-56)\frac{x^{2k}}{(2k+2)!}
+	\end{align*}
+	where $k\geq 3$. Note again that the factor on the right is strictly
+	greater than zero. When considering the left factor,
+	\begin{align*}
+		(2k+2)(2k+1) - 56,
+	\end{align*}
+	we note that it is strictly increasing with $k$ and we have
+	\begin{align*}
+		k=3 \hs\Rightarrow\hs (2k+2)(2k+1) - 56 = 0.
+	\end{align*}
+	Therefore, for $k\geq 3$,
+	\begin{align*}
+		\frac{x^{2k}}{(2k)!}-\frac{x^{2k+2}}{(2k+2)!}\geq 0.
+	\end{align*}
+	By the premise,
+	\begin{align*}
+		1 - \frac{x^2}{2!} + \frac{x^4}{4!} < 0.
+	\end{align*}
+	Thus all the summands in (\ref{regroup3}) are less than or equal to zero
+	where the first one is guaranteed to be non-zero. $C(x)<0$ follows.
+	Further, we have
+	\begin{align*}
+		0 < 8/5 < \sqrt{49} < \sqrt{56}
+	\end{align*}
+	and
+	\begin{align*}
+		x = 8/5 \hs\Rightarrow\hs 1-\frac{x^2}{2!}+\frac{x^4}{4!} = -\frac{13}{1875} < 0.
+	\end{align*}
+	Thus $C(8/5)<0$.
 \end{proof}
 \end{document}

@@ -8,95 +8,95 @@
 \maketitle
 
 \begin{claim*}[1]
-   Let $p>0$ be prime and let $q\in\N$ such that $\phi\left(p^2\right) = \phi\left(q^2\right)$.
-   Then $p=q$.
-   \begin{proof}
-      Note that $p$ is prime, thus by \emph{Boocher, Proposition 11.9} we
-      have $\phi\left(p^2\right)=\phi\left(q^2\right)=p(p-1)$. Assume $p\not= q$.
-      Then $q$ cannot be prime, i.e. there exist distinct primes $q_1,...,q_k$ and natural
-      numbers $e_1,...,e_k$ such that
-      \begin{align*}
-         q = q_1^{e_1}\cdots q_k^{e_k}.
-      \end{align*}
-      However, note that $\phi$ is multiplicative by \emph{Boocher, Theorem 11.10}
-      so
-      \begin{align}
-         \label{factorisation}
-         \phi(p^2)
-         =\phi(q^2)
-         =\phi\left(\left(q_1^{e_1}\cdots q_k^{e_k}\right)^2\right)
-         =\phi\left(q_1^{2e_1}\cdots q_k^{2e_k}\right)
-         =\phi\left(q_1^{2e_1}\right)\cdots\phi\left(q_k^{2e_k}\right).
-      \end{align}
-      We observe that $p|\phi\left(q_i^{2e_i}\right)$ for some $i$.
-      Further, $\phi\left(q_i^k\right)=q_i^{k-1}(q_i-1)$. Now there are two possibilities:
-      \begin{enumerate}
-         \item $p|q_i^{2e_i-1}$. Since $p$ and $q_i$ are prime, this implies
-               $p=q_i$, i.e. $p|q$. If $q=p^m$ for some $m>1$, then \begin{align*}
-                  \phi\left(q^2\right)=p^{2k-1}(p-1)=p^{2k-3}\phi\left(p^2\right)
-                  >\phi\left(p^2\right).
-               \end{align*}
-               This is a contradiction. Thus there must exist another prime $r$ and some 
-               positive integer $s$ such that $q=prs$. However, by multiplicativity of $\phi$,
-               then
-               \begin{align*}
-                  \phi\left(q^2\right)
-                  =    \phi\left((prs)^2\right)
-                  =    \phi\left(p^2\right)\phi\left(r^2\right)\phi(s^2)
-                  \geq \phi\left(p^2\right)\phi\left(r^2\right)
-                  >    \phi\left(p^2\right) ,
-               \end{align*}
-               contradicting the premise again.
-         \item $p|q_i-1$. Then we note $p\leq q_i-1$ so $p<q_i$.  Clearly,
-               \begin{align*}
-                  \phi\left(p^2\right)=p(p-1)<q_i(q_i-1)=\phi\left(q_i^2\right).
-               \end{align*}
-               However, $\phi\left(q_i^2\right)\leq \phi\left(q^2\right)$ using
-               (\ref{factorisation}) and $\phi(n)\geq 1$ for $n\in\N$. Thus
-               $\phi\left(p^2\right)<\phi\left(q^2\right)$; contradiction.
-      \end{enumerate}
-      Since the assumption leads to a contradiction in all cases, we conclude
-      that $p=q$.
-   \end{proof}
+	Let $p>0$ be prime and let $q\in\N$ such that $\phi\left(p^2\right) = \phi\left(q^2\right)$.
+	Then $p=q$.
+	\begin{proof}
+		Note that $p$ is prime, thus by \emph{Boocher, Proposition 11.9} we
+		have $\phi\left(p^2\right)=\phi\left(q^2\right)=p(p-1)$. Assume $p\not= q$.
+		Then $q$ cannot be prime, i.e. there exist distinct primes $q_1,...,q_k$ and natural
+		numbers $e_1,...,e_k$ such that
+		\begin{align*}
+			q = q_1^{e_1}\cdots q_k^{e_k}.
+		\end{align*}
+		However, note that $\phi$ is multiplicative by \emph{Boocher, Theorem 11.10}
+		so
+		\begin{align}
+			\label{factorisation}
+			\phi(p^2)
+			=\phi(q^2)
+			=\phi\left(\left(q_1^{e_1}\cdots q_k^{e_k}\right)^2\right)
+			=\phi\left(q_1^{2e_1}\cdots q_k^{2e_k}\right)
+			=\phi\left(q_1^{2e_1}\right)\cdots\phi\left(q_k^{2e_k}\right).
+		\end{align}
+		We observe that $p|\phi\left(q_i^{2e_i}\right)$ for some $i$.
+		Further, $\phi\left(q_i^k\right)=q_i^{k-1}(q_i-1)$. Now there are two possibilities:
+		\begin{enumerate}
+			\item $p|q_i^{2e_i-1}$. Since $p$ and $q_i$ are prime, this implies
+			      $p=q_i$, i.e. $p|q$. If $q=p^m$ for some $m>1$, then \begin{align*}
+				      \phi\left(q^2\right)=p^{2k-1}(p-1)=p^{2k-3}\phi\left(p^2\right)
+				      >\phi\left(p^2\right).
+			      \end{align*}
+			      This is a contradiction. Thus there must exist another prime $r$ and some
+			      positive integer $s$ such that $q=prs$. However, by multiplicativity of $\phi$,
+			      then
+			      \begin{align*}
+				      \phi\left(q^2\right)
+				      =    \phi\left((prs)^2\right)
+				      =    \phi\left(p^2\right)\phi\left(r^2\right)\phi(s^2)
+				      \geq \phi\left(p^2\right)\phi\left(r^2\right)
+				      >    \phi\left(p^2\right) ,
+			      \end{align*}
+			      contradicting the premise again.
+			\item $p|q_i-1$. Then we note $p\leq q_i-1$ so $p<q_i$.  Clearly,
+			      \begin{align*}
+				      \phi\left(p^2\right)=p(p-1)<q_i(q_i-1)=\phi\left(q_i^2\right).
+			      \end{align*}
+			      However, $\phi\left(q_i^2\right)\leq \phi\left(q^2\right)$ using
+			      (\ref{factorisation}) and $\phi(n)\geq 1$ for $n\in\N$. Thus
+			      $\phi\left(p^2\right)<\phi\left(q^2\right)$; contradiction.
+		\end{enumerate}
+		Since the assumption leads to a contradiction in all cases, we conclude
+		that $p=q$.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2]
-   $\phi(2025)=1593$
-   \begin{proof}
-      We note $2025 = 3^4 5^2$.
-      By multiplicativity of $\phi$ and \emph{Boocher's Notes, Corollary 11.11}
-      we obtain
-      \begin{align*}
-         \phi(2025) = \phi(3^4)\phi(5^2) = (81-27)(25-5) = 1593.
-      \end{align*}
-   \end{proof}
+	$\phi(2025)=1593$
+	\begin{proof}
+		We note $2025 = 3^4 5^2$.
+		By multiplicativity of $\phi$ and \emph{Boocher's Notes, Corollary 11.11}
+		we obtain
+		\begin{align*}
+			\phi(2025) = \phi(3^4)\phi(5^2) = (81-27)(25-5) = 1593.
+		\end{align*}
+	\end{proof}
 \end{claim*}
 
 \renewcommand{\hs}{\hspace{0.2cm}}
 \begin{claim*}[3]
-   Let $p=5$ and $q=7$. Then the number of primitive roots modulo $p$ and $q$ are equal.
-   \begin{proof}
-      Consider $p=5$. We check the candidates $1,...,p-1=4$:
-      \begin{align*}
-         1^1 \equiv 1,\hs \underline{1^2 \equiv 1},\hs 1^3 \equiv 1,\hs 1^4 \equiv 1 \mod p \\
-         2^1 \equiv 2,\hs 2^2 \equiv 4,            \hs 2^3 \equiv 3,\hs 2^4 \equiv 1 \mod p             \\
-         3^1 \equiv 3,\hs 3^2 \equiv 4,            \hs 3^3 \equiv 2,\hs 3^4 \equiv 1 \mod p             \\
-         4^1 \equiv 4,\hs \underline{4^2 \equiv 1},\hs 4^3 \equiv 4,\hs 2^4 \equiv 1 \mod p
-      \end{align*}
-      Thus the set of primitive roots modulo $5$ is $S=\{2,3\}$.
+	Let $p=5$ and $q=7$. Then the number of primitive roots modulo $p$ and $q$ are equal.
+	\begin{proof}
+		Consider $p=5$. We check the candidates $1,...,p-1=4$:
+		\begin{align*}
+			1^1 \equiv 1,\hs \underline{1^2 \equiv 1},\hs 1^3 \equiv 1,\hs 1^4 \equiv 1 \mod p \\
+			2^1 \equiv 2,\hs 2^2 \equiv 4,            \hs 2^3 \equiv 3,\hs 2^4 \equiv 1 \mod p \\
+			3^1 \equiv 3,\hs 3^2 \equiv 4,            \hs 3^3 \equiv 2,\hs 3^4 \equiv 1 \mod p \\
+			4^1 \equiv 4,\hs \underline{4^2 \equiv 1},\hs 4^3 \equiv 4,\hs 2^4 \equiv 1 \mod p
+		\end{align*}
+		Thus the set of primitive roots modulo $5$ is $S=\{2,3\}$.
 
-      Now consider $q=7$. We check the candidates $1,...,p-1=6$:
-      \begin{align*}
-         1^1 \equiv 1,\hs \underline{1^2 \equiv 1},\hs 1^3 \equiv 1,             \hs 1^4 \equiv 1,\hs 1^5 \equiv 1,\hs 1^6 \equiv 1 \mod q \\
-         2^1 \equiv 2,\hs 2^2 \equiv 4,            \hs \underline{2^3 \equiv 1}, \hs 2^4 \equiv 2,\hs 2^5 \equiv 4,\hs 2^6 \equiv 1 \mod q \\
-         3^1 \equiv 3,\hs 3^2 \equiv 2,            \hs 3^3 \equiv 6,             \hs 3^4 \equiv 4,\hs 3^5 \equiv 5,\hs 3^6 \equiv 1 \mod q             \\
-         4^1 \equiv 4,\hs 4^2 \equiv 2,            \hs \underline{4^3 \equiv 1}, \hs 4^4 \equiv 4,\hs 4^5 \equiv 2,\hs 4^6 \equiv 1 \mod q \\
-         5^1 \equiv 5,\hs 5^2 \equiv 4,            \hs 5^3 \equiv 6,             \hs 5^4 \equiv 2,\hs 5^5 \equiv 3,\hs 5^6 \equiv 1 \mod q             \\
-         6^1 \equiv 6,\hs \underline{6^2 \equiv 1},\hs 6^3 \equiv 6,             \hs 6^4 \equiv 1,\hs 6^5 \equiv 6,\hs 3^6 \equiv 1 \mod q
-      \end{align*}
-      Thus the set of primitive roots modulo $7$ is $T=\{3, 5\}$.
-      Note $\abs S = \abs T = 2$ as claimed.
-   \end{proof}
+		Now consider $q=7$. We check the candidates $1,...,p-1=6$:
+		\begin{align*}
+			1^1 \equiv 1,\hs \underline{1^2 \equiv 1},\hs 1^3 \equiv 1,             \hs 1^4 \equiv 1,\hs 1^5 \equiv 1,\hs 1^6 \equiv 1 \mod q \\
+			2^1 \equiv 2,\hs 2^2 \equiv 4,            \hs \underline{2^3 \equiv 1}, \hs 2^4 \equiv 2,\hs 2^5 \equiv 4,\hs 2^6 \equiv 1 \mod q \\
+			3^1 \equiv 3,\hs 3^2 \equiv 2,            \hs 3^3 \equiv 6,             \hs 3^4 \equiv 4,\hs 3^5 \equiv 5,\hs 3^6 \equiv 1 \mod q \\
+			4^1 \equiv 4,\hs 4^2 \equiv 2,            \hs \underline{4^3 \equiv 1}, \hs 4^4 \equiv 4,\hs 4^5 \equiv 2,\hs 4^6 \equiv 1 \mod q \\
+			5^1 \equiv 5,\hs 5^2 \equiv 4,            \hs 5^3 \equiv 6,             \hs 5^4 \equiv 2,\hs 5^5 \equiv 3,\hs 5^6 \equiv 1 \mod q \\
+			6^1 \equiv 6,\hs \underline{6^2 \equiv 1},\hs 6^3 \equiv 6,             \hs 6^4 \equiv 1,\hs 6^5 \equiv 6,\hs 3^6 \equiv 1 \mod q
+		\end{align*}
+		Thus the set of primitive roots modulo $7$ is $T=\{3, 5\}$.
+		Note $\abs S = \abs T = 2$ as claimed.
+	\end{proof}
 \end{claim*}
 
 \end{document}

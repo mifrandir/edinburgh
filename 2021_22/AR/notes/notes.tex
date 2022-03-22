@@ -11,113 +11,113 @@
 \pagebreak
 \section{Introduction}
 \begin{definition}
-    \emph{Automated Reasoning} refers to reasoning in a computer using logic.
-    \begin{itemize}
-        \item active area of research since the 50s
-        \item part of artificial intelligence
-    \end{itemize}
+	\emph{Automated Reasoning} refers to reasoning in a computer using logic.
+	\begin{itemize}
+		\item active area of research since the 50s
+		\item part of artificial intelligence
+	\end{itemize}
 \end{definition}
 \begin{theorem}
-    Formalised mathematics is neither
-    \begin{itemize}
-        \item \emph{complete} (see G\"odel's Incompleteness Theorems), nor
-        \item \emph{decidable} (see Church and Turing).
-    \end{itemize}
+	Formalised mathematics is neither
+	\begin{itemize}
+		\item \emph{complete} (see G\"odel's Incompleteness Theorems), nor
+		\item \emph{decidable} (see Church and Turing).
+	\end{itemize}
 \end{theorem}
 
 \section{Propositional Logic}
 
 \begin{definition}
-    A syntactically correct formula is called a \emph{well-formed formula}.
+	A syntactically correct formula is called a \emph{well-formed formula}.
 
-    Given an alphabet of propositional symbols $\mathcal{L}$, the
-    set of wffs is the smallest set such that
-    \begin{itemize}
-        \item any symbol $A\in\mathcal{L}$ is a wff;
-        \item if $P$ and $Q$ are wffs, so are $\neg P, P\vee Q, P\wedge Q, P\rightarrow Q$, and $P\leftrightarrow Q$;
-        \item if $P$ is a wff, then $(P)$ is a wff.
-    \end{itemize}
+	Given an alphabet of propositional symbols $\mathcal{L}$, the
+	set of wffs is the smallest set such that
+	\begin{itemize}
+		\item any symbol $A\in\mathcal{L}$ is a wff;
+		\item if $P$ and $Q$ are wffs, so are $\neg P, P\vee Q, P\wedge Q, P\rightarrow Q$, and $P\leftrightarrow Q$;
+		\item if $P$ is a wff, then $(P)$ is a wff.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    An \emph{interpretation} (or \emph{valuation}) $V$ is a truth assignment
-    to the symbols in the alphabet $\mathcal{L}$, i.e. a function
-    \begin{align*}
-        V:\mathcal{L}\to \{\top,\bot\}.
-    \end{align*}
+	An \emph{interpretation} (or \emph{valuation}) $V$ is a truth assignment
+	to the symbols in the alphabet $\mathcal{L}$, i.e. a function
+	\begin{align*}
+		V:\mathcal{L}\to \{\top,\bot\}.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    An interpretation $V$ \emph{satisfies} a wff $P$ if $[\![ P]\!]_V=\top$.
+	An interpretation $V$ \emph{satisfies} a wff $P$ if $[\![ P]\!]_V=\top$.
 \end{definition}
 
 \begin{definition}
-    A wff is \emph{satisfiable} if there exists an interpretation that satisfies it.
-    Otherwise it's unsatisfiable.
+	A wff is \emph{satisfiable} if there exists an interpretation that satisfies it.
+	Otherwise it's unsatisfiable.
 \end{definition}
 
 \begin{definition}
-    A wff is \emph{valid} if every interpretation satisfies it.
+	A wff is \emph{valid} if every interpretation satisfies it.
 \end{definition}
 
 \begin{definition}
-    The wffs $P_1, P_2,...,P_n$ \emph{entail} $Q$ if any interpretation
-    which satisfies all of $P_1, P_2,...,P_n$ also satisfies $A$.
-    We write
-    \begin{align*}
-        P_1, P_2, ..., P_n \vDash Q.
-    \end{align*}
+	The wffs $P_1, P_2,...,P_n$ \emph{entail} $Q$ if any interpretation
+	which satisfies all of $P_1, P_2,...,P_n$ also satisfies $A$.
+	We write
+	\begin{align*}
+		P_1, P_2, ..., P_n \vDash Q.
+	\end{align*}
 \end{definition}
 
 \subsection{Natural deduction}
 
 
 \begin{definition}
-    \emph{Natural deduction} uses the following rules:
-    \begin{align*}
-        \begin{array}{c c c}
-            \infer[(\text{conjI})]{P\wedge Q}{P\hs Q}                                                          &
-            \infer[(\text{conjunct1})]{P}{P\wedge Q}                                                           &
-            \infer[(\text{conjunct2})]{Q}{P\wedge Q}                                                             \\
-            \infer[(\text{disjI1})]{P\vee Q}{P}                                                                &
-            \infer[(\text{disjI2})]{P\vee Q}{Q}                                                                &
-            \infer[(\text{disjE})]{R}{P\vee Q \hs \begin{array}[b]{c}
-                    [P] \\ \vdots \\ R
-                \end{array}
-            \hs \begin{array}[b]{c}
-                    [Q] \\ \vdots \\ R
-                \end{array}}                                                                      \\
-            \infer[(\text{impI})]{P\to Q}{\begin{array}[b]{c}
-                    [P] \\\vdots\\Q
-                \end{array}}                                          &
-            \infer[(\text{impE})]{R}{P\to Q\hs P \hs \begin{array}[b]{c}
-                    [Q] \\\vdots\\R
-                \end{array}}                               &
-            \infer[(\text{mp})]{Q}{P\to Q\hs P}                                                                  \\
-            \infer[(\text{iffI})]{P\leftrightarrow Q}{\begin{array}[b]{c}
-                    [Q] \\\vdots\\P
-                \end{array}\hs\begin{array}[b]{c}
-                    [P] \\\vdots\\Q
-                \end{array}} &
-            \infer[(\text{iffD1})]{Q}{P\leftrightarrow Q\hs P}                                                 &
-            \infer[(\text{iffD2})]{P}{P\leftrightarrow Q\hs Q}                                                   \\
-            \infer[(\text{notI})]{\neg P}{\begin{array}[b]{c}
-                    P \\ \vdots \\ \bot
-                \end{array}}                                          &
-            \infer[(\text{notE})]{\bot}{P\hs\neg P}                                                            & \\
-            \infer[(\text{excluded\_middle})]{\neg P \vee P}{}                                                 &
-            \infer[\text{(ccontr)}]{P}{\begin{array}[b]{c}
-                    [\neg P] \\ \vdots \\ \bot
-                \end{array}}
-        \end{array}
-    \end{align*}
+	\emph{Natural deduction} uses the following rules:
+	\begin{align*}
+		\begin{array}{c c c}
+			\infer[(\text{conjI})]{P\wedge Q}{P\hs Q}                     &
+			\infer[(\text{conjunct1})]{P}{P\wedge Q}                      &
+			\infer[(\text{conjunct2})]{Q}{P\wedge Q}                                   \\
+			\infer[(\text{disjI1})]{P\vee Q}{P}                           &
+			\infer[(\text{disjI2})]{P\vee Q}{Q}                           &
+			\infer[(\text{disjE})]{R}{P\vee Q \hs \begin{array}[b]{c}
+					                                      [P] \\ \vdots \\ R
+				                                      \end{array}
+			\hs \begin{array}[b]{c}
+					    [Q] \\ \vdots \\ R
+				    \end{array}}                                                     \\
+			\infer[(\text{impI})]{P\to Q}{\begin{array}[b]{c}
+					                              [P] \\\vdots\\Q
+				                              \end{array}}             &
+			\infer[(\text{impE})]{R}{P\to Q\hs P \hs \begin{array}[b]{c}
+					                                         [Q] \\\vdots\\R
+				                                         \end{array}}  &
+			\infer[(\text{mp})]{Q}{P\to Q\hs P}                                        \\
+			\infer[(\text{iffI})]{P\leftrightarrow Q}{\begin{array}[b]{c}
+					                                          [Q] \\\vdots\\P
+				                                          \end{array}\hs\begin{array}[b]{c}
+					                                                        [P] \\\vdots\\Q
+				                                                        \end{array}} &
+			\infer[(\text{iffD1})]{Q}{P\leftrightarrow Q\hs P}            &
+			\infer[(\text{iffD2})]{P}{P\leftrightarrow Q\hs Q}                         \\
+			\infer[(\text{notI})]{\neg P}{\begin{array}[b]{c}
+					                              P \\ \vdots \\ \bot
+				                              \end{array}}             &
+			\infer[(\text{notE})]{\bot}{P\hs\neg P}                       &            \\
+			\infer[(\text{excluded\_middle})]{\neg P \vee P}{}            &
+			\infer[\text{(ccontr)}]{P}{\begin{array}[b]{c}
+					                           [\neg P] \\ \vdots \\ \bot
+				                           \end{array}}
+		\end{array}
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Soundness]
-    If $Q$ is provable from assumptions $P_1,...,P_2$ then $P_1,...,P_n\vDash Q$.
+	If $Q$ is provable from assumptions $P_1,...,P_2$ then $P_1,...,P_n\vDash Q$.
 \end{theorem}
 \begin{theorem}[Completeness]
-    If $P_1,...,P_n\vDash Q$ then $Q$ is provable from assumptions $P_1,...,P_2$.
+	If $P_1,...,P_n\vDash Q$ then $Q$ is provable from assumptions $P_1,...,P_2$.
 \end{theorem}
 
 \subsection{Propositional Reasoning in Isabelle}
@@ -125,127 +125,127 @@
 \newcommand{\db}[1]{[\![#1]\!]}
 
 \begin{definition}
-    Applying \texttt{rule someRule} where
-    \begin{align*}
-        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
-    \end{align*}
-    to the goal
-    \begin{align*}
-        \db{A_1; ...; A_n} \Rightarrow C
-    \end{align*}
-    where $Q$ and $C$ can be \emph{unified}, we generate the goals
-    \begin{align*}
-        \db{A'_1; ...; A'_n} & \Rightarrow P'_1 \\
-                             & \vdots           \\
-        \db{A'_1; ...; A'_n} & \Rightarrow P'_m
-    \end{align*}
-    where \begin{align*}
-        A'_1, ..., A'_n,P'_1,...,P'_m
-    \end{align*}
-    are the results of applying the
-    substitution which unfies $Q$ and $C$ to
-    \begin{align*}
-        A_1,...,A_n,P_1,...,P_m.
-    \end{align*}
+	Applying \texttt{rule someRule} where
+	\begin{align*}
+		\texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+	\end{align*}
+	to the goal
+	\begin{align*}
+		\db{A_1; ...; A_n} \Rightarrow C
+	\end{align*}
+	where $Q$ and $C$ can be \emph{unified}, we generate the goals
+	\begin{align*}
+		\db{A'_1; ...; A'_n} & \Rightarrow P'_1 \\
+		                     & \vdots           \\
+		\db{A'_1; ...; A'_n} & \Rightarrow P'_m
+	\end{align*}
+	where \begin{align*}
+		A'_1, ..., A'_n,P'_1,...,P'_m
+	\end{align*}
+	are the results of applying the
+	substitution which unfies $Q$ and $C$ to
+	\begin{align*}
+		A_1,...,A_n,P_1,...,P_m.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    Applying \texttt{erule someRule} where
-    \begin{align*}
-        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
-    \end{align*}
-    to the goal
-    \begin{align*}
-        \db{A_1; ...; A_n} \Rightarrow C
-    \end{align*}
-    where $Q$ and $C$ are unifiable and $P_1$ and $A_1$ are unifiable, we generate the goals
-    \begin{align*}
-        \db{A'_2; ...; A'_n} & \Rightarrow P'_2 \\
-                             & \vdots           \\
-        \db{A'_2; ...; A'_n} & \Rightarrow P'_m
-    \end{align*}
-    where \begin{align*}
-        A'_2, ..., A'_n,P'_2,...,P'_m
-    \end{align*}
-    are the results of applying the
-    substitution which unfies $Q$ to $C$ and $P_1$ to $A_1$ to
-    \begin{align*}
-        A_2,...,A_n,P_2,...,P_m.
-    \end{align*}
+	Applying \texttt{erule someRule} where
+	\begin{align*}
+		\texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+	\end{align*}
+	to the goal
+	\begin{align*}
+		\db{A_1; ...; A_n} \Rightarrow C
+	\end{align*}
+	where $Q$ and $C$ are unifiable and $P_1$ and $A_1$ are unifiable, we generate the goals
+	\begin{align*}
+		\db{A'_2; ...; A'_n} & \Rightarrow P'_2 \\
+		                     & \vdots           \\
+		\db{A'_2; ...; A'_n} & \Rightarrow P'_m
+	\end{align*}
+	where \begin{align*}
+		A'_2, ..., A'_n,P'_2,...,P'_m
+	\end{align*}
+	are the results of applying the
+	substitution which unfies $Q$ to $C$ and $P_1$ to $A_1$ to
+	\begin{align*}
+		A_2,...,A_n,P_2,...,P_m.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    Applying \texttt{drule someRule} where
-    \begin{align*}
-        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
-    \end{align*}
-    to the goal
-    \begin{align*}
-        \db{A_1; ...; A_n} \Rightarrow C
-    \end{align*}
-    where $P_1$ and $A_1$ can be \emph{unified}, we generate the goals
-    \begin{align*}
-        \db{A'_2; ...; A'_n}    & \Rightarrow P'_2 \\
-                                & \vdots           \\
-        \db{A'_2; ...; A'_n}    & \Rightarrow P'_m \\
-        \db{Q',A'_2; ...; A'_n} & \Rightarrow C'
-    \end{align*}
-    where \begin{align*}
-        A'_2, ..., A'_n,P'_2,...,P'_m,Q',C'
-    \end{align*}
-    are the results of applying the
-    substitution which unfies $P_1$ and $A_1$ to
-    \begin{align*}
-        A_2,...,A_n,P_2,...,P_m,Q,C.
-    \end{align*}
+	Applying \texttt{drule someRule} where
+	\begin{align*}
+		\texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+	\end{align*}
+	to the goal
+	\begin{align*}
+		\db{A_1; ...; A_n} \Rightarrow C
+	\end{align*}
+	where $P_1$ and $A_1$ can be \emph{unified}, we generate the goals
+	\begin{align*}
+		\db{A'_2; ...; A'_n}    & \Rightarrow P'_2 \\
+		                        & \vdots           \\
+		\db{A'_2; ...; A'_n}    & \Rightarrow P'_m \\
+		\db{Q',A'_2; ...; A'_n} & \Rightarrow C'
+	\end{align*}
+	where \begin{align*}
+		A'_2, ..., A'_n,P'_2,...,P'_m,Q',C'
+	\end{align*}
+	are the results of applying the
+	substitution which unfies $P_1$ and $A_1$ to
+	\begin{align*}
+		A_2,...,A_n,P_2,...,P_m,Q,C.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Applying \texttt{frule someRule} where
-    \begin{align*}
-        \texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
-    \end{align*}
-    to the goal
-    \begin{align*}
-        \db{A_1; ...; A_n} \Rightarrow C
-    \end{align*}
-    where $P_1$ and $A_1$ can be \emph{unified}, we generate the goals
-    \begin{align*}
-        \db{A'_1; ...; A'_n}    & \Rightarrow P'_1 \\
-                                & \vdots           \\
-        \db{A'_1; ...; A'_n}    & \Rightarrow P'_m \\
-        \db{Q',A'_1; ...; A'_n} & \Rightarrow C'
-    \end{align*}
-    where \begin{align*}
-        A'_1, ..., A'_n,P'_1,...,P'_m,Q',C'
-    \end{align*}
-    are the results of applying the
-    substitution which unfies $P_1$ and $A_1$ to
-    \begin{align*}
-        A_1,...,A_n,P_1,...,P_m,Q,C.
-    \end{align*}
-\end{definition}
-
-\begin{definition}
-    Applying \texttt{cut\_tac lemmaName} adds the conclusion of \texttt{lemmaName} as a
-    new assumption, and its assumptions as new subgoals.
+	Applying \texttt{frule someRule} where
+	\begin{align*}
+		\texttt{someRule} : \db{P_1;...,;P_m} \Rightarrow Q
+	\end{align*}
+	to the goal
+	\begin{align*}
+		\db{A_1; ...; A_n} \Rightarrow C
+	\end{align*}
+	where $P_1$ and $A_1$ can be \emph{unified}, we generate the goals
+	\begin{align*}
+		\db{A'_1; ...; A'_n}    & \Rightarrow P'_1 \\
+		                        & \vdots           \\
+		\db{A'_1; ...; A'_n}    & \Rightarrow P'_m \\
+		\db{Q',A'_1; ...; A'_n} & \Rightarrow C'
+	\end{align*}
+	where \begin{align*}
+		A'_1, ..., A'_n,P'_1,...,P'_m,Q',C'
+	\end{align*}
+	are the results of applying the
+	substitution which unfies $P_1$ and $A_1$ to
+	\begin{align*}
+		A_1,...,A_n,P_1,...,P_m,Q,C.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    Applying \texttt{subgoal\_tac $P$} adds $P$ as a new assumption, and introduces $P$
-    as a new subgoal.
+	Applying \texttt{cut\_tac lemmaName} adds the conclusion of \texttt{lemmaName} as a
+	new assumption, and its assumptions as new subgoals.
+\end{definition}
+
+\begin{definition}
+	Applying \texttt{subgoal\_tac $P$} adds $P$ as a new assumption, and introduces $P$
+	as a new subgoal.
 \end{definition}
 
 \begin{theorem}
-    Propositional logic in Isabelle is sound.
+	Propositional logic in Isabelle is sound.
 \end{theorem}
 \begin{proof}
-    By the following properties.
-    \begin{enumerate}
-        \item Every proof is broken down into primitive rules applications which are checked
-              by a small piece of hand-verified code. These rules are sound.
-        \item New concepts are introduced by definition rather than axiomatisation. New
-              definitions cannot introduce unsoundness.
-    \end{enumerate}
+	By the following properties.
+	\begin{enumerate}
+		\item Every proof is broken down into primitive rules applications which are checked
+		      by a small piece of hand-verified code. These rules are sound.
+		\item New concepts are introduced by definition rather than axiomatisation. New
+		      definitions cannot introduce unsoundness.
+	\end{enumerate}
 \end{proof}
 
 \section{First-Order Logic}
@@ -253,160 +253,160 @@
 \subsection{Syntax}
 
 \begin{definition}
-    Let
-    \begin{itemize}
-        \item $\mathcal{V}$ an at most countable set of variables, and
-        \item $\mathcal{F}$ an at most countable set of function letters each assigned a unique arity
-    \end{itemize}
-    then the set of \emph{well-formed terms} is the smallest set such that
-    \begin{itemize}
-        \item any variable $v\in \mathcal{V}$ is a term, and
-        \item if $f\in \mathcal{F}$ has arity $n$, and $t_1,...,t_n$ are terms, so is $f(t_1, ..., t_n)$.
-    \end{itemize}
+	Let
+	\begin{itemize}
+		\item $\mathcal{V}$ an at most countable set of variables, and
+		\item $\mathcal{F}$ an at most countable set of function letters each assigned a unique arity
+	\end{itemize}
+	then the set of \emph{well-formed terms} is the smallest set such that
+	\begin{itemize}
+		\item any variable $v\in \mathcal{V}$ is a term, and
+		\item if $f\in \mathcal{F}$ has arity $n$, and $t_1,...,t_n$ are terms, so is $f(t_1, ..., t_n)$.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    Let $P$ an at most countable set of predicats, each assigned a unique arity,
-    then the set of \emph{well-formed formulas} is the smallest set such that
-    \begin{itemize}
-        \item if $A\in \mathcal{P}$ has arity $n$, and $t_1,...,t_n$ are terms, then $A(t_1, ..., t_n)$ is a wff,
-        \item if $P$ and $Q$ are wffs, so are $\neg P,P\vee Q,P\wedge Q,P\rightarrow Q,P\leftrightarrow Q$,
-        \item if $P$ is a wff, so are $\exists x. P$ and $\forall x. P$ for any $x\in \mathcal{V}$, and
-        \item if $P$ is a wff, then $(P)$ is a wff.
-    \end{itemize}
+	Let $P$ an at most countable set of predicats, each assigned a unique arity,
+	then the set of \emph{well-formed formulas} is the smallest set such that
+	\begin{itemize}
+		\item if $A\in \mathcal{P}$ has arity $n$, and $t_1,...,t_n$ are terms, then $A(t_1, ..., t_n)$ is a wff,
+		\item if $P$ and $Q$ are wffs, so are $\neg P,P\vee Q,P\wedge Q,P\rightarrow Q,P\leftrightarrow Q$,
+		\item if $P$ is a wff, so are $\exists x. P$ and $\forall x. P$ for any $x\in \mathcal{V}$, and
+		\item if $P$ is a wff, then $(P)$ is a wff.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    A variable occurence of $x$ is \emph{in the scope of} a quantifier
-    occurence $\forall x$ or $\exists x$ if the quantifier occurence is
-    the first occurence of the quantifier over $x$ in a traversal from the
-    variable occurence position to the root of the formula tree.
+	A variable occurence of $x$ is \emph{in the scope of} a quantifier
+	occurence $\forall x$ or $\exists x$ if the quantifier occurence is
+	the first occurence of the quantifier over $x$ in a traversal from the
+	variable occurence position to the root of the formula tree.
 
-    An occurence of a variable $x$ in a formula $P$ is \emph{bound} if it
-    is in the scope of a $\forall x$ or $\exists x$ quantifier.
+	An occurence of a variable $x$ in a formula $P$ is \emph{bound} if it
+	is in the scope of a $\forall x$ or $\exists x$ quantifier.
 \end{definition}
 
 \begin{definition}
-    If $P$ is a formula, $s$ is a term and $x$ is a variable, then
-    \begin{align*}
-        P[s/x]
-    \end{align*}
-    is the formula obtained by \emph{substituting $s$ for all free occurences of $x$}
-    throughout $P$.
+	If $P$ is a formula, $s$ is a term and $x$ is a variable, then
+	\begin{align*}
+		P[s/x]
+	\end{align*}
+	is the formula obtained by \emph{substituting $s$ for all free occurences of $x$}
+	throughout $P$.
 \end{definition}
 
 \subsection{Semantics}
 
 \begin{definition}[Assignment]
-    Given an interpretation $\mathcal{I}$, an \emph{assignment $s$} assigns a value
-    from the domain $\mathcal{D}$ to each variable $\mathcal{V}$ i.e. $s:\mathcal{V}\to\mathcal{D}$.
+	Given an interpretation $\mathcal{I}$, an \emph{assignment $s$} assigns a value
+	from the domain $\mathcal{D}$ to each variable $\mathcal{V}$ i.e. $s:\mathcal{V}\to\mathcal{D}$.
 
-    We extend this assignment $s$ to all terms inducively by saying that
-    \begin{enumerate}
-        \item if $\mathcal{I}$ maps the $n$-ary function letter $f$ to the function $f^\mathcal{I}$, and
-        \item if terms $t_1, ..., t_n$ have been assigned concrete values $a_1,...,a_n\in D$
-    \end{enumerate}
-    then we can assign value $f^\mathcal{I}(a_1,...,a_n)\in\mathcal{D}$ to the term
-    $f(t_1,...,t_n)$.
+	We extend this assignment $s$ to all terms inducively by saying that
+	\begin{enumerate}
+		\item if $\mathcal{I}$ maps the $n$-ary function letter $f$ to the function $f^\mathcal{I}$, and
+		\item if terms $t_1, ..., t_n$ have been assigned concrete values $a_1,...,a_n\in D$
+	\end{enumerate}
+	then we can assign value $f^\mathcal{I}(a_1,...,a_n)\in\mathcal{D}$ to the term
+	$f(t_1,...,t_n)$.
 \end{definition}
 
 \begin{definition}[Satisfaction]
-    Given an interpretation $\mathcal{I}$ and an assignment $s:\mathcal{V}\to\mathcal{D}$
-    \begin{enumerate}
-        \item any wff which is a nullary predicate letter $A$ is satisfied iff the
-              interpretation of $A$ in $\mathcal{I}$ is $T$,
-        \item suppose we have a wff $P$ of the form $A(t_1,..., t_n)$, where $A$ is
-              interpreted as relation $A^\mathcal{I}$ and $t_1,...,t_n$ have been assigned
-              concrete values $a_1,...,a_n$ by $s$. Then $P$ is satisfied iff \begin{align*}
-                  (a_1,...,a_n)\in A^\mathcal{I},
-              \end{align*}
-        \item any wff of the form $\forall x.P$ is satisfied iff $P$ is satisfied with
-              with respect to the assignment $s[x\mapsto a]$ for all $a\in D$,
-        \item any wff of the form $\exists x.P$ is satisfied iff $P$ is satisfied with
-              with respect to the assignment $s[x\mapsto a]$ for some $a\in D$,
-        \item any wffs of the form $P\vee Q$, $P\wedge Q$, $P\rightarrow Q$, $P\leftrightarrow Q$,
-              $\neg P$ are satisfied according to the truth-tables for each connective.
-    \end{enumerate}
+	Given an interpretation $\mathcal{I}$ and an assignment $s:\mathcal{V}\to\mathcal{D}$
+	\begin{enumerate}
+		\item any wff which is a nullary predicate letter $A$ is satisfied iff the
+		      interpretation of $A$ in $\mathcal{I}$ is $T$,
+		\item suppose we have a wff $P$ of the form $A(t_1,..., t_n)$, where $A$ is
+		      interpreted as relation $A^\mathcal{I}$ and $t_1,...,t_n$ have been assigned
+		      concrete values $a_1,...,a_n$ by $s$. Then $P$ is satisfied iff \begin{align*}
+			      (a_1,...,a_n)\in A^\mathcal{I},
+		      \end{align*}
+		\item any wff of the form $\forall x.P$ is satisfied iff $P$ is satisfied with
+		      with respect to the assignment $s[x\mapsto a]$ for all $a\in D$,
+		\item any wff of the form $\exists x.P$ is satisfied iff $P$ is satisfied with
+		      with respect to the assignment $s[x\mapsto a]$ for some $a\in D$,
+		\item any wffs of the form $P\vee Q$, $P\wedge Q$, $P\rightarrow Q$, $P\leftrightarrow Q$,
+		      $\neg P$ are satisfied according to the truth-tables for each connective.
+	\end{enumerate}
 \end{definition}
 
 \begin{definition}[Entailment]
-    We write $I\vDash_s P$ to mean that wff $P$ is satisfied by interpretation $I$ and
-    assignment $s$.  We say that the wffs $P_1,...,P_n$ \emph{entail} wff $Q$ and write
-    \begin{align*}
-        P_1,...,P_n\vDash Q
-    \end{align*}
-    if, for any interpretation $I$ and assignment $s$ for which $I\vDash_s P^i$ for all $i$,
-    we also have $I\vDash_s Q$.
+	We write $I\vDash_s P$ to mean that wff $P$ is satisfied by interpretation $I$ and
+	assignment $s$.  We say that the wffs $P_1,...,P_n$ \emph{entail} wff $Q$ and write
+	\begin{align*}
+		P_1,...,P_n\vDash Q
+	\end{align*}
+	if, for any interpretation $I$ and assignment $s$ for which $I\vDash_s P^i$ for all $i$,
+	we also have $I\vDash_s Q$.
 \end{definition}
 
 \subsection{Deduction}
 
 \begin{definition}
-    The introduction rules for quantifiers are:
-    \begin{itemize}
-        \item Universal quantification, provided that $x_0$ is not free in the assumptions, \begin{align*}
-                  \infer[(\text{allI})]{\forall x. P}{P[x_0/x]}
-              \end{align*}
-        \item Existential qunatification \begin{align*}
-                  \infer[(\text{exI})]{\exists x.P}{P[t/x]}
-              \end{align*}
-    \end{itemize}
+	The introduction rules for quantifiers are:
+	\begin{itemize}
+		\item Universal quantification, provided that $x_0$ is not free in the assumptions, \begin{align*}
+			      \infer[(\text{allI})]{\forall x. P}{P[x_0/x]}
+		      \end{align*}
+		\item Existential qunatification \begin{align*}
+			      \infer[(\text{exI})]{\exists x.P}{P[t/x]}
+		      \end{align*}
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    The elimination rules for quantifiers are:
-    \begin{itemize}
-        \item Existential elimination: \begin{align*}
-                  \infer[(\text{exE})]{Q}{\exists x.P\hs \begin{array}[b]{c}
-                          [P[x_0/x]] \\
-                          \vdots     \\
-                          Q
-                      \end{array}}
-              \end{align*}
-        \item Specialisation: \begin{align*}
-                  \infer[(\text{spec})]{P[t/x]}{\forall x.P}
-              \end{align*}
-        \item Universal elimination: \begin{align*}
-                  \infer[(\text{allE})]{Q}{\forall x.P\hs \begin{array}[b]{c}
-                          [P[t/x]] \\
-                          \vdots   \\
-                          Q
-                      \end{array}}
-              \end{align*}
-    \end{itemize}
+	The elimination rules for quantifiers are:
+	\begin{itemize}
+		\item Existential elimination: \begin{align*}
+			      \infer[(\text{exE})]{Q}{\exists x.P\hs \begin{array}[b]{c}
+					                                             [P[x_0/x]] \\
+					                                             \vdots     \\
+					                                             Q
+				                                             \end{array}}
+		      \end{align*}
+		\item Specialisation: \begin{align*}
+			      \infer[(\text{spec})]{P[t/x]}{\forall x.P}
+		      \end{align*}
+		\item Universal elimination: \begin{align*}
+			      \infer[(\text{allE})]{Q}{\forall x.P\hs \begin{array}[b]{c}
+					                                              [P[t/x]] \\
+					                                              \vdots   \\
+					                                              Q
+				                                              \end{array}}
+		      \end{align*}
+	\end{itemize}
 \end{definition}
 
 \section{Higher-Order Logic}
 
 \begin{definition}
-    A \emph{lambda abstraction} is a term that denotes a function directly by the
-    rules which define it.
+	A \emph{lambda abstraction} is a term that denotes a function directly by the
+	rules which define it.
 \end{definition}
 
 \begin{definition}
-    The basic types in Isabelle are \emph{bool}, \emph{ind} and $\alpha\Rightarrow\beta$.
-    The two primitive families of functions are:
-    \begin{align*}
-         & (=_\alpha): \alpha\Rightarrow \alpha \Rightarrow \textit{bool}                \\
-         & (\rightarrow): \textit{bool} \Rightarrow\textit{bool}\Rightarrow\textit{bool}
-    \end{align*}
+	The basic types in Isabelle are \emph{bool}, \emph{ind} and $\alpha\Rightarrow\beta$.
+	The two primitive families of functions are:
+	\begin{align*}
+		 & (=_\alpha): \alpha\Rightarrow \alpha \Rightarrow \textit{bool}                \\
+		 & (\rightarrow): \textit{bool} \Rightarrow\textit{bool}\Rightarrow\textit{bool}
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    The following representations and definitions are used:
-    \begin{itemize}
-        \item Formulas are terms of type \textit{bool}.
-        \item Predicates are functions of type $\alpha\Rightarrow\textit{bool}$.
-        \item Sets are represented as predicates.
-        \item True is defined as $\top \equiv (\lambda x.x)=(\lambda x.x)$.
-        \item Universal quantification as function equality: \begin{align*}
-                  \forall x. \phi \equiv (\lambda x. \phi) = (\lambda x. \top).
-              \end{align*}
-        \item Conjunction and disjunction are defined as: \begin{align*}
-                  P\wedge Q & \equiv \forall R. (P\rightarrow Q \rightarrow R) \rightarrow R               \\
-                  P\vee Q   & \equiv \forall R. (P\rightarrow R)\rightarrow (Q\rightarrow R) \rightarrow R
-              \end{align*}
-    \end{itemize}
+	The following representations and definitions are used:
+	\begin{itemize}
+		\item Formulas are terms of type \textit{bool}.
+		\item Predicates are functions of type $\alpha\Rightarrow\textit{bool}$.
+		\item Sets are represented as predicates.
+		\item True is defined as $\top \equiv (\lambda x.x)=(\lambda x.x)$.
+		\item Universal quantification as function equality: \begin{align*}
+			      \forall x. \phi \equiv (\lambda x. \phi) = (\lambda x. \top).
+		      \end{align*}
+		\item Conjunction and disjunction are defined as: \begin{align*}
+			      P\wedge Q & \equiv \forall R. (P\rightarrow Q \rightarrow R) \rightarrow R               \\
+			      P\vee Q   & \equiv \forall R. (P\rightarrow R)\rightarrow (Q\rightarrow R) \rightarrow R
+		      \end{align*}
+	\end{itemize}
 \end{definition}
 
 \section{Unification}
@@ -414,18 +414,18 @@
 \subsection{Matching}
 
 \begin{definition}
-    \emph{Matching} is the process of finding an instance of a pattern that is equal to another term.
+	\emph{Matching} is the process of finding an instance of a pattern that is equal to another term.
 
-    Problem: Given two expressions, \emph{pattern} $s$ and \emph{target} $t$, find a subsitution
-    \begin{align*}
-        s[\phi] \equiv t
-    \end{align*}
-    where $\equiv$ means that the terms are identical.
+	Problem: Given two expressions, \emph{pattern} $s$ and \emph{target} $t$, find a subsitution
+	\begin{align*}
+		s[\phi] \equiv t
+	\end{align*}
+	where $\equiv$ means that the terms are identical.
 \end{definition}
 
 \begin{definition}
-    A \emph{disagreement pair} of two expressions $s$ and $t$ is a pair of subexpressions
-    which disagree.
+	A \emph{disagreement pair} of two expressions $s$ and $t$ is a pair of subexpressions
+	which disagree.
 \end{definition}
 
 \paragraph{Matching Algorithm}
@@ -433,106 +433,106 @@
 To match pattern and target given substitution $\phi$:
 
 \begin{enumerate}
-    \item If pattern and target are identical then succeed with output $\phi$.
-    \item Otherwise, let $\lra{t_1, t_2}$ be the first disagreement pair.
-    \item If $t_1$ is a variable then call match on pattern $\{t_2/t_1\}$ and target given $\phi\{t_2/t_1\}$.
-    \item Else fail.
+	\item If pattern and target are identical then succeed with output $\phi$.
+	\item Otherwise, let $\lra{t_1, t_2}$ be the first disagreement pair.
+	\item If $t_1$ is a variable then call match on pattern $\{t_2/t_1\}$ and target given $\phi\{t_2/t_1\}$.
+	\item Else fail.
 \end{enumerate}
 
 \subsection{General unification}
 
 \begin{definition}
-    \emph{Unification} is the process of finding a common instance of two terms.
+	\emph{Unification} is the process of finding a common instance of two terms.
 
-    Problem: Given two expressions, $s$ and $t$, find subsitutions
-    $\phi$ and $\psi$ such that
-    \begin{align*}
-        s[\phi] \equiv t[\psi]
-    \end{align*}
-    where $\equiv$ means that the terms are identical.
+	Problem: Given two expressions, $s$ and $t$, find subsitutions
+	$\phi$ and $\psi$ such that
+	\begin{align*}
+		s[\phi] \equiv t[\psi]
+	\end{align*}
+	where $\equiv$ means that the terms are identical.
 \end{definition}
 
 \paragraph{Unification algorithm}
 
 To generally unify $S$ given $\phi$
 \begin{enumerate}
-    \item If $\abs{S}=1$, succeed and output $\phi$.
-    \item Otherwise, let $D$ be the first disagreement set of $S$.
-    \item If $D$ contains a variable $V$ and a term $t_1$ and $V$
-          does not occur in $t_1$ then generally unify $S[\{t_1/V\}]$ given $\phi[\{t_1/V\}]$.
-    \item Else fail.
+	\item If $\abs{S}=1$, succeed and output $\phi$.
+	\item Otherwise, let $D$ be the first disagreement set of $S$.
+	\item If $D$ contains a variable $V$ and a term $t_1$ and $V$
+	      does not occur in $t_1$ then generally unify $S[\{t_1/V\}]$ given $\phi[\{t_1/V\}]$.
+	\item Else fail.
 \end{enumerate}
 
 \begin{definition}
-    We have the following types of unification:
-    \begin{enumerate}
-        \item \emph{unitary}: A single unique mgu, or none. (predicate logic)
-        \item \emph{finitary}: Finite number of mgus. (predicate logic with commutativity)
-        \item \emph{infinitary}: Possibly infinite number of mgus. (predicate logic with associativity)
-        \item \emph{nullary}: No mgus exist, although unifiers may exist.
-        \item \emph{undecidable}: Unification is not decidable.
-    \end{enumerate}
+	We have the following types of unification:
+	\begin{enumerate}
+		\item \emph{unitary}: A single unique mgu, or none. (predicate logic)
+		\item \emph{finitary}: Finite number of mgus. (predicate logic with commutativity)
+		\item \emph{infinitary}: Possibly infinite number of mgus. (predicate logic with associativity)
+		\item \emph{nullary}: No mgus exist, although unifiers may exist.
+		\item \emph{undecidable}: Unification is not decidable.
+	\end{enumerate}
 \end{definition}
 
 \begin{center}
-    \begin{tabular}{c | c | c | c}
-        \textbf{Name} & \textbf{Before}                        & \textbf{After}                        & \textbf{Condition}                         \\\hline
-        Decompose     & $P\wedge (f(\vec s) \equiv f(\vec t))$ & $P\wedge\bigwedge_i (s_i \equiv t_i)$ &                                            \\\hline
-        Conflict      & $P\wedge (f(\vec s) \equiv g(\vec t))$ & fail                                  & $f\not\equiv g$                            \\\hline
-        Switch        & $P\wedge (s\equiv X)$                  & $P\wedge(X\equiv s)$                  & $X\in V$, $s\not\in V$                     \\\hline
-        Delete        & $P\wedge (s\equiv s)$                  & P                                     &                                            \\\hline
-        Eliminate     & $P\wedge (X\equiv s)$                  & $P[s/X]\wedge X\equiv s$              & $X\in V(P)$, $X\not\in V(s)$, $s\not\in V$ \\\hline
-        Occurs Check  & $P\wedge (X\equiv s)$                  & fail                                  & $X\in V(s)$, $s\not\in V$                  \\\hline
-        Coalesce      & $P\wedge (X\equiv Y)$                  & $P[Y/X]\wedge(X\equiv Y)$             & $X,Y\in V(P)$, $X\not\equiv Y$
-    \end{tabular}
+	\begin{tabular}{c | c | c | c}
+		\textbf{Name} & \textbf{Before}                        & \textbf{After}                        & \textbf{Condition}                         \\\hline
+		Decompose     & $P\wedge (f(\vec s) \equiv f(\vec t))$ & $P\wedge\bigwedge_i (s_i \equiv t_i)$ &                                            \\\hline
+		Conflict      & $P\wedge (f(\vec s) \equiv g(\vec t))$ & fail                                  & $f\not\equiv g$                            \\\hline
+		Switch        & $P\wedge (s\equiv X)$                  & $P\wedge(X\equiv s)$                  & $X\in V$, $s\not\in V$                     \\\hline
+		Delete        & $P\wedge (s\equiv s)$                  & P                                     &                                            \\\hline
+		Eliminate     & $P\wedge (X\equiv s)$                  & $P[s/X]\wedge X\equiv s$              & $X\in V(P)$, $X\not\in V(s)$, $s\not\in V$ \\\hline
+		Occurs Check  & $P\wedge (X\equiv s)$                  & fail                                  & $X\in V(s)$, $s\not\in V$                  \\\hline
+		Coalesce      & $P\wedge (X\equiv Y)$                  & $P[Y/X]\wedge(X\equiv Y)$             & $X,Y\in V(P)$, $X\not\equiv Y$
+	\end{tabular}
 \end{center}
 
 \subsection{Composition of subsitutions}
 
 \begin{definition}
-    If $\phi$ and $\psi$ are subsitutions then their \emph{composition $\phi\circ\psi$}
-    is also a subsitution which, for any term $t$, satisfies the following property:
-    \begin{align*}
-        t[\phi\circ\psi] \equiv (t[\phi])[\psi].
-    \end{align*}
+	If $\phi$ and $\psi$ are subsitutions then their \emph{composition $\phi\circ\psi$}
+	is also a subsitution which, for any term $t$, satisfies the following property:
+	\begin{align*}
+		t[\phi\circ\psi] \equiv (t[\phi])[\psi].
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    We say two subsitutions $\phi$, $\psi$ are equal if for all variables $x$,
-    \begin{align*}
-        x[\phi] = x[\psi].
-    \end{align*}
+	We say two subsitutions $\phi$, $\psi$ are equal if for all variables $x$,
+	\begin{align*}
+		x[\phi] = x[\psi].
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
-    The set of all subsitutions together with the operation $\circ$ forms a monoid. In particular,
-    for any substitutions $\phi,\psi,\theta$ and any variable $x$, we have
-    \begin{itemize}
-        \item \emph{associativity}: $(\phi \circ \psi) \circ \theta = \phi \circ (\psi \circ \theta)$,
-        \item \emph{unit}: $\phi\circ[] = \phi = []\circ\phi$.
-    \end{itemize}
+	The set of all subsitutions together with the operation $\circ$ forms a monoid. In particular,
+	for any substitutions $\phi,\psi,\theta$ and any variable $x$, we have
+	\begin{itemize}
+		\item \emph{associativity}: $(\phi \circ \psi) \circ \theta = \phi \circ (\psi \circ \theta)$,
+		\item \emph{unit}: $\phi\circ[] = \phi = []\circ\phi$.
+	\end{itemize}
 \end{theorem}
 
 \begin{definition}
-    Given any two terms $s$ and $t$, a subsitution $\phi$ is their \emph{most general unifier}
-    if
-    \begin{align*}
-        s[\phi]\equiv t[\phi] \hs\text{and}\hs
-        \forall \psi.\: s[\psi] \equiv t[\psi]  \Rightarrow \exists \theta.\: \psi = \phi \circ \theta.
-    \end{align*}
+	Given any two terms $s$ and $t$, a subsitution $\phi$ is their \emph{most general unifier}
+	if
+	\begin{align*}
+		s[\phi]\equiv t[\phi] \hs\text{and}\hs
+		\forall \psi.\: s[\psi] \equiv t[\psi]  \Rightarrow \exists \theta.\: \psi = \phi \circ \theta.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
-    The \emph{most general unifier} is unique up to alphabetic variance.
+	The \emph{most general unifier} is unique up to alphabetic variance.
 \end{theorem}
 
 \paragraph{Combining subsitutions}
 
 To combine subsitutions $\phi$ and $\psi$
 \begin{enumerate}
-    \item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
-    \item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
-    \item Output the union of $\phi'$ and $\psi'$.
+	\item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
+	\item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
+	\item Output the union of $\phi'$ and $\psi'$.
 \end{enumerate}
 
 \section{Rewriting}
@@ -540,187 +540,187 @@ To combine subsitutions $\phi$ and $\psi$
 \subsection{Definition}
 
 \begin{definition}
-    \emph{Rewriting} is a technique for replacing terms in an expression with equivalent terms.
+	\emph{Rewriting} is a technique for replacing terms in an expression with equivalent terms.
 \end{definition}
 
 \begin{theorem}[Rewrite rule of inference]
-    \begin{align*}
-        \infer{P\{R[\theta]\}}{P\{t\}\hs L\Rightarrow R\hs L[\theta]=t}
-    \end{align*}
+	\begin{align*}
+		\infer{P\{R[\theta]\}}{P\{t\}\hs L\Rightarrow R\hs L[\theta]=t}
+	\end{align*}
 \end{theorem}
 
 \begin{definition}
-    A rewrite rule $\alpha\Rightarrow\beta$ must satisfy the following restrictions:
-    \begin{itemize}
-        \item $\alpha$ is not a variable.
-        \item $V(\beta)\subseteq V(\alpha)$.
-    \end{itemize}
+	A rewrite rule $\alpha\Rightarrow\beta$ must satisfy the following restrictions:
+	\begin{itemize}
+		\item $\alpha$ is not a variable.
+		\item $V(\beta)\subseteq V(\alpha)$.
+	\end{itemize}
 \end{definition}
 
 \subsection{Termination}
 
 \begin{definition}
-    We say that a set of rewrite rules is \emph{terminating} if starting with any expression,
-    successively applying rewrite rules eventually brings us to a state where no rule applies.
+	We say that a set of rewrite rules is \emph{terminating} if starting with any expression,
+	successively applying rewrite rules eventually brings us to a state where no rule applies.
 \end{definition}
 
 \begin{theorem}
-    Suppose we have a measure $M$ that assigns to every expression a nonnegative integer and
-    a set of rewrite rules $S$. If every rule in $S$ decreases the value of $M$, then $S$
-    is terminating.
+	Suppose we have a measure $M$ that assigns to every expression a nonnegative integer and
+	a set of rewrite rules $S$. If every rule in $S$ decreases the value of $M$, then $S$
+	is terminating.
 \end{theorem}
 
 \subsection{Confluence}
 
 \begin{definition}
-    An expression where no rewrite rules apply is said to be in \emph{normal form}.
+	An expression where no rewrite rules apply is said to be in \emph{normal form}.
 \end{definition}
 
 \begin{definition}
-    Let $s$ be an expression and let $t_1, ..., t_n$ be the normal forms obtained by
-    applying rewrite rules exhaustively. If $t_i=t_j$ for all $1\leq i,j\leq n$, then we
-    say we have a \emph{canonical normal form} for $s$.
+	Let $s$ be an expression and let $t_1, ..., t_n$ be the normal forms obtained by
+	applying rewrite rules exhaustively. If $t_i=t_j$ for all $1\leq i,j\leq n$, then we
+	say we have a \emph{canonical normal form} for $s$.
 \end{definition}
 
 \begin{definition}
-    A set of rewrite rules is \emph{confluent} if for all terms $r,s_1,s_2$ such that
-    $r\to^*s_1$ and $r\to^*s_2$ there exists a term $t$ such that
-    $s_1\to^*t$ and $s_2\to^*t$.
+	A set of rewrite rules is \emph{confluent} if for all terms $r,s_1,s_2$ such that
+	$r\to^*s_1$ and $r\to^*s_2$ there exists a term $t$ such that
+	$s_1\to^*t$ and $s_2\to^*t$.
 \end{definition}
 
 \begin{definition}
-    A set of rewrite rules is \emph{Church-Rosser} if for all terms $s_1$ and $s_2$
-    such that $s_1\leftrightarrow^* s_2$, there exists a term $t$ such that $s_1\to^*t$
-    and $s_2\to^* t$.
+	A set of rewrite rules is \emph{Church-Rosser} if for all terms $s_1$ and $s_2$
+	such that $s_1\leftrightarrow^* s_2$, there exists a term $t$ such that $s_1\to^*t$
+	and $s_2\to^* t$.
 \end{definition}
 
 \begin{theorem}
-    A term is confluent if and only if it is Church-Rosser.
+	A term is confluent if and only if it is Church-Rosser.
 \end{theorem}
 
 \begin{theorem}
-    Let $S$ be a terminating rewrite set. If $S$ is confluent, then every expression has a
-    canonical normal form under $S$.
+	Let $S$ be a terminating rewrite set. If $S$ is confluent, then every expression has a
+	canonical normal form under $S$.
 \end{theorem}
 
 \begin{definition}
-    A set of rewrite rules is \emph{locally confluent} if for all terms $r,s_1,s_2$ such that
-    $r\to s_1$ and $r\to s_2$ there exists a term $t$ such that
-    $s_1\to^*t$ and $s_2\to^*t$.
+	A set of rewrite rules is \emph{locally confluent} if for all terms $r,s_1,s_2$ such that
+	$r\to s_1$ and $r\to s_2$ there exists a term $t$ such that
+	$s_1\to^*t$ and $s_2\to^*t$.
 \end{definition}
 
 \begin{lemma}[Newman]
-    Any terminating and locally confluent rewrite set is confluent.
+	Any terminating and locally confluent rewrite set is confluent.
 \end{lemma}
 
 \begin{theorem}
-    Local confluence is decidable.
+	Local confluence is decidable.
 \end{theorem}
 
 \begin{definition}
-    Let $L_1\Rightarrow R_1$ and $L_2\Rightarrow R_2$ be rewrite rules. A \emph{critical pair} is
-    a pair of expressions
-    \begin{align*}
-        \lra{R_1[\theta], L_1[\theta]\{R_2[\theta]/s[\theta]\}}
-    \end{align*}
-    where $s$ is a non-variable sub-term of $L_1$ such that $s[\theta]=L_2[\theta]$ with
-    most general unifier $\theta$.
+	Let $L_1\Rightarrow R_1$ and $L_2\Rightarrow R_2$ be rewrite rules. A \emph{critical pair} is
+	a pair of expressions
+	\begin{align*}
+		\lra{R_1[\theta], L_1[\theta]\{R_2[\theta]/s[\theta]\}}
+	\end{align*}
+	where $s$ is a non-variable sub-term of $L_1$ such that $s[\theta]=L_2[\theta]$ with
+	most general unifier $\theta$.
 \end{definition}
 
 \begin{theorem}
-    An algorithm to test for local confluence works as follows:
-    \begin{enumerate}
-        \item Find all the critical pairs in set of rewrite rules $R$
-        \item For each critical pair $\lra{s_1, s_2}$: \begin{enumerate}
-                  \item Find a normal form $s_1'$ of $s_1$
-                  \item Find a normal form $s_2'$ of $s_2$
-                  \item Check $s_1'=s_2'$, if not then fail
-              \end{enumerate}
-    \end{enumerate}
+	An algorithm to test for local confluence works as follows:
+	\begin{enumerate}
+		\item Find all the critical pairs in set of rewrite rules $R$
+		\item For each critical pair $\lra{s_1, s_2}$: \begin{enumerate}
+			      \item Find a normal form $s_1'$ of $s_1$
+			      \item Find a normal form $s_2'$ of $s_2$
+			      \item Check $s_1'=s_2'$, if not then fail
+		      \end{enumerate}
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-    The \emph{Knuth-Bendix Completion Algorithm} works as follows:
-    \begin{enumerate}
-        \item While there are non-conflatable critical pairs in $R$: \begin{enumerate}
-                  \item Take a critical pair $\lra{s_1, s_2}$ in $R$
-                  \item Normalise $s_1$ to $s_1'$ and $s_2$ to $s_2'$
-                  \item If $R\cup\{s_1'\Rightarrow s_2'\}$ is terminating then \begin{align*}
-                            R := R \cup \{s_1'\Rightarrow s_2'\}
-                        \end{align*}
-                  \item Otherwise, if $R\cup\{s_2'\Rightarrow s_1'\}$ is terminating then \begin{align*}
-                            R := R \cup \{s_2' \Rightarrow s_1'\}
-                        \end{align*}
-                  \item Otherwise, fail.
-              \end{enumerate}
-    \end{enumerate}
+	The \emph{Knuth-Bendix Completion Algorithm} works as follows:
+	\begin{enumerate}
+		\item While there are non-conflatable critical pairs in $R$: \begin{enumerate}
+			      \item Take a critical pair $\lra{s_1, s_2}$ in $R$
+			      \item Normalise $s_1$ to $s_1'$ and $s_2$ to $s_2'$
+			      \item If $R\cup\{s_1'\Rightarrow s_2'\}$ is terminating then \begin{align*}
+				            R := R \cup \{s_1'\Rightarrow s_2'\}
+			            \end{align*}
+			      \item Otherwise, if $R\cup\{s_2'\Rightarrow s_1'\}$ is terminating then \begin{align*}
+				            R := R \cup \{s_2' \Rightarrow s_1'\}
+			            \end{align*}
+			      \item Otherwise, fail.
+		      \end{enumerate}
+	\end{enumerate}
 \end{theorem}
 
 \section{Inductive Proof}
 
 \begin{definition}
-    An \emph{inductive datatype} is defined by constructors, some of which involve the datatype
-    itself. An inductive datatype is called \emph{free} if terms are only equal if they are
-    syntactically identical.
+	An \emph{inductive datatype} is defined by constructors, some of which involve the datatype
+	itself. An inductive datatype is called \emph{free} if terms are only equal if they are
+	syntactically identical.
 \end{definition}
 
 \begin{example}
-    Consider the datatypes \emph{nat} and \emph{int} with the following definitions:
-    \begin{minted}{isabelle}
+	Consider the datatypes \emph{nat} and \emph{int} with the following definitions:
+	\begin{minted}{isabelle}
 datatype nat = Zero | Succ nat
 datatype int = Zero | Succ int | Pred int
     \end{minted}
-    Here \emph{nat} is freely generated but \emph{int} is not (e.g. \texttt{Succ (Pred Zero) == Zero}).
+	Here \emph{nat} is freely generated but \emph{int} is not (e.g. \texttt{Succ (Pred Zero) == Zero}).
 \end{example}
 
 \begin{definition}
-    Let $(<) \subseteq S\times S$ be an ordering on a type $S$. We call $<$ \emph{well-founded} or
-    \emph{noetherian} if there does not exist an infinite sequence $(x_n)$ of $x_n\in S$ such that
-    \begin{align*}
-        x_1 > x_2 > \cdots > x_n\hs\text{ for all $n\in\N$.  }
-    \end{align*}
+	Let $(<) \subseteq S\times S$ be an ordering on a type $S$. We call $<$ \emph{well-founded} or
+	\emph{noetherian} if there does not exist an infinite sequence $(x_n)$ of $x_n\in S$ such that
+	\begin{align*}
+		x_1 > x_2 > \cdots > x_n\hs\text{ for all $n\in\N$.  }
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Complete Induction]
-    Let $P:X\to\{\top,\bot\}$ be a predicate and $(<)\subseteq X\times X$ well-founded ordering.
-    If
-    \begin{align*}
-        \forall y.\:(\forall z.\:z < y \to P\:z) \to P\:y
-        \hs\Rightarrow\hs
-        \forall x.\:P\:x
-    \end{align*}
+	Let $P:X\to\{\top,\bot\}$ be a predicate and $(<)\subseteq X\times X$ well-founded ordering.
+	If
+	\begin{align*}
+		\forall y.\:(\forall z.\:z < y \to P\:z) \to P\:y
+		\hs\Rightarrow\hs
+		\forall x.\:P\:x
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    Consider the $L$-system with left- and right-introduction rules. This system has two
-    convenient properties
-    \begin{enumerate}
-        \item Cut elimination: the cut rule is unnecessary.
-        \item Sub-formula property: every cut-free proof only contains formulas which are sub-formulas of the original goal.
-    \end{enumerate}
-    Introducing the induction rule
-    \begin{align*}
-        \infer{\Gamma \vdash \forall n. P(n)}{\Gamma \vdash P(0) \hs \Gamma,P(n)\vdash P(n+1) \hs \vdash n\not\in V(\Gamma, P)}
-    \end{align*}
-    then cut elimination fails. Furthermore, it is impossible to extend the system such that
-    the sub-formula property is re-established.
+	Consider the $L$-system with left- and right-introduction rules. This system has two
+	convenient properties
+	\begin{enumerate}
+		\item Cut elimination: the cut rule is unnecessary.
+		\item Sub-formula property: every cut-free proof only contains formulas which are sub-formulas of the original goal.
+	\end{enumerate}
+	Introducing the induction rule
+	\begin{align*}
+		\infer{\Gamma \vdash \forall n. P(n)}{\Gamma \vdash P(0) \hs \Gamma,P(n)\vdash P(n+1) \hs \vdash n\not\in V(\Gamma, P)}
+	\end{align*}
+	then cut elimination fails. Furthermore, it is impossible to extend the system such that
+	the sub-formula property is re-established.
 \end{theorem}
 
 \paragraph{Challenges in automating inductive proofs}
 
 Theoretically, and practically, to do inductive proofs we need
 \begin{itemize}
-    \item lemma speculation
-    \item generalisation
+	\item lemma speculation
+	\item generalisation
 \end{itemize}
 
 Automated techniques include
 \begin{itemize}
-    \item Boyer-Moore approach
-    \item Rippling, "Productive Use of Failure"
-    \item Up-front speculation
-    \item Cycling proofs
-    \item Only doing a few cases
+	\item Boyer-Moore approach
+	\item Rippling, "Productive Use of Failure"
+	\item Up-front speculation
+	\item Cycling proofs
+	\item Only doing a few cases
 \end{itemize}
 
 \section{Hoare Logic}
@@ -728,84 +728,84 @@ Automated techniques include
 \subsection{Formal verification}
 
 \begin{definition}
-    \emph{Formal specification} uses mathematical notation to give a precise description
-    of what a program should do. \emph{Formal verification} uses logical rules to mathematically
-    prove that a program satisfies a formal specification.
+	\emph{Formal specification} uses mathematical notation to give a precise description
+	of what a program should do. \emph{Formal verification} uses logical rules to mathematically
+	prove that a program satisfies a formal specification.
 
-    There are different types of semantics to describe programs:
-    \begin{itemize}
-        \item \emph{denotational}: construct mathematical objects that describe the meaning.
-              E.g. functions: $[\![C]\!]:S\to S$.
-        \item \emph{operational}: describe the steps of computation during execution. Either
-              small-step ($\lra{C,\sigma}\to\lra{C',\sigma'}$) or big-step ($\lra{C,\sigma}\Downarrow\sigma'$).
-        \item \emph{axiomatic}: define axioms and rules of some logic of program. E.g. $\{P\}C\{Q\}$.
-    \end{itemize}
+	There are different types of semantics to describe programs:
+	\begin{itemize}
+		\item \emph{denotational}: construct mathematical objects that describe the meaning.
+		      E.g. functions: $[\![C]\!]:S\to S$.
+		\item \emph{operational}: describe the steps of computation during execution. Either
+		      small-step ($\lra{C,\sigma}\to\lra{C',\sigma'}$) or big-step ($\lra{C,\sigma}\Downarrow\sigma'$).
+		\item \emph{axiomatic}: define axioms and rules of some logic of program. E.g. $\{P\}C\{Q\}$.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}[Hoare triple]
-    In Hoare logic, a program specification states that
-    given a state that satisfies preconditions $P$, executing a program $C$, if it terminates,
-    will result in a state that satisfies postconditions $Q$. We write
-    \begin{align*}
-        \hoare{P}{C}{Q}.
-    \end{align*}
+	In Hoare logic, a program specification states that
+	given a state that satisfies preconditions $P$, executing a program $C$, if it terminates,
+	will result in a state that satisfies postconditions $Q$. We write
+	\begin{align*}
+		\hoare{P}{C}{Q}.
+	\end{align*}
 \end{definition}
 
 \subsection{Hoare logic rules}
 
 \begin{definition}[Assignment axiom]
-    \begin{align*}
-        \infer{\hoare{Q[E/V]}{V:=E}{Q}}{}
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{Q[E/V]}{V:=E}{Q}}{}
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Sequencing rule]
-    \begin{align*}
-        \infer{\hoare{P}{C_1; C_2}{R}}{\hoare{P}{C_1}{Q} \hs \hoare{Q}{C_2}{R}}
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{P}{C_1; C_2}{R}}{\hoare{P}{C_1}{Q} \hs \hoare{Q}{C_2}{R}}
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Skip axiom]
-    \begin{align*}
-        \infer{\hoare{P}{\texttt{SKIP}}{P}}{}
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{P}{\texttt{SKIP}}{P}}{}
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Conditional rule]
-    \begin{align*}
-        \infer{\hoare{P}{\texttt{IF $S$ THEN $C_1$ ELSE $C_2$ FI}}{Q}}{
-            \hoare{P\wedge S}{C_1}{Q}\hs\hoare{P\wedge\neg S}{C_2}{Q}
-        }
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{P}{\texttt{IF $S$ THEN $C_1$ ELSE $C_2$ FI}}{Q}}{
+			\hoare{P\wedge S}{C_1}{Q}\hs\hoare{P\wedge\neg S}{C_2}{Q}
+		}
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Precondition strengthening]
-    \begin{align*}
-        \infer{\hoare{P}{C}{Q}}{P\to P'\hs\hoare{P'}{C}{Q}}
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{P}{C}{Q}}{P\to P'\hs\hoare{P'}{C}{Q}}
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Postcondition weakening]
-    \begin{align*}
-        \infer{\hoare{P}{C}{Q}}{\hoare{P}{C}{Q'}\hs Q'\to Q}
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{P}{C}{Q}}{\hoare{P}{C}{Q'}\hs Q'\to Q}
+	\end{align*}
 \end{definition}
 
 \begin{definition}[While rule]
-    \begin{align*}
-        \infer{\hoare{P}{\texttt{WHILE $S$ DO $C$ OD}}{P\wedge\neg S}}{\hoare{P\wedge S}{C}{P}}
-    \end{align*}
+	\begin{align*}
+		\infer{\hoare{P}{\texttt{WHILE $S$ DO $C$ OD}}{P\wedge\neg S}}{\hoare{P\wedge S}{C}{P}}
+	\end{align*}
 \end{definition}
 
 \subsection{Meta-theory}
 
 \begin{theorem}
-    Hoare logic is
-    \begin{itemize}
-        \item sound,
-        \item undecidable, and
-        \item complete, but only for simple languages.
-    \end{itemize}
+	Hoare logic is
+	\begin{itemize}
+		\item sound,
+		\item undecidable, and
+		\item complete, but only for simple languages.
+	\end{itemize}
 \end{theorem}
 
 \end{document}

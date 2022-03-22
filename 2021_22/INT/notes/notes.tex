@@ -12,544 +12,544 @@
 \section{Pythagorean triples}
 
 \begin{definition}
-    Three natural numbers $(a,b,c)$ are called a \emph{pythagorean triple} if
-    \begin{align*}
-        a^2 + b^2 = c^2.
-    \end{align*}
+	Three natural numbers $(a,b,c)$ are called a \emph{pythagorean triple} if
+	\begin{align*}
+		a^2 + b^2 = c^2.
+	\end{align*}
 \end{definition}
 
 \begin{lemma}
-    If $(a,b,c)$ is a pythagorean triple and $d$ is any positive integer then
-    so is $(da,db,dc)$.
+	If $(a,b,c)$ is a pythagorean triple and $d$ is any positive integer then
+	so is $(da,db,dc)$.
 \end{lemma}
 
 \begin{definition}
-    A pythagorean triple $(a,b,c)$ is called \emph{primitive} if they have no common factor.
+	A pythagorean triple $(a,b,c)$ is called \emph{primitive} if they have no common factor.
 \end{definition}
 
 \begin{theorem}
-    Every primitive pythagorean triple $(a,b,c)$ with $a$ odd satsifies
-    \begin{align*}
-        a=s,\hs b=\frac{s^2-t^2}{2},\hs c=\frac{s^2+t^2}{2},
-    \end{align*}
-    where $s>t\geq 1$ are chosen to be odd integers with no common factors.
+	Every primitive pythagorean triple $(a,b,c)$ with $a$ odd satsifies
+	\begin{align*}
+		a=s,\hs b=\frac{s^2-t^2}{2},\hs c=\frac{s^2+t^2}{2},
+	\end{align*}
+	where $s>t\geq 1$ are chosen to be odd integers with no common factors.
 \end{theorem}
 
 \section{Integers}
 
 \begin{theorem}[Well-ordering principle]
-    Every non-empty set of positive integers contains a least element.
+	Every non-empty set of positive integers contains a least element.
 \end{theorem}
 
 \subsection{Division and remainders}
 
 \begin{theorem}[Division algorithm]
-    Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $q,r\in\Z$ such that
-    \begin{align*}
-        a = qb + r
-    \end{align*}
-    and $0\leq r<b$. $q$ is called the quotient and $r$ is called the remainder.
+	Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $q,r\in\Z$ such that
+	\begin{align*}
+		a = qb + r
+	\end{align*}
+	and $0\leq r<b$. $q$ is called the quotient and $r$ is called the remainder.
 \end{theorem}
 
 \begin{definition}
-    Let $a,b\in\Z$. We say that $a$ divides $b$, written $a|b$, if there exists $c\in\Z$
-    such that $b=ac$.
+	Let $a,b\in\Z$. We say that $a$ divides $b$, written $a|b$, if there exists $c\in\Z$
+	such that $b=ac$.
 \end{definition}
 
 \begin{definition}[gcd, lcm]
-    Let $a,b\in\Z$, not both zero. The \emph{greatest common divisor} of $a$ and $b$ is the largest integer
-    that divides both of them. Note $\gcd(a,b)$ is well-defined and $1\leq\gcd(a,b)\leq\min(a,b)$.
+	Let $a,b\in\Z$, not both zero. The \emph{greatest common divisor} of $a$ and $b$ is the largest integer
+	that divides both of them. Note $\gcd(a,b)$ is well-defined and $1\leq\gcd(a,b)\leq\min(a,b)$.
 
-    Similarly, the \emph{least common multiple} of $a$ and $b$ is the smallest 
-    integer that is divided by both of them. Note $\lcm(a,b)$ is well-defined
-    and $\max(a,b)\leq\lcm(a,b)\leq ab$.
+	Similarly, the \emph{least common multiple} of $a$ and $b$ is the smallest
+	integer that is divided by both of them. Note $\lcm(a,b)$ is well-defined
+	and $\max(a,b)\leq\lcm(a,b)\leq ab$.
 \end{definition}
 
 \begin{proposition}[Boocher 3.3]
-    Let $\gcd(a,b)=d$. Then $\gcd(a/d,b/d)=1$.
+	Let $\gcd(a,b)=d$. Then $\gcd(a/d,b/d)=1$.
 \end{proposition}
 
 \begin{proposition}[Boocher 3.4]
-    For all integers $a,b,c$, $\gcd(a+cb,b)=\gcd(a,b)$.
+	For all integers $a,b,c$, $\gcd(a+cb,b)=\gcd(a,b)$.
 \end{proposition}
 
 \begin{lemma}[Bezout]
-    Let $a,b\in\Z$, not both zero. Then there exist $s,t\in\Z$ such that
-    $as + bt = \gcd(a,b)$. Moreover, any common divisor of $a$ and $b$ divides $\gcd(a,b)$.
+	Let $a,b\in\Z$, not both zero. Then there exist $s,t\in\Z$ such that
+	$as + bt = \gcd(a,b)$. Moreover, any common divisor of $a$ and $b$ divides $\gcd(a,b)$.
 \end{lemma}
 
 \begin{corollary}[Boocher 3.7]
-    The set of linear combinations of two integers $a,b$ is equal to the set 
-    of multiples of $\gcd(a,b)$:
-    \begin{align*}
-        \{ax+by : x,y\in\Z \} = \{k\gcd(a,b):k\in\Z\}=\gcd(a,b)\Z.
-    \end{align*}
+	The set of linear combinations of two integers $a,b$ is equal to the set
+	of multiples of $\gcd(a,b)$:
+	\begin{align*}
+		\{ax+by : x,y\in\Z \} = \{k\gcd(a,b):k\in\Z\}=\gcd(a,b)\Z.
+	\end{align*}
 \end{corollary}
 
 \begin{theorem}
-    Let $a,b\in Z$ such that $a\geq b>0$.
-    The Euclidean algorithm described below always gives the greatest common divisor of
-    $a$ and $b$.
-    \begin{enumerate}
-        \item There exist unique integers $q_1,r_1$ such that $a=q_1b+r_1$, $0\leq r_1<b$.
-        \item Assuming that $r_1>0$, then we can apply the division algorithm to the pair
-              $b,r_1$ and get $b=q_2r_1 + r_2$, $0\leq r_2<r_1$. If $r_2>0$ we may divide
-              $r_1$ by $r_2$, and so on.
-        \item Continuing in this way, we eventually get \begin{align*}
-                  r_k=q_{k+2}r_{k+1}+r_{k+2}
-              \end{align*}
-              with $r_{k+2}=0$ for some $k$.
-        \item We have $r_{k+1}=\gcd(a,b)$.
-    \end{enumerate}
+	Let $a,b\in Z$ such that $a\geq b>0$.
+	The Euclidean algorithm described below always gives the greatest common divisor of
+	$a$ and $b$.
+	\begin{enumerate}
+		\item There exist unique integers $q_1,r_1$ such that $a=q_1b+r_1$, $0\leq r_1<b$.
+		\item Assuming that $r_1>0$, then we can apply the division algorithm to the pair
+		      $b,r_1$ and get $b=q_2r_1 + r_2$, $0\leq r_2<r_1$. If $r_2>0$ we may divide
+		      $r_1$ by $r_2$, and so on.
+		\item Continuing in this way, we eventually get \begin{align*}
+			      r_k=q_{k+2}r_{k+1}+r_{k+2}
+		      \end{align*}
+		      with $r_{k+2}=0$ for some $k$.
+		\item We have $r_{k+1}=\gcd(a,b)$.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Primes}
 
 \begin{theorem}[Fundamental theorem of arithmetic]
-    Every $n\in\N$ has a unique representation as a product of primes:
-    \begin{align*}
-        n = p_1^{e_1}\cdots p_k^{e_k}.
-    \end{align*}
+	Every $n\in\N$ has a unique representation as a product of primes:
+	\begin{align*}
+		n = p_1^{e_1}\cdots p_k^{e_k}.
+	\end{align*}
 \end{theorem}
 
 \begin{proposition}[Boocher 2.3]
-    Suppose $p,n,m\in\N$ with $p$ prime and $p|nm$. Then either $p|m$ or $p|n$ or both.
+	Suppose $p,n,m\in\N$ with $p$ prime and $p|nm$. Then either $p|m$ or $p|n$ or both.
 \end{proposition}
 
 \begin{proposition}[Boocher 3.2]
-    Given $m,n\in\N$ let $p_1,...,p_k$ be the primes dividing $mn$, and write 
-    \begin{align*}
-        m = p_1^{e_1}\cdots p_k^{e_k}, \hs n = p_1^{f_1}\cdots p_k^{f_k}
-    \end{align*}
-    where $e_i,f_i\geq 0$ for all $0<i\leq k$. Then 
-    \begin{enumerate}
-        \item $\gcd(m,n)=p_1^{\min(e_i,f_i)}\cdots p_k^{\min(e_k,f_k)}$;
-        \item $\lcm(m,n)=p_1^{\max(e_i,f_i)}\cdots p_k^{\max(e_k,f_k)}$;
-        \item $\gcd(m,n)\cdot\lcm(m,n)=mn$;
-        \item \begin{align*}
-            \gcd\left(\frac{n}{\gcd(n,m)},\frac{\lcm(n,m)}{n}\right)=1.
-        \end{align*}
-    \end{enumerate}
+	Given $m,n\in\N$ let $p_1,...,p_k$ be the primes dividing $mn$, and write
+	\begin{align*}
+		m = p_1^{e_1}\cdots p_k^{e_k}, \hs n = p_1^{f_1}\cdots p_k^{f_k}
+	\end{align*}
+	where $e_i,f_i\geq 0$ for all $0<i\leq k$. Then
+	\begin{enumerate}
+		\item $\gcd(m,n)=p_1^{\min(e_i,f_i)}\cdots p_k^{\min(e_k,f_k)}$;
+		\item $\lcm(m,n)=p_1^{\max(e_i,f_i)}\cdots p_k^{\max(e_k,f_k)}$;
+		\item $\gcd(m,n)\cdot\lcm(m,n)=mn$;
+		\item \begin{align*}
+			      \gcd\left(\frac{n}{\gcd(n,m)},\frac{\lcm(n,m)}{n}\right)=1.
+		      \end{align*}
+	\end{enumerate}
 \end{proposition}
 
 \begin{theorem}[Boocher 2.5]
-    If $n$ is composite then it must be divisible by some prime $p\leq\sqrt{n}$. 
+	If $n$ is composite then it must be divisible by some prime $p\leq\sqrt{n}$.
 \end{theorem}
 
 \begin{theorem}[Euclid; Boocher 2.6]
-    There are infinitely many prime numbers. 
+	There are infinitely many prime numbers.
 \end{theorem}
 
 \begin{theorem}[Dirichlet; Boocher 2.7]
-    If $a$ and $b$ are positive integers not divisible by the same prime then there are
-    infinitely many primes of the form $ak+b$. 
+	If $a$ and $b$ are positive integers not divisible by the same prime then there are
+	infinitely many primes of the form $ak+b$.
 \end{theorem}
 
 \begin{theorem}[Boocher 2.8]
-    The sum of the reciprocals of the primes diverges
-    \begin{align*}
-        \sum_{i=1}^\infty \frac{1}{p_i} \to \infty
-    \end{align*} 
-    where $p_1,p_2,...,p_n,...$ are all prime numbers.
+	The sum of the reciprocals of the primes diverges
+	\begin{align*}
+		\sum_{i=1}^\infty \frac{1}{p_i} \to \infty
+	\end{align*}
+	where $p_1,p_2,...,p_n,...$ are all prime numbers.
 \end{theorem}
 
 \begin{theorem}[Boocher 2.9]
-    When $n$ is large, the number of primes less than $x$ is approximately equal to
-    $x/\ln x$. I.e. 
-    \begin{align*}
-        \lim_{x\to\infty} \frac{\pi(x)}{x/\ln(x)}=1.
-    \end{align*} 
+	When $n$ is large, the number of primes less than $x$ is approximately equal to
+	$x/\ln x$. I.e.
+	\begin{align*}
+		\lim_{x\to\infty} \frac{\pi(x)}{x/\ln(x)}=1.
+	\end{align*}
 \end{theorem}
 
 \begin{conjecture}[Twin prime; Boocher 2.10]
-    There are infinitely many prime numbers $p$ such that 
-    $p+2$ is also prime.
+	There are infinitely many prime numbers $p$ such that
+	$p+2$ is also prime.
 \end{conjecture}
 
 \begin{conjecture}[Goldbach; Boocher 2.11]
-    Every even integer larger than $2$ can be written as the 
-    sum of two primes
+	Every even integer larger than $2$ can be written as the
+	sum of two primes
 \end{conjecture}
 
 \section{Rings}
 
 \begin{definition}[Ring]
-    A \emph{ring} $(X,+,\cdot)$ is a set $X$ equipped with two binary operations
-    $+,\cdot:X\times X\to X$ such that $(X,+)$ is an abelian group, $(X,\cdot)$
-    is a monoid and the following equalities hold for all $a,b,c\in X$:
-    \begin{align*}
-        a       \cdot (b + c)   = a \cdot b + a \cdot c, \\
-        (a+b)   \cdot c         = a \cdot c + b \cdot c.
-    \end{align*}
+	A \emph{ring} $(X,+,\cdot)$ is a set $X$ equipped with two binary operations
+	$+,\cdot:X\times X\to X$ such that $(X,+)$ is an abelian group, $(X,\cdot)$
+	is a monoid and the following equalities hold for all $a,b,c\in X$:
+	\begin{align*}
+		a       \cdot (b + c)   = a \cdot b + a \cdot c, \\
+		(a+b)   \cdot c         = a \cdot c + b \cdot c.
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Commutative ring]
-    A ring $(X,+,\cdot)$ where for all $a,b,c\in X$, $a\cdot(b\cdot c) = (a\cdot b)\cdot c$
-    is called a \emph{commutative ring}.
+	A ring $(X,+,\cdot)$ where for all $a,b,c\in X$, $a\cdot(b\cdot c) = (a\cdot b)\cdot c$
+	is called a \emph{commutative ring}.
 \end{definition}
 
 \begin{definition}[Unital ring]
-    A ring $(X,+,\cdot)$ where there exists an element $1\in X$ such that 
-    for all $a\in X$, $1\cdot a = a \cdot 1 = a$ is called a \emph{unital ring}.
+	A ring $(X,+,\cdot)$ where there exists an element $1\in X$ such that
+	for all $a\in X$, $1\cdot a = a \cdot 1 = a$ is called a \emph{unital ring}.
 \end{definition}
 
 \begin{definition}[Commutative ring with identity]
-    A ring which is commutative and unital is called a \emph{commutative ring
-    with identity}.
+	A ring which is commutative and unital is called a \emph{commutative ring
+		with identity}.
 \end{definition}
 
 \section{Congruences}
 
 \begin{definition}[Congruence]
-    The congruence $a\equiv b\mod n$ means that the difference $(a-b)$ is 
-    divisible by $n$.
+	The congruence $a\equiv b\mod n$ means that the difference $(a-b)$ is
+	divisible by $n$.
 \end{definition}
 
 \begin{definition}
-    A \emph{complete system of residues modulo $n$} is a set of integers 
-    such that every integer is congruent modulo $n$ to exactly one integer 
-    in the set. A \emph{least positive residue} for an integer $a$ is the 
-    positive integer $b$ such that $a\equiv b \mod n$.
+	A \emph{complete system of residues modulo $n$} is a set of integers
+	such that every integer is congruent modulo $n$ to exactly one integer
+	in the set. A \emph{least positive residue} for an integer $a$ is the
+	positive integer $b$ such that $a\equiv b \mod n$.
 \end{definition}
 
 \begin{theorem}
-    If $a,b,c,d\in\Z$ and $n\in\N$ with $a\equiv b\mod n$ and $c\equiv d\mod n$
-    then 
-    \begin{align*}
-        a+c & \equiv b+d \mod n,\\
-        a-c & \equiv b-d \mod n,\\
-        ac  & \equiv bd  \mod n.
-    \end{align*} 
+	If $a,b,c,d\in\Z$ and $n\in\N$ with $a\equiv b\mod n$ and $c\equiv d\mod n$
+	then
+	\begin{align*}
+		a+c & \equiv b+d \mod n, \\
+		a-c & \equiv b-d \mod n, \\
+		ac  & \equiv bd  \mod n.
+	\end{align*}
 \end{theorem}
 
 \begin{definition}[Ring of integers modulo $n$]
-    Let $n\in\N$ and $a,b,c\in\Z$. Let $\Z_n$ denote the set of equivalence
-    classes due to congruence and denote the equivalence class of $a\in\Z$ by 
-    $\left[a\right]_n\in\Z_n=\Z/n\Z$. We define the operations $+,.:\Z_n\times\Z_n\to\Z_n$
-    by 
-    \begin{align*}
-        \left[a\right]_n +     \left[b\right]_n   & = \left[a+b\right]_n,\\
-        \left[a\right]_n \cdot \left[b\right]     & = \left[ab\right]_n.
-    \end{align*}
-    Then \emph{the ring of integers modulo $n$} is $\Z_n=(\Z_n,+,\cdot)$.
+	Let $n\in\N$ and $a,b,c\in\Z$. Let $\Z_n$ denote the set of equivalence
+	classes due to congruence and denote the equivalence class of $a\in\Z$ by
+	$\left[a\right]_n\in\Z_n=\Z/n\Z$. We define the operations $+,.:\Z_n\times\Z_n\to\Z_n$
+	by
+	\begin{align*}
+		\left[a\right]_n +     \left[b\right]_n & = \left[a+b\right]_n, \\
+		\left[a\right]_n \cdot \left[b\right]   & = \left[ab\right]_n.
+	\end{align*}
+	Then \emph{the ring of integers modulo $n$} is $\Z_n=(\Z_n,+,\cdot)$.
 \end{definition}
 
 \begin{theorem}[Wilson]
-    If $p$ is prime then $(p-1)!\equiv -1 \mod p$. 
+	If $p$ is prime then $(p-1)!\equiv -1 \mod p$.
 \end{theorem}
 
 \section{Chinese remainder theorem}
 
 \begin{theorem}[Chinese remainder theorem]
-    Let $m_1,...,m_k\in\N$ be pairwise coprime and let $a_1,...,a_k\in\Z$. Then there exists a 
-    unique $0\leq x<m_1\cdots m_k$ such that 
-    \begin{align*}
-        x\equiv a_1 & \mod m_1\\
-                    & \vdots\\
-        x\equiv a_k & \mod m_k
-    \end{align*}
-    \begin{proof}
-        \begin{enumerate}
-            \item Let $N=m_1\cdots m_k$ and $N_i=N/m_i$, for every $i$.
-            \item Fix $i$. There exists a solution to the congruence \begin{align*}
-                N_ix\equiv 1 \mod m_i
-            \end{align*}
-            because to find a solution to this congruence is equivalent to find a solution to 
-            the equation 
-            \begin{align*}
-                N_ix +m_iy=1
-            \end{align*}
-            and $\gcd(N_i,m_i)=1$ so a solution exist by \emph{Bezout's Lemma}.
-            \item Let $x_i\in\Z$ be such that \begin{align*}
-                N_ix_i\equiv 1 \mod m_i.
-            \end{align*}
-            \item Denote $x=\sum_{i=1}^k a_iN_ix_i$. Then $x\equiv a_i \mod m_i$ for all $i$.
-            \item Observe that $x'=x+jN$ also satisfies $x'\equiv a_i \mod m_i$ for all $i$.
-            \item Notice on the other hand that if $x,x'$ are solutions to the system above, then 
-                $x-x'\equiv 0 \mod m_i$ for all $i$.
-        \end{enumerate}
-    \end{proof}
+	Let $m_1,...,m_k\in\N$ be pairwise coprime and let $a_1,...,a_k\in\Z$. Then there exists a
+	unique $0\leq x<m_1\cdots m_k$ such that
+	\begin{align*}
+		x\equiv a_1 & \mod m_1 \\
+		            & \vdots   \\
+		x\equiv a_k & \mod m_k
+	\end{align*}
+	\begin{proof}
+		\begin{enumerate}
+			\item Let $N=m_1\cdots m_k$ and $N_i=N/m_i$, for every $i$.
+			\item Fix $i$. There exists a solution to the congruence \begin{align*}
+				      N_ix\equiv 1 \mod m_i
+			      \end{align*}
+			      because to find a solution to this congruence is equivalent to find a solution to
+			      the equation
+			      \begin{align*}
+				      N_ix +m_iy=1
+			      \end{align*}
+			      and $\gcd(N_i,m_i)=1$ so a solution exist by \emph{Bezout's Lemma}.
+			\item Let $x_i\in\Z$ be such that \begin{align*}
+				      N_ix_i\equiv 1 \mod m_i.
+			      \end{align*}
+			\item Denote $x=\sum_{i=1}^k a_iN_ix_i$. Then $x\equiv a_i \mod m_i$ for all $i$.
+			\item Observe that $x'=x+jN$ also satisfies $x'\equiv a_i \mod m_i$ for all $i$.
+			\item Notice on the other hand that if $x,x'$ are solutions to the system above, then
+			      $x-x'\equiv 0 \mod m_i$ for all $i$.
+		\end{enumerate}
+	\end{proof}
 \end{theorem}
 
 \begin{theorem}
-    Let $m,n\in\Z$ be coprime. Let $a\in\Z$ then the congruence
-    \begin{align*}
-        x \equiv a \mod mn
-    \end{align*}
-    has the same solutions in integers as the system of congruences 
-    \begin{align*}
-        x \equiv a \mod m\\
-        x \equiv a \mod n
-    \end{align*}
+	Let $m,n\in\Z$ be coprime. Let $a\in\Z$ then the congruence
+	\begin{align*}
+		x \equiv a \mod mn
+	\end{align*}
+	has the same solutions in integers as the system of congruences
+	\begin{align*}
+		x \equiv a \mod m \\
+		x \equiv a \mod n
+	\end{align*}
 \end{theorem}
 
 \section{Eulers theorem}
 
 \begin{definition}
-    The \emph{Euler function $\phi(n)$} is defined as the number of natural numbers not exceeding 
-    $n$ which are coprime with $n$ and $\phi(1)=1$.
+	The \emph{Euler function $\phi(n)$} is defined as the number of natural numbers not exceeding
+	$n$ which are coprime with $n$ and $\phi(1)=1$.
 \end{definition}
 
 \begin{theorem}[Euler]
-    Let $n>1$ be a natural number and let $a\in\Z$ such that $n$ and $a$ are coprime. Then 
-    \begin{align*}
-        a^{\phi(n)}-1 \equiv 0 \mod n.
-    \end{align*} 
+	Let $n>1$ be a natural number and let $a\in\Z$ such that $n$ and $a$ are coprime. Then
+	\begin{align*}
+		a^{\phi(n)}-1 \equiv 0 \mod n.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Lecture 6, Theorem 1]
-    If $m,n$ are coprime then $\phi(m\cdot n)=\phi(m)\cdot\phi(n)$.
+	If $m,n$ are coprime then $\phi(m\cdot n)=\phi(m)\cdot\phi(n)$.
 \end{theorem}
 
 \begin{theorem}[Lecture 6, Theorem 2]
-    Let $m>1$. Suppose that $p_1,...,p_k$ are all distinct primes that divide $m$. Then 
-    \begin{align*}
-        \phi(m) = m\prod_{i=1}^k \left(1-\frac{1}{p_i}\right).
-    \end{align*}
+	Let $m>1$. Suppose that $p_1,...,p_k$ are all distinct primes that divide $m$. Then
+	\begin{align*}
+		\phi(m) = m\prod_{i=1}^k \left(1-\frac{1}{p_i}\right).
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Lecture 7, Theorem 1]
-    Let $n\in\N$. Then 
-    \begin{align*}
-        \sum_{d|n}\phi(d) = n.
-    \end{align*}
+	Let $n\in\N$. Then
+	\begin{align*}
+		\sum_{d|n}\phi(d) = n.
+	\end{align*}
 \end{theorem}
 
 \section{Primitive roots}
 
 \begin{definition}
-    Let $p$ be prime. We say that $i\in\Z$ is a \emph{primitive root modulo $p$}
-    iff all elements $i^0,...,i^{p-1}$ are pairwise distinct modulo $p$. I.e.
-    $i^m\not\equiv 1\mod p$ for $0<m<p-1$.
+	Let $p$ be prime. We say that $i\in\Z$ is a \emph{primitive root modulo $p$}
+	iff all elements $i^0,...,i^{p-1}$ are pairwise distinct modulo $p$. I.e.
+	$i^m\not\equiv 1\mod p$ for $0<m<p-1$.
 \end{definition}
 
 \begin{definition}
-    Let $p$ be prime. Then the ring $\Z_p$ is a field and denoted by $\F_p$.
-    The ring of polynomials with coefficients in $\F_p$ is denoted by $\F_p[x]$.
+	Let $p$ be prime. Then the ring $\Z_p$ is a field and denoted by $\F_p$.
+	The ring of polynomials with coefficients in $\F_p$ is denoted by $\F_p[x]$.
 \end{definition}
 
 \begin{theorem}[Lecture 7, Theorem 2]
-    A non-zero polynomial $f\in\F_p[x]$ of degree $n$ has at most $n$ roots $x$ 
-    in $\F_p$.
+	A non-zero polynomial $f\in\F_p[x]$ of degree $n$ has at most $n$ roots $x$
+	in $\F_p$.
 \end{theorem}
 
 \begin{theorem}[Lecture 7, Theorem 3]
-    Let $p>0$ be a prime number then there exists $k\in\N$ which is a
-    primitive root modulo $p$. 
+	Let $p>0$ be a prime number then there exists $k\in\N$ which is a
+	primitive root modulo $p$.
 \end{theorem}
 
 \begin{definition}
-    Let $G$ be a group. An element $g\in G$ generates $G$ if
-    \begin{align*}
-        G = \{g^k : k \in \N\}.
-    \end{align*}
-    If such a $g$ exists, we say $G$ is cyclic and write $G=\lra{g}$.
+	Let $G$ be a group. An element $g\in G$ generates $G$ if
+	\begin{align*}
+		G = \{g^k : k \in \N\}.
+	\end{align*}
+	If such a $g$ exists, we say $G$ is cyclic and write $G=\lra{g}$.
 \end{definition}
 
 \begin{definition}
-    Let $G$ be a group and $g\in G$. Then the order of $g$ is the smallest positive 
-    integer $n$ such that $g^n = 1$.
+	Let $G$ be a group and $g\in G$. Then the order of $g$ is the smallest positive
+	integer $n$ such that $g^n = 1$.
 \end{definition}
 
 \begin{corollary}[Lecture 8, Corollary 1]
-    Let $G$ be a finite cyclig group. Then $g\in G$ is a generator iff the order of 
-    $g$ equals $\abs{G}$, the cardinality of $G$.
+	Let $G$ be a finite cyclig group. Then $g\in G$ is a generator iff the order of
+	$g$ equals $\abs{G}$, the cardinality of $G$.
 \end{corollary}
 
 \begin{lemma}
-    Let $G$ be a group and $g\in G$. If for integers $m,n$ we have $g^m=g^n=1$
-    then $g^{\gcd(m,n)}=1$.
+	Let $G$ be a group and $g\in G$. If for integers $m,n$ we have $g^m=g^n=1$
+	then $g^{\gcd(m,n)}=1$.
 \end{lemma}
 
 \begin{theorem}[Lagrange; Lecture 8, Theorem 1]
-    Let $G$ be a finite cyclic group of cardinality $N$. If $g\in G$ then 
-    the order of $g$ divides $N$.
+	Let $G$ be a finite cyclic group of cardinality $N$. If $g\in G$ then
+	the order of $g$ divides $N$.
 \end{theorem}
 
 \begin{theorem}[Lecture 8, Theorem 2]
-    Let $G=\lra{g}$ and let $\alpha\in\Z$. Then $G=\lra{g^\alpha}$ iff
-    $\gcd(\alpha,\abs{G})=1$.
+	Let $G=\lra{g}$ and let $\alpha\in\Z$. Then $G=\lra{g^\alpha}$ iff
+	$\gcd(\alpha,\abs{G})=1$.
 \end{theorem}
 
 \begin{corollary}[Lecture 8, Corollary 2]
-    Let $G$ a finite cyclic group. Then $G$ has $\phi(\abs G)$ generators. 
+	Let $G$ a finite cyclic group. Then $G$ has $\phi(\abs G)$ generators.
 \end{corollary}
 
 \begin{definition}
-    The group of units in $\Z_p$ is denoted as $\Z_p^*$.
+	The group of units in $\Z_p$ is denoted as $\Z_p^*$.
 \end{definition}
 
 \begin{theorem}[Lecture 8, Theorem 3]
-    Let $p$ prime and $i\in\Z$. Then $i$ is a primitive root modulo $p$ iff
-    $\Z_p^*=\lra{\overline i}$ where $\overline i$ denotes the coset of $i$ in
-    $\Z_p$. 
+	Let $p$ prime and $i\in\Z$. Then $i$ is a primitive root modulo $p$ iff
+	$\Z_p^*=\lra{\overline i}$ where $\overline i$ denotes the coset of $i$ in
+	$\Z_p$.
 \end{theorem}
 
 \section{Coding theory}
 
 \begin{definition}[Lecture 9]
-    A \emph{(block) linear code} $C$ of length $n$ over the finite field $F$ is a subspace of the 
-    $F$-vector space $F^n$.
+	A \emph{(block) linear code} $C$ of length $n$ over the finite field $F$ is a subspace of the
+	$F$-vector space $F^n$.
 \end{definition}
 
 \begin{definition}[Cyclic code; Lecture 9]
-    A linear code $C$ is called cyclic if $c_1\cdots c_n\in C$ implies $c_nc_1\cdots c_{n-1}\in C$.
+	A linear code $C$ is called cyclic if $c_1\cdots c_n\in C$ implies $c_nc_1\cdots c_{n-1}\in C$.
 \end{definition}
 
 \begin{definition}[Hamming metric; Lecture 10]
-    Let $C$ be a code over a field $F$. The \emph{Hamming metric $d$} on $C$ is the metric 
-    $d:C\times C\to\R$ given by 
-    \begin{align*}
-        d(x,y) = \abs{\{i\in{1,...,n}:x_i\not=y_i\}}
-    \end{align*} 
-    for all $x=x_1\cdots x_n$ and $y=y_1\cdots y_n$.
-    For $x\in C$ we define the \emph{weight} of $x$, $w(x)$ by setting 
-    \begin{align*}
-        w(x)=d(x,0)=\abs\{i\in {1,...,n} : x_i\not=0\}.
-    \end{align*}
+	Let $C$ be a code over a field $F$. The \emph{Hamming metric $d$} on $C$ is the metric
+	$d:C\times C\to\R$ given by
+	\begin{align*}
+		d(x,y) = \abs{\{i\in{1,...,n}:x_i\not=y_i\}}
+	\end{align*}
+	for all $x=x_1\cdots x_n$ and $y=y_1\cdots y_n$.
+	For $x\in C$ we define the \emph{weight} of $x$, $w(x)$ by setting
+	\begin{align*}
+		w(x)=d(x,0)=\abs\{i\in {1,...,n} : x_i\not=0\}.
+	\end{align*}
 \end{definition}
 
 \begin{lemma}[Lecture 10]
-    Let $C$ be a linear code. Then the minimal distance is equal to the minimal possible weight 
-    of a non-zero codeword in this code.
+	Let $C$ be a linear code. Then the minimal distance is equal to the minimal possible weight
+	of a non-zero codeword in this code.
 \end{lemma}
 
 \begin{definition}[Lecture 10]
-    The triple $(n,k,d)$ comprises the three parameters of a linear code $C$: $n$ is the length of the 
-    codewords, $k$ is the dimension of the code $\dim_F C=k$ an $d$ is the minimal distance of the code.
+	The triple $(n,k,d)$ comprises the three parameters of a linear code $C$: $n$ is the length of the
+	codewords, $k$ is the dimension of the code $\dim_F C=k$ an $d$ is the minimal distance of the code.
 \end{definition}
 
 \begin{definition}[Lecture 10]
-    Let $F$ be a field. For any word $x\in F^n$ and any $r\geq 0$, the neighbourhood of $x$ with radius 
-    $r$ is the closed ball 
-    \begin{align*}
-        N_r(x)=\{y\in F^n : d(x,y)\leq r\}. 
-    \end{align*}
+	Let $F$ be a field. For any word $x\in F^n$ and any $r\geq 0$, the neighbourhood of $x$ with radius
+	$r$ is the closed ball
+	\begin{align*}
+		N_r(x)=\{y\in F^n : d(x,y)\leq r\}.
+	\end{align*}
 \end{definition}
 
 \begin{lemma}[Lecture 10]
-    If $C$ is a code with the minimal distance $d>2r$, then for any codewords $c,c'\in C$ the neighbourhoods
-    $N_r(c)$ and $N_r(c')$ are disjoint. 
+	If $C$ is a code with the minimal distance $d>2r$, then for any codewords $c,c'\in C$ the neighbourhoods
+	$N_r(c)$ and $N_r(c')$ are disjoint.
 \end{lemma}
 
 \begin{definition}[Lecture 10]
-    Let $F$ be a field and $C\subseteq F^n$ be a code. A decision rule for $C$ is a function 
-    $\sigma:F^n\to C$ which assigns to each $z\in F^n$ a codeword $c\in C$.
+	Let $F$ be a field and $C\subseteq F^n$ be a code. A decision rule for $C$ is a function
+	$\sigma:F^n\to C$ which assigns to each $z\in F^n$ a codeword $c\in C$.
 \end{definition}
 
 \begin{definition}[Minimum distance rule; Lecture 10]
-    The \emph{minimum distance rule} is a decision rule $\sigma:F^n\to C$ such that 
-    whenever $\sigma(x)=c$, for all $c'\in C$, $d(x,c) \leq d(x,c')$.
+	The \emph{minimum distance rule} is a decision rule $\sigma:F^n\to C$ such that
+	whenever $\sigma(x)=c$, for all $c'\in C$, $d(x,c) \leq d(x,c')$.
 \end{definition}
 
 \section{The Legendre symbol}
 
 \begin{definition}
-    Let $p>0$ prime and let $a,b\in\Z$ coprime to $p$.
-    Then the \emph{Legendre symbol} of $a$ modulo $p$, denoted $(a/p)$, is given by 
-    \begin{align*}
-        \left(\frac{a}{p}\right)=\begin{cases}
-            1 &\text{if }a\equiv r^2\mod p\text{ for some $r\in\Z$},\\
-            -1 &\text{if }a\not\equiv r^2\mod p\text{ for all $r\in\Z$}.
-        \end{cases}
-    \end{align*}
+	Let $p>0$ prime and let $a,b\in\Z$ coprime to $p$.
+	Then the \emph{Legendre symbol} of $a$ modulo $p$, denoted $(a/p)$, is given by
+	\begin{align*}
+		\left(\frac{a}{p}\right)=\begin{cases}
+			                         1  & \text{if }a\equiv r^2\mod p\text{ for some $r\in\Z$},    \\
+			                         -1 & \text{if }a\not\equiv r^2\mod p\text{ for all $r\in\Z$}.
+		                         \end{cases}
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Lecture 11]
-    Let $p>0$ prime and $a\in\Z$ coprime to $p$. Then the following hold 
-    \begin{enumerate}
-        \item If $p>2$ then \begin{align*}
-            \left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}} \mod p.
-        \end{align*}
-        \item Multiplication rule: \begin{align*}
-            \left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=\left(\frac{ab}{p}\right).
-        \end{align*}
-        \item If $a\equiv b$ then \begin{align*}
-            \left(\frac{a}{p}\right)\equiv\left(\frac{b}{p}\right).
-        \end{align*}
-        \item If $p,q>2$, $p\not=q$, and either $p\equiv 1\mod 4$ or $q\equiv 1\mod 4$ then \begin{align*}
-            \left(\frac{p}{q}\right)=\left(\frac{q}{p}\right).
-        \end{align*}
-        \item If $p,q>2$, $p\not=q$, and $p,q\equiv 3\mod 4$ then \begin{align*}
-            \left(\frac{p}{q}\right)=-\left(\frac{q}{p}\right).
-        \end{align*}
-    \end{enumerate}
+	Let $p>0$ prime and $a\in\Z$ coprime to $p$. Then the following hold
+	\begin{enumerate}
+		\item If $p>2$ then \begin{align*}
+			      \left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}} \mod p.
+		      \end{align*}
+		\item Multiplication rule: \begin{align*}
+			      \left(\frac{a}{p}\right)\left(\frac{b}{p}\right)=\left(\frac{ab}{p}\right).
+		      \end{align*}
+		\item If $a\equiv b$ then \begin{align*}
+			      \left(\frac{a}{p}\right)\equiv\left(\frac{b}{p}\right).
+		      \end{align*}
+		\item If $p,q>2$, $p\not=q$, and either $p\equiv 1\mod 4$ or $q\equiv 1\mod 4$ then \begin{align*}
+			      \left(\frac{p}{q}\right)=\left(\frac{q}{p}\right).
+		      \end{align*}
+		\item If $p,q>2$, $p\not=q$, and $p,q\equiv 3\mod 4$ then \begin{align*}
+			      \left(\frac{p}{q}\right)=-\left(\frac{q}{p}\right).
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 
 \begin{lemma}[Gauss]
-    Let $p>2$ prime and $a\in\Z$ coprime to $p$. Let $p'=(p-1)/2$. Consider the set 
-    \begin{align*}
-        S=\left\lbrace k\cdot a : 1\leq k\leq p'\right\rbrace
-    \end{align*} 
-    and let $n$ be the number of elements in $S$ that, when reduced modulo $p$ to lie between
-    $-p'$ and $p$, are less than zero. Then 
-    \begin{align*}
-        \left(\frac{a}{p}\right)=(-1)^n.
-    \end{align*}
+	Let $p>2$ prime and $a\in\Z$ coprime to $p$. Let $p'=(p-1)/2$. Consider the set
+	\begin{align*}
+		S=\left\lbrace k\cdot a : 1\leq k\leq p'\right\rbrace
+	\end{align*}
+	and let $n$ be the number of elements in $S$ that, when reduced modulo $p$ to lie between
+	$-p'$ and $p$, are less than zero. Then
+	\begin{align*}
+		\left(\frac{a}{p}\right)=(-1)^n.
+	\end{align*}
 \end{lemma}
 
 \section{Gaussian integers}
 
 \begin{definition}
-    Let $R$ be a ring, and let $x$ be any symbol not found in $R$. A polynomial in $x$ over $R$ 
-    is an expression of the form 
-    \begin{align*}
-        \alpha(x)=\sum_{i=0}^\infty a_ix^i
-    \end{align*}
-    where $a_i\in R$ and $a_i=0$ almost everywhere.
+	Let $R$ be a ring, and let $x$ be any symbol not found in $R$. A polynomial in $x$ over $R$
+	is an expression of the form
+	\begin{align*}
+		\alpha(x)=\sum_{i=0}^\infty a_ix^i
+	\end{align*}
+	where $a_i\in R$ and $a_i=0$ almost everywhere.
 \end{definition}
 
 \begin{definition}
-    Let $\alpha(x)$ and $\gamma(x)$ be polynomials in $x$ over $R$ such that 
-    \begin{align*}
-        \alpha(x)=\sum_{i=0}^\infty a_ix^i,\hs
-        \gamma(x)=\sum_{i=0}^\infty c_ix^i.
-    \end{align*}
-    Then \begin{enumerate}
-        \item $\alpha(x)=\gamma(x)$ iff $a_i=c_i$ for all $i\geq 0$,
-        \item $\alpha(x)+\gamma(x)=\sum_{i=0}^\infty (a_i+c_i)x^i$,
-        \item $\alpha(x)\cdot\gamma(x)=\sum_{i=0}^\infty \sum_{j=0}^i a_jc_{i-j}x^i$.
-    \end{enumerate}
+	Let $\alpha(x)$ and $\gamma(x)$ be polynomials in $x$ over $R$ such that
+	\begin{align*}
+		\alpha(x)=\sum_{i=0}^\infty a_ix^i,\hs
+		\gamma(x)=\sum_{i=0}^\infty c_ix^i.
+	\end{align*}
+	Then \begin{enumerate}
+		\item $\alpha(x)=\gamma(x)$ iff $a_i=c_i$ for all $i\geq 0$,
+		\item $\alpha(x)+\gamma(x)=\sum_{i=0}^\infty (a_i+c_i)x^i$,
+		\item $\alpha(x)\cdot\gamma(x)=\sum_{i=0}^\infty \sum_{j=0}^i a_jc_{i-j}x^i$.
+	\end{enumerate}
 \end{definition}
 
 \begin{definition}
-    The \emph{Gaussian integers} are the subring $\Z[i]\subseteq\C$ given by 
-    \begin{align*}
-        \Z[i]=\{a+bi:a,b\in\Z\}.
-    \end{align*}
+	The \emph{Gaussian integers} are the subring $\Z[i]\subseteq\C$ given by
+	\begin{align*}
+		\Z[i]=\{a+bi:a,b\in\Z\}.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    A Gaussian integer $z=\Z[i]$ is a unit if there exists $z'\in\Z[i]$ such that 
-    $zz'=1$.
+	A Gaussian integer $z=\Z[i]$ is a unit if there exists $z'\in\Z[i]$ such that
+	$zz'=1$.
 \end{definition}
 
 \begin{lemma}[Lecture 13]
-    Let $z=a+bi$ be a unit in $\Z[i]$. Then $\abs z=1$ and $z\in\{\pm 1, \pm i\}$.
+	Let $z=a+bi$ be a unit in $\Z[i]$. Then $\abs z=1$ and $z\in\{\pm 1, \pm i\}$.
 \end{lemma}
 
 \begin{definition}
-    Let $z,z'$ be Gaussian integers with $z\not=0$. We say $z$ divides $z'$ if $z'=zw$ for 
-    some $w\in\Z[i]$.
+	Let $z,z'$ be Gaussian integers with $z\not=0$. We say $z$ divides $z'$ if $z'=zw$ for
+	some $w\in\Z[i]$.
 \end{definition}
 
 \begin{definition}
-    Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is irreducible 
-    if whenever $z=uv$ then either $u$ or $v$ is a unit.
+	Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is irreducible
+	if whenever $z=uv$ then either $u$ or $v$ is a unit.
 \end{definition}
 
 \begin{definition}
-    Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is prime if 
-    whenever $z|uv$ for $u,v\in\Z[i]$ it follows that either $z|u$ or $z|v$.
+	Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is prime if
+	whenever $z|uv$ for $u,v\in\Z[i]$ it follows that either $z|u$ or $z|v$.
 \end{definition}
 
 \begin{theorem}[Lecture 13]
-    Let $z,w\in\Z[i]$ with $w\not=0$. There exist $q,r\in\Z[i]$ with $z=qw+r$ and $\abs r<\abs w$.
+	Let $z,w\in\Z[i]$ with $w\not=0$. There exist $q,r\in\Z[i]$ with $z=qw+r$ and $\abs r<\abs w$.
 \end{theorem}
 
 \begin{theorem}[Bezout Lemma]
-    Let $a,b\in\Z[i]$ with $a\not=0$ or $b\not=0$ and let $d=\gcd(a,b)$. Then there exist $s,t\in\Z$
-    such that $as+bt=d$. Moreover, any common divisor of $a$ and $b$ divides $d$. 
+	Let $a,b\in\Z[i]$ with $a\not=0$ or $b\not=0$ and let $d=\gcd(a,b)$. Then there exist $s,t\in\Z$
+	such that $as+bt=d$. Moreover, any common divisor of $a$ and $b$ divides $d$.
 \end{theorem}
 
 \end{document}

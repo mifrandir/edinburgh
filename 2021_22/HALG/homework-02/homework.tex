@@ -9,135 +9,135 @@
 \newcommand{\gaussint}{\Z[i]}
 We write $i=\sqrt{-1}$ and $\overline x = \overline{r+si} = r - si$.
 \begin{claim*}[1]
-   $\Z[i]$ is an integral domain.
-   \begin{proof}
-      Clearly, $\gaussint$ is a non-zero commutative ring. Let $x,y\in\gaussint$ such that 
-      $xy=0$. Assume $x\not=0$ and $y\not=0$. We then have $\overline{xy}=0$ and thus 
-      \begin{align*}
-         (xy)(\overline{xy})=(xy)(\overline x\,\overline y)=(x\overline x)(y\overline y) = 0.
-      \end{align*}
-      However, note that for any $x=r+si\in\Z$, 
-      \begin{align*}
-         x\overline x = r^2-s^2 \in\Z.
-      \end{align*}
-      Thus $x\overline x$ is a zero divisor in $\Z$ contradicting the fact that $\Z$ is an 
-      integral domain. Thus $x=y=0$, proving the claim.
-   \end{proof}
+	$\Z[i]$ is an integral domain.
+	\begin{proof}
+		Clearly, $\gaussint$ is a non-zero commutative ring. Let $x,y\in\gaussint$ such that
+		$xy=0$. Assume $x\not=0$ and $y\not=0$. We then have $\overline{xy}=0$ and thus
+		\begin{align*}
+			(xy)(\overline{xy})=(xy)(\overline x\,\overline y)=(x\overline x)(y\overline y) = 0.
+		\end{align*}
+		However, note that for any $x=r+si\in\Z$,
+		\begin{align*}
+			x\overline x = r^2-s^2 \in\Z.
+		\end{align*}
+		Thus $x\overline x$ is a zero divisor in $\Z$ contradicting the fact that $\Z$ is an
+		integral domain. Thus $x=y=0$, proving the claim.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2]
-   The group of units of $\gaussint$ has order four. In particular, $\gaussint^\times = \lra{i}$.
-   \begin{proof}
-      Let $u=a+bi\in\C^\times$. Then there exists $x=c+di\in\C$ such that $(a+bi)(c+di) = 1$.
-      Equivalently,
-      \begin{align*}
-         a+bi = \frac{c-di}{c^2+d^2}.
-      \end{align*}
-      Therefore 
-      \begin{align*}
-         a = \frac{c}{c^2+d^2},\hs b=-\frac{d}{c^2+d^2}.
-      \end{align*}
-      In particular, $a^2+b^2=1$. Note that any unit in $\gaussint$ is also a unit in $\C$. 
-      The integer solutions to $a^2+b^2=1$ are $(a,b)\in\{(0,1),(0,-1),(1,0),(-1,0)\}$.
-      These correspond to $x\in\{i,-i,1,-1\}\supseteq\gaussint^\times$.
+	The group of units of $\gaussint$ has order four. In particular, $\gaussint^\times = \lra{i}$.
+	\begin{proof}
+		Let $u=a+bi\in\C^\times$. Then there exists $x=c+di\in\C$ such that $(a+bi)(c+di) = 1$.
+		Equivalently,
+		\begin{align*}
+			a+bi = \frac{c-di}{c^2+d^2}.
+		\end{align*}
+		Therefore
+		\begin{align*}
+			a = \frac{c}{c^2+d^2},\hs b=-\frac{d}{c^2+d^2}.
+		\end{align*}
+		In particular, $a^2+b^2=1$. Note that any unit in $\gaussint$ is also a unit in $\C$.
+		The integer solutions to $a^2+b^2=1$ are $(a,b)\in\{(0,1),(0,-1),(1,0),(-1,0)\}$.
+		These correspond to $x\in\{i,-i,1,-1\}\supseteq\gaussint^\times$.
 
-      We now note that 
-      \begin{align*}
-         (-1)(-1) = 1,\hs i(-i) = 1
-      \end{align*}
-      and further
-      \begin{align*}
-         i^2 = -1,\hs i^3 = -i, \hs i^4 = 1.
-      \end{align*}
-      Therefore all integer solutions correspond to a unit in $\gaussint$, showing 
-      $\gaussint^\times=\{i,-i,1,-1\}$, and further $i$ is a generator, i.e. $\gaussint^\times=\lra{i}$.
-   \end{proof}
+		We now note that
+		\begin{align*}
+			(-1)(-1) = 1,\hs i(-i) = 1
+		\end{align*}
+		and further
+		\begin{align*}
+			i^2 = -1,\hs i^3 = -i, \hs i^4 = 1.
+		\end{align*}
+		Therefore all integer solutions correspond to a unit in $\gaussint$, showing
+		$\gaussint^\times=\{i,-i,1,-1\}$, and further $i$ is a generator, i.e. $\gaussint^\times=\lra{i}$.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[3]
-   The map $\phi:\gaussint\to\Z_{q}$ given by 
-   \begin{align*}
-      a + bi \mapsto [a]+[n][b]
-   \end{align*}
-   is a surjective ring homorphism.
-   \begin{proof}
-      We note that $(\Z_q,+)$ is an abelian group. Since $n$ and $q$ are coprime, it follows from 
-      \emph{Lagrange's theorem} that the order of $[n]$ in $(\Z_q,+)$ is $q$. Thus 
-      \begin{align*}
-         \Z_q = \lra{[n]} = \{k[n] : k\in\Z\}.
-      \end{align*}
-      Noting $k[n]=[kn]$ by definition of $[n]$, we find 
-      \begin{align*}
-         \Z_q = \{[kn] : k\in\Z\} = \{[k][n] : k\in\Z\} = \{\phi(0+ki):k\in\Z\}.
-      \end{align*}
-      This shows that $\phi$ is surjective.
+	The map $\phi:\gaussint\to\Z_{q}$ given by
+	\begin{align*}
+		a + bi \mapsto [a]+[n][b]
+	\end{align*}
+	is a surjective ring homorphism.
+	\begin{proof}
+		We note that $(\Z_q,+)$ is an abelian group. Since $n$ and $q$ are coprime, it follows from
+		\emph{Lagrange's theorem} that the order of $[n]$ in $(\Z_q,+)$ is $q$. Thus
+		\begin{align*}
+			\Z_q = \lra{[n]} = \{k[n] : k\in\Z\}.
+		\end{align*}
+		Noting $k[n]=[kn]$ by definition of $[n]$, we find
+		\begin{align*}
+			\Z_q = \{[kn] : k\in\Z\} = \{[k][n] : k\in\Z\} = \{\phi(0+ki):k\in\Z\}.
+		\end{align*}
+		This shows that $\phi$ is surjective.
 
-      Let $(a+bi),(c+di)\in\C$. Then
-      \begin{align*}
-         \phi(a+bi) + \phi(c+di) = [a] + [n][b] + [c] + [n][c] = [a+c] + [n][b+d] = \phi((a+bi) + (c+di))
-      \end{align*}
-      where me made extensive use of the definition of the ring $(\Z_q,+,\times)$.
-      Similarly,
-      \begin{align*}
-         \phi(a+bi)\phi(c+di)=([a]+[n][b])([c]+[n][d])=[ac]+[n][ad+bc]+[n][n][bd].
-      \end{align*}
-      We now note that $[n][n]=[n^2]=[-1]$. Using this, the operations on $\Z_q$ and the above,
-      \begin{align*}
-         \phi(a+bi)\phi(c+di)=[ac-bd]+[n][ad+bc]=\phi((a+bi)(c+di)).
-      \end{align*}
-      This shows that $\phi$ is a ring homorphism.
-   \end{proof}
+		Let $(a+bi),(c+di)\in\C$. Then
+		\begin{align*}
+			\phi(a+bi) + \phi(c+di) = [a] + [n][b] + [c] + [n][c] = [a+c] + [n][b+d] = \phi((a+bi) + (c+di))
+		\end{align*}
+		where me made extensive use of the definition of the ring $(\Z_q,+,\times)$.
+		Similarly,
+		\begin{align*}
+			\phi(a+bi)\phi(c+di)=([a]+[n][b])([c]+[n][d])=[ac]+[n][ad+bc]+[n][n][bd].
+		\end{align*}
+		We now note that $[n][n]=[n^2]=[-1]$. Using this, the operations on $\Z_q$ and the above,
+		\begin{align*}
+			\phi(a+bi)\phi(c+di)=[ac-bd]+[n][ad+bc]=\phi((a+bi)(c+di)).
+		\end{align*}
+		This shows that $\phi$ is a ring homorphism.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[4]
-   \begin{align*}
-      \ker\phi = I_n.
-   \end{align*} 
-   \begin{proof}
-      Assume $x\in I_n$. Then $x=(r+si)(n-i)$ for some $r,s\in\Z$. We find 
-      \begin{align*}
-         \phi(x)=\phi(rn + s + (sn - r)i) = [rn + s] + [n][sn -r] = [rn + s + sn^2 -rn] = [s(n^2+1)] = [0].
-      \end{align*}
-      Thus $x\in\ker\phi$.
+	\begin{align*}
+		\ker\phi = I_n.
+	\end{align*}
+	\begin{proof}
+		Assume $x\in I_n$. Then $x=(r+si)(n-i)$ for some $r,s\in\Z$. We find
+		\begin{align*}
+			\phi(x)=\phi(rn + s + (sn - r)i) = [rn + s] + [n][sn -r] = [rn + s + sn^2 -rn] = [s(n^2+1)] = [0].
+		\end{align*}
+		Thus $x\in\ker\phi$.
 
-      Assume $x\in\ker\phi$. Then $x=r+si$ for some $r,s\in\Z$. We have
-      \begin{align*}
-         \phi(x) = [r] + [n][s] = [0].
-      \end{align*}
-      This clearly implies 
-      \begin{align*}
-         r + sn \equiv 0 \mod q
-      \end{align*}
-      and equivalently 
-      \begin{align*}
-         r &\equiv -sn \mod q\\
-         \Leftrightarrow rn &\equiv -sn^2 \mod q\\
-         \Leftrightarrow rn - s &\equiv -s(n^2+1) \equiv 0 \mod q
-      \end{align*}
-      These imply $q|r+sn$ and $q|rn-s$. We define $a,b\in\Z$ by
-      \begin{align*}
-         a=\frac{rn-s}{n^2+1},\hs 
-         b=\frac{r+sn}{n^2+1}.
-      \end{align*}
-      Now we note that 
-      \begin{align*}
-         a+bi=\frac{rn-s+(r+sn)i}{n^2+1}=\frac{(r+si)(n+i)}{n^2+1}=\frac{r+si}{n-i}.
-      \end{align*}
-      Thus $x=(a+bi)(n-i)\in I_n$ as desired.
-   \end{proof}
+		Assume $x\in\ker\phi$. Then $x=r+si$ for some $r,s\in\Z$. We have
+		\begin{align*}
+			\phi(x) = [r] + [n][s] = [0].
+		\end{align*}
+		This clearly implies
+		\begin{align*}
+			r + sn \equiv 0 \mod q
+		\end{align*}
+		and equivalently
+		\begin{align*}
+			r                      & \equiv -sn \mod q                \\
+			\Leftrightarrow rn     & \equiv -sn^2 \mod q              \\
+			\Leftrightarrow rn - s & \equiv -s(n^2+1) \equiv 0 \mod q
+		\end{align*}
+		These imply $q|r+sn$ and $q|rn-s$. We define $a,b\in\Z$ by
+		\begin{align*}
+			a=\frac{rn-s}{n^2+1},\hs
+			b=\frac{r+sn}{n^2+1}.
+		\end{align*}
+		Now we note that
+		\begin{align*}
+			a+bi=\frac{rn-s+(r+sn)i}{n^2+1}=\frac{(r+si)(n+i)}{n^2+1}=\frac{r+si}{n-i}.
+		\end{align*}
+		Thus $x=(a+bi)(n-i)\in I_n$ as desired.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[5]
-   $\gaussint/I_n$ is a field if and only if $q$ is prime.   
-   \begin{proof}
-      Firstly, note that $\phi$ is surjective so $\im\phi=\Z_q$. Secondly, by the \emph{First Isomorphism
-      Theorem for Rings}, there exists a ring isomorphism
-      \begin{align*}
-         \frac{\gaussint}{\ker\phi}\cong\Z_q. 
-      \end{align*}
-      Therefore $\gaussint/I_n$ is a field if and only if $\Z_q$ is.
-      Finally, by \emph{Proposition 3.2.16} in the notes, we know that $\Z_q$ is a field if and only if $q$ is prime.
-   \end{proof}
+	$\gaussint/I_n$ is a field if and only if $q$ is prime.
+	\begin{proof}
+		Firstly, note that $\phi$ is surjective so $\im\phi=\Z_q$. Secondly, by the \emph{First Isomorphism
+			Theorem for Rings}, there exists a ring isomorphism
+		\begin{align*}
+			\frac{\gaussint}{\ker\phi}\cong\Z_q.
+		\end{align*}
+		Therefore $\gaussint/I_n$ is a field if and only if $\Z_q$ is.
+		Finally, by \emph{Proposition 3.2.16} in the notes, we know that $\Z_q$ is a field if and only if $q$ is prime.
+	\end{proof}
 \end{claim*}
 
 \end{document}

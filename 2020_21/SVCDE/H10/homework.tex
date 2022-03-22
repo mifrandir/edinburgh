@@ -14,144 +14,144 @@
 
 Consider the ODE
 \begin{align}
-    \label{ode1}
-    (1-x^2)\frac{d^2y}{dx^2} - x\frac{dy}{dx} = 2
+	\label{ode1}
+	(1-x^2)\frac{d^2y}{dx^2} - x\frac{dy}{dx} = 2
 \end{align}
 for $x\in [-1,1]$. Observe that (\ref{ode1}) has the form
 \begin{align*}
-    F(y'',y',x)=0.
+	F(y'',y',x)=0.
 \end{align*}
 Thus we can use the substitution $v(x)=dy/dx$ to get the linear
 first-order ODE
 \begin{align}
-    \label{ode2}
-    (1-x^2)\frac{dv}{dx}-(xv+2) = 0.
+	\label{ode2}
+	(1-x^2)\frac{dv}{dx}-(xv+2) = 0.
 \end{align}
 We notice that (\ref{ode2}) is not exact but an integrating factor $\mu$ may
 be found by solving the first-order, linear, seprarable ODE
 \begin{align*}
-    \frac{d\mu}{dx} = \frac{M_v-N_x}{N}\mu
+	\frac{d\mu}{dx} = \frac{M_v-N_x}{N}\mu
 \end{align*}
 where
 \begin{align*}
-    M(x,v) & = -xv-2 \\
-    N(x,v) & = 1-x^2
+	M(x,v) & = -xv-2 \\
+	N(x,v) & = 1-x^2
 \end{align*}
 because $(M_v-N_x)/N$ only depends on $x$. We get the following equation for
 $\mu$:
 \begin{align*}
-    \frac{d\mu}{dx}=\frac{x}{1-x^2}\mu.
+	\frac{d\mu}{dx}=\frac{x}{1-x^2}\mu.
 \end{align*}
 By separating the variables and integrating w.r.t. $x$, we obtain
 \begin{align*}
-    \int \frac{1}{\mu}d\mu = \int \frac{x}{1-x^2}dx
+	\int \frac{1}{\mu}d\mu = \int \frac{x}{1-x^2}dx
 \end{align*}
 which may be solved to find
 \begin{align*}
-    \ln\mu              & = -\frac{1}{2}\ln(1-x^2)+C_1 \\
-    \Leftrightarrow \mu & =\frac{C_2}{\sqrt{1-x^2}}.
+	\ln\mu              & = -\frac{1}{2}\ln(1-x^2)+C_1 \\
+	\Leftrightarrow \mu & =\frac{C_2}{\sqrt{1-x^2}}.
 \end{align*}
 Since we are only interested in a particular integrating factor, we can
 let $C_2=1$. Since
 \begin{align*}
-    \frac{\p}{\p v}(\mu M) = \frac{\p}{\p v}\left(\frac{-xv-2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}}, \\
-    \frac{\p}{\p x}(\mu N) = \frac{\p}{\p x}\left(\frac{1-x^2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}}
+	\frac{\p}{\p v}(\mu M) = \frac{\p}{\p v}\left(\frac{-xv-2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}}, \\
+	\frac{\p}{\p x}(\mu N) = \frac{\p}{\p x}\left(\frac{1-x^2}{\sqrt{1-x^2}}\right)=-\frac{x}{\sqrt{1-x^2}}
 \end{align*}
 and thus $\p \mu M/\p v = \p \mu N/\p x$, we know that $\mu$ is a valid integrating factor.
 Multiplying (\ref{ode2}) with $\mu$ gives the exact ODE
 \begin{align*}
-    \sqrt{1-x^2}\frac{dv}{dx}-\frac{xv+2}{\sqrt{1-x^2}}=0.
+	\sqrt{1-x^2}\frac{dv}{dx}-\frac{xv+2}{\sqrt{1-x^2}}=0.
 \end{align*}
 We now require a function $\psi(x,v)$ such that
 \begin{align*}
-    \frac{\p \psi}{\p x}=\mu M\hs\text{and}\hs\frac{\p \psi}{\p y}=\mu N.
+	\frac{\p \psi}{\p x}=\mu M\hs\text{and}\hs\frac{\p \psi}{\p y}=\mu N.
 \end{align*}
 We find the following integrals
 \begin{align*}
-    \int \mu M\:dx & = \int -\frac{xv+2}{\sqrt{1-x^2}}\:dx = v\sqrt{1-x^2}-2\arcsin(x)+C_3, \\
-    \int \mu N\:dv & = \int \sqrt{1-x^2}\:dv =v\sqrt{1-x^2}+C_4.
+	\int \mu M\:dx & = \int -\frac{xv+2}{\sqrt{1-x^2}}\:dx = v\sqrt{1-x^2}-2\arcsin(x)+C_3, \\
+	\int \mu N\:dv & = \int \sqrt{1-x^2}\:dv =v\sqrt{1-x^2}+C_4.
 \end{align*}
 This leads one possible choice of $\psi$:
 \begin{align*}
-    \psi(x,v) = v\sqrt{1-x^2} - 2\arcsin(x).
+	\psi(x,v) = v\sqrt{1-x^2} - 2\arcsin(x).
 \end{align*}
 Thus we have the implicit solution of the ODE (\ref{ode2})
 \begin{align*}
-    v\sqrt{1-x^2} - 2\arcsin(x) = C_5,
+	v\sqrt{1-x^2} - 2\arcsin(x) = C_5,
 \end{align*}
 or explicitly
 \begin{align*}
-    v(x)=\frac{C_5+2\arcsin(x)}{\sqrt{1-x^2}}.
+	v(x)=\frac{C_5+2\arcsin(x)}{\sqrt{1-x^2}}.
 \end{align*}
 By definition of $v$, we know
 \begin{align*}
-    y(x) & = \int v(x)\:dx = \int \frac{C_5 + 2\arcsin(x)}{\sqrt{1-x^2}}\:dx             \\
-         & =\int \frac{C_5}{\sqrt{1-x^2}}\:dx +\int \frac{2\arcsin(x)}{\sqrt{1-x^2}}\:dx \\
-         & =\arcsin^2(x)+C_5\arcsin(x)+C_6
+	y(x) & = \int v(x)\:dx = \int \frac{C_5 + 2\arcsin(x)}{\sqrt{1-x^2}}\:dx             \\
+	     & =\int \frac{C_5}{\sqrt{1-x^2}}\:dx +\int \frac{2\arcsin(x)}{\sqrt{1-x^2}}\:dx \\
+	     & =\arcsin^2(x)+C_5\arcsin(x)+C_6
 \end{align*}
 Therefore, we have the general solution to the ODE (\ref{ode1})
 \begin{align*}
-    y(x) = \arcsin^2(x)+C_a\arcsin(x)+C_b.
+	y(x) = \arcsin^2(x)+C_a\arcsin(x)+C_b.
 \end{align*}
 \emph{Note: An alternative, arguably more elegant way of writing this is \begin{align*}
-        y(x)=\left(\arcsin(x)+C_\alpha\right)^2+C_\beta.
-    \end{align*}}
+		y(x)=\left(\arcsin(x)+C_\alpha\right)^2+C_\beta.
+	\end{align*}}
 \section*{Question 2}
 
 Consider the linear inhomogeneous ODE with constant coefficients
 \begin{align}
-    \label{ode3}
-    \frac{d^2y}{dx^2}+6\frac{dy}{dx} + 9y = e^{-3x}.
+	\label{ode3}
+	\frac{d^2y}{dx^2}+6\frac{dy}{dx} + 9y = e^{-3x}.
 \end{align}
 To solve this, we first need to solve the complementary equation
 \begin{align}
-    \label{ode4}
-    \frac{d^2y}{dx^2}+6\frac{dy}{dx} + 9y = 0.
+	\label{ode4}
+	\frac{d^2y}{dx^2}+6\frac{dy}{dx} + 9y = 0.
 \end{align}
 We find the characteristic polynomial
 \begin{align*}
-    r^2+6r+9 = 0
+	r^2+6r+9 = 0
 \end{align*}
 and thus the repeated root $r=-3$. This lets us find the solution
 to (\ref{ode4})
 \begin{align*}
-    y_c(x) = C_1e^{-3x} + C_2xe^{-3x}.
+	y_c(x) = C_1e^{-3x} + C_2xe^{-3x}.
 \end{align*}
 Since
 \begin{align*}
-    y(x) = y_c(x) + y_p(x)
+	y(x) = y_c(x) + y_p(x)
 \end{align*}
 is the general solution to (\ref{ode3}), we now need to find a particular
 solution $y_p$. By using the \emph{Method of Undetermined Coefficients}
 we find the trial solution
 \begin{align*}
-    y_p(x) = Cx^2e^{-3x}.
+	y_p(x) = Cx^2e^{-3x}.
 \end{align*}
 Inserting into (\ref{ode3}) gives
 \begin{align*}
-    Ce^{-3x}(2-12x+9x^2)+Ce^{-3x}(12x-18x^2)+Ce^{-3x}(9x^2) = e^{-3x} \\
-    \Leftrightarrow 2Ce^{-3x} = e^{-3x}
+	Ce^{-3x}(2-12x+9x^2)+Ce^{-3x}(12x-18x^2)+Ce^{-3x}(9x^2) = e^{-3x} \\
+	\Leftrightarrow 2Ce^{-3x} = e^{-3x}
 \end{align*}
 and thus $C=1/2$. The general solution then is
 \begin{align*}
-    y(x) = C_1e^{-3x}+C_2xe^{-3x}+\frac{x^2}{2}e^{-3x}.
+	y(x) = C_1e^{-3x}+C_2xe^{-3x}+\frac{x^2}{2}e^{-3x}.
 \end{align*}
 We now need to find $C_1,C_2$ such that $y(0)=1$ and $y'(0)=1$.
 Firstly, observe that
 \begin{align*}
-    y(0)=C_1.
+	y(0)=C_1.
 \end{align*}
 Thus $C_1=1$. Secondly, we find
 \begin{align*}
-    y'(x)=e^{-3x}\left(C_2-3C_1+x(1-3C_2)-\frac{3x^2}{2}\right)
+	y'(x)=e^{-3x}\left(C_2-3C_1+x(1-3C_2)-\frac{3x^2}{2}\right)
 \end{align*}
 and therefore
 \begin{align*}
-    y'(0)= C_2-3C_1.
+	y'(0)= C_2-3C_1.
 \end{align*}
 With $C_1=1$ and $y'(0)=1$ this implies $C_2=4$. Thus the particular solution
 to (\ref{ode3}) is
 \begin{align*}
-    y(x) = e^{-3x}\left(1+4x+\frac{1}{2}x^2\right).
+	y(x) = e^{-3x}\left(1+4x+\frac{1}{2}x^2\right).
 \end{align*}
 \end{document}

@@ -11,18 +11,18 @@
 Claim: Let $P$ and $Q$ be statements. Then $P\Rightarrow Q\equiv \bar{Q}\Rightarrow \bar{P}$. (Where $\equiv$ means equivalent.)\\
 Proof:
 \begin{align*}
-  P\Rightarrow Q\equiv\overline{P}\vee Q\equiv \overline{\overline{Q}}\vee \overline{P}\equiv\overline{Q}\Rightarrow\overline{P}.\:\square
+	P\Rightarrow Q\equiv\overline{P}\vee Q\equiv \overline{\overline{Q}}\vee \overline{P}\equiv\overline{Q}\Rightarrow\overline{P}.\:\square
 \end{align*}
 \section*{Question 2}
 Claim: Let $n$ be an integer such that $n^2$ is even. Then $n$ is even.\\
 Proof: We shall assume the opposite and proof by contradiction.\\
 Assume $n$ is odd while $n^2$ is even. Then
 \begin{align*}
-  n=2k+1 \text{ for some } n\in\mathbb{N}.
+	n=2k+1 \text{ for some } n\in\mathbb{N}.
 \end{align*}
 Thus
 \begin{align*}
-  n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.
+	n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1.
 \end{align*}
 With $l=2k^2+2k$, $n^2=2l+1$, which is odd and therefore contradicting the premise.\\
 We conclude, that $n$ cannot be odd and therefore has to be even. $\square$
@@ -30,16 +30,16 @@ We conclude, that $n$ cannot be odd and therefore has to be even. $\square$
 Claim: If $a+b\sqrt{2}=c+d\sqrt{2}$ for some $a,b,c,d\in\mathbb{Q}$, then $a=c$ and $b=d$.\\
 Proof:
 \begin{align*}
-  a+b\sqrt{2}         & =c+d\sqrt{2}         \\
-  \Leftrightarrow a-c & =d\sqrt{2}-b\sqrt{2} \\
-  \Leftrightarrow a-c & =\sqrt{2}(d-b)
+	a+b\sqrt{2}         & =c+d\sqrt{2}         \\
+	\Leftrightarrow a-c & =d\sqrt{2}-b\sqrt{2} \\
+	\Leftrightarrow a-c & =\sqrt{2}(d-b)
 \end{align*}
 By \emph{Liebeck, Proposition 2.4}, we know that $\sqrt{2}(d-b)$ is irrational if $d-b\not=0$. Since $a-c$ is rational, $\sqrt{2}(d-b)$ has to be as well. Thus
 \begin{align*}
-  d-b=0 \Rightarrow a-c=0
+	d-b=0 \Rightarrow a-c=0
 \end{align*}
 Therefore
 \begin{align*}
-  a=c \text{ and } d=b.\:\square
+	a=c \text{ and } d=b.\:\square
 \end{align*}
 \end{document}

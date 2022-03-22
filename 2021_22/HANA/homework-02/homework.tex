@@ -10,115 +10,115 @@
 \section{Workshop 2 - Question 2}
 
 \begin{claim}
-   If a sequence $(x_n)$ converges then the sequence $(x_n/n)$ is also convergent.
+	If a sequence $(x_n)$ converges then the sequence $(x_n/n)$ is also convergent.
 \end{claim}
 \begin{proof}
-   Note that by \emph{Wade, Theorem 2.8} $x_n$ is bounded. Choose $M\in\R$ such that
-   $\abs{x_n}\leq M$ for all $n\in\N$. Then
-   \begin{align*}
-      -M \leq x_n \leq M
-   \end{align*}
-   and therefore
-   \begin{align*}
-      -M/n \leq x_n / n \leq M/n.
-   \end{align*}
-   The sequences $(-M/n)$ and $(M/n)$ clearly converge to $0$. The claim follows from the
-   \emph{Squeeze Theorem}.
+	Note that by \emph{Wade, Theorem 2.8} $x_n$ is bounded. Choose $M\in\R$ such that
+	$\abs{x_n}\leq M$ for all $n\in\N$. Then
+	\begin{align*}
+		-M \leq x_n \leq M
+	\end{align*}
+	and therefore
+	\begin{align*}
+		-M/n \leq x_n / n \leq M/n.
+	\end{align*}
+	The sequences $(-M/n)$ and $(M/n)$ clearly converge to $0$. The claim follows from the
+	\emph{Squeeze Theorem}.
 \end{proof}
 
 \begin{claim}
-   There exists a sequence $(x_n)$ that is not convergent such that the sequence $(x_n/n)$ converges.
+	There exists a sequence $(x_n)$ that is not convergent such that the sequence $(x_n/n)$ converges.
 \end{claim}
 \begin{proof}
-   Let $x_n=n$. Then $x_n\to\infty$ as $n\to\infty$. However,
-   $x_n/n=1 \to 1$ as $n\to\infty$.
+	Let $x_n=n$. Then $x_n\to\infty$ as $n\to\infty$. However,
+	$x_n/n=1 \to 1$ as $n\to\infty$.
 \end{proof}
 
 \begin{claim}
-   There exist real sequences $(x_n)$ and $(y_n)$ such that $(x_n)$ converges and $(y_n)$
-   is bounded but $(x_ny_n)$ is not convergent.
+	There exist real sequences $(x_n)$ and $(y_n)$ such that $(x_n)$ converges and $(y_n)$
+	is bounded but $(x_ny_n)$ is not convergent.
 \end{claim}
 \begin{proof}
-   Let $x_n=1$ and $y_n=(-1)^n$. Then $x_n\to 1$ and $\abs{y_n}\leq 1$ for all $n\in N$.
-   However, $x_ny_n=y_n$ does not converge.
+	Let $x_n=1$ and $y_n=(-1)^n$. Then $x_n\to 1$ and $\abs{y_n}\leq 1$ for all $n\in N$.
+	However, $x_ny_n=y_n$ does not converge.
 \end{proof}
 
 \begin{claim}
-   There exist sequences $(x_n)$ and $(y_n)$ such that $x_n\to 0$ as $n\to\infty$ and $y_n>0$
-   for all $n\in\N$ but the sequence $(x_ny_n)$ is not convergent.
+	There exist sequences $(x_n)$ and $(y_n)$ such that $x_n\to 0$ as $n\to\infty$ and $y_n>0$
+	for all $n\in\N$ but the sequence $(x_ny_n)$ is not convergent.
 \end{claim}
 \begin{proof}
-   Let $x_n=1/n$ and $y_n=n^2$. Then $x_n\to\infty$ and $y_n>0$. However,
-   $x_ny_n=n$ does not converge.
+	Let $x_n=1/n$ and $y_n=n^2$. Then $x_n\to\infty$ and $y_n>0$. However,
+	$x_ny_n=n$ does not converge.
 \end{proof}
 
 \section{Workshop 2 - Question 5}
 
 \begin{claim}
-   Let $(x_n)$ be a sequence of real numbers and $a\in(0,1)$ such that
-   \begin{align}
-      \label{prop1}
-      \abs{x_{n+1}-x_n} \leq a^n\hs\text{fo all }n\in\N.
-   \end{align}
-   Then the sequence $(x_n)$ is convergent.
+	Let $(x_n)$ be a sequence of real numbers and $a\in(0,1)$ such that
+	\begin{align}
+		\label{prop1}
+		\abs{x_{n+1}-x_n} \leq a^n\hs\text{fo all }n\in\N.
+	\end{align}
+	Then the sequence $(x_n)$ is convergent.
 \end{claim}
 \begin{proof}
-   Let $(x_n)$ be as described. Consider the geometric series
-   \begin{align*}
-      \sum_{j=0}^\infty a^j = \frac{1}{1-a}
-   \end{align*}
-   and the convergent sequence of partial sums $(s_n)$ with
-   \begin{align*}
-      s_n = \sum_{j=0}^n a^j.
-   \end{align*}
-   Let $\e>0$. Then choose $N\in\R$ such that for all $n>N$,
-   \begin{align}
-      \label{prop2}
-      \abs{s_n-\frac{1}{1-a}} < \e.
-   \end{align}
-   Consider any integers $n,k>N+1$ and assume without loss of generality that $n>k$.
-   Observe that we can use the \emph{Triangle Inequality} to find
-   \begin{align*}
-      \abs{x_n - x_k} = \abs{x_n - x_{n-1} + x_{n-1} - x_{n-2} \cdots + x_{k+1} - x_k}
-      \leq \abs{x_n-x_{n-1}} + \abs{x_{n-1} - x_{n-2}} + \cdots + \abs{x_{k+1} - x_k}.
-   \end{align*}
-   We can then use (\ref{prop1}) to write
-   \begin{align*}
-      \abs{x_n - x_k} \leq a^{n-1} + a^{n-2} + \cdots + a^k < \sum_{j=k}^\infty a^j.
-   \end{align*}
-   Note that this infinite sum is precisely
-   \begin{align*}
-      \sum_{j=k}^\infty a^j = \frac{1}{1-a}-s_{k-1}=\abs{s_{k-1}-\frac{1}{1-a}}.
-   \end{align*}
-   Since $k-1>N$, it follows from (\ref{prop2}) that
-   \begin{align*}
-      \abs{x_n - x_k} < \e
-   \end{align*}
-   thereby making $(x_n)$ a Cauchy sequence. By \emph{Cauchy's Theorem}, the claim follows directly.
+	Let $(x_n)$ be as described. Consider the geometric series
+	\begin{align*}
+		\sum_{j=0}^\infty a^j = \frac{1}{1-a}
+	\end{align*}
+	and the convergent sequence of partial sums $(s_n)$ with
+	\begin{align*}
+		s_n = \sum_{j=0}^n a^j.
+	\end{align*}
+	Let $\e>0$. Then choose $N\in\R$ such that for all $n>N$,
+	\begin{align}
+		\label{prop2}
+		\abs{s_n-\frac{1}{1-a}} < \e.
+	\end{align}
+	Consider any integers $n,k>N+1$ and assume without loss of generality that $n>k$.
+	Observe that we can use the \emph{Triangle Inequality} to find
+	\begin{align*}
+		\abs{x_n - x_k} = \abs{x_n - x_{n-1} + x_{n-1} - x_{n-2} \cdots + x_{k+1} - x_k}
+		\leq \abs{x_n-x_{n-1}} + \abs{x_{n-1} - x_{n-2}} + \cdots + \abs{x_{k+1} - x_k}.
+	\end{align*}
+	We can then use (\ref{prop1}) to write
+	\begin{align*}
+		\abs{x_n - x_k} \leq a^{n-1} + a^{n-2} + \cdots + a^k < \sum_{j=k}^\infty a^j.
+	\end{align*}
+	Note that this infinite sum is precisely
+	\begin{align*}
+		\sum_{j=k}^\infty a^j = \frac{1}{1-a}-s_{k-1}=\abs{s_{k-1}-\frac{1}{1-a}}.
+	\end{align*}
+	Since $k-1>N$, it follows from (\ref{prop2}) that
+	\begin{align*}
+		\abs{x_n - x_k} < \e
+	\end{align*}
+	thereby making $(x_n)$ a Cauchy sequence. By \emph{Cauchy's Theorem}, the claim follows directly.
 \end{proof}
 
 \section{Workshop 2 - Question 6}
 
 \begin{claim}
-   Let $E\subset\R$ be a bounded infinite set.
-   Then there exists a point $a\in\R$ such that for all $r>0$, the set
-   $E\cap(a-r, a+r)$ contains infinitely many points.
+	Let $E\subset\R$ be a bounded infinite set.
+	Then there exists a point $a\in\R$ such that for all $r>0$, the set
+	$E\cap(a-r, a+r)$ contains infinitely many points.
 \end{claim}
 \begin{proof}
-   Let $M\in\R$ such that $\abs x \leq M$ for all $x\in E$.
-   Consider a function $f:\N\to E$ where for all $n\in\N$,
-   \begin{align*}
-      f(n) \in E \setminus \{f(k) : k < n\}.
-   \end{align*}
-   We define a sequence $(x_n)$ such that for all $n\in\N$,
-   \begin{align*}
-      x_n = f(n).
-   \end{align*}
-   Note that all elements of the sequence are unique due to the construction of $f$.
-   Since $\abs{x_n}\leq M$ for all $n$, by the \emph{Bolzano Weierstrass Theorem} there exists a subsequence $(x_{k_n})$
-   that converges to a point $a\in\R$. Let $r > 0$. Find $N\in\N$ such that for all $n>N$, $\abs{x_{k_n}-a}<r$. Equivalently,
-   for all such $n$, $x_{k_n}\in(a-r, a+r)$. Since there are infinitely many such $x_{k_n}\in E$ all of which are unique,
-   the claim follows.
+	Let $M\in\R$ such that $\abs x \leq M$ for all $x\in E$.
+	Consider a function $f:\N\to E$ where for all $n\in\N$,
+	\begin{align*}
+		f(n) \in E \setminus \{f(k) : k < n\}.
+	\end{align*}
+	We define a sequence $(x_n)$ such that for all $n\in\N$,
+	\begin{align*}
+		x_n = f(n).
+	\end{align*}
+	Note that all elements of the sequence are unique due to the construction of $f$.
+	Since $\abs{x_n}\leq M$ for all $n$, by the \emph{Bolzano Weierstrass Theorem} there exists a subsequence $(x_{k_n})$
+	that converges to a point $a\in\R$. Let $r > 0$. Find $N\in\N$ such that for all $n>N$, $\abs{x_{k_n}-a}<r$. Equivalently,
+	for all such $n$, $x_{k_n}\in(a-r, a+r)$. Since there are infinitely many such $x_{k_n}\in E$ all of which are unique,
+	the claim follows.
 \end{proof}
 
 \end{document}

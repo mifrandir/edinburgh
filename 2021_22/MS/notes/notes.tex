@@ -16,163 +16,163 @@
 \subsection{Metrics and metric spaces}
 
 \begin{definition}[Metric space]
-    A \emph{metric} on a non-empty set $X$ is a function $d:X\times X\to\R$
-    such that, for all $x,y,z\in X$,
-    \begin{enumerate}
-        \item $d(x,y)=0$ iff $x=y$,
-        \item $d(x,y)=d(y,x)$,
-        \item $d(x,y)\leq d(x,z) + d(z,y)$.
-    \end{enumerate}
-    A \emph{metric space} is an ordered pair $(X,d)$ where $X$ is a non-empty set and
-    $d$ is a metric on $X$.
+	A \emph{metric} on a non-empty set $X$ is a function $d:X\times X\to\R$
+	such that, for all $x,y,z\in X$,
+	\begin{enumerate}
+		\item $d(x,y)=0$ iff $x=y$,
+		\item $d(x,y)=d(y,x)$,
+		\item $d(x,y)\leq d(x,z) + d(z,y)$.
+	\end{enumerate}
+	A \emph{metric space} is an ordered pair $(X,d)$ where $X$ is a non-empty set and
+	$d$ is a metric on $X$.
 \end{definition}
 
 \begin{lemma}
-    The following are metric spaces:
-    \begin{enumerate}
-        \item $(\R^n, d_1)$ where $d_1:\R^n\times\R^n\to\R$ is defined by \begin{align*}
-                  d_1(x,y)=\abs{x_1-y_1}+\cdots+\abs{x_n-y_n}.
-              \end{align*}
-        \item $(\R^n, d_\infty)$ where $d_\infty:\R^n\times\R^n\to\R$ is defined by \begin{align*} d_\infty(x,y)=\max\{\abs{x_1-y_1},...,\abs{x_n-y_n}\}.
-              \end{align*}
-    \end{enumerate}
+	The following are metric spaces:
+	\begin{enumerate}
+		\item $(\R^n, d_1)$ where $d_1:\R^n\times\R^n\to\R$ is defined by \begin{align*}
+			      d_1(x,y)=\abs{x_1-y_1}+\cdots+\abs{x_n-y_n}.
+		      \end{align*}
+		\item $(\R^n, d_\infty)$ where $d_\infty:\R^n\times\R^n\to\R$ is defined by \begin{align*} d_\infty(x,y)=\max\{\abs{x_1-y_1},...,\abs{x_n-y_n}\}.
+		      \end{align*}
+	\end{enumerate}
 \end{lemma}
 
 \begin{lemma}
-    Let $a,b\in\R$ with $a<b$.
-    Then the set of all real valued continuous functions defined of real valued
-    continuous functions defined on $[a,b]$, denoted $C([a,b])$, together with
-    the usual operations of addition and scalar multiplication is a vector space.
-    Further let $d:C([a,b])\times C([a,b])\to \R$ be given by
-    \begin{align}
-        \label{metric-cab}
-        d(f,g)=\sup\{\abs{f(x)-g(x)}:x\in[a,b]\}.
-    \end{align}
-    Then $(C([a,b]),d)$ is a metric space.
+	Let $a,b\in\R$ with $a<b$.
+	Then the set of all real valued continuous functions defined of real valued
+	continuous functions defined on $[a,b]$, denoted $C([a,b])$, together with
+	the usual operations of addition and scalar multiplication is a vector space.
+	Further let $d:C([a,b])\times C([a,b])\to \R$ be given by
+	\begin{align}
+		\label{metric-cab}
+		d(f,g)=\sup\{\abs{f(x)-g(x)}:x\in[a,b]\}.
+	\end{align}
+	Then $(C([a,b]),d)$ is a metric space.
 \end{lemma}
 
 \begin{definition}[Metric subspace]
-    Let $(X,d)$ be a metric space. For any non-empty subset $Y\subseteq X$ we define
-    a function $d_Y:Y\times Y\to\R$ by
-    \begin{align*}
-        d_Y(y_1,y_2)=d(y_1,y_2).
-    \end{align*}
-    Then $(Y,d_Y)$ is a metric subspace of $(X,d)$.
+	Let $(X,d)$ be a metric space. For any non-empty subset $Y\subseteq X$ we define
+	a function $d_Y:Y\times Y\to\R$ by
+	\begin{align*}
+		d_Y(y_1,y_2)=d(y_1,y_2).
+	\end{align*}
+	Then $(Y,d_Y)$ is a metric subspace of $(X,d)$.
 \end{definition}
 
 \begin{definition}[Ultrametric]
-    Let $(X,d)$ be a metric space. If for all $x,y,z\in X$,
-    \begin{align*}
-        d(x,y)\leq \max\{d(x,z),d(z,y)\}
-    \end{align*}
-    then $d$ is called an \emph{ultrametric}.
+	Let $(X,d)$ be a metric space. If for all $x,y,z\in X$,
+	\begin{align*}
+		d(x,y)\leq \max\{d(x,z),d(z,y)\}
+	\end{align*}
+	then $d$ is called an \emph{ultrametric}.
 \end{definition}
 
 \begin{proposition}[Reverse triangle inequality]
-    Let $(X,d)$ be a metric space and let $x,y,z\in X$. Then
-    \begin{align*}
-        \abs{d(x,y)-d(x,z)}\leq d(y,z).
-    \end{align*}
+	Let $(X,d)$ be a metric space and let $x,y,z\in X$. Then
+	\begin{align*}
+		\abs{d(x,y)-d(x,z)}\leq d(y,z).
+	\end{align*}
 \end{proposition}
 
 \subsection{Norms and normed linear spaces}
 
 \begin{definition}[Normed linear space]
-    Let $X$ be a real vector space. A \emph{norm} is a function $\vabs{-}:X\to\R$
-    where for all $x,y\in X$ and all $\lambda\in\R$,
-    \begin{enumerate}
-        \item $\vabs x \geq 0$,
-        \item $\vabs x = 0$ iff $x = 0$,
-        \item $\vabs{\lambda x}=\abs \lambda \vabs x$,
-        \item $\vabs{x+y}\leq \vabs x +\vabs y$.
-    \end{enumerate}
-    A \emph{normed linear space} is a pair $(X,\vabs{-})$ where $X$ is a real vector
-    space and $\vabs{-}$ is a norm on $X$.
+	Let $X$ be a real vector space. A \emph{norm} is a function $\vabs{-}:X\to\R$
+	where for all $x,y\in X$ and all $\lambda\in\R$,
+	\begin{enumerate}
+		\item $\vabs x \geq 0$,
+		\item $\vabs x = 0$ iff $x = 0$,
+		\item $\vabs{\lambda x}=\abs \lambda \vabs x$,
+		\item $\vabs{x+y}\leq \vabs x +\vabs y$.
+	\end{enumerate}
+	A \emph{normed linear space} is a pair $(X,\vabs{-})$ where $X$ is a real vector
+	space and $\vabs{-}$ is a norm on $X$.
 \end{definition}
 
 \begin{lemma}
-    Let $p\geq 1$ be a real number.
-    Let the set of all real sequences $(x_n)_{n\in\N}$ such that the series
-    $\sum_{n=1}^\infty \abs{x_n}^p$ converges be denoted by $L^p$.
-    We define the following operations:
-    \begin{align}
-        \label{sequence_operations}
-        +:L^1\times L^1\to L^1;(x,y)\mapsto x+y               & =(x_n+y_n)_{n\in\N}=(x_1+y_1,x_2+y_2,...,x_n+y_n,...),                 \\
-        \cdot:\R\times L^1\to L^1;(\lambda,x)\mapsto\lambda x & =(\lambda x_n)_{n\in\N}=(\lambda x_1,\lambda x_2,...,\lambda x_n,...).
-    \end{align}
-    Then $(L^p,+,\cdot)$ is a vector space.
-    We define $\vabs{-}_p:L^p\to\R$ by
-    \begin{align*}
-        \vabs x_p = \left(\sum_{n=1}^\infty \abs{x_n}^p\right)^{1/p}.
-    \end{align*}
-    Then $(L^p, \vabs{-}_p)$ is a normed linear space.
-    Further, we define $d_p:L^p\times L^p\to\R$ by
-    \begin{align*}
-        d_p(x,y)=\vabs{x-y}_p=\left(\sum_{n=1}^\infty\abs{x_n-y_n}^p\right)^{1/p}.
-    \end{align*}
-    Then $(L^p,d_p)$ is a metric space.
+	Let $p\geq 1$ be a real number.
+	Let the set of all real sequences $(x_n)_{n\in\N}$ such that the series
+	$\sum_{n=1}^\infty \abs{x_n}^p$ converges be denoted by $L^p$.
+	We define the following operations:
+	\begin{align}
+		\label{sequence_operations}
+		+:L^1\times L^1\to L^1;(x,y)\mapsto x+y               & =(x_n+y_n)_{n\in\N}=(x_1+y_1,x_2+y_2,...,x_n+y_n,...),                 \\
+		\cdot:\R\times L^1\to L^1;(\lambda,x)\mapsto\lambda x & =(\lambda x_n)_{n\in\N}=(\lambda x_1,\lambda x_2,...,\lambda x_n,...).
+	\end{align}
+	Then $(L^p,+,\cdot)$ is a vector space.
+	We define $\vabs{-}_p:L^p\to\R$ by
+	\begin{align*}
+		\vabs x_p = \left(\sum_{n=1}^\infty \abs{x_n}^p\right)^{1/p}.
+	\end{align*}
+	Then $(L^p, \vabs{-}_p)$ is a normed linear space.
+	Further, we define $d_p:L^p\times L^p\to\R$ by
+	\begin{align*}
+		d_p(x,y)=\vabs{x-y}_p=\left(\sum_{n=1}^\infty\abs{x_n-y_n}^p\right)^{1/p}.
+	\end{align*}
+	Then $(L^p,d_p)$ is a metric space.
 \end{lemma}
 
 \begin{lemma}
-    Let the set of all bounded real sequences be denoted by $L^\infty$. Then, together with
-    the usual operations defined in (\ref{sequence_operations}), $L^\infty$ is a vector space.
-    We define $\vabs{-}_\infty:L^\infty\to\R$ by
-    \begin{align*}
-        \vabs x_\infty = \sup\{\abs{x_n}:n\in\N\}.
-    \end{align*}
-    Then $(L^\infty,\vabs{-}_\infty)$ is a normed linear space.
-    Further, let $d_\infty:L^\infty\times L^\infty\to\R$ is given by
-    \begin{align*}
-        d_\infty(x,y)=\vabs{x-y}_\infty = \sup\{\abs{x_1-y_1,x_2-y_2,...}\}.
-    \end{align*}
-    Then $(L^\infty, d_\infty)$ is a metric space.
+	Let the set of all bounded real sequences be denoted by $L^\infty$. Then, together with
+	the usual operations defined in (\ref{sequence_operations}), $L^\infty$ is a vector space.
+	We define $\vabs{-}_\infty:L^\infty\to\R$ by
+	\begin{align*}
+		\vabs x_\infty = \sup\{\abs{x_n}:n\in\N\}.
+	\end{align*}
+	Then $(L^\infty,\vabs{-}_\infty)$ is a normed linear space.
+	Further, let $d_\infty:L^\infty\times L^\infty\to\R$ is given by
+	\begin{align*}
+		d_\infty(x,y)=\vabs{x-y}_\infty = \sup\{\abs{x_1-y_1,x_2-y_2,...}\}.
+	\end{align*}
+	Then $(L^\infty, d_\infty)$ is a metric space.
 \end{lemma}
 
 \begin{lemma}[Minkowski's inequality]
-    Let $p\geq 1$ be a real number. Let $x,y\in L^p$. Then
-    \begin{align*}
-        \left(\sum_{i=1}^\infty \abs{x_i+y_i}^p\right)^{1/p}
-        \leq \left(\sum_{i=1}^\infty \abs{x_i}^p\right)^{1/p}
-        + \left(\sum_{i=1}^\infty \abs{y_i}^p\right)^{1/p}.
-    \end{align*}
+	Let $p\geq 1$ be a real number. Let $x,y\in L^p$. Then
+	\begin{align*}
+		\left(\sum_{i=1}^\infty \abs{x_i+y_i}^p\right)^{1/p}
+		\leq \left(\sum_{i=1}^\infty \abs{x_i}^p\right)^{1/p}
+		+ \left(\sum_{i=1}^\infty \abs{y_i}^p\right)^{1/p}.
+	\end{align*}
 \end{lemma}
 
 \begin{lemma}[H\"older's inequality]
-    Let $p,q\geq 1$ be real numbers with $1/p+1/q=1$. Let $x\in L^p$ and $y\in L^q$. Then
-    \begin{align*}
-        \sum_{n=1}^\infty \abs{x_ny_n}\leq
-        \left(\sum_{n=1}^\infty\abs{x_n}^p\right)^{1/p}
-        \left(\sum_{n=1}^\infty\abs{y_n}^q\right)^{1/q}.
-    \end{align*}
+	Let $p,q\geq 1$ be real numbers with $1/p+1/q=1$. Let $x\in L^p$ and $y\in L^q$. Then
+	\begin{align*}
+		\sum_{n=1}^\infty \abs{x_ny_n}\leq
+		\left(\sum_{n=1}^\infty\abs{x_n}^p\right)^{1/p}
+		\left(\sum_{n=1}^\infty\abs{y_n}^q\right)^{1/q}.
+	\end{align*}
 \end{lemma}
 
 \subsection{Inner products and inner product spaces}
 
 \begin{definition}[Inner product space]
-    Let $X$ be a real vector space over $\R$. An \emph{inner product}
-    is a map $\lra{.,.}:X\times X\to\R$ where for all $x,y,z\in X$ and
-    $\lambda,\mu\in\R$,
-    \begin{enumerate}
-        \item $\lra{x,x}\geq 0$ with $\lra{x,x}=0$ iff $x=0$,
-        \item $\lra{x,y}=\lra{y,x}$,
-        \item $\lra{\lambda x+\mu y,z}=\lambda\lra{x,z}+\mu{y,z}$.
-    \end{enumerate}
-    A \emph{inner product space} is a pair $(X, \lra{.,.})$ where $X$ is a real
-    vector space and $\lra{.,.}$ is a norm on $X$.
+	Let $X$ be a real vector space over $\R$. An \emph{inner product}
+	is a map $\lra{.,.}:X\times X\to\R$ where for all $x,y,z\in X$ and
+	$\lambda,\mu\in\R$,
+	\begin{enumerate}
+		\item $\lra{x,x}\geq 0$ with $\lra{x,x}=0$ iff $x=0$,
+		\item $\lra{x,y}=\lra{y,x}$,
+		\item $\lra{\lambda x+\mu y,z}=\lambda\lra{x,z}+\mu{y,z}$.
+	\end{enumerate}
+	A \emph{inner product space} is a pair $(X, \lra{.,.})$ where $X$ is a real
+	vector space and $\lra{.,.}$ is a norm on $X$.
 \end{definition}
 
 \begin{lemma}
-    Let $(X,\lra{.,.})$ be an inner product space. Let $\vabs{-}:X\to\R$ be given
-    by
-    \begin{align*}
-        \vabs x = \sqrt{\lra{x,x}}.
-    \end{align*}
-    Then $(X,\vabs{-})$ is a normed linear space. Further, let $d:X\times X\to\R$
-    be given by
-    \begin{align*}
-        d(x,y)=\vabs{x-y}.
-    \end{align*}
-    Then $(X,d)$ is a metric space.
+	Let $(X,\lra{.,.})$ be an inner product space. Let $\vabs{-}:X\to\R$ be given
+	by
+	\begin{align*}
+		\vabs x = \sqrt{\lra{x,x}}.
+	\end{align*}
+	Then $(X,\vabs{-})$ is a normed linear space. Further, let $d:X\times X\to\R$
+	be given by
+	\begin{align*}
+		d(x,y)=\vabs{x-y}.
+	\end{align*}
+	Then $(X,d)$ is a metric space.
 \end{lemma}
 
 \section{The real line}
@@ -180,133 +180,133 @@
 \subsection{Open and closed sets}
 
 \begin{definition}
-    A subset $F\subseteq\R$ is said to be \emph{closed} if it contains the limit of all
-    its convergent sequences, i.e. if $(x_n)_{n\in\N}$ is any sequence with $x_n\in F$
-    for all $n$, and $x_n\to x$ for some $x\in\R$, then $x\in F$.
+	A subset $F\subseteq\R$ is said to be \emph{closed} if it contains the limit of all
+	its convergent sequences, i.e. if $(x_n)_{n\in\N}$ is any sequence with $x_n\in F$
+	for all $n$, and $x_n\to x$ for some $x\in\R$, then $x\in F$.
 \end{definition}
 
 \begin{proposition}[Notes 2.2]
-    The union of finitely many closed sets is a closed set.
+	The union of finitely many closed sets is a closed set.
 \end{proposition}
 
 \begin{proposition}[Notes 2.4]
-    The intersection of any family of closed sets is a closed set.
+	The intersection of any family of closed sets is a closed set.
 \end{proposition}
 
 \begin{definition}
-    A subset $G\subseteq\R$ is said to be \emph{open} if it its complement $G^c$ is closed.
+	A subset $G\subseteq\R$ is said to be \emph{open} if it its complement $G^c$ is closed.
 \end{definition}
 
 \begin{proposition}[Notes 2.6]
-    Let $G\subseteq\R$. The following are equivalent:
-    \begin{enumerate}
-        \item $G$ is open.
-        \item For every point $x\in G$, there exists a positive raidus $r$, such that
-              $(x-r,x+r)\subseteq G$.
-    \end{enumerate}
+	Let $G\subseteq\R$. The following are equivalent:
+	\begin{enumerate}
+		\item $G$ is open.
+		\item For every point $x\in G$, there exists a positive raidus $r$, such that
+		      $(x-r,x+r)\subseteq G$.
+	\end{enumerate}
 \end{proposition}
 
 \begin{proposition}[Notes 2.8]
-    The union of any family of open sets is an open set.
+	The union of any family of open sets is an open set.
 \end{proposition}
 
 \begin{proposition}[Notes 2.9]
-    The intersection of finitely many open sets is an open set.
+	The intersection of finitely many open sets is an open set.
 \end{proposition}
 
 \begin{theorem}[Notes 2.10]
-    A subset of the real line is open iff it is the union of open intervals.
+	A subset of the real line is open iff it is the union of open intervals.
 \end{theorem}
 
 \begin{theorem}[Notes 2.11]
-    Every open subset of the real line can be written as an at most countable union
-    of pairwise disjoint open intervals.
+	Every open subset of the real line can be written as an at most countable union
+	of pairwise disjoint open intervals.
 \end{theorem}
 
 \subsection{Another look at continuity and uniform continuity}
 
 \begin{proposition}[Notes 2.23]
-    If $K\subseteq\R$ is compact and $f:K\to\R$ is continuous, then $f$ is
-    uniformly continuous.
+	If $K\subseteq\R$ is compact and $f:K\to\R$ is continuous, then $f$ is
+	uniformly continuous.
 \end{proposition}
 
 \begin{proposition}[Notes 2.24]
-    A function $f:\R\to\R$ is continuous iff the inverse image of every
-    open set is an open set.
+	A function $f:\R\to\R$ is continuous iff the inverse image of every
+	open set is an open set.
 \end{proposition}
 
 \begin{definition}
-    Let $A\subseteq\R$. A subset $G\subseteq A$ is said to be \emph{relatively open}
-    if there exists an open subset $O\subseteq\R$ such that $G=A\cap O$.
+	Let $A\subseteq\R$. A subset $G\subseteq A$ is said to be \emph{relatively open}
+	if there exists an open subset $O\subseteq\R$ such that $G=A\cap O$.
 \end{definition}
 
 \begin{theorem}
-    Let $A\subseteq\R$. A function $f:A\to\R$ is continuous iff the inverse
-    image $\inv f(G)$ of every open set $G$ is a relatively open subset of $A$.
+	Let $A\subseteq\R$. A function $f:A\to\R$ is continuous iff the inverse
+	image $\inv f(G)$ of every open set $G$ is a relatively open subset of $A$.
 \end{theorem}
 
 \subsection{Compact sets and the Heine-Borel theorem}
 
 \begin{definition}
-    A subset $K\subseteq\R$ is said to be\emph{compact} if every sequence of elements
-    of $K$ hasa subsequence that converges to an element of $K$.
+	A subset $K\subseteq\R$ is said to be\emph{compact} if every sequence of elements
+	of $K$ hasa subsequence that converges to an element of $K$.
 \end{definition}
 
 \begin{theorem}[Notes 2.15]
-    On the real line, a set is compact if it is closed and bounded.
+	On the real line, a set is compact if it is closed and bounded.
 \end{theorem}
 
 \begin{theorem}[Notes 2.17]
-    Let $K$ be a compact set on the real line. If $f:K\to\R$ is continuous
-    then it is bounded.
+	Let $K$ be a compact set on the real line. If $f:K\to\R$ is continuous
+	then it is bounded.
 \end{theorem}
 
 \begin{theorem}[Extreme Value Theorem; Notes 2.18]
-    Let $K$ be a compact set on the real line. If $f:K\to\R$ is continuous
-    then $f$ has a maximum and a minimum.
+	Let $K$ be a compact set on the real line. If $f:K\to\R$ is continuous
+	then $f$ has a maximum and a minimum.
 \end{theorem}
 
 \begin{definition}
-    Let $E$ be a subset of $\R$. An \emph{open cover} of $E$ is a family
-    $(G_i)_{i\in I}$ of open sets such that
-    \begin{align*}
-        E\subseteq \bigcup_{i\in I}G_i.
-    \end{align*}
-    A \emph{subcover} of $(G_i)_{i\in I}$ is a smaller family $(G_i)_{i\in I'}$,
-    where $I'\subseteq I$, that still covers $E$.
+	Let $E$ be a subset of $\R$. An \emph{open cover} of $E$ is a family
+	$(G_i)_{i\in I}$ of open sets such that
+	\begin{align*}
+		E\subseteq \bigcup_{i\in I}G_i.
+	\end{align*}
+	A \emph{subcover} of $(G_i)_{i\in I}$ is a smaller family $(G_i)_{i\in I'}$,
+	where $I'\subseteq I$, that still covers $E$.
 \end{definition}
 
 \begin{theorem}[Heine-Borel; Notes 2.20]
-    Let $a,b\in\R$ with $a<b$. Every open cover of $[a,b]$ has a finite subcover.
+	Let $a,b\in\R$ with $a<b$. Every open cover of $[a,b]$ has a finite subcover.
 \end{theorem}
 
 \begin{theorem}[Notes 2.21]
-    Let $K\subseteq\R$. The following are equivalent:
-    \begin{enumerate}
-        \item $K$ is compact.
-        \item Every open cover of $K$ has a finite subcover.
-    \end{enumerate}
+	Let $K\subseteq\R$. The following are equivalent:
+	\begin{enumerate}
+		\item $K$ is compact.
+		\item Every open cover of $K$ has a finite subcover.
+	\end{enumerate}
 \end{theorem}
 
 \section{Open balls}
 
 \begin{definition}
-    Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. The \emph{open ball} with center $c$
-    and radius $r$, denoted by $B(c,r)$, is the set of all elements of $X$ whose distance
-    from $c$ is less than $r$, i.e.
-    \begin{align*}
-        B(c,r) = \{x\in X : d(x,c)<r\}.
-    \end{align*}
-    Thet set
-    \begin{align*}
-        \{x\in X: d(x,c)\leq r\}
-    \end{align*}
-    is called the \emph{closed ball} with center $c$ and radius $r$.
+	Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. The \emph{open ball} with center $c$
+	and radius $r$, denoted by $B(c,r)$, is the set of all elements of $X$ whose distance
+	from $c$ is less than $r$, i.e.
+	\begin{align*}
+		B(c,r) = \{x\in X : d(x,c)<r\}.
+	\end{align*}
+	Thet set
+	\begin{align*}
+		\{x\in X: d(x,c)\leq r\}
+	\end{align*}
+	is called the \emph{closed ball} with center $c$ and radius $r$.
 \end{definition}
 
 \begin{proposition}[Notes 3.7]
-    Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. For every point $x$ in the open
-    ball $B(c,r)$ there exists a positive number $r'$ such that $B(x,r')\subseteq B(c,r)$.
+	Let $(X,d)$ be a metric space, $c\in X$ and $r>0$. For every point $x$ in the open
+	ball $B(c,r)$ there exists a positive number $r'$ such that $B(x,r')\subseteq B(c,r)$.
 \end{proposition}
 
 \section{Open sets and closed sets}
@@ -316,195 +316,195 @@ Let $(X,d)$ be a metric space.
 \subsection{Open sets}
 
 \begin{definition}
-    Let $A\subseteq X$. A point $a$ in $A$ is
-    an \emph{interior point of $A$} if there exists $r>0$ such that $B(a,r)\subseteq A$.
+	Let $A\subseteq X$. A point $a$ in $A$ is
+	an \emph{interior point of $A$} if there exists $r>0$ such that $B(a,r)\subseteq A$.
 \end{definition}
 
 \begin{definition}
-    Let $G\subseteq X$. Then $G$ is \emph{open} if
-    every point in $G$ is an interior point of $G$, i.e. for every $x\in G$ there exists
-    $r>0$ such that $B(x,r)\subseteq G$.
+	Let $G\subseteq X$. Then $G$ is \emph{open} if
+	every point in $G$ is an interior point of $G$, i.e. for every $x\in G$ there exists
+	$r>0$ such that $B(x,r)\subseteq G$.
 \end{definition}
 
 \begin{theorem}[Notes 4.6]
-    Let $(G_i)_{i\in I}$ be any family of open subsets of $X$. Then the union
-    $\bigcup_{i\in I} G_i$ is open.
+	Let $(G_i)_{i\in I}$ be any family of open subsets of $X$. Then the union
+	$\bigcup_{i\in I} G_i$ is open.
 \end{theorem}
 
 \begin{theorem}[Notes 4.7]
-    Let $G_1,...,G_n\subset X$ be open. Then the intersection $G_1\cap\cdots\cap G_n$
-    is open.
+	Let $G_1,...,G_n\subset X$ be open. Then the intersection $G_1\cap\cdots\cap G_n$
+	is open.
 \end{theorem}
 
 \begin{proposition}[Notes 4.9]
-    A set in a metric space is open iff it can be written as a union of open balls.
+	A set in a metric space is open iff it can be written as a union of open balls.
 \end{proposition}
 
 \begin{definition}
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $G\subseteq Y$. Then $G$ is called
-    \emph{relatively open} if it is open in the metric space $(Y,d_Y)$.
+	Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $G\subseteq Y$. Then $G$ is called
+	\emph{relatively open} if it is open in the metric space $(Y,d_Y)$.
 \end{definition}
 
 \begin{proposition}[Notes 4.10]
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $G\subseteq Y$. The following
-    are equivalent
-    \begin{itemize}
-        \item $G$ is open in the metric space $(Y,d_Y)$;
-        \item there exists $O\subseteq X$ that is open in the metric space $(X,d)$ such that $G=O\cap Y$.
-    \end{itemize}
+	Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $G\subseteq Y$. The following
+	are equivalent
+	\begin{itemize}
+		\item $G$ is open in the metric space $(Y,d_Y)$;
+		\item there exists $O\subseteq X$ that is open in the metric space $(X,d)$ such that $G=O\cap Y$.
+	\end{itemize}
 \end{proposition}
 
 \begin{proposition}[Notes, Exercise 4.11]
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ such that $Y$ is open and non-empty. Then a
-    subset $G\subseteq Y$ is open in the metric space $(Y,d_Y)$ iff it is open in the
-    metric space $(X,d)$.
+	Let $(Y,d_Y)$ be a subspace of $(X,d)$ such that $Y$ is open and non-empty. Then a
+	subset $G\subseteq Y$ is open in the metric space $(Y,d_Y)$ iff it is open in the
+	metric space $(X,d)$.
 \end{proposition}
 
 \begin{definition}
-    A metric space $(X,d)$ is said to be \emph{discrete} if every subset of $X$ is open.
+	A metric space $(X,d)$ is said to be \emph{discrete} if every subset of $X$ is open.
 \end{definition}
 
 \subsection{Closed sets}
 
 \begin{definition}
-    Let $F\subseteq X$. Then $F$ is \emph{closed} if $F^c$ is open.
+	Let $F\subseteq X$. Then $F$ is \emph{closed} if $F^c$ is open.
 \end{definition}
 
 \begin{theorem}[Notes 4.20]
-    Let $(F_i)_{i\in I}$ be a family of closed subsets of $X$. Then $\bigcap_{i\in I}F_i$
-    is closed.
+	Let $(F_i)_{i\in I}$ be a family of closed subsets of $X$. Then $\bigcap_{i\in I}F_i$
+	is closed.
 \end{theorem}
 
 \begin{theorem}[Notes 4.21]
-    Let $F_1,...,F_n\subseteq X$ be closed. Then $F_1\cup\cdots\cup F_n$ is closed.
+	Let $F_1,...,F_n\subseteq X$ be closed. Then $F_1\cup\cdots\cup F_n$ is closed.
 \end{theorem}
 
 \begin{definition}
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. Then $F$ is called
-    \emph{relatively closed} if it is closed in the metric space $(Y,d_Y)$.
+	Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. Then $F$ is called
+	\emph{relatively closed} if it is closed in the metric space $(Y,d_Y)$.
 \end{definition}
 
 \begin{proposition}
-    Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. The following are
-    equivalent
-    \begin{itemize}
-        \item $F$ is closed in the metric space $(Y,d_Y)$;
-        \item there exists $C\subset X$ that is closed in the metric space $(X,d)$ such that
-              $F=C\cap Y$.
-        \item $F=\overline F$. (\emph{Proposition 4.20})
-        \item $\p F\subseteq F$. (\emph{Notes, Problem 4.43})
-        \item For all accumulation points $x$ of $F$ in $Y$, $x\in F$. (\emph{Notes, Problem 4.47})
-        \item For all sequences $(x_n)_{n\in\N}$ of elements in $F$, $x_n\to x$ implies $x\in F$. (\emph{Proposition 5.9})
-    \end{itemize}
+	Let $(Y,d_Y)$ be a subspace of $(X,d)$ and let $F\subseteq Y$. The following are
+	equivalent
+	\begin{itemize}
+		\item $F$ is closed in the metric space $(Y,d_Y)$;
+		\item there exists $C\subset X$ that is closed in the metric space $(X,d)$ such that
+		      $F=C\cap Y$.
+		\item $F=\overline F$. (\emph{Proposition 4.20})
+		\item $\p F\subseteq F$. (\emph{Notes, Problem 4.43})
+		\item For all accumulation points $x$ of $F$ in $Y$, $x\in F$. (\emph{Notes, Problem 4.47})
+		\item For all sequences $(x_n)_{n\in\N}$ of elements in $F$, $x_n\to x$ implies $x\in F$. (\emph{Proposition 5.9})
+	\end{itemize}
 \end{proposition}
 
 \begin{definition}
-    A set $A\subseteq X$ is called \emph{clopen} if it is both closed and open
-    in the metric space $(X,d)$.
+	A set $A\subseteq X$ is called \emph{clopen} if it is both closed and open
+	in the metric space $(X,d)$.
 \end{definition}
 
 \subsection{Interior}
 
 \begin{definition}
-    Let $(X,d)$ be a metric space and $A\subseteq X$. The largest open set contained in $A$
-    is called the interior of $A$ and is denoted $\interior A$.
+	Let $(X,d)$ be a metric space and $A\subseteq X$. The largest open set contained in $A$
+	is called the interior of $A$ and is denoted $\interior A$.
 \end{definition}
 
 \begin{definition}
-    Let $A\subseteq X$. A point $x\in X$ is called an \emph{interior point} of $A$ if 
-    there exists an open ball $B(x,r)\subseteq A$. 
+	Let $A\subseteq X$. A point $x\in X$ is called an \emph{interior point} of $A$ if
+	there exists an open ball $B(x,r)\subseteq A$.
 \end{definition}
 
 \begin{proposition}[Notes 4.24]
-    Let $(X,d)$ be a metric space and $A,B$ be subsets of $X$. Then 
-    \begin{enumerate}
-        \item $\interior\emptyset=\emptyset$ and $\interior X=X$,
-        \item $\interior(\interior{A})=\interior A$, 
-        \item $A$ is open iff $A=\interior A$,
-        \item if $A\subseteq B$, then $\interior A\subseteq\interior B$.
-    \end{enumerate} 
+	Let $(X,d)$ be a metric space and $A,B$ be subsets of $X$. Then
+	\begin{enumerate}
+		\item $\interior\emptyset=\emptyset$ and $\interior X=X$,
+		\item $\interior(\interior{A})=\interior A$,
+		\item $A$ is open iff $A=\interior A$,
+		\item if $A\subseteq B$, then $\interior A\subseteq\interior B$.
+	\end{enumerate}
 \end{proposition}
 
 \begin{proposition}[Notes 4.25]
-    Let $(X,d)$ be a metric space, $A\subseteq X$ and $x\in X$. Then $x\in\interior A$ iff 
-    $x$ is an interior point of $A$.
+	Let $(X,d)$ be a metric space, $A\subseteq X$ and $x\in X$. Then $x\in\interior A$ iff
+	$x$ is an interior point of $A$.
 \end{proposition}
 
 \subsection{Exterior and boundary}
 
 \begin{definition}
-    Let $A\subseteq X$. A point $x\in X$ is called an \emph{exterior point} of $A$ if 
-    there exists an open ball $B(x,r)\subseteq A^c$. The set of all exterior points is denoted 
-    $\exterior A$ and called \emph{exterior} of $A$.
+	Let $A\subseteq X$. A point $x\in X$ is called an \emph{exterior point} of $A$ if
+	there exists an open ball $B(x,r)\subseteq A^c$. The set of all exterior points is denoted
+	$\exterior A$ and called \emph{exterior} of $A$.
 \end{definition}
 
 \begin{definition}
-    Let $A\subseteq X$. A point $x\in X$ is called a \emph{boundary point} of $A$ if, for all 
-    $r>0$,
-    \begin{align*}
-        B(x,r)\cap A\not=\emptyset\hs\text{and}\hs B(x,r)\cap A^c\not=\emptyset.
-    \end{align*}
-    The set of all boundary points of $A$ is denoted $\p A$ and is called the boundary of $A$.
+	Let $A\subseteq X$. A point $x\in X$ is called a \emph{boundary point} of $A$ if, for all
+	$r>0$,
+	\begin{align*}
+		B(x,r)\cap A\not=\emptyset\hs\text{and}\hs B(x,r)\cap A^c\not=\emptyset.
+	\end{align*}
+	The set of all boundary points of $A$ is denoted $\p A$ and is called the boundary of $A$.
 \end{definition}
 
 \subsection{Closure}
 
 \begin{definition}
-    Let $A\subseteq X$. The smallest closed set containing $A$, denoted $\overline A$, is called
-    the \emph{closure} of $A$.
+	Let $A\subseteq X$. The smallest closed set containing $A$, denoted $\overline A$, is called
+	the \emph{closure} of $A$.
 \end{definition}
 
 \begin{proposition}[Notes 4.26]
-    Let $A,B\subseteq X$. Then
-    \begin{itemize}
-        \item $\overline\emptyset = \emptyset$ and $\overline X = X$,
-        \item $\overline{\overline A} = \overline A$,
-        \item $A$ is closed iff $A=\overline A$,
-        \item $A\subseteq B$ implies $\overline A\subseteq\overline B$,
-        \item $\overline{A\cup B} = \overline A \cup \overline B$.
-    \end{itemize}
+	Let $A,B\subseteq X$. Then
+	\begin{itemize}
+		\item $\overline\emptyset = \emptyset$ and $\overline X = X$,
+		\item $\overline{\overline A} = \overline A$,
+		\item $A$ is closed iff $A=\overline A$,
+		\item $A\subseteq B$ implies $\overline A\subseteq\overline B$,
+		\item $\overline{A\cup B} = \overline A \cup \overline B$.
+	\end{itemize}
 \end{proposition}
 
 \begin{theorem}[Lectures Week 5, Theorem 2]
-    Let $x\in X$, $A\subseteq X$. Then $x\in\overline A$ iff $\dist(x,A)=0$.
+	Let $x\in X$, $A\subseteq X$. Then $x\in\overline A$ iff $\dist(x,A)=0$.
 \end{theorem}
 
 \subsection{Adherent points}
 
 \begin{definition}[Notes 4.27]
-    Let $A\subseteq X$ and $x\in X$. We say that $x$ is an \emph{adherent point of $A$}
-    iff, for every $r>0$, we have $B(x,r)\cap A\not=\emptyset$.
+	Let $A\subseteq X$ and $x\in X$. We say that $x$ is an \emph{adherent point of $A$}
+	iff, for every $r>0$, we have $B(x,r)\cap A\not=\emptyset$.
 \end{definition}
 
 \begin{proposition}[Notes 4.29]
-    Let $A\subseteq X$. A point $x\in X$ is an adherent point of $A$ iff
-    $x\in\overline A$.
+	Let $A\subseteq X$. A point $x\in X$ is an adherent point of $A$ iff
+	$x\in\overline A$.
 \end{proposition}
 
 \begin{definition}
-    Let $A\subset X$ and $x\in X$.
-    \begin{enumerate}
-        \item We say that $x$ is an \emph{accumulation point} of $A$ if, for every $r>0$,
-              \begin{align*}
-                  B(x,r)\cap A\not=\{x\}.
-              \end{align*}
-        \item We say that $x$ is an \emph{isolated point} of $A$ if there exists $r_0>0$
-              such that \begin{align*}
-                  B(x,r_0)\cap A = \{x\}.
-              \end{align*}
-    \end{enumerate}
+	Let $A\subset X$ and $x\in X$.
+	\begin{enumerate}
+		\item We say that $x$ is an \emph{accumulation point} of $A$ if, for every $r>0$,
+		      \begin{align*}
+			      B(x,r)\cap A\not=\{x\}.
+		      \end{align*}
+		\item We say that $x$ is an \emph{isolated point} of $A$ if there exists $r_0>0$
+		      such that \begin{align*}
+			      B(x,r_0)\cap A = \{x\}.
+		      \end{align*}
+	\end{enumerate}
 \end{definition}
 
 \subsection{Dense sets}
 
 \begin{definition}
-    A subset $D\subseteq X$ is said to be \emph{dense} if, for every $x\in X$
-    and every $r>0$, there exists a point $y\in D$ such that $d(x,y)<r$.
+	A subset $D\subseteq X$ is said to be \emph{dense} if, for every $x\in X$
+	and every $r>0$, there exists a point $y\in D$ such that $d(x,y)<r$.
 \end{definition}
 
 \begin{proposition}[Notes 4.33]
-    A subset $D\subseteq X$ is dense iff it intersects every non-empty open
-    subset of $X$.
+	A subset $D\subseteq X$ is dense iff it intersects every non-empty open
+	subset of $X$.
 \end{proposition}
 
 \section{Convergent sequences}
@@ -512,101 +512,101 @@ Let $(X,d)$ be a metric space.
 \subsection{Sequences and their limits}
 
 \begin{definition}
-    Let $(X,d)$ be a metric space. A \emph{sequence} of elements of $X$ is a function defined 
-    on $\N$ with values in $X$. If $x:\N\to\N$ is such a sequence and $n$ is a positive integer
-    we write $x_n:=x(n)$ and we denote the whole sequence by $(x_n)_{n\in\N}$.
+	Let $(X,d)$ be a metric space. A \emph{sequence} of elements of $X$ is a function defined
+	on $\N$ with values in $X$. If $x:\N\to\N$ is such a sequence and $n$ is a positive integer
+	we write $x_n:=x(n)$ and we denote the whole sequence by $(x_n)_{n\in\N}$.
 \end{definition}
 
 \begin{definition}
-    Let $(X,d)$ be a metric space. Let $(x_n)_{n\in\N}$ be a sequence of elements of $X$ and let 
-    $x\in X$. We say that $(x_n)_{n\in\N}$ converges to $x$ if the real sequence $(d(x_n,x))_{n\in\N}$
-    converges to zero.
+	Let $(X,d)$ be a metric space. Let $(x_n)_{n\in\N}$ be a sequence of elements of $X$ and let
+	$x\in X$. We say that $(x_n)_{n\in\N}$ converges to $x$ if the real sequence $(d(x_n,x))_{n\in\N}$
+	converges to zero.
 \end{definition}
 
 \begin{proposition}[Notes 5.3]
-    In a metric space, $x_n\to x$ as $n\to\infty$ iff for every open ball $B$ centered at $x$, there 
-    exists an index $N$, such that, for all $n\geq N$, we have $x_n\in B$.
+	In a metric space, $x_n\to x$ as $n\to\infty$ iff for every open ball $B$ centered at $x$, there
+	exists an index $N$, such that, for all $n\geq N$, we have $x_n\in B$.
 \end{proposition}
 
 \begin{proposition}[Notes 5.4]
-    In a metric space, $x_n\to x$ as $n\to\infty$ iff, for every open set $G$ containing $x$, there 
-    exists an index $N$, such that, for all indices $n$ with $n\geq N$, we have $x_n\in G$.
+	In a metric space, $x_n\to x$ as $n\to\infty$ iff, for every open set $G$ containing $x$, there
+	exists an index $N$, such that, for all indices $n$ with $n\geq N$, we have $x_n\in G$.
 \end{proposition}
 
 \begin{proposition}[Notes 5.5]
-    Let $(X,d)$ be a metric space, let $(x_n)_{n\in\N}$ be a sequence in $X$ and let $x,x'\in X$.
-    If $x_n\to x$ and $x_n\to x'$ as $n\to\infty$ then $x=x'$. 
+	Let $(X,d)$ be a metric space, let $(x_n)_{n\in\N}$ be a sequence in $X$ and let $x,x'\in X$.
+	If $x_n\to x$ and $x_n\to x'$ as $n\to\infty$ then $x=x'$.
 \end{proposition}
 
 \begin{proposition}[Notes 5.6]
-    Let $(X,d)$ be a metric space and let $(x_n)_{n\in\N},(y_n)_{n\in\N}$ be two sequences in $X$
-    that converge to limts $x$ and $y$ respectively. Then $d(x_n,y_n)\to d(x,y)$.
+	Let $(X,d)$ be a metric space and let $(x_n)_{n\in\N},(y_n)_{n\in\N}$ be two sequences in $X$
+	that converge to limts $x$ and $y$ respectively. Then $d(x_n,y_n)\to d(x,y)$.
 \end{proposition}
 
 \begin{corollary}[Notes 5.7]
-    Let $(X,d)$ be a metric space, $(x_n)_{n\in\N}$ be a convergent sequence in $X$ with limit $x$,
-    and $y$ be any point in $X$. Then $d(x_n,y)\to d(x,y)$.
+	Let $(X,d)$ be a metric space, $(x_n)_{n\in\N}$ be a convergent sequence in $X$ with limit $x$,
+	and $y$ be any point in $X$. Then $d(x_n,y)\to d(x,y)$.
 \end{corollary}
 
 \subsection{Bounded sequences}
 
 \begin{definition}
-    A sequence $(x_n)_{n\in\N}$ in a metric space is said to be \emph{bounded} if there exists 
-    a point $c\in X$ and a positive real number $r$ such that, for all $n$, $x_n\in B(c,r)$.
+	A sequence $(x_n)_{n\in\N}$ in a metric space is said to be \emph{bounded} if there exists
+	a point $c\in X$ and a positive real number $r$ such that, for all $n$, $x_n\in B(c,r)$.
 \end{definition}
 
 \begin{proposition}[Notes 5.10]
-    Let $(X,d)$ be a metric space and $F\subseteq X$. The set $F$ is closed iff the limit of 
-    every convergent sequence of elements of $F$ is an element of $F$.
+	Let $(X,d)$ be a metric space and $F\subseteq X$. The set $F$ is closed iff the limit of
+	every convergent sequence of elements of $F$ is an element of $F$.
 \end{proposition}
 
 \subsection{Subsequences}
 
 \begin{definition}
-    Let $(x_n)_{n\in\N}$ be a sequence in a metric space and let $(n_k)_{k\in\N}$ be a strictly
-    increasing sequence of indices. Then the sequence $(x_{n_k})_{k\in\N}$ is called 
-    a subsequence of $(x_n)_{n\in\N}$.
+	Let $(x_n)_{n\in\N}$ be a sequence in a metric space and let $(n_k)_{k\in\N}$ be a strictly
+	increasing sequence of indices. Then the sequence $(x_{n_k})_{k\in\N}$ is called
+	a subsequence of $(x_n)_{n\in\N}$.
 \end{definition}
 
 \begin{proposition}
-    If a sequence $(x_n)_{n\in\N}$ in a metric space converges to a limit $x$ then every subsequence
-    $(x_{n_k})_{k\in\N}$ converges to $x$.
+	If a sequence $(x_n)_{n\in\N}$ in a metric space converges to a limit $x$ then every subsequence
+	$(x_{n_k})_{k\in\N}$ converges to $x$.
 \end{proposition}
 
 \subsection{The metric space $C([a,b])$}
 
 \begin{theorem}
-    Let $a<b$ be real numbers. Then define $X=C([a,b])$ as the set of all continuous functions 
-    $f:[a,b]\to\R$ and the map $d_\infty:X\to X\to\R$ by 
-    \begin{align*}
-        d_\infty(f,g) = \max\{\abs{f(t)-g(t)}: t\in[a,b]\}.
-    \end{align*}
-    Then $(X,d_\infty)$ is a metric space.
+	Let $a<b$ be real numbers. Then define $X=C([a,b])$ as the set of all continuous functions
+	$f:[a,b]\to\R$ and the map $d_\infty:X\to X\to\R$ by
+	\begin{align*}
+		d_\infty(f,g) = \max\{\abs{f(t)-g(t)}: t\in[a,b]\}.
+	\end{align*}
+	Then $(X,d_\infty)$ is a metric space.
 \end{theorem}
 
 \begin{lemma}
-    A sequence $(f_n\in C[a,b])_{n\in N}$ converges to $f\in C[a,b]$ iff $(f_n)_{n\in N}$
-    converges uniformly to $f$.
+	A sequence $(f_n\in C[a,b])_{n\in N}$ converges to $f\in C[a,b]$ iff $(f_n)_{n\in N}$
+	converges uniformly to $f$.
 \end{lemma}
 
 \section{Continuity}
 
 \begin{definition}
-    Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. We say $f$ is \emph{continuous
-    at a point $x_0$} in $X$ if, for every positive $\e$, there exists a positive $\delta$, such that,
-    for all $x\in X$ with $d_X(x,x_0)<\delta$ we have $d_Y(f(x),f(x_0))<\e$.
-    We say $f$ is \emph{continuous} if it is continuous at every point in $X$.
+	Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. We say $f$ is \emph{continuous
+		at a point $x_0$} in $X$ if, for every positive $\e$, there exists a positive $\delta$, such that,
+	for all $x\in X$ with $d_X(x,x_0)<\delta$ we have $d_Y(f(x),f(x_0))<\e$.
+	We say $f$ is \emph{continuous} if it is continuous at every point in $X$.
 \end{definition}
 
 \begin{proposition}[Notes 6.2]
-    Let $(X,d_X),(Y,d_Y)$ be metric spaces, $f:X\to Y$ be a function and $x_0\in X$. Then $f$ is continuous
-    at $x_0$ iff, for every open neighbourhood $G$ of $f(x_0)$, there exists an open neighbourhood $O$ of
-    $x_0$, such that, for all $x\in O$, we have $f(x)\in G$.
+	Let $(X,d_X),(Y,d_Y)$ be metric spaces, $f:X\to Y$ be a function and $x_0\in X$. Then $f$ is continuous
+	at $x_0$ iff, for every open neighbourhood $G$ of $f(x_0)$, there exists an open neighbourhood $O$ of
+	$x_0$, such that, for all $x\in O$, we have $f(x)\in G$.
 \end{proposition}
 
 \begin{theorem}[Notes 6.5]
-    Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. Then $f$ is continuous iff 
-    the inverse image $\inv f(G)$ of any open subset $G\subset Y$ is an open subset of $X$.
+	Let $(X,d_X),(Y,d_Y)$ be metric spaces and $f:X\to Y$ a function. Then $f$ is continuous iff
+	the inverse image $\inv f(G)$ of any open subset $G\subset Y$ is an open subset of $X$.
 \end{theorem}
 
 \section{Completeness}
@@ -614,92 +614,92 @@ Let $(X,d)$ be a metric space.
 \subsection{Cauchy sequences}
 
 \begin{definition}
-    A sequence $(x_n)_{n\in\N}$ in a metric space $(X,d)$ is said to be a \emph{Cauchy sequence}
-    if, for every positive $\e$ there exists an index $N$, such that, for all indices $n,m$ with 
-    $n,m\geq N$,
-    \begin{align*}
-        d(x_n,x_m)<\e.
-    \end{align*}
+	A sequence $(x_n)_{n\in\N}$ in a metric space $(X,d)$ is said to be a \emph{Cauchy sequence}
+	if, for every positive $\e$ there exists an index $N$, such that, for all indices $n,m$ with
+	$n,m\geq N$,
+	\begin{align*}
+		d(x_n,x_m)<\e.
+	\end{align*}
 \end{definition}
 
 \begin{proposition}[Notes 7.2]
-    In a metric space, every convergent sequence is a Cauchy sequence. 
+	In a metric space, every convergent sequence is a Cauchy sequence.
 \end{proposition}
 
 \subsection{Complete metric spaces}
 
 \begin{definition}
-    A metric space $(X,d)$ is said to be complete if every Cauchy sequence in $X$ converges to some 
-    $x\in X$.
+	A metric space $(X,d)$ is said to be complete if every Cauchy sequence in $X$ converges to some
+	$x\in X$.
 \end{definition}
 
 \begin{proposition}[Notes 7.5]
-    $\R^n$ with the Euclidean metric $d_2$ is a complete metric space. 
+	$\R^n$ with the Euclidean metric $d_2$ is a complete metric space.
 \end{proposition}
 
 \begin{proposition}[Notes 7.6]
-    $C([a,b])$ with the supremum metric (\vref{metric-cab}) is complete.
+	$C([a,b])$ with the supremum metric (\vref{metric-cab}) is complete.
 \end{proposition}
 
 \begin{proposition}[Notes 7.7]
-    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and let $C(X,Y)$ denote the set of all 
-    bounded continuous functions from $X$ to $X$. We define $D:C(X,Y)\times C(X,Y)\to\R$
-    by 
-    \begin{align*}
-        D(f,g)=\sup\{d_Y(f(x),g(x)):x\in X\}.
-    \end{align*}
-    Then $D$ is a metric. If $(Y,d_Y)$ is complete then $(C(X,Y),D)$ is complete.
+	Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and let $C(X,Y)$ denote the set of all
+	bounded continuous functions from $X$ to $X$. We define $D:C(X,Y)\times C(X,Y)\to\R$
+	by
+	\begin{align*}
+		D(f,g)=\sup\{d_Y(f(x),g(x)):x\in X\}.
+	\end{align*}
+	Then $D$ is a metric. If $(Y,d_Y)$ is complete then $(C(X,Y),D)$ is complete.
 \end{proposition}
 
 \begin{proposition}[Notes 7.8]
-    The metric space $L^2$ is complete.
+	The metric space $L^2$ is complete.
 \end{proposition}
 
 \begin{proposition}[Notes 7.10]
-    If $(X,d)$ is a complete metric space and $F$ is a closed subset of $X$, then 
-    the subspace $(F,d_F)$ is complete.
+	If $(X,d)$ is a complete metric space and $F$ is a closed subset of $X$, then
+	the subspace $(F,d_F)$ is complete.
 \end{proposition}
 
 \begin{proposition}[Notes 7.11]
-    Let $(X,d)$ be a metric space and $F$ be a subset of $X$ such that the subspace $(F,d_F)$
-    is complete. Then $F$ is a closed subset of $X$.
+	Let $(X,d)$ be a metric space and $F$ be a subset of $X$ such that the subspace $(F,d_F)$
+	is complete. Then $F$ is a closed subset of $X$.
 \end{proposition}
 
 \subsection{Completion of a metric space}
 
 \begin{definition}
-    A metric space $(X,d)$ is said to be bounded iff there exist  $c\in X$
-    and $r>0$ such that $X\subseteq B(c,r)$.
+	A metric space $(X,d)$ is said to be bounded iff there exist  $c\in X$
+	and $r>0$ such that $X\subseteq B(c,r)$.
 \end{definition}
 
 \begin{proposition}[Notes 7.14]
-    Let $(X,d)$ be a bounded metric space. For each $x\in X$ we define the function 
-    $f_x:X\to\R$ by $f_x(t)=d(x,t)$. 
-    \begin{enumerate}
-        \item Each $f_x$ is a bounded continuous function.
-        \item For any $x,x'\in X$, \begin{align*}
-            \sup\{\abs{f_X(t)-f_{X'}(t)}:t\in X\}=d(x,x').
-        \end{align*}
-    \end{enumerate}
+	Let $(X,d)$ be a bounded metric space. For each $x\in X$ we define the function
+	$f_x:X\to\R$ by $f_x(t)=d(x,t)$.
+	\begin{enumerate}
+		\item Each $f_x$ is a bounded continuous function.
+		\item For any $x,x'\in X$, \begin{align*}
+			      \sup\{\abs{f_X(t)-f_{X'}(t)}:t\in X\}=d(x,x').
+		      \end{align*}
+	\end{enumerate}
 \end{proposition}
 
 \begin{definition}
-    Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\to Y$ is said to be 
-    an \emph{isometry} if, for all $x,x'\in X$,
-    \begin{align*}
-        d_Y(f(x),f(x')) = d_X(x,x').
-    \end{align*}
-    The metric spaces $(X,d_X)$ and $(Y,d_Y)$ are said to be \emph{isometric} 
-    if there exists an isometry from $X$ onto $Y$.
+	Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\to Y$ is said to be
+	an \emph{isometry} if, for all $x,x'\in X$,
+	\begin{align*}
+		d_Y(f(x),f(x')) = d_X(x,x').
+	\end{align*}
+	The metric spaces $(X,d_X)$ and $(Y,d_Y)$ are said to be \emph{isometric}
+	if there exists an isometry from $X$ onto $Y$.
 \end{definition}
 
 \begin{corollary}
-    Every isometry is injective.
+	Every isometry is injective.
 \end{corollary}
 
 \begin{proposition}[Notes 7.16]
-    For every metric space $(X,d)$, there exists a complete metric space that has a dense subspace 
-    isometric to $X$.
+	For every metric space $(X,d)$, there exists a complete metric space that has a dense subspace
+	isometric to $X$.
 \end{proposition}
 
 \end{document}

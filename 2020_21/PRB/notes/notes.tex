@@ -12,513 +12,513 @@
 \section{Basic theory}
 \subsection{Assumptions}
 \begin{definition}
-    An \textbf{$n$-sided die}, denoted $Dn$, is an object with $n$ faces numbered $\{1,..,n\}$.
-    When rolled, each side is equally likely do be shown.
+	An \textbf{$n$-sided die}, denoted $Dn$, is an object with $n$ faces numbered $\{1,..,n\}$.
+	When rolled, each side is equally likely do be shown.
 \end{definition}
 \begin{definition}
-    A \textbf{coin} is a $D2$ with the faces labeled "heads" (H) and "tails" (T).
+	A \textbf{coin} is a $D2$ with the faces labeled "heads" (H) and "tails" (T).
 \end{definition}
 \subsection{Experiments}
 \begin{definition}
-    Performing an \textbf{experiment} may produce one of a number of possible \textbf{outcomes}.
-    Let $S$ be the set of possible outcomes of an experiment $E$. Then let $x\in S$ be one specific outcome and
-    $p=\P(x)$ be its probability.\\
-    If we perform $E$ a number of times $N\in\N$, we expect $x$ to occur approximately $pN$ times.
+	Performing an \textbf{experiment} may produce one of a number of possible \textbf{outcomes}.
+	Let $S$ be the set of possible outcomes of an experiment $E$. Then let $x\in S$ be one specific outcome and
+	$p=\P(x)$ be its probability.\\
+	If we perform $E$ a number of times $N\in\N$, we expect $x$ to occur approximately $pN$ times.
 \end{definition}
 \subsection{Sample spaces}
 \begin{definition}
-    The \textbf{sample space $S$} of an experiment $E$ is the set of all possible outcomes for $E$.
+	The \textbf{sample space $S$} of an experiment $E$ is the set of all possible outcomes for $E$.
 \end{definition}
 \subsection{Events}
 \begin{definition}
-    An \textbf{event} is a subset $A\subseteq S$ of the sample space. If the experiment is performed and the
-    outcome is $x\in S$, then we say the even $A$ has \textbf{occured} if $x\in A$ and that it \textbf{has not occurred}
-    otherwise.
+	An \textbf{event} is a subset $A\subseteq S$ of the sample space. If the experiment is performed and the
+	outcome is $x\in S$, then we say the even $A$ has \textbf{occured} if $x\in A$ and that it \textbf{has not occurred}
+	otherwise.
 \end{definition}
 \begin{theorem}
-    Let $A,B\subseteq S$ be events.
-    \begin{itemize}
-        \item The union $A\cup B$ is the event that $A$ or $B$ occurs.
-        \item The intersection $A\cap B$ is the event that both $A$ and $B$ occur.
-        \item The theoretic difference $A\setminus B$ is the even that $A$ occurs but $B$ does not.
-        \item The complement of $A$ is the event $A^c=S\setminus A$ that occurs when $A$ does not.
-        \item $A\subseteq B$ mean that every outcome in $A$ is also in $B$.
-    \end{itemize}
+	Let $A,B\subseteq S$ be events.
+	\begin{itemize}
+		\item The union $A\cup B$ is the event that $A$ or $B$ occurs.
+		\item The intersection $A\cap B$ is the event that both $A$ and $B$ occur.
+		\item The theoretic difference $A\setminus B$ is the even that $A$ occurs but $B$ does not.
+		\item The complement of $A$ is the event $A^c=S\setminus A$ that occurs when $A$ does not.
+		\item $A\subseteq B$ mean that every outcome in $A$ is also in $B$.
+	\end{itemize}
 \end{theorem}
 \begin{definition}
-    Let $X=\{A_1, ..., A_n\}$ be a set of events with $|X|\leq |\N|$. Then
-    \begin{itemize}
-        \item $\wbigcup_i A_i$ is the event that one $A\in X$ happens, and
-        \item $\wbigcap_i A_i$ is the event that all $A\in X$ happen.
-    \end{itemize}
+	Let $X=\{A_1, ..., A_n\}$ be a set of events with $|X|\leq |\N|$. Then
+	\begin{itemize}
+		\item $\wbigcup_i A_i$ is the event that one $A\in X$ happens, and
+		\item $\wbigcap_i A_i$ is the event that all $A\in X$ happen.
+	\end{itemize}
 \end{definition}
 \begin{definition}
-    Two events $A,B\subseteq S$ are \textbf{disjoint} if $A\cap B=\emptyset$.
-    A collection of $A_1, A_2,...$ of events is \textbf{pairwise disjoint} if every pair of
-    events within it is disjoint.
+	Two events $A,B\subseteq S$ are \textbf{disjoint} if $A\cap B=\emptyset$.
+	A collection of $A_1, A_2,...$ of events is \textbf{pairwise disjoint} if every pair of
+	events within it is disjoint.
 \end{definition}
 \subsection{Probability of outcomes and events}
 \begin{definition}
-    A \textbf{probability mass function} (pmf) on $S$ is a function $\P$ on $S$ such that writing $p_j=\P(x_j)$ we have
-    \begin{align*}
-        \forall j,\:0 \leq p_j \leq 1 \text{ and } \sum_j p_j = 1.
-    \end{align*}
-    We say that $p_j=\P(x_j)$ is the \textbf{probability} of the outcome $x_j$.
+	A \textbf{probability mass function} (pmf) on $S$ is a function $\P$ on $S$ such that writing $p_j=\P(x_j)$ we have
+	\begin{align*}
+		\forall j,\:0 \leq p_j \leq 1 \text{ and } \sum_j p_j = 1.
+	\end{align*}
+	We say that $p_j=\P(x_j)$ is the \textbf{probability} of the outcome $x_j$.
 \end{definition}
 \begin{definition}
-    For an event $A\subseteq S$ we define the probability of $A$ to be the sum of the probabilities of the outcomes contained in
-    $A$:
-    \begin{align*}
-        \P(A) = \sum_{\{j | x_j \in A\}} p_j.
-    \end{align*}
+	For an event $A\subseteq S$ we define the probability of $A$ to be the sum of the probabilities of the outcomes contained in
+	$A$:
+	\begin{align*}
+		\P(A) = \sum_{\{j | x_j \in A\}} p_j.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    The following properties may be observed:
-    \begin{enumerate}
-        \item For all events $A$ we have $0\leq \P(A) \leq 1$.
-        \item $\P(S)=1$.
-        \item If the finite or countably infinite collection of events $A_1, A_2, ...$ is pairwise disjoint then
-              \begin{align*}
-                  \P(A_1 \cup A_2 \cup \cdots) = \P\left(\wbigcup_i A_i\right) = \sum_i \P(A_i).
-              \end{align*}
-    \end{enumerate}
+	The following properties may be observed:
+	\begin{enumerate}
+		\item For all events $A$ we have $0\leq \P(A) \leq 1$.
+		\item $\P(S)=1$.
+		\item If the finite or countably infinite collection of events $A_1, A_2, ...$ is pairwise disjoint then
+		      \begin{align*}
+			      \P(A_1 \cup A_2 \cup \cdots) = \P\left(\wbigcup_i A_i\right) = \sum_i \P(A_i).
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 \begin{theorem}
-    Let $A,B\subseteq S$ be events. Then
-    \begin{itemize}
-        \item $A \subseteq B \Rightarrow \P(A) \leq \P(B)$, and
-        \item $\P(A^c) = 1 - \P(A)$.
-    \end{itemize}
+	Let $A,B\subseteq S$ be events. Then
+	\begin{itemize}
+		\item $A \subseteq B \Rightarrow \P(A) \leq \P(B)$, and
+		\item $\P(A^c) = 1 - \P(A)$.
+	\end{itemize}
 \end{theorem}
 \subsection{Inclusion-Exclusion}
 \begin{theorem}[Inclusion-Exclusion]
-    Let $A_1, A_2, ...$ be events. Then
-    \begin{align*}
-        \P(A\cup B)=\P(A) + \P(B) - \P(A\cap B).
-    \end{align*}
+	Let $A_1, A_2, ...$ be events. Then
+	\begin{align*}
+		\P(A\cup B)=\P(A) + \P(B) - \P(A\cap B).
+	\end{align*}
 \end{theorem}
 \section{Trees, Binomial random variables, independence}
 \subsection{The binomial distribution}
 \begin{definition}
-    Let $E$ be an experiment with a sample space $S$.
-    Let $P\subseteq S$ be the set of successful outcomes.
-    Then the event
-    \begin{align*}
-        A:\:\text{$E$ is performed $n$ times with exactly $k$ successes.}
-    \end{align*}
-    has the probability
-    \begin{align*}
-        \P(A) = \binom{n}{k}p^k (1-p)^{n-k}
-    \end{align*}
-    where $p$ is the probability of a successful outcome.
+	Let $E$ be an experiment with a sample space $S$.
+	Let $P\subseteq S$ be the set of successful outcomes.
+	Then the event
+	\begin{align*}
+		A:\:\text{$E$ is performed $n$ times with exactly $k$ successes.}
+	\end{align*}
+	has the probability
+	\begin{align*}
+		\P(A) = \binom{n}{k}p^k (1-p)^{n-k}
+	\end{align*}
+	where $p$ is the probability of a successful outcome.
 \end{definition}
 \subsection{Independence}
 \begin{definition}
-    Two events $A,B\subseteq S$ are \textbf{independent} if
-    \begin{align*}
-        \P(A\cap B) = \P(A)\P(B).
-    \end{align*}
-    We say two events are \textbf{dependent} if they are not independent.
+	Two events $A,B\subseteq S$ are \textbf{independent} if
+	\begin{align*}
+		\P(A\cap B) = \P(A)\P(B).
+	\end{align*}
+	We say two events are \textbf{dependent} if they are not independent.
 \end{definition}
 \subsection{Random variables}
 \begin{definition}
-    A \textbf{random variable} is a function on the sample space.
+	A \textbf{random variable} is a function on the sample space.
 \end{definition}
 \begin{definition}
-    The \textbf{standard uniform random variable} on $\{1,2,...,n\}$ is a random variable $X$ such that
-    \begin{align*}
-        \P(X=k)=\frac{1}{k}\text{ for }k\in\N, k\leq n.
-    \end{align*}
+	The \textbf{standard uniform random variable} on $\{1,2,...,n\}$ is a random variable $X$ such that
+	\begin{align*}
+		\P(X=k)=\frac{1}{k}\text{ for }k\in\N, k\leq n.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A \textbf{Bernoulli random variable} with parameter $p$ (where $0\leq p\leq 1$) is a random variable
-    taking just the two values $0$ and $1$ such that $\P(X=1)=p$ and $\P(X=0)=q$ where $q=1-p$.
+	A \textbf{Bernoulli random variable} with parameter $p$ (where $0\leq p\leq 1$) is a random variable
+	taking just the two values $0$ and $1$ such that $\P(X=1)=p$ and $\P(X=0)=q$ where $q=1-p$.
 \end{definition}
 \begin{definition}
-    A \textbf{Binomial random variable} with parameters $n\in\N$ and $p$ (where $0\leq p\leq 1$) is a
-    random variable taking values $\{0,1,...,n\}$ with
-    \begin{align*}
-        \P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
-    \end{align*}
+	A \textbf{Binomial random variable} with parameters $n\in\N$ and $p$ (where $0\leq p\leq 1$) is a
+	random variable taking values $\{0,1,...,n\}$ with
+	\begin{align*}
+		\P(X=k)=\binom{n}{k}p^k(1-p)^{n-k}.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $X,Y$ be random variables defined on the same discrete sample space.
-    Then $X$ and $Y$ are \textbf{independent} if for all values of $x,y$ we have
-    \begin{align*}
-        \P(X=x \text{ and } Y=y) = \P(X=x)\P(Y = y).
-    \end{align*}
+	Let $X,Y$ be random variables defined on the same discrete sample space.
+	Then $X$ and $Y$ are \textbf{independent} if for all values of $x,y$ we have
+	\begin{align*}
+		\P(X=x \text{ and } Y=y) = \P(X=x)\P(Y = y).
+	\end{align*}
 \end{definition}
 \subsection{Expected value}
 \begin{definition}
-    Let $X$ be a random variable that takes a countable number of different
-    numerical values $x_i$. Let the probability that $X$ takes the value $x_i$
-    be denoted $p_i$.\\
-    The \textbf{expected value $\E(X)$} of $X$ is defined to be
-    \begin{align*}
-        \E(X) = \sum_i p_i x_i.
-    \end{align*}
+	Let $X$ be a random variable that takes a countable number of different
+	numerical values $x_i$. Let the probability that $X$ takes the value $x_i$
+	be denoted $p_i$.\\
+	The \textbf{expected value $\E(X)$} of $X$ is defined to be
+	\begin{align*}
+		\E(X) = \sum_i p_i x_i.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $X,Y,Z$ be random variables on the sample space $S$.
-    Then $Z$ is a linear combination of $X$ and $Y$ if
-    \begin{align*}
-        Z = sX + tY
-    \end{align*}
-    for some $s,t\in\R$.
+	Let $X,Y,Z$ be random variables on the sample space $S$.
+	Then $Z$ is a linear combination of $X$ and $Y$ if
+	\begin{align*}
+		Z = sX + tY
+	\end{align*}
+	for some $s,t\in\R$.
 \end{definition}
 \begin{theorem}
-    Let $X,Y$ be discrete random variables and $r\in\R$. Then
-    \begin{itemize}
-        \item $\E(rX)=r\E(X)$.
-        \item $\E(X + Y) = \E(X) + \E(Y)$.
-    \end{itemize}
+	Let $X,Y$ be discrete random variables and $r\in\R$. Then
+	\begin{itemize}
+		\item $\E(rX)=r\E(X)$.
+		\item $\E(X + Y) = \E(X) + \E(Y)$.
+	\end{itemize}
 \end{theorem}
 \begin{proposition}
-    Let $X\sim\text{Binom}(n,p)$. Then $\E(X)=np$.
+	Let $X\sim\text{Binom}(n,p)$. Then $\E(X)=np$.
 \end{proposition}
 \section{Conditional probabilities and results about natural numbers}
 \subsection{Conditional probability}
 \begin{definition}
-    Let $A,B\subseteq S$ be events with $\P(A)\not=0$. Then the
-    \textbf{conditional probability of $B$ given $A$} is defined by
-    \begin{align*}
-        \P(B|A) = \frac{\P(B\cap A)}{\P(A)}
-    \end{align*}
+	Let $A,B\subseteq S$ be events with $\P(A)\not=0$. Then the
+	\textbf{conditional probability of $B$ given $A$} is defined by
+	\begin{align*}
+		\P(B|A) = \frac{\P(B\cap A)}{\P(A)}
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Suppose $\P(A)\not= 0$. Then $\P(B|A)=\P(B)$ if, and only if, $A$ and $B$ are independent.
+	Suppose $\P(A)\not= 0$. Then $\P(B|A)=\P(B)$ if, and only if, $A$ and $B$ are independent.
 \end{theorem}
 \begin{theorem}[The law of total probability]
-    Suppose we partition a sample space $S$ into $n$ pairwise disjoint events $A_1, ..., A_n$.
-    Let $B\subseteq S$ be an event. Then
-    \begin{align*}
-        \P(B)=\P(B|A_1)\P(A_1)+ \cdots + \P(B|A_n)\P(A_n).
-    \end{align*}
-    In the case of a partition of two sets $A$ and $A^c$, we get that for events $A,B$ we have
-    \begin{align*}
-        \P(B) = \P(B|A)\P(A)+\P(B|A^c)\P(A^c).
-    \end{align*}
+	Suppose we partition a sample space $S$ into $n$ pairwise disjoint events $A_1, ..., A_n$.
+	Let $B\subseteq S$ be an event. Then
+	\begin{align*}
+		\P(B)=\P(B|A_1)\P(A_1)+ \cdots + \P(B|A_n)\P(A_n).
+	\end{align*}
+	In the case of a partition of two sets $A$ and $A^c$, we get that for events $A,B$ we have
+	\begin{align*}
+		\P(B) = \P(B|A)\P(A)+\P(B|A^c)\P(A^c).
+	\end{align*}
 \end{theorem}
 \subsection{Conditional expectation}
 \begin{definition}
-    If $X$ is a random variable taking values $x_1, x_2, ...$ and $A$ is an event, we can
-    compute the \textbf{conditional expectation} $\E(X|A)$. The formula is
-    \begin{align*}
-        \E(X|A) = \sum_k \P(X=x_k|A)x_k.
-    \end{align*}
+	If $X$ is a random variable taking values $x_1, x_2, ...$ and $A$ is an event, we can
+	compute the \textbf{conditional expectation} $\E(X|A)$. The formula is
+	\begin{align*}
+		\E(X|A) = \sum_k \P(X=x_k|A)x_k.
+	\end{align*}
 \end{definition}
 \begin{proposition}[The law of total probability for expectations]
-    The law of total probability translates immediately also into expectations, for a random
-    variable and a partition of the samle space into disjoint events.
-    \begin{align*}
-        \E(X) = \E(X|A_1)\P(A_1)+\cdots\E(X|A_n)\P(A_n).
-    \end{align*}
+	The law of total probability translates immediately also into expectations, for a random
+	variable and a partition of the samle space into disjoint events.
+	\begin{align*}
+		\E(X) = \E(X|A_1)\P(A_1)+\cdots\E(X|A_n)\P(A_n).
+	\end{align*}
 \end{proposition}
 \section{Four new distributions}
 \subsection{Geometric random variables}
 \begin{definition}
-    A random variable $X$ is \textbf{geometric} with parameter $p$ and we write $X\sim \text{Geom}(p)$ if
-    \begin{align*}
-        \P(X=k)=q^{k-1}p
-    \end{align*}
-    where $p\in[0,1]$ and $q=1-p$.
+	A random variable $X$ is \textbf{geometric} with parameter $p$ and we write $X\sim \text{Geom}(p)$ if
+	\begin{align*}
+		\P(X=k)=q^{k-1}p
+	\end{align*}
+	where $p\in[0,1]$ and $q=1-p$.
 \end{definition}
 \begin{proposition}
-    The expected value of $X\sim\Geom(p)$ is $\E(X)=1/p$.
+	The expected value of $X\sim\Geom(p)$ is $\E(X)=1/p$.
 \end{proposition}
 \subsection{Continuous random variables}
 \begin{definition}
-    A \textbf{probability density function} for a random variable $X$ on an
-    interval $I\subseteq\R$ is a piecewise continuous function $f_X:I\to\R$ satisfying
-    \begin{enumerate}
-        \item $f_X(x) \geq 0$ for all $x\in I$;
-        \item $\int_I f_X(x) dx =1$.
-    \end{enumerate}
-    The interpretation of $f_X$ is that for $a,b\in I$ with $a\leq b$ we have
-    \begin{align*}
-        \P(a\leq X\leq b)=\int_a^b f_X(x)dx.
-    \end{align*}
+	A \textbf{probability density function} for a random variable $X$ on an
+	interval $I\subseteq\R$ is a piecewise continuous function $f_X:I\to\R$ satisfying
+	\begin{enumerate}
+		\item $f_X(x) \geq 0$ for all $x\in I$;
+		\item $\int_I f_X(x) dx =1$.
+	\end{enumerate}
+	The interpretation of $f_X$ is that for $a,b\in I$ with $a\leq b$ we have
+	\begin{align*}
+		\P(a\leq X\leq b)=\int_a^b f_X(x)dx.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A continuous random variable $X\sim\Unif(a,b)$ if $X$ has a constant pdf
-    \begin{align*}
-        f_X(x) = \begin{cases}
-            \frac{1}{b-a}, & \text{for }a\leq x\leq b \\
-            0,             & \text{otherwise.}
-        \end{cases}
-    \end{align*}
+	A continuous random variable $X\sim\Unif(a,b)$ if $X$ has a constant pdf
+	\begin{align*}
+		f_X(x) = \begin{cases}
+			         \frac{1}{b-a}, & \text{for }a\leq x\leq b \\
+			         0,             & \text{otherwise.}
+		         \end{cases}
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A random variable $X$ on $[0,\infty]$ with pdf of the form
-    \begin{align*}
-        f_X(x) = \lambda e^{-\lambda x}
-    \end{align*}
-    is called an \textbf{exponential random variable}.
-    We write $X\sim\Exp(\lambda)$.
+	A random variable $X$ on $[0,\infty]$ with pdf of the form
+	\begin{align*}
+		f_X(x) = \lambda e^{-\lambda x}
+	\end{align*}
+	is called an \textbf{exponential random variable}.
+	We write $X\sim\Exp(\lambda)$.
 \end{definition}
 \subsection{Properties of continuous random variables}
 \begin{definition}
-    Let $f_X$ be a pdf for a random variable. The \textbf{cumulative distribution
-        function} is defined by
-    \begin{align*}
-        F_X(x) = \P(X\leq x) = \int_{-\infty}^x f_X(u)du.
-    \end{align*}
+	Let $f_X$ be a pdf for a random variable. The \textbf{cumulative distribution
+		function} is defined by
+	\begin{align*}
+		F_X(x) = \P(X\leq x) = \int_{-\infty}^x f_X(u)du.
+	\end{align*}
 \end{definition}
 \begin{proposition}
-    Let $f_X$ be a pdf and $F_X$ the corresponding cdf. Then
-    \begin{itemize}
-        \item $F_X$ is differentiable and $F_X'(x) = f_X(x)$.
-        \item The cdf $F_X(x)$ is non-decreasing.
-        \item If $X$ takes values only in an interval $[a,b]$, so that
-              $f_X(x)=0$ outside that range, we have
-              $F_X(x)=0$ for $x\leq a$ and $F_X(x)=1$ for $x\geq b$.
-    \end{itemize}
+	Let $f_X$ be a pdf and $F_X$ the corresponding cdf. Then
+	\begin{itemize}
+		\item $F_X$ is differentiable and $F_X'(x) = f_X(x)$.
+		\item The cdf $F_X(x)$ is non-decreasing.
+		\item If $X$ takes values only in an interval $[a,b]$, so that
+		      $f_X(x)=0$ outside that range, we have
+		      $F_X(x)=0$ for $x\leq a$ and $F_X(x)=1$ for $x\geq b$.
+	\end{itemize}
 \end{proposition}
 \begin{definition}
-    The \textbf{expected value} of a random variable $X$ with pdf $f_X(x)$
-    is given by
-    \begin{align*}
-        \E(X) = \int_{-\infty}^\infty xf_X(x) dx.
-    \end{align*}
-    More generally, we can take the expected value of a function
-    $g(X)$ of our random variable $X$:
-    \begin{align*}
-        \E(g(X)) = \int_{-\infty}^\infty g(x) f_X(x)dx.
-    \end{align*}
-    If the random variable $X$ takes values only in an interval
-    $[a,b]$ then the limits of the integral can and should be taken
-    to be $a$ and $b$.
+	The \textbf{expected value} of a random variable $X$ with pdf $f_X(x)$
+	is given by
+	\begin{align*}
+		\E(X) = \int_{-\infty}^\infty xf_X(x) dx.
+	\end{align*}
+	More generally, we can take the expected value of a function
+	$g(X)$ of our random variable $X$:
+	\begin{align*}
+		\E(g(X)) = \int_{-\infty}^\infty g(x) f_X(x)dx.
+	\end{align*}
+	If the random variable $X$ takes values only in an interval
+	$[a,b]$ then the limits of the integral can and should be taken
+	to be $a$ and $b$.
 \end{definition}
 \begin{definition}
-    The \textbf{Gamma function} is a way of defining factorials for all
-    positive real numbers rather than just integers. We define
-    \begin{align*}
-        \Gamma(z) = \int_0^\infty x^{z-1}e^{-x}dx,
-    \end{align*}
-    where $z>0$.
+	The \textbf{Gamma function} is a way of defining factorials for all
+	positive real numbers rather than just integers. We define
+	\begin{align*}
+		\Gamma(z) = \int_0^\infty x^{z-1}e^{-x}dx,
+	\end{align*}
+	where $z>0$.
 \end{definition}
 \begin{theorem}
-    For $\alpha,\lambda>0$ we have
-    \begin{align*}
-        \int_0^\infty x^{\alpha -1}e^{-\lambda x} dx = \frac{1}{\lambda^a}\Gamma(z).
-    \end{align*}
+	For $\alpha,\lambda>0$ we have
+	\begin{align*}
+		\int_0^\infty x^{\alpha -1}e^{-\lambda x} dx = \frac{1}{\lambda^a}\Gamma(z).
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    Let $\alpha$ and $\lambda$ be positive constants. The random variable
-    $X$ taking values in $[0,\infty)$ has a \textbf{gamma distribution} and we
-    write $X\sim\GD(\alpha, \lambda)$ if its pdf is
-    \begin{align*}
-        f_X(x) = \frac{\lambda^\alpha}{\Gamma(a)}x^{\alpha-1}e^{-\lambda x}.
-    \end{align*}
+	Let $\alpha$ and $\lambda$ be positive constants. The random variable
+	$X$ taking values in $[0,\infty)$ has a \textbf{gamma distribution} and we
+	write $X\sim\GD(\alpha, \lambda)$ if its pdf is
+	\begin{align*}
+		f_X(x) = \frac{\lambda^\alpha}{\Gamma(a)}x^{\alpha-1}e^{-\lambda x}.
+	\end{align*}
 \end{definition}
 \section{Generating functions and variance}
 \subsection{Products of random variables}
 \begin{theorem}
-    Let $X$ and $Y$ be \emph{independent} random variables with finite expected values.
-    Then
-    \begin{align*}
-        \E(XY) = \E(X)\E(Y)
-    \end{align*}
-    and more generally (assuming the expectations exist),
-    \begin{align*}
-        \E(f(X), g(Y)) = \E(f(X))\E(g(Y)).
-    \end{align*}
+	Let $X$ and $Y$ be \emph{independent} random variables with finite expected values.
+	Then
+	\begin{align*}
+		\E(XY) = \E(X)\E(Y)
+	\end{align*}
+	and more generally (assuming the expectations exist),
+	\begin{align*}
+		\E(f(X), g(Y)) = \E(f(X))\E(g(Y)).
+	\end{align*}
 \end{theorem}
 \subsection{Probability generating functions}
 \begin{definition}
-    For a random variable $X$ its \textbf{probability generating function} (pgf) is the function of a variable
-    $s$ defined by
-    \begin{align*}
-        G_X(s) = \E\left(s^X\right)
-    \end{align*}
-    for such values of $s$ for which the expectations exists.
+	For a random variable $X$ its \textbf{probability generating function} (pgf) is the function of a variable
+	$s$ defined by
+	\begin{align*}
+		G_X(s) = \E\left(s^X\right)
+	\end{align*}
+	for such values of $s$ for which the expectations exists.
 \end{definition}
 \begin{theorem}
-    The pgf $G_X(s)$ of the random variable $X$ has the properties:
-    \begin{itemize}
-        \item $G_X(1) = 1$
-        \item $G'_X(1)=E(X)$, the expected value of $X$.
-    \end{itemize}
+	The pgf $G_X(s)$ of the random variable $X$ has the properties:
+	\begin{itemize}
+		\item $G_X(1) = 1$
+		\item $G'_X(1)=E(X)$, the expected value of $X$.
+	\end{itemize}
 \end{theorem}
 \begin{lemma}
-    For a geometric random variable $X\sim \Geom(p)$
-    \begin{align*}
-        G_X(s) = \sum_{k=1}^\infty s^k q^{k-1}p
-        = \frac{ps}{1-qs}.
-    \end{align*}
+	For a geometric random variable $X\sim \Geom(p)$
+	\begin{align*}
+		G_X(s) = \sum_{k=1}^\infty s^k q^{k-1}p
+		= \frac{ps}{1-qs}.
+	\end{align*}
 \end{lemma}
 \begin{theorem}
-    Let $X,Y$ be independent random variables both taking
-    non-negative integer values. Then
-    \begin{align*}
-        G_{X+Y}(s) = G_X(s)G_Y(s).
-    \end{align*}
+	Let $X,Y$ be independent random variables both taking
+	non-negative integer values. Then
+	\begin{align*}
+		G_{X+Y}(s) = G_X(s)G_Y(s).
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    We define the \textbf{variance} of a random variable by
-    \begin{align*}
-        \V(X) = \E((X-\E(X))^2).
-    \end{align*}
+	We define the \textbf{variance} of a random variable by
+	\begin{align*}
+		\V(X) = \E((X-\E(X))^2).
+	\end{align*}
 \end{definition}
 \begin{definition}
-    The \textbf{standard deviation} $\sigma_X$ of a random
-    variable $X$ with variance $\V(X)$ is given by
-    \begin{align*}
-        \sigma_X = \sqrt{\V(X)}.
-    \end{align*}
+	The \textbf{standard deviation} $\sigma_X$ of a random
+	variable $X$ with variance $\V(X)$ is given by
+	\begin{align*}
+		\sigma_X = \sqrt{\V(X)}.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Let $X$ be a random variable with variance $\V(X)$.
-    Let $Y= a X + b$ where $a,b$ are real numbers.
-    Then
-    \begin{align*}
-        \V(Y) = \V(aX+b) = a^2\V(X)
-    \end{align*}
-    and
-    \begin{align*}
-        \sigma_Y = |a|\sigma_X.
-    \end{align*}
+	Let $X$ be a random variable with variance $\V(X)$.
+	Let $Y= a X + b$ where $a,b$ are real numbers.
+	Then
+	\begin{align*}
+		\V(Y) = \V(aX+b) = a^2\V(X)
+	\end{align*}
+	and
+	\begin{align*}
+		\sigma_Y = |a|\sigma_X.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    The variance of $X$ is given by
-    \begin{align*}
-        \V(X) = \E(X^2) - \left(\E(X)\right)^2.
-    \end{align*}
+	The variance of $X$ is given by
+	\begin{align*}
+		\V(X) = \E(X^2) - \left(\E(X)\right)^2.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $X,Y$ are independent and the variances exist then
-    \begin{align*}
-        \V(X+Y) = \V(X) + \V(Y).
-    \end{align*}
+	If $X,Y$ are independent and the variances exist then
+	\begin{align*}
+		\V(X+Y) = \V(X) + \V(Y).
+	\end{align*}
 \end{theorem}
 \begin{lemma}
-    For a generating function $G_X(s)$ or a random variable
-    $X$ that takes values of non-negative integers
-    we find
-    \begin{align*}
-        \V(X) = G''_X(1) + G'_X(1) - \left(G'_X(1)\right)^2.
-    \end{align*}
+	For a generating function $G_X(s)$ or a random variable
+	$X$ that takes values of non-negative integers
+	we find
+	\begin{align*}
+		\V(X) = G''_X(1) + G'_X(1) - \left(G'_X(1)\right)^2.
+	\end{align*}
 \end{lemma}
 \begin{theorem}
-    Let $X_1, X_2, ...$ be independent, identically
-    distributed random variables with $\E(X_j)=\mu$
-    and variance $\V(X_j)=\sigma^2$.\\
-    Let $n\in\N$ and consider the "average of the first $n$"
-    \begin{align*}
-        A_n = \frac{1}{n}\left(X_1 + X_2 + \cdots + X_n\right)
-    \end{align*}
-    Then we have
-    \begin{align*}
-        \E(A_n) = \mu\hspace{1cm} \V(A_n) = \frac{\sigma^2}{n}.
-    \end{align*}
+	Let $X_1, X_2, ...$ be independent, identically
+	distributed random variables with $\E(X_j)=\mu$
+	and variance $\V(X_j)=\sigma^2$.\\
+	Let $n\in\N$ and consider the "average of the first $n$"
+	\begin{align*}
+		A_n = \frac{1}{n}\left(X_1 + X_2 + \cdots + X_n\right)
+	\end{align*}
+	Then we have
+	\begin{align*}
+		\E(A_n) = \mu\hspace{1cm} \V(A_n) = \frac{\sigma^2}{n}.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    Let $X$ be a random variable with expected value $E(X)=\mu$
-    and finite variance $\V(X)$. Then for every positive number
-    $a$ we have
-    \begin{align*}
-        \P(|X-\mu|\geq a) \leq \frac{\V(X)}{a^2}.
-    \end{align*}
+	Let $X$ be a random variable with expected value $E(X)=\mu$
+	and finite variance $\V(X)$. Then for every positive number
+	$a$ we have
+	\begin{align*}
+		\P(|X-\mu|\geq a) \leq \frac{\V(X)}{a^2}.
+	\end{align*}
 \end{theorem}
 \begin{theorem}[The weak law of large numbers]
-    Consider an infinite sequence of independent, identically
-    distributed random variables. Then for any $a>0$ we have
-    \begin{align*}
-        \lim_{n\to\infty}\P(A_n - \mu \geq a) = 0.
-    \end{align*}
+	Consider an infinite sequence of independent, identically
+	distributed random variables. Then for any $a>0$ we have
+	\begin{align*}
+		\lim_{n\to\infty}\P(A_n - \mu \geq a) = 0.
+	\end{align*}
 \end{theorem}
 \section{Poisson and Bayes}
 \subsection{Poisson random variables}
 \begin{definition}
-    A random variable $X$ on $\{0,1,2,...\}$ such that
-    \begin{align*}
-        \P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}
-    \end{align*}
-    is called a \textbf{Poisson random variable with parameter $\lambda$}.
-    We write $X\sim\Poiss(\lambda)$.
+	A random variable $X$ on $\{0,1,2,...\}$ such that
+	\begin{align*}
+		\P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}
+	\end{align*}
+	is called a \textbf{Poisson random variable with parameter $\lambda$}.
+	We write $X\sim\Poiss(\lambda)$.
 \end{definition}
 \begin{lemma}
-    The pgf of $X\sim\Poiss(\lambda)$ is
-    \begin{align*}
-        G_X(s) = e^{\lambda(s-1)}.
-    \end{align*}
+	The pgf of $X\sim\Poiss(\lambda)$ is
+	\begin{align*}
+		G_X(s) = e^{\lambda(s-1)}.
+	\end{align*}
 \end{lemma}
 \begin{lemma}
-    The expected an variance of $X\sim\Poiss(\lambda)$ are
-    \begin{align*}
-        \E(X) = \lambda \text{ and } \V(X) = \lambda.
-    \end{align*}
+	The expected an variance of $X\sim\Poiss(\lambda)$ are
+	\begin{align*}
+		\E(X) = \lambda \text{ and } \V(X) = \lambda.
+	\end{align*}
 \end{lemma}
 \begin{theorem}
-    Suppose that some event can be modelled by a Poisson random variable
-    with an average rate of $\lambda$ occurrences per unit time. Let $T$
-    be the time of the first occurence after $t=0$. Then $T\sim\Exp(\lambda)$.
+	Suppose that some event can be modelled by a Poisson random variable
+	with an average rate of $\lambda$ occurrences per unit time. Let $T$
+	be the time of the first occurence after $t=0$. Then $T\sim\Exp(\lambda)$.
 \end{theorem}
 \begin{theorem}
-    Let $X_1$ and $X_2$ be independent Poisson random variables with parameters
-    $\lambda_1, \lambda_2$ respectively. The $X=X_1 + X_2$ is a Poisson random
-    variable with parameter $\lambda=\lambda_1+\lambda_2$.
+	Let $X_1$ and $X_2$ be independent Poisson random variables with parameters
+	$\lambda_1, \lambda_2$ respectively. The $X=X_1 + X_2$ is a Poisson random
+	variable with parameter $\lambda=\lambda_1+\lambda_2$.
 \end{theorem}
 \subsection{Bayes theorem}
 \begin{theorem}[Bayes' Theorem]
-    Let $A,B$ be events with $\P(B)\not=0$. Then
-    \begin{align*}
-        \P(A|B)=\P(B|A)\frac{\P(A)}{\P(B)}
-    \end{align*}
+	Let $A,B$ be events with $\P(B)\not=0$. Then
+	\begin{align*}
+		\P(A|B)=\P(B|A)\frac{\P(A)}{\P(B)}
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    Let our sample space $S$ be partitioned into disjoint events $A_k$,
-    $k=1,2,...,n$. Then for $1\leq j\leq n$,
-    \begin{align*}
-        \P(A_j|B)=\frac{\P(B|A_j)\P(A_j)}{\sum_{k=1}^n \P(B|A_k)\P(A_k)}.
-    \end{align*}
+	Let our sample space $S$ be partitioned into disjoint events $A_k$,
+	$k=1,2,...,n$. Then for $1\leq j\leq n$,
+	\begin{align*}
+		\P(A_j|B)=\frac{\P(B|A_j)\P(A_j)}{\sum_{k=1}^n \P(B|A_k)\P(A_k)}.
+	\end{align*}
 \end{theorem}
 \section{Conditioning, difference equations and random walks}
 \subsection{Difference equations}
 \begin{theorem}
-    For a difference equation
-    \begin{align*}
-        x_{k+1}+px_k+qx_{k-1}=0
-    \end{align*}
-    there exists a solution
-    \begin{align*}
-        x_k = a\lambda_1^k+b\lambda_2^k
-    \end{align*}
-    where $\lambda_1,\lambda_2$ are the distinct solutions of the associated quadratic equation.
-    If there is only one distinct solution $\lambda$, the general solution is
-    \begin{align*}
-        x_k = (ak + b)\lambda^k.
-    \end{align*}
+	For a difference equation
+	\begin{align*}
+		x_{k+1}+px_k+qx_{k-1}=0
+	\end{align*}
+	there exists a solution
+	\begin{align*}
+		x_k = a\lambda_1^k+b\lambda_2^k
+	\end{align*}
+	where $\lambda_1,\lambda_2$ are the distinct solutions of the associated quadratic equation.
+	If there is only one distinct solution $\lambda$, the general solution is
+	\begin{align*}
+		x_k = (ak + b)\lambda^k.
+	\end{align*}
 \end{theorem}
 \subsection{Conditioning on the first step}
 \section{Everything's Normal}
 \subsection{The normal distribution}
 \begin{definition}
-    The random variable $X$ on $\R$ has a \textbf{standard normal distribution}
-    ($X\sim\Normal(0,1)$) if
-    \begin{align*}
-        f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}.
-    \end{align*}
-    Then $\E(X)=0$ and $\V(X)=1$.
+	The random variable $X$ on $\R$ has a \textbf{standard normal distribution}
+	($X\sim\Normal(0,1)$) if
+	\begin{align*}
+		f_X(x)=\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}.
+	\end{align*}
+	Then $\E(X)=0$ and $\V(X)=1$.
 \end{definition}
 \begin{definition}
-    Let $\mu,\sigma>0$ be constants. A random variable $X$ on $\R$ has
-    a \textbf{normal distribution with parameters $\mu,\sigma^2$}
-    ($X\sim\Normal(\mu,\sigma^2)$) if
-    \begin{align*}
-        f_X(x) =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2 }}.
-    \end{align*}
-    Then $\E(X)=\mu$ and $\V(X)=\sigma^2$.
+	Let $\mu,\sigma>0$ be constants. A random variable $X$ on $\R$ has
+	a \textbf{normal distribution with parameters $\mu,\sigma^2$}
+	($X\sim\Normal(\mu,\sigma^2)$) if
+	\begin{align*}
+		f_X(x) =\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2 }}.
+	\end{align*}
+	Then $\E(X)=\mu$ and $\V(X)=\sigma^2$.
 \end{definition}
 \begin{proposition}
-    Let $X$ be a continuous random variable and let $a,b$ be constants
-    with $a>0$. Then the pdf of $aX+b$ is given by the pdf of $X$ by
-    \begin{align*}
-        f_{aX+b}(x)=\frac{1}{a}f_X\left(\frac{1}{a}(x-b)\right).
-    \end{align*}
+	Let $X$ be a continuous random variable and let $a,b$ be constants
+	with $a>0$. Then the pdf of $aX+b$ is given by the pdf of $X$ by
+	\begin{align*}
+		f_{aX+b}(x)=\frac{1}{a}f_X\left(\frac{1}{a}(x-b)\right).
+	\end{align*}
 \end{proposition}
 \begin{theorem}
-    If $X$ is normal, then so is $aX+b$ for $a\not=0$.
+	If $X$ is normal, then so is $aX+b$ for $a\not=0$.
 \end{theorem}
 
 
@@ -526,12 +526,12 @@
 
 
 \begin{theorem}
-    Let $X_1,X_2,...$ be identically distributed random variables.
-    Then the average
-    \begin{align*}
-        A_n=\frac{1}{n}\left(X_1+X_2+\cdots+X_n\right)
-    \end{align*}
-    tends to a normal distribution.
+	Let $X_1,X_2,...$ be identically distributed random variables.
+	Then the average
+	\begin{align*}
+		A_n=\frac{1}{n}\left(X_1+X_2+\cdots+X_n\right)
+	\end{align*}
+	tends to a normal distribution.
 \end{theorem}
 
 
@@ -539,15 +539,15 @@
 
 
 \begin{definition}
-    Let $Z\sim\Normal(0,1)$. Then we define the \textbf{cumulative distribution
-        function of $\Normal(0,1)$} as
-    \begin{align*}
-        \Phi(z)=F_Z(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{x^2}{2}}dx.
-    \end{align*}
-    We calculate
-    \begin{align*}
-        \P(a\leq Z\leq b) = \Phi(b)-\Phi(a).
-    \end{align*}
+	Let $Z\sim\Normal(0,1)$. Then we define the \textbf{cumulative distribution
+		function of $\Normal(0,1)$} as
+	\begin{align*}
+		\Phi(z)=F_Z(z) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^z e^{-\frac{x^2}{2}}dx.
+	\end{align*}
+	We calculate
+	\begin{align*}
+		\P(a\leq Z\leq b) = \Phi(b)-\Phi(a).
+	\end{align*}
 \end{definition}
 
 
@@ -555,26 +555,26 @@
 
 
 \begin{definition}
-    Consider two discrete random variables $X,Y$ which take values in the non-negative
-    integers. The \textbf{joint probability mass function} of $X,Y$ is
-    \begin{align*}
-        p_{X,Y} (x,y) = \P(X=x\text{ and } Y = y).
-    \end{align*}
-    To be valid, we need only to know that
-    \begin{align*}
-        \forall x,y,\: 0\leq p_{X,Y}(x,y) \leq 1
-    \end{align*}
-    and
-    \begin{align*}
-        \sum_x \sum_y p_{X,Y}(x,y) = 1.
-    \end{align*}
+	Consider two discrete random variables $X,Y$ which take values in the non-negative
+	integers. The \textbf{joint probability mass function} of $X,Y$ is
+	\begin{align*}
+		p_{X,Y} (x,y) = \P(X=x\text{ and } Y = y).
+	\end{align*}
+	To be valid, we need only to know that
+	\begin{align*}
+		\forall x,y,\: 0\leq p_{X,Y}(x,y) \leq 1
+	\end{align*}
+	and
+	\begin{align*}
+		\sum_x \sum_y p_{X,Y}(x,y) = 1.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    The \textbf{marginal mass functions} of $X,Y$ are defined by
-    \begin{align*}
-        p_X (x) = \sum_y p_{X,Y} (x,y) \text{ and } p_Y(y)=\sum_x p_{X,Y}(x,y).
-    \end{align*}
+	The \textbf{marginal mass functions} of $X,Y$ are defined by
+	\begin{align*}
+		p_X (x) = \sum_y p_{X,Y} (x,y) \text{ and } p_Y(y)=\sum_x p_{X,Y}(x,y).
+	\end{align*}
 \end{definition}
 
 
@@ -585,27 +585,27 @@
 
 
 \begin{definition}
-    Let $X,Y$ be random variables. THen the \textbf{covariance} of $X$ and $Y$ is defined by
-    \begin{align*}
-        \Cov(X,Y) = \E(XY)-\E(X)\E(Y).
-    \end{align*}
+	Let $X,Y$ be random variables. THen the \textbf{covariance} of $X$ and $Y$ is defined by
+	\begin{align*}
+		\Cov(X,Y) = \E(XY)-\E(X)\E(Y).
+	\end{align*}
 \end{definition}
 
 \begin{lemma}
-    Suppose that $\E(X)=\mu_X, \E(Y)=\mu_Y$. Then the covariance may also
-    be expressed as
-    \begin{align*}
-        \Cov(X,Y)=\E((X-\mu_x)(Y-\mu_Y)).
-    \end{align*}
+	Suppose that $\E(X)=\mu_X, \E(Y)=\mu_Y$. Then the covariance may also
+	be expressed as
+	\begin{align*}
+		\Cov(X,Y)=\E((X-\mu_x)(Y-\mu_Y)).
+	\end{align*}
 \end{lemma}
 
 \begin{theorem}
-    Let $X,Y,Z$ be random variables and let $a,b\in\R$. Then
-    \begin{itemize}
-        \item $\Cov(X,Y)=\Cov(Y,X)$
-        \item $\Cov(X,X)=\V(x)$
-        \item $\Cov(aX+bY, Z)=a\Cov(X,Z)+b\Cov(Y,Z)$
-    \end{itemize}
+	Let $X,Y,Z$ be random variables and let $a,b\in\R$. Then
+	\begin{itemize}
+		\item $\Cov(X,Y)=\Cov(Y,X)$
+		\item $\Cov(X,X)=\V(x)$
+		\item $\Cov(aX+bY, Z)=a\Cov(X,Z)+b\Cov(Y,Z)$
+	\end{itemize}
 \end{theorem}
 
 
@@ -613,17 +613,17 @@
 
 
 \begin{definition}
-    Let $X,Y$ be random variables. Then we define the \textbf{correlation} of
-    $X,Y$ to be
-    \begin{align*}
-        \Cor(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\V(X)\V(Y)}}
-    \end{align*}
+	Let $X,Y$ be random variables. Then we define the \textbf{correlation} of
+	$X,Y$ to be
+	\begin{align*}
+		\Cor(X,Y)=\frac{\Cov(X,Y)}{\sqrt{\V(X)\V(Y)}}
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Let $X,Y$ be random variables and $a\not=0$ a constant. Then
-    \begin{align*}
-        \Cor(aX,Y)=\Cor(X,Y).
-    \end{align*}
+	Let $X,Y$ be random variables and $a\not=0$ a constant. Then
+	\begin{align*}
+		\Cor(aX,Y)=\Cor(X,Y).
+	\end{align*}
 \end{theorem}
 
 
@@ -631,22 +631,22 @@
 
 
 \begin{theorem}
-    Suppose $X,Y$ are random variables. Then
-    \begin{align*}
-        \V(X+Y)=\V(X)+\V(Y)+2\Cov(X,Y).
-    \end{align*}
+	Suppose $X,Y$ are random variables. Then
+	\begin{align*}
+		\V(X+Y)=\V(X)+\V(Y)+2\Cov(X,Y).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    For random variables $X,Y$ of finite variance
-    \begin{align*}
-        (\Cov(X,Y))^2\leq \V(X)\V(Y).
-    \end{align*}
+	For random variables $X,Y$ of finite variance
+	\begin{align*}
+		(\Cov(X,Y))^2\leq \V(X)\V(Y).
+	\end{align*}
 \end{theorem}
 \begin{corollary}
-    For random variables $X,Y$ for which the variances and covariance
-    exist
-    \begin{align*}
-        -1 \leq \Cov(X,Y) \leq 1.
-    \end{align*}
+	For random variables $X,Y$ for which the variances and covariance
+	exist
+	\begin{align*}
+		-1 \leq \Cov(X,Y) \leq 1.
+	\end{align*}
 \end{corollary}
 \end{document}

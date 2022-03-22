@@ -10,50 +10,50 @@
 We can estimate of $Q(6)$ by using Riemann sums on the left and the right.
 At first, we can use the values at the left end of each intervall to get a lower estimate:
 \begin{align*}
-  Q(6) \approx \sum_{t=0}^5 r(t)=2 + 10 + 24 +36 + 46+54=172.
+	Q(6) \approx \sum_{t=0}^5 r(t)=2 + 10 + 24 +36 + 46+54=172.
 \end{align*}
 Note that since $\Delta t$ is $1$ for each intervall, we don't need to multiply the sum of $r$'s.
 Also observe that we can not say for sure that this is a lower \emph{bound}, even though our intuition tells us that it is likely to be since $r(t)$ might have unforeseen jumps that are not reflected in the given values.
 Similarly, we can use the values on the right to get an upper estimate
 \begin{align*}
-  Q(6) \approx \sum_{t=1}^6 r(t)=10+24+36+46+54+60=230.
+	Q(6) \approx \sum_{t=1}^6 r(t)=10+24+36+46+54+60=230.
 \end{align*}
 Using the midpoint rule we can get an even more realistic approximation.
 \begin{align*}
-  Q(6)\approx \sum_{t=0}^5 \frac{r(t)+r(t+1)}{2}=6+17+30+41+50+57=201.
+	Q(6)\approx \sum_{t=0}^5 \frac{r(t)+r(t+1)}{2}=6+17+30+41+50+57=201.
 \end{align*}
 Notice that
 \begin{align*}
-  \frac{172+230}{2}=201.
+	\frac{172+230}{2}=201.
 \end{align*}
 This is due to the fact that
 \begin{align*}
-  \sum_{t=0}^5\frac{r(t)+r(t+1)}{2}
-   & =\frac{1}{2}\left(\sum_{t=0}^5 r(t)+\sum_{t=0}^5 r(t+1)\right) \\
-   & =\frac{1}{2}\left(\sum_{t=0}^5 r(t)+\sum_{t=1}^6 r(t)\right)   \\
-   & =\frac{172+230}{2}=201.
+	\sum_{t=0}^5\frac{r(t)+r(t+1)}{2}
+	 & =\frac{1}{2}\left(\sum_{t=0}^5 r(t)+\sum_{t=0}^5 r(t+1)\right) \\
+	 & =\frac{1}{2}\left(\sum_{t=0}^5 r(t)+\sum_{t=1}^6 r(t)\right)   \\
+	 & =\frac{172+230}{2}=201.
 \end{align*}
 \section*{Question 2}
 \begin{align*}
-  6+\int_a^x\frac{f(t)}{t^2}dt=2\sqrt{x}
+	6+\int_a^x\frac{f(t)}{t^2}dt=2\sqrt{x}
 \end{align*}
 At first we will find the derivative of the right-hand side to find out what $f$ sholud be.
 \begin{align*}
-  \frac{d}{dx}2\sqrt{x}=\frac{2}{2\sqrt{x}}=\frac{1}{\sqrt{x}}.
+	\frac{d}{dx}2\sqrt{x}=\frac{2}{2\sqrt{x}}=\frac{1}{\sqrt{x}}.
 \end{align*}
 Thus, a wise choice would be to let
 \begin{align*}
-  \frac{f(x)}{x^2}=\frac{1}{\sqrt{x}},
+	\frac{f(x)}{x^2}=\frac{1}{\sqrt{x}},
 \end{align*}
 which is the case if $f(x)=x^{\frac{3}{2}}$. We can now solve the definite integral on the left-hand side:
 \begin{align*}
-  \int_a^x \frac{f(t)}{t^2}dt = \int_a^x \frac{1}{\sqrt{t}} = 2\sqrt{x}-2\sqrt{a}.
+	\int_a^x \frac{f(t)}{t^2}dt = \int_a^x \frac{1}{\sqrt{t}} = 2\sqrt{x}-2\sqrt{a}.
 \end{align*}
 Inserting this into the initial equation we get
 \begin{align*}
-  6+2\sqrt{x}-2\sqrt{a}     & =2\sqrt{x} \\
-  \Leftrightarrow 2\sqrt{a} & =6         \\
-  \Leftrightarrow a         & =9.
+	6+2\sqrt{x}-2\sqrt{a}     & =2\sqrt{x} \\
+	\Leftrightarrow 2\sqrt{a} & =6         \\
+	\Leftrightarrow a         & =9.
 \end{align*}
 Thus the given equation holds if $f(x)=x^\frac{3}{2}$ and $a=9$.
 \end{document}

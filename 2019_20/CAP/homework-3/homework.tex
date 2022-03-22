@@ -8,19 +8,19 @@
 \section*{Question 1}
 \subsection*{a)}
 \begin{align*}
-  \lim_{t\to\infty} p(t) = \lim_{t\to\infty} \frac{1}{1+ae^{-kt}}.
+	\lim_{t\to\infty} p(t) = \lim_{t\to\infty} \frac{1}{1+ae^{-kt}}.
 \end{align*}
 With
 \begin{align*}
-  \lim_{t\to\infty} ae^{-kt} = 0
+	\lim_{t\to\infty} ae^{-kt} = 0
 \end{align*}
 we get
 \begin{align*}
-  \lim_{t\to\infty}\frac{1}{1+ae^{-kt}}=\frac{1}{1+0}=1.
+	\lim_{t\to\infty}\frac{1}{1+ae^{-kt}}=\frac{1}{1+0}=1.
 \end{align*}
 Thus
 \begin{align*}
-  \lim_{t\to\infty}p(t)=1.
+	\lim_{t\to\infty}p(t)=1.
 \end{align*}
 This means that the rumour will not stop spreading but it will never reach everybody.
 For any finite population this model is wrong, though.
@@ -28,30 +28,30 @@ Since people are discrete entities and therefore the function $p(t)$ would have 
 \subsection*{b)}
 The rate of spread $p'(t)$ at any time $t$ is given by
 \begin{align*}
-  p'(t)=\frac{d}{dt}\left(\frac{1}{1+ae^{-kt}}\right)=-\frac{1}{(1+ae^{-kt})^2}\frac{d}{dt}(1+ae^{-kt})
-  =\frac{kae^{-kt}}{(1+ae^{-kt})^2}.
+	p'(t)=\frac{d}{dt}\left(\frac{1}{1+ae^{-kt}}\right)=-\frac{1}{(1+ae^{-kt})^2}\frac{d}{dt}(1+ae^{-kt})
+	=\frac{kae^{-kt}}{(1+ae^{-kt})^2}.
 \end{align*}
 \subsection*{c)}
 \begin{align*}
-  p                                 & =\frac{1}{1+ae^{-kt}}                                              \\
-  \Leftrightarrow \frac{1}{p}-1     & =ae^{-kt}                                                          \\
-  \Leftrightarrow \ln \frac{1-p}{p} & = \ln(a) -kt                                                       \\
-  \Leftrightarrow t                 & = \frac{\ln(a)-\ln(\frac{1-p}{p})}{k}=\frac{1}{k}\ln\frac{ap}{1-p}
+	p                                 & =\frac{1}{1+ae^{-kt}}                                              \\
+	\Leftrightarrow \frac{1}{p}-1     & =ae^{-kt}                                                          \\
+	\Leftrightarrow \ln \frac{1-p}{p} & = \ln(a) -kt                                                       \\
+	\Leftrightarrow t                 & = \frac{\ln(a)-\ln(\frac{1-p}{p})}{k}=\frac{1}{k}\ln\frac{ap}{1-p}
 \end{align*}
 Thus $t(p)=\frac{1}{k}\ln \frac{ap}{1-p}$. This function returns the time $t$ the rumour needs to spread to the proportion $p$ of the population.
 \section*{Question 2}
 Since $\forall x\in\mathbb{R}, f(x) > 0$ and $\lim_{x\to a}f(x)=0$, we know that there exists an open intervall $I$ such that $a\in I$ and $\forall x\in I, f(x) < 1$. This follows from the definition of a limit with $\varepsilon = 1$.\\
 With
 \begin{align*}
-  \forall 0<a<1, \lim_{x\to\infty}a^x=0,
+	\forall 0<a<1, \lim_{x\to\infty}a^x=0,
 \end{align*}
 and
 \begin{align*}
-  \forall a>0, \lim_{x\to 0^+}x^a=0,
+	\forall a>0, \lim_{x\to 0^+}x^a=0,
 \end{align*}
 we can conclude that since $f(x)<1$ in some intervall $I$ around $a$ and $g(x)\to\infty$ as $x\to a$ (and thus $g(x)>0$ in some intervall around $a$),
 \begin{align*}
-  \lim_{x\to a}\left(f(x)\right)^{g(x)} = 0
+	\lim_{x\to a}\left(f(x)\right)^{g(x)} = 0
 \end{align*}
 
 \end{document}

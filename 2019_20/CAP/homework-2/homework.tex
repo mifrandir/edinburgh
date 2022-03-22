@@ -9,75 +9,75 @@
 \subsection*{a)}
 Let $f(x)=\sqrt{3x+1}$. Then
 \begin{align*}
-  \frac{d}{dx}f(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{f(h)}
-  =\lim_{h\to0}\frac{\sqrt{3x+3h+1}-\sqrt{3x+1}}{h}.
+	\frac{d}{dx}f(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{f(h)}
+	=\lim_{h\to0}\frac{\sqrt{3x+3h+1}-\sqrt{3x+1}}{h}.
 \end{align*}
 We can get rid of the roots in the numerator by multiplying by $1$.
 \begin{align*}
-  \frac{d}{dx}f(x) & =\lim_{h\to0}\left(\frac{\sqrt{3x+3h+1}-\sqrt{3x+1}}{h}\cdot\frac{\sqrt{3x+3h+1}+\sqrt{3x+1}}{\sqrt{3x+3h+1}+\sqrt{3x+1}}\right) \\
-                   & =\lim_{h\to0}\left(\frac{3x+3h+1-3x-1}{h(\sqrt{3x+3h+1}+\sqrt{3x+1})}\right)                                                     \\
-                   & =\lim_{h\to0}\left(\frac{3}{\sqrt{3x+3h+1}+\sqrt{3x+1}}\right).
+	\frac{d}{dx}f(x) & =\lim_{h\to0}\left(\frac{\sqrt{3x+3h+1}-\sqrt{3x+1}}{h}\cdot\frac{\sqrt{3x+3h+1}+\sqrt{3x+1}}{\sqrt{3x+3h+1}+\sqrt{3x+1}}\right) \\
+	                 & =\lim_{h\to0}\left(\frac{3x+3h+1-3x-1}{h(\sqrt{3x+3h+1}+\sqrt{3x+1})}\right)                                                     \\
+	                 & =\lim_{h\to0}\left(\frac{3}{\sqrt{3x+3h+1}+\sqrt{3x+1}}\right).
 \end{align*}
 This may now be easily simplified:
 \begin{align*}
-  \frac{d}{dx}f(x) & = 3\lim_{h\to0}\left(\frac{1}{\sqrt{3x+3h+1}+\sqrt{3x+1}}\right) \\
-                   & =3\frac{1}{\sqrt{3x+1}+\sqrt{3x+1}}=\frac{3}{2\sqrt{3x+1}}.
+	\frac{d}{dx}f(x) & = 3\lim_{h\to0}\left(\frac{1}{\sqrt{3x+3h+1}+\sqrt{3x+1}}\right) \\
+	                 & =3\frac{1}{\sqrt{3x+1}+\sqrt{3x+1}}=\frac{3}{2\sqrt{3x+1}}.
 \end{align*}
 Thus
 \begin{align*}
-  \frac{d}{dx}\sqrt{3x+1}=\frac{3}{2\sqrt{3x+1}}.
+	\frac{d}{dx}\sqrt{3x+1}=\frac{3}{2\sqrt{3x+1}}.
 \end{align*}
 \subsection*{b)}
 Let $f(x)=\frac{1}{x^2}$. Then
 \begin{align*}
-  \frac{d}{dx}f(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to0}\frac{\nicefrac{1}{(x+h)^2}-\nicefrac{1}{x^2}}{h}.
+	\frac{d}{dx}f(x)=\lim_{h\to0}\frac{f(x+h)-f(x)}{h}=\lim_{h\to0}\frac{\nicefrac{1}{(x+h)^2}-\nicefrac{1}{x^2}}{h}.
 \end{align*}
 Adjusting to a common denominator yields
 \begin{align*}
-  \frac{d}{dx}f(x) & =\lim_{h\to0}\frac{x^2-(x+h)^2}{hx^2(x+h)^2}
-  =\lim_{h\to0}\frac{h^2-2xh}{hx^2(x+h)^2}                                 \\
-                   & =\lim_{h\to0}\frac{h-2x}{x^2(x+h)^2}=-\frac{2x}{x^4}.
+	\frac{d}{dx}f(x) & =\lim_{h\to0}\frac{x^2-(x+h)^2}{hx^2(x+h)^2}
+	=\lim_{h\to0}\frac{h^2-2xh}{hx^2(x+h)^2}                                 \\
+	                 & =\lim_{h\to0}\frac{h-2x}{x^2(x+h)^2}=-\frac{2x}{x^4}.
 \end{align*}
 Thus
 \begin{align*}
-  \frac{d}{dx}\frac{1}{x^2}=-\frac{2}{x^3}.
+	\frac{d}{dx}\frac{1}{x^2}=-\frac{2}{x^3}.
 \end{align*}
 \section*{Question 2}
 \subsection*{a)}
 Let $f(x)=x^{\nicefrac{1}{3}}$. Then
 \begin{align*}
-  f(1001) & \approx L(x)= f(1000)+f'(1000)(1001-1000)=10+f'(10^3).
+	f(1001) & \approx L(x)= f(1000)+f'(1000)(1001-1000)=10+f'(10^3).
 \end{align*}
 Using rules of differentiation, we get
 \begin{align*}
-  \frac{d}{dx}x^{\nicefrac{1}{3}} & =\frac{1}{3}x^{\nicefrac{-2}{3}}.
+	\frac{d}{dx}x^{\nicefrac{1}{3}} & =\frac{1}{3}x^{\nicefrac{-2}{3}}.
 \end{align*}
 Therefore
 \begin{align*}
-  f'(10^3)=\frac{1}{3}(10^3)^{\nicefrac{-2}{3}}=\frac{1}{3\cdot10^2}=\frac{1}{300}.
+	f'(10^3)=\frac{1}{3}(10^3)^{\nicefrac{-2}{3}}=\frac{1}{3\cdot10^2}=\frac{1}{300}.
 \end{align*}
 Thus
 \begin{align*}
-  L(x)=10+\frac{1}{300}=\frac{3001}{300}\approx10.0033.
+	L(x)=10+\frac{1}{300}=\frac{3001}{300}\approx10.0033.
 \end{align*}
 According to my scientific calculator, this is within a $10^{-5}$ margin.
 \subsection*{b)}
 Let $f(x)=\frac{1}{x}$. Then
 \begin{align*}
-  f(4.002)\approx L(x)=f(4)+f'(4)(4.002-4)=\frac{1}{4}+f'(4)\cdot2\cdot10^{-3}.
+	f(4.002)\approx L(x)=f(4)+f'(4)(4.002-4)=\frac{1}{4}+f'(4)\cdot2\cdot10^{-3}.
 \end{align*}
 Using rules of differentiation, we get
 \begin{align*}
-  \frac{d}{dx}\frac{1}{x}=-\frac{1}{x^2}.
+	\frac{d}{dx}\frac{1}{x}=-\frac{1}{x^2}.
 \end{align*}
 Therefore
 \begin{align*}
-  f'(4)=-\frac{1}{16}.
+	f'(4)=-\frac{1}{16}.
 \end{align*}
 Thus
 \begin{align*}
-  L(x) & =\frac{1}{4}-\frac{1}{16}\cdot 2\cdot 10^{-3}=\frac{2\cdot 10^3-1}{8\cdot10^3} \\
-       & =\frac{1999}{8000}\approx0.2499.
+	L(x) & =\frac{1}{4}-\frac{1}{16}\cdot 2\cdot 10^{-3}=\frac{2\cdot 10^3-1}{8\cdot10^3} \\
+	     & =\frac{1999}{8000}\approx0.2499.
 \end{align*}
 According to my scientific calculator, this is within a $10^{-7}$ margin.
 \end{document}

@@ -10,144 +10,144 @@
 \maketitle
 \section*{Problem 1}
 \begin{claim}
-  Let $s:\Z \to \Z$ be the function defined as the alternating sum. Then for any integer $x\in\Z$, $11|x \Leftrightarrow 11|s(x)$.
+	Let $s:\Z \to \Z$ be the function defined as the alternating sum. Then for any integer $x\in\Z$, $11|x \Leftrightarrow 11|s(x)$.
 \end{claim}
 \begin{proof}
-  Consider the alternating sum of any number $x=d_nd_{n-1}\cdots d_0$ with the digits of $d_0,...,d_n\in\Z_{10}$.
-  We assume $n$ to be even. This is possible without loss of generality as we can always add a $0$ to the beginning of a number.
-  Then
-  \begin{align*}
-    x    & = \sum_{i=0}^n 10^id_i,   \\
-    s(x) & = \sum_{i=0}^n (-1)^id_i.
-  \end{align*}
-  Now we will consider $x\mod 11$. To do this, we can focus on a single summand $10^id_i$ (\emph{Liebeck, Proposition 13.3}).
-  Notice that, since $10\equiv -1 \mod 11$, we can write
-  \begin{align*}
-    10^id_i \equiv (-1)^id_i \mod 11
-  \end{align*}
-  and thus, using the second part of \emph{Liebeck, Proposition 13.3},
-  \begin{align*}
-    x \equiv \sum_{i=0}^n 10^id_i \equiv \sum_{i=0}^n (-1)^id_i\equiv s(x)\mod 11.
-  \end{align*}
-  Since $m|a\Leftrightarrow a\equiv 0 \mod m$ for all $a\in\Z$ and $m\in\N$, this proves our claim.
+	Consider the alternating sum of any number $x=d_nd_{n-1}\cdots d_0$ with the digits of $d_0,...,d_n\in\Z_{10}$.
+	We assume $n$ to be even. This is possible without loss of generality as we can always add a $0$ to the beginning of a number.
+	Then
+	\begin{align*}
+		x    & = \sum_{i=0}^n 10^id_i,   \\
+		s(x) & = \sum_{i=0}^n (-1)^id_i.
+	\end{align*}
+	Now we will consider $x\mod 11$. To do this, we can focus on a single summand $10^id_i$ (\emph{Liebeck, Proposition 13.3}).
+	Notice that, since $10\equiv -1 \mod 11$, we can write
+	\begin{align*}
+		10^id_i \equiv (-1)^id_i \mod 11
+	\end{align*}
+	and thus, using the second part of \emph{Liebeck, Proposition 13.3},
+	\begin{align*}
+		x \equiv \sum_{i=0}^n 10^id_i \equiv \sum_{i=0}^n (-1)^id_i\equiv s(x)\mod 11.
+	\end{align*}
+	Since $m|a\Leftrightarrow a\equiv 0 \mod m$ for all $a\in\Z$ and $m\in\N$, this proves our claim.
 \end{proof}
 \section*{Problem 2}
 \begin{claim}
-  Let $p$ be a prime. Then $(p-1)!\equiv p-1 \mod p$.
+	Let $p$ be a prime. Then $(p-1)!\equiv p-1 \mod p$.
 \end{claim}
 \begin{subproof}
-  \begin{lemma}
-    \label{l1}
-    Let $p$ be a prime. Then for any $a\in\Z$ there is a unique $x\in\Z_p$ so that $ax\equiv 1 \mod p$.
-  \end{lemma}
-  \begin{proof}
-    Since $\hcf(a,p)=1$, we know from \emph{Liebeck, Propsition 13.6} that there exists a solution $x\in\Z$.
-    Consider two solutions $x_1, x_2\in \Z$. Then
-    \begin{align*}
-      ax_1 \equiv ax_2 \equiv 1 \mod p.
-    \end{align*}
-    Using \emph{Liebeck, Proposition 13.3} and $a\equiv a \mod p$ (\emph{Liebeck, Proposition 13.2}), we know that
-    \begin{align*}
-      ax_1                & \equiv ax_2 \mod p \\
-      \Leftrightarrow x_1 & \equiv x_2 \mod p.
-    \end{align*}
-    Thus there is a unique solution $x\in\Z_p$ where $x\equiv x_1\equiv x_2 \mod p$.
-  \end{proof}
+	\begin{lemma}
+		\label{l1}
+		Let $p$ be a prime. Then for any $a\in\Z$ there is a unique $x\in\Z_p$ so that $ax\equiv 1 \mod p$.
+	\end{lemma}
+	\begin{proof}
+		Since $\hcf(a,p)=1$, we know from \emph{Liebeck, Propsition 13.6} that there exists a solution $x\in\Z$.
+		Consider two solutions $x_1, x_2\in \Z$. Then
+		\begin{align*}
+			ax_1 \equiv ax_2 \equiv 1 \mod p.
+		\end{align*}
+		Using \emph{Liebeck, Proposition 13.3} and $a\equiv a \mod p$ (\emph{Liebeck, Proposition 13.2}), we know that
+		\begin{align*}
+			ax_1                & \equiv ax_2 \mod p \\
+			\Leftrightarrow x_1 & \equiv x_2 \mod p.
+		\end{align*}
+		Thus there is a unique solution $x\in\Z_p$ where $x\equiv x_1\equiv x_2 \mod p$.
+	\end{proof}
 \end{subproof}
 \begin{proof}
-  According to Lemma \ref{l1}, for each of the factors $a$ in $(p-1)!$, there is another factor $b$ such that
-  \begin{align*}
-    ab\equiv 1 \mod p.
-  \end{align*}
-  Observe that $a=b$ if, and only if,
-  \begin{align*}
-    a^2 \equiv 1 \mod p.
-  \end{align*}
-  This is the case if, and only if, $a\equiv 1 \mod p$ or $a\equiv -1 \equiv p-1 \mod p$.
-  For all other factors $a\in(1,p-1)$ the corresponding $b$ has to be in the product as well.
-  Therefore the product of all the elements in $(1,p-1)$ has to be congruent to $1\mod p$.
-  Notice that for $p=2$ the intervall $(1,p-1)$ is empty.
-  This is not an issue, as it does not change the result.
-  Thus we get
-  \begin{align*}
-    (p-1)!\equiv (p-1)\cdot 1\cdot 1 \equiv p-1 \mod p.
-  \end{align*}
+	According to Lemma \ref{l1}, for each of the factors $a$ in $(p-1)!$, there is another factor $b$ such that
+	\begin{align*}
+		ab\equiv 1 \mod p.
+	\end{align*}
+	Observe that $a=b$ if, and only if,
+	\begin{align*}
+		a^2 \equiv 1 \mod p.
+	\end{align*}
+	This is the case if, and only if, $a\equiv 1 \mod p$ or $a\equiv -1 \equiv p-1 \mod p$.
+	For all other factors $a\in(1,p-1)$ the corresponding $b$ has to be in the product as well.
+	Therefore the product of all the elements in $(1,p-1)$ has to be congruent to $1\mod p$.
+	Notice that for $p=2$ the intervall $(1,p-1)$ is empty.
+	This is not an issue, as it does not change the result.
+	Thus we get
+	\begin{align*}
+		(p-1)!\equiv (p-1)\cdot 1\cdot 1 \equiv p-1 \mod p.
+	\end{align*}
 \end{proof}
 \section*{Problem 3}
 \begin{claim}
-  Let $p$ be a prime and $p\not=2,5$. Then there exists an integer $k$ such that $p|\sum_{i=0}^k 10^i$.
+	Let $p$ be a prime and $p\not=2,5$. Then there exists an integer $k$ such that $p|\sum_{i=0}^k 10^i$.
 \end{claim}
 \begin{adjustwidth}{2em}{2em}
-  \begin{lemma}
-    \label{l2}
-    Let $p>5$ be a prime number. Then
-    \begin{align*}
-      \forall x,y\in[1,p-1],\: x=y \Leftrightarrow 10^x\equiv 10^y\mod p.
-    \end{align*}
-  \end{lemma}
-  \begin{proof}
-    At first, note that $10^n \not\equiv 0 \mod p$ for all $n\in\N$.
-    This is because $10$ is not divisible by $p$.
-    Now assume that for some $x,y\in[1,p-1]$ where $x>y$
-    \begin{align*}
-      10^x \equiv 10^y \mod p.
-    \end{align*}
-    This implies that
-    \begin{align*}
-      10^x-10^y                        & \equiv 0\mod p   \\
-      \Leftrightarrow 10^y(10^{x-y}-1) & \equiv 0 \mod p.
-    \end{align*}
-    Since $10^y$ is not divisible by $p$, we get
-    \begin{align*}
-      10^{x-y}\equiv 1 \mod p.
-    \end{align*}
-    We know that this is the case if $x-y=0$, which is impossible since $x>y$.
-    By \emph{Fermat's Little Theorem} (\emph{Liebeck, Theorem 14.1}) we also know that, $x-y=p-1$ would be an option.
-    This can also be ruled out because $y>0$ and $x<p$.\\
-    Therefore there exists a $z\in(0,p-1)$ such that
-    \begin{align*}
-      10^z \equiv 1 \mod p.
-    \end{align*}
-    Using \emph{Liebeck, Proposition 13.4}, we get that
-    \begin{align*}
-      10^{nz}\equiv 1^n\equiv 1 \mod p
-    \end{align*}
-    for all $n\in\N$. \\
-    Using \emph{Fermat's Little Theorem} again, we know that $10^p\equiv 10^{p-1}10^1\equiv 10\mod p$ and thus for any $m\in\N$ and $x\in\Z$
-    \begin{align*}
-      10^{x+mp}\equiv 10^{x}\left(10^{p}\right)^m\equiv 10^{x}\mod p.
-    \end{align*}
-    Therefore if $x\equiv y \mod p$, then $10^x\equiv 10^y\mod p$. If we let
-    \begin{align*}
-      nz \equiv k \mod p
-    \end{align*}
-    for some $k\in\Z_p$, then
-    \begin{align*}
-      10^{nz}\equiv 10^{k} \equiv 1 \mod p.
-    \end{align*}
-    This $k$ is different for all $n\in[1,p-1]$. The proof for this is given in \emph{Liebeck} on page 118 in the proof of \emph{Fermat's Little Theorem}, if you let $a=10$ because $p$ does not divide $10$. This would therefore imply that all $10^k$, for any $k\in\Z_p$ are congruent to $1$ modulo $p$. For any prime $p>5$ this is a contradiction as $10\equiv 3 \mod 7$ and for all $p>7$, $10\in\Z_p$.
-  \end{proof}
-  \emph{Note: I have not included the proof from the book because it requires quite a lot of space relative to its actual content.
-    Additionally, this lemma and particularly its proof may be used to get the following relation:\\
-    Let $p$ be a prime number and $a$ any positive integer such that $p\nmid a$ and $a\not\equiv 1 \mod p$. Then $x\equiv y \mod p-1 \Leftrightarrow a^x\equiv a^y \mod p$.}
+	\begin{lemma}
+		\label{l2}
+		Let $p>5$ be a prime number. Then
+		\begin{align*}
+			\forall x,y\in[1,p-1],\: x=y \Leftrightarrow 10^x\equiv 10^y\mod p.
+		\end{align*}
+	\end{lemma}
+	\begin{proof}
+		At first, note that $10^n \not\equiv 0 \mod p$ for all $n\in\N$.
+		This is because $10$ is not divisible by $p$.
+		Now assume that for some $x,y\in[1,p-1]$ where $x>y$
+		\begin{align*}
+			10^x \equiv 10^y \mod p.
+		\end{align*}
+		This implies that
+		\begin{align*}
+			10^x-10^y                        & \equiv 0\mod p   \\
+			\Leftrightarrow 10^y(10^{x-y}-1) & \equiv 0 \mod p.
+		\end{align*}
+		Since $10^y$ is not divisible by $p$, we get
+		\begin{align*}
+			10^{x-y}\equiv 1 \mod p.
+		\end{align*}
+		We know that this is the case if $x-y=0$, which is impossible since $x>y$.
+		By \emph{Fermat's Little Theorem} (\emph{Liebeck, Theorem 14.1}) we also know that, $x-y=p-1$ would be an option.
+		This can also be ruled out because $y>0$ and $x<p$.\\
+		Therefore there exists a $z\in(0,p-1)$ such that
+		\begin{align*}
+			10^z \equiv 1 \mod p.
+		\end{align*}
+		Using \emph{Liebeck, Proposition 13.4}, we get that
+		\begin{align*}
+			10^{nz}\equiv 1^n\equiv 1 \mod p
+		\end{align*}
+		for all $n\in\N$. \\
+		Using \emph{Fermat's Little Theorem} again, we know that $10^p\equiv 10^{p-1}10^1\equiv 10\mod p$ and thus for any $m\in\N$ and $x\in\Z$
+		\begin{align*}
+			10^{x+mp}\equiv 10^{x}\left(10^{p}\right)^m\equiv 10^{x}\mod p.
+		\end{align*}
+		Therefore if $x\equiv y \mod p$, then $10^x\equiv 10^y\mod p$. If we let
+		\begin{align*}
+			nz \equiv k \mod p
+		\end{align*}
+		for some $k\in\Z_p$, then
+		\begin{align*}
+			10^{nz}\equiv 10^{k} \equiv 1 \mod p.
+		\end{align*}
+		This $k$ is different for all $n\in[1,p-1]$. The proof for this is given in \emph{Liebeck} on page 118 in the proof of \emph{Fermat's Little Theorem}, if you let $a=10$ because $p$ does not divide $10$. This would therefore imply that all $10^k$, for any $k\in\Z_p$ are congruent to $1$ modulo $p$. For any prime $p>5$ this is a contradiction as $10\equiv 3 \mod 7$ and for all $p>7$, $10\in\Z_p$.
+	\end{proof}
+	\emph{Note: I have not included the proof from the book because it requires quite a lot of space relative to its actual content.
+		Additionally, this lemma and particularly its proof may be used to get the following relation:\\
+		Let $p$ be a prime number and $a$ any positive integer such that $p\nmid a$ and $a\not\equiv 1 \mod p$. Then $x\equiv y \mod p-1 \Leftrightarrow a^x\equiv a^y \mod p$.}
 \end{adjustwidth}
 \begin{proof}
-  The claim is true for $p=3$ as $3|111$. Let's now consider $p>5$.\\
-  Let $s(k)=\sum_{i=0}^{k-1} 10^i$ be a number of length $k$ consisting only of $1$'s.
-  Further, let $m:\N\to\Z_p$ be the function such that for all $k\in\N$, $10^k\equiv m(k)\mod p$. Then
-  \begin{align*}
-    s(k) \equiv \sum_{i=0}^{k-1} m(i) \mod p.
-  \end{align*}
-  Since all $m(i)$ are different for $i\in[1,p-1]$ (Lemma \ref{l2}), $10^0\equiv 1\equiv 10^{p-1}\mod p$ and $m(i)\not=0$, we can use \emph{Liebeck, Proposition 13.3} to get
-  \begin{align*}
-    s(p-1)
-    \equiv \sum_{i=0}^{p-2}m(i)
-    \equiv \sum_{i=1}^{p-1}m(i)
-    \equiv \sum_{i=1}^{p-1} i
-    \equiv \frac{p(p-1)}{2}
-    \equiv 0 \mod p.
-  \end{align*}
-  Thus $p|s(p-1)$ for all primes $p>5$.
+	The claim is true for $p=3$ as $3|111$. Let's now consider $p>5$.\\
+	Let $s(k)=\sum_{i=0}^{k-1} 10^i$ be a number of length $k$ consisting only of $1$'s.
+	Further, let $m:\N\to\Z_p$ be the function such that for all $k\in\N$, $10^k\equiv m(k)\mod p$. Then
+	\begin{align*}
+		s(k) \equiv \sum_{i=0}^{k-1} m(i) \mod p.
+	\end{align*}
+	Since all $m(i)$ are different for $i\in[1,p-1]$ (Lemma \ref{l2}), $10^0\equiv 1\equiv 10^{p-1}\mod p$ and $m(i)\not=0$, we can use \emph{Liebeck, Proposition 13.3} to get
+	\begin{align*}
+		s(p-1)
+		\equiv \sum_{i=0}^{p-2}m(i)
+		\equiv \sum_{i=1}^{p-1}m(i)
+		\equiv \sum_{i=1}^{p-1} i
+		\equiv \frac{p(p-1)}{2}
+		\equiv 0 \mod p.
+	\end{align*}
+	Thus $p|s(p-1)$ for all primes $p>5$.
 \end{proof}
 \emph{Note: This does not imply that $s(p-1)$ is the smallest number to satisfy the condition, it just proves that there exists at least one.}
 \end{document}

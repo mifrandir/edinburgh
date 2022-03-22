@@ -10,49 +10,49 @@
 \section*{Problem 1}
 
 \begin{claim*}
-    Let $G$ be a group such that $|G|>1$ is not prime. Then
-    there exists a proper nontrivial subgroup $H<G$.
+	Let $G$ be a group such that $|G|>1$ is not prime. Then
+	there exists a proper nontrivial subgroup $H<G$.
 \end{claim*}
 
 \begin{proof}
-    Suppose $G$ is not cyclic. Then, by \emph{Lemma 2.2.14} in the notes,
-    for all $g\in G$ we have $o(g)<\abs G$. Since $|G|>1$ there exists
-    a $g\in G$ such that $g\not=e$ which implies $o(g)>1$.
-    Let $H=\lra g$ for one such element. Then
-    \begin{align*}
-        \abs H = \abs{\lra g} = o(g) \hs\text{which implies}\hs 1 < \abs H < \abs G
-    \end{align*}
-    which makes $H$ a subgroup of $G$ with
-    the desired characteristics.\\\\
-    Now suppose $G$ is cyclic. Then let $g\in G$ be such that
-    $G=\lra g$. Let $n=\abs{G}$. Then, since $n>1$ and $n$ is not prime,
-    there exist integers $k,l>1$ such that $n=kl$.
-    Now consider the cyclic subgroup $H=\lra{g^k}\leq G$. We have
-    \begin{align*}
-        H =\{e, g^k, g^{2k}, ..., g^{(l-1)k}, g^{lk}, g^{(l+1)k}, ...\}.
-    \end{align*}
-    Observe that
-    \begin{align*}
-        \left(g^k\right)^l = g^n = e
-    \end{align*}
-    because $o(g)=n$ by \emph{Lemma 2.2.14} in the notes (and the proof
-    thereof). Therefore
-    \begin{align*}
-        g^n = e,\hs g^{(l+1)k} = eg^k = g^k, \hs g^{(l+2)k}=eg^{2k}=g^{2k},\hs \cdots
-    \end{align*}
-    More explicitly
-    \begin{align*}
-        \forall a \geq l,\: \exists b<l,\: g^a = g^b
-    \end{align*}
-    where $a,b\in\Z_{\geq 0}$ and $g^0 = e$. Therefore
-    \begin{align*}
-        H = \{e, g^k, g^{2k}, ..., g^{(l-1)k}\}
-    \end{align*}
-    and thus
-    \begin{align*}
-        \abs H = l \hs\text{which implies}\hs 1 < \abs H < |G|
-    \end{align*}
-    which makes $H$ a subgroup with the desired characteristics.
+	Suppose $G$ is not cyclic. Then, by \emph{Lemma 2.2.14} in the notes,
+	for all $g\in G$ we have $o(g)<\abs G$. Since $|G|>1$ there exists
+	a $g\in G$ such that $g\not=e$ which implies $o(g)>1$.
+	Let $H=\lra g$ for one such element. Then
+	\begin{align*}
+		\abs H = \abs{\lra g} = o(g) \hs\text{which implies}\hs 1 < \abs H < \abs G
+	\end{align*}
+	which makes $H$ a subgroup of $G$ with
+	the desired characteristics.\\\\
+	Now suppose $G$ is cyclic. Then let $g\in G$ be such that
+	$G=\lra g$. Let $n=\abs{G}$. Then, since $n>1$ and $n$ is not prime,
+	there exist integers $k,l>1$ such that $n=kl$.
+	Now consider the cyclic subgroup $H=\lra{g^k}\leq G$. We have
+	\begin{align*}
+		H =\{e, g^k, g^{2k}, ..., g^{(l-1)k}, g^{lk}, g^{(l+1)k}, ...\}.
+	\end{align*}
+	Observe that
+	\begin{align*}
+		\left(g^k\right)^l = g^n = e
+	\end{align*}
+	because $o(g)=n$ by \emph{Lemma 2.2.14} in the notes (and the proof
+	thereof). Therefore
+	\begin{align*}
+		g^n = e,\hs g^{(l+1)k} = eg^k = g^k, \hs g^{(l+2)k}=eg^{2k}=g^{2k},\hs \cdots
+	\end{align*}
+	More explicitly
+	\begin{align*}
+		\forall a \geq l,\: \exists b<l,\: g^a = g^b
+	\end{align*}
+	where $a,b\in\Z_{\geq 0}$ and $g^0 = e$. Therefore
+	\begin{align*}
+		H = \{e, g^k, g^{2k}, ..., g^{(l-1)k}\}
+	\end{align*}
+	and thus
+	\begin{align*}
+		\abs H = l \hs\text{which implies}\hs 1 < \abs H < |G|
+	\end{align*}
+	which makes $H$ a subgroup with the desired characteristics.
 \end{proof}
 
 \section*{Problem 2}
@@ -63,25 +63,25 @@ Let $G=S_3$ and $H=\lra{(1\: 2)}$.
 
 Then the left cosets of $H$ are
 \begin{align*}
-    \{e, (1\:2)\},\hs \{(1\:3), (1\:2\:3)\},\hs \{(2\:3), (1\:3\:2)\}.
+	\{e, (1\:2)\},\hs \{(1\:3), (1\:2\:3)\},\hs \{(2\:3), (1\:3\:2)\}.
 \end{align*}
 Similarly, the right cosets of $H$ are
 \begin{align*}
-    \{e, (1\:2)\},\hs \{(1\:3), (1\:3\:2)\},\hs \{(2\:3),(1\:2\:3)\}.
+	\{e, (1\:2)\},\hs \{(1\:3), (1\:3\:2)\},\hs \{(2\:3),(1\:2\:3)\}.
 \end{align*}
 
 \subsection*{(b)}
 
 \begin{claim*}
-    $G$ is not normal.
+	$G$ is not normal.
 \end{claim*}
 
 \begin{proof}
-    Let $g=(1\:3)\in G$. Then
-    \begin{align*}
-        gH=\{(1\:3), (1\:2\:3)\}\hs\text{and}\hs Hg=\{(1\:3), (1\:3\:2)\}.
-    \end{align*}
-    Thus $gH\not=Hg$ and therefore $G$ cannot be normal.
+	Let $g=(1\:3)\in G$. Then
+	\begin{align*}
+		gH=\{(1\:3), (1\:2\:3)\}\hs\text{and}\hs Hg=\{(1\:3), (1\:3\:2)\}.
+	\end{align*}
+	Thus $gH\not=Hg$ and therefore $G$ cannot be normal.
 \end{proof}
 
 \end{document}

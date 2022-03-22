@@ -10,103 +10,103 @@
 \section{Workshop 1 - Question 5}
 
 \begin{claim}
-   The set of all algebraic numbers is countable.
-   \begin{proof}
-      Consider the set of all degree $n$ polynomials with integer coefficients $P_n$.
-      Note that each $p\in P_n$ is represented by a list of coefficients
-      $a_0, ..., a_n\in\Z$ where $a_n\not=0$. The solutions are then all $x\in\R$
-      such that
-      \begin{align*}
-         a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n = 0.
-      \end{align*}
-      We therefore have an injective function $f:\Z^{n+1}\to P_n$.
-      Note that, by \emph{Wade, Theorem 1.42}, $\Z^{n+1}\cong \Z \times \cdots \times \Z$ is countable and therefore isomorphic to $\N$
-      through a bijection $\psi:\Z^{n+1}\to\N$. Thus we have an injective
-      function $f\circ\inv\psi:\N\to P_n$.
-      By \emph{Wade, Lemma 1.40} this means that $P_n$ is at most countable.\\
-      Now consider the set of solutions to all degree $n$ polynomials with
-      integer coefficients $S_n$. Observe that every $p\in P_n$ has at most
-      $n$ real solutions, so the set $S_p$ of all real solutions for $p$ is
-      finite and therefore at most countable.
-      We now have
-      \begin{align*}
-         S_n = \bigcup_{p\in P_n} S_p.
-      \end{align*}
-      Thus, by \emph{Wade, Theorem 1.42}, $S_n$ is at most countable.
-      Now consider the set of all algebraic numbers
-      \begin{align*}
-         S = \bigcup_{n\in\Z_{\geq 0}}S_n.
-      \end{align*}
-      Note that $\Z_{\geq 0}\subset \Z$ is at most countable
-      (\emph{Wade, Remark 1.43} and \emph{Wade, Theorem 1.41}). Since
-      every $S_n$ is at most countable as well, we use \emph{Wade, Theorem 1.42}
-      again to show that $S$ is at most countable.
-      Since $S$ is trivially infinite, this means that the set $S$ of
-      all algebraic numbers is in fact countable.
-   \end{proof}
+	The set of all algebraic numbers is countable.
+	\begin{proof}
+		Consider the set of all degree $n$ polynomials with integer coefficients $P_n$.
+		Note that each $p\in P_n$ is represented by a list of coefficients
+		$a_0, ..., a_n\in\Z$ where $a_n\not=0$. The solutions are then all $x\in\R$
+		such that
+		\begin{align*}
+			a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n = 0.
+		\end{align*}
+		We therefore have an injective function $f:\Z^{n+1}\to P_n$.
+		Note that, by \emph{Wade, Theorem 1.42}, $\Z^{n+1}\cong \Z \times \cdots \times \Z$ is countable and therefore isomorphic to $\N$
+		through a bijection $\psi:\Z^{n+1}\to\N$. Thus we have an injective
+		function $f\circ\inv\psi:\N\to P_n$.
+		By \emph{Wade, Lemma 1.40} this means that $P_n$ is at most countable.\\
+		Now consider the set of solutions to all degree $n$ polynomials with
+		integer coefficients $S_n$. Observe that every $p\in P_n$ has at most
+		$n$ real solutions, so the set $S_p$ of all real solutions for $p$ is
+		finite and therefore at most countable.
+		We now have
+		\begin{align*}
+			S_n = \bigcup_{p\in P_n} S_p.
+		\end{align*}
+		Thus, by \emph{Wade, Theorem 1.42}, $S_n$ is at most countable.
+		Now consider the set of all algebraic numbers
+		\begin{align*}
+			S = \bigcup_{n\in\Z_{\geq 0}}S_n.
+		\end{align*}
+		Note that $\Z_{\geq 0}\subset \Z$ is at most countable
+		(\emph{Wade, Remark 1.43} and \emph{Wade, Theorem 1.41}). Since
+		every $S_n$ is at most countable as well, we use \emph{Wade, Theorem 1.42}
+		again to show that $S$ is at most countable.
+		Since $S$ is trivially infinite, this means that the set $S$ of
+		all algebraic numbers is in fact countable.
+	\end{proof}
 \end{claim}
 
 \section{Workshop 1 - Question 6}
 
 \begin{claim}
-   Let $(a_n)$ be a sequence of real numbers and $a\in\R$. Suppose
-   $a_n\to a$. Then
-   \begin{align*}
-      \frac{a_1 + a_2 + \cdots + a_n}{n}\to a.
-   \end{align*}
-   \begin{proof}
-      The proof is taken from \emph{Notes, Exercise 1.2}.
-      By \emph{Wade, Theorem 2.8}, the sequence $(a_n)$ must be bounded.
-      Thus there exists an $M$ such that $\abs{a_n}\leq M$ for all $n$.
-      Find such an $M$.
-      Given $\e > 0$ there exsits an $N$ such that $\forall n \geq N$:
-      \begin{align*}
-         \abs{a_n - a} < \e.
-      \end{align*}
-      Fix $N$ accordingly. It follows that for all $n\geq N$ we have
-      \begin{align*}
-         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
-         \frac{1}{n}\sum_{k=1}^n \abs{a_k - a}.
-      \end{align*}
-      We can split the sum to find
-      \begin{align*}
-         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
-         \frac{1}{n}\sum_{k=1}^{N-1} \abs{a_k - a} + \frac{1}{n}\sum_{k=N}^n \abs{a_k-a}.
-      \end{align*}
-      Since $\abs{a_n}\leq M$ and $a\leq M$, we have $\abs{a_n-a}\leq 2M$ in general.
-      We now find the upper bound
-      \begin{align*}
-         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
-         \frac{2M(N-1)}{n} + \frac{\e(n-N+1)}{n}.
-      \end{align*}
-      Here $M,N$ are fixed. We let $n\to\infty$. The first term goes to zero, while
-      the second is less than $\e$. Hence for all $n>N$ we have
-      \begin{align*}
-         \abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} < \e.
-      \end{align*}
-   \end{proof}
+	Let $(a_n)$ be a sequence of real numbers and $a\in\R$. Suppose
+	$a_n\to a$. Then
+	\begin{align*}
+		\frac{a_1 + a_2 + \cdots + a_n}{n}\to a.
+	\end{align*}
+	\begin{proof}
+		The proof is taken from \emph{Notes, Exercise 1.2}.
+		By \emph{Wade, Theorem 2.8}, the sequence $(a_n)$ must be bounded.
+		Thus there exists an $M$ such that $\abs{a_n}\leq M$ for all $n$.
+		Find such an $M$.
+		Given $\e > 0$ there exsits an $N$ such that $\forall n \geq N$:
+		\begin{align*}
+			\abs{a_n - a} < \e.
+		\end{align*}
+		Fix $N$ accordingly. It follows that for all $n\geq N$ we have
+		\begin{align*}
+			\abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
+			\frac{1}{n}\sum_{k=1}^n \abs{a_k - a}.
+		\end{align*}
+		We can split the sum to find
+		\begin{align*}
+			\abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
+			\frac{1}{n}\sum_{k=1}^{N-1} \abs{a_k - a} + \frac{1}{n}\sum_{k=N}^n \abs{a_k-a}.
+		\end{align*}
+		Since $\abs{a_n}\leq M$ and $a\leq M$, we have $\abs{a_n-a}\leq 2M$ in general.
+		We now find the upper bound
+		\begin{align*}
+			\abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} \leq
+			\frac{2M(N-1)}{n} + \frac{\e(n-N+1)}{n}.
+		\end{align*}
+		Here $M,N$ are fixed. We let $n\to\infty$. The first term goes to zero, while
+		the second is less than $\e$. Hence for all $n>N$ we have
+		\begin{align*}
+			\abs{\frac{a_1 + a_2 + \cdots + a_n}{n}-a} < \e.
+		\end{align*}
+	\end{proof}
 \end{claim}
 \begin{claim}
-   Let $(a_n)$ be the sequence of real numbers
-   where
-   \begin{align*}
-      a_n = (-1)^n.
-   \end{align*}
-   Then $a_n$ does not converge, but
-   \begin{align*}
-      \frac{a_1+\cdots+a_n}{n} \to 0.
-   \end{align*}
-   \begin{proof}
-      By \emph{Wade, Example 2.3} the sequence $(a_n)$ does not converge.
-      Further, note that
-      \begin{align*}
-         -1 \leq a_1 + \cdots + a_n \leq 1
-      \end{align*}
-      for all $n\in\N$. Therefore, we have
-      \begin{align*}
-         -\frac{1}{n}\leq \frac{a_1+\cdots+a_n}{n} \leq \frac{1}{n}.
-      \end{align*}
-      Since $-1/n\to 0$ and $1/n\to 0$, by the \emph{Sqeeze Theorem} the claim follows.
-   \end{proof}
+	Let $(a_n)$ be the sequence of real numbers
+	where
+	\begin{align*}
+		a_n = (-1)^n.
+	\end{align*}
+	Then $a_n$ does not converge, but
+	\begin{align*}
+		\frac{a_1+\cdots+a_n}{n} \to 0.
+	\end{align*}
+	\begin{proof}
+		By \emph{Wade, Example 2.3} the sequence $(a_n)$ does not converge.
+		Further, note that
+		\begin{align*}
+			-1 \leq a_1 + \cdots + a_n \leq 1
+		\end{align*}
+		for all $n\in\N$. Therefore, we have
+		\begin{align*}
+			-\frac{1}{n}\leq \frac{a_1+\cdots+a_n}{n} \leq \frac{1}{n}.
+		\end{align*}
+		Since $-1/n\to 0$ and $1/n\to 0$, by the \emph{Sqeeze Theorem} the claim follows.
+	\end{proof}
 \end{claim}
 \end{document}

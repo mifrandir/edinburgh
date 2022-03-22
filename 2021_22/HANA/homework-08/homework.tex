@@ -10,130 +10,130 @@
 \section*{Workshop 8 - Question 6}
 
 \begin{claim*}
-   Let $f(x)=n$ for all $x\in((n+1)^{-1}, n^{-1}]$, $n\in\N$. Then $f$ is not integrable on
-   $(0,1]$.
+	Let $f(x)=n$ for all $x\in((n+1)^{-1}, n^{-1}]$, $n\in\N$. Then $f$ is not integrable on
+	$(0,1]$.
 \end{claim*}
 \begin{proof}
-   Consider the function $g:(0,1]\to\R$ given by
-   \begin{align*}
-      g(x) = \sum_{j=1}^\infty \chi_{J_j}(x)
-   \end{align*}
-   where $J_j = (0, j^{-1}]$. Note that for $x\in((n+1)^{-1}, n^{-1}]$ where $n\in\N$,
-   we have $\chi_{J_j}(x)=1$ if and only if $j\leq n$. Thus
-   \begin{align*}
-      g(x) = \sum_{j=1}^n 1 = n = f(x)
-   \end{align*}
-   for all $x\in(0,1]$. Therefore we can write
-   \begin{align*}
-      f(x) = \sum_{j=1}^\infty f_j(x)
-   \end{align*}
-   where $f_j=\chi_{J_j}$. Note that the series
-   \begin{align*}
-      \sum_{j=1}^\infty \int_{(0,1]} f_j = \sum_{j=1}^\infty \lambda(J_j)
-      = \sum_{j=1}^\infty \frac{1}{j}
-   \end{align*}
-   diverges. It follows from \emph{Notes, Theorem 4.3} that $f$ is not integrable on $(0,1]$.
+	Consider the function $g:(0,1]\to\R$ given by
+	\begin{align*}
+		g(x) = \sum_{j=1}^\infty \chi_{J_j}(x)
+	\end{align*}
+	where $J_j = (0, j^{-1}]$. Note that for $x\in((n+1)^{-1}, n^{-1}]$ where $n\in\N$,
+	we have $\chi_{J_j}(x)=1$ if and only if $j\leq n$. Thus
+	\begin{align*}
+		g(x) = \sum_{j=1}^n 1 = n = f(x)
+	\end{align*}
+	for all $x\in(0,1]$. Therefore we can write
+	\begin{align*}
+		f(x) = \sum_{j=1}^\infty f_j(x)
+	\end{align*}
+	where $f_j=\chi_{J_j}$. Note that the series
+	\begin{align*}
+		\sum_{j=1}^\infty \int_{(0,1]} f_j = \sum_{j=1}^\infty \lambda(J_j)
+		= \sum_{j=1}^\infty \frac{1}{j}
+	\end{align*}
+	diverges. It follows from \emph{Notes, Theorem 4.3} that $f$ is not integrable on $(0,1]$.
 \end{proof}
 
 \section*{Workshop 8 - Question 7}
 
 We define the function $L:\R_{>0}\to\R$ by
 \begin{align*}
-   L(x) = \int_1^x \frac{dt}{t}.
+	L(x) = \int_1^x \frac{dt}{t}.
 \end{align*}
 
 \begin{claim*}
-   $L$ is differentiable on $\R_{>0}$ and
-   \begin{align}
-      \label{deriv}
-      L'(x) = \frac{1}{x}.
-   \end{align}
+	$L$ is differentiable on $\R_{>0}$ and
+	\begin{align}
+		\label{deriv}
+		L'(x) = \frac{1}{x}.
+	\end{align}
 \end{claim*}
 
 \begin{proof}
-   Let $g(x) = 1/x$. Then
-   \begin{align*}
-      L(x) = \int_{x_0}^x g(t) dt
-   \end{align*}
-   where $x_0=1$. Observe that $1/x$ is a rational function defined on $\R_{\geq 0}$
-   and therefore continuous. The claim follows directly from \emph{Notes, Theorem 4.10}.
+	Let $g(x) = 1/x$. Then
+	\begin{align*}
+		L(x) = \int_{x_0}^x g(t) dt
+	\end{align*}
+	where $x_0=1$. Observe that $1/x$ is a rational function defined on $\R_{\geq 0}$
+	and therefore continuous. The claim follows directly from \emph{Notes, Theorem 4.10}.
 \end{proof}
 
 \begin{claim*}
-   For all $x,y\in\R_{>0}$,
-   \begin{align*}
-      L(xy) = L(x) + L(y).
-   \end{align*}
+	For all $x,y\in\R_{>0}$,
+	\begin{align*}
+		L(xy) = L(x) + L(y).
+	\end{align*}
 \end{claim*}
 
 \begin{proof}
-   Note that the claim holds for $x=y=1$ since
-   \begin{align*}
-      L(1) = L(1) + L(1) = 0.
-   \end{align*}
-   Consider the following derivative where $y\in\R_{>0}$:
-   \begin{align*}
-      \frac{d}{dt}\left(L(ty)\right) = yL'(ty) = \frac{1}{t}.
-   \end{align*}
-   where we used the \emph{Chain Rule} and (\ref{deriv}). We can write
-   \begin{align*}
-      \int_1^x \left(\frac{d}{dt}L(ty)\right)dt = \int_1^x \frac{dt}{t}.
-   \end{align*}
-   By definition of $L$ and \emph{Notes, Theorem 4.11}, we then get
-   \begin{align*}
-      L(xy) - L(y) = L(x).
-   \end{align*}
+	Note that the claim holds for $x=y=1$ since
+	\begin{align*}
+		L(1) = L(1) + L(1) = 0.
+	\end{align*}
+	Consider the following derivative where $y\in\R_{>0}$:
+	\begin{align*}
+		\frac{d}{dt}\left(L(ty)\right) = yL'(ty) = \frac{1}{t}.
+	\end{align*}
+	where we used the \emph{Chain Rule} and (\ref{deriv}). We can write
+	\begin{align*}
+		\int_1^x \left(\frac{d}{dt}L(ty)\right)dt = \int_1^x \frac{dt}{t}.
+	\end{align*}
+	By definition of $L$ and \emph{Notes, Theorem 4.11}, we then get
+	\begin{align*}
+		L(xy) - L(y) = L(x).
+	\end{align*}
 \end{proof}
 
 \begin{claim*}
-   Let $E:\R\to\R_{>0}$ be the exponential function defined by
-   \begin{align*}
-      E(x)=\sum_{k=0}^\infty \frac{x^k}{k!}.
-   \end{align*}
-   Then $L$ is the inverse of $E$. That is, $L(E(x))=x$ for all $x\in\R$.
+	Let $E:\R\to\R_{>0}$ be the exponential function defined by
+	\begin{align*}
+		E(x)=\sum_{k=0}^\infty \frac{x^k}{k!}.
+	\end{align*}
+	Then $L$ is the inverse of $E$. That is, $L(E(x))=x$ for all $x\in\R$.
 \end{claim*}
 \begin{proof}
-   Consider the derivative
-   \begin{align*}
-      (L\circ E)'(x) = L'(E(x))E'(x)
-   \end{align*}
-   which we obtained by the \emph{Chain Rule}. We know from previous results that $L'(x) = 1/x$
-   and $E'(x) = E(x)$. Thus we obtain
-   \begin{align*}
-      (L\circ E)'(x) = L(E(x))E(x) = \frac{E(x)}{E(x)} = 1
-   \end{align*}
-   as $E(x)>0$ for all $x\in\R$. We may then conclude that
-   \begin{align*}
-      \int_0^x (L\circ E)'(t)dt = \int_0^x dt.
-   \end{align*}
-   By \emph{Notes, Theorem 4.11}, it follows that
-   \begin{align*}
-      (L\circ E)(x) - (L\circ E)(0) = x.
-   \end{align*}
-   However, since $L(E(0)) = L(1) = 0$, the claim follows directly.
+	Consider the derivative
+	\begin{align*}
+		(L\circ E)'(x) = L'(E(x))E'(x)
+	\end{align*}
+	which we obtained by the \emph{Chain Rule}. We know from previous results that $L'(x) = 1/x$
+	and $E'(x) = E(x)$. Thus we obtain
+	\begin{align*}
+		(L\circ E)'(x) = L(E(x))E(x) = \frac{E(x)}{E(x)} = 1
+	\end{align*}
+	as $E(x)>0$ for all $x\in\R$. We may then conclude that
+	\begin{align*}
+		\int_0^x (L\circ E)'(t)dt = \int_0^x dt.
+	\end{align*}
+	By \emph{Notes, Theorem 4.11}, it follows that
+	\begin{align*}
+		(L\circ E)(x) - (L\circ E)(0) = x.
+	\end{align*}
+	However, since $L(E(0)) = L(1) = 0$, the claim follows directly.
 \end{proof}
 
 \section*{Workshop 8 - Question 8}
 
 \begin{claim*}
-   Let $g:[a,b]\to\R$ be continuous and nonnegative. If $\int_a^b g = 0$ then
-   $g=0$ on $[a,b]$.
+	Let $g:[a,b]\to\R$ be continuous and nonnegative. If $\int_a^b g = 0$ then
+	$g=0$ on $[a,b]$.
 \end{claim*}
 \begin{proof}
-   We define $G:[a,b]\to\R$ by
-   \begin{align}
-      G(x) = \int_a^x g(t)dt.
-   \end{align}
-   Observe that, by \emph{Notes, Theorem 4.10},
-   \begin{align*}
-      G'(x) = g(x) \geq 0.
-   \end{align*}
-   Therefore $G$ is nondecreasing. Further, clearly $G(a)=G(b)=0$.
-   Due to the \emph{Mean Value Theorem}, we conclude that for all $x\in[a,b]$, $G(x) = 0$.
-   We differentiate on $[a,b]$ to find
-   \begin{align*}
-      G'(x) = g(x) = 0.
-   \end{align*}
+	We define $G:[a,b]\to\R$ by
+	\begin{align}
+		G(x) = \int_a^x g(t)dt.
+	\end{align}
+	Observe that, by \emph{Notes, Theorem 4.10},
+	\begin{align*}
+		G'(x) = g(x) \geq 0.
+	\end{align*}
+	Therefore $G$ is nondecreasing. Further, clearly $G(a)=G(b)=0$.
+	Due to the \emph{Mean Value Theorem}, we conclude that for all $x\in[a,b]$, $G(x) = 0$.
+	We differentiate on $[a,b]$ to find
+	\begin{align*}
+		G'(x) = g(x) = 0.
+	\end{align*}
 \end{proof}
 
 \end{document}

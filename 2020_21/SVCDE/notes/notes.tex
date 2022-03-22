@@ -22,18 +22,18 @@
 
 
 \begin{definition}
-    A function $\vec r$ of the form $\vec r: \R \to \R^3$ is called a \textbf{vector function}.
+	A function $\vec r$ of the form $\vec r: \R \to \R^3$ is called a \textbf{vector function}.
 \end{definition}
 \begin{definition}
-    The limit $\vec b$ of a vector function $\vec r$ at $a$ exists if, and only if,
-    \begin{align*}
-        \forall \epsilon > 0,\: \exists \delta > 0 \st 0 < |t-a| < \delta \Rightarrow |\vec r(t) - \vec b|<\epsilon.
-    \end{align*}
-    This is the case if, and only if, the limits for all the components of $\vec f$ exist.\\
-    A vector function $\vec r(t)$ is \textbf{continuous} at $t=a$ if
-    \begin{align*}
-        \lim_{t\to a} \vec r (t) = \vec r (a).
-    \end{align*}
+	The limit $\vec b$ of a vector function $\vec r$ at $a$ exists if, and only if,
+	\begin{align*}
+		\forall \epsilon > 0,\: \exists \delta > 0 \st 0 < |t-a| < \delta \Rightarrow |\vec r(t) - \vec b|<\epsilon.
+	\end{align*}
+	This is the case if, and only if, the limits for all the components of $\vec f$ exist.\\
+	A vector function $\vec r(t)$ is \textbf{continuous} at $t=a$ if
+	\begin{align*}
+		\lim_{t\to a} \vec r (t) = \vec r (a).
+	\end{align*}
 \end{definition}
 
 
@@ -43,39 +43,39 @@
 \subsubsection{Derivatives}
 
 \begin{definition}
-    The \textbf{derivative of a vector function} $\vec r(t)$ is defined as
-    \begin{align*}
-        \vec r(t) = \frac{d\vec r}{dt} = \lim_{\delta \to 0} \frac{\vec r(t+\delta)-\vec r(t)}{\delta}.
-    \end{align*}
+	The \textbf{derivative of a vector function} $\vec r(t)$ is defined as
+	\begin{align*}
+		\vec r(t) = \frac{d\vec r}{dt} = \lim_{\delta \to 0} \frac{\vec r(t+\delta)-\vec r(t)}{\delta}.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Let $\vec v = f(t)\ih + g(t)\jh + h(t)\kh$ where $f,g,h: \R\to\R$. Then
-    \begin{align*}
-        \frac{d\vec v}{dt} = \frac{df}{dt}\ih + \frac{dg}{dt}\jh + \frac{dh}{dt}\kh.
-    \end{align*}
+	Let $\vec v = f(t)\ih + g(t)\jh + h(t)\kh$ where $f,g,h: \R\to\R$. Then
+	\begin{align*}
+		\frac{d\vec v}{dt} = \frac{df}{dt}\ih + \frac{dg}{dt}\jh + \frac{dh}{dt}\kh.
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    $\vec r'(a)$ is the \textbf{tangent vector} at the point $t=a$ to the curve traced out by the position vector function $\vec r(t)$.
-    The \textbf{unit tangent vector} at $t=a$ is
-    \begin{align*}
-        \vec T(a) = \frac{\vec r'(a)}{|\vec r'(a)|}
-    \end{align*}
-    if $|\vec r'(a)| \not= 0$.
+	$\vec r'(a)$ is the \textbf{tangent vector} at the point $t=a$ to the curve traced out by the position vector function $\vec r(t)$.
+	The \textbf{unit tangent vector} at $t=a$ is
+	\begin{align*}
+		\vec T(a) = \frac{\vec r'(a)}{|\vec r'(a)|}
+	\end{align*}
+	if $|\vec r'(a)| \not= 0$.
 \end{definition}
 
 \subsubsection{Integrals}
 
 \begin{definition}
-    The \textbf{definite integral} of the continuous vector function $\vec v(t)=f(t)\ih + g(t)\jh + h(t)\kh$ is given by
-    \begin{align*}
-        \int_a^b \vec v(t)dt = \left[\int_a^b f(t)dt\right]\ih + \left[\int_a^b g(t) dt\right]\jh + \left[\int_a^b h(t)dt\right] \kh.
-    \end{align*}
+	The \textbf{definite integral} of the continuous vector function $\vec v(t)=f(t)\ih + g(t)\jh + h(t)\kh$ is given by
+	\begin{align*}
+		\int_a^b \vec v(t)dt = \left[\int_a^b f(t)dt\right]\ih + \left[\int_a^b g(t) dt\right]\jh + \left[\int_a^b h(t)dt\right] \kh.
+	\end{align*}
 \end{definition}
 \begin{theorem}{Fundamental Theorem of Calculus}
-    \begin{align*}
-        \int_a^b \vec v(t) dt = \left[\vec V(t)\right]^b_a = \vec V(b) - \vec V(a)
-    \end{align*}
-    where $\vec V'(t) = \vec v(t)$.
+	\begin{align*}
+		\int_a^b \vec v(t) dt = \left[\vec V(t)\right]^b_a = \vec V(b) - \vec V(a)
+	\end{align*}
+	where $\vec V'(t) = \vec v(t)$.
 \end{theorem}
 
 
@@ -83,11 +83,11 @@
 
 
 \begin{theorem}
-    The length $L$ of the curve traced out by the position vector function $\vec r(t)$ in three-dimensional space ove the interval
-    $[a,b]$ is given by
-    \begin{align*}
-        L = \int_a^b \left|\frac{d\vec r(t)}{dt}\right| dt
-    \end{align*}
+	The length $L$ of the curve traced out by the position vector function $\vec r(t)$ in three-dimensional space ove the interval
+	$[a,b]$ is given by
+	\begin{align*}
+		L = \int_a^b \left|\frac{d\vec r(t)}{dt}\right| dt
+	\end{align*}
 \end{theorem}
 
 
@@ -95,22 +95,22 @@
 
 
 \begin{definition}
-    A parameterisation $\vec v(t)$ is \textbf{smooth} on an interval $I$ if $\vec v'(t)$ is continuous and $\vec v'(t) \not = \vec 0$ on $I$.
+	A parameterisation $\vec v(t)$ is \textbf{smooth} on an interval $I$ if $\vec v'(t)$ is continuous and $\vec v'(t) \not = \vec 0$ on $I$.
 \end{definition}
 \begin{definition}
-    A curve is \textbf{smooth} if it has a smooth parameterisation.
+	A curve is \textbf{smooth} if it has a smooth parameterisation.
 \end{definition}
 \begin{definition}
-    For a smooth curved traced out by the position vector $\vec r(t)$ with the unit tangent vector
-    $\vec T(t)$ the \textbf{curvature} $\kappa$ is defined as
-    \begin{align*}
-        \kappa = \left|\frac{d\vec T}{ds}\right|=\frac{\left| \vec T'(t)\right|}{\left|\vec r'(t)\right|}
-    \end{align*}
-    where $s$ is the arc length.
-    Alternatively
-    \begin{align*}
-        \kappa = \frac{\left|\dv r(t) \times \dv r'(t)\right|}{|\dv r(t)|^3}
-    \end{align*}
+	For a smooth curved traced out by the position vector $\vec r(t)$ with the unit tangent vector
+	$\vec T(t)$ the \textbf{curvature} $\kappa$ is defined as
+	\begin{align*}
+		\kappa = \left|\frac{d\vec T}{ds}\right|=\frac{\left| \vec T'(t)\right|}{\left|\vec r'(t)\right|}
+	\end{align*}
+	where $s$ is the arc length.
+	Alternatively
+	\begin{align*}
+		\kappa = \frac{\left|\dv r(t) \times \dv r'(t)\right|}{|\dv r(t)|^3}
+	\end{align*}
 \end{definition}
 
 
@@ -118,23 +118,23 @@
 
 
 \begin{definition}
-    Let the \textbf{principal unit normal vector} of the curve traced out by the position vector $\vec r(t)$
-    where $\vec r'(t)$ is smooth be defined as
-    \begin{align*}
-        \vec N (t) = \frac{\vec T'(t)}{\left| \vec T'(t) \right|}.
-    \end{align*}
+	Let the \textbf{principal unit normal vector} of the curve traced out by the position vector $\vec r(t)$
+	where $\vec r'(t)$ is smooth be defined as
+	\begin{align*}
+		\vec N (t) = \frac{\vec T'(t)}{\left| \vec T'(t) \right|}.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    The \textbf{binormal vector} is defined as
-    \begin{align*}
-        \vec B(t) = \vec T(t) \times \vec N(t).
-    \end{align*}
+	The \textbf{binormal vector} is defined as
+	\begin{align*}
+		\vec B(t) = \vec T(t) \times \vec N(t).
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \begin{align*}
-        \vec N(t) & = \vec B(t) \times \vec T(t) \\
-        \vec T(t) & = \vec N(t) \times \vec B(t)
-    \end{align*}
+	\begin{align*}
+		\vec N(t) & = \vec B(t) \times \vec T(t) \\
+		\vec T(t) & = \vec N(t) \times \vec B(t)
+	\end{align*}
 \end{theorem}
 
 
@@ -147,20 +147,20 @@
 
 
 \begin{definition}
-    A function of $n$ variables $f(x_1, x_2, ..., x_n)$ maps an $n$-tuple
-    of real numbers $(x_1, x_2, ..., x_n)$ in domain $D\subseteq\R^n$ to
-    a unique real number in the range
-    \begin{align*}
-        \{f(x_1, x_2, ..., x_n)|(x_1, x_2, ..., x_n)\in D\} \subseteq \R.
-    \end{align*}
+	A function of $n$ variables $f(x_1, x_2, ..., x_n)$ maps an $n$-tuple
+	of real numbers $(x_1, x_2, ..., x_n)$ in domain $D\subseteq\R^n$ to
+	a unique real number in the range
+	\begin{align*}
+		\{f(x_1, x_2, ..., x_n)|(x_1, x_2, ..., x_n)\in D\} \subseteq \R.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    The \textbf{level curves} of a function $f(x,y)$ are curves with equations
-    $f(x,y)=k$ where $k$ is a constant in the range of $f$.
+	The \textbf{level curves} of a function $f(x,y)$ are curves with equations
+	$f(x,y)=k$ where $k$ is a constant in the range of $f$.
 \end{definition}
 \begin{definition}
-    The \textbf{level surfaces} of a function $f(x,y,z)$ are surfaces with
-    equations $f(x,y,z)=k$ where $k$ is a constant in the range of $f$.
+	The \textbf{level surfaces} of a function $f(x,y,z)$ are surfaces with
+	equations $f(x,y,z)=k$ where $k$ is a constant in the range of $f$.
 \end{definition}
 
 
@@ -170,51 +170,51 @@
 \subsubsection{Limits}
 
 \begin{definition}
-    Suppose the domain $D$ of a function $f:D\to\R$ includes points
-    arbitrarily close to the point $P$ with position vector $\vec p$.
-    Then
-    \begin{align*}
-        \lim_{\vec x\to \vec p}f(\vec x)=L
-    \end{align*}
-    if for every $\epsilon>0$ there exists a $\delta > 0$ such that
-    \begin{align*}
-        0 < |\vec x - \vec p| < \delta \:\Rightarrow\: |f(\vec x)-L|<\epsilon
-    \end{align*}
-    for $\vec x \in D$.\\\\
-    Note: The definition is independent of the direction of approach to the
-    limit point $\vec p$. Thus, if
-    \begin{align*}
-         & f(\vec x)\to L_1 \text{ as } \vec x\to\vec p \text{ along a path } C_1, \text{ and} \\
-         & f(\vec x)\to L_2 \text{ as } \vec x\to\vec p \text{ along a path } C_2
-    \end{align*}
-    where $L_1 \not= L_2$, then $\lim_{\vec x\to\vec p} f(\vec x)$ does not exist.
+	Suppose the domain $D$ of a function $f:D\to\R$ includes points
+	arbitrarily close to the point $P$ with position vector $\vec p$.
+	Then
+	\begin{align*}
+		\lim_{\vec x\to \vec p}f(\vec x)=L
+	\end{align*}
+	if for every $\epsilon>0$ there exists a $\delta > 0$ such that
+	\begin{align*}
+		0 < |\vec x - \vec p| < \delta \:\Rightarrow\: |f(\vec x)-L|<\epsilon
+	\end{align*}
+	for $\vec x \in D$.\\\\
+	Note: The definition is independent of the direction of approach to the
+	limit point $\vec p$. Thus, if
+	\begin{align*}
+		 & f(\vec x)\to L_1 \text{ as } \vec x\to\vec p \text{ along a path } C_1, \text{ and} \\
+		 & f(\vec x)\to L_2 \text{ as } \vec x\to\vec p \text{ along a path } C_2
+	\end{align*}
+	where $L_1 \not= L_2$, then $\lim_{\vec x\to\vec p} f(\vec x)$ does not exist.
 \end{definition}
 \begin{theorem}
-    The limit laws carry over from functions of one variable case:
-    \begin{enumerate}
-        \item $\lim_{\vec x\to\vec p}\left(f(\vec x)\pm g(\vec x)\right) =
-                  \lim_{\vec x\to\vec p}f(\vec x)\pm\lim_{\vec x\to\vec p}g(\vec x)$.
-        \item $\lim_{\vec x\to\vec p}\left(cf(\vec x)\right) =
-                  c\lim_{\vec x\to\vec p}f(\vec x)$ where $c$ is a constant.
-        \item $\lim_{\vec x\to\vec p}\left(f(\vec x)g(\vec x)\right) =
-                  \left(\lim_{\vec x\to\vec p}f(\vec x)\right)
-                  \left(\lim_{\vec x\to\vec p}g(\vec x)\right)$.
-        \item $\lim_{\vec x\to\vec p}\frac{f(\vec x)}{g(\vec x)}
-                  =\frac{\lim_{\vec x\to\vec p}f(\vec x)}{\lim_{\vec x\to\vec p}g(\vec x)}$
-              provided that $\lim_{\vec x\to\vec p}g(\vec x)\not=0$.
-    \end{enumerate}
+	The limit laws carry over from functions of one variable case:
+	\begin{enumerate}
+		\item $\lim_{\vec x\to\vec p}\left(f(\vec x)\pm g(\vec x)\right) =
+			      \lim_{\vec x\to\vec p}f(\vec x)\pm\lim_{\vec x\to\vec p}g(\vec x)$.
+		\item $\lim_{\vec x\to\vec p}\left(cf(\vec x)\right) =
+			      c\lim_{\vec x\to\vec p}f(\vec x)$ where $c$ is a constant.
+		\item $\lim_{\vec x\to\vec p}\left(f(\vec x)g(\vec x)\right) =
+			      \left(\lim_{\vec x\to\vec p}f(\vec x)\right)
+			      \left(\lim_{\vec x\to\vec p}g(\vec x)\right)$.
+		\item $\lim_{\vec x\to\vec p}\frac{f(\vec x)}{g(\vec x)}
+			      =\frac{\lim_{\vec x\to\vec p}f(\vec x)}{\lim_{\vec x\to\vec p}g(\vec x)}$
+		      provided that $\lim_{\vec x\to\vec p}g(\vec x)\not=0$.
+	\end{enumerate}
 \end{theorem}
 
 \subsubsection{Continuity}
 
 \begin{definition}
-    A function $f:D\to R$ with $D\subseteq\R^n$ and $R\subseteq\R$
-    is called \textbf{continuous} at a point $P$ with position vector $\vec p\in \R^n$
-    \begin{align*}
-        \lim_{\vec x\to \vec p}f(\vec x) = f(\vec p);
-    \end{align*}
-    and $f$ is \textbf{continuous on $S\subseteq D$} if it is continuous at
-    every point in $S$.
+	A function $f:D\to R$ with $D\subseteq\R^n$ and $R\subseteq\R$
+	is called \textbf{continuous} at a point $P$ with position vector $\vec p\in \R^n$
+	\begin{align*}
+		\lim_{\vec x\to \vec p}f(\vec x) = f(\vec p);
+	\end{align*}
+	and $f$ is \textbf{continuous on $S\subseteq D$} if it is continuous at
+	every point in $S$.
 \end{definition}
 
 
@@ -222,32 +222,32 @@
 
 
 \begin{definition}
-    Consider a function $f:\R^n\to\R$. The $n$ \textbf{partial derivatives} of
-    $f$ are defined by
-    \begin{align*}
-        f_{x_i}(\vec x)\equiv\frac{\p f}{\p x_i}=\lim_{\delta\to 0}\frac{f(\vec x + \delta \vec e_i)-f(\vec x)}{\delta}
-    \end{align*}
-    where $i\in[1,n]$, $x_i$ is the $i$th component of $\vec x$ and $\vec e_i$ is the
-    $i$th standard unit vector.
+	Consider a function $f:\R^n\to\R$. The $n$ \textbf{partial derivatives} of
+	$f$ are defined by
+	\begin{align*}
+		f_{x_i}(\vec x)\equiv\frac{\p f}{\p x_i}=\lim_{\delta\to 0}\frac{f(\vec x + \delta \vec e_i)-f(\vec x)}{\delta}
+	\end{align*}
+	where $i\in[1,n]$, $x_i$ is the $i$th component of $\vec x$ and $\vec e_i$ is the
+	$i$th standard unit vector.
 \end{definition}
 Notation for higher derivatives:
 \begin{align*}
-    (f_x)_x \equiv f_{xx} \equiv f_{11}
-     & \equiv \frac{\p}{\p x}\frac{\p f}{\p x}
-    \equiv \frac{\p^2 f}{\p x^2}
-    \equiv \frac{\p^2 z}{\p x^2}               \\
-    (f_x)_y \equiv f_{xy} \equiv f_{12}
-     & \equiv \frac{\p}{\p y}\frac{\p f}{\p x}
-    \equiv \frac{\p^2 f}{\p y \p x}
-    \equiv \frac{\p^2 z}{\p y \p x}            \\
+	(f_x)_x \equiv f_{xx} \equiv f_{11}
+	 & \equiv \frac{\p}{\p x}\frac{\p f}{\p x}
+	\equiv \frac{\p^2 f}{\p x^2}
+	\equiv \frac{\p^2 z}{\p x^2}               \\
+	(f_x)_y \equiv f_{xy} \equiv f_{12}
+	 & \equiv \frac{\p}{\p y}\frac{\p f}{\p x}
+	\equiv \frac{\p^2 f}{\p y \p x}
+	\equiv \frac{\p^2 z}{\p y \p x}            \\
 \end{align*}
 \begin{theorem}[Clairaut's Theorem]
-    Suppose $f(x,y)$ is defined on a disk $D$ containing the point $(a,b)$.
-    If the partial derivatives $f_{xy}$ and $f_{yx}$ are both continuous
-    on $D$ then
-    \begin{align*}
-        f_{xy}(a,b)=f_{yx}(a,b).
-    \end{align*}
+	Suppose $f(x,y)$ is defined on a disk $D$ containing the point $(a,b)$.
+	If the partial derivatives $f_{xy}$ and $f_{yx}$ are both continuous
+	on $D$ then
+	\begin{align*}
+		f_{xy}(a,b)=f_{yx}(a,b).
+	\end{align*}
 \end{theorem}
 
 
@@ -257,63 +257,63 @@ Notation for higher derivatives:
 \subsubsection{Tangent planes}
 
 \begin{definition}
-    Consider a surface $S$ with equation $z=f(x,y)$ where $f_x$ and $f_y$
-    are both continuous. Then the \textbf{tangent plane} to the surface $S$
-    is given by the equation
-    \begin{align*}
-        z - z_0 = f_x(x_0, y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
-    \end{align*}
+	Consider a surface $S$ with equation $z=f(x,y)$ where $f_x$ and $f_y$
+	are both continuous. Then the \textbf{tangent plane} to the surface $S$
+	is given by the equation
+	\begin{align*}
+		z - z_0 = f_x(x_0, y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0).
+	\end{align*}
 \end{definition}
 
 \subsubsection{Linear approximation}
 
 \begin{definition}
-    The linear function
-    \begin{align*}
-        L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a),
-    \end{align*}
-    is called the \textbf{linearisation} of $f(x,y)$ at $(a,b)$, and the
-    approximation
-    \begin{align*}
-        f(x,y)\approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a)
-    \end{align*}
-    is called the \textbf{linear approximation} of $f(x,y)$ at $(a,b)$.\\
-    The graph of the linearisation is the tangent plane of $f(x,y)$ at
-    $(a,b)$.
+	The linear function
+	\begin{align*}
+		L(x,y)=f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a),
+	\end{align*}
+	is called the \textbf{linearisation} of $f(x,y)$ at $(a,b)$, and the
+	approximation
+	\begin{align*}
+		f(x,y)\approx f(a,b)+f_x(a,b)(x-a)+f_y(a,b)(y-a)
+	\end{align*}
+	is called the \textbf{linear approximation} of $f(x,y)$ at $(a,b)$.\\
+	The graph of the linearisation is the tangent plane of $f(x,y)$ at
+	$(a,b)$.
 \end{definition}
 \begin{definition}
-    Consider the change in $z=f(x,y)$ as we move from the point
-    $(a,b)$ to the point $(a+\Delta x, b+\Delta y)$. The
-    corresponding \textbf{increment} in $z$ is
-    \begin{align*}
-        \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
-        + \epsilon_1\Delta x + \epsilon_2\Delta y.
-    \end{align*}
-    The function $f(x,y)$ is \textbf{differentiable} if $\Delta z$
-    may be expressed as
-    \begin{align*}
-        \Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
-        + \epsilon_1\Delta x + \epsilon_2\Delta y
-    \end{align*}
-    where $\epsilon_1, \epsilon_2 \to 0$ as
-    $(\Delta x, \Delta y)\to(0,0)$.
+	Consider the change in $z=f(x,y)$ as we move from the point
+	$(a,b)$ to the point $(a+\Delta x, b+\Delta y)$. The
+	corresponding \textbf{increment} in $z$ is
+	\begin{align*}
+		\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
+		+ \epsilon_1\Delta x + \epsilon_2\Delta y.
+	\end{align*}
+	The function $f(x,y)$ is \textbf{differentiable} if $\Delta z$
+	may be expressed as
+	\begin{align*}
+		\Delta z = f_x(a,b)\Delta x + f_y(a,b)\Delta y
+		+ \epsilon_1\Delta x + \epsilon_2\Delta y
+	\end{align*}
+	where $\epsilon_1, \epsilon_2 \to 0$ as
+	$(\Delta x, \Delta y)\to(0,0)$.
 \end{definition}
 \begin{theorem}
-    If the partial derivatives $f_x$ and $f_y$ exist near
-    $(a,b)$ and are continuous at $(a,b)$, then $f(x,y)$
-    is differentiable at $(a,b)$.
+	If the partial derivatives $f_x$ and $f_y$ exist near
+	$(a,b)$ and are continuous at $(a,b)$, then $f(x,y)$
+	is differentiable at $(a,b)$.
 \end{theorem}
 
 \subsubsection{Differentials}
 
 \begin{definition}
-    For the function $z=f(x,y)$, \textbf{differentials} $dx$ and $dy$ are
-    defined to be independent variables. The \textbf{total differential} $dz$
-    is then defined as
-    \begin{align*}
-        dz = f_x(x,y)dx + f_y(x,y)dy
-        = \frac{\p z}{\p x}dx + \frac{\p z}{\p y}dy.
-    \end{align*}
+	For the function $z=f(x,y)$, \textbf{differentials} $dx$ and $dy$ are
+	defined to be independent variables. The \textbf{total differential} $dz$
+	is then defined as
+	\begin{align*}
+		dz = f_x(x,y)dx + f_y(x,y)dy
+		= \frac{\p z}{\p x}dx + \frac{\p z}{\p y}dy.
+	\end{align*}
 \end{definition}
 
 
@@ -323,65 +323,65 @@ Notation for higher derivatives:
 \subsubsection{Formulations}
 
 \begin{theorem}[Chain rule - case 1]
-    Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
-    where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$.
-    Then $z$ is a differentiable function of $t$ and
-    \begin{align*}
-        \frac{dz}{dt}=
-        \frac{\p f}{\p x}\frac{dx}{dt}+\frac{\p f}{\p y}\frac{dy}{dt}
-        \equiv \frac{\p z}{\p x}\frac{dx}{dt}+\frac{\p z}{\p y}\frac{dy}{dt}
-    \end{align*}
+	Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
+	where $x=g(t)$ and $y=h(t)$ are both differentiable functions of $t$.
+	Then $z$ is a differentiable function of $t$ and
+	\begin{align*}
+		\frac{dz}{dt}=
+		\frac{\p f}{\p x}\frac{dx}{dt}+\frac{\p f}{\p y}\frac{dy}{dt}
+		\equiv \frac{\p z}{\p x}\frac{dx}{dt}+\frac{\p z}{\p y}\frac{dy}{dt}
+	\end{align*}
 \end{theorem}
 \begin{theorem}[Chain rule - case 2]
-    Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
-    where $x=g(s,t)$ and $y=h(s,t)$ are both differentiable functions of
-    $s$ and $t$. Then
-    \begin{align*}
-        \frac{\p z}{\p s}=\frac{\p z}{\p x}\frac{\p x}{\p s}
-        + \frac{\p z}{\p y}\frac{\p y}{\p s}
-        \text{\hs and\hs}
-        \frac{\p z}{\p t}=\frac{\p z}{\p x}\frac{\p x}{\p t}
-        + \frac{\p z}{\p y}\frac{\p y}{\p t}.
-    \end{align*}
+	Suppose that $z=f(x,y)$ is a differentiable function of $x$ and $y$,
+	where $x=g(s,t)$ and $y=h(s,t)$ are both differentiable functions of
+	$s$ and $t$. Then
+	\begin{align*}
+		\frac{\p z}{\p s}=\frac{\p z}{\p x}\frac{\p x}{\p s}
+		+ \frac{\p z}{\p y}\frac{\p y}{\p s}
+		\text{\hs and\hs}
+		\frac{\p z}{\p t}=\frac{\p z}{\p x}\frac{\p x}{\p t}
+		+ \frac{\p z}{\p y}\frac{\p y}{\p t}.
+	\end{align*}
 \end{theorem}
 \begin{theorem}[Chain rule - general case]
-    Suppose that $z$ is a differentiable function of the $n$ variables
-    $x_1, x_2, ..., x_n$, and each $x_j$ is a differentiable function of
-    the $m$ variables $t_1,t_2, ...,t_m$. Then
-    \begin{align*}
-        \frac{\p z}{\p t_i}=
-        \frac{\p z}{\p x_1}\frac{\p x_1}{\p t_i}
-        + \frac{\p z}{\p x_2}\frac{\p x_2}{\p t_i}
-        + \cdots
-        + \frac{\p z}{\p x_n}\frac{\p x_n}{\p t_i}
-    \end{align*}
+	Suppose that $z$ is a differentiable function of the $n$ variables
+	$x_1, x_2, ..., x_n$, and each $x_j$ is a differentiable function of
+	the $m$ variables $t_1,t_2, ...,t_m$. Then
+	\begin{align*}
+		\frac{\p z}{\p t_i}=
+		\frac{\p z}{\p x_1}\frac{\p x_1}{\p t_i}
+		+ \frac{\p z}{\p x_2}\frac{\p x_2}{\p t_i}
+		+ \cdots
+		+ \frac{\p z}{\p x_n}\frac{\p x_n}{\p t_i}
+	\end{align*}
 \end{theorem}
 
 \subsubsection{Implicit differentiation}
 
 \begin{definition}
-    Suppose that $z$ is given implicitly as a function $z=f(x,y)$ by an
-    equation of the form
-    \begin{align*}
-        F(x,y,z)=0.
-    \end{align*}
-    Provided that $F$ and $f$ are differentiable, use the Chain rule to
-    differentiate paritally w.r.t. $x$:
-    \begin{align*}
-        \frac{\p F}{\p x}\frac{\p x}{\p x}+\frac{\p F}{\p y}\frac{\p y}{\p x}
-        + \frac{\p F}{\p z}\frac{\p z}{\p x}                   & = 0 \\
-        \frac{\p F}{\p x} + \frac{\p F}{\p z}\frac{\p z}{\p x} & = 0
-    \end{align*}
+	Suppose that $z$ is given implicitly as a function $z=f(x,y)$ by an
+	equation of the form
+	\begin{align*}
+		F(x,y,z)=0.
+	\end{align*}
+	Provided that $F$ and $f$ are differentiable, use the Chain rule to
+	differentiate paritally w.r.t. $x$:
+	\begin{align*}
+		\frac{\p F}{\p x}\frac{\p x}{\p x}+\frac{\p F}{\p y}\frac{\p y}{\p x}
+		+ \frac{\p F}{\p z}\frac{\p z}{\p x}                   & = 0 \\
+		\frac{\p F}{\p x} + \frac{\p F}{\p z}\frac{\p z}{\p x} & = 0
+	\end{align*}
 \end{definition}
 \begin{theorem}[Implicit Function Theorem]
-    If $F(x,y,z)$ is defined within a sphere containing $(a,b,c)$
-    where $F(a,b,c)=0, F_z(a,b,c)\not=0$ and $F_x,F_y$ and $F_z$ are
-    continuous inside the sphere, then
-    \begin{align*}
-        F(x,y,z)=0
-    \end{align*}
-    defines $z$ as a differentiable function of $x$ and $y$ near the
-    point $(a,b,c)$.
+	If $F(x,y,z)$ is defined within a sphere containing $(a,b,c)$
+	where $F(a,b,c)=0, F_z(a,b,c)\not=0$ and $F_x,F_y$ and $F_z$ are
+	continuous inside the sphere, then
+	\begin{align*}
+		F(x,y,z)=0
+	\end{align*}
+	defines $z$ as a differentiable function of $x$ and $y$ near the
+	point $(a,b,c)$.
 \end{theorem}
 
 
@@ -391,107 +391,107 @@ Notation for higher derivatives:
 \subsubsection{Directional derivatives}
 
 \begin{definition}
-    The \textbf{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
-    direction of a \emph{unit vector} $\vec u=a\ih + b\jh$ is defined as
-    \begin{align*}
-        D_{\vec u}f(x_0, y_0)=\lim_{\delta \to 0}
-        \frac{f(x_0+\delta a, y_0 + \delta b)-f(x_0, y_0)}{\delta}.
-    \end{align*}
+	The \textbf{directional derivative} of $f(x,y)$ at $(x_0,y_0)$ in the
+	direction of a \emph{unit vector} $\vec u=a\ih + b\jh$ is defined as
+	\begin{align*}
+		D_{\vec u}f(x_0, y_0)=\lim_{\delta \to 0}
+		\frac{f(x_0+\delta a, y_0 + \delta b)-f(x_0, y_0)}{\delta}.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    If $f$ is a differentiable function of $x$ and $y$, then $f$
-    has a directional derivative in the direction of any unit vector
-    $\vec u=a\ih + b\jh$ and
-    \begin{align*}
-        D_{\vec u}f(x,y) = af_x(x,y) + bf_y(x,y).
-    \end{align*}
+	If $f$ is a differentiable function of $x$ and $y$, then $f$
+	has a directional derivative in the direction of any unit vector
+	$\vec u=a\ih + b\jh$ and
+	\begin{align*}
+		D_{\vec u}f(x,y) = af_x(x,y) + bf_y(x,y).
+	\end{align*}
 \end{theorem}
 
 \subsubsection{Gradient vector}
 
 \begin{definition}
-    The \textbf{gradient} of the scalar function $f(x,y)$ is the vector
-    function defined as
-    \begin{align*}
-        \grad f(x,y)=\frac{\p f}{\p x}\ih + \frac{\p f}{\p y}\jh.
-    \end{align*}
+	The \textbf{gradient} of the scalar function $f(x,y)$ is the vector
+	function defined as
+	\begin{align*}
+		\grad f(x,y)=\frac{\p f}{\p x}\ih + \frac{\p f}{\p y}\jh.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    The directional derivative may be expressed in terms of gradients
-    as
-    \begin{align*}
-        D_{\vec u}f(x,y)=\grad f(x,y)\cdot \vec u
-    \end{align*}
+	The directional derivative may be expressed in terms of gradients
+	as
+	\begin{align*}
+		D_{\vec u}f(x,y)=\grad f(x,y)\cdot \vec u
+	\end{align*}
 \end{theorem}
 
 \subsubsection{Functions of 3 variables}
 
 \begin{definition}
-    The gradient vector of $f(x,y,z)$ is
-    \begin{align*}
-        \vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih
-        + \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
-    \end{align*}
+	The gradient vector of $f(x,y,z)$ is
+	\begin{align*}
+		\vec\nabla f(x,y,z)=\frac{\p f}{\p x}\ih
+		+ \frac{\p f}{\p y}\jh + \frac{\p f}{\p z}\kh
+	\end{align*}
 \end{definition}
 
 \subsubsection{Maximising the directional derivative}
 
 \begin{theorem}
-    Suppose $f$ is a differentiable function of two or three variables.
-    The maximum value of the directional derivative $D_{\vec u}f$ is
-    $|\grad f|$ and it occurs when $\vec u$ is aligned with the gradient
-    vector $\grad f$.
+	Suppose $f$ is a differentiable function of two or three variables.
+	The maximum value of the directional derivative $D_{\vec u}f$ is
+	$|\grad f|$ and it occurs when $\vec u$ is aligned with the gradient
+	vector $\grad f$.
 \end{theorem}
 
 \subsubsection{Tangent planes to level surfaces}
 
 \begin{theorem}
-    Suppose $S$ is a surface described by the equation $F(x,y,z)=k$ where
-    $k\in\R$ is a constant. Let $C$ be any curve that lies on $S$, passing
-    through the point $(x_0,y_0,z_0)$. We describe $C$ by the position vector
-    function
-    \begin{align*}
-        \vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
-    \end{align*}
-    such that the parameter value $t=t_0$ corresponds to $(x_0, y_0, z_0)$.
-    Provided that $x,y,z$ are all differentiable functions of $t$ and $F$
-    is a differentiable function of $x,y,z$, it holds that
-    \begin{align*}
-        \grad F \cdot \dv r(t) = 0.
-    \end{align*}
-    In particular, at $t=t_0$ we have
-    \begin{align*}
-        \grad F(x_0, y_0, z_0)\cdot \dv r(t_0) = 0.
-    \end{align*}
-    Thus the gradient vector at $(x_0, y_0, z_0)$ is perpendicular to the
-    tangent vector $\dv r(t)$ for any curve $C$ that passes through
-    $(x_0, y_0, z_0)$.
+	Suppose $S$ is a surface described by the equation $F(x,y,z)=k$ where
+	$k\in\R$ is a constant. Let $C$ be any curve that lies on $S$, passing
+	through the point $(x_0,y_0,z_0)$. We describe $C$ by the position vector
+	function
+	\begin{align*}
+		\vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
+	\end{align*}
+	such that the parameter value $t=t_0$ corresponds to $(x_0, y_0, z_0)$.
+	Provided that $x,y,z$ are all differentiable functions of $t$ and $F$
+	is a differentiable function of $x,y,z$, it holds that
+	\begin{align*}
+		\grad F \cdot \dv r(t) = 0.
+	\end{align*}
+	In particular, at $t=t_0$ we have
+	\begin{align*}
+		\grad F(x_0, y_0, z_0)\cdot \dv r(t_0) = 0.
+	\end{align*}
+	Thus the gradient vector at $(x_0, y_0, z_0)$ is perpendicular to the
+	tangent vector $\dv r(t)$ for any curve $C$ that passes through
+	$(x_0, y_0, z_0)$.
 \end{theorem}
 \begin{definition}
-    Provided that $\grad F(x_0, y_0, z_0)\not=\vec 0$, we define the
-    \textbf{tangent plane to the level surface} $F(x,y,z)=k$ at $(x_0, y_0, z_0)$
-    as the plane that passes through $(x_0, y_0, z_0)$ and has normal vector
-    $\grad F(x_0, y_0, z_0)$.
+	Provided that $\grad F(x_0, y_0, z_0)\not=\vec 0$, we define the
+	\textbf{tangent plane to the level surface} $F(x,y,z)=k$ at $(x_0, y_0, z_0)$
+	as the plane that passes through $(x_0, y_0, z_0)$ and has normal vector
+	$\grad F(x_0, y_0, z_0)$.
 \end{definition}
 \begin{theorem}
-    The equation of the tangent plane to the level surface may be written as
-    \begin{align*}
-        F_x(x_0, y_0, z_0)(x-x_0)+F_y(x_0, y_0, z_0)(y-y_0)+F_z(x_0, y_0, z_0)(z-z_0)=0.
-    \end{align*}
+	The equation of the tangent plane to the level surface may be written as
+	\begin{align*}
+		F_x(x_0, y_0, z_0)(x-x_0)+F_y(x_0, y_0, z_0)(y-y_0)+F_z(x_0, y_0, z_0)(z-z_0)=0.
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    The \textbf{normal line} to surface $S$ at $(x_0, y_0, z_0)$ is the line
-    passing through $(x_0, y_0, z_0)$ that is perpendicular to the tangent
-    plane. Thus its direction is given by the gradient vector
-    $\grad F(x_0, y_0, z_0)$.
+	The \textbf{normal line} to surface $S$ at $(x_0, y_0, z_0)$ is the line
+	passing through $(x_0, y_0, z_0)$ that is perpendicular to the tangent
+	plane. Thus its direction is given by the gradient vector
+	$\grad F(x_0, y_0, z_0)$.
 \end{definition}
 \begin{theorem}
-    The equation of the normal plane to the level surface may be written as
-    \begin{align*}
-        \frac{x-x_0}{F_x(x_0, y_0, z_0)}
-        =\frac{y-y_0}{F_y(x_0, y_0, z_0)}
-        =\frac{z-z_0}{F_z(x_0, y_0, z_0)}.
-    \end{align*}
+	The equation of the normal plane to the level surface may be written as
+	\begin{align*}
+		\frac{x-x_0}{F_x(x_0, y_0, z_0)}
+		=\frac{y-y_0}{F_y(x_0, y_0, z_0)}
+		=\frac{z-z_0}{F_z(x_0, y_0, z_0)}.
+	\end{align*}
 \end{theorem}
 
 
@@ -501,71 +501,71 @@ Notation for higher derivatives:
 \subsubsection{Functions of 2 variables}
 
 \begin{definition}
-    A function $f(x,y)$ has a \textbf{local maximum} at $(a,b)$ if $f(x,y)\leq f(a,b)$
-    for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
-    is then called the \textbf{local maximum value}.
+	A function $f(x,y)$ has a \textbf{local maximum} at $(a,b)$ if $f(x,y)\leq f(a,b)$
+	for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
+	is then called the \textbf{local maximum value}.
 \end{definition}
 \begin{definition}
-    A function $f(x,y)$ has a \textbf{local minimum} at $(a,b)$ if $f(x,y)\geq f(a,b)$
-    for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
-    is then called the \textbf{local minimum value}.
+	A function $f(x,y)$ has a \textbf{local minimum} at $(a,b)$ if $f(x,y)\geq f(a,b)$
+	for all $(x,y)$ within a disk centred on $(a,b)$. The number $f(a,b)$
+	is then called the \textbf{local minimum value}.
 \end{definition}
 \begin{definition}
-    If the inequalities in these two definitions hold for all points in the
-    domain of $f(x,y)$, then $f(x,y)$ has an \textbf{absolute maximum} or an
-    \textbf{absolute minimum} at $(a,b)$.
+	If the inequalities in these two definitions hold for all points in the
+	domain of $f(x,y)$, then $f(x,y)$ has an \textbf{absolute maximum} or an
+	\textbf{absolute minimum} at $(a,b)$.
 \end{definition}
 \begin{theorem}
-    If $f(x,y)$ has a local maximum or minimum at $(a,b)$ and the first-order
-    partial derivatives of $f(x,y)$ exist there, then
-    \begin{align*}
-        f_x(a,b) = f_y(a,b) = 0.
-    \end{align*}
+	If $f(x,y)$ has a local maximum or minimum at $(a,b)$ and the first-order
+	partial derivatives of $f(x,y)$ exist there, then
+	\begin{align*}
+		f_x(a,b) = f_y(a,b) = 0.
+	\end{align*}
 \end{theorem}
 \begin{lemma}
-    If the graph of $f(x,y)$ has a tangent plane at a local maximum or minimum
-    then this tangent plane must be parallel to the $xy$ plane.
+	If the graph of $f(x,y)$ has a tangent plane at a local maximum or minimum
+	then this tangent plane must be parallel to the $xy$ plane.
 \end{lemma}
 \begin{definition}
-    A point $(a,b)$ is called a \textbf{critical point} of $f(x,y)$ if
-    $f_x(a,b)=f_y(a,b)=0$, or if one of these partial derivatives does not exist.
+	A point $(a,b)$ is called a \textbf{critical point} of $f(x,y)$ if
+	$f_x(a,b)=f_y(a,b)=0$, or if one of these partial derivatives does not exist.
 \end{definition}
 \begin{theorem}[Second Derivatives Test]
-    Suppose that the second partial derivatives of $f(x,y)$ are continuous
-    on a disk centred at a critical point $(a,b)$ Let
-    \begin{align*}
-        D = f_{xx}(a,b)f_{yy}(a,b) -\left(f_{xy}(a,b)\right)^2
-        = \det\begin{bmatrix}
-            f_{xx}(a,b) & f_{xy}(a,b) \\
-            f_{xy}(a,b) & f_{yy}(a,b)
-        \end{bmatrix}
-    \end{align*}
-    \begin{enumerate}
-        \item If $D>0$ and $f_{xx}(a,b)>0$ then $f(a,b)$ is a local minimum.
-        \item If $D>0$ and $f_{xx}(a,b)<0$ then $f(a,b)$ is a local maximum.
-        \item If $D<0$ then $(a,b)$ is a saddle point.
-        \item If $D=0$ then the test is inconclusive.
-    \end{enumerate}
+	Suppose that the second partial derivatives of $f(x,y)$ are continuous
+	on a disk centred at a critical point $(a,b)$ Let
+	\begin{align*}
+		D = f_{xx}(a,b)f_{yy}(a,b) -\left(f_{xy}(a,b)\right)^2
+		= \det\begin{bmatrix}
+			      f_{xx}(a,b) & f_{xy}(a,b) \\
+			      f_{xy}(a,b) & f_{yy}(a,b)
+		      \end{bmatrix}
+	\end{align*}
+	\begin{enumerate}
+		\item If $D>0$ and $f_{xx}(a,b)>0$ then $f(a,b)$ is a local minimum.
+		\item If $D>0$ and $f_{xx}(a,b)<0$ then $f(a,b)$ is a local maximum.
+		\item If $D<0$ then $(a,b)$ is a saddle point.
+		\item If $D=0$ then the test is inconclusive.
+	\end{enumerate}
 \end{theorem}
 
 \subsubsection{Absolute maximum and minimum values}
 
 \begin{definition}
-    Properties of sets in $\R^2$:
-    \begin{itemize}
-        \item A point $(a,b)$ is a \textbf{boundary point} of a set $D$ if
-              every disk with centre $(a,b)$ contains points in $D$ and also points
-              not in $D$.
-        \item A \textbf{closed set} is one that contains all its boundary points.
-        \item A \textbf{bounded set} is one taht is contained within some disk, i.e.
-              one that is finite in extent.
-    \end{itemize}
+	Properties of sets in $\R^2$:
+	\begin{itemize}
+		\item A point $(a,b)$ is a \textbf{boundary point} of a set $D$ if
+		      every disk with centre $(a,b)$ contains points in $D$ and also points
+		      not in $D$.
+		\item A \textbf{closed set} is one that contains all its boundary points.
+		\item A \textbf{bounded set} is one taht is contained within some disk, i.e.
+		      one that is finite in extent.
+	\end{itemize}
 \end{definition}
 \begin{theorem}[Extreme Value Theorem]
-    If $f(x,y)$ is continuous on a closed, bounded set $D$ in $\R^2$, then
-    then $f(x,y)$ attains an absolute maximum value $f(x_1, y_1)$ and an
-    absolute minimum value $f(x_2, y_2)$ at some points $(x_1, y_1)$ and
-    $(x_2, y_2)$ in $D$.
+	If $f(x,y)$ is continuous on a closed, bounded set $D$ in $\R^2$, then
+	then $f(x,y)$ attains an absolute maximum value $f(x_1, y_1)$ and an
+	absolute minimum value $f(x_2, y_2)$ at some points $(x_1, y_1)$ and
+	$(x_2, y_2)$ in $D$.
 \end{theorem}
 
 
@@ -573,24 +573,24 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    Suppose we seek the local maximum and minimum values of a differentiable
-    function $f(x,y)$ along the smooth curve $C$ given by $g(x,y)=0$ where
-    $\grad g(x,y)\not=\vec 0$.\\
-    If $f(x,y)$ has a local maximum or minumum along $C$ at the point
-    $(x_0, y_0)$ then there exists $\lambda\in\R$ such that
-    \begin{align*}
-        \grad f(x_0, y_0) + \lambda\grad g(x_0, y_0) = \vec 0.
-    \end{align*}
+	Suppose we seek the local maximum and minimum values of a differentiable
+	function $f(x,y)$ along the smooth curve $C$ given by $g(x,y)=0$ where
+	$\grad g(x,y)\not=\vec 0$.\\
+	If $f(x,y)$ has a local maximum or minumum along $C$ at the point
+	$(x_0, y_0)$ then there exists $\lambda\in\R$ such that
+	\begin{align*}
+		\grad f(x_0, y_0) + \lambda\grad g(x_0, y_0) = \vec 0.
+	\end{align*}
 \end{theorem}
 \begin{theorem}[Method of Lagrange Multipliers]
-    The local maximum and minimum values of the differentiable function
-    $f(x,y)$ subject to the constraint $g(x,y)=0$ (assuming that these
-    max/min values exist and $\grad g(x,y)\not=\vec 0$) are to be found
-    among the critical points of the \textbf{Lagrangian function}
-    \begin{align*}
-        L(x,y,\lambda)=f(x,y)+\lambda g(x,y).
-    \end{align*}
-    The number $\lambda$ is called a \textbf{Lagrange multiplier}.
+	The local maximum and minimum values of the differentiable function
+	$f(x,y)$ subject to the constraint $g(x,y)=0$ (assuming that these
+	max/min values exist and $\grad g(x,y)\not=\vec 0$) are to be found
+	among the critical points of the \textbf{Lagrangian function}
+	\begin{align*}
+		L(x,y,\lambda)=f(x,y)+\lambda g(x,y).
+	\end{align*}
+	The number $\lambda$ is called a \textbf{Lagrange multiplier}.
 \end{theorem}
 
 
@@ -605,15 +605,15 @@ Notation for higher derivatives:
 \subsubsection{Volumes}
 
 \begin{definition}
-    The \textbf{double integral} of $f(x,y)$ over the rectangle $R$ is defined as
-    \begin{align*}
-        \di_R f(x,y)dA = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(x_{ij}^*, y_{ij}^*)\Delta A
-    \end{align*}
-    and $f(x,y)$ is called \textbf{integrable} if this limit exists.
+	The \textbf{double integral} of $f(x,y)$ over the rectangle $R$ is defined as
+	\begin{align*}
+		\di_R f(x,y)dA = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(x_{ij}^*, y_{ij}^*)\Delta A
+	\end{align*}
+	and $f(x,y)$ is called \textbf{integrable} if this limit exists.
 \end{definition}
 \begin{lemma}
-    All continuous functions are integrable, and many bouned but
-    discontinuous functions are also integrable.
+	All continuous functions are integrable, and many bouned but
+	discontinuous functions are also integrable.
 \end{lemma}
 
 
@@ -621,12 +621,12 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The \textbf{average value} of a function $f(x,y)$ on a rectangle $R$
-    is defined as
-    \begin{align*}
-        f_{ave} = \frac{1}{A(R)}\di_R f(x,y)dA
-    \end{align*}
-    where $A(R)$ is the area of $R$.
+	The \textbf{average value} of a function $f(x,y)$ on a rectangle $R$
+	is defined as
+	\begin{align*}
+		f_{ave} = \frac{1}{A(R)}\di_R f(x,y)dA
+	\end{align*}
+	where $A(R)$ is the area of $R$.
 \end{definition}
 
 
@@ -634,40 +634,40 @@ Notation for higher derivatives:
 
 
 \begin{theorem}[Sum of integrals]
-    \begin{align*}
-        \di_R\left[f(x,y)+g(x,y)\right]dA = \di_R f(x,y)dA + \di_R g(x,y)dA
-    \end{align*}
+	\begin{align*}
+		\di_R\left[f(x,y)+g(x,y)\right]dA = \di_R f(x,y)dA + \di_R g(x,y)dA
+	\end{align*}
 \end{theorem}
 \begin{theorem}[Scaled integrals]
-    Let $c\in\R$ be a constant. Then
-    \begin{align*}
-        \di_R cf(x,y)dA = c\di_R f(x,y)dA.
-    \end{align*}
+	Let $c\in\R$ be a constant. Then
+	\begin{align*}
+		\di_R cf(x,y)dA = c\di_R f(x,y)dA.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f(x,y)\geq g(x,y)$ for all $(x,y)\in R$ then
-    \begin{align*}
-        \di_R f(x,y)dA \geq \di_R g(x,y) dA.
-    \end{align*}
+	If $f(x,y)\geq g(x,y)$ for all $(x,y)\in R$ then
+	\begin{align*}
+		\di_R f(x,y)dA \geq \di_R g(x,y) dA.
+	\end{align*}
 \end{theorem}
 
 \subsection{Iterated integrals}
 
 \begin{theorem}[Fubini's Theorem]
-    If $f(x,y)$ is continuous on the rectangle $R=[a,b]\times[c,d]$ then
-    \begin{align*}
-        \di_r f(x,y)dA = \int_a^b \int_c^d f(x,y)\:dydx
-        = \int_c^d \int_a^b f(x,y)\:dxdy.
-    \end{align*}
-    More generally, this holds if $f(x,y)$ is bounded on $R$ and is
-    discontinuous only on a finite number of smooth curves.
+	If $f(x,y)$ is continuous on the rectangle $R=[a,b]\times[c,d]$ then
+	\begin{align*}
+		\di_r f(x,y)dA = \int_a^b \int_c^d f(x,y)\:dydx
+		= \int_c^d \int_a^b f(x,y)\:dxdy.
+	\end{align*}
+	More generally, this holds if $f(x,y)$ is bounded on $R$ and is
+	discontinuous only on a finite number of smooth curves.
 \end{theorem}
 \begin{lemma}
-    Suppose that $f(x,y)$ can be written as $f(x,y)=g(x)h(y)$
-    on $R=[a,b]\times[c,d]$. Then
-    \begin{align*}
-        \di_R f(x,y)dA = \int_a^b g(x)dx \int_c^d h(y)dy.
-    \end{align*}
+	Suppose that $f(x,y)$ can be written as $f(x,y)=g(x)h(y)$
+	on $R=[a,b]\times[c,d]$. Then
+	\begin{align*}
+		\di_R f(x,y)dA = \int_a^b g(x)dx \int_c^d h(y)dy.
+	\end{align*}
 \end{lemma}
 
 
@@ -675,51 +675,51 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    Let $D$ be a region in the $xy$ plane of general shape.
-    Suppose that $D$ is bounded. Now let $R$ be a rectangle that
-    encloses $D$. Then we define a new function $F(x,y)$
-    with domain $R$ per
-    \begin{align*}
-        F(x,y)=\begin{cases}
-            f(x,y) & \text{if } (x,y)\in D     \\
-            0      & \text{if } (x,y)\not\in D
-        \end{cases}
-    \end{align*}
-    Thus the double integral of $f(x,y)$ over $D$ is defined as
-    \begin{align*}
-        \di_D f(x,y)dA = \di_R F(x,y)dA.
-    \end{align*}
+	Let $D$ be a region in the $xy$ plane of general shape.
+	Suppose that $D$ is bounded. Now let $R$ be a rectangle that
+	encloses $D$. Then we define a new function $F(x,y)$
+	with domain $R$ per
+	\begin{align*}
+		F(x,y)=\begin{cases}
+			       f(x,y) & \text{if } (x,y)\in D     \\
+			       0      & \text{if } (x,y)\not\in D
+		       \end{cases}
+	\end{align*}
+	Thus the double integral of $f(x,y)$ over $D$ is defined as
+	\begin{align*}
+		\di_D f(x,y)dA = \di_R F(x,y)dA.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Suppse that $D$ lies between the graphs of two continuous
-    functions of $x$, i.e.
-    \begin{align*}
-        D = \{(x,y) | a \leq x \leq b, g_1(x)\leq y\leq g_2(x)\}.
-    \end{align*}
-    Then
-    \begin{align*}
-        \di_D f(x,y)dA f(x,y)dA = \int_a^ b \int_{g_1(x)}^{g_2(x)} f(x,y)dy dx.
-    \end{align*}
+	Suppse that $D$ lies between the graphs of two continuous
+	functions of $x$, i.e.
+	\begin{align*}
+		D = \{(x,y) | a \leq x \leq b, g_1(x)\leq y\leq g_2(x)\}.
+	\end{align*}
+	Then
+	\begin{align*}
+		\di_D f(x,y)dA f(x,y)dA = \int_a^ b \int_{g_1(x)}^{g_2(x)} f(x,y)dy dx.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    If $D=D_1\cup D_2$ where $D_1$ and $D_2$ do not overlap
-    except perhaps on their boundaries, then
-    \begin{align*}
-        \di_D f(x,y) dA = \di_{D_1} f(x,y)dA + \di_{D_2}f(x,y)dA.
-    \end{align*}
+	If $D=D_1\cup D_2$ where $D_1$ and $D_2$ do not overlap
+	except perhaps on their boundaries, then
+	\begin{align*}
+		\di_D f(x,y) dA = \di_{D_1} f(x,y)dA + \di_{D_2}f(x,y)dA.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f(x,y)=1$, then
-    \begin{align*}
-        \di_D f(x,y)dA = A(D).
-    \end{align*}
+	If $f(x,y)=1$, then
+	\begin{align*}
+		\di_D f(x,y)dA = A(D).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $m\leq f(x,y) \leq M$ for all $(x,y)\in D$, then
-    \begin{align*}
-        mA(D) \leq \di_D f(x,y) dA \leq MA(D).
-    \end{align*}
+	If $m\leq f(x,y) \leq M$ for all $(x,y)\in D$, then
+	\begin{align*}
+		mA(D) \leq \di_D f(x,y) dA \leq MA(D).
+	\end{align*}
 \end{theorem}
 
 
@@ -727,13 +727,13 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    If $f(x,y)$ is continuous on the \textbf{polar rectangle} $R$
-    given by $a\leq r \leq b$, $\alpha \leq \theta\leq \beta$ where
-    $\beta-\alpha \in [0,2\pi)$, then
-    \begin{align*}
-        \di_R f(x,y)dA = \int_\alpha^\beta \int_a^b
-        f(r\cos\theta, r\sin\theta)r\:drd\theta
-    \end{align*}
+	If $f(x,y)$ is continuous on the \textbf{polar rectangle} $R$
+	given by $a\leq r \leq b$, $\alpha \leq \theta\leq \beta$ where
+	$\beta-\alpha \in [0,2\pi)$, then
+	\begin{align*}
+		\di_R f(x,y)dA = \int_\alpha^\beta \int_a^b
+		f(r\cos\theta, r\sin\theta)r\:drd\theta
+	\end{align*}
 \end{theorem}
 
 
@@ -741,27 +741,27 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The \textbf{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
-    is defined as
-    \begin{align*}
-        \ti_B f(x,y,z)dV = \lim_{l,m,n\to\infty}\sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n
-        f(x_i,y_j,z_k)\Delta V.
-    \end{align*}
+	The \textbf{triple integral} over a box $B=[a,b]\times[c,d]\times[v,w]$
+	is defined as
+	\begin{align*}
+		\ti_B f(x,y,z)dV = \lim_{l,m,n\to\infty}\sum_{i=1}^l \sum_{j=1}^m \sum_{k=1}^n
+		f(x_i,y_j,z_k)\Delta V.
+	\end{align*}
 \end{definition}
 \begin{theorem}[Fubini's Theorem for triple integrals]
-    If $f(x,y,z)$ is continuous on the rectangular box $B=[a,b]\times[b,c]\times[w,v]$,
-    then
-    \begin{align*}
-        \ti_B f(x,y,z) dV = \int_v^w\int_c^d \int_a^b f(x,y,z)\:dxdydx.
-    \end{align*}
-    The iterated integrals can be evaluated in any order.
+	If $f(x,y,z)$ is continuous on the rectangular box $B=[a,b]\times[b,c]\times[w,v]$,
+	then
+	\begin{align*}
+		\ti_B f(x,y,z) dV = \int_v^w\int_c^d \int_a^b f(x,y,z)\:dxdydx.
+	\end{align*}
+	The iterated integrals can be evaluated in any order.
 \end{theorem}
 \begin{definition}
-    The \textbf{average value} of a function $f(x,y,z)$ over a three-dimensional region $E$
-    is defined as
-    \begin{align*}
-        f_{ave} = \frac{1}{V(E)}\ti_E f(x,y,z)dV.
-    \end{align*}
+	The \textbf{average value} of a function $f(x,y,z)$ over a three-dimensional region $E$
+	is defined as
+	\begin{align*}
+		f_{ave} = \frac{1}{V(E)}\ti_E f(x,y,z)dV.
+	\end{align*}
 \end{definition}
 
 
@@ -769,30 +769,30 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the
-    ordered triple $(\rho,\theta,z)$ in the \textbf{cylindrical coordinate system}. The
-    $z$ coordinate is the same in both systems, the other coordinates are related as
-    \begin{align*}
-        x=\rho\cos\theta,\hs y=\rho\sin\theta,\hs
-        \rho^2 = x^2+y^2,\hs\tan\theta = \frac{y}{x}.
-    \end{align*}
+	The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the
+	ordered triple $(\rho,\theta,z)$ in the \textbf{cylindrical coordinate system}. The
+	$z$ coordinate is the same in both systems, the other coordinates are related as
+	\begin{align*}
+		x=\rho\cos\theta,\hs y=\rho\sin\theta,\hs
+		\rho^2 = x^2+y^2,\hs\tan\theta = \frac{y}{x}.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Suppose the function $f(x,y,z)$ is continuous on the 3-dimensional region $E$, where $E$
-    may be expressed as
-    \begin{align*}
-        E=\{(x,y,z) : (x,y,z) \in D, u_1(x,y) \leq z \leq u_2(x,y)\}
-    \end{align*}
-    where $D$ is specified in therms of polar coordinates as
-    \begin{align*}
-        \alpha \leq \rho \leq \beta,\:\: h_1(\theta) \leq \rho \leq h_2(\theta).
-    \end{align*}
-    The formula for \textbf{triple integration in cylindrical coordinates} is
-    \begin{align*}
-        \ti_E f(x,y,z) dV = \int_\alpha^\beta \int_{h_1(\theta)}^{h_2(\theta)}
-        \int_{u_1(\rho\cos\theta,\rho\sin\theta)}^{u_2(\rho\cos\theta,\rho\sin\theta)}
-        f(\rho\cos\theta,\rho\sin\theta,z)\rho\,dz\,dp\,d\theta.
-    \end{align*}
+	Suppose the function $f(x,y,z)$ is continuous on the 3-dimensional region $E$, where $E$
+	may be expressed as
+	\begin{align*}
+		E=\{(x,y,z) : (x,y,z) \in D, u_1(x,y) \leq z \leq u_2(x,y)\}
+	\end{align*}
+	where $D$ is specified in therms of polar coordinates as
+	\begin{align*}
+		\alpha \leq \rho \leq \beta,\:\: h_1(\theta) \leq \rho \leq h_2(\theta).
+	\end{align*}
+	The formula for \textbf{triple integration in cylindrical coordinates} is
+	\begin{align*}
+		\ti_E f(x,y,z) dV = \int_\alpha^\beta \int_{h_1(\theta)}^{h_2(\theta)}
+		\int_{u_1(\rho\cos\theta,\rho\sin\theta)}^{u_2(\rho\cos\theta,\rho\sin\theta)}
+		f(\rho\cos\theta,\rho\sin\theta,z)\rho\,dz\,dp\,d\theta.
+	\end{align*}
 \end{theorem}
 
 
@@ -800,24 +800,24 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the ordered
-    triple $(\rho,\theta,\phi)$ in the \textbf{spherical coordinate system}. The coordinates are
-    related as
-    \begin{align*}
-        x=\rho\sin\phi\cos\theta,\hs y = \rho \sin\phi\sin\theta,\hs z = \rho\cos\phi
-    \end{align*}
-    where the radial distance $\phi=\sqrt{x^2+y^2+z^2}$.
+	The point $P$ described by the Cartesian coordinates $(x,y,z)$ is specified by the ordered
+	triple $(\rho,\theta,\phi)$ in the \textbf{spherical coordinate system}. The coordinates are
+	related as
+	\begin{align*}
+		x=\rho\sin\phi\cos\theta,\hs y = \rho \sin\phi\sin\theta,\hs z = \rho\cos\phi
+	\end{align*}
+	where the radial distance $\phi=\sqrt{x^2+y^2+z^2}$.
 \end{definition}
 \begin{theorem}
-    The formula for \textbf{triple integration in spherical coordinates} over a region $E$
-    given by
-    \begin{align*}
-        E=\{(\rho,\theta,\phi):a\leq\rho\leq b,\alpha\leq\theta\leq\beta, c\leq\phi\leq d\}
-    \end{align*}
-    is as follows:
-    \begin{align*}
-        \ti_E f(x,y,z)\:dV = \int_c^d \int_\alpha^\beta \int_a^b f(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi)\rho^2\sin\phi\:d\rho\,d\theta\,d\phi.
-    \end{align*}
+	The formula for \textbf{triple integration in spherical coordinates} over a region $E$
+	given by
+	\begin{align*}
+		E=\{(\rho,\theta,\phi):a\leq\rho\leq b,\alpha\leq\theta\leq\beta, c\leq\phi\leq d\}
+	\end{align*}
+	is as follows:
+	\begin{align*}
+		\ti_E f(x,y,z)\:dV = \int_c^d \int_\alpha^\beta \int_a^b f(\rho\sin\phi\cos\theta,\rho\sin\phi\sin\theta,\rho\cos\phi)\rho^2\sin\phi\:d\rho\,d\theta\,d\phi.
+	\end{align*}
 \end{theorem}
 
 
@@ -827,59 +827,59 @@ Notation for higher derivatives:
 \subsubsection{Double integrals}
 
 \begin{definition}
-    Consider the \textbf{transformation} from the points $(u,v)$ in the $uv$-plane to the points $(x,y)$
-    in the $xy$-plane, represented by
-    \begin{align*}
-        x = x(u,v),\hs y=y(u,v).
-    \end{align*}
-    The \textbf{Jacobian} for this transformation is defined as
-    \begin{align*}
-        \frac{\partial(x,y)}{\partial(u,v)}
-        =\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
-        - \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
-        =\begin{vmatrix}
-            \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-            \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-        \end{vmatrix}.
-    \end{align*}
-    We regard $x$ and $y$ as independent functions of $u$ and $v$ if the Jacobian is nonzero.
+	Consider the \textbf{transformation} from the points $(u,v)$ in the $uv$-plane to the points $(x,y)$
+	in the $xy$-plane, represented by
+	\begin{align*}
+		x = x(u,v),\hs y=y(u,v).
+	\end{align*}
+	The \textbf{Jacobian} for this transformation is defined as
+	\begin{align*}
+		\frac{\partial(x,y)}{\partial(u,v)}
+		=\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
+		- \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
+		=\begin{vmatrix}
+			 \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+			 \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+		 \end{vmatrix}.
+	\end{align*}
+	We regard $x$ and $y$ as independent functions of $u$ and $v$ if the Jacobian is nonzero.
 \end{definition}
 \begin{theorem}
-    Suppose that $x=x(u,v), y=y(u,v)$ is a one-to-one transformation that maps a region
-    $S$ in the $uv$-plane onto a region $D$ in the $xy$-plane. If the partial derivatives
-    of $x(u,v)$ and $y(u,v)$ are continuous in $S$ and the corresponding Jacobian is nonzero,
-    then
-    \begin{align*}
-        \di_D f(x,y)\:dx\,dy = \di_S f(x(u,v), y(u,v))\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\:du\,dv
-    \end{align*}
-    where $f$ is continuous on $D$.
+	Suppose that $x=x(u,v), y=y(u,v)$ is a one-to-one transformation that maps a region
+	$S$ in the $uv$-plane onto a region $D$ in the $xy$-plane. If the partial derivatives
+	of $x(u,v)$ and $y(u,v)$ are continuous in $S$ and the corresponding Jacobian is nonzero,
+	then
+	\begin{align*}
+		\di_D f(x,y)\:dx\,dy = \di_S f(x(u,v), y(u,v))\left|\frac{\partial(x,y)}{\partial(u,v)}\right|\:du\,dv
+	\end{align*}
+	where $f$ is continuous on $D$.
 \end{theorem}
 
 \subsubsection{Triple integrals}
 
 \begin{definition}
-    Consider a transformation that maps a region $S$ in $uvw$-space onto a region $D$ in
-    $xyz$-space represented by
-    \begin{align*}
-        x=x(u,v,w),\hs y=y(u,v,w),\hs z=z(u,v,w).
-    \end{align*}
-    The Jacobian of this transformation is the $3\times3$ matrix determinant
-    \begin{align*}
-        \frac{\partial(x,y,z)}{\partial(u,v,w)}=\begin{vmatrix}
-            \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
-            \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
-            \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-        \end{vmatrix}.
-    \end{align*}
+	Consider a transformation that maps a region $S$ in $uvw$-space onto a region $D$ in
+	$xyz$-space represented by
+	\begin{align*}
+		x=x(u,v,w),\hs y=y(u,v,w),\hs z=z(u,v,w).
+	\end{align*}
+	The Jacobian of this transformation is the $3\times3$ matrix determinant
+	\begin{align*}
+		\frac{\partial(x,y,z)}{\partial(u,v,w)}=\begin{vmatrix}
+			                                        \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+			                                        \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+			                                        \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+		                                        \end{vmatrix}.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Suppose that $x=x(u,v,w),y=y(u,v,w),z=z(u,v,w)$ is a one-to-one transformation that maps a
-    region $S$ in $uvw$-space onto a region $D$ in $xyz$-space. If the partial derivatives of
-    $x$, $y$ and $z$ are continuous in $S$ and the corresponding Jacobian is nonzero,
-    then
-    \begin{align*}
-        \ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw.
-    \end{align*}
+	Suppose that $x=x(u,v,w),y=y(u,v,w),z=z(u,v,w)$ is a one-to-one transformation that maps a
+	region $S$ in $uvw$-space onto a region $D$ in $xyz$-space. If the partial derivatives of
+	$x$, $y$ and $z$ are continuous in $S$ and the corresponding Jacobian is nonzero,
+	then
+	\begin{align*}
+		\ti_D f(x,y,z)\:dx\,dy\,dz = \ti_S f(x(u,v,w), y(u,v,w), z(u,v,w))\left|\frac{\partial(x,y,z)}{\partial(u,v,w)}\right|\:dv\,du\,dw.
+	\end{align*}
 \end{theorem}
 
 
@@ -891,16 +891,16 @@ Notation for higher derivatives:
 \subsection{Vector fields}
 
 \begin{definition}
-    Let $D\subseteq \R^n$. A \textbf{vector field on $\R^n$} is a function $\vec F$ that assigns
-    to each point $\vec p\in D$ a $n$-dimensional vector $\vec F(\vec p)$.
+	Let $D\subseteq \R^n$. A \textbf{vector field on $\R^n$} is a function $\vec F$ that assigns
+	to each point $\vec p\in D$ a $n$-dimensional vector $\vec F(\vec p)$.
 \end{definition}
 \begin{definition}
-    A vector field $\vec F$ is called \textbf{conservative} if there exists some scalar function
-    $f$ such that
-    \begin{align*}
-        \vec F = \grad f.
-    \end{align*}
-    If $\vec F$ is conservative then $f$ is called a \textbf{potential function} of $\vec F$.
+	A vector field $\vec F$ is called \textbf{conservative} if there exists some scalar function
+	$f$ such that
+	\begin{align*}
+		\vec F = \grad f.
+	\end{align*}
+	If $\vec F$ is conservative then $f$ is called a \textbf{potential function} of $\vec F$.
 \end{definition}
 
 
@@ -910,90 +910,90 @@ Notation for higher derivatives:
 \subsubsection{Line inetrals in 2 dimension}
 
 \begin{definition}
-    Let $C$ be the curve in the $xy$-plane described by the position vector equation
-    \begin{align*}
-        \vec r(t) = x(t)\ih + y(t)\jh
-    \end{align*}
-    where the parameter $t\in[a,b]$. Assume that $C$ is smooth.
-    If $f(x,y)$ is continuous on $C$, then the \textbf{line integral of $f$ along $C$} is
-    defined as
-    \begin{align*}
-        \int_C f(x,y) ds = \lim_{n\to\infty} \sum_{i=1}^n f(x(t_i^*), y(t_i^*))\Delta s_i.
-    \end{align*}
+	Let $C$ be the curve in the $xy$-plane described by the position vector equation
+	\begin{align*}
+		\vec r(t) = x(t)\ih + y(t)\jh
+	\end{align*}
+	where the parameter $t\in[a,b]$. Assume that $C$ is smooth.
+	If $f(x,y)$ is continuous on $C$, then the \textbf{line integral of $f$ along $C$} is
+	defined as
+	\begin{align*}
+		\int_C f(x,y) ds = \lim_{n\to\infty} \sum_{i=1}^n f(x(t_i^*), y(t_i^*))\Delta s_i.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    The line integral of $f$ along the curve $C$ may be caculated as
-    \begin{align*}
-        \int_C f(x,y)ds = \int_a^b f(x(t), y(t))\sqrt{\left(\frac{dx}{dt}\right)^2 +
-            \left(\frac{dy}{dt}\right)^2}dt.
-    \end{align*}
+	The line integral of $f$ along the curve $C$ may be caculated as
+	\begin{align*}
+		\int_C f(x,y)ds = \int_a^b f(x(t), y(t))\sqrt{\left(\frac{dx}{dt}\right)^2 +
+			\left(\frac{dy}{dt}\right)^2}dt.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $C$ is a \textbf{piecewise-smooth curve}, i.e. $C$ is a union of a finite number of smooth
-    curves $C_1, C_2, ..., C_n$ where the terminal point of $C_{i-1}$ is the starting point
-    of $C_i$, then the integral of $f(x,y)$ along $C$ is
-    \begin{align*}
-        \int_C f(x,y)ds = \sum_{i=1}^n \int_{C_i} f(x,y)ds.
-    \end{align*}
+	If $C$ is a \textbf{piecewise-smooth curve}, i.e. $C$ is a union of a finite number of smooth
+	curves $C_1, C_2, ..., C_n$ where the terminal point of $C_{i-1}$ is the starting point
+	of $C_i$, then the integral of $f(x,y)$ along $C$ is
+	\begin{align*}
+		\int_C f(x,y)ds = \sum_{i=1}^n \int_{C_i} f(x,y)ds.
+	\end{align*}
 \end{theorem}
 \begin{lemma}
-    If a curve $C$ is parameterised by $t\in[a,b]$ such that its start point is $A$
-    (at $t=a$) and its end point is $B$ (at $t=b$), then
-    \begin{align*}
-        \int_{-C} f(x,y)dx = -\int_C f(x,y)dx,\hs
-        \int_{-C}f(x,y)dy = -\int_C f(x,y)dy
-    \end{align*}
-    This is not the case if we integrate with respect to the arc length, i.e.
-    \begin{align*}
-        \int_{-C}f(x,y)ds = \int_C f(x,y)ds.
-    \end{align*}
+	If a curve $C$ is parameterised by $t\in[a,b]$ such that its start point is $A$
+	(at $t=a$) and its end point is $B$ (at $t=b$), then
+	\begin{align*}
+		\int_{-C} f(x,y)dx = -\int_C f(x,y)dx,\hs
+		\int_{-C}f(x,y)dy = -\int_C f(x,y)dy
+	\end{align*}
+	This is not the case if we integrate with respect to the arc length, i.e.
+	\begin{align*}
+		\int_{-C}f(x,y)ds = \int_C f(x,y)ds.
+	\end{align*}
 \end{lemma}
 
 \subsubsection{Line integrals in 3 dimensions}
 
 \begin{definition}
-    If $f(x,y,z)$ is continuous on a smooth curve $C$ described by the
-    position vector equation
-    \begin{align*}
-        \vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
-    \end{align*}
-    wher the parameter $t\in[a,b]$, then the \textbf{line integral of $f$ along $C$}
-    is defined as
-    \begin{align*}
-        \int_C f(x,y,z)ds = \lim_{n\to\infty}\sum_{i=1}^n f(x(t_i^*), y(t_i^*), z(t_i^*))\Delta s_i
-    \end{align*}
-    which may be evaluated as
-    \begin{align*}
-        \int_C f(x,y,z)ds = \int_a^b f(x(t), y(t), z(t))\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}dt.
-    \end{align*}
+	If $f(x,y,z)$ is continuous on a smooth curve $C$ described by the
+	position vector equation
+	\begin{align*}
+		\vec r(t) = x(t)\ih + y(t)\jh + z(t)\kh
+	\end{align*}
+	wher the parameter $t\in[a,b]$, then the \textbf{line integral of $f$ along $C$}
+	is defined as
+	\begin{align*}
+		\int_C f(x,y,z)ds = \lim_{n\to\infty}\sum_{i=1}^n f(x(t_i^*), y(t_i^*), z(t_i^*))\Delta s_i
+	\end{align*}
+	which may be evaluated as
+	\begin{align*}
+		\int_C f(x,y,z)ds = \int_a^b f(x(t), y(t), z(t))\sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2}dt.
+	\end{align*}
 \end{definition}
 \begin{lemma}
-    More compactly,
-    \begin{align*}
-        \int_C f ds = \int_a^b f(\vec r(t))|\dv r(t)|dt.
-    \end{align*}
+	More compactly,
+	\begin{align*}
+		\int_C f ds = \int_a^b f(\vec r(t))|\dv r(t)|dt.
+	\end{align*}
 \end{lemma}
 
 \subsubsection{Line integrals of vector fields}
 
 \begin{definition}
-    If the vecotr field $\vec F$ is continuous on $C$, then the
-    \textbf{line integral of $\vec F$ along $C$} is defined as
-    \begin{align*}
-        \int_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec r(t))\cdot \dv r(t)dt
-        = \int_C \vec F\cdot \vec T ds.
-    \end{align*}
+	If the vecotr field $\vec F$ is continuous on $C$, then the
+	\textbf{line integral of $\vec F$ along $C$} is defined as
+	\begin{align*}
+		\int_C \vec F\cdot d\vec r = \int_a^b \vec F(\vec r(t))\cdot \dv r(t)dt
+		= \int_C \vec F\cdot \vec T ds.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Suppse that the vector field $\vec F$ on $\R^3$ is given in component
-    form as
-    \begin{align*}
-        \vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh.
-    \end{align*}
-    Then
-    \begin{align*}
-        \int_C \vec F\cdot d\vec r = \int_C P\:dx + Q\:dy + R\:dz.
-    \end{align*}
+	Suppse that the vector field $\vec F$ on $\R^3$ is given in component
+	form as
+	\begin{align*}
+		\vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh.
+	\end{align*}
+	Then
+	\begin{align*}
+		\int_C \vec F\cdot d\vec r = \int_C P\:dx + Q\:dy + R\:dz.
+	\end{align*}
 \end{theorem}
 
 
@@ -1001,83 +1001,83 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    Let $C$ be a smooth curve specified by the position vector function
-    $\vec r(t)$, $t\in[a,b]$. If $f$ is a diffferentiable function
-    whose gradient vector $\grad f$ is continuous on $C$, then
-    \begin{align*}
-        \int_C \grad f\cdot d\vec r = f(\vec r(b)) - f(\vec r(a)).
-    \end{align*}
+	Let $C$ be a smooth curve specified by the position vector function
+	$\vec r(t)$, $t\in[a,b]$. If $f$ is a diffferentiable function
+	whose gradient vector $\grad f$ is continuous on $C$, then
+	\begin{align*}
+		\int_C \grad f\cdot d\vec r = f(\vec r(b)) - f(\vec r(a)).
+	\end{align*}
 \end{theorem}
 \begin{lemma}
-    Suppose that $C_\alpha$ and $C_\beta$ are two piecewise-smooth curves
-    - which are called \textbf{paths} - that have the same start point and end
-    point. Then
-    \begin{align*}
-        \int_{C_\alpha} \grad f \cdot d\vec r = \int_{C_\beta} \grad f \cdot d\vec r
-    \end{align*}
-    provided $\grad f$ is continuous.
+	Suppose that $C_\alpha$ and $C_\beta$ are two piecewise-smooth curves
+	- which are called \textbf{paths} - that have the same start point and end
+	point. Then
+	\begin{align*}
+		\int_{C_\alpha} \grad f \cdot d\vec r = \int_{C_\beta} \grad f \cdot d\vec r
+	\end{align*}
+	provided $\grad f$ is continuous.
 \end{lemma}
 
 \subsubsection{Independence of path}
 
 \begin{definition}
-    If $\vec F$ is a continous vector field with domain $D$, we say that the
-    line integral $\int_C\vec F\cdot d\vec r$ is
-    \textbf{independent of path} if
-    \begin{align*}
-        \int_{C_\alpha} \vec F\cdot d\vec r = \int_{C_\beta}\vec F\cdot d\vec r
-    \end{align*}
-    for any two paths $C_\alpha, C_\beta$ in $D$ that have the same start and
-    end points.
+	If $\vec F$ is a continous vector field with domain $D$, we say that the
+	line integral $\int_C\vec F\cdot d\vec r$ is
+	\textbf{independent of path} if
+	\begin{align*}
+		\int_{C_\alpha} \vec F\cdot d\vec r = \int_{C_\beta}\vec F\cdot d\vec r
+	\end{align*}
+	for any two paths $C_\alpha, C_\beta$ in $D$ that have the same start and
+	end points.
 \end{definition}
 \begin{theorem}
-    Line integrals of conservative vector fields are independent of path.
+	Line integrals of conservative vector fields are independent of path.
 \end{theorem}
 \begin{definition}
-    A \textbf{closed} curve is one for which the start point coincides with the end point.
+	A \textbf{closed} curve is one for which the start point coincides with the end point.
 \end{definition}
 \begin{theorem}
-    \begin{align*}
-        \int_C \vec F\cdot d\vec r \text{ is independent of path in $D$}
-        \Leftrightarrow
-        \int_C \vec F\cdot d\vec r = 0 \text{ for every closed path $C$ in $D$}
-    \end{align*}
+	\begin{align*}
+		\int_C \vec F\cdot d\vec r \text{ is independent of path in $D$}
+		\Leftrightarrow
+		\int_C \vec F\cdot d\vec r = 0 \text{ for every closed path $C$ in $D$}
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    A set $D$ is \textbf{connected} if any two points in $D$ can be joined by a
-    path that lies in $D$.
+	A set $D$ is \textbf{connected} if any two points in $D$ can be joined by a
+	path that lies in $D$.
 \end{definition}
 \begin{theorem}
-    Let $\vec F$ be a vector field that is continuous on an open connected
-    region $D$. If $\int_C\vec F\cdot d\vec r$ is independent of path in $D$
-    then $\vec F$ is a conservative vector field on $D$.
+	Let $\vec F$ be a vector field that is continuous on an open connected
+	region $D$. If $\int_C\vec F\cdot d\vec r$ is independent of path in $D$
+	then $\vec F$ is a conservative vector field on $D$.
 \end{theorem}
 \begin{theorem}
-    If $\vec F(x,y) = P(x,y)\ih + Q(x,y)\jh$ is a conservative vector field,
-    where $P(x,y)$ and $Q(x,y)$ have continuous first-order partial derivatives
-    on a domain $D$, then throughout $D$
-    \begin{align*}
-        \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}.
-    \end{align*}
+	If $\vec F(x,y) = P(x,y)\ih + Q(x,y)\jh$ is a conservative vector field,
+	where $P(x,y)$ and $Q(x,y)$ have continuous first-order partial derivatives
+	on a domain $D$, then throughout $D$
+	\begin{align*}
+		\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}.
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    \textbf{Simple} properties:
-    \begin{itemize}
-        \item A \textbf{simple curve} is one that does not intersect itself anywhere
-              between its start and end.
-        \item A \textbf{simply-connected region} in the plane is a connected region $D$
-              such that every simple closed curve in $D$ encloses only points that
-              are in $D$.
-    \end{itemize}
+	\textbf{Simple} properties:
+	\begin{itemize}
+		\item A \textbf{simple curve} is one that does not intersect itself anywhere
+		      between its start and end.
+		\item A \textbf{simply-connected region} in the plane is a connected region $D$
+		      such that every simple closed curve in $D$ encloses only points that
+		      are in $D$.
+	\end{itemize}
 \end{definition}
 \begin{theorem}
-    If $\vec F(x,y)=P(x,y)\ih + Q(x,y)\jh$ is a vector field on an open simply-connected
-    region $D$, where $P(x,y)$ and $Q(x,y)$ have continuous first-order partial
-    derivatives and
-    \begin{align*}
-        \frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}
-    \end{align*}
-    throughout $D$, then $\vec F(x,y)$ is conservative.
+	If $\vec F(x,y)=P(x,y)\ih + Q(x,y)\jh$ is a vector field on an open simply-connected
+	region $D$, where $P(x,y)$ and $Q(x,y)$ have continuous first-order partial
+	derivatives and
+	\begin{align*}
+		\frac{\partial P}{\partial y}=\frac{\partial Q}{\partial x}
+	\end{align*}
+	throughout $D$, then $\vec F(x,y)$ is conservative.
 \end{theorem}
 
 
@@ -1085,13 +1085,13 @@ Notation for higher derivatives:
 
 
 \begin{theorem}[Green's Theorem in the plane]
-    Let $C$ be a positively-oriented, piecewise-smooth, simple closed curve in
-    the $xy$-plane and let $D$ be the region enclosed by $C$. If $P(x,y)$ and
-    $Q(x,y)$ have continuous partial derivatives on an open region that contains
-    $D$, then
-    \begin{align*}
-        \int_C P\:dx + Q\:dy = \di_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
-    \end{align*}
+	Let $C$ be a positively-oriented, piecewise-smooth, simple closed curve in
+	the $xy$-plane and let $D$ be the region enclosed by $C$. If $P(x,y)$ and
+	$Q(x,y)$ have continuous partial derivatives on an open region that contains
+	$D$, then
+	\begin{align*}
+		\int_C P\:dx + Q\:dy = \di_D \left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)dA.
+	\end{align*}
 \end{theorem}
 
 
@@ -1100,77 +1100,77 @@ Notation for higher derivatives:
 
 \subsubsection{Curl}
 \begin{definition}
-    If $\vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field
-    on $\R^3$, then the \textbf{curl} of $\vec F$ is defined by the vector function
-    \begin{align*}
-        \curl\vec F = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\ih
-        +\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\jh
-        +\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\kh.
-    \end{align*}
-    We can write curl as
-    \begin{align*}
-        \curl\vec F = \grad \times \vec F.
-    \end{align*}
+	If $\vec F(x,y,z) = P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field
+	on $\R^3$, then the \textbf{curl} of $\vec F$ is defined by the vector function
+	\begin{align*}
+		\curl\vec F = \left(\frac{\partial R}{\partial y}-\frac{\partial Q}{\partial z}\right)\ih
+		+\left(\frac{\partial P}{\partial z}-\frac{\partial R}{\partial x}\right)\jh
+		+\left(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y}\right)\kh.
+	\end{align*}
+	We can write curl as
+	\begin{align*}
+		\curl\vec F = \grad \times \vec F.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    If the scalar function $f(x,y,z)$ has continuous second order partial derivatives,
-    then
-    \begin{align*}
-        \curl(\grad f) = \vec 0.
-    \end{align*}
+	If the scalar function $f(x,y,z)$ has continuous second order partial derivatives,
+	then
+	\begin{align*}
+		\curl(\grad f) = \vec 0.
+	\end{align*}
 \end{theorem}
 \begin{corollary}
-    If $\vec F$ is conservative then $\curl\vec F = \vec 0$. The converse is true
-    provided that $\vec F$ is defined on all $\R^3$.
+	If $\vec F$ is conservative then $\curl\vec F = \vec 0$. The converse is true
+	provided that $\vec F$ is defined on all $\R^3$.
 \end{corollary}
 \begin{theorem}[Laplace's equation]
-    \begin{align*}
-        \nabla^2 f = 0.
-    \end{align*}
+	\begin{align*}
+		\nabla^2 f = 0.
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    The Laplace operator can be applied to a vector field $\vec F$ where
-    \begin{align*}
-        \vec F(x,y,z) =P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh
-    \end{align*}
-    per
-    \begin{align*}
-        \nabla^2 \vec F = \nabla^2 P\ih + \nabla^2 Q\jh + \nabla^2 R\kh.
-    \end{align*}
+	The Laplace operator can be applied to a vector field $\vec F$ where
+	\begin{align*}
+		\vec F(x,y,z) =P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh
+	\end{align*}
+	per
+	\begin{align*}
+		\nabla^2 \vec F = \nabla^2 P\ih + \nabla^2 Q\jh + \nabla^2 R\kh.
+	\end{align*}
 \end{definition}
 
 \subsubsection{Divergencve}
 
 \begin{definition}
-    If $\vec F(x,y,z)=P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field on $\R^3$, then
-    the \textbf{divergence} of $\vec F$ is defined by the scalar function
-    \begin{align*}
-        \div \vec F = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}.
-    \end{align*}
+	If $\vec F(x,y,z)=P(x,y,z)\ih + Q(x,y,z)\jh + R(x,y,z)\kh$ is a vector field on $\R^3$, then
+	the \textbf{divergence} of $\vec F$ is defined by the scalar function
+	\begin{align*}
+		\div \vec F = \frac{\partial P}{\partial x}+\frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}.
+	\end{align*}
 \end{definition}
 
 \subsubsection{Vector form of Green's Theorem}
 
 \begin{theorem}
-    Suppose that the plane region $D$, its boundary cruve $C$, and the functions
-    $P(x,y)$ and $Q(x,y)$ satisfy the hypotheses of \emph{Green's Theorem}. Now
-    consider the vector field $\vec F = P\ih + Q\jh$ which has the line integral
-    \begin{align*}
-        \int_C\vec F \cdot d\vec r = \int_C Pdx + Qdy.
-    \end{align*}
-    If we regard $\vec F$ as a vector field on $\R^3$ with thrid component $0$,
-    we can write Green's Theorem as
-    \begin{align*}
-        \int_C\vec F \cdot d\vec r = \di_D\left(\curl\vec F(x,y)\right)\cdot\kh dA.
-    \end{align*}
-    If the boundary curve $C$ is specified by the position vector function
-    \begin{align*}
-        \vec r(t) = x(t)\ih + y(t)\jh
-    \end{align*}
-    for $t\in[a,b]$, then Greens Theorem can be written as
-    \begin{align*}
-        \int_C \vec F\cdot \vec{\hat n} ds = \di_D \div\vec F(x,y)dA.
-    \end{align*}
+	Suppose that the plane region $D$, its boundary cruve $C$, and the functions
+	$P(x,y)$ and $Q(x,y)$ satisfy the hypotheses of \emph{Green's Theorem}. Now
+	consider the vector field $\vec F = P\ih + Q\jh$ which has the line integral
+	\begin{align*}
+		\int_C\vec F \cdot d\vec r = \int_C Pdx + Qdy.
+	\end{align*}
+	If we regard $\vec F$ as a vector field on $\R^3$ with thrid component $0$,
+	we can write Green's Theorem as
+	\begin{align*}
+		\int_C\vec F \cdot d\vec r = \di_D\left(\curl\vec F(x,y)\right)\cdot\kh dA.
+	\end{align*}
+	If the boundary curve $C$ is specified by the position vector function
+	\begin{align*}
+		\vec r(t) = x(t)\ih + y(t)\jh
+	\end{align*}
+	for $t\in[a,b]$, then Greens Theorem can be written as
+	\begin{align*}
+		\int_C \vec F\cdot \vec{\hat n} ds = \di_D \div\vec F(x,y)dA.
+	\end{align*}
 \end{theorem}
 
 
@@ -1178,52 +1178,52 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    A surface $S$ in $\R^3$ may be described by the position vector function
-    \begin{align*}
-        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh
-    \end{align*}
-    in terms of two parameters $u$ and $v$ which lie in a region $D$ in the $uv$-plane.
-    The \textbf{parametric equations}
-    \begin{align*}
-        x = x(u,v),\hs y=y(u,v),\hs z=z(u,v)
-    \end{align*}
-    describe all point on the surface $S$ as $(u,v)$ moves through $D$.
+	A surface $S$ in $\R^3$ may be described by the position vector function
+	\begin{align*}
+		\vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh
+	\end{align*}
+	in terms of two parameters $u$ and $v$ which lie in a region $D$ in the $uv$-plane.
+	The \textbf{parametric equations}
+	\begin{align*}
+		x = x(u,v),\hs y=y(u,v),\hs z=z(u,v)
+	\end{align*}
+	describe all point on the surface $S$ as $(u,v)$ moves through $D$.
 \end{definition}
 
 \subsubsection{Tangent planes}
 
 \begin{definition}
-    Consider the point $P_0$ with position vector $\vec r(u_0, v_0)$. This point lies
-    on the surface traced out by the position vector function
-    \begin{align*}
-        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh.
-    \end{align*}
-    If $\vec r_u \times\vec r_v\not=\vec 0$ then the surface is called \textbf{smooth}.\\
-    For a smooth surface, the \textbf{tangent plane} at $P_0$ is the plane containing
-    $\vec r(u_0,v_0)+\vec r_u(u_0,v_0)$ and $\vec r(u_0,v_0)+\vec r_v(u_0,v_0)$ and the vector
-    $\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
+	Consider the point $P_0$ with position vector $\vec r(u_0, v_0)$. This point lies
+	on the surface traced out by the position vector function
+	\begin{align*}
+		\vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh.
+	\end{align*}
+	If $\vec r_u \times\vec r_v\not=\vec 0$ then the surface is called \textbf{smooth}.\\
+	For a smooth surface, the \textbf{tangent plane} at $P_0$ is the plane containing
+	$\vec r(u_0,v_0)+\vec r_u(u_0,v_0)$ and $\vec r(u_0,v_0)+\vec r_v(u_0,v_0)$ and the vector
+	$\vec r_u(u_0,v_0)\times \vec r_v(u_0,v_0)$ is normal to the tangent plane.
 
 \end{definition}
 
 \subsubsection{Surface area}
 
 \begin{definition}
-    If a smooth surface $S$ is described by the position vector function
-    \begin{align*}
-        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D
-    \end{align*}
-    and $S$ is covered just once as $(u,v)$ ranges through the parameter domain $D$,
-    then the \textbf{surface area} of $S$ is defined as
-    \begin{align*}
-        A(S)=\di_D |\vec r_u \times \vec r_v|\:dA.
-    \end{align*}
+	If a smooth surface $S$ is described by the position vector function
+	\begin{align*}
+		\vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D
+	\end{align*}
+	and $S$ is covered just once as $(u,v)$ ranges through the parameter domain $D$,
+	then the \textbf{surface area} of $S$ is defined as
+	\begin{align*}
+		A(S)=\di_D |\vec r_u \times \vec r_v|\:dA.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Consider the surface $S$ with equation $z=f(x,y)$ where $x,y$ lie in $D$ and $f$
-    has continuous partial derivatives. Then the surface area of $S$ is
-    \begin{align*}
-        A(S) = \di_D \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2}dA.
-    \end{align*}
+	Consider the surface $S$ with equation $z=f(x,y)$ where $x,y$ lie in $D$ and $f$
+	has continuous partial derivatives. Then the surface area of $S$ is
+	\begin{align*}
+		A(S) = \di_D \sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2 + \left(\frac{\partial z}{\partial y}\right)^2}dA.
+	\end{align*}
 \end{theorem}
 
 
@@ -1231,104 +1231,104 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    \label{si_def}
-    Consider the function $f(x,y,z)$ defined on the surface $S$ which is described by the
-    position vector function
-    \begin{align*}
-        \vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D.
-    \end{align*}
-    Then the \textbf{surface integral} of $f(x,y,z)$ over the surface $S$ is defined as
-    \begin{align*}
-        \di_S f(x,y,z)dS = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(P_{ij}^*)\Delta S_{ij}.
-    \end{align*}
+	\label{si_def}
+	Consider the function $f(x,y,z)$ defined on the surface $S$ which is described by the
+	position vector function
+	\begin{align*}
+		\vec r(u,v) = x(u,v)\ih + y(u,v)\jh + z(u,v)\kh,\hs (u,v)\in D.
+	\end{align*}
+	Then the \textbf{surface integral} of $f(x,y,z)$ over the surface $S$ is defined as
+	\begin{align*}
+		\di_S f(x,y,z)dS = \lim_{m,n\to\infty}\sum_{i=1}^m\sum_{j=1}^n f(P_{ij}^*)\Delta S_{ij}.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    The surface integral in definition \ref{si_def} may be evaluated by
-    \begin{align*}
-        \di_S f(x,y,z)dS = \di_D f(\vec r(u,v)) |\vec r_u\times \vec r_v|dA.
-    \end{align*}
+	The surface integral in definition \ref{si_def} may be evaluated by
+	\begin{align*}
+		\di_S f(x,y,z)dS = \di_D f(\vec r(u,v)) |\vec r_u\times \vec r_v|dA.
+	\end{align*}
 \end{theorem}
 
 \subsubsection{Graphs}
 
 \begin{theorem}
-    Consider the surface $S$ which is given by $z=g(x,y)$. Then the surface integral
-    of $f(x,y,z)$ has the formula
-    \begin{align*}
-        \di_S f(x,y,z)dS = \di_D f(x,y,g(x,y))\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\:dA
-    \end{align*}
+	Consider the surface $S$ which is given by $z=g(x,y)$. Then the surface integral
+	of $f(x,y,z)$ has the formula
+	\begin{align*}
+		\di_S f(x,y,z)dS = \di_D f(x,y,g(x,y))\sqrt{1+\left(\frac{\partial z}{\partial x}\right)^2+\left(\frac{\partial z}{\partial y}\right)^2}\:dA
+	\end{align*}
 \end{theorem}
 
 \subsubsection{Oriented surfaces}
 
 \begin{definition}
-    A smooth surface $S$ in $\R^3$ is \textbf{orientable} if there exists a unit normal vector
-    field $\hat n(x,y,z)$ defined on $S$ that varies continuously as $(x,y,z)$ ranges over $S$
-    and is everywhere normal to $S$.\\
-    Any such unit nromal vector field $\hat n(x,y,z)$ determines an \textbf{orientation} of $S$.
-    The side which $\hat n(x,y,z)$ points to is called the \textbf{positive side}; the other side is the
-    \textbf{negative side}.
+	A smooth surface $S$ in $\R^3$ is \textbf{orientable} if there exists a unit normal vector
+	field $\hat n(x,y,z)$ defined on $S$ that varies continuously as $(x,y,z)$ ranges over $S$
+	and is everywhere normal to $S$.\\
+	Any such unit nromal vector field $\hat n(x,y,z)$ determines an \textbf{orientation} of $S$.
+	The side which $\hat n(x,y,z)$ points to is called the \textbf{positive side}; the other side is the
+	\textbf{negative side}.
 \end{definition}
 \begin{definition}
-    An \textbf{oriented surface} is a smooth surface together with a particular choice of unit
-    normal vector field $\hat n(x,y,z)$.
+	An \textbf{oriented surface} is a smooth surface together with a particular choice of unit
+	normal vector field $\hat n(x,y,z)$.
 \end{definition}
 \begin{lemma}
-    For the surface described by the graph $z=g(x,y)$, a natural orientation is provided by
-    the unit normal fector field
-    \begin{align*}
-        \hat n(x,y,z)=\frac{-\frac{\partial g}{\partial x}\ih -\frac{\partial g}{\partial y}\jh + \kh}{\sqrt{1+\left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2}}.
-    \end{align*}
+	For the surface described by the graph $z=g(x,y)$, a natural orientation is provided by
+	the unit normal fector field
+	\begin{align*}
+		\hat n(x,y,z)=\frac{-\frac{\partial g}{\partial x}\ih -\frac{\partial g}{\partial y}\jh + \kh}{\sqrt{1+\left(\frac{\partial g}{\partial x}\right)^2 + \left(\frac{\partial g}{\partial y}\right)^2}}.
+	\end{align*}
 \end{lemma}
 \begin{lemma}
-    For the surfaces described by the position vector function $\vec r(u,v)$ in parametric form,
-    a natural orientation is provided by the unit normal vector field
-    \begin{align*}
-        \hat n(u,v) = \frac{\vec r_u \times \vec r_v}{|\vec r_u \times \vec r_v|}.
-    \end{align*}
+	For the surfaces described by the position vector function $\vec r(u,v)$ in parametric form,
+	a natural orientation is provided by the unit normal vector field
+	\begin{align*}
+		\hat n(u,v) = \frac{\vec r_u \times \vec r_v}{|\vec r_u \times \vec r_v|}.
+	\end{align*}
 \end{lemma}
 \begin{definition}
-    For a \textbf{closed surface} (i.e., a surface without boundary):
-    \begin{itemize}
-        \item the \textbf{positive orientation} is one for which the unit normal vectors point outwards;
-        \item the \textbf{negative orientation} is one for which the unit normal vector points inwards.
-    \end{itemize}
+	For a \textbf{closed surface} (i.e., a surface without boundary):
+	\begin{itemize}
+		\item the \textbf{positive orientation} is one for which the unit normal vectors point outwards;
+		\item the \textbf{negative orientation} is one for which the unit normal vector points inwards.
+	\end{itemize}
 \end{definition}
 \begin{definition}
-    A piecewise smooth surface is orientable if, whenever two smooth component surfaces join
-    at a boundary curve $C$, they induce opposite orientations along $C$.
+	A piecewise smooth surface is orientable if, whenever two smooth component surfaces join
+	at a boundary curve $C$, they induce opposite orientations along $C$.
 \end{definition}
 
 \subsubsection{Surface integrals of vector fields}
 
 \begin{definition}
-    If $\vec F(x,y,z)$ is a continuous vector field defined on an oriented surface $S$ with
-    unit normal vector field $\hat n(x,y,z)$, then the \textbf{surface integral of $\vec F$ over
-        $S$} is
-    \begin{align*}
-        \di_S \vec F\cdot d\vec S = \di_S \vec F\cdot \hat n\:dS.
-    \end{align*}
-    This integral is also called the \textbf{flux} of $\vec F$ over $S$.
+	If $\vec F(x,y,z)$ is a continuous vector field defined on an oriented surface $S$ with
+	unit normal vector field $\hat n(x,y,z)$, then the \textbf{surface integral of $\vec F$ over
+		$S$} is
+	\begin{align*}
+		\di_S \vec F\cdot d\vec S = \di_S \vec F\cdot \hat n\:dS.
+	\end{align*}
+	This integral is also called the \textbf{flux} of $\vec F$ over $S$.
 \end{definition}
 
 
 \subsection{Stokes' Theorem}
 
 \begin{theorem}[Stokes' Theorem]
-    Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple closed
-    piecewise smooth boundary curve $C$ with orientation inherited from $S$. Let $\vec F$
-    be a vector field whose components have continuous partial derivatives on an open
-    region in $\R^3$ that contains $S$. Then
-    \begin{align*}
-        \int_C \vec F\cdot d\vec r = \di_S \curl \vec F\cdot d\vec S.
-    \end{align*}
+	Let $S$ be an oriented piecewise-smooth surface that is bounded by a simple closed
+	piecewise smooth boundary curve $C$ with orientation inherited from $S$. Let $\vec F$
+	be a vector field whose components have continuous partial derivatives on an open
+	region in $\R^3$ that contains $S$. Then
+	\begin{align*}
+		\int_C \vec F\cdot d\vec r = \di_S \curl \vec F\cdot d\vec S.
+	\end{align*}
 \end{theorem}
 \begin{corollary}
-    If $S_1$ and $S_2$ are oriented surfaces with the same oriented boundary $C$ then
-    \begin{align*}
-        \di_{S_1}\curl \vec F\cdot d\vec S = \int_C \vec F\cdot d\vec r = \di_{S_2} \curl\vec F\cdot d\vec S
-    \end{align*}
-    where $S_{1,2}$ and $\vec F$ satisfy the hypotheses of Stokes' Theorem.
+	If $S_1$ and $S_2$ are oriented surfaces with the same oriented boundary $C$ then
+	\begin{align*}
+		\di_{S_1}\curl \vec F\cdot d\vec S = \int_C \vec F\cdot d\vec r = \di_{S_2} \curl\vec F\cdot d\vec S
+	\end{align*}
+	where $S_{1,2}$ and $\vec F$ satisfy the hypotheses of Stokes' Theorem.
 \end{corollary}
 
 
@@ -1336,24 +1336,24 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    A \textbf{simple} 3-dimensional region $E$ may be specified in three different ways:
-    \begin{align*}
-        E=\begin{cases}
-            \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\} \\
-            \{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\} \\
-            \{(x,y,z)|(x,z)\in D_{xz}, u_5(x,z)\leq y \leq u_6(x,z)\}
-        \end{cases}
-    \end{align*}
-    where $u_{1,2,3,4,5,6}$ are continuous functions and $D_{xy,yz,xz}$ are the projections
-    of $E$ onto the $xy$-,$yz$-,$xz$-planes repsectively.
+	A \textbf{simple} 3-dimensional region $E$ may be specified in three different ways:
+	\begin{align*}
+		E=\begin{cases}
+			  \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\} \\
+			  \{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\} \\
+			  \{(x,y,z)|(x,z)\in D_{xz}, u_5(x,z)\leq y \leq u_6(x,z)\}
+		  \end{cases}
+	\end{align*}
+	where $u_{1,2,3,4,5,6}$ are continuous functions and $D_{xy,yz,xz}$ are the projections
+	of $E$ onto the $xy$-,$yz$-,$xz$-planes repsectively.
 \end{definition}
 \begin{theorem}(The Diveregence Theorem)
-    Let $E$ be a simple 3-dimensional region whose boundary surface $S$ has positive
-    orientation. Let $\vec F$ be a vector field whose component functions have continuous
-    partial derivatives on an open region that contains $E$. Then
-    \begin{align*}
-        \di_S \vec F\cdot d\vec S = \ti_E \div\vec F\:dV.
-    \end{align*}
+	Let $E$ be a simple 3-dimensional region whose boundary surface $S$ has positive
+	orientation. Let $\vec F$ be a vector field whose component functions have continuous
+	partial derivatives on an open region that contains $E$. Then
+	\begin{align*}
+		\di_S \vec F\cdot d\vec S = \ti_E \div\vec F\:dV.
+	\end{align*}
 \end{theorem}
 
 
@@ -1363,43 +1363,43 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    A \textbf{differential equation} is one invovling one or more derivatives of an unknown function.
+	A \textbf{differential equation} is one invovling one or more derivatives of an unknown function.
 \end{definition}
 
 \begin{definition}
-    Any function which satisfies a differential equation on an interval is called a \textbf{soltution} on that interval.
+	Any function which satisfies a differential equation on an interval is called a \textbf{soltution} on that interval.
 \end{definition}
 
 \begin{definition}
-    An \textbf{ordinary differential equation (ODE)} involves derivatives with respect to only one variable.
+	An \textbf{ordinary differential equation (ODE)} involves derivatives with respect to only one variable.
 \end{definition}
 
 \begin{definition}
-    A \textbf{partial differential equation (PDE)} involves derivatives with respect to more than one variable.
+	A \textbf{partial differential equation (PDE)} involves derivatives with respect to more than one variable.
 \end{definition}
 
 \begin{definition}
-    The \textbf{order} of a differential equation is the order of the highest-order derivative present.
+	The \textbf{order} of a differential equation is the order of the highest-order derivative present.
 \end{definition}
 
 \begin{definition}
-    A $n$th-order \textbf{linear} ODE has the general form
-    \begin{align*}
-        a_n(x) \frac{d^ny}{dx^n}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\cdots a_1(x)\frac{dy}{dx}+a_0(x)y(x)= f(x)
-    \end{align*}
-    where $a_n(x), a_{n-1}(x), ..., a_0(x), f(x)$ are functions of $x$.
-    \begin{itemize}
-        \item If $f(x)=0$ the ODE is \textbf{homogeneous},
-        \item if $f(x)\not=0$ the ODE is \textbf{nonhomogeneous}.
-    \end{itemize}
+	A $n$th-order \textbf{linear} ODE has the general form
+	\begin{align*}
+		a_n(x) \frac{d^ny}{dx^n}+a_{n-1}(x)\frac{d^{n-1}y}{dx^{n-1}}+\cdots a_1(x)\frac{dy}{dx}+a_0(x)y(x)= f(x)
+	\end{align*}
+	where $a_n(x), a_{n-1}(x), ..., a_0(x), f(x)$ are functions of $x$.
+	\begin{itemize}
+		\item If $f(x)=0$ the ODE is \textbf{homogeneous},
+		\item if $f(x)\not=0$ the ODE is \textbf{nonhomogeneous}.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    An \textbf{initial-value problem} comprises
-    \begin{itemize}
-        \item a differential equation
-        \item prescribed values for the solution and enough of its derivatives at a paritcular point to yield a solution.
-    \end{itemize}
+	An \textbf{initial-value problem} comprises
+	\begin{itemize}
+		\item a differential equation
+		\item prescribed values for the solution and enough of its derivatives at a paritcular point to yield a solution.
+	\end{itemize}
 \end{definition}
 
 
@@ -1413,20 +1413,20 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    The linear ODE
-    \begin{align*}
-        \frac{dy}{dx}+P(x)y = Q(x)
-    \end{align*}
-    may be solved by the \textbf{method of integrating factors}; i.e.
-    \begin{itemize}
-        \item multiply both sides of the ODE by the \textbf{integrating factor} $e^{\int P(x)dx}$ to give\begin{align*}
-                  e^{\int P(x)dx}\left[\frac{dy}{dx}+P(x)y\right]           & = e^{\int P(x)dx}Q(x) \\
-                  \Leftrightarrow \frac{d}{dx}\left(e^{\int P(x)dx}y\right) & =e^{\int P(x)dx}Q(x)
-              \end{align*}
-        \item then integrating both sides w.r.t. $x$ yields \begin{align*}
-                  y = \frac{1}{e^{\int P(x)dx}}\left[\int e^{\int P(x)dx}Q(x)dx + C\right].
-              \end{align*}
-    \end{itemize}
+	The linear ODE
+	\begin{align*}
+		\frac{dy}{dx}+P(x)y = Q(x)
+	\end{align*}
+	may be solved by the \textbf{method of integrating factors}; i.e.
+	\begin{itemize}
+		\item multiply both sides of the ODE by the \textbf{integrating factor} $e^{\int P(x)dx}$ to give\begin{align*}
+			      e^{\int P(x)dx}\left[\frac{dy}{dx}+P(x)y\right]           & = e^{\int P(x)dx}Q(x) \\
+			      \Leftrightarrow \frac{d}{dx}\left(e^{\int P(x)dx}y\right) & =e^{\int P(x)dx}Q(x)
+		      \end{align*}
+		\item then integrating both sides w.r.t. $x$ yields \begin{align*}
+			      y = \frac{1}{e^{\int P(x)dx}}\left[\int e^{\int P(x)dx}Q(x)dx + C\right].
+		      \end{align*}
+	\end{itemize}
 \end{theorem}
 
 
@@ -1434,16 +1434,16 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    A \textbf{separable} first-order ODE can be written in the form
-    \begin{align*}
-        \frac{dy}{dx}=g(x)h(y)
-    \end{align*}
-    and its solution can be found by integrating per
-    \begin{align*}
-        \int \frac{1}{h(y)}\frac{dy}{dx}dx & = \int g(x)dx, \\
-        \int \frac{1}{h(y)}dy              & = \int g(x)dx,
-    \end{align*}
-    if $h(y)\not=0$.
+	A \textbf{separable} first-order ODE can be written in the form
+	\begin{align*}
+		\frac{dy}{dx}=g(x)h(y)
+	\end{align*}
+	and its solution can be found by integrating per
+	\begin{align*}
+		\int \frac{1}{h(y)}\frac{dy}{dx}dx & = \int g(x)dx, \\
+		\int \frac{1}{h(y)}dy              & = \int g(x)dx,
+	\end{align*}
+	if $h(y)\not=0$.
 \end{theorem}
 
 
@@ -1451,15 +1451,15 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    A \textbf{homogeneous} first-order ODE can be written in the form
-    \begin{align*}
-        \frac{dy}{dx} = g\left(\frac{y}{x}\right)
-    \end{align*}
-    and its solution can be found by
-    \begin{itemize}
-        \item changing the dependent variable to $v(x)=\frac{y}{x}$,
-        \item then using separation of variables.
-    \end{itemize}
+	A \textbf{homogeneous} first-order ODE can be written in the form
+	\begin{align*}
+		\frac{dy}{dx} = g\left(\frac{y}{x}\right)
+	\end{align*}
+	and its solution can be found by
+	\begin{itemize}
+		\item changing the dependent variable to $v(x)=\frac{y}{x}$,
+		\item then using separation of variables.
+	\end{itemize}
 \end{theorem}
 
 
@@ -1467,63 +1467,63 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    The ODE
-    \begin{align*}
-        M(x,y)+N(x,y)\frac{dy}{dx}=0
-    \end{align*}
-    is called \textbf{exact} if there exists a function $\psi(x,y)$ such that
-    \begin{align*}
-        \frac{\p \psi}{\p x}=M(x,y)\hs\text{and}\hs\frac{\p\psi}{\p y}=N(x,y).
-    \end{align*}
+	The ODE
+	\begin{align*}
+		M(x,y)+N(x,y)\frac{dy}{dx}=0
+	\end{align*}
+	is called \textbf{exact} if there exists a function $\psi(x,y)$ such that
+	\begin{align*}
+		\frac{\p \psi}{\p x}=M(x,y)\hs\text{and}\hs\frac{\p\psi}{\p y}=N(x,y).
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
-    If an ODE is exact, then it may be written as
-    \begin{align*}
-        \frac{\p\psi}{\p x}+\frac{\p\psi}{\p y}\frac{dy}{dx} & =0  \\
-        \Leftrightarrow \frac{d}{dx}\psi(x,y)                & =0.
-    \end{align*}
-    Integrating gives the solution implicitly as
-    \begin{align*}
-        \psi(x,y)=C.
-    \end{align*}
+	If an ODE is exact, then it may be written as
+	\begin{align*}
+		\frac{\p\psi}{\p x}+\frac{\p\psi}{\p y}\frac{dy}{dx} & =0  \\
+		\Leftrightarrow \frac{d}{dx}\psi(x,y)                & =0.
+	\end{align*}
+	Integrating gives the solution implicitly as
+	\begin{align*}
+		\psi(x,y)=C.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    If $M,N$ and their partial derivatives w.r.t. $x,y$ are continuous
-    on a domain $R:\alpha<x<\beta$, $\gamma<y<\delta$, then the ODE is
-    exact on $R$ if and only if
-    \begin{align*}
-        \frac{\p M}{\p y}=\frac{\p N}{\p x}
-    \end{align*}
-    at each point in $R$.
+	If $M,N$ and their partial derivatives w.r.t. $x,y$ are continuous
+	on a domain $R:\alpha<x<\beta$, $\gamma<y<\delta$, then the ODE is
+	exact on $R$ if and only if
+	\begin{align*}
+		\frac{\p M}{\p y}=\frac{\p N}{\p x}
+	\end{align*}
+	at each point in $R$.
 \end{theorem}
 
 \begin{theorem}
-    The ODE
-    \begin{align*}
-        \mu(x,y)M(x,y)+\mu(x,y)N(x,y)\frac{dy}{dx}=0
-    \end{align*}
-    is exact if and only if
-    \begin{align*}
-        \frac{\p}{\p y}(\mu M)=\frac{\p}{\p x}(\mu N),
-    \end{align*}
-    i.e., if and only if
-    \begin{align*}
-        M\mu_y - N\mu_x + (M_y - N_x)\mu = 0.
-    \end{align*}
+	The ODE
+	\begin{align*}
+		\mu(x,y)M(x,y)+\mu(x,y)N(x,y)\frac{dy}{dx}=0
+	\end{align*}
+	is exact if and only if
+	\begin{align*}
+		\frac{\p}{\p y}(\mu M)=\frac{\p}{\p x}(\mu N),
+	\end{align*}
+	i.e., if and only if
+	\begin{align*}
+		M\mu_y - N\mu_x + (M_y - N_x)\mu = 0.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    If
-    \begin{align*}
-        \frac{M_y-N_x}{N}=f(x),
-    \end{align*}
-    then an integrating factor $\mu(x)$
-    can be found by solving the linear and separable ODE
-    \begin{align*}
-        \frac{d\mu}{dx}=\frac{M_y-N_x}{N}\mu.
-    \end{align*}
+	If
+	\begin{align*}
+		\frac{M_y-N_x}{N}=f(x),
+	\end{align*}
+	then an integrating factor $\mu(x)$
+	can be found by solving the linear and separable ODE
+	\begin{align*}
+		\frac{d\mu}{dx}=\frac{M_y-N_x}{N}\mu.
+	\end{align*}
 \end{theorem}
 
 
@@ -1531,23 +1531,23 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    If the functions $P(t)$, $Q(t)$ are continuous on an open interval
-    $\alpha<t<\beta$ containing the point $t_0$, then there exists a
-    unique function $y=\phi(t)$ which satisfies the linear ODE
-    \begin{align*}
-        \frac{dy}{dt}+P(t)y=Q(t)
-    \end{align*}
-    for all $t\in(\alpha,\beta)$, and that satisfies the initial condition.
+	If the functions $P(t)$, $Q(t)$ are continuous on an open interval
+	$\alpha<t<\beta$ containing the point $t_0$, then there exists a
+	unique function $y=\phi(t)$ which satisfies the linear ODE
+	\begin{align*}
+		\frac{dy}{dt}+P(t)y=Q(t)
+	\end{align*}
+	for all $t\in(\alpha,\beta)$, and that satisfies the initial condition.
 \end{theorem}
 
 \begin{theorem}
-    Let $f(t,y)$ and $\p f/\p y$ be continuous on a domain $t\in(\alpha,\beta)$,
-    $y\in(\gamma,\delta)$ containing the point $(t_0, y_0)$. Then, in some
-    interval $(t_0-h, t_0+h)$ contained in $(\alpha, \beta)$, there exists
-    a unique solution $y=\phi(t)$ of the IVP
-    \begin{align*}
-        \frac{dy}{dx}=f(t,y),\hs y(t_0) = y_0.
-    \end{align*}
+	Let $f(t,y)$ and $\p f/\p y$ be continuous on a domain $t\in(\alpha,\beta)$,
+	$y\in(\gamma,\delta)$ containing the point $(t_0, y_0)$. Then, in some
+	interval $(t_0-h, t_0+h)$ contained in $(\alpha, \beta)$, there exists
+	a unique solution $y=\phi(t)$ of the IVP
+	\begin{align*}
+		\frac{dy}{dx}=f(t,y),\hs y(t_0) = y_0.
+	\end{align*}
 \end{theorem}
 
 
@@ -1555,28 +1555,28 @@ Notation for higher derivatives:
 
 
 \begin{theorem}
-    Suppose we know that the IVP
-    \begin{align*}
-        \frac{dy}{dt} = f(t,y),\hs y(t_0) = y_0
-    \end{align*}
-    has a unique solution $y=\phi(t)$ on some interval containing $t_0$.\\
-    An approximate numerical solution ot the IVP can be found using
-    numerical methods, i.e., for a sequence of points
-    \begin{align*}
-        t_0,\hs t_1=t_0+h,\hs t_2=t_1+h,\hs...
-    \end{align*}
-    sparated by the \textbf{step size} $h>0$, we seek approximate values
-    $y_n$ for $\phi(t_n)$.
+	Suppose we know that the IVP
+	\begin{align*}
+		\frac{dy}{dt} = f(t,y),\hs y(t_0) = y_0
+	\end{align*}
+	has a unique solution $y=\phi(t)$ on some interval containing $t_0$.\\
+	An approximate numerical solution ot the IVP can be found using
+	numerical methods, i.e., for a sequence of points
+	\begin{align*}
+		t_0,\hs t_1=t_0+h,\hs t_2=t_1+h,\hs...
+	\end{align*}
+	sparated by the \textbf{step size} $h>0$, we seek approximate values
+	$y_n$ for $\phi(t_n)$.
 \end{theorem}
 
 \begin{theorem}[Euler's method]
-    The solution curve $y=\phi(t)$ is approximated by a sequence
-    of straight line segments, joined end to end, where the gradient
-    of each segment is given by $f(t,y)$ at the end of the previous
-    segment, i.e.
-    \begin{align*}
-        y_1 = y_0+f(t_0, y_0)h,\hs y_2=y_1+f(t_1,y_1)h,\hs ...
-    \end{align*}
+	The solution curve $y=\phi(t)$ is approximated by a sequence
+	of straight line segments, joined end to end, where the gradient
+	of each segment is given by $f(t,y)$ at the end of the previous
+	segment, i.e.
+	\begin{align*}
+		y_1 = y_0+f(t_0, y_0)h,\hs y_2=y_1+f(t_1,y_1)h,\hs ...
+	\end{align*}
 \end{theorem}
 
 
@@ -1589,150 +1589,150 @@ Notation for higher derivatives:
 
 
 \begin{theorem}[Existence and Uniqueness Theorem]
-    Consider the IVP
-    \begin{align*}
-        y'' + p(t)y'+q(t)y=g(t),\hs y(t_0)=\alpha,\hs y'(t_0)=\beta
-    \end{align*}
-    where $p$, $q$, $g$ are continuous on an open interval $I$ containing
-    the point $t_0$. There is a unique solution $y=\phi(t)$ of this IVP
-    and the solution exists throughout $I$.
+	Consider the IVP
+	\begin{align*}
+		y'' + p(t)y'+q(t)y=g(t),\hs y(t_0)=\alpha,\hs y'(t_0)=\beta
+	\end{align*}
+	where $p$, $q$, $g$ are continuous on an open interval $I$ containing
+	the point $t_0$. There is a unique solution $y=\phi(t)$ of this IVP
+	and the solution exists throughout $I$.
 \end{theorem}
 \begin{definition}
-    Two functions $y_1$ and $y_2$ arre \textbf{linearly dependent} on an
-    interval $I$ if there exists two constants $C_1$ and $C_2$, not
-    both zero, such that
-    \begin{align*}
-        C_1y_1(t)+C_2y_2(t)=0
-    \end{align*}
-    for all $t\in I$.\\
-    The functions are \textbf{linearly independent} on $I$ if they are not
-    linearly dependent.
+	Two functions $y_1$ and $y_2$ arre \textbf{linearly dependent} on an
+	interval $I$ if there exists two constants $C_1$ and $C_2$, not
+	both zero, such that
+	\begin{align*}
+		C_1y_1(t)+C_2y_2(t)=0
+	\end{align*}
+	for all $t\in I$.\\
+	The functions are \textbf{linearly independent} on $I$ if they are not
+	linearly dependent.
 \end{definition}
 \begin{definition}
-    The \textbf{Wronskian} of two functions $y_1$ and $y_2$ is defined as the
-    determinant
-    \begin{align*}
-        W(y_1, y_2) = \begin{vmatrix}
-            y_1  & y_2  \\
-            y'_1 & y'_2 \\
-        \end{vmatrix} = y_1y'_2 - y'_1y_2.
-    \end{align*}
+	The \textbf{Wronskian} of two functions $y_1$ and $y_2$ is defined as the
+	determinant
+	\begin{align*}
+		W(y_1, y_2) = \begin{vmatrix}
+			              y_1  & y_2  \\
+			              y'_1 & y'_2 \\
+		              \end{vmatrix} = y_1y'_2 - y'_1y_2.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    Let $y_1(t)$ and $y_2(t)$ be differentiable functions on an open
-    interval $I$:
-    \begin{enumerate}
-        \item If $W(y_1,y_2)(t_0)\not=0$ at some point $t_0\in I$ then $y_1$, $y_2$ are linearly independent on $I$.
-        \item If $y_1$, $y_2$ are linearly dependent on $I$ then $W(y_1, y_2)(t)=0$ for all $t\in I$.
-    \end{enumerate}
+	Let $y_1(t)$ and $y_2(t)$ be differentiable functions on an open
+	interval $I$:
+	\begin{enumerate}
+		\item If $W(y_1,y_2)(t_0)\not=0$ at some point $t_0\in I$ then $y_1$, $y_2$ are linearly independent on $I$.
+		\item If $y_1$, $y_2$ are linearly dependent on $I$ then $W(y_1, y_2)(t)=0$ for all $t\in I$.
+	\end{enumerate}
 \end{theorem}
 \begin{theorem}[Abel's Theorem]
-    Suppose that $y_1$, $y_2$ are two solutions to the homogeneous ODE
-    \begin{align*}
-        y'' + p(t)y' + q(t)y = 0
-    \end{align*}
-    where $p$, $q$ are continuous on an open interval $I$. Then the
-    Wronskian
-    \begin{align*}
-        W(y_1, y_2) = C\exp \left[-\int p(t)\:dt\right]
-    \end{align*}
-    where the constant $C$ depends on $y_1$, $y_2$ but not $t$.
-    Furthermore, there are only two possibilities:
-    \begin{align*}
-        W(y_1,y_2) & =0\hs \forall t \in I, \text{ or} \\
-        W(y_1,y_2) & \not=0\hs \forall t \in I.
-    \end{align*}
+	Suppose that $y_1$, $y_2$ are two solutions to the homogeneous ODE
+	\begin{align*}
+		y'' + p(t)y' + q(t)y = 0
+	\end{align*}
+	where $p$, $q$ are continuous on an open interval $I$. Then the
+	Wronskian
+	\begin{align*}
+		W(y_1, y_2) = C\exp \left[-\int p(t)\:dt\right]
+	\end{align*}
+	where the constant $C$ depends on $y_1$, $y_2$ but not $t$.
+	Furthermore, there are only two possibilities:
+	\begin{align*}
+		W(y_1,y_2) & =0\hs \forall t \in I, \text{ or} \\
+		W(y_1,y_2) & \not=0\hs \forall t \in I.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    Suppose that $y_1$, $y_2$ are two solutions of the homogeneous ODE
-    \begin{align*}
-        y''+p(t)y'+q(t)y =0
-    \end{align*}
-    where $p$, $q$ are continuous on an open interval $I$. Then
-    \begin{enumerate}
-        \item $y_1$, $y_2$ are linearly dependent on $I$ $\Leftrightarrow$ $W(y_1,y_2)(t)=0$ for all $t\in I$,
-        \item $y_1$, $y_2$ are linearly independent on $I$ $\Leftrightarrow$ $W(y_1,y_2)(t)\not=0$ for all $t\in I$.
-    \end{enumerate}
+	Suppose that $y_1$, $y_2$ are two solutions of the homogeneous ODE
+	\begin{align*}
+		y''+p(t)y'+q(t)y =0
+	\end{align*}
+	where $p$, $q$ are continuous on an open interval $I$. Then
+	\begin{enumerate}
+		\item $y_1$, $y_2$ are linearly dependent on $I$ $\Leftrightarrow$ $W(y_1,y_2)(t)=0$ for all $t\in I$,
+		\item $y_1$, $y_2$ are linearly independent on $I$ $\Leftrightarrow$ $W(y_1,y_2)(t)\not=0$ for all $t\in I$.
+	\end{enumerate}
 \end{theorem}
 \begin{theorem}
-    Suppse that $y_1$, $y_2$ are two \textbf{linearly independent} solutions to the
-    homogeneous ODE
-    \begin{align*}
-        y''+p(t)y'+q(t)y =0
-    \end{align*}
-    where $p$, $q$ are contiuous. Then every solution to the ODE has the
-    form
-    \begin{align*}
-        y = C_1y_1(t)+C_2y_2(t)
-    \end{align*}
-    where $C_1$, $C_2$ are constants.
+	Suppse that $y_1$, $y_2$ are two \textbf{linearly independent} solutions to the
+	homogeneous ODE
+	\begin{align*}
+		y''+p(t)y'+q(t)y =0
+	\end{align*}
+	where $p$, $q$ are contiuous. Then every solution to the ODE has the
+	form
+	\begin{align*}
+		y = C_1y_1(t)+C_2y_2(t)
+	\end{align*}
+	where $C_1$, $C_2$ are constants.
 \end{theorem}
 \begin{definition}
-    The solution
-    \begin{align*}
-        y=C_1y_1(t)+C_2y_2(t)
-    \end{align*}
-    is called the \textbf{general solution}; every \textbf{particular solution}
-    to the homogeneous ODE can be found by assigning values to the
-    constants $C_1$ and $C_2$.
+	The solution
+	\begin{align*}
+		y=C_1y_1(t)+C_2y_2(t)
+	\end{align*}
+	is called the \textbf{general solution}; every \textbf{particular solution}
+	to the homogeneous ODE can be found by assigning values to the
+	constants $C_1$ and $C_2$.
 \end{definition}
 \begin{definition}
-    The functions $y_1$ and $y_2$ in the general solution $y=C_1y_2+C_2y_2$
-    are said to form a \textbf{fundamental set of solutions}.
+	The functions $y_1$ and $y_2$ in the general solution $y=C_1y_2+C_2y_2$
+	are said to form a \textbf{fundamental set of solutions}.
 \end{definition}
 \begin{lemma}
-    If we know one solution $y_1(t)$ to a linear homogeneous ODE, another
-    linearly independent solution may be found by substituting $y=v(t)y_1(t)$.
-    This leads to a first-order seperable ODE for $v'(t)$ from which
-    $v(t)$ may be found.\\
-    This is called the \textbf{Method of Reduction of Order}.
+	If we know one solution $y_1(t)$ to a linear homogeneous ODE, another
+	linearly independent solution may be found by substituting $y=v(t)y_1(t)$.
+	This leads to a first-order seperable ODE for $v'(t)$ from which
+	$v(t)$ may be found.\\
+	This is called the \textbf{Method of Reduction of Order}.
 \end{lemma}
 
 
 \subsection{Linear homogeneous ODEs with constant coefficients}
 
 \begin{theorem}
-    Consider the linear homogeneous ODE with constant coefficients
-    \begin{align}
-        \label{linode}
-        ay'' + by' + cy = 0
-    \end{align}
-    where $a$, $b$, $c$ are real-valued constants and $a\not=0$.
-    Then
-    \begin{align*}
-        y(t)=e^{rt}
-    \end{align*}
-    is a solution to (\ref{linode}) provided that $r$ is a root of the
-    \textbf{characteristic equation}
-    \begin{align*}
-        ar^2 + br + c = 0.
-    \end{align*}
+	Consider the linear homogeneous ODE with constant coefficients
+	\begin{align}
+		\label{linode}
+		ay'' + by' + cy = 0
+	\end{align}
+	where $a$, $b$, $c$ are real-valued constants and $a\not=0$.
+	Then
+	\begin{align*}
+		y(t)=e^{rt}
+	\end{align*}
+	is a solution to (\ref{linode}) provided that $r$ is a root of the
+	\textbf{characteristic equation}
+	\begin{align*}
+		ar^2 + br + c = 0.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If the characteristic equation has real-valued and distinct roots,
-    then the general solution to (\ref{linode}) is
-    \begin{align*}
-        y(t)=C_1\exp(r_1 t) + C_2 \exp(r_2 t).
-    \end{align*}
+	If the characteristic equation has real-valued and distinct roots,
+	then the general solution to (\ref{linode}) is
+	\begin{align*}
+		y(t)=C_1\exp(r_1 t) + C_2 \exp(r_2 t).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If the characteristic equation has equal roots, then $r=-b/2a$ and the
-    general solution to (\ref{linode}) is
-    \begin{align*}
-        y(t)=C_1\exp\left(rt\right)+C_2t\exp(rt).
-    \end{align*}
+	If the characteristic equation has equal roots, then $r=-b/2a$ and the
+	general solution to (\ref{linode}) is
+	\begin{align*}
+		y(t)=C_1\exp\left(rt\right)+C_2t\exp(rt).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If the characteristic equation has complex-valued roots, then the
-    roots must be the complex-conjugate pair
-    \begin{align*}
-        r_1 = \alpha + i\beta,\hs r_2 = \alpha - i\beta
-    \end{align*}
-    where $\alpha,\beta\in\R$ and $i=\sqrt{-1}$. The general soltuion
-    to (\ref{linode}) then is
-    \begin{align*}
-        y(t) = \exp(\alpha t)\left(C_1 \cos\left(\beta t\right)+C_2\sin\left(\beta t\right)\right).
-    \end{align*}
+	If the characteristic equation has complex-valued roots, then the
+	roots must be the complex-conjugate pair
+	\begin{align*}
+		r_1 = \alpha + i\beta,\hs r_2 = \alpha - i\beta
+	\end{align*}
+	where $\alpha,\beta\in\R$ and $i=\sqrt{-1}$. The general soltuion
+	to (\ref{linode}) then is
+	\begin{align*}
+		y(t) = \exp(\alpha t)\left(C_1 \cos\left(\beta t\right)+C_2\sin\left(\beta t\right)\right).
+	\end{align*}
 \end{theorem}
 
 
@@ -1740,80 +1740,80 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    Consider the linear nonhomogeneous ODE with constant coefficients
-    \begin{align}
-        \label{linoden}
-        ay'' + by' + cy = g(t)
-    \end{align}
-    where $a$, $b$, $c$ are real-valued constants and $a\not=0$. Then
-    the corresponding homogeneous ODE (\ref{linode}) is called a
-    \textbf{complementary equation}.
+	Consider the linear nonhomogeneous ODE with constant coefficients
+	\begin{align}
+		\label{linoden}
+		ay'' + by' + cy = g(t)
+	\end{align}
+	where $a$, $b$, $c$ are real-valued constants and $a\not=0$. Then
+	the corresponding homogeneous ODE (\ref{linode}) is called a
+	\textbf{complementary equation}.
 \end{definition}
 
 \begin{theorem}
-    If $Y_1$ and $Y_2$ are any two solutions of the nonhomogeneous ODE
-    (\ref{linoden}) then their difference $Y_1-Y_2$ is  a solution of the
-    corresponding complementary equation. Thus
-    \begin{align*}
-        Y_1(t) - Y_2(t) = C_1y_1(t) + C_2y_2(t)
-    \end{align*}
-    where $C_1$, $C_2$ are certain constants and $y_1$, $y_2$ are a
-    fundamental set of solutions of the corresponding complementary equation.
+	If $Y_1$ and $Y_2$ are any two solutions of the nonhomogeneous ODE
+	(\ref{linoden}) then their difference $Y_1-Y_2$ is  a solution of the
+	corresponding complementary equation. Thus
+	\begin{align*}
+		Y_1(t) - Y_2(t) = C_1y_1(t) + C_2y_2(t)
+	\end{align*}
+	where $C_1$, $C_2$ are certain constants and $y_1$, $y_2$ are a
+	fundamental set of solutions of the corresponding complementary equation.
 \end{theorem}
 
 \begin{theorem}
-    Let $Y_1$ be an arbitrary solution $y(t)$ of the nonhomogeneous ODE
-    and let $Y_2$ be a particular soltuion $y_p(t)$ of the nonhomogeneous
-    ODE, then we see that the general solution of the nonhomogeneous ODE
-    may be epxressed as
-    \begin{align*}
-        y(t) = y_c(t) + y_p(t)
-    \end{align*}
-    where $y_c(t) = C_1y_1(t) + C_2y_2(t)$ is the general solution of the
-    corresponding complementary equation.\\
-    $y_c(t)$ is called the \textbf{complementary function}.
+	Let $Y_1$ be an arbitrary solution $y(t)$ of the nonhomogeneous ODE
+	and let $Y_2$ be a particular soltuion $y_p(t)$ of the nonhomogeneous
+	ODE, then we see that the general solution of the nonhomogeneous ODE
+	may be epxressed as
+	\begin{align*}
+		y(t) = y_c(t) + y_p(t)
+	\end{align*}
+	where $y_c(t) = C_1y_1(t) + C_2y_2(t)$ is the general solution of the
+	corresponding complementary equation.\\
+	$y_c(t)$ is called the \textbf{complementary function}.
 \end{theorem}
 
 \subsubsection{Method of undetermined coefficients}
 
 \begin{itemize}
-    \item Case 1: $g(t)=Me^{kt}$ \begin{itemize}
-              \item If $k$ is not a root of the characteristic equation, try $y_p(t)=Ce^{kt}$,
-              \item if $k$ is a root of the characteristic equation, try $y_p(t)=Cte^{kt}$,
-              \item if $k$ is a repeated root of the characteristic equation, try $y_p(t)=Ct^2e^{kt}$.
-          \end{itemize}
-    \item Case 2: $g(t)=M\cos(kt) + N\sin(kt)$ \begin{itemize}
-              \item If $\pm ik$ are not roots of the characteristic equation, try $y_p(t)=C\cos(kt)+D\sin(kt)$,
-              \item if $\pm ik$ are roots of the characteristic equation, try $y_p(t)=t(C\cos(kt)+D\sin(kt))$.
-          \end{itemize}
-    \item Case 3: $g(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots + a_1t+a_0$ \begin{itemize}
-              \item If $0$ is not a root of the characteristic equation, try $y_p(t)=b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1t+b_0$,
-              \item if $0$ is a root of the characteristic equation, try $y_p(t) = t(b_n t^n + b_{n-1}t^{n-1} + \cdots + b_1 t + b_0)$,
-              \item if $0$ is a repeated root of the characteristic equation, try $y_p(t)=t^2(b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1 t+b_0)$.
-          \end{itemize}
-    \item Case 4: $g(t)=\Pi_{i=0}^n g_i(t)$ where all $g_i$ are of the form in cases 1-3 \begin{itemize}
-              \item Try the product of the trial functions in the corresponding cases.
-          \end{itemize}
+	\item Case 1: $g(t)=Me^{kt}$ \begin{itemize}
+		      \item If $k$ is not a root of the characteristic equation, try $y_p(t)=Ce^{kt}$,
+		      \item if $k$ is a root of the characteristic equation, try $y_p(t)=Cte^{kt}$,
+		      \item if $k$ is a repeated root of the characteristic equation, try $y_p(t)=Ct^2e^{kt}$.
+	      \end{itemize}
+	\item Case 2: $g(t)=M\cos(kt) + N\sin(kt)$ \begin{itemize}
+		      \item If $\pm ik$ are not roots of the characteristic equation, try $y_p(t)=C\cos(kt)+D\sin(kt)$,
+		      \item if $\pm ik$ are roots of the characteristic equation, try $y_p(t)=t(C\cos(kt)+D\sin(kt))$.
+	      \end{itemize}
+	\item Case 3: $g(t)=a_nt^n+a_{n-1}t^{n-1}+\cdots + a_1t+a_0$ \begin{itemize}
+		      \item If $0$ is not a root of the characteristic equation, try $y_p(t)=b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1t+b_0$,
+		      \item if $0$ is a root of the characteristic equation, try $y_p(t) = t(b_n t^n + b_{n-1}t^{n-1} + \cdots + b_1 t + b_0)$,
+		      \item if $0$ is a repeated root of the characteristic equation, try $y_p(t)=t^2(b_nt^n+b_{n-1}t^{n-1}+\cdots+b_1 t+b_0)$.
+	      \end{itemize}
+	\item Case 4: $g(t)=\Pi_{i=0}^n g_i(t)$ where all $g_i$ are of the form in cases 1-3 \begin{itemize}
+		      \item Try the product of the trial functions in the corresponding cases.
+	      \end{itemize}
 \end{itemize}
 
 \subsubsection{Method of variation of parameters}
 
 \begin{theorem}
-    If $g(t)$ for the nonhomogeneous ODE is a general function and we know
-    the general solution
-    \begin{align*}
-        y_c(t) = C_1y_1(t) + C_2y_2(t)
-    \end{align*}
-    to the corresponding homogeneous ODE, the general solution to the
-    nonhomogeneous ODE is
-    \begin{align*}
-        y(t) = y_c(t)+y_p(t)
-    \end{align*}
-    where
-    \begin{align*}
-        y_p(t) = -y_1(t)\int\frac{y_2(t)g(t)}{aW(y_1,y_2)}\:dt
-        + y_2(t) \int \frac{y_1(t)g(t)}{aW(y_1,y_2)}\:dt.
-    \end{align*}
+	If $g(t)$ for the nonhomogeneous ODE is a general function and we know
+	the general solution
+	\begin{align*}
+		y_c(t) = C_1y_1(t) + C_2y_2(t)
+	\end{align*}
+	to the corresponding homogeneous ODE, the general solution to the
+	nonhomogeneous ODE is
+	\begin{align*}
+		y(t) = y_c(t)+y_p(t)
+	\end{align*}
+	where
+	\begin{align*}
+		y_p(t) = -y_1(t)\int\frac{y_2(t)g(t)}{aW(y_1,y_2)}\:dt
+		+ y_2(t) \int \frac{y_1(t)g(t)}{aW(y_1,y_2)}\:dt.
+	\end{align*}
 \end{theorem}
 
 
@@ -1826,25 +1826,25 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    A general second-order ODE has the form
-    \begin{align}
-        F\left(y'',y',y,x\right)=0.
-    \end{align}
+	A general second-order ODE has the form
+	\begin{align}
+		F\left(y'',y',y,x\right)=0.
+	\end{align}
 \end{definition}
 \begin{lemma}
-    An ODE
-    \begin{align*}
-        F(y'',y',x)=0
-    \end{align*}
-    may be solved using the change of variable $v(x)=y'$.
+	An ODE
+	\begin{align*}
+		F(y'',y',x)=0
+	\end{align*}
+	may be solved using the change of variable $v(x)=y'$.
 \end{lemma}
 \begin{lemma}
-    An ODE
-    \begin{align*}
-        F(y'', y', y) =0
-    \end{align*}
-    may be solved using the change of variable $v(y)=dy/dx$ wherein
-    $v$ is regarded as a function of $y$.
+	An ODE
+	\begin{align*}
+		F(y'', y', y) =0
+	\end{align*}
+	may be solved using the change of variable $v(y)=dy/dx$ wherein
+	$v$ is regarded as a function of $y$.
 \end{lemma}
 
 
@@ -1852,23 +1852,23 @@ Notation for higher derivatives:
 
 
 \begin{definition}
-    An \textbf{Euler equation} has the form
-    \begin{align}
-        \label{euler}
-        ax^2\frac{d^2y}{dx^2} + bx\frac{dy}{dx} + cy = 0
-    \end{align}
-    where $a,b,c\in\R$ are constants and $a\not=0$.
+	An \textbf{Euler equation} has the form
+	\begin{align}
+		\label{euler}
+		ax^2\frac{d^2y}{dx^2} + bx\frac{dy}{dx} + cy = 0
+	\end{align}
+	where $a,b,c\in\R$ are constants and $a\not=0$.
 \end{definition}
 
 \begin{theorem}
-    By introducing the new dependent varaible
-    \begin{align*}
-        t=\ln x,\hs x>0
-    \end{align*}
-    the ODE (\ref{euler}) simplifies to a constant-coefficient ODE:
-    \begin{align*}
-        a\frac{d^2y}{dt^2}+(b-a)\frac{dy}{dt}+cy=0.
-    \end{align*}
+	By introducing the new dependent varaible
+	\begin{align*}
+		t=\ln x,\hs x>0
+	\end{align*}
+	the ODE (\ref{euler}) simplifies to a constant-coefficient ODE:
+	\begin{align*}
+		a\frac{d^2y}{dt^2}+(b-a)\frac{dy}{dt}+cy=0.
+	\end{align*}
 \end{theorem}
 
 
@@ -1876,144 +1876,144 @@ Notation for higher derivatives:
 
 
 \begin{lemma}
-    We can use \textbf{power series}, i.e.
-    \begin{align}
-        \label{pseries}
-        \sum_{n=0}^\infty a_n (x-b)^n
-    \end{align}
-    to construct fundamental sets of solutions.
+	We can use \textbf{power series}, i.e.
+	\begin{align}
+		\label{pseries}
+		\sum_{n=0}^\infty a_n (x-b)^n
+	\end{align}
+	to construct fundamental sets of solutions.
 \end{lemma}
 
 \subsubsection{Useful properties of power series}
 
 \begin{definition}
-    The \textbf{radius of convergence}
-    \begin{align*}
-        \rho=\lim_{n\to\infty}\abs{\frac{a_n}{a_{n+1}}}\geq 0
-    \end{align*}
-    means that
-    \begin{enumerate}
-        \item (\ref{pseries}) converges absolutely for $\abs{x-b}<\rho$,
-        \item (\ref{pseries}) diverges for $\abs{x-b}>\rho$,
-        \item (\ref{pseries}) either converges or diverges for $|x-b=\rho$.
-    \end{enumerate}
+	The \textbf{radius of convergence}
+	\begin{align*}
+		\rho=\lim_{n\to\infty}\abs{\frac{a_n}{a_{n+1}}}\geq 0
+	\end{align*}
+	means that
+	\begin{enumerate}
+		\item (\ref{pseries}) converges absolutely for $\abs{x-b}<\rho$,
+		\item (\ref{pseries}) diverges for $\abs{x-b}>\rho$,
+		\item (\ref{pseries}) either converges or diverges for $|x-b=\rho$.
+	\end{enumerate}
 \end{definition}
 \begin{definition}
-    If the \textbf{Taylor series} expansion of $f$ about $x=b$, i.e.
-    \begin{align*}
-        f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(b)}{n!}(x-b)^n
-    \end{align*}
-    has $\rho>0$, then $f$ is said to be \textbf{analytic} at $x=b$.
+	If the \textbf{Taylor series} expansion of $f$ about $x=b$, i.e.
+	\begin{align*}
+		f(x)=\sum_{n=0}^\infty \frac{f^{(n)}(b)}{n!}(x-b)^n
+	\end{align*}
+	has $\rho>0$, then $f$ is said to be \textbf{analytic} at $x=b$.
 \end{definition}
 \begin{lemma}
-    If the functions $f,g$ are analytic at $x=b$ then so are
-    \begin{itemize}
-        \item $f+g$,
-        \item $fg$,
-        \item $f/g$ provided that $g(b)\not=0$.
-    \end{itemize}
+	If the functions $f,g$ are analytic at $x=b$ then so are
+	\begin{itemize}
+		\item $f+g$,
+		\item $fg$,
+		\item $f/g$ provided that $g(b)\not=0$.
+	\end{itemize}
 \end{lemma}
 \begin{theorem}
-    If the power series representation
-    \begin{align*}
-        f(x)=\sum_{n=0}^\infty a_n(x-b)^n
-    \end{align*}
-    of $f$ converges on an open interval $I$ centred on $x=b$, then $f$
-    is differentiable on $I$ and
-    \begin{align*}
-        f'(x)=\sum_{n=1}^\infty na_n(x-b)^{n-1}
-    \end{align*}
-    at each point of $I$.
+	If the power series representation
+	\begin{align*}
+		f(x)=\sum_{n=0}^\infty a_n(x-b)^n
+	\end{align*}
+	of $f$ converges on an open interval $I$ centred on $x=b$, then $f$
+	is differentiable on $I$ and
+	\begin{align*}
+		f'(x)=\sum_{n=1}^\infty na_n(x-b)^{n-1}
+	\end{align*}
+	at each point of $I$.
 \end{theorem}
 \begin{theorem}[Identity Principle]
-    If
-    \begin{align*}
-        \sum_{n=0}^\infty a_n(x-b)^n = \sum_{n=0}^\infty c_n(x-b)^n
-    \end{align*}
-    for every point $x$ in an open interval $I$ centred on $x=b$, then $a_n=c_n$
-    for all $n\geq 0$.
+	If
+	\begin{align*}
+		\sum_{n=0}^\infty a_n(x-b)^n = \sum_{n=0}^\infty c_n(x-b)^n
+	\end{align*}
+	for every point $x$ in an open interval $I$ centred on $x=b$, then $a_n=c_n$
+	for all $n\geq 0$.
 \end{theorem}
 
 \subsubsection{Ordinary and singular points}
 
 Consider the homogeneous linear ODE
 \begin{align}
-    \label{shl}
-    P(x)\frac{d^2y}{dx^2}+Q(x)\frac{dy}{dx}+R(x)y(x)=0
+	\label{shl}
+	P(x)\frac{d^2y}{dx^2}+Q(x)\frac{dy}{dx}+R(x)y(x)=0
 \end{align}
 where the functions $P(x)$, $Q(x)$, $R(x)$ are analytic at a point $x=a$.
 We can express (\ref{shl}) as
 \begin{align}
-    \label{shl2}
-    \frac{d^2y}{dx^2}+p(x)\frac{dy}{dx}+q(x)y(x)=0
+	\label{shl2}
+	\frac{d^2y}{dx^2}+p(x)\frac{dy}{dx}+q(x)y(x)=0
 \end{align}
 where $p(x)=Q(x)/P(x)$, $q(x)=R(x)/P(x)$.
 \begin{definition}
-    The point $x=a$ is an \textbf{ordinary point} of (\ref{shl2}) provided that
-    $p(x)$ and $q(x)$ are both analytic at $x=a$; otherwise $x=a$ is a
-    \textbf{singular point}.
+	The point $x=a$ is an \textbf{ordinary point} of (\ref{shl2}) provided that
+	$p(x)$ and $q(x)$ are both analytic at $x=a$; otherwise $x=a$ is a
+	\textbf{singular point}.
 \end{definition}
 \begin{lemma}
-    If $P(x)$, $Q(x)$, $R(x)$ in (\ref{shl}) are polynomials with no common
-    factors then $x=a$ is an ordinary point if and only if $P(a)\not=0$.
+	If $P(x)$, $Q(x)$, $R(x)$ in (\ref{shl}) are polynomials with no common
+	factors then $x=a$ is an ordinary point if and only if $P(a)\not=0$.
 \end{lemma}
 
 \subsubsection{Series solutions near an ordinary point}
 
 \begin{theorem}
-    If $x=b$ is an ordinary point of the ODE (\ref{shl2}) then the general
-    solution to (\ref{shl2}) may be expressed as
-    \begin{align*}
-        y(x) = \sum_{n=0}^\infty a_n(x-b)^n = a_0y_1(x)+a_1y_2(x)
-    \end{align*}
-    where $a_0,a_1$ are arbitrary constants and $y_1(x),y_2(x)$ are two
-    power series solutions.
+	If $x=b$ is an ordinary point of the ODE (\ref{shl2}) then the general
+	solution to (\ref{shl2}) may be expressed as
+	\begin{align*}
+		y(x) = \sum_{n=0}^\infty a_n(x-b)^n = a_0y_1(x)+a_1y_2(x)
+	\end{align*}
+	where $a_0,a_1$ are arbitrary constants and $y_1(x),y_2(x)$ are two
+	power series solutions.
 \end{theorem}
 
 \subsubsection{Series solutions near a regular singular point: Method of Frobenius}
 
 \begin{definition}
-    A \textbf{Frobenius series} is a power series of the form
-    \begin{align}
-        \label{frob}
-        y(x)=x^r\sum_{n=0}^\infty a_nx^n
-    \end{align}
-    for some $r,a_0,a_1,...\in\R$.
+	A \textbf{Frobenius series} is a power series of the form
+	\begin{align}
+		\label{frob}
+		y(x)=x^r\sum_{n=0}^\infty a_nx^n
+	\end{align}
+	for some $r,a_0,a_1,...\in\R$.
 \end{definition}
 
 \begin{theorem}
-    To be a solution to the ODE (\ref{shl2}) the series (\ref{frob}) must
-    have an exponent $r$ that satsifies the \textbf{indicial equation}
-    \begin{align}
-        \label{indic}
-        r(r-1) + p_0r + q_0 = 0
-    \end{align}
-    where $p_0$ and $q_0$ come from the power series expansions of $p$
-    and $q$:
-    \begin{align*}
-        xp(x) = \sum_{n=0}^\infty p_n x^n,\hs x^2q(x)=\sum_{n=0}^\infty q_nx^n.
-    \end{align*}
+	To be a solution to the ODE (\ref{shl2}) the series (\ref{frob}) must
+	have an exponent $r$ that satsifies the \textbf{indicial equation}
+	\begin{align}
+		\label{indic}
+		r(r-1) + p_0r + q_0 = 0
+	\end{align}
+	where $p_0$ and $q_0$ come from the power series expansions of $p$
+	and $q$:
+	\begin{align*}
+		xp(x) = \sum_{n=0}^\infty p_n x^n,\hs x^2q(x)=\sum_{n=0}^\infty q_nx^n.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Method of Frobenius]
-    Let $r_1\geq r_2$ be the roots of the indical equation (\ref{indic}).
-    Then, for $0<x<\rho$, there exists a solution of the ODE (\ref{shl2}) of the
-    form
-    \begin{align*}
-        y_1(x)=x^{r_1} \sum_{n=0}^\infty a_nx^n,\hs(a\not=0).
-    \end{align*}
-    A second linearly independent solution $y_2$ is given as follows:
-    \begin{itemize}
-        \item if $r_1-r_2$ is neither zero nor a positive integer then \begin{align*}
-                  y_2(x) = x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b_0\not=0),
-              \end{align*}
-        \item if $r_1-r_2$ is a positive integer then \begin{align*}
-                  y_2(x) = Dy_1(x)\ln x + x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b\not=0)
-              \end{align*}
-              where the constant $D$ may or may not be zero,
-        \item if $r_1-r_2=0$ then \begin{align*}
-                  y_2(x) = y_1(x)\ln x + x^{r_1}\sum_{n=1}^\infty b_nx^n.
-              \end{align*}
-    \end{itemize}
+	Let $r_1\geq r_2$ be the roots of the indical equation (\ref{indic}).
+	Then, for $0<x<\rho$, there exists a solution of the ODE (\ref{shl2}) of the
+	form
+	\begin{align*}
+		y_1(x)=x^{r_1} \sum_{n=0}^\infty a_nx^n,\hs(a\not=0).
+	\end{align*}
+	A second linearly independent solution $y_2$ is given as follows:
+	\begin{itemize}
+		\item if $r_1-r_2$ is neither zero nor a positive integer then \begin{align*}
+			      y_2(x) = x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b_0\not=0),
+		      \end{align*}
+		\item if $r_1-r_2$ is a positive integer then \begin{align*}
+			      y_2(x) = Dy_1(x)\ln x + x^{r_2}\sum_{n=0}^\infty b_nx^n,\hs(b\not=0)
+		      \end{align*}
+		      where the constant $D$ may or may not be zero,
+		\item if $r_1-r_2=0$ then \begin{align*}
+			      y_2(x) = y_1(x)\ln x + x^{r_1}\sum_{n=1}^\infty b_nx^n.
+		      \end{align*}
+	\end{itemize}
 \end{theorem}
 \end{document}

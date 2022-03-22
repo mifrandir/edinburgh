@@ -8,20 +8,20 @@
 \section{Lecture 0, September 16}
 \subsection{Reading}
 \begin{itemize}
-    \item Thompson: "Haskell: The Craft of Functional Porgramming"
-    \item Learn You a Haskell
+	\item Thompson: "Haskell: The Craft of Functional Porgramming"
+	\item Learn You a Haskell
 \end{itemize}
 Tip: Blackwell's\\
 \textbf{READ!}
 \subsection{Tutorial}
 \begin{itemize}
-    \item do exercise before
-    \item collaboration is fine
-    \item no marks
-    \item mandatory to not fail the exam
+	\item do exercise before
+	\item collaboration is fine
+	\item no marks
+	\item mandatory to not fail the exam
 \end{itemize}
 \begin{itemize}
-    \item look at Piazza forum
+	\item look at Piazza forum
 \end{itemize}
 \subsection{Ethics}
 Think about your impact on the world.\\
@@ -31,8 +31,8 @@ Think about your own prejudices:
 \subsection{Logic}
 TIP: Language, Truth and Logic; You should read it
 \begin{itemize}
-    \item natural languages are often ambiuous, verbose, or imprecise
-    \item you need clear, concise, and unambiguous communication   
+	\item natural languages are often ambiuous, verbose, or imprecise
+	\item you need clear, concise, and unambiguous communication
 \end{itemize}
 Base for nouns denoting the study of something, or the branch of knowledge of a discipline.
 \begin{verbatim}
@@ -55,11 +55,11 @@ data Bool = False | True
 not :: Bool -> Bool          -- negation
 \end{verbatim}
 \begin{itemize}
-    \item \texttt{True} $\top$
-    \item \texttt{False} $\bot$
-    \item \texttt{||} $\vee$
-    \item \texttt{\&\&} $\wedge$
-    \item \texttt{not} $\neg$
+	\item \texttt{True} $\top$
+	\item \texttt{False} $\bot$
+	\item \texttt{||} $\vee$
+	\item \texttt{\&\&} $\wedge$
+	\item \texttt{not} $\neg$
 \end{itemize}
 \subsection{Comprehension for logical statements}
 \begin{verbatim}
@@ -69,8 +69,8 @@ everyRedTriangleSmall = and [(x, isSmall x) | x <- things, isRed x, is Triangle]
 \end{verbatim}
 We know every red triangle is small.
 \begin{itemize}
-    \item isRed, isTriangle $\vDash$ isSmall
-    \item isSmall, isTriangle $\not\vDash$ isRed
+	\item isRed, isTriangle $\vDash$ isSmall
+	\item isSmall, isTriangle $\not\vDash$ isRed
 \end{itemize}
 \section{Lecture 2, September 24}
 \subsection{Syllogisms/Venn diagrams}
@@ -80,56 +80,56 @@ p :: U -> Bool
 \end{verbatim}
 Each \texttt{p} defines a subset ${ x | p x }$ of the universe.\\
 \begin{itemize}
-    \item Euler Diagram: Every area has something in it.
-    \item Venn Diagram: All the possible areas are shown, but they might be empty.
+	\item Euler Diagram: Every area has something in it.
+	\item Venn Diagram: All the possible areas are shown, but they might be empty.
 \end{itemize}
 Rule (barbara):
 \begin{align}
-    \frac{a \vDash b\:\: b \vDash c}{a \vDash c}
+	\frac{a \vDash b\:\: b \vDash c}{a \vDash c}
 \end{align}
 This is valid for all predicates:
 \begin{align}
-    \frac{a \vDash b\:\: b \vDash \neg c}{a \vDash \neg c}
+	\frac{a \vDash b\:\: b \vDash \neg c}{a \vDash \neg c}
 \end{align}
 Contrapositions:
 \begin{align}
-    \frac{a \vDash \neg b}{b \vDash \neg a}\\
-    \frac{a \vDash b}{\neg a \vDash \neg b}\\
-    \frac{\neg a \vDash b}{\neg b \vDash a}
+	\frac{a \vDash \neg b}{b \vDash \neg a} \\
+	\frac{a \vDash b}{\neg a \vDash \neg b} \\
+	\frac{\neg a \vDash b}{\neg b \vDash a}
 \end{align}
 First rule of boolean algebra:
 \begin{align}
-    \neg \neg a = a
+	\neg \neg a = a
 \end{align}
 Rule (celarent):
 \begin{align}
-    \frac{a \vDash b \:\: b \vDash \neg c}{a \vDash \neg c}
+	\frac{a \vDash b \:\: b \vDash \neg c}{a \vDash \neg c}
 \end{align}
 Rule (cesare):
 \begin{align}
-    \frac{a \vDash b \:\: c \vDash \neg b}{a \vDash \neg c}
+	\frac{a \vDash b \:\: c \vDash \neg b}{a \vDash \neg c}
 \end{align}
 Rule (camestres):
 \begin{align}
-    \frac{a\vDash b \:\: c\vDash \neg b}{c \vDash \neg a}\\
+	\frac{a\vDash b \:\: c\vDash \neg b}{c \vDash \neg a} \\
 \end{align}
 Rule (calemes):
 \begin{align}
-    \infer{c \vDash \neg a}{a\vDash b \:\: b\vDash \neg c}
+	\infer{c \vDash \neg a}{a\vDash b \:\: b\vDash \neg c}
 \end{align}
 Rule (bocardo):
 \begin{align}
-    \infer{b \not\vDash c}{a\vDash b\:\:a\not\vDash c}
+	\infer{b \not\vDash c}{a\vDash b\:\:a\not\vDash c}
 \end{align}
 Meta contraposition:
 \begin{align}
-    \infer={
-        a\not\vDash \neg b
-    }{
-        b\not\vDash \neg a
-    }\\
-    \infer={a\not\vDash b}{\neg b \not\vDash \neg a}\\
-    \infer{\neg a \not\vDash b}{\neg b \not\vDash a}
+	\infer={
+	a\not\vDash \neg b
+	}{
+	b\not\vDash \neg a
+	}                                                \\
+	\infer={a\not\vDash b}{\neg b \not\vDash \neg a} \\
+	\infer{\neg a \not\vDash b}{\neg b \not\vDash a}
 \end{align}
 \section{Lecture 3, September 27}
 \begin{verbatim}
@@ -140,8 +140,8 @@ a |/= b = not (a |= b)
 \end{verbatim}
 Important rules Aristotle did not mention:
 \begin{align}
-    \infer{b \vDash \neg a}{a \vDash \neg b}\\
-    \infer{a \vDash a}{}
+	\infer{b \vDash \neg a}{a \vDash \neg b} \\
+	\infer{a \vDash a}{}
 \end{align}
 Tip:
 \begin{verbatim}
@@ -149,20 +149,20 @@ type Pred u = u -> Bool
 \end{verbatim}
 \subsection{The second rule of boolean logic}
 \begin{align}
-    \infer={a\vDash b}{
-        \infer{\neg\neg a \vDash \neg\neg b}{
-            \infer{\neg b \vDash \neg a}{
-                a \vDash b
-            }
-        }
-    }
+	\infer={a\vDash b}{
+	\infer{\neg\neg a \vDash \neg\neg b}{
+		\infer{\neg b \vDash \neg a}{
+			a \vDash b
+		}
+	}
+	}
 \end{align}
 \subsection{About $a\wedge b$}
 \begin{align}
-    (a\wedge b)x = ax \wedge bx
+	(a\wedge b)x = ax \wedge bx
 \end{align}
 \begin{align}
-    \infer={c\vDash a\wedge b}{c\vDash a \:\: c\vDash b}
+	\infer={c\vDash a\wedge b}{c\vDash a \:\: c\vDash b}
 \end{align}
 \begin{verbatim}
 (a &:& b) x (a x) && (b x)
@@ -170,7 +170,7 @@ type Pred u = u -> Bool
 \end{verbatim}
 \subsection{About $a\vee b$}
 \begin{align}
-\infer={a\vee b \vDash c}{a \vDash c \:\: b\vDash c}
+	\infer={a\vee b \vDash c}{a \vDash c \:\: b\vDash c}
 \end{align}
 \begin{verbatim}
 (a |:| b) x = (a x) || (b x)
@@ -179,8 +179,8 @@ type Pred u = u -> Bool
 $a\vee b$ is the opposite of $a\wedge b$. (Tip: Look at the Euler diagram on a sphere.)
 \subsection{de Morgan's Laws}
 \begin{align}
-    \neg (a \vee b) = \neg a \wedge \neg b\\
-    \neg (a \wedge b) = \neg a \vee \neg b
+	\neg (a \vee b) = \neg a \wedge \neg b \\
+	\neg (a \wedge b) = \neg a \vee \neg b
 \end{align}
 Therefore, the following are equivalent:
 \begin{verbatim}
@@ -189,55 +189,55 @@ and [ c x | a <- things, b <- things, a x && b x ]
 and [ c x | a <- things, b <- things, (a &:& b) x ]
 \end{verbatim}
 \begin{align}
-    \infer={a\wedge b \vDash c}{a, b \vDash c}\:\:
-    \infer={a \wedge b \vDash \neg c}{a, b \vDash \neg c}
+	\infer={a\wedge b \vDash c}{a, b \vDash c}\:\:
+	\infer={a \wedge b \vDash \neg c}{a, b \vDash \neg c}
 \end{align}
 Also:
 \begin{align}
-    \infer={c\vDash a,b}{
-        \infer={\neg a, \neg b \vDash \neg c}{
-            \infer={\neg a \wedge \neg b \vDash \neg c}{
-                \infer={\neg (a\vee b)\vDash \neg c}{
-                    c\vDash a\vee b
-                }
-            }
-        }
-    }
+	\infer={c\vDash a,b}{
+	\infer={\neg a, \neg b \vDash \neg c}{
+			\infer={\neg a \wedge \neg b \vDash \neg c}{
+					\infer={\neg (a\vee b)\vDash \neg c}{
+							c\vDash a\vee b
+						}
+				}
+		}
+	}
 \end{align}
 \section{Lecture 4, October 03}
 \subsection{Commas}
 \begin{align}
-    \infer{a\vDash b,c}{a \vDash b \vee c}\\
-    \infer{a,b\vDash c}{a\wedge b\vDash c}
+	\infer{a\vDash b,c}{a \vDash b \vee c} \\
+	\infer{a,b\vDash c}{a\wedge b\vDash c}
 \end{align}
 \subsection{Sequents}
 \begin{align}
-    \Gamma \vDash \Delta \text{ iff }
+	\Gamma \vDash \Delta \text{ iff }
 \end{align}
 $g,a\vDash b$ is valid in $U$ iff $a\vDash b$ is valid in $\left\{x \in U | g x\right\}$.\\
 $a\vDash b,d$ is valid in $U$ iff $\left\{x \in U | \neg d \right\}$\\
 \begin{align}
-    \Gamma, a \vDash b, \Delta
+	\Gamma, a \vDash b, \Delta
 \end{align}
 $a \vDash b$ is true in the universe where every $g$ in $\Gamma$ is true and every $d$ in $\Delta$ is false.
 \section{Lecture 5, October 04}
 In a Universe with $n$ predicates there are only $2^n$ possible objects.\\
 \begin{itemize}
-    \item Literals: Letters or not Letters
-    \item Blocks: Rectangles with $2^n$ elements on a Karnaugh Map
-    \item Disjunctive normal form: disjunction of literals and conjunctions (finding 1s)
-    \item Conjunctive normal form: conjunction of literals and disjunctions (finding 0s)
+	\item Literals: Letters or not Letters
+	\item Blocks: Rectangles with $2^n$ elements on a Karnaugh Map
+	\item Disjunctive normal form: disjunction of literals and conjunctions (finding 1s)
+	\item Conjunctive normal form: conjunction of literals and disjunctions (finding 0s)
 \end{itemize}
 \section{Lecture 6, October 10}
 How to find a counterexample:
 \begin{align}
-    \Gamma \vDash \neg \vee \Delta\\
-    \Gamma, \vee \Delta \vDash
+	\Gamma \vDash \neg \vee \Delta \\
+	\Gamma, \vee \Delta \vDash
 \end{align}
 We can use the rules to show this is universally valid, $\Gamma, \vee \Delta$ is inconsistent.
 \subsection{About constants}
 \begin{align}
-    \wedge \emptyset \vDash \vee \emptyset
+	\wedge \emptyset \vDash \vee \emptyset
 \end{align}
 \subsection{Quantifiers}
 \begin{minted}{haskell}
@@ -258,7 +258,7 @@ Another example:
 \begin{minted}{haskell}
 EveryBodyLovesSomeBody = every body (\x -> some body (\y -> loves x y))
 \end{minted}
-$\forall x $... \\ 
+$\forall x $... \\
 \section{Lecture 7, October 11}
 \subsubsection{Evaluating lambda expression}
 \begin{minted}{haskell}
@@ -295,35 +295,35 @@ newtype Form a   = And [ Clause a]
 \end{minted}
 \subsubsection{Divided and conquer!}
 If you have a CNF, try taking some literals on the left as true. See what happens.
-Now we can solve a CNF with less literals and (hopefully) less clauses.\\ 
+Now we can solve a CNF with less literals and (hopefully) less clauses.\\
 Now we can check whether a literal being true or a literal being false makes the CNF satisfiable.
 \section{Lecutre 9, October 18}
 \begin{enumerate}
-    \item If there are no clauses, the solution is \texttt{[[]]}.
-    \item If there is a clause without literals, there is no solution. (\texttt{[]})
-    \item If there is a clause with exactly one literal, we set this literal to true for the rest of the evaluation.
-    \item If there are only clauses with more than one literal, choose one and continue two evaluations with this literal as false and as true.
+	\item If there are no clauses, the solution is \texttt{[[]]}.
+	\item If there is a clause without literals, there is no solution. (\texttt{[]})
+	\item If there is a clause with exactly one literal, we set this literal to true for the rest of the evaluation.
+	\item If there are only clauses with more than one literal, choose one and continue two evaluations with this literal as false and as true.
 \end{enumerate}
 \subsection{Circuits}
 There are other languages for logic. For example, you can use circuits.
 Take the following equations:
 \begin{align*}
-    x = \neg a\\ 
-    y = a \vee b\\ 
-    z = x \wedge y\\ 
-    r = y \vee z
+	x = \neg a     \\
+	y = a \vee b   \\
+	z = x \wedge y \\
+	r = y \vee z
 \end{align*}
 So, $r$ is the following:
 \begin{align*}
-    r = (\neg a \wedge (a \vee b)) \vee (a \vee b)
+	r = (\neg a \wedge (a \vee b)) \vee (a \vee b)
 \end{align*}
 Problem: CNF might be exponential compared to original clause. Now we can write the CNFs for every single gate, which will then give us more CNFs with less clauses.
 \section{Lecture 10, October 24}
 Get the CNF of a curcuit:
 \begin{enumerate}
-    \item Write all the single clauses (per gate).
-    \item Convert them each to CNF.
-    \item Combine them and set the output to true (thus simplifying the full CNF).
+	\item Write all the single clauses (per gate).
+	\item Convert them each to CNF.
+	\item Combine them and set the output to true (thus simplifying the full CNF).
 \end{enumerate}
 \section{Lecture 11, October 25}
 \subsection{Ordering}
@@ -332,27 +332,27 @@ Values 0 and 1 / True and False.
 Now we can apply a predicate to all the elements in our universe.
 With predicates $X$ and $Y$:
 \begin{align}
-    X \wedge Y < X, Y < X \vee Y
+	X \wedge Y < X, Y < X \vee Y
 \end{align}
-Propositions are ordered by $x\leq y$ iff $x\rightarrow y =T$.\\ 
+Propositions are ordered by $x\leq y$ iff $x\rightarrow y =T$.\\
 Therefore if $x$ is true, so is $y$.
 \subsection{Binary constraints}
 Each binary constraint is equivalent to an arrow:
 \begin{align}
-    \neg R \vee \neg A \equiv R \rightarrow \neg A \equiv A \rightarrow \neg R\\ 
-    A \vee \neg G \equiv \neg A \rightarrow \neg G \equiv A \rightarrow G
+	\neg R \vee \neg A \equiv R \rightarrow \neg A \equiv A \rightarrow \neg R \\
+	A \vee \neg G \equiv \neg A \rightarrow \neg G \equiv A \rightarrow G
 \end{align}
 \subsection{Using implications to find a valuation}
 All the implication arrows have to go from False to True.\\
 
-\noindent Iff $A\rightarrow D$ then $\neg D\rightarrow A$. (Contraposition)\\ 
+\noindent Iff $A\rightarrow D$ then $\neg D\rightarrow A$. (Contraposition)\\
 
-Goal: Find a line that seperates all the predicates such that all the implications are true. 
-(Arrows only go from False to True.)\\ 
+Goal: Find a line that seperates all the predicates such that all the implications are true.
+(Arrows only go from False to True.)\\
 
-In a chain of implications, we know: For $n$ literals, we have $n+1$ possiblities of making all the implications true.\\ 
+In a chain of implications, we know: For $n$ literals, we have $n+1$ possiblities of making all the implications true.\\
 
-If an atom and its negatin both appear, we have to draw the line in between the two.\\ 
+If an atom and its negatin both appear, we have to draw the line in between the two.\\
 Cycles have to either be entirely below the line or entirely below the line.
 \section{Lecture 11, October 31}
 \subsection{Finite State Machines}
@@ -365,130 +365,130 @@ We can describe accepting states by strings:
     (ab|ba)c
 \end{verbatim}
 \begin{itemize}
-    \item Alternation: \texttt{a|b}
-    \item Repetition: \texttt{a*}
-    \item Empty symbol: $\varepsilon$
+	\item Alternation: \texttt{a|b}
+	\item Repetition: \texttt{a*}
+	\item Empty symbol: $\varepsilon$
 \end{itemize}
 \begin{definition}
-    An NFA is represented formally by a 5-tuple, consisting of
-    \begin{itemize}
-        \item \texttt{qs}, a finite set of states
-        \item \texttt{as}, a finite set of symbols
-        \item \texttt{ts}, a finite set of transitions \texttt{(q,a,t)}
-        \item \texttt{fs}, a finite set of accepting states
-        \item \texttt{ss}, a finite set of start states
-    \end{itemize}
+	An NFA is represented formally by a 5-tuple, consisting of
+	\begin{itemize}
+		\item \texttt{qs}, a finite set of states
+		\item \texttt{as}, a finite set of symbols
+		\item \texttt{ts}, a finite set of transitions \texttt{(q,a,t)}
+		\item \texttt{fs}, a finite set of accepting states
+		\item \texttt{ss}, a finite set of start states
+	\end{itemize}
 \end{definition}
 \begin{definition}
-    An DFA is represented formally by a 5-tuple, consisting of
-    \begin{itemize}
-        \item \texttt{qs}, a finite set of states
-        \item \texttt{as}, a finite set of symbols
-        \item \texttt{ts}, a finite set of transitions \texttt{(q,a,t)}
-        \item \texttt{fs}, a finite set of accepting states
-        \item \texttt{s}, a start states
-    \end{itemize}
+	An DFA is represented formally by a 5-tuple, consisting of
+	\begin{itemize}
+		\item \texttt{qs}, a finite set of states
+		\item \texttt{as}, a finite set of symbols
+		\item \texttt{ts}, a finite set of transitions \texttt{(q,a,t)}
+		\item \texttt{fs}, a finite set of accepting states
+		\item \texttt{s}, a start states
+	\end{itemize}
 \end{definition}
 \section{Lecture 13, November 07}
 \begin{theorem}
-The complement of a DFA regular language is DFA regular.
+	The complement of a DFA regular language is DFA regular.
 \end{theorem}
 We can combine two DFAs to form another DFA.
 \begin{example}
-$mod 2$ and $mod 3$ to get $mod 6$.\\
-Let them run in parallel and assign every possible pair of states to a new state of a new DFA. The finishing state of this new DFA is the state, where both initial machines are in a finishing state.\\ 
-Therefore the new DFA is an intersection of the first two and DFA's are closed under unions. ($\forall x, y \in \Sigma^{*}.\: x \cap y \in \Sigma^{*}$)
+	$mod 2$ and $mod 3$ to get $mod 6$.\\
+	Let them run in parallel and assign every possible pair of states to a new state of a new DFA. The finishing state of this new DFA is the state, where both initial machines are in a finishing state.\\
+	Therefore the new DFA is an intersection of the first two and DFA's are closed under unions. ($\forall x, y \in \Sigma^{*}.\: x \cap y \in \Sigma^{*}$)
 \end{example}
 \begin{example}
-$mod 2$ and $mod 3$ to get $mod 2$ or $mod 3$.\\
-Let them run in parallel and assign every possible pair of states to a new state of a new DFA.
-The finishing states of this new DFA are the states, where at least one of the initial machines is in a finishing state.\\ 
-Therefore the new DFA is a 
+	$mod 2$ and $mod 3$ to get $mod 2$ or $mod 3$.\\
+	Let them run in parallel and assign every possible pair of states to a new state of a new DFA.
+	The finishing states of this new DFA are the states, where at least one of the initial machines is in a finishing state.\\
+	Therefore the new DFA is a
 \end{example}
 \subsection{General FSM}
 An FSM accepts a word iff there is a trace from some start state $q_0$ to some finish state $q_n$ along transitions that spell out the word.
 \begin{definition}
-    If $R\subseteq (\Sigma \cup \{\epsilon\})^*$ is a regular language with the alphabet $\Sigma \cup \{\epsilon\}$ (where $\epsilon \not\in \Sigma$) then $R // \epsilon = \{s//\epsilon | s\in R\}$ is regular language where $s//\epsilon$ is the result of removing every $\epsilon$ from $s$.\\
-    Often 'explained' as $\epsilon$ stands for the 'empty string'.
+	If $R\subseteq (\Sigma \cup \{\epsilon\})^*$ is a regular language with the alphabet $\Sigma \cup \{\epsilon\}$ (where $\epsilon \not\in \Sigma$) then $R // \epsilon = \{s//\epsilon | s\in R\}$ is regular language where $s//\epsilon$ is the result of removing every $\epsilon$ from $s$.\\
+	Often 'explained' as $\epsilon$ stands for the 'empty string'.
 \end{definition}
 \subsection{$\epsilon$-NFA}
 \begin{example}
-    $R$ followed by $S$.\\ 
-    We have to introduce $\epsilon$-transitions from every finishing state of $R$ to every starting state of $S$.
+	$R$ followed by $S$.\\
+	We have to introduce $\epsilon$-transitions from every finishing state of $R$ to every starting state of $S$.
 \end{example}
 \begin{example}
-    Interation $R^*$\\ 
-    We have to introduce $\epsilon$-transitions from every finishing state of $R$ to every starting state of $R$.
+	Interation $R^*$\\
+	We have to introduce $\epsilon$-transitions from every finishing state of $R$ to every starting state of $R$.
 \end{example}
 \subsection{Regular expressions}
 \begin{definition}
-    \begin{itemize}
-        \item any character is a regex that matches itself
-        \item if $R$ and $S$ are regex, so is $RS$; matches a match for $R$ followed by a match for $S$
-        \item if $R$ and $S$ are regex, so is $R|S$; matches any match for $R$ or $S$ or both
-    \end{itemize}
+	\begin{itemize}
+		\item any character is a regex that matches itself
+		\item if $R$ and $S$ are regex, so is $RS$; matches a match for $R$ followed by a match for $S$
+		\item if $R$ and $S$ are regex, so is $R|S$; matches any match for $R$ or $S$ or both
+	\end{itemize}
 \end{definition}
 \section{Lecture 14, November 08}
 \begin{definition}
-    \begin{align*}
-        M=(Q,\Sigma, \Delta, B, A)
-    \end{align*}
-    A \textbf{trace} for $s=<x_0,..., x_{k-1}>\in \Sigma^*$ (a string of length $k$) is a sequence of $k+1$ states $<q_0, ..., q_k>$ such that $(q_i, x_i, q_{i+1})\in\Delta$.\\
-    We say $s$ is \textbf{accepted} by $M$ iff there is a trace $<q_0, ..., q_k>$ for $s$ such that $q_0\in B$ and $q_k\in A$.
+	\begin{align*}
+		M=(Q,\Sigma, \Delta, B, A)
+	\end{align*}
+	A \textbf{trace} for $s=<x_0,..., x_{k-1}>\in \Sigma^*$ (a string of length $k$) is a sequence of $k+1$ states $<q_0, ..., q_k>$ such that $(q_i, x_i, q_{i+1})\in\Delta$.\\
+	We say $s$ is \textbf{accepted} by $M$ iff there is a trace $<q_0, ..., q_k>$ for $s$ such that $q_0\in B$ and $q_k\in A$.
 \end{definition}
 \subsection{NFA to DFA}
 Every NFA can be represented as a DFA. Problem: This requires exponentially more states.
 \begin{example}
-    To convert an NFA to a DFA: Find all reachable state combinations in the NFA. Encode them as singular states in the DFA. Create a new state transition table. Let each state in the DFA which contains a finishing state in the NFA be a finishing set as well.
+	To convert an NFA to a DFA: Find all reachable state combinations in the NFA. Encode them as singular states in the DFA. Create a new state transition table. Let each state in the DFA which contains a finishing state in the NFA be a finishing set as well.
 \end{example}
 If there are $\epsilon$-transitions we have to consider both cases: we follow the $\epsilon$ and we don't.
 \section{Arden's Lemma}
 \begin{theorem}
-    If $R$ and $S$ are regular expressions then the equation\begin{align*}
-        X = R | X S
-    \end{align*}
-    has a solution $X = R S^*$. If $\epsilon\not\in L(S)$ 
+	If $R$ and $S$ are regular expressions then the equation\begin{align*}
+		X = R | X S
+	\end{align*}
+	has a solution $X = R S^*$. If $\epsilon\not\in L(S)$
 \end{theorem}
 \section{Operations on Languages}
 \begin{align*}
-    A^*
+	A^*
 \end{align*}
 \subsection{Regular sets}
 \subsection{Operations on relations}
 \begin{gather*}
-    \infer{p \text{ foaf } r}{p \text{ friend } r}\\ 
-    \infer{p \text{ foaf } r}{p \text{ foaf } q \:\: q \text{ foaf } r}
+	\infer{p \text{ foaf } r}{p \text{ friend } r}\\
+	\infer{p \text{ foaf } r}{p \text{ foaf } q \:\: q \text{ foaf } r}
 \end{gather*}
 \subsection{Regular languages}
 Two theorems about regular languages
 \begin{gather*}
-    \infer{\emptyset \text{ is regular}}{}\\ 
-    \infer{\{"a"\} \text{is regular}}{}\\
-    \infer{A^* \text{ is regular}}{A \text{ is regular}}\\ 
-    \infer{RS \text{ is regular}}{R \text{ is regular}\:\: S \text{ is regular}}\\
-    \infer{R|S \text{ is regular}}{R \text{ is regular}\:\: S\text{ is regular}}
+	\infer{\emptyset \text{ is regular}}{}\\
+	\infer{\{"a"\} \text{is regular}}{}\\
+	\infer{A^* \text{ is regular}}{A \text{ is regular}}\\
+	\infer{RS \text{ is regular}}{R \text{ is regular}\:\: S \text{ is regular}}\\
+	\infer{R|S \text{ is regular}}{R \text{ is regular}\:\: S\text{ is regular}}
 \end{gather*}
 Two very important rules:
 \begin{enumerate}
-    \item Every regular language is recognised by some NFA.
-    \item Every regular language is recognised by some DFA.
+	\item Every regular language is recognised by some NFA.
+	\item Every regular language is recognised by some DFA.
 \end{enumerate}
 \subsection{The $\Sigma \vdash \Delta$}
 \begin{gather*}
-    \infer{\Gamma, a\vdash a, \Delta}{}\\
-    \infer{\Gamma, a \to b \vdash \Delta}{\Gamma \vdash a, \Delta\:\:\Sigma,b\vdash \Delta}\\
-    \infer{\Gamma,a,b\vdash \Delta}{\Gamma,a\wedge b\vdash \Delta}\\ 
-    \infer{\Gamma a\wedge b\vdash \Delta}{\Gamma, a\vdash \Delta}\\ 
-    \infer{\Gamma,\neg a\vdash\Delta}{\Gamma\vdash a,\Delta}\\
-    \infer{\Gamma, a \to b \vdash \Delta}{\Gamma,a\vdash b, \Delta}\\
-    \infer{\Gamma,a,b\vdash \Delta}{\Gamma,a\wedge b\vdash \Delta}\\ 
-    \infer{\Gamma a\wedge b\vdash \Delta}{\Gamma, a\vdash \Delta}\\ 
-    \infer{\Gamma,\neg a\vdash\Delta}{\Gamma\vdash a,\Delta}
-\
+	\infer{\Gamma, a\vdash a, \Delta}{}\\
+	\infer{\Gamma, a \to b \vdash \Delta}{\Gamma \vdash a, \Delta\:\:\Sigma,b\vdash \Delta}\\
+	\infer{\Gamma,a,b\vdash \Delta}{\Gamma,a\wedge b\vdash \Delta}\\
+	\infer{\Gamma a\wedge b\vdash \Delta}{\Gamma, a\vdash \Delta}\\
+	\infer{\Gamma,\neg a\vdash\Delta}{\Gamma\vdash a,\Delta}\\
+	\infer{\Gamma, a \to b \vdash \Delta}{\Gamma,a\vdash b, \Delta}\\
+	\infer{\Gamma,a,b\vdash \Delta}{\Gamma,a\wedge b\vdash \Delta}\\
+	\infer{\Gamma a\wedge b\vdash \Delta}{\Gamma, a\vdash \Delta}\\
+	\infer{\Gamma,\neg a\vdash\Delta}{\Gamma\vdash a,\Delta}
+	\
 \end{gather*}
 \begin{theorem}
-    The inference rules are \textbf{sound}: $\Gamma\vdash\Delta \Rightarrow \Gamma\vDash \Delta$\\
-    The inference rules are \textbf{complete}: $\Gamma\vDash\Delta\Rightarrow\Gamma\vdash\Delta$
+	The inference rules are \textbf{sound}: $\Gamma\vdash\Delta \Rightarrow \Gamma\vDash \Delta$\\
+	The inference rules are \textbf{complete}: $\Gamma\vDash\Delta\Rightarrow\Gamma\vdash\Delta$
 \end{theorem}
 
 \end{document}

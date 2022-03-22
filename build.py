@@ -9,6 +9,28 @@ TEX_CMD = [
     "latexmk", "-lualatex", "-synctex=1", "-file-line-error", "-shell-escape",
     "--interaction=nonstopmode"
 ]
+FORMAT_CMD = ["latexindent", "-w"]
+
+def format(tex_file):
+    tex_dir = os.path.dirname(tex_file)
+    tex_file_name = os.path.basename(tex_file)
+    cmd = FORMAT_CMD + [tex_file_name]
+    p = subprocess.run(cmd,
+                       stdout=subprocess.PIPE,
+                       stderr=subprocess.PIPE,
+                       cwd=tex_dir,
+                       timeout=5)
+    if p.returncode:
+        print(" in directory", tex_dir, flush=True)
+        print(">", ' '.join(cmd), flush=True)
+        print("--- BEGIN STDERR ---")
+        print(p.stderr.decode("utf-8"))
+        print("---- END STDERR ----")
+        return p
+    else:
+        print("...", end='', flush=True)
+    return p
+
 
 
 def compile_with_recipe(tex_file):
@@ -50,6 +72,10 @@ def compile_pdf(tex_path):
     t = time.time()
     print(f"Compiling {tex_path}", end='', flush=True)
     tex_path_no_ext, _ = os.path.splitext(tex_path)
+    p = format(tex_path)
+    if p.returncode:
+        print("FAIL (Formatting)", flush=True)
+        return 0
     p = compile_with_recipe(tex_path)
     if p.returncode:
         print("FAIL (Compilation)", flush=True)
@@ -88,7 +114,8 @@ def default_build():
     for s in sources:
         num_compiled += compile_pdf(s)
     print(
-        f"Compiled {num_compiled} of {len(sources)} files in {time.time() - t:.2f} seconds.")
+        f"Compiled {num_compiled} of {len(sources)} files in {time.time() - t:.2f} seconds."
+    )
 
 
 def prep_dirs():

@@ -10,93 +10,93 @@
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
 
 \begin{claim*}[1a]
-   If $f:X\to Y$ is an isometry then $f$ is injective and continuous.
-   \begin{proof}
-      Let $x,x'\in X$ such that $f(x)=f(x')$. Then $d_Y(f(x),f(x'))=0$ since $d_Y$ is a metric.
-      Thus $d_X(x,x')=0$ as $f$ is an isometry. Now, because $d_X$ is a metric, $x=x'$. This proves 
-      that $f$ is injective.
+	If $f:X\to Y$ is an isometry then $f$ is injective and continuous.
+	\begin{proof}
+		Let $x,x'\in X$ such that $f(x)=f(x')$. Then $d_Y(f(x),f(x'))=0$ since $d_Y$ is a metric.
+		Thus $d_X(x,x')=0$ as $f$ is an isometry. Now, because $d_X$ is a metric, $x=x'$. This proves
+		that $f$ is injective.
 
-      Let $x\in X$ and $\e>0$. Choose $\delta=\e$. Then, for all $x'\in X$ with $d_X(x,x')<\delta$, 
-      \begin{align*}
-         d_Y(f(x),f(x')) = d_X(x,x') < \delta = \e.
-      \end{align*}
-      This proves that $f$ is continuous.
-   \end{proof}
+		Let $x\in X$ and $\e>0$. Choose $\delta=\e$. Then, for all $x'\in X$ with $d_X(x,x')<\delta$,
+		\begin{align*}
+			d_Y(f(x),f(x')) = d_X(x,x') < \delta = \e.
+		\end{align*}
+		This proves that $f$ is continuous.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[1b]
-   Let $f:X\to Y$ be surjective and an isometry. Then $\inv f:Y\to X$ is an isometry.
-   \begin{proof}
-      Let $y,y'\in Y$. Then, as $f$ is surjective, there exist $x,x'\in X$ such that 
-      $f(x)=y$ and $f(x')=y'$. Further, since $f$ is an isometry, $d_X(x,x')=d_Y(y,y')$.     
-      However, by definition of $\inv f$, $x=\inv f(y)$ and $x'=\inv f(y')$. The claim is 
-      now immediate.
-   \end{proof}
+	Let $f:X\to Y$ be surjective and an isometry. Then $\inv f:Y\to X$ is an isometry.
+	\begin{proof}
+		Let $y,y'\in Y$. Then, as $f$ is surjective, there exist $x,x'\in X$ such that
+		$f(x)=y$ and $f(x')=y'$. Further, since $f$ is an isometry, $d_X(x,x')=d_Y(y,y')$.
+		However, by definition of $\inv f$, $x=\inv f(y)$ and $x'=\inv f(y')$. The claim is
+		now immediate.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2]
-   Let $f:\R\to \R$ be given by $x\mapsto 0$. Then, with respect to the standard metric 
-   $d$ on $\R$, $f$ is continuous but not an isometry.
-   \begin{proof}
-      Let $x,x'\in X$ be distinct. Then 
-      \begin{align*}
-         d(x,x') \not= 0 = \abs{0-0} = d(0, 0) = d(f(x), f(x')).
-      \end{align*}
-      Thus $f$ is not an isometry.
+	Let $f:\R\to \R$ be given by $x\mapsto 0$. Then, with respect to the standard metric
+	$d$ on $\R$, $f$ is continuous but not an isometry.
+	\begin{proof}
+		Let $x,x'\in X$ be distinct. Then
+		\begin{align*}
+			d(x,x') \not= 0 = \abs{0-0} = d(0, 0) = d(f(x), f(x')).
+		\end{align*}
+		Thus $f$ is not an isometry.
 
-      Let $x\in X$ and $\e>0$. Then, for all $x'\in X$, $d(f(x),f(x'))=0<\e$.
-      Thus $f$ is continuous.
-   \end{proof}
+		Let $x\in X$ and $\e>0$. Then, for all $x'\in X$, $d(f(x),f(x'))=0<\e$.
+		Thus $f$ is continuous.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[3]
-   Let $(X,d_X)$ be a metric space and $C>0$ such that, for all $x,x'\in X$, $d_X(x,x')\leq C$.
-   Then, for each $x\in X$, we define $f_x:X\to\R$ by $t\mapsto d_X(x,t)$. Then each $f_x$ is a 
-   bounded and continuous function with respect to the standard metric on $\R$.
-   \begin{proof}
-      Let $x,x'\in X$. Choose $M=C$. Then $\abs{f_x(x')} = \abs{d_X(x,x')} = d_X(x,x') \leq C$. Thus $f_x$ is bounded. 
+	Let $(X,d_X)$ be a metric space and $C>0$ such that, for all $x,x'\in X$, $d_X(x,x')\leq C$.
+	Then, for each $x\in X$, we define $f_x:X\to\R$ by $t\mapsto d_X(x,t)$. Then each $f_x$ is a
+	bounded and continuous function with respect to the standard metric on $\R$.
+	\begin{proof}
+		Let $x,x'\in X$. Choose $M=C$. Then $\abs{f_x(x')} = \abs{d_X(x,x')} = d_X(x,x') \leq C$. Thus $f_x$ is bounded.
 
-      Let $x\in X$ and $\e>0$. Choose $\delta=\epsilon$. Then, for all $x',x''\in X$
-      with $d_X(x',x'')<\delta$,
-      \begin{align*}
-         \abs{f_x(x')-f_x(x'')} = \abs{d_X(x,x')-d_X(x,x'')} \leq d_X(x',x'') < \delta = \e
-      \end{align*}
-      where we used the reverse triangle inequality. Thus $f_x$ is continuous with respect to the 
-      standard metric.
-   \end{proof}
+		Let $x\in X$ and $\e>0$. Choose $\delta=\epsilon$. Then, for all $x',x''\in X$
+		with $d_X(x',x'')<\delta$,
+		\begin{align*}
+			\abs{f_x(x')-f_x(x'')} = \abs{d_X(x,x')-d_X(x,x'')} \leq d_X(x',x'') < \delta = \e
+		\end{align*}
+		where we used the reverse triangle inequality. Thus $f_x$ is continuous with respect to the
+		standard metric.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[4]
-   Let $(X,d_X)$ be a metric space and $C>0$ such that, for all $x,x'\in X$, $d_X(x,x')\leq C$.
-   Let $Y$ be the set of all bounded continuous functions $f:X\to\R$ and define the metric 
-   $d_Y:Y\times Y\to\R$ by 
-   \begin{align*}
-      d_Y(f,g) = \sup\{\abs{f(t)-g(t)}:t\in X\}.
-   \end{align*}
-   Then, for each $x\in X$,  let $f_x:X\to\R$ be given by $t\mapsto d_X(x,t)$. Then the function 
-   $g:X\to Y$ given by $x\mapsto f_x$ is an isometry.
-   \begin{proof}
-      Let $x,x'\in X$. By definition of $d_Y$ we have 
-      \begin{align}
-         \label{sup}
-         d_Y(f_x,f_{x'}) = \sup\{\abs{f_x(t)-f_{x'}(t)}:t\in X\} 
-         = \sup\{\abs{d(x,t)-d(x',t)}:t\in X\}.
-      \end{align}    
-      We note that, for all $t\in X$,
-      \begin{align*}
-         \abs{d(x,t)-d(x',t)}\leq d(x,t)
-      \end{align*}
-      by the reverse triangle inequality. Moreover, if $t=x'$, 
-      \begin{align*}
-         \abs{d(x,t)-d(x',t)}=d(x,t).
-      \end{align*} 
-      Therefore $d(x,x')$ is an upper bound of the set in (\ref{sup}) which is 
-      attained. We conclude that
-      \begin{align*}
-         d_Y(f_x,f_{x'}) = d(x,x'),
-      \end{align*}
-      thereby proving the claim.
-   \end{proof}
+	Let $(X,d_X)$ be a metric space and $C>0$ such that, for all $x,x'\in X$, $d_X(x,x')\leq C$.
+	Let $Y$ be the set of all bounded continuous functions $f:X\to\R$ and define the metric
+	$d_Y:Y\times Y\to\R$ by
+	\begin{align*}
+		d_Y(f,g) = \sup\{\abs{f(t)-g(t)}:t\in X\}.
+	\end{align*}
+	Then, for each $x\in X$,  let $f_x:X\to\R$ be given by $t\mapsto d_X(x,t)$. Then the function
+	$g:X\to Y$ given by $x\mapsto f_x$ is an isometry.
+	\begin{proof}
+		Let $x,x'\in X$. By definition of $d_Y$ we have
+		\begin{align}
+			\label{sup}
+			d_Y(f_x,f_{x'}) = \sup\{\abs{f_x(t)-f_{x'}(t)}:t\in X\}
+			= \sup\{\abs{d(x,t)-d(x',t)}:t\in X\}.
+		\end{align}
+		We note that, for all $t\in X$,
+		\begin{align*}
+			\abs{d(x,t)-d(x',t)}\leq d(x,t)
+		\end{align*}
+		by the reverse triangle inequality. Moreover, if $t=x'$,
+		\begin{align*}
+			\abs{d(x,t)-d(x',t)}=d(x,t).
+		\end{align*}
+		Therefore $d(x,x')$ is an upper bound of the set in (\ref{sup}) which is
+		attained. We conclude that
+		\begin{align*}
+			d_Y(f_x,f_{x'}) = d(x,x'),
+		\end{align*}
+		thereby proving the claim.
+	\end{proof}
 \end{claim*}
 
 \end{document}

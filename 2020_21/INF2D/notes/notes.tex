@@ -15,48 +15,48 @@
 \section{Intelligent agents and their environments}
 
 \begin{definition}[Agent, Rationality, Architecture; R\&N p. 37]
-    An \emph{agent} is an entity that perceives and
-    acts based on a sequence of observations in a system.
-    An agent is called \emph{rational} if it acts to achieve
-    the best possible outcome or the best possible expected
-    outcome, if uncertainty is involved.
+	An \emph{agent} is an entity that perceives and
+	acts based on a sequence of observations in a system.
+	An agent is called \emph{rational} if it acts to achieve
+	the best possible outcome or the best possible expected
+	outcome, if uncertainty is involved.
 
-    The computing device an agent runs on combined with all sensors and actuators
-    is called the agent's \emph{architecture}.
+	The computing device an agent runs on combined with all sensors and actuators
+	is called the agent's \emph{architecture}.
 \end{definition}
 
 \subsection{Types of environments}
 
 \begin{definition}[R\&N p. 42]
-    An environment is called
-    \begin{itemize}
-        \item \emph{fully observable} if the agent's sensors describe it fully.
-        \item \emph{deterministic} if the next state is fully
-              determined by the current state and the agent's actions.
-        \item \emph{episodic} if the next action does not depend on the previous
-              actions. Otherwise \emph{sequential}.
-        \item \emph{static} if it does not change while the agent determines
-              next action.
-        \item \emph{discrete} if the perecepts, actions and episodes within
-              are discrete.
-    \end{itemize}
+	An environment is called
+	\begin{itemize}
+		\item \emph{fully observable} if the agent's sensors describe it fully.
+		\item \emph{deterministic} if the next state is fully
+		      determined by the current state and the agent's actions.
+		\item \emph{episodic} if the next action does not depend on the previous
+		      actions. Otherwise \emph{sequential}.
+		\item \emph{static} if it does not change while the agent determines
+		      next action.
+		\item \emph{discrete} if the perecepts, actions and episodes within
+		      are discrete.
+	\end{itemize}
 \end{definition}
 
 \subsection{Types of intelligent agents}
 
 \begin{definition}[R\&N p. 47]
-    There are four types of agents:
-    \begin{enumerate}
-        \item \emph{simple reflex}: React only to the immediate percepts and ignore
-              the enitrety of their percept history.
-        \item \emph{model-based reflex}: Actions may depend on the percept history
-              as well as unperceived aspects of the world. Require \emph{internal world
-                  model}.
-        \item \emph{goal-based}: Have variable goals depending on the state of their
-              environment.
-        \item \emph{utility-based}: Prioritise between multiple, potentially conflicting
-              goals at the same time.
-    \end{enumerate}
+	There are four types of agents:
+	\begin{enumerate}
+		\item \emph{simple reflex}: React only to the immediate percepts and ignore
+		      the enitrety of their percept history.
+		\item \emph{model-based reflex}: Actions may depend on the percept history
+		      as well as unperceived aspects of the world. Require \emph{internal world
+			      model}.
+		\item \emph{goal-based}: Have variable goals depending on the state of their
+		      environment.
+		\item \emph{utility-based}: Prioritise between multiple, potentially conflicting
+		      goals at the same time.
+	\end{enumerate}
 \end{definition}
 
 \section{Problem solving and search}
@@ -65,35 +65,35 @@
 \subsection{Types of problems}
 
 \begin{definition}
-    We define the following types of problems:
-    \begin{itemize}
-        \item \emph{single-state problem}: deterministic, fully-observable environment; solution is sequence
-        \item \emph{sensorless problem}: non-observable environment; solution is sequence
-        \item \emph{contingency problem}: non-deterministic and/or partially observable environment
-        \item \emph{exploration problem}: state space is unknown
-    \end{itemize}
+	We define the following types of problems:
+	\begin{itemize}
+		\item \emph{single-state problem}: deterministic, fully-observable environment; solution is sequence
+		\item \emph{sensorless problem}: non-observable environment; solution is sequence
+		\item \emph{contingency problem}: non-deterministic and/or partially observable environment
+		\item \emph{exploration problem}: state space is unknown
+	\end{itemize}
 \end{definition}
 
 \subsection{Problem formulation}
 
 \begin{definition}[Problem formulation, R\&N p. 66]
-    A single-state problem in state space $S$
-    and action space $A$ is defined by
-    \begin{enumerate}
-        \item \emph{initial state}
-        \item \emph{successor function}, $f:S\to A\times S$
-        \item \emph{goal test}, explicit or implicit
-        \item additive \emph{path cost}, $c:S\times A\times S\to\R_{\geq 0}$
-    \end{enumerate}
+	A single-state problem in state space $S$
+	and action space $A$ is defined by
+	\begin{enumerate}
+		\item \emph{initial state}
+		\item \emph{successor function}, $f:S\to A\times S$
+		\item \emph{goal test}, explicit or implicit
+		\item additive \emph{path cost}, $c:S\times A\times S\to\R_{\geq 0}$
+	\end{enumerate}
 \end{definition}
 
 \subsection{Selecting a state space}
 
 Complexity of real world needs to be abstracted away.
 \begin{itemize}
-    \item \emph{(abstract) state}: set of real states
-    \item \emph{(abstract) action}: complex combination of real actions
-    \item \emph{(abstract) solution}: set of real paths, solutions in the real world
+	\item \emph{(abstract) state}: set of real states
+	\item \emph{(abstract) action}: complex combination of real actions
+	\item \emph{(abstract) solution}: set of real paths, solutions in the real world
 \end{itemize}
 
 \subsection{Search algorithms}
@@ -102,29 +102,29 @@ Complexity of real world needs to be abstracted away.
 explored states.
 
 \begin{pseudo}
-    \textbf{function} TREE-SEARCH(problem) \textbf{returns} a solution or failure   \\+
-    initialise the frontier using the initial state of the problem              \\
-    \textbf{loop do}                                                            \\+
-    \textbf{if} the frontier is empty \textbf{then}                          \\+
-    \textbf{return} failure                                             \\-
-    choose a leaf node and remove it from the frontier                      \\
-    \textbf{if} the node contains a goal state \textbf{then}                \\+
-    \textbf{return} the corresponding solution                          \\-
-    expand the chosen node, adding the resulting nodes to the frontier
+	\textbf{function} TREE-SEARCH(problem) \textbf{returns} a solution or failure   \\+
+	initialise the frontier using the initial state of the problem              \\
+	\textbf{loop do}                                                            \\+
+	\textbf{if} the frontier is empty \textbf{then}                          \\+
+	\textbf{return} failure                                             \\-
+	choose a leaf node and remove it from the frontier                      \\
+	\textbf{if} the node contains a goal state \textbf{then}                \\+
+	\textbf{return} the corresponding solution                          \\-
+	expand the chosen node, adding the resulting nodes to the frontier
 \end{pseudo}
 
 \begin{pseudo}
-    \textbf{function} GRAPH-SEARCH(problem) \textbf{returns} a solution or failure  \\+
-    initialise the frontier using the initial state of the problem              \\
-    \textbf{loop do}                                                            \\+
-    \textbf{if} the frontier is empty \textbf{then}                          \\+
-    \textbf{return} failure                                             \\-
-    choose a leaf node and remove it from the frontier                      \\
-    \textbf{if} the node contains a goal state \textbf{then}                \\+
-    \textbf{return} the corresponding solution                          \\-
-    \emph{add the node to the explored set}                                 \\
-    expand the chosen node, adding the resulting nodes to the frontier      \\+
-    \emph{\textbf{only if} not in the frontier or explored set}
+	\textbf{function} GRAPH-SEARCH(problem) \textbf{returns} a solution or failure  \\+
+	initialise the frontier using the initial state of the problem              \\
+	\textbf{loop do}                                                            \\+
+	\textbf{if} the frontier is empty \textbf{then}                          \\+
+	\textbf{return} failure                                             \\-
+	choose a leaf node and remove it from the frontier                      \\
+	\textbf{if} the node contains a goal state \textbf{then}                \\+
+	\textbf{return} the corresponding solution                          \\-
+	\emph{add the node to the explored set}                                 \\
+	expand the chosen node, adding the resulting nodes to the frontier      \\+
+	\emph{\textbf{only if} not in the frontier or explored set}
 \end{pseudo}
 
 
@@ -132,18 +132,18 @@ explored states.
 \subsection{Uninformed search strategies}
 
 \begin{definition}
-    A \emph{search strategy} defines the order of expansion in a tree search algorithm.
+	A \emph{search strategy} defines the order of expansion in a tree search algorithm.
 \end{definition}
 
 \begin{definition}[R\&N pp. 81-91]
-    There are five uninformed search strategies:
-    \begin{enumerate}
-        \item \emph{breadth-first search}: frontier is a FIFO queue
-        \item \emph{uniform-cost search}: frontier is a priority queue with path cost
-        \item \emph{depth-first search}: frontier is a LIFO queue
-        \item \emph{depth-limited search}: frontier is a LIFO queue and nodes at depth $l$ have no successors
-        \item \emph{iterative deepening search}: depth-limited search is repeated with increasing $l$
-    \end{enumerate}
+	There are five uninformed search strategies:
+	\begin{enumerate}
+		\item \emph{breadth-first search}: frontier is a FIFO queue
+		\item \emph{uniform-cost search}: frontier is a priority queue with path cost
+		\item \emph{depth-first search}: frontier is a LIFO queue
+		\item \emph{depth-limited search}: frontier is a LIFO queue and nodes at depth $l$ have no successors
+		\item \emph{iterative deepening search}: depth-limited search is repeated with increasing $l$
+	\end{enumerate}
 \end{definition}
 
 
@@ -152,45 +152,45 @@ explored states.
 \subsection{Informed search strategies}
 
 \begin{definition}[R\&N p. 92]
-    A \emph{heuristic} $h:S\to \R_{\geq 0}$ is a problem-specific function
-    that evaluates every element of a search space $S$ to a nonnegative value.
-    For all goal states $s_0\in S$ we have $h(s_0)=0$.
-    A heuristic $h$ is called
-    \begin{itemize}
-        \item \emph{admissible} if for every node $n$, $h(n)\leq h^*(n)$,
-              where $h^*(n)$ is the true cost to reach the goal node from $n$.
-        \item \emph{consistent} if for every node $n$, every
-              successor $n'$ of $n$ generated by any action $a$,
-              \begin{align*}
-                  h(n) \leq c(n, a, n') + h(n').
-              \end{align*}
-    \end{itemize}
-    If $h_1,h_2:S\to \R_{\geq 0}$ are admissible heuristics for a state
-    space $S$ and
-    \begin{align*}
-        \forall s\in S,\: h_1(s) \leq h_2(s).
-    \end{align*}
-    Then \emph{$h_2$ dominates $h_1$}.
+	A \emph{heuristic} $h:S\to \R_{\geq 0}$ is a problem-specific function
+	that evaluates every element of a search space $S$ to a nonnegative value.
+	For all goal states $s_0\in S$ we have $h(s_0)=0$.
+	A heuristic $h$ is called
+	\begin{itemize}
+		\item \emph{admissible} if for every node $n$, $h(n)\leq h^*(n)$,
+		      where $h^*(n)$ is the true cost to reach the goal node from $n$.
+		\item \emph{consistent} if for every node $n$, every
+		      successor $n'$ of $n$ generated by any action $a$,
+		      \begin{align*}
+			      h(n) \leq c(n, a, n') + h(n').
+		      \end{align*}
+	\end{itemize}
+	If $h_1,h_2:S\to \R_{\geq 0}$ are admissible heuristics for a state
+	space $S$ and
+	\begin{align*}
+		\forall s\in S,\: h_1(s) \leq h_2(s).
+	\end{align*}
+	Then \emph{$h_2$ dominates $h_1$}.
 \end{definition}
 
 \begin{theorem}
-    Let $h_1,h_2$ be admissible heuristics. If $h_2$ dominates $h_1$ it is
-    better for tree and graph search.
+	Let $h_1,h_2$ be admissible heuristics. If $h_2$ dominates $h_1$ it is
+	better for tree and graph search.
 \end{theorem}
 
 \begin{definition}
-    We consider the following informed search strategies:
-    \begin{itemize}
-        \item \emph{best-first}: next node to expand is chosen based on desirability assigned by a function $f$.
-        \item \emph{greedy best-first}: $f=h$ where $h$ is a heuristic.
-        \item \emph{A*}: $f=g+h$ where $h$ is a heuristic and $g$ is the cumulative cost of reaching a given node.
-    \end{itemize}
+	We consider the following informed search strategies:
+	\begin{itemize}
+		\item \emph{best-first}: next node to expand is chosen based on desirability assigned by a function $f$.
+		\item \emph{greedy best-first}: $f=h$ where $h$ is a heuristic.
+		\item \emph{A*}: $f=g+h$ where $h$ is a heuristic and $g$ is the cumulative cost of reaching a given node.
+	\end{itemize}
 \end{definition}
 
 \begin{theorem}
-    Let $P$ be a problem and let $P'$ be a relaxed problem of $P$, i.e.
-    a problem with fewer restrictions. Then the cost of an optimal solution of
-    $P'$ is a admissible heuristic for $P$.
+	Let $P$ be a problem and let $P'$ be a relaxed problem of $P$, i.e.
+	a problem with fewer restrictions. Then the cost of an optimal solution of
+	$P'$ is a admissible heuristic for $P$.
 \end{theorem}
 
 
@@ -198,69 +198,69 @@ explored states.
 
 
 \begin{definition}[R\&N p. 161]
-    \emph{Adversarial search} is required when multiple agents work to achieve
-    opposing goals. Its purpose is to ensure the best possible outcome for the
-    agent applying it, taking into account all possible actions by other agents.
+	\emph{Adversarial search} is required when multiple agents work to achieve
+	opposing goals. Its purpose is to ensure the best possible outcome for the
+	agent applying it, taking into account all possible actions by other agents.
 \end{definition}
 
 \begin{definition}[R\&N p. 165]
-    \emph{Minimax} is an adversarial search strategy in deterministic, perfect
-    information games, where the agent chooses the action that guarantees the
-    highest lower bound for the utility value of the final state.
+	\emph{Minimax} is an adversarial search strategy in deterministic, perfect
+	information games, where the agent chooses the action that guarantees the
+	highest lower bound for the utility value of the final state.
 
-    \begin{pseudo}
-        \textbf{function} MINIMAX-DECISION(\emph{state}) \textbf{returns} \emph{an action}\\+
-        \textbf{return} $\argmax_{a\in\textsf{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
-        \\
-        \textbf{function} MAX-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
-        \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
-        \textbf{return} UTILITY(\emph{state})\\-
-        $v\leftarrow-\infty$\\
-        \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
-        $v\leftarrow \textsf{MAX}(v, \textsf{MIN-VALUE}(\textsf{RESULT}(s, a)))$\\-
-        \textbf{return} $v$\\-
-        \\
-        \textbf{function} MIN-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
-        \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
-        \textbf{return} UTILITY(\emph{state})\\-
-        $v\leftarrow\infty$\\
-        \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
-        $v\leftarrow \textsf{MIN}(v, \textsf{MAX-VALUE}(\textsf{RESULT}(s, a)))$\\-
-        \textbf{return} $v$
-    \end{pseudo}
+	\begin{pseudo}
+		\textbf{function} MINIMAX-DECISION(\emph{state}) \textbf{returns} \emph{an action}\\+
+		\textbf{return} $\argmax_{a\in\textsf{ACTIONS}(s)}$(MIN-VALUE(RESULT(\emph{state}, \emph{a})))\\-
+		\\
+		\textbf{function} MAX-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
+		\textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+		\textbf{return} UTILITY(\emph{state})\\-
+		$v\leftarrow-\infty$\\
+		\textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+		$v\leftarrow \textsf{MAX}(v, \textsf{MIN-VALUE}(\textsf{RESULT}(s, a)))$\\-
+		\textbf{return} $v$\\-
+		\\
+		\textbf{function} MIN-VALUE(\emph{state}) \textbf{return} \emph{a utility value}\\+
+		\textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+		\textbf{return} UTILITY(\emph{state})\\-
+		$v\leftarrow\infty$\\
+		\textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+		$v\leftarrow \textsf{MIN}(v, \textsf{MAX-VALUE}(\textsf{RESULT}(s, a)))$\\-
+		\textbf{return} $v$
+	\end{pseudo}
 \end{definition}
 
 \begin{definition}[R\&N p. 167]
-    \emph{\alpha-\beta-pruning} is a minimax-like adversarial search
-    strategy, where upper and lower bounds are used to identify
-    sub-trees that do not affect the solution.
-    \begin{pseudo}
-        \textbf{function} ALPHA-BETA-SEARCH(\emph{state}) \textbf{returns} \emph{an action}\\+
-        $v\leftarrow$MAX-VALUE(\emph{state}, $-\infty$, $+\infty$)\\
-        \textbf{return} the \emph{action} in ACTIONS(\emph{state}) with value $v$\\-
-        \\
-        \textbf{function} MAX-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
-        \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
-        \textbf{return} UTILITY(\emph{state})\\-
-        $v\leftarrow-\infty$\\
-        \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
-        $v\leftarrow \textsf{MAX}(v, \textsf{MIN-VALUE}(\textsf{RESULT}(\textsf{\emph{state}}, a), \alpha, \beta))$\\
-        \textbf{if} $v\geq \beta$ \textbf{then}\\+
-        \textbf{return} $v$\\-
-        $\alpha\leftarrow\textsf{MAX}(\alpha, v)$\\-
-        \textbf{return} $v$\\-
-        \\
-        \textbf{function} MIN-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
-        \textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
-        \textbf{return} UTILITY(\emph{state})\\-
-        $v\leftarrow\infty$\\
-        \textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
-        $v\leftarrow \textsf{MIN}(v, \textsf{MAX-VALUE}(\textsf{RESULT}(\textsf{\emph{state}}, a), \alpha, \beta))$\\
-        \textbf{if} $v\leq \alpha$ \textbf{then}\\+
-        \textbf{return} $v$\\-
-        $\beta\leftarrow\textsf{MIN}(\beta, v)$\\-
-        \textbf{return} $v$\\-
-    \end{pseudo}
+	\emph{\alpha-\beta-pruning} is a minimax-like adversarial search
+	strategy, where upper and lower bounds are used to identify
+	sub-trees that do not affect the solution.
+	\begin{pseudo}
+		\textbf{function} ALPHA-BETA-SEARCH(\emph{state}) \textbf{returns} \emph{an action}\\+
+		$v\leftarrow$MAX-VALUE(\emph{state}, $-\infty$, $+\infty$)\\
+		\textbf{return} the \emph{action} in ACTIONS(\emph{state}) with value $v$\\-
+		\\
+		\textbf{function} MAX-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
+		\textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+		\textbf{return} UTILITY(\emph{state})\\-
+		$v\leftarrow-\infty$\\
+		\textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+		$v\leftarrow \textsf{MAX}(v, \textsf{MIN-VALUE}(\textsf{RESULT}(\textsf{\emph{state}}, a), \alpha, \beta))$\\
+		\textbf{if} $v\geq \beta$ \textbf{then}\\+
+		\textbf{return} $v$\\-
+		$\alpha\leftarrow\textsf{MAX}(\alpha, v)$\\-
+		\textbf{return} $v$\\-
+		\\
+		\textbf{function} MIN-VALUE(\emph{state}, \alpha, \beta) \textbf{return} \emph{a utility value}\\+
+		\textbf{if} TERMINAL-TEST(\emph{state}) \textbf{then}\\+
+		\textbf{return} UTILITY(\emph{state})\\-
+		$v\leftarrow\infty$\\
+		\textbf{for each} $a\in\textsf{ACTIONS(\emph{state})}$ \textbf{do}\\+
+		$v\leftarrow \textsf{MIN}(v, \textsf{MAX-VALUE}(\textsf{RESULT}(\textsf{\emph{state}}, a), \alpha, \beta))$\\
+		\textbf{if} $v\leq \alpha$ \textbf{then}\\+
+		\textbf{return} $v$\\-
+		$\beta\leftarrow\textsf{MIN}(\beta, v)$\\-
+		\textbf{return} $v$\\-
+	\end{pseudo}
 \end{definition}
 
 \subsection{Summary}
@@ -269,101 +269,101 @@ Let $b$ be the branching factor, $d$ be the optimal depth, $m$ the maximum depth
 depth limit$n$ be any node and $g$ be the goal node.
 
 \begin{center}
-    \begin{tabular}{l | l | l | l | l}
-        \textbf{Strategy}   & \textbf{Complete?}                     & \textbf{Optimal?}                & \textbf{Time} & \textbf{Space}
-        \\\hline
-        Breadth-first       & yes, if $b$ is finite                  & yes, if each step has equal cost & $O(b^d)$      & $O(b^d)$       \\
-        Depth-first         & no                                     & no                               & $O(b^m)$      & $O(bm)$        \\
-        Depth-limited       & yes, if $l\geq d$                      & no                               & $O(b^l)$      & $O(bl)$        \\
-        Iterative deepening & yes                                    & yes, if each step has equal cost & $O(b^d)$      & $O(bd)$        \\
-        Greedy best-first   & no, can get stuck in loops             & no                               & $O(b^m)$      & $O(b^m)$       \\
-        A* (Tree)           & yes, unless $f(n)\leq f(g)$ infinitely & yes, if $h$ is admissible        & $O(b^d)$      & $O(b^d)$       \\
-        A* (Graph)          & yes, unless $f(n)\leq f(g)$ infinitely & yes, if $h$ is consistent        & $O(b^d)$      & $O(b^d)$       \\
-        Minimax             & yes, if tree is finite                 & yes, against optimal opponent    & $O(b^m)$      & $O(bm)$
-    \end{tabular}
+	\begin{tabular}{l | l | l | l | l}
+		\textbf{Strategy}   & \textbf{Complete?}                     & \textbf{Optimal?}                & \textbf{Time} & \textbf{Space}
+		\\\hline
+		Breadth-first       & yes, if $b$ is finite                  & yes, if each step has equal cost & $O(b^d)$      & $O(b^d)$       \\
+		Depth-first         & no                                     & no                               & $O(b^m)$      & $O(bm)$        \\
+		Depth-limited       & yes, if $l\geq d$                      & no                               & $O(b^l)$      & $O(bl)$        \\
+		Iterative deepening & yes                                    & yes, if each step has equal cost & $O(b^d)$      & $O(bd)$        \\
+		Greedy best-first   & no, can get stuck in loops             & no                               & $O(b^m)$      & $O(b^m)$       \\
+		A* (Tree)           & yes, unless $f(n)\leq f(g)$ infinitely & yes, if $h$ is admissible        & $O(b^d)$      & $O(b^d)$       \\
+		A* (Graph)          & yes, unless $f(n)\leq f(g)$ infinitely & yes, if $h$ is consistent        & $O(b^d)$      & $O(b^d)$       \\
+		Minimax             & yes, if tree is finite                 & yes, against optimal opponent    & $O(b^m)$      & $O(bm)$
+	\end{tabular}
 \end{center}
 
 \section{Constraint satisfaction problems}
 
 \begin{definition}[R\&N p. 202]
-    A \emph{constraint satisfaction problem} consists of three components:
-    a set $X=\{X_1, ..., X_n\}$ of variables, a set $D=\{D_1, ..., D_n\}$ of
-    domains and a set $C$ of constraints that specify allowable combinations
-    of values.\\
-    Each $D_i$ consists of a set of allowable values, $\{v_1, ..., v_k\}$
-    for variable $X_i$. Each constraint $C_i$ consists of a pair
-    $\lra{\text{\emph{scope}}, \text{\emph{rel}}}$ where \emph{scope} is a
-    tuple of all the variables involved in the constraint and \emph{rel} is a
-    relation that needs to hold.
+	A \emph{constraint satisfaction problem} consists of three components:
+	a set $X=\{X_1, ..., X_n\}$ of variables, a set $D=\{D_1, ..., D_n\}$ of
+	domains and a set $C$ of constraints that specify allowable combinations
+	of values.\\
+	Each $D_i$ consists of a set of allowable values, $\{v_1, ..., v_k\}$
+	for variable $X_i$. Each constraint $C_i$ consists of a pair
+	$\lra{\text{\emph{scope}}, \text{\emph{rel}}}$ where \emph{scope} is a
+	tuple of all the variables involved in the constraint and \emph{rel} is a
+	relation that needs to hold.
 \end{definition}
 
 \subsection{Constraint propagation}
 
 \begin{definition}[R\&N p. 208]
-    A variable is \emph{node-consistent} if all the values in the variable's
-    domain satisfy the variable's unary constraints.
+	A variable is \emph{node-consistent} if all the values in the variable's
+	domain satisfy the variable's unary constraints.
 \end{definition}
 
 \begin{definition}
-    Let $X_i,X_j\in X$ be variables. Then $X_i$ is \emph{arc-consistent} with
-    respect to $X_j$ if for every value in the current domain $D_i$ there is some
-    value in the domain $D_j$ that satisfies the binary constraint on the arc
-    $(X_i, X_j)$.
+	Let $X_i,X_j\in X$ be variables. Then $X_i$ is \emph{arc-consistent} with
+	respect to $X_j$ if for every value in the current domain $D_i$ there is some
+	value in the domain $D_j$ that satisfies the binary constraint on the arc
+	$(X_i, X_j)$.
 \end{definition}
 
 \begin{definition}[R\&N p. 210]
-    A variable $X_i$ is \emph{generalised arc consistent} with respect to
-    an $n$-ary constraint if for every value $v$ in the domain of $X_i$ there
-    exists a tuple of values that is a member of the constraint, has all its values
-    taken from the corresponding variables and has its $X_i$ component equal to $v$.
+	A variable $X_i$ is \emph{generalised arc consistent} with respect to
+	an $n$-ary constraint if for every value $v$ in the domain of $X_i$ there
+	exists a tuple of values that is a member of the constraint, has all its values
+	taken from the corresponding variables and has its $X_i$ component equal to $v$.
 \end{definition}
 
 \begin{definition}
-    A two-variable set $\{X_i, X_j\}$ is \emph{path-consistent} with respect to a
-    third variable $X_m$ if, for every assignment $\{X_i=a,X_j=b\}$ consistent with
-    the constraints on $\{X_i,X_j\}$, there is an assignment to $X_m$ that satisfies
-    the constraints on $\{X_i,X_m\}$ and $\{X_m,X_j\}$.
+	A two-variable set $\{X_i, X_j\}$ is \emph{path-consistent} with respect to a
+	third variable $X_m$ if, for every assignment $\{X_i=a,X_j=b\}$ consistent with
+	the constraints on $\{X_i,X_j\}$, there is an assignment to $X_m$ that satisfies
+	the constraints on $\{X_i,X_m\}$ and $\{X_m,X_j\}$.
 \end{definition}
 
 \begin{definition}[R\&N p. 211]
-    A CSP is \emph{$k$-consistent} if, for any set of $k-1$ variables and for any consistent
-    assignment to those variables, a consistent value can always be assigned to any
-    $k$-th variable.
-    A CSP is \emph{strongly $k$-consistent} if for all $k'\leq k$ it is $k'$-consistent.
+	A CSP is \emph{$k$-consistent} if, for any set of $k-1$ variables and for any consistent
+	assignment to those variables, a consistent value can always be assigned to any
+	$k$-th variable.
+	A CSP is \emph{strongly $k$-consistent} if for all $k'\leq k$ it is $k'$-consistent.
 \end{definition}
 
 \subsection{Backtracking search}
 
 \begin{definition}[R\&N p. 215]
-    \emph{Backtracking search} is a search strategy where at every step only a single
-    variable and all its possible values are considered.
+	\emph{Backtracking search} is a search strategy where at every step only a single
+	variable and all its possible values are considered.
 \end{definition}
 
 \begin{lemma}
-    A backtracking search tree for a problem with $n$ variables with $d$ possible values
-    has $d^n$ leaves.
+	A backtracking search tree for a problem with $n$ variables with $d$ possible values
+	has $d^n$ leaves.
 \end{lemma}
 
 \begin{definition}
-    We consider the following heuristics for backtracking search:
-    \begin{itemize}
-        \item \emph{minimum-remaining-values}: chooses the variable with the fewest legal values
-        \item \emph{degree}: chooses the variable involved in the largest number of constraints
-        \item \emph{least-constraining-value}: chooses the value that
-              rules out the fewest values for the remaining variables
-    \end{itemize}
+	We consider the following heuristics for backtracking search:
+	\begin{itemize}
+		\item \emph{minimum-remaining-values}: chooses the variable with the fewest legal values
+		\item \emph{degree}: chooses the variable involved in the largest number of constraints
+		\item \emph{least-constraining-value}: chooses the value that
+		      rules out the fewest values for the remaining variables
+	\end{itemize}
 \end{definition}
 
 \begin{definition}[R\&N p. 217]
-    \emph{Forward checking} is an inference strategy that is applied after every
-    step in backtracking search to ensure arc-consistency for all neighbouring variables.
+	\emph{Forward checking} is an inference strategy that is applied after every
+	step in backtracking search to ensure arc-consistency for all neighbouring variables.
 \end{definition}
 
 \begin{definition}[R\&N p. 218]
-    \emph{Maintaining Arc Consistency (MAC)} is an algorithm that, after a value has
-    been selected for a variable $X_i$ in backtracking search, applies the arc
-    consistency algorithm for all neighbouring variables $X_j$ that have not yet
-    been assigned a value.
+	\emph{Maintaining Arc Consistency (MAC)} is an algorithm that, after a value has
+	been selected for a variable $X_i$ in backtracking search, applies the arc
+	consistency algorithm for all neighbouring variables $X_j$ that have not yet
+	been assigned a value.
 \end{definition}
 
 \section{Logical agents}
@@ -371,147 +371,147 @@ depth limit$n$ be any node and $g$ be the goal node.
 \subsection{Knowledge-based agents}
 
 \begin{definition}[R\&N p. 235]
-    An agent's \emph{knowledge base} is a set of \emph{sentences} representing assertions
-    about the world.
+	An agent's \emph{knowledge base} is a set of \emph{sentences} representing assertions
+	about the world.
 
-    A sentence is called an \emph{axiom} if it is not derived from other sentences.
+	A sentence is called an \emph{axiom} if it is not derived from other sentences.
 \end{definition}
 
 \begin{pseudo}
-    \textbf{function} KB-AGENT(\emph{percept}) \textbf{returns} an \emph{action} \\+
-    \textbf{persistent:} $KB$, $t$\\
-    TELL($KB$,MAKE-PERCEPT-SENTENCE(\emph{percept}, $t$))\\
-    $\textsf{\emph{action}}\leftarrow\textsf{ASK}(KB,\textsf{MAKE-ACTION-QUERY}(t))$\\
-    $\textsf{TELL}(KB, \textsf{MAKE-ACTION-SENTENCE}(\textsf{\emph{action}},t))$\\
-    $t\leftarrow t+1$\\
-    \textbf{return} \emph{action}
+	\textbf{function} KB-AGENT(\emph{percept}) \textbf{returns} an \emph{action} \\+
+	\textbf{persistent:} $KB$, $t$\\
+	TELL($KB$,MAKE-PERCEPT-SENTENCE(\emph{percept}, $t$))\\
+	$\textsf{\emph{action}}\leftarrow\textsf{ASK}(KB,\textsf{MAKE-ACTION-QUERY}(t))$\\
+	$\textsf{TELL}(KB, \textsf{MAKE-ACTION-SENTENCE}(\textsf{\emph{action}},t))$\\
+	$t\leftarrow t+1$\\
+	\textbf{return} \emph{action}
 \end{pseudo}
 
 \subsection{Propositional logic}
 
 \begin{definition}[R\&N p. 240]
-    A \emph{representation language} must have a \emph{syntax} that defines which
-    sentences are well formed and \emph{semantics}, i.e. the meaning of sentences.
+	A \emph{representation language} must have a \emph{syntax} that defines which
+	sentences are well formed and \emph{semantics}, i.e. the meaning of sentences.
 \end{definition}
 
 \begin{definition}[R\&N p. 241]
-    Let $m$ be a model and $\alpha$ be a sentence. If $\alpha$ is true in $m$, then
-    $m$ \emph{satisfies} $\alpha$. The set of all models that satisfy $\alpha$ is
-    denoted $M(\alpha)$.\\
-    Let $\alpha,\beta$ be sentences. Then we define the following:
-    \begin{itemize}
-        \item $a\vDash b$ if and only if $M(\alpha)\subseteq M(\beta)$
-        \item $a\equiv b$ if and only if $M(\alpha)=M(\beta)$
-        \item $\alpha$ is \emph{satisfiable} only if $M(\alpha)\not=\emptyset$
-        \item $\alpha$ is \emph{valid} only if $M(\neg\alpha)=\emptyset$
-    \end{itemize}
+	Let $m$ be a model and $\alpha$ be a sentence. If $\alpha$ is true in $m$, then
+	$m$ \emph{satisfies} $\alpha$. The set of all models that satisfy $\alpha$ is
+	denoted $M(\alpha)$.\\
+	Let $\alpha,\beta$ be sentences. Then we define the following:
+	\begin{itemize}
+		\item $a\vDash b$ if and only if $M(\alpha)\subseteq M(\beta)$
+		\item $a\equiv b$ if and only if $M(\alpha)=M(\beta)$
+		\item $\alpha$ is \emph{satisfiable} only if $M(\alpha)\not=\emptyset$
+		\item $\alpha$ is \emph{valid} only if $M(\neg\alpha)=\emptyset$
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    Let $i$ be an inference algorithm, $\alpha$ be a sentence and $KB$ be a knowlege base.
-    If $i$ can derive $\alpha$ from $KB$ then we write $KB\vdash_i \alpha$.
-    An inference algorithm is called
-    \begin{itemize}
-        \item \emph{sound} if it only derives entailed sentences.
-        \item \emph{complete} if it can derive any sentence that is entailed.
-    \end{itemize}
+	Let $i$ be an inference algorithm, $\alpha$ be a sentence and $KB$ be a knowlege base.
+	If $i$ can derive $\alpha$ from $KB$ then we write $KB\vdash_i \alpha$.
+	An inference algorithm is called
+	\begin{itemize}
+		\item \emph{sound} if it only derives entailed sentences.
+		\item \emph{complete} if it can derive any sentence that is entailed.
+	\end{itemize}
 \end{definition}
 
 \begin{lemma}[R\&N p. 249]
-    Let $\alpha,\beta$ be sentences. Then
-    \begin{itemize}
-        \item $\alpha\vDash\beta$ if and only if $\alpha\Rightarrow\beta$ is valid. (Deduction theorem)
-        \item $\alpha\not\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
-    \end{itemize}
+	Let $\alpha,\beta$ be sentences. Then
+	\begin{itemize}
+		\item $\alpha\vDash\beta$ if and only if $\alpha\Rightarrow\beta$ is valid. (Deduction theorem)
+		\item $\alpha\not\vDash\beta$ if and only if $(\alpha\wedge\neg\beta)$ is satisfiable.
+	\end{itemize}
 \end{lemma}
 
 \begin{definition}[R\&N p. 251]
-    A knowledge base is called \emph{monotonous} if the set of entailed sentences can
-    only increase as information is added, i.e.
-    \begin{align*}
-        \text{if}\hs KB \vDash \alpha \hs\text{then}\hs KB\wedge \beta \vDash \alpha
-    \end{align*}
-    for all sentences $\alpha,\beta$.
+	A knowledge base is called \emph{monotonous} if the set of entailed sentences can
+	only increase as information is added, i.e.
+	\begin{align*}
+		\text{if}\hs KB \vDash \alpha \hs\text{then}\hs KB\wedge \beta \vDash \alpha
+	\end{align*}
+	for all sentences $\alpha,\beta$.
 \end{definition}
 
 \subsection{Satisfiability \& resolution}
 
 \begin{theorem}[Resolution rule, R\&N p. 253]
-    Let $l_1,...,l_k,m_1,...,m_n$ be literals and let $l_i\Leftrightarrow\neg m_j$. Then
-    \begin{align*}
-        \infer{l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n}{
-            l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
-        }.
-    \end{align*}
+	Let $l_1,...,l_k,m_1,...,m_n$ be literals and let $l_i\Leftrightarrow\neg m_j$. Then
+	\begin{align*}
+		\infer{l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n}{
+			l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
+		}.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Ground resolution theorem]
-    If a set of clauses is unsatisfiable, then the resolution closure of
-    those clauses contains the empty clause.
+	If a set of clauses is unsatisfiable, then the resolution closure of
+	those clauses contains the empty clause.
 \end{theorem}
 
 \begin{definition}
-    We define the following types of special clauses:
-    \begin{itemize}
-        \item \emph{unit clause}: disjunction of a single literal
-        \item \emph{definite clause}: disjunction of literals of which exactly one is positive
-        \item \emph{Horn clause}: disjunction of literals of which at most one is positive
-    \end{itemize}
+	We define the following types of special clauses:
+	\begin{itemize}
+		\item \emph{unit clause}: disjunction of a single literal
+		\item \emph{definite clause}: disjunction of literals of which exactly one is positive
+		\item \emph{Horn clause}: disjunction of literals of which at most one is positive
+	\end{itemize}
 \end{definition}
 
 
 \begin{pseudo}
-    \textbf{function} PL-RESOLUTION$(KB,\alpha)$ \textbf{returns} $true$ or $false$\\+
-    $\textsf{\emph{clauses}}\leftarrow \text{the set of clauses in the CNF representation of }KB\wedge\neg\alpha$\\
-    $\textsf{\emph{new}}\leftarrow\emptyset$\\
-    \textbf{loop do}\\+
-    \textbf{for each} pair of clauses $(C_i,C_j)$ \textbf{in} \emph{clauses} \textbf{do}\\+
-    $\textsf{\emph{resolvents}}\leftarrow\textsf{PL-RESOLVE}(C_i,C_j)$\\
-    \textbf{if} \emph{resolvents} contains an empty clause \textbf{then return} $true$\\
-    $\textsf{\emph{new}}\leftarrow \textsf{\emph{new}}\cup \textsf{\emph{resolvents}}$\\-
-    \textbf{if} $\textsf{\emph{new}} \subseteq \textsf{\emph{clauses}}$ \textbf{then return} $false$\\
-    $\textsf{\emph{clauses}}\leftarrow\textsf{\emph{clauses}}\cup\textsf{\emph{new}}$
+	\textbf{function} PL-RESOLUTION$(KB,\alpha)$ \textbf{returns} $true$ or $false$\\+
+	$\textsf{\emph{clauses}}\leftarrow \text{the set of clauses in the CNF representation of }KB\wedge\neg\alpha$\\
+	$\textsf{\emph{new}}\leftarrow\emptyset$\\
+	\textbf{loop do}\\+
+	\textbf{for each} pair of clauses $(C_i,C_j)$ \textbf{in} \emph{clauses} \textbf{do}\\+
+	$\textsf{\emph{resolvents}}\leftarrow\textsf{PL-RESOLVE}(C_i,C_j)$\\
+	\textbf{if} \emph{resolvents} contains an empty clause \textbf{then return} $true$\\
+	$\textsf{\emph{new}}\leftarrow \textsf{\emph{new}}\cup \textsf{\emph{resolvents}}$\\-
+	\textbf{if} $\textsf{\emph{new}} \subseteq \textsf{\emph{clauses}}$ \textbf{then return} $false$\\
+	$\textsf{\emph{clauses}}\leftarrow\textsf{\emph{clauses}}\cup\textsf{\emph{new}}$
 \end{pseudo}
 
 \begin{pseudo}
-    \textbf{function} DPLL-SATISFIABLE?$(s)$ \textbf{returns} $true$ or $false$\\+
-    $\textsf{\emph{clauses}}\leftarrow\textsf{the set of clauses in the CNF representation of }s$\\
-    $\textsf{\emph{symbols}}\leftarrow\textsf{a list of the proposition symbols in }s$\\
-    \textbf{return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}, \emptyset)$
-    \\\\-
-    \textbf{function} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}, \textsf{\emph{model}})$ \textbf{returns} $true$ or $false$\\+
-    \textbf{if} every clause in \emph{clauses} is true in \emph{model} \textbf{then return} $true$\\
-    \textbf{if} some clause in \emph{clauses} is false in \emph{model} \textbf{then return} $false$\\
-    $P,\textsf{\emph{value}}\leftarrow\textsf{FIND-PURE-SYMBOL}(\textsf{\emph{symbols}},\textsf{\emph{clauses}},\textsf{\emph{model}})$\\
-    \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}-P,\textsf{\emph{model}}\cup\{P=\textsf{\emph{value}}\})$\\
-    $P,\textsf{\emph{value}}\leftarrow\textsf{FIND-UNIT-CLAUSE}(\textsf{\emph{clauses}}, \textsf{\emph{model}})$\\
-    \textbf{if} $P$ is non-null \textbf{then return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}-P,\textsf{\emph{model}}\cup\{P=\textsf{\emph{value}}\})$\\
-    $P\leftarrow\textsf{FIRST}(\textsf{\emph{symbols}})$; $\textsf{\emph{rest}}\leftarrow\textsf{REST}(\textsf{\emph{symbols}})$\\
-    \textbf{return} $\textsf{DPLL}(\textsf{\emph{clauses}}, \textsf{\emph{rest}}, \textsf{\emph{model}}\cup\{P=true\})$ \textbf{or}
-    $\textsf{DPLL}(\textsf{\emph{clauses}}, \textsf{\emph{rest}}, \textsf{\emph{model}}\cup\{P=false\})$
+	\textbf{function} DPLL-SATISFIABLE?$(s)$ \textbf{returns} $true$ or $false$\\+
+	$\textsf{\emph{clauses}}\leftarrow\textsf{the set of clauses in the CNF representation of }s$\\
+	$\textsf{\emph{symbols}}\leftarrow\textsf{a list of the proposition symbols in }s$\\
+	\textbf{return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}, \emptyset)$
+	\\\\-
+	\textbf{function} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}, \textsf{\emph{model}})$ \textbf{returns} $true$ or $false$\\+
+	\textbf{if} every clause in \emph{clauses} is true in \emph{model} \textbf{then return} $true$\\
+	\textbf{if} some clause in \emph{clauses} is false in \emph{model} \textbf{then return} $false$\\
+	$P,\textsf{\emph{value}}\leftarrow\textsf{FIND-PURE-SYMBOL}(\textsf{\emph{symbols}},\textsf{\emph{clauses}},\textsf{\emph{model}})$\\
+	\textbf{if} $P$ is non-null \textbf{then return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}-P,\textsf{\emph{model}}\cup\{P=\textsf{\emph{value}}\})$\\
+	$P,\textsf{\emph{value}}\leftarrow\textsf{FIND-UNIT-CLAUSE}(\textsf{\emph{clauses}}, \textsf{\emph{model}})$\\
+	\textbf{if} $P$ is non-null \textbf{then return} DPLL$(\textsf{\emph{clauses}}, \textsf{\emph{symbols}}-P,\textsf{\emph{model}}\cup\{P=\textsf{\emph{value}}\})$\\
+	$P\leftarrow\textsf{FIRST}(\textsf{\emph{symbols}})$; $\textsf{\emph{rest}}\leftarrow\textsf{REST}(\textsf{\emph{symbols}})$\\
+	\textbf{return} $\textsf{DPLL}(\textsf{\emph{clauses}}, \textsf{\emph{rest}}, \textsf{\emph{model}}\cup\{P=true\})$ \textbf{or}
+	$\textsf{DPLL}(\textsf{\emph{clauses}}, \textsf{\emph{rest}}, \textsf{\emph{model}}\cup\{P=false\})$
 \end{pseudo}
 
 \paragraph{Optimisations in SAT solvers}
 (R\&N p. 261)
 \begin{enumerate}
-    \item \emph{component analysis}: Find disjoint components and solve separately
-    \item \emph{variable and value ordering}: Find most occuring literal and set to true
-    \item \emph{intelligent backtracking}: record conflicts to not repeat them later
-    \item \emph{random restarts}: restarting with learned information may improve progress
-    \item \emph{clever indexing}: optimise queries like "the set of clauses in which variable $X_i$ appears as a positive literal"
+	\item \emph{component analysis}: Find disjoint components and solve separately
+	\item \emph{variable and value ordering}: Find most occuring literal and set to true
+	\item \emph{intelligent backtracking}: record conflicts to not repeat them later
+	\item \emph{random restarts}: restarting with learned information may improve progress
+	\item \emph{clever indexing}: optimise queries like "the set of clauses in which variable $X_i$ appears as a positive literal"
 \end{enumerate}
 
 \subsection{SAT-based planning}
 
 \begin{theorem}
-    To create a plan using a SAT solver, we need to provide the following
-    \begin{itemize}
-        \item \emph{initial state}
-        \item \emph{goal}
-        \item \emph{successor-state axioms}
-        \item \emph{precondition axioms}: avoid illegal actions by imposing constraints
-        \item \emph{action-exclusion axioms}: avoid illegal combinations of actions
-    \end{itemize}
+	To create a plan using a SAT solver, we need to provide the following
+	\begin{itemize}
+		\item \emph{initial state}
+		\item \emph{goal}
+		\item \emph{successor-state axioms}
+		\item \emph{precondition axioms}: avoid illegal actions by imposing constraints
+		\item \emph{action-exclusion axioms}: avoid illegal combinations of actions
+	\end{itemize}
 \end{theorem}
 
 
@@ -521,360 +521,360 @@ depth limit$n$ be any node and $g$ be the goal node.
 \subsection{Basics}
 
 \begin{definition}[R\&N p. 290]
-    A model in first-order logic consists of a set of objects and an interpretation
-    that maps constant symbols to objects, predicate symbols to relations on
-    those objects and function symbols to functions on those objects.
+	A model in first-order logic consists of a set of objects and an interpretation
+	that maps constant symbols to objects, predicate symbols to relations on
+	those objects and function symbols to functions on those objects.
 \end{definition}
 
 \begin{definition}[R\&N p. 293]
-    An \emph{atomic sentence} is formed from a predicate optionally followed
-    by a parenthesised list of terms. Such a sentence is true in a given model
-    if the relation referred to by the predicate symbol holds among the objects
-    referred to by the arguments.
+	An \emph{atomic sentence} is formed from a predicate optionally followed
+	by a parenthesised list of terms. Such a sentence is true in a given model
+	if the relation referred to by the predicate symbol holds among the objects
+	referred to by the arguments.
 \end{definition}
 
 \begin{theorem}[R\&N p. 298]
-    Let $P$ be a predicate. Then
-    \begin{align*}
-        \forall x,\: P(x) \equiv \neg(\exists x,\: \neg P(x)).
-    \end{align*}
+	Let $P$ be a predicate. Then
+	\begin{align*}
+		\forall x,\: P(x) \equiv \neg(\exists x,\: \neg P(x)).
+	\end{align*}
 \end{theorem}
 
 \subsection{Knowledge engineering}
 
 \paragraph{Steps}(R\&N p. 307)
 \begin{enumerate}
-    \item Identify the task
-    \item Assemble the relevant knowledge
-    \item Decide on a vocabulary of predicates, functions and constants
-    \item Encode general knowledge about the domain
-    \item Encode a description of the specific problem instance
-    \item Pose queries to the inference procedure and get answers
-    \item Debug the knowledge base
+	\item Identify the task
+	\item Assemble the relevant knowledge
+	\item Decide on a vocabulary of predicates, functions and constants
+	\item Encode general knowledge about the domain
+	\item Encode a description of the specific problem instance
+	\item Pose queries to the inference procedure and get answers
+	\item Debug the knowledge base
 \end{enumerate}
 
 \subsection{Propositional inference}
 
 \begin{theorem}[Universal Instantiation, R\&N p. 323]
-    Let $\subst(\theta, \alpha)$ denote the result of applying
-    the substitution $\theta$ to the sentence $\alpha$. Then
-    \begin{align*}
-        \infer{\subst(\{v/g\},\alpha)}{\forall v,\:\alpha}
-    \end{align*}
-    for any variable $v$ and ground term $g$, i.e. a term without variables.
+	Let $\subst(\theta, \alpha)$ denote the result of applying
+	the substitution $\theta$ to the sentence $\alpha$. Then
+	\begin{align*}
+		\infer{\subst(\{v/g\},\alpha)}{\forall v,\:\alpha}
+	\end{align*}
+	for any variable $v$ and ground term $g$, i.e. a term without variables.
 \end{theorem}
 
 \begin{theorem}[Existential Instantiation]
-    Let $\alpha$ be a sentence, $v$ be a variable and $k$ be a
-    symbol that does not appear elsewhere in the knowledge base
-    (called \emph{Skolem constant}), then
-    \begin{align*}
-        \infer{\subst(\{v/k\},\alpha)}{\exists v,\:\alpha}
-    \end{align*}
+	Let $\alpha$ be a sentence, $v$ be a variable and $k$ be a
+	symbol that does not appear elsewhere in the knowledge base
+	(called \emph{Skolem constant}), then
+	\begin{align*}
+		\infer{\subst(\{v/k\},\alpha)}{\exists v,\:\alpha}
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}[R\&N p. 325]
-    The question of entailment for first-order logic is \emph{semidecidable}.
+	The question of entailment for first-order logic is \emph{semidecidable}.
 \end{theorem}
 
 \subsection{Unification and lifting}
 
 \begin{theorem}[Generalised Modus Ponens]
-    For atomic sentences $p_i$, $p_i'$ and $q$, where there is a substitution
-    $\theta$ such that $\subst(\theta,p_i')=\subst(\theta,p_i)$, for
-    all $i$,
-    \begin{align*}
-        \infer{\subst(\theta,q)}{p_1',\: p_2',\: ...,\: p_n',\:(p_1\wedge p_2 \wedge ... \wedge p_n\Rightarrow q)}.
-    \end{align*}
+	For atomic sentences $p_i$, $p_i'$ and $q$, where there is a substitution
+	$\theta$ such that $\subst(\theta,p_i')=\subst(\theta,p_i)$, for
+	all $i$,
+	\begin{align*}
+		\infer{\subst(\theta,q)}{p_1',\: p_2',\: ...,\: p_n',\:(p_1\wedge p_2 \wedge ... \wedge p_n\Rightarrow q)}.
+	\end{align*}
 \end{theorem}
 
 \begin{definition}[R\&N p. 326]
-    The \emph{unification} alogrithm takes two sentences and returns a unifier
-    for them if one exists:
-    \begin{align*}
-        \textsf{UNIFY}(p,q)=\theta \hs\text{where}\hs \subst(\theta,p)=\subst(\theta,q).
-    \end{align*}
+	The \emph{unification} alogrithm takes two sentences and returns a unifier
+	for them if one exists:
+	\begin{align*}
+		\textsf{UNIFY}(p,q)=\theta \hs\text{where}\hs \subst(\theta,p)=\subst(\theta,q).
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[R\&N p. 327]
-    For every unifiable pair of expressions, there exists a single \emph{most general
-        unifier (MGU)} that is unique up to renaming and substitution of variables.
+	For every unifiable pair of expressions, there exists a single \emph{most general
+		unifier (MGU)} that is unique up to renaming and substitution of variables.
 \end{theorem}
 
 \subsection{Forward-chaining}
 
 \begin{definition}[R\&N p. 331]
-    \emph{Datalog} is a language of knowledge bases that is restricted to first-order
-    definite clauses with no function symbols.
+	\emph{Datalog} is a language of knowledge bases that is restricted to first-order
+	definite clauses with no function symbols.
 \end{definition}
 
 \paragraph{Simple forward-chaining alogrithm}
 
 \begin{enumerate}
-    \item Start with a set of known facts $KB$
-    \item For all clauses in $KB$ whose premises are satisfied, add the conclusion to $KB$.
-    \item Repeat until no new facts can be added \emph{or} the query is answered.
+	\item Start with a set of known facts $KB$
+	\item For all clauses in $KB$ whose premises are satisfied, add the conclusion to $KB$.
+	\item Repeat until no new facts can be added \emph{or} the query is answered.
 \end{enumerate}
 
 \begin{theorem}
-    The algorithm above is
-    \begin{itemize}
-        \item \emph{sound} and \emph{complete} for Datalog knowledge bases.
-        \item \emph{sound} for general knowledge bases.
-    \end{itemize}
+	The algorithm above is
+	\begin{itemize}
+		\item \emph{sound} and \emph{complete} for Datalog knowledge bases.
+		\item \emph{sound} for general knowledge bases.
+	\end{itemize}
 \end{theorem}
 
 \begin{theorem}[R\&N p. 334]
-    Every finite domain CSP can be expressed as a
-    single definite clause with some ground facts.
+	Every finite domain CSP can be expressed as a
+	single definite clause with some ground facts.
 \end{theorem}
 
 \begin{theorem}
-    Matching a definite clause against a set of facts is NP-hard.
+	Matching a definite clause against a set of facts is NP-hard.
 \end{theorem}
 
 \subsection{Backward-chaining}
 
 \begin{definition}[R\&N p. 337]
-    A \emph{generator} is a function that returns multiple times, each time giving one
-    possible result.
+	A \emph{generator} is a function that returns multiple times, each time giving one
+	possible result.
 \end{definition}
 
 \begin{definition}[R\&N p. 338]
-    \newcommand{\func}{\textbf{function }}
-    \newcommand{\return}{\textbf{return }}
-    \newcommand{\returns}{\textbf{returns }}
-    \newcommand{\generator}{\textbf{generator }}
-    \newcommand{\foreach}[2]{\textbf{for each} #1 \textbf{in} #2 \textbf{do}}
-    A simple first-order logic backward-chaining algorithm works as follows:
-    \begin{pseudo}
-        \func FOL-BC-ASK$(KB,query)$ \returns a generator of substitutions\\+
-        \return FOL-BC-OR$(KB,goal,\{\})$\\-
-        \\
-        \generator FOL-BC-OR$(KB, goal, \theta)$ \textbf{yields} a substitution\\+
-        \foreach{rule $(lhs\Rightarrow rhs)$}{FETCH-RULES-FOR-GOAL$(KB, goal)$}\\+
-        $(lhs,rhs)\leftarrow\textsf{STANDARDISE-VARIABLES}((lhs, rhs))$\\
-        \foreach{$\theta'$}{FOL-BC-AND$(KB,lhs,\textsf{UNIFY}(rhs,goal,\theta))$}\\+
-        \textbf{yield} $\theta'$\\---
-        \\
-        \generator FOL-BC-AND$(KB,goals,\theta)$ \textbf{yields} a substitution\\+
-        \textbf{if} $\theta=failure$ \textbf{then return}\\
-        \textbf{else if} LENGTH$(goals)=0$ \textbf{then yield} $\theta$\\
-        \textbf{else do}\\+
-        $first,rest\leftarrow \textsf{FIRST}(goals),\textsf{REST}(goals)$\\
-        \foreach{$\theta'$}{FOL-BC-OR$(KB,\subst(\theta,first),\theta)$}\\+
-        \foreach{$\theta''$}{FOL-BC-AND$(KB,rest,\theta')$}\\+
-        \textbf{yield} $\theta''$
+	\newcommand{\func}{\textbf{function }}
+	\newcommand{\return}{\textbf{return }}
+	\newcommand{\returns}{\textbf{returns }}
+	\newcommand{\generator}{\textbf{generator }}
+	\newcommand{\foreach}[2]{\textbf{for each} #1 \textbf{in} #2 \textbf{do}}
+	A simple first-order logic backward-chaining algorithm works as follows:
+	\begin{pseudo}
+		\func FOL-BC-ASK$(KB,query)$ \returns a generator of substitutions\\+
+		\return FOL-BC-OR$(KB,goal,\{\})$\\-
+		\\
+		\generator FOL-BC-OR$(KB, goal, \theta)$ \textbf{yields} a substitution\\+
+		\foreach{rule $(lhs\Rightarrow rhs)$}{FETCH-RULES-FOR-GOAL$(KB, goal)$}\\+
+		$(lhs,rhs)\leftarrow\textsf{STANDARDISE-VARIABLES}((lhs, rhs))$\\
+		\foreach{$\theta'$}{FOL-BC-AND$(KB,lhs,\textsf{UNIFY}(rhs,goal,\theta))$}\\+
+		\textbf{yield} $\theta'$\\---
+		\\
+		\generator FOL-BC-AND$(KB,goals,\theta)$ \textbf{yields} a substitution\\+
+		\textbf{if} $\theta=failure$ \textbf{then return}\\
+		\textbf{else if} LENGTH$(goals)=0$ \textbf{then yield} $\theta$\\
+		\textbf{else do}\\+
+		$first,rest\leftarrow \textsf{FIRST}(goals),\textsf{REST}(goals)$\\
+		\foreach{$\theta'$}{FOL-BC-OR$(KB,\subst(\theta,first),\theta)$}\\+
+		\foreach{$\theta''$}{FOL-BC-AND$(KB,rest,\theta')$}\\+
+		\textbf{yield} $\theta''$
 
-    \end{pseudo}
+	\end{pseudo}
 \end{definition}
 
 \begin{definition}
-    There are two types of parallelism that may be used to optimise CSP solvers:
-    \begin{itemize}
-        \item \emph{OR-parallelism}: goal may unify with many different clauses;
-              branches can be computed in parallel
-        \item \emph{AND-parallelism}: each conjunct in the body of an implication
-              may be solved individually (though each branch needs to have bindings
-              consistent with all the other branches)
-    \end{itemize}
+	There are two types of parallelism that may be used to optimise CSP solvers:
+	\begin{itemize}
+		\item \emph{OR-parallelism}: goal may unify with many different clauses;
+		      branches can be computed in parallel
+		\item \emph{AND-parallelism}: each conjunct in the body of an implication
+		      may be solved individually (though each branch needs to have bindings
+		      consistent with all the other branches)
+	\end{itemize}
 \end{definition}
 
 \subsection{Resolution}
 
 \begin{theorem}[R\&N p. 346]
-    Every sentence of first-oder logic can be converted into an inferentially equivalent
-    CNF sentence. This may be achieved as follows:
-    \begin{enumerate}
-        \item eliminate implications
-        \item move $\neg$ inwards
-        \item standardise variables
-        \item skolemise
-        \item drop universal quantifiers
-        \item distribute $\vee$ over $\wedge$
-    \end{enumerate}
+	Every sentence of first-oder logic can be converted into an inferentially equivalent
+	CNF sentence. This may be achieved as follows:
+	\begin{enumerate}
+		\item eliminate implications
+		\item move $\neg$ inwards
+		\item standardise variables
+		\item skolemise
+		\item drop universal quantifiers
+		\item distribute $\vee$ over $\wedge$
+	\end{enumerate}
 \end{theorem}
 
 
 \begin{theorem}[Binary resolution, factoring; R\&N p. 347]
-    \emph{Binary resolution} is given by the rule
-    \begin{align*}
-        \infer{\subst(\theta,l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n)}{
-            l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
-        }
-    \end{align*}
-    where $\theta=\textsf{UNIFY}(l_i,\neg m_j)$.\\
-    \emph{Factoring} reduces two literals to one if they are unifiable. The unifier must be applied to the
-    entire clause.\\
-    The combination of binary resolution and factoring is complete.
+	\emph{Binary resolution} is given by the rule
+	\begin{align*}
+		\infer{\subst(\theta,l_1\vee \cdots\vee l_{i-1}\vee l_{i+1}\vee\cdots\vee l_k\vee m_1\vee\cdots\vee m_{j-1}\vee m_{j+1}\vee \cdots\vee m_n)}{
+			l_1\vee\cdots \vee l_k\hs m_1\vee\cdots\vee m_n
+		}
+	\end{align*}
+	where $\theta=\textsf{UNIFY}(l_i,\neg m_j)$.\\
+	\emph{Factoring} reduces two literals to one if they are unifiable. The unifier must be applied to the
+	entire clause.\\
+	The combination of binary resolution and factoring is complete.
 \end{theorem}
 
 \begin{theorem}[R\&N p. 350]
-    If $S$ is an unsatisfiable set of clauses, then the application of a finite number of
-    resolution steps to $S$ will yield a contradiction.
+	If $S$ is an unsatisfiable set of clauses, then the application of a finite number of
+	resolution steps to $S$ will yield a contradiction.
 \end{theorem}
 
 \begin{definition}[Herbrand universe, R\&N p. 351]
-    If $S$ is a set of clauses, then $H_S$, the \emph{Herbrand universe} of $S$, is
-    the set of all ground terms constructable from the following
-    \begin{enumerate}
-        \item The function symbols in $S$, if any.
-        \item The constant symbols in $S$, if any; if none, then the constant symbol $A$.
-    \end{enumerate}
+	If $S$ is a set of clauses, then $H_S$, the \emph{Herbrand universe} of $S$, is
+	the set of all ground terms constructable from the following
+	\begin{enumerate}
+		\item The function symbols in $S$, if any.
+		\item The constant symbols in $S$, if any; if none, then the constant symbol $A$.
+	\end{enumerate}
 \end{definition}
 
 \begin{definition}[Saturation]
-    If $S$ is a set of clauses and $P$ is a set of ground terms, then $P(S)$, the
-    saturation of $S$ with respect to $P$, is the set of all ground clauses obtained
-    by applying all possible consistent substitutions of ground terms in $P$ with variables in $S$.
+	If $S$ is a set of clauses and $P$ is a set of ground terms, then $P(S)$, the
+	saturation of $S$ with respect to $P$, is the set of all ground clauses obtained
+	by applying all possible consistent substitutions of ground terms in $P$ with variables in $S$.
 \end{definition}
 
 \begin{definition}[Herbrand base]
-    The saturation of a set $S$ of clauses with respect to its Herbrand universe is called the Herbrand
-    base of $S$, written $H_S(S)$.
+	The saturation of a set $S$ of clauses with respect to its Herbrand universe is called the Herbrand
+	base of $S$, written $H_S(S)$.
 \end{definition}
 
 \begin{theorem}[Herbrand's theorem]
-    If a set $S$ of clauses is unsatisfiable, then there exists a finite subset of $H_S(S)$
-    that is also unsatisfiable.
+	If a set $S$ of clauses is unsatisfiable, then there exists a finite subset of $H_S(S)$
+	that is also unsatisfiable.
 \end{theorem}
 
 \begin{lemma}[Lifting lemma, R\&N p. 353]
-    Let $C_1$ and $C_2$ be two clauses with no shared variables,
-    and let $C_1'$ and $C_2'$ be ground instances of $C_1$ and $C_2$.
-    If $C'$ is a resolvent of $C_1'$ and $C_2'$, then there exists a clause
-    $C$ such that (1) $C$ is a resolvent of $C_1$ and $C_2$ and (2) $C'$ is a
-    ground instance of $C$.
+	Let $C_1$ and $C_2$ be two clauses with no shared variables,
+	and let $C_1'$ and $C_2'$ be ground instances of $C_1$ and $C_2$.
+	If $C'$ is a resolvent of $C_1'$ and $C_2'$, then there exists a clause
+	$C$ such that (1) $C$ is a resolvent of $C_1$ and $C_2$ and (2) $C'$ is a
+	ground instance of $C$.
 \end{lemma}
 
 \begin{definition}[Demodulation, R\&N p. 354]
-    For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$ and where
-    $\textsf{UNIFY}(x,z)=\theta$,
-    \begin{align*}
-        \infer{
-        \textsf{SUB}(\subst(\theta,x),\subst(\theta,y),m_1\wedge\cdots\wedge m_n)
-        }{
-            x=y,\hs m_1\wedge\cdots\wedge m_n
-        }
-    \end{align*}
-    where $\subst$ is the usual substitution of a binding list, and SUB$(x,y,m)$
-    means to replace $x$ with $y$ everywhere that $x$ occurs within $m$.
+	For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$ and where
+	$\textsf{UNIFY}(x,z)=\theta$,
+	\begin{align*}
+		\infer{
+		\textsf{SUB}(\subst(\theta,x),\subst(\theta,y),m_1\wedge\cdots\wedge m_n)
+		}{
+			x=y,\hs m_1\wedge\cdots\wedge m_n
+		}
+	\end{align*}
+	where $\subst$ is the usual substitution of a binding list, and SUB$(x,y,m)$
+	means to replace $x$ with $y$ everywhere that $x$ occurs within $m$.
 \end{definition}
 
 \begin{definition}[Paramodulation]
-    For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$,
-    and where $\textsf{UNIFY}(x,z)=\theta$,
-    \begin{align*}
-        \infer{
-        \textsf{SUB}(\subst(\theta,x),\subst(\theta,y),\subst(\theta,l_1\wedge\cdots\wedge l_k\wedge m_1\wedge\cdots\wedge m_n))
-        }{
-            l_1\wedge \cdots\wedge l_k\wedge x=y,\hs m_1\wedge\cdots\wedge m_n
-        }.
-    \end{align*}
+	For any terms $x,y,z$ where $z$ appears somewhere in literal $m_i$,
+	and where $\textsf{UNIFY}(x,z)=\theta$,
+	\begin{align*}
+		\infer{
+		\textsf{SUB}(\subst(\theta,x),\subst(\theta,y),\subst(\theta,l_1\wedge\cdots\wedge l_k\wedge m_1\wedge\cdots\wedge m_n))
+		}{
+			l_1\wedge \cdots\wedge l_k\wedge x=y,\hs m_1\wedge\cdots\wedge m_n
+		}.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[R\&N p. 355]
-    Paramodulation yields a complete inference procedure for first-order logic
-    with equality.
+	Paramodulation yields a complete inference procedure for first-order logic
+	with equality.
 \end{theorem}
 
 \subsection{Resolution strategies}
 
 \begin{proposition}[R\&N p. 355]
-    We consider the following resolution strategies
-    \begin{itemize}
-        \item \emph{unit preference}: prefers resolution with at least one unit clause
-        \item \emph{unit resolution}: restricted; every step must involve a unit clause; complete for Horn clauses
-        \item \emph{set of support}: every resolution must involve one element of a special
-              set of clauses and resolvent is added to this set; may be incomplete depending on $S$
-        \item \emph{input resolution}: is a strategy where every resolution combines one of the
-              input sentences with some other sentence; not complete
-        \item \emph{linear resolution}: $P$ and $Q$ may be resolved if $P$ is in the original
-              $KB$ or if $P$ is an ancestor of $Q$; complete
-        \item \emph{subsumption}: eliminates al sentences that are more specific than an existing
-              sentence in the $KB$
-    \end{itemize}
+	We consider the following resolution strategies
+	\begin{itemize}
+		\item \emph{unit preference}: prefers resolution with at least one unit clause
+		\item \emph{unit resolution}: restricted; every step must involve a unit clause; complete for Horn clauses
+		\item \emph{set of support}: every resolution must involve one element of a special
+		      set of clauses and resolvent is added to this set; may be incomplete depending on $S$
+		\item \emph{input resolution}: is a strategy where every resolution combines one of the
+		      input sentences with some other sentence; not complete
+		\item \emph{linear resolution}: $P$ and $Q$ may be resolved if $P$ is in the original
+		      $KB$ or if $P$ is an ancestor of $Q$; complete
+		\item \emph{subsumption}: eliminates al sentences that are more specific than an existing
+		      sentence in the $KB$
+	\end{itemize}
 \end{proposition}
 
 
 \subsection{Situation calculus}
 
 \begin{definition}
-    \emph{Situations} are logical terms consisting of the initial
-    situation (usually $S_0$) and all situations that are generated
-    by applying an action to a situation. The function $\textsf{Result}
-        (a,s)$ names the situation that results when action $a$ is executed
-    in situation $s$.\\
-    We observe two types of predicates and function:
-    \begin{itemize}
-        \item \emph{fluents}: vary from one situation to the next,
-        \item \emph{atemporal}: do not vary from one situation to the next.
-    \end{itemize}
-    Further, there are new types of tasks:
-    \begin{itemize}
-        \item \emph{projection}: deduction of outcome of a given sequence of actions,
-        \item \emph{planning}: finding a sequence of actions that achieves desired effect.
-    \end{itemize}
+	\emph{Situations} are logical terms consisting of the initial
+	situation (usually $S_0$) and all situations that are generated
+	by applying an action to a situation. The function $\textsf{Result}
+		(a,s)$ names the situation that results when action $a$ is executed
+	in situation $s$.\\
+	We observe two types of predicates and function:
+	\begin{itemize}
+		\item \emph{fluents}: vary from one situation to the next,
+		\item \emph{atemporal}: do not vary from one situation to the next.
+	\end{itemize}
+	Further, there are new types of tasks:
+	\begin{itemize}
+		\item \emph{projection}: deduction of outcome of a given sequence of actions,
+		\item \emph{planning}: finding a sequence of actions that achieves desired effect.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}
-    Each action is described by two axioms: a \emph{possibility axiom}
-    that states when it is possible to execute the action, and an
-    \emph{effect axiom} that says what happens when a possible action
-    is executed.
+	Each action is described by two axioms: a \emph{possibility axiom}
+	that states when it is possible to execute the action, and an
+	\emph{effect axiom} that says what happens when a possible action
+	is executed.
 \end{definition}
 
 \begin{definition}[Frame problem, R\&N p. 266]
-    The fact that the possibility and effect axioms only describe what changes
-    and not what stays the same gives rise to the \emph{frame problem}. In a world
-    with $m$ actions and $n$ fluents of which at most $k$ are affected by an action,
-    we have the following specialisations:
-    \begin{itemize}
-        \item \emph{representational}: Finding a set of frame axioms of size $O(mn)$.
-        \item \emph{inferential}: Projecting forward the result of a $t$ step plan in $O(kt)$ time.
-    \end{itemize}
+	The fact that the possibility and effect axioms only describe what changes
+	and not what stays the same gives rise to the \emph{frame problem}. In a world
+	with $m$ actions and $n$ fluents of which at most $k$ are affected by an action,
+	we have the following specialisations:
+	\begin{itemize}
+		\item \emph{representational}: Finding a set of frame axioms of size $O(mn)$.
+		\item \emph{inferential}: Projecting forward the result of a $t$ step plan in $O(kt)$ time.
+	\end{itemize}
 \end{definition}
 
 \begin{theorem}
-    \emph{Frame axioms} state what stays the same for each possible action and
-    solve the frame problem by introducing $O(mn)$ axioms.
+	\emph{Frame axioms} state what stays the same for each possible action and
+	solve the frame problem by introducing $O(mn)$ axioms.
 \end{theorem}
 
 \begin{theorem}[R\&N p. 267]
-    \emph{Successor-state axioms} have the form
-    \begin{align*}
-        \textsf{Action } & \textsf{is possible} \Rightarrow                         \\
-                         & (\textsf{Fluent is true in result state} \Leftrightarrow
-        \textsf{Action's effect made it true}\vee \textsf{It was true before
-            and action left it alone}).
-    \end{align*}
-    and solve the representational
-    frame problem because the total size of the axioms is $O(mk)$ where
-    $k$ is the number of effects of each of the $m$ actions.
+	\emph{Successor-state axioms} have the form
+	\begin{align*}
+		\textsf{Action } & \textsf{is possible} \Rightarrow                         \\
+		                 & (\textsf{Fluent is true in result state} \Leftrightarrow
+		\textsf{Action's effect made it true}\vee \textsf{It was true before
+			and action left it alone}).
+	\end{align*}
+	and solve the representational
+	frame problem because the total size of the axioms is $O(mk)$ where
+	$k$ is the number of effects of each of the $m$ actions.
 \end{theorem}
 
 \begin{definition}[Unique names]
-    The \emph{unique names axiom} states disequality for every pair of
-    constants in the knowledge base. When this is assumed by the theorem
-    prover, rather than written down in the knowledge base, it is called
-    a \emph{unique names assumption}.
+	The \emph{unique names axiom} states disequality for every pair of
+	constants in the knowledge base. When this is assumed by the theorem
+	prover, rather than written down in the knowledge base, it is called
+	a \emph{unique names assumption}.
 \end{definition}
 
 \begin{definition}
-    \emph{Unique action axioms} have the form
-    \begin{align*}
-        A(x_1,...,x_m)=A(y_1,...,y_m)\Leftrightarrow x_1 = y_1\wedge\cdots \wedge x_m=y_m
-    \end{align*}
-    and enforce that two action terms with the same action name refer to the
-    same action only if they involve all the same objects.
+	\emph{Unique action axioms} have the form
+	\begin{align*}
+		A(x_1,...,x_m)=A(y_1,...,y_m)\Leftrightarrow x_1 = y_1\wedge\cdots \wedge x_m=y_m
+	\end{align*}
+	and enforce that two action terms with the same action name refer to the
+	same action only if they involve all the same objects.
 \end{definition}
 
 \paragraph{Solution to the inferential frame problem}
 
 \begin{enumerate}
-    \item Index actions by fluent, effect (positive or negative) and time.
-    \item Index axioms so that if $F_i$ is an effect, you can find the axiom for $F_i$ in $O(1)$ time.
-    \item Represent each situation as a previous state plus a delta.
+	\item Index actions by fluent, effect (positive or negative) and time.
+	\item Index axioms so that if $F_i$ is an effect, you can find the axiom for $F_i$ in $O(1)$ time.
+	\item Represent each situation as a previous state plus a delta.
 \end{enumerate}
 Runtime: $O(kt)$
 
@@ -883,132 +883,132 @@ Runtime: $O(kt)$
 \subsection{Definition of classical planning}
 
 \begin{definition}[R\&N, p. 367]
-    \emph{PDDL}, the Planning Domain Definition Language, is a language
-    that allows us to express many actions in one action schema.
-    Each state is represented as a conjunction of fluents that are ground,
-    functionless atoms. Database semantics is used, i.e. each unmentioned
-    fluent is false and variables with distinct names refer to distinct
-    objects.\\
-    An \emph{action schema} is a lifted representation of a set of ground
-    actions. Every action is defined by a precondition and an effect. An
-    action $a$ is \emph{applicable} in state $s$ if $s$ entails the precondition
-    of $a$. An action $a$ involving a set of variables $x_1,...,x_n$ with
-    a precondition $P$ and an effect $E$ is written as follows:
-    \begin{align*}
-        Action & (a(x_1, ..., x_n),                   \\
-               & \textsf{Precond: } P(x_1, ..., x_n), \\
-               & \textsf{Effect: } E(x_1, ..., x_n)).
-    \end{align*}
+	\emph{PDDL}, the Planning Domain Definition Language, is a language
+	that allows us to express many actions in one action schema.
+	Each state is represented as a conjunction of fluents that are ground,
+	functionless atoms. Database semantics is used, i.e. each unmentioned
+	fluent is false and variables with distinct names refer to distinct
+	objects.\\
+	An \emph{action schema} is a lifted representation of a set of ground
+	actions. Every action is defined by a precondition and an effect. An
+	action $a$ is \emph{applicable} in state $s$ if $s$ entails the precondition
+	of $a$. An action $a$ involving a set of variables $x_1,...,x_n$ with
+	a precondition $P$ and an effect $E$ is written as follows:
+	\begin{align*}
+		Action & (a(x_1, ..., x_n),                   \\
+		       & \textsf{Precond: } P(x_1, ..., x_n), \\
+		       & \textsf{Effect: } E(x_1, ..., x_n)).
+	\end{align*}
 \end{definition}
 
 \begin{lemma}
-    If $a$ has $v$ variables, then, in a domain with $k$ unique names of objects,
-    it takes $O(k^v)$ time to find the applicable ground actions.
+	If $a$ has $v$ variables, then, in a domain with $k$ unique names of objects,
+	it takes $O(k^v)$ time to find the applicable ground actions.
 \end{lemma}
 
 \begin{definition}
-    The \emph{result} of executing an action $a$ in state $s$ is defined
-    as a state $s'$ which is represented by
-    \begin{align*}
-        \textsf{RESULT}(s,a)=(s\setminus\textsf{DEL}(a))\cup\textsf{ADD}(a)
-    \end{align*}
-    where DEL is the \emph{delete list}, i.e. the set of literals that appear
-    as negative in the action's effect, and ADD is the \emph{add list}, i.e.
-    the set of literals that appear as positive in the action's effect.
+	The \emph{result} of executing an action $a$ in state $s$ is defined
+	as a state $s'$ which is represented by
+	\begin{align*}
+		\textsf{RESULT}(s,a)=(s\setminus\textsf{DEL}(a))\cup\textsf{ADD}(a)
+	\end{align*}
+	where DEL is the \emph{delete list}, i.e. the set of literals that appear
+	as negative in the action's effect, and ADD is the \emph{add list}, i.e.
+	the set of literals that appear as positive in the action's effect.
 \end{definition}
 
 \subsection{Planning as state-space search}
 
 \begin{theorem}[R\&N, p. 373]
-    \emph{Forward state-space search}, i.e. iterating possible sequences of
-    actions until a goal state is reached, has the following drawbacks:
-    \begin{itemize}
-        \item too many iterations required,
-        \item irrelevant actions may be chosen.
-    \end{itemize}
+	\emph{Forward state-space search}, i.e. iterating possible sequences of
+	actions until a goal state is reached, has the following drawbacks:
+	\begin{itemize}
+		\item too many iterations required,
+		\item irrelevant actions may be chosen.
+	\end{itemize}
 \end{theorem}
 
 \begin{definition}
-    \emph{Backward relevant-states search} starts at the goal state and applies
-    relevant actions backward until a sequence of steps that reaches the initial
-    state has been found. An action is relevant if
-    \begin{enumerate}
-        \item at least one of the action's effects unifies with an element of the goal, and
-        \item none of its effects negate an element of the goal.
-    \end{enumerate}
-    Formally, assume a goal description $g$
-    which contains a goal literal $g_i$ and an action schema $A$ that is standardised
-    to produce $A'$. If $A'$ has an effect literal $e_j'$ where $\textsf{UNIFY}(g_i,e_j')=\theta$
-    and where we define $a'=\textsf{SUBST}(\theta, A')$ and if there is no effect in
-    $a'$ that is the negation of a literal in $g$, then $a'$ is a relevant action towards
-    $g$.
+	\emph{Backward relevant-states search} starts at the goal state and applies
+	relevant actions backward until a sequence of steps that reaches the initial
+	state has been found. An action is relevant if
+	\begin{enumerate}
+		\item at least one of the action's effects unifies with an element of the goal, and
+		\item none of its effects negate an element of the goal.
+	\end{enumerate}
+	Formally, assume a goal description $g$
+	which contains a goal literal $g_i$ and an action schema $A$ that is standardised
+	to produce $A'$. If $A'$ has an effect literal $e_j'$ where $\textsf{UNIFY}(g_i,e_j')=\theta$
+	and where we define $a'=\textsf{SUBST}(\theta, A')$ and if there is no effect in
+	$a'$ that is the negation of a literal in $g$, then $a'$ is a relevant action towards
+	$g$.
 \end{definition}
 
 \begin{theorem}[R\&N p. 376]
-    The \emph{ignore preconditions heuristic} drops all preconditions from actions
-    and thus makes every action applicable in every state. This may be relaxed in
-    such a way that only certain preconditions are ignored.
+	The \emph{ignore preconditions heuristic} drops all preconditions from actions
+	and thus makes every action applicable in every state. This may be relaxed in
+	such a way that only certain preconditions are ignored.
 
-    Using this heuristic to find the minimum number of
-    actions required such that the union of those actions'
-    effects satisfies the goal is an instance of the \emph{set-cover problem}. This
-    is NP-hard. There exists a greedy alogrithm that is guaranteed to find a solution
-    within a factor of $O(\lg n)$ of the optimum.
+	Using this heuristic to find the minimum number of
+	actions required such that the union of those actions'
+	effects satisfies the goal is an instance of the \emph{set-cover problem}. This
+	is NP-hard. There exists a greedy alogrithm that is guaranteed to find a solution
+	within a factor of $O(\lg n)$ of the optimum.
 \end{theorem}
 
 \begin{theorem}[R\&N p. 377]
-    The \emph{ignore delete lists} heuristic ignores the negative literals from all
-    effects.
+	The \emph{ignore delete lists} heuristic ignores the negative literals from all
+	effects.
 
-    Using the ignore delete lists heuisitic to find the minimum number of actions
-    required such that the union of those actions' effects satisfies the goal
-    is NP-hard but an approximate solution can be found in polynomial time using
-    hill-climbing.
+	Using the ignore delete lists heuisitic to find the minimum number of actions
+	required such that the union of those actions' effects satisfies the goal
+	is NP-hard but an approximate solution can be found in polynomial time using
+	hill-climbing.
 \end{theorem}
 
 \begin{definition}
-    A \emph{state abstraction} is a many-to-one mapping from states in the ground
-    representation of the problem to abstract states.
+	A \emph{state abstraction} is a many-to-one mapping from states in the ground
+	representation of the problem to abstract states.
 \end{definition}
 
 \begin{definition}
-    The \emph{subgoal independence} assumption is that the cost of solving a conjunction
-    of subgoals is approximated by the sum of the costs of solving each subgoal
-    \emph{independently}.
+	The \emph{subgoal independence} assumption is that the cost of solving a conjunction
+	of subgoals is approximated by the sum of the costs of solving each subgoal
+	\emph{independently}.
 \end{definition}
 
 \subsection{SAT for planning}
 
 \begin{theorem}
-    Every PDDL description may be translated into a form that can be
-    processed by SATPlan as follows:
-    \begin{enumerate}
-        \item Propositionalise the actions: replace each action schema with a set of ground actions
-              formed by substituting constants for each of the variables.
-        \item Define the intial state: Assert $F^0$ for every fluent $F$ in the problem's intial state
-              and $\neg F^0$ for every fluent not mentioned in the initial state.
-        \item Propositionalise the goal: the goal becomes a disjunction over all of its ground instances
-              where variables are replaced by constants.
-        \item Add successor-state axioms: For each fluent $F$, add an axiom of the form \begin{align*}
-                  F^{t+1} \Leftrightarrow \textsf{ActionCausesF}^t \vee (F^t \wedge \neg \textsf{ActionCausesNotF}^t)
-              \end{align*}
-              where $ACF$ is a disjunction of all the ground actions that have $F$ in
-              their add list, and $ACNF$ is a disjunction of all the ground actions that have $F$
-              in their delete list.
-        \item Add precondition axioms: For each ground action $A$, add the axiom $A^t\Rightarrow\textsf{PRE}(A)^t$,
-              that is, if an action is taken at time $t$, then the preconditions must have been true.
-        \item Add action exclusion axioms: say that exactly one ground action can occur at each step.
-    \end{enumerate}
+	Every PDDL description may be translated into a form that can be
+	processed by SATPlan as follows:
+	\begin{enumerate}
+		\item Propositionalise the actions: replace each action schema with a set of ground actions
+		      formed by substituting constants for each of the variables.
+		\item Define the intial state: Assert $F^0$ for every fluent $F$ in the problem's intial state
+		      and $\neg F^0$ for every fluent not mentioned in the initial state.
+		\item Propositionalise the goal: the goal becomes a disjunction over all of its ground instances
+		      where variables are replaced by constants.
+		\item Add successor-state axioms: For each fluent $F$, add an axiom of the form \begin{align*}
+			      F^{t+1} \Leftrightarrow \textsf{ActionCausesF}^t \vee (F^t \wedge \neg \textsf{ActionCausesNotF}^t)
+		      \end{align*}
+		      where $ACF$ is a disjunction of all the ground actions that have $F$ in
+		      their add list, and $ACNF$ is a disjunction of all the ground actions that have $F$
+		      in their delete list.
+		\item Add precondition axioms: For each ground action $A$, add the axiom $A^t\Rightarrow\textsf{PRE}(A)^t$,
+		      that is, if an action is taken at time $t$, then the preconditions must have been true.
+		\item Add action exclusion axioms: say that exactly one ground action can occur at each step.
+	\end{enumerate}
 \end{theorem}
 
 \subsection{Partially ordered plans}
 
 \begin{definition}
-    A \emph{plan} is a set of actions and a set of constraints of the form $\textsf{Before}(a_i, a_j)$ saying
-    that one action occurs before another. A \emph{flaw} is anything that keeps a partial plan from
-    being a solution.
-    Such a partially ordered plan may be constructed by making the least commitment possible to fix the
-    current flaw.
+	A \emph{plan} is a set of actions and a set of constraints of the form $\textsf{Before}(a_i, a_j)$ saying
+	that one action occurs before another. A \emph{flaw} is anything that keeps a partial plan from
+	being a solution.
+	Such a partially ordered plan may be constructed by making the least commitment possible to fix the
+	current flaw.
 \end{definition}
 
 \subsection{Planning in nondeterministic domains}
@@ -1016,47 +1016,47 @@ Runtime: $O(kt)$
 \subsubsection{Sensorless planning}
 
 \begin{itemize}
-    \item Sensorless planning requires an open-world assumption.
-    \item The belief state corresponds to all the states that satisfy the formula.
-    \item In a given belief state $b$, the agent can consider any action whose preconditions are satisfied by $b$.
+	\item Sensorless planning requires an open-world assumption.
+	\item The belief state corresponds to all the states that satisfy the formula.
+	\item In a given belief state $b$, the agent can consider any action whose preconditions are satisfied by $b$.
 \end{itemize}
 
 \begin{theorem}[R\&N p. 418]
-    The family of belief states defined as conjunctions of literals is closed under updates defined by PDDL
-    action schemas.
+	The family of belief states defined as conjunctions of literals is closed under updates defined by PDDL
+	action schemas.
 \end{theorem}
 
 \begin{definition}
-    \emph{Conditional effects} occur in action schemas of the form
-    \begin{align*}
-        Action(A,
-        \textsf{Effect:}\textbf{ when }c_1: e_1 \wedge \cdots \wedge \textbf{when }c_n: e_n)
-    \end{align*}
+	\emph{Conditional effects} occur in action schemas of the form
+	\begin{align*}
+		Action(A,
+		\textsf{Effect:}\textbf{ when }c_1: e_1 \wedge \cdots \wedge \textbf{when }c_n: e_n)
+	\end{align*}
 \end{definition}
 
 \subsubsection{Online replanning}
 
 \begin{definition}[R\&N p. 423]
-    Online replanning is required if the agent's model is incomplete.
-    This can be caused by the following flaws in the model:
-    \begin{itemize}
-        \item \emph{missing precondition}
-        \item \emph{missing effect}
-        \item \emph{missing state variable}
-        \item missing provision for \emph{exogenous events}
-    \end{itemize}
+	Online replanning is required if the agent's model is incomplete.
+	This can be caused by the following flaws in the model:
+	\begin{itemize}
+		\item \emph{missing precondition}
+		\item \emph{missing effect}
+		\item \emph{missing state variable}
+		\item missing provision for \emph{exogenous events}
+	\end{itemize}
 \end{definition}
 
 \begin{definition}[R\&N p. 423]
-    There are three levels of monitoring the environment:
-    \begin{itemize}
-        \item \emph{action monitoring}: before executing an action, the agent verifies that
-              all the preconditions still hold
-        \item \emph{plan monitoring}: before executing an action, the agent verifies that the
-              remaining plan will still succed
-        \item \emph{goal monitoring}: before executing an action, the agent checks to see
-              if there is a better set of goals it could be trying to achieve
-    \end{itemize}
+	There are three levels of monitoring the environment:
+	\begin{itemize}
+		\item \emph{action monitoring}: before executing an action, the agent verifies that
+		      all the preconditions still hold
+		\item \emph{plan monitoring}: before executing an action, the agent verifies that the
+		      remaining plan will still succed
+		\item \emph{goal monitoring}: before executing an action, the agent checks to see
+		      if there is a better set of goals it could be trying to achieve
+	\end{itemize}
 \end{definition}
 
 \subsection{Hierarchical planning}
@@ -1064,75 +1064,75 @@ Runtime: $O(kt)$
 \subsubsection{High-level actions}
 
 \begin{definition}[HLA, R\&N p. 406]
-    A \emph{high-level action} (HLA) is an action that has one or more possible
-    \emph{refinements}, into a sequence of actions, each of which may be high-level
-    or primitive.\\
-    An HLA refinement that contains only primitive actions is called an
-    \emph{implementation}.
+	A \emph{high-level action} (HLA) is an action that has one or more possible
+	\emph{refinements}, into a sequence of actions, each of which may be high-level
+	or primitive.\\
+	An HLA refinement that contains only primitive actions is called an
+	\emph{implementation}.
 \end{definition}
 
 \begin{definition}[R\&N p. 407]
-    A high-level plan (a sequence of HLAs) achieves the goal from a given state
-    if at least one of its implementations achieves the goal from that state.
+	A high-level plan (a sequence of HLAs) achieves the goal from a given state
+	if at least one of its implementations achieves the goal from that state.
 \end{definition}
 
 \subsubsection{Search for primitive solutions}
 
 \begin{theorem}[R\&N p. 409]
-    Suppose each HLA has $r$ possible refinement, each into $k$ actions at the
-    next lower level. Then, if there are $d$ actions at the primitive level,
-    there are
-    \begin{align*}
-        r^{(d-1)/(k-1)}
-    \end{align*}
-    possible decomposition trees.
+	Suppose each HLA has $r$ possible refinement, each into $k$ actions at the
+	next lower level. Then, if there are $d$ actions at the primitive level,
+	there are
+	\begin{align*}
+		r^{(d-1)/(k-1)}
+	\end{align*}
+	possible decomposition trees.
 \end{theorem}
 
 \subsubsection{Searching for abstract solutions}
 
 \begin{definition}[R\&N p. 410]
-    The \emph{downward refinement property} for HLA descriptions states that
-    a high-level plan must have at least one implementations that achieves the
-    goal.
+	The \emph{downward refinement property} for HLA descriptions states that
+	a high-level plan must have at least one implementations that achieves the
+	goal.
 \end{definition}
 
 \begin{definition}[R\&N p. 411]
-    Given a state $s$, the \emph{reachable set} for an HLA $h$, written as
-    $\textsf{REACH}(s,h)$, is the set of states reachable by any of the HLA's
-    implementations.
+	Given a state $s$, the \emph{reachable set} for an HLA $h$, written as
+	$\textsf{REACH}(s,h)$, is the set of states reachable by any of the HLA's
+	implementations.
 \end{definition}
 
 \begin{definition}
-    In \emph{demonic nondeterminism} a high-level plan achieves the goal if
-    its reachable set is fully contained in the set of goal states.
-    On the other hand, \emph{angelic nondeterminism} only requires the two
-    sets to intersect for the plan to achieve the goal.
+	In \emph{demonic nondeterminism} a high-level plan achieves the goal if
+	its reachable set is fully contained in the set of goal states.
+	On the other hand, \emph{angelic nondeterminism} only requires the two
+	sets to intersect for the plan to achieve the goal.
 \end{definition}
 
 \begin{theorem}[R\&N p. 412]
-    An HLA under angelic semantics can have one of nine different effects on
-    a variable $A$. There are two cases: $A$ is true or $A$ is false. In both
-    cases there are three different effects:
-    \begin{enumerate}
-        \item $A$ is always true afterwards
-        \item $A$ is never true afterwards
-        \item the agent can choose the truth value of $A$
-    \end{enumerate}
-    The effects in both cases can be combined independently.
+	An HLA under angelic semantics can have one of nine different effects on
+	a variable $A$. There are two cases: $A$ is true or $A$ is false. In both
+	cases there are three different effects:
+	\begin{enumerate}
+		\item $A$ is always true afterwards
+		\item $A$ is never true afterwards
+		\item the agent can choose the truth value of $A$
+	\end{enumerate}
+	The effects in both cases can be combined independently.
 \end{theorem}
 
 \begin{definition}
-    Each HLA has two approximations:
-    \begin{itemize}
-        \item an \emph{optimistic description} $\textsf{REACH}^+(s,h)$ that may
-              overstate the reachable set, and
-        \item a \emph{pessimistic description} $\textsf{REACH}^-(s,h)$ that may
-              understate the reachable set.
-    \end{itemize}
-    We thus have
-    \begin{align*}
-        \textsf{REACH}^-(s,h) \subseteq\textsf{REACH}(s,h)\subseteq\textsf{REACH}^+(s,h).
-    \end{align*}
+	Each HLA has two approximations:
+	\begin{itemize}
+		\item an \emph{optimistic description} $\textsf{REACH}^+(s,h)$ that may
+		      overstate the reachable set, and
+		\item a \emph{pessimistic description} $\textsf{REACH}^-(s,h)$ that may
+		      understate the reachable set.
+	\end{itemize}
+	We thus have
+	\begin{align*}
+		\textsf{REACH}^-(s,h) \subseteq\textsf{REACH}(s,h)\subseteq\textsf{REACH}^+(s,h).
+	\end{align*}
 \end{definition}
 
 
@@ -1142,47 +1142,47 @@ Runtime: $O(kt)$
 \subsection{Acting under uncertainty}
 
 \begin{definition}[R\&N p. 480]
-    \emph{Uncertainty} arises when an agent may not know for certain what state
-    it's in or where it will end up after a sequence of actions. There are
-    two main reasons for uncertainty:
-    \begin{itemize}
-        \item partial observability
-        \item nondeterminism
-    \end{itemize}
+	\emph{Uncertainty} arises when an agent may not know for certain what state
+	it's in or where it will end up after a sequence of actions. There are
+	two main reasons for uncertainty:
+	\begin{itemize}
+		\item partial observability
+		\item nondeterminism
+	\end{itemize}
 \end{definition}
 
 \begin{lemma}
-    Keeping track of a belief state as a recipe for creating agent programs
-    has the following drawbacks:
-    \begin{itemize}
-        \item The agent must consider every logically possible explanation, regardless of likelihood.
-        \item Handling every eventuality will lead to an arbitrarily large plan.
-        \item If no plan exists that is guaranteed to achieve the goal, the agent still has to find some action.
-    \end{itemize}
+	Keeping track of a belief state as a recipe for creating agent programs
+	has the following drawbacks:
+	\begin{itemize}
+		\item The agent must consider every logically possible explanation, regardless of likelihood.
+		\item Handling every eventuality will lead to an arbitrarily large plan.
+		\item If no plan exists that is guaranteed to achieve the goal, the agent still has to find some action.
+	\end{itemize}
 \end{lemma}
 
 \begin{definition}[R\&N p. 481]
-    The \emph{rational decision} depends on both the relative importance of various goals and the
-    likelihood that, and degree to which, they will be achieved.
+	The \emph{rational decision} depends on both the relative importance of various goals and the
+	likelihood that, and degree to which, they will be achieved.
 \end{definition}
 
 \begin{theorem}
-    In general, there are three main reasons why trying to use logic
-    to cope with some specific domain may fail:
-    \begin{enumerate}
-        \item \emph{Laziness}: It is too much work to construct an
-              exceptionless rule and too hard to use such rules.
-        \item \emph{Theoretical ignorance}: There exists no complete theory for the domain.
-        \item \emph{Practical ignorance}: Not all the necessary observations
-              in a particular case have been or even can be made.
-    \end{enumerate}
-    An agent in such a domain can at best provide only a \emph{degree of belief}.
+	In general, there are three main reasons why trying to use logic
+	to cope with some specific domain may fail:
+	\begin{enumerate}
+		\item \emph{Laziness}: It is too much work to construct an
+		      exceptionless rule and too hard to use such rules.
+		\item \emph{Theoretical ignorance}: There exists no complete theory for the domain.
+		\item \emph{Practical ignorance}: Not all the necessary observations
+		      in a particular case have been or even can be made.
+	\end{enumerate}
+	An agent in such a domain can at best provide only a \emph{degree of belief}.
 \end{theorem}
 
 \begin{definition}[Maximum expected utility, R\&N p. 483 ]
-    The \emph{principle of maximum expected utility} (MEU) states that an agent is rational
-    if and only if it chooses the action that yieldsd the highest expected utility,
-    averaged over all possible outcomes of the action.
+	The \emph{principle of maximum expected utility} (MEU) states that an agent is rational
+	if and only if it chooses the action that yieldsd the highest expected utility,
+	averaged over all possible outcomes of the action.
 \end{definition}
 
 \subsection{Introduction to probability theory}
@@ -1191,149 +1191,149 @@ Runtime: $O(kt)$
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
 \begin{definition}[R\&N p. 484]
-    The \emph{sample space} is the set of all possible worlds.
-    The possible worlds are mutually exclusive and exhaustive, i.e.
-    two possible worlds cannot both be the case and one possible world must
-    be the case.
+	The \emph{sample space} is the set of all possible worlds.
+	The possible worlds are mutually exclusive and exhaustive, i.e.
+	two possible worlds cannot both be the case and one possible world must
+	be the case.
 \end{definition}
 
 \begin{definition}
-    A fully specified \emph{probability model} associates a numerical probability
-    $P(\omega)$ with each possible world. The following axioms hold for every
-    model with sample space $\Omega$:
-    \begin{enumerate}[label=P\arabic*.]
-        \item $\forall \omega\in\Omega.\:0\leq P(\omega)\leq 1$
-        \item $\sum_{\omega\in\Omega} P(\omega)=1$
-    \end{enumerate}
+	A fully specified \emph{probability model} associates a numerical probability
+	$P(\omega)$ with each possible world. The following axioms hold for every
+	model with sample space $\Omega$:
+	\begin{enumerate}[label=P\arabic*.]
+		\item $\forall \omega\in\Omega.\:0\leq P(\omega)\leq 1$
+		\item $\sum_{\omega\in\Omega} P(\omega)=1$
+	\end{enumerate}
 \end{definition}
 
 \begin{definition}
-    An \emph{event} is a set of worlds $\phi\subseteq \Omega$ such that
-    for some proposition $Q$ and for all $\omega\in\Omega$
-    \begin{align*}
-        \omega\in \phi\hs\Leftrightarrow\hs Q(\omega).
-    \end{align*}
-    The probability associated with $\phi$ is
-    \begin{align*}
-        P(\phi)=\sum_{\omega\in\phi} P(\omega).
-    \end{align*}
+	An \emph{event} is a set of worlds $\phi\subseteq \Omega$ such that
+	for some proposition $Q$ and for all $\omega\in\Omega$
+	\begin{align*}
+		\omega\in \phi\hs\Leftrightarrow\hs Q(\omega).
+	\end{align*}
+	The probability associated with $\phi$ is
+	\begin{align*}
+		P(\phi)=\sum_{\omega\in\phi} P(\omega).
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-    A \emph{possible world} is an assignment of values to all of the RV's
-    under consideration.
+	A \emph{possible world} is an assignment of values to all of the RV's
+	under consideration.
 \end{definition}
 
 \begin{theorem}[De Finetti]
-    If an agent $A$ expresses a set of degrees of belief that violate
-    the axioms of probability theory then there is a combination of
-    bets by another agent $B$ that guarantees that $A$ will lose money
-    every time.
+	If an agent $A$ expresses a set of degrees of belief that violate
+	the axioms of probability theory then there is a combination of
+	bets by another agent $B$ that guarantees that $A$ will lose money
+	every time.
 \end{theorem}
 
 \subsection{Probabilistic inference}
 
 \begin{lemma}[R\&N p. 493]
-    Let $\vec E$ be the list of evidence variables, let $\vec e$ be the list of observed
-    values for them, and let $\vec Y$ be the remaining unobserved variables. The query
-    $\P(X|\vec e)$ can be evaluated as
-    \begin{align*}
-        \P(X|\vec e) = \alpha\P(X, \vec e) = \alpha \sum_{\vec y} \P(X,\vec e, \vec y),
-    \end{align*}
-    where the summation is over all possible combinations of values of the variables in
-    $\vec Y$.
+	Let $\vec E$ be the list of evidence variables, let $\vec e$ be the list of observed
+	values for them, and let $\vec Y$ be the remaining unobserved variables. The query
+	$\P(X|\vec e)$ can be evaluated as
+	\begin{align*}
+		\P(X|\vec e) = \alpha\P(X, \vec e) = \alpha \sum_{\vec y} \P(X,\vec e, \vec y),
+	\end{align*}
+	where the summation is over all possible combinations of values of the variables in
+	$\vec Y$.
 \end{lemma}
 
 \begin{definition}[R\&N p. 494]
-    Two propositions $a$ and $b$ are called \emph{independent} if
-    \begin{align*}
-        P(a|b) = P(a).
-    \end{align*}
-    Similarly, two variables are independent if
-    \begin{align*}
-        \P(X|Y) = \P(X).
-    \end{align*}
+	Two propositions $a$ and $b$ are called \emph{independent} if
+	\begin{align*}
+		P(a|b) = P(a).
+	\end{align*}
+	Similarly, two variables are independent if
+	\begin{align*}
+		\P(X|Y) = \P(X).
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[General Bayes' rule, R\&N p. 497]
-    Let $X$ and $Y$ be random variables. Then
-    \begin{align*}
-        \P(Y|X) = \alpha \P(X|Y)\P(Y).
-    \end{align*}
+	Let $X$ and $Y$ be random variables. Then
+	\begin{align*}
+		\P(Y|X) = \alpha \P(X|Y)\P(Y).
+	\end{align*}
 \end{theorem}
 
 \begin{definition}[R\&N p. 498]
-    Given a variable $Z$, two variables $X$ and $Y$ are conditionally independent
-    if
-    \begin{align*}
-        \P(X,Y|Z) = \P(X|Z)\P(Y|Z).
-    \end{align*}
+	Given a variable $Z$, two variables $X$ and $Y$ are conditionally independent
+	if
+	\begin{align*}
+		\P(X,Y|Z) = \P(X|Z)\P(Y|Z).
+	\end{align*}
 \end{definition}
 
 \subsection{Bayesian networks}
 
 \begin{definition}[R\&N p. 511]
-    A \emph{Bayesian network} is a directed graph in which each node is
-    annotated with quantitative probability information. The full sepcification
-    is as follows:
-    \begin{enumerate}
-        \item Each node corresponds to a random variable, which may be discrete or cointinuous.
-        \item A set of directed links or arrows connects pairs of nodes. If there is an arrow
-              from node $X$ to node $Y$, $X$ is said to be a parent of $Y$. The graph has no directed cycles.
-        \item Each node $X_i$ has a conditional probability distribution $\P(X_i|Parents(X_i))$ that
-              quantifies the effect of the parents on the node.
-    \end{enumerate}
+	A \emph{Bayesian network} is a directed graph in which each node is
+	annotated with quantitative probability information. The full sepcification
+	is as follows:
+	\begin{enumerate}
+		\item Each node corresponds to a random variable, which may be discrete or cointinuous.
+		\item A set of directed links or arrows connects pairs of nodes. If there is an arrow
+		      from node $X$ to node $Y$, $X$ is said to be a parent of $Y$. The graph has no directed cycles.
+		\item Each node $X_i$ has a conditional probability distribution $\P(X_i|Parents(X_i))$ that
+		      quantifies the effect of the parents on the node.
+	\end{enumerate}
 \end{definition}
 
 \begin{proposition}[R\&N p. 513]
-    Let $x_1, ..., x_n$ be values of the random variables $X_1,...,X_n$. Then
-    \begin{align*}
-        P(x_1, ..., x_n) = \prod_{i=1}^n P(x_i | \textsf{parents}(X_i))
-    \end{align*}
-    where $\textsf{parents}(X_i)$ denotes the values of $\textsf{Parents}(X_i)$ that
-    appear in $x_1, ..., x_n$.
+	Let $x_1, ..., x_n$ be values of the random variables $X_1,...,X_n$. Then
+	\begin{align*}
+		P(x_1, ..., x_n) = \prod_{i=1}^n P(x_i | \textsf{parents}(X_i))
+	\end{align*}
+	where $\textsf{parents}(X_i)$ denotes the values of $\textsf{Parents}(X_i)$ that
+	appear in $x_1, ..., x_n$.
 \end{proposition}
 
 \begin{definition}[R\&N p. 518]
-    The \emph{noisy-OR} relation is a generalisation of the logical OR. Let $X_i$ be a boolean
-    random variable with parents $X_1, ..., X_k$. Then
-    \begin{align*}
-        P(x_i|X_1, ..., X_k) = 1 - \prod_{\{j:X_j = true\}} q_j
-    \end{align*}
-    where $q_1,...,q_k$ are the \emph{inhibition probabilities} for each parent
-    \begin{align*}
-        q_j = P(\neg x_i | \neg x_1, ..., \neg x_{j-1}, x_j, \neg x_{j+1}, ..., \neg x_k).
-    \end{align*}
+	The \emph{noisy-OR} relation is a generalisation of the logical OR. Let $X_i$ be a boolean
+	random variable with parents $X_1, ..., X_k$. Then
+	\begin{align*}
+		P(x_i|X_1, ..., X_k) = 1 - \prod_{\{j:X_j = true\}} q_j
+	\end{align*}
+	where $q_1,...,q_k$ are the \emph{inhibition probabilities} for each parent
+	\begin{align*}
+		q_j = P(\neg x_i | \neg x_1, ..., \neg x_{j-1}, x_j, \neg x_{j+1}, ..., \neg x_k).
+	\end{align*}
 \end{definition}
 
 \begin{definition}[R\&N p. 522]
-    Let $X$ be a random variable called the \emph{query variable}, let $\vec E=\{E_1,...,E_m\}$
-    be a set of \emph{evidence variables}, let $\vec e$ be a particular observed event and let
-    $\vec Y=\{Y_1, ..., Y_l\}$ denote the set of nonevidence, nonquery variables (also
-    called the \emph{hidden variables}). Then the complete set of variables is
-    $\vec X = \{X\}\cup \vec E \cup \vec Y$.\\
-    A \emph{probabilistic inference system} then computes the posterior probability distribution
-    $\P(X|\vec e)$.
+	Let $X$ be a random variable called the \emph{query variable}, let $\vec E=\{E_1,...,E_m\}$
+	be a set of \emph{evidence variables}, let $\vec e$ be a particular observed event and let
+	$\vec Y=\{Y_1, ..., Y_l\}$ denote the set of nonevidence, nonquery variables (also
+	called the \emph{hidden variables}). Then the complete set of variables is
+	$\vec X = \{X\}\cup \vec E \cup \vec Y$.\\
+	A \emph{probabilistic inference system} then computes the posterior probability distribution
+	$\P(X|\vec e)$.
 \end{definition}
 
 \begin{theorem}[R\&N p. 523]
-    Any query can be answered using a Bayesian network by computing sums of products of
-    conditional probabilities from the network.
+	Any query can be answered using a Bayesian network by computing sums of products of
+	conditional probabilities from the network.
 \end{theorem}
 
 \begin{theorem}[Complexity of exact inference, R\&N p. 528]
-    The time and space complexity of exact inference in \emph{polytrees}, i.e. networks where there exists at most one
-    undirected path between any two nodes, is linar in the size of the network.
+	The time and space complexity of exact inference in \emph{polytrees}, i.e. networks where there exists at most one
+	undirected path between any two nodes, is linar in the size of the network.
 
-    In general, inference in Bayesian networks is NP-hard.
+	In general, inference in Bayesian networks is NP-hard.
 \end{theorem}
 
 \begin{definition}
-    A \emph{consistent} estimate $\hat p_N$ of a probability $p$ becomes exact in the large sample limit. I.e.
-    \begin{align*}
-        \lim_{N\to\infty} \hat p_N = p
-    \end{align*}
-    where $N$ is the sample size used to calculate $\hat p_N$.
+	A \emph{consistent} estimate $\hat p_N$ of a probability $p$ becomes exact in the large sample limit. I.e.
+	\begin{align*}
+		\lim_{N\to\infty} \hat p_N = p
+	\end{align*}
+	where $N$ is the sample size used to calculate $\hat p_N$.
 \end{definition}
 
 \paragraph{Rejection sampling} (R\&N p. 532) is a general method of producing samples from a hard-to-sample
@@ -1356,139 +1356,139 @@ conditioned on the current values of the variables in the Markov blanket of $X_i
 \subsection{Time and uncertainty}
 
 \begin{definition}[R\&N p. 568]
-    A \emph{stationary process} is a process of change that is governed by laws
-    that do not themselves change over time.
+	A \emph{stationary process} is a process of change that is governed by laws
+	that do not themselves change over time.
 \end{definition}
 
 \begin{definition}
-    The \emph{Markov assumption} states that the current
-    state depends on only a finite fixed number of previous states.
+	The \emph{Markov assumption} states that the current
+	state depends on only a finite fixed number of previous states.
 \end{definition}
 
 \subsection{Inference in temporal models}
 
 \begin{proposition}[R\&N p. 570]
-    The basic inference tasks that must be solved are
-    \begin{enumerate}
-        \item \emph{Filtering}: Computing the belief state given all the evidence to date.
-              I.e. \[\P(\vec X_t | \vec e_{1:t}) \text{ for some } t>0.\]
-        \item \emph{Prediction}: Computing the posterior distribution over the future
-              state given all evidence to date. I.e. \[\P(\vec X_{t+k}|\vec e_{1:t})\text{ for some }t,k>0.\]
-        \item \emph{Smoothing}: Computing the posterior distribution over a past state, given all evidence
-              up to the present. I.e. \[\P(\vec X_k | \vec e_{1:t}) \text{ for some } t>k>0.\]
-        \item \emph{Most likely explanation}: Computing the sequence of states that is mostlikely to have
-              generated a sequence of observations. I.e. \[\P(\vec x_{1:t}|\vec e_{1:t}).\]
-    \end{enumerate}
+	The basic inference tasks that must be solved are
+	\begin{enumerate}
+		\item \emph{Filtering}: Computing the belief state given all the evidence to date.
+		      I.e. \[\P(\vec X_t | \vec e_{1:t}) \text{ for some } t>0.\]
+		\item \emph{Prediction}: Computing the posterior distribution over the future
+		      state given all evidence to date. I.e. \[\P(\vec X_{t+k}|\vec e_{1:t})\text{ for some }t,k>0.\]
+		\item \emph{Smoothing}: Computing the posterior distribution over a past state, given all evidence
+		      up to the present. I.e. \[\P(\vec X_k | \vec e_{1:t}) \text{ for some } t>k>0.\]
+		\item \emph{Most likely explanation}: Computing the sequence of states that is mostlikely to have
+		      generated a sequence of observations. I.e. \[\P(\vec x_{1:t}|\vec e_{1:t}).\]
+	\end{enumerate}
 \end{proposition}
 
 
 \begin{definition}
-    \emph{Recursive estimation} is the process of computing the distribution $\P(\vec X_{t+1}|\vec e_{1:t+1})$
-    given the new evidence $e_{t+1}$ and the previous distribution $\P(\vec X_t|\vec e_{1:t})$. In other words,
-    it is given by a function $f$ such that
-    \begin{align*}
-        \P(\vec X_{t+1}|\vec e_{1:t+1})=f(\vec e_{t+1}, \P(\vec X_t|\vec e_{1:t})).
-    \end{align*}
+	\emph{Recursive estimation} is the process of computing the distribution $\P(\vec X_{t+1}|\vec e_{1:t+1})$
+	given the new evidence $e_{t+1}$ and the previous distribution $\P(\vec X_t|\vec e_{1:t})$. In other words,
+	it is given by a function $f$ such that
+	\begin{align*}
+		\P(\vec X_{t+1}|\vec e_{1:t+1})=f(\vec e_{t+1}, \P(\vec X_t|\vec e_{1:t})).
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[R\&N p. 572]
-    By conditioning on the current state $\vec X_t$ we obtain the one-step prediction for the
-    next state
-    \begin{align*}
-        \P(\vec X_{t+1}|\vec e_{1:t+1}) = \alpha \P(\vec e_{t+1}|\vec X_{t+1})\sum_{\vec x_t} \P(\vec X_{t+1}|\vec x_t)P(\vec x_t|e_{1:t}).
-    \end{align*}
+	By conditioning on the current state $\vec X_t$ we obtain the one-step prediction for the
+	next state
+	\begin{align*}
+		\P(\vec X_{t+1}|\vec e_{1:t+1}) = \alpha \P(\vec e_{t+1}|\vec X_{t+1})\sum_{\vec x_t} \P(\vec X_{t+1}|\vec x_t)P(\vec x_t|e_{1:t}).
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    The time and space requirements for updating must be constant if
-    an agent with limited memory is to keep track of the current state
-    distribution over an unbounded sequence of observations.
+	The time and space requirements for updating must be constant if
+	an agent with limited memory is to keep track of the current state
+	distribution over an unbounded sequence of observations.
 \end{theorem}
 
 \begin{theorem}[R\&N p. 574]
-    Given a time $t>k>0$ and evidence $\vec e_{1:t}$ we can compute the
-    past state $\vec X_k$ as follows
-    \begin{align*}
-        \P(\vec X_k|\vec e_{1:t}) = \alpha\P(\vec X_k|\vec e_{1:k})
-        \P(\vec e_{k+1:t} | \vec X_k) =: \alpha\vec f_{1:k}\times\vec b_{k+1:t}
-    \end{align*}
-    where $\times$ is pointwise multiplication and $\vec b_{k+1:t}$ can be
-    computed recursively with
-    \begin{align*}
-        \P(\vec e_{k+1:t}|\vec X_k) = \sum_{x_{k+1}}
-        P(\vec e_{k+1}|\vec x_{k+1})P(\vec e_{k+2:t})\P(\vec x_{k+1}|\vec X_k).
-    \end{align*}
+	Given a time $t>k>0$ and evidence $\vec e_{1:t}$ we can compute the
+	past state $\vec X_k$ as follows
+	\begin{align*}
+		\P(\vec X_k|\vec e_{1:t}) = \alpha\P(\vec X_k|\vec e_{1:k})
+		\P(\vec e_{k+1:t} | \vec X_k) =: \alpha\vec f_{1:k}\times\vec b_{k+1:t}
+	\end{align*}
+	where $\times$ is pointwise multiplication and $\vec b_{k+1:t}$ can be
+	computed recursively with
+	\begin{align*}
+		\P(\vec e_{k+1:t}|\vec X_k) = \sum_{x_{k+1}}
+		P(\vec e_{k+1}|\vec x_{k+1})P(\vec e_{k+2:t})\P(\vec x_{k+1}|\vec X_k).
+	\end{align*}
 \end{theorem}
 
 \subsection{Matrix algorithms}
 
 \begin{theorem}[R\&N p. 579]
-    Let the state variable $X_t$ have values denoted by
-    integers $1,...,S$. The transition model $\P(X_t|X_{t-1})$
-    becomes an $S\times S$ matrix $\vec T$ where
-    \begin{align*}
-        T_{ij} = P(X_t=j|X_{t-1}=i).
-    \end{align*}
-    Let $\vec O_t$ be an $S\times S$ diagonal matrix whose $i$th
-    diagonal entry is $P(e_t|X_t=i)$. Then
-    \begin{align*}
-        \vec f_{1:t+1} = \alpha \vec O_{t+1}\vec T^\top \vec f_{1:t}
-        \hs\text{and}\hs
-        \vec b_{k+1:t} = \vec T\vec O_{k+1}\vec b_{k+2:t}.
-    \end{align*}
+	Let the state variable $X_t$ have values denoted by
+	integers $1,...,S$. The transition model $\P(X_t|X_{t-1})$
+	becomes an $S\times S$ matrix $\vec T$ where
+	\begin{align*}
+		T_{ij} = P(X_t=j|X_{t-1}=i).
+	\end{align*}
+	Let $\vec O_t$ be an $S\times S$ diagonal matrix whose $i$th
+	diagonal entry is $P(e_t|X_t=i)$. Then
+	\begin{align*}
+		\vec f_{1:t+1} = \alpha \vec O_{t+1}\vec T^\top \vec f_{1:t}
+		\hs\text{and}\hs
+		\vec b_{k+1:t} = \vec T\vec O_{k+1}\vec b_{k+2:t}.
+	\end{align*}
 \end{theorem}
 
 \subsection{Dyanamic Bayesian networks}
 
 \begin{definition}[R\&N p. 591]
-    To construct a \emph{dynamic Bayesian network} three kinds of information
-    are required:
-    \begin{enumerate}
-        \item $\P(\vec X_0)$, the prior distribution over the state variables,
-        \item $\P(\vec X_{t+1}|\vec X_t)$, the transition model,
-        \item $\P(\vec E_t | \vec X_t)$, the sensor model.
-    \end{enumerate}
-    Since the transition and sensor model are assumed to be stationary they only
-    need to be specified for the first slice.
+	To construct a \emph{dynamic Bayesian network} three kinds of information
+	are required:
+	\begin{enumerate}
+		\item $\P(\vec X_0)$, the prior distribution over the state variables,
+		\item $\P(\vec X_{t+1}|\vec X_t)$, the transition model,
+		\item $\P(\vec E_t | \vec X_t)$, the sensor model.
+	\end{enumerate}
+	Since the transition and sensor model are assumed to be stationary they only
+	need to be specified for the first slice.
 \end{definition}
 
 \begin{definition}[R\&N p. 593]
-    The \emph{transient failure model} handles transient failures, i.e. occasional invalid
-    values, of a sensor $S$ by assigning a non-zero probability for receiving an invalid
-    value at each point in time, regardless of the evidence.
+	The \emph{transient failure model} handles transient failures, i.e. occasional invalid
+	values, of a sensor $S$ by assigning a non-zero probability for receiving an invalid
+	value at each point in time, regardless of the evidence.
 \end{definition}
 
 \begin{definition}
-    The \emph{persistent failure model} handles persistent failures, i.e. consistent invalid
-    outputs from some point in time onwards, of a sensor $S$ by introducing
-    a variable $B_{S,t}$ that indicates whether $S$ is in a failure state. Between each pair
-    $B_{S,t}, B_{S,t+1}$ there exists a \emph{persistence arc} that specifies that the sensor can
-    fail with a small probability at each time step but once  it has failed it will never recover.
+	The \emph{persistent failure model} handles persistent failures, i.e. consistent invalid
+	outputs from some point in time onwards, of a sensor $S$ by introducing
+	a variable $B_{S,t}$ that indicates whether $S$ is in a failure state. Between each pair
+	$B_{S,t}, B_{S,t+1}$ there exists a \emph{persistence arc} that specifies that the sensor can
+	fail with a small probability at each time step but once  it has failed it will never recover.
 \end{definition}
 
 \begin{theorem}[R\&N p. 595]
-    Inference in dynamic Bayesian networks at some point in time $t$ can be achieved by unrolling
-    in to the finite Bayesian network up to and including $t$ and applying standard Bayesian
-    inference in $O(t)$ time.
+	Inference in dynamic Bayesian networks at some point in time $t$ can be achieved by unrolling
+	in to the finite Bayesian network up to and including $t$ and applying standard Bayesian
+	inference in $O(t)$ time.
 \end{theorem}
 
 \begin{definition}[R\&N p. 597]
-    \emph{Particle filtering} describes a family of algorithms that are designed
-    for approximate inference in dynamic Bayesian networks. Initially, a population of
-    $N$ initial-state samples is created by sampling from $\P(\vec X_0)$. Then at each
-    step the following update cycle is repeated:
-    \begin{enumerate}
-        \item Each sample is propagated forward by sampling the next state value $\vec x_{t+1}$
-              given the current state value $\vec x_t$ based on the transition model $\P(\vec X_{t+1}|\vec x_t)$.
-        \item Each sample is weighted by the likelihood it assigns to the new evidence, $P(\vec e_{t+1}|\vec x_{t+1})$.
-        \item The population is resampled to generate a new population of $N$ samples. Each new sample is
-              selected from the current population; the probability that a particular sample is selected is proportional
-              to its weight. The new samples are unweighted.
-    \end{enumerate}
+	\emph{Particle filtering} describes a family of algorithms that are designed
+	for approximate inference in dynamic Bayesian networks. Initially, a population of
+	$N$ initial-state samples is created by sampling from $\P(\vec X_0)$. Then at each
+	step the following update cycle is repeated:
+	\begin{enumerate}
+		\item Each sample is propagated forward by sampling the next state value $\vec x_{t+1}$
+		      given the current state value $\vec x_t$ based on the transition model $\P(\vec X_{t+1}|\vec x_t)$.
+		\item Each sample is weighted by the likelihood it assigns to the new evidence, $P(\vec e_{t+1}|\vec x_{t+1})$.
+		\item The population is resampled to generate a new population of $N$ samples. Each new sample is
+		      selected from the current population; the probability that a particular sample is selected is proportional
+		      to its weight. The new samples are unweighted.
+	\end{enumerate}
 \end{definition}
 
 \begin{theorem}[R\&N p. 599]
-    Particle filtering is consistent.
+	Particle filtering is consistent.
 \end{theorem}
 
 \section{Making simple decisions}
@@ -1496,86 +1496,86 @@ conditioned on the current values of the variables in the Markov blanket of $X_i
 \subsection{Basics of utility theory}
 
 \begin{definition}[R\&N p. 611]
-    A \emph{utility function} $U:S\to\R$ assigns each state $s\in S$ a desirability
-    $U(s)$. The \emph{expected utility} of an action given the evidence, $EU(a|\vec e)$,
-    is the weighted average of the outcomes
-    \begin{align*}
-        EU(a|\vec e)=\sum_{s'} P(\textsf{RESULT}(a)=s'|a,\vec e)U(s').
-    \end{align*}
-    The principle of \emph{maximum expected utility} states that a rational agent
-    should choose the action that maximised the agent's expected utility.
+	A \emph{utility function} $U:S\to\R$ assigns each state $s\in S$ a desirability
+	$U(s)$. The \emph{expected utility} of an action given the evidence, $EU(a|\vec e)$,
+	is the weighted average of the outcomes
+	\begin{align*}
+		EU(a|\vec e)=\sum_{s'} P(\textsf{RESULT}(a)=s'|a,\vec e)U(s').
+	\end{align*}
+	The principle of \emph{maximum expected utility} states that a rational agent
+	should choose the action that maximised the agent's expected utility.
 \end{definition}
 
 \begin{definition}[R\&N p. 612]
-    A lottery $L$ with possible outcomes $S_1,...,S_n$ that occur with probabilities
-    $p_1,...,p_n$ is written
-    \begin{align*}
-        L=[p_1,S_1;\:p_2,S_2;\:... p_n,S_n].
-    \end{align*}
+	A lottery $L$ with possible outcomes $S_1,...,S_n$ that occur with probabilities
+	$p_1,...,p_n$ is written
+	\begin{align*}
+		L=[p_1,S_1;\:p_2,S_2;\:... p_n,S_n].
+	\end{align*}
 \end{definition}
 
 \begin{definition}[Axioms of Utility Theory]
-    Any reasonable preference relation should obey the following constraints
-    \begin{enumerate}
-        \item \emph{Orderability}: Exactly one of $A\prec B$, $A\succ B$, or $A\sim B$ holds.
-        \item \emph{Transitivity}: $(A \succ B)\wedge(B\succ C) \Rightarrow A\succ C$.
-        \item \emph{Continuity}: $A\succ B\succ C\Rightarrow \exists p.\: [p,A;\:1-p,C]\sim B$.
-        \item \emph{Substitutability}: $A\sim B\Rightarrow [p,A;\:1-p,C]\sim [p,A;\:1-p,C]$.
-        \item \emph{Monotonicity}: $A\succ B\Rightarrow (p>q\Leftrightarrow [p,A;\:1-p,B]\succ[q,A;\:1-q,B])$.
-        \item \emph{Decomposability}: $[p,A;\:1-p,[q,B;\:1-q,C]]\sim[p,A;\:(1-p)q,B;\:(1-p)(1-q),C]$.
-    \end{enumerate}
+	Any reasonable preference relation should obey the following constraints
+	\begin{enumerate}
+		\item \emph{Orderability}: Exactly one of $A\prec B$, $A\succ B$, or $A\sim B$ holds.
+		\item \emph{Transitivity}: $(A \succ B)\wedge(B\succ C) \Rightarrow A\succ C$.
+		\item \emph{Continuity}: $A\succ B\succ C\Rightarrow \exists p.\: [p,A;\:1-p,C]\sim B$.
+		\item \emph{Substitutability}: $A\sim B\Rightarrow [p,A;\:1-p,C]\sim [p,A;\:1-p,C]$.
+		\item \emph{Monotonicity}: $A\succ B\Rightarrow (p>q\Leftrightarrow [p,A;\:1-p,B]\succ[q,A;\:1-q,B])$.
+		\item \emph{Decomposability}: $[p,A;\:1-p,[q,B;\:1-q,C]]\sim[p,A;\:(1-p)q,B;\:(1-p)(1-q),C]$.
+	\end{enumerate}
 \end{definition}
 
 \begin{theorem}[R\&N p. 613]
-    If an agent's preferences obey the axioms of utility, then there
-    exists a utility function $U$ such that for any two outcomes $A$
-    and $B$
-    \begin{align*}
-        U(A) & >U(B)\Leftrightarrow A\succ B, \\
-        U(A) & =U(B)\Leftrightarrow A\sim B.
-    \end{align*}
+	If an agent's preferences obey the axioms of utility, then there
+	exists a utility function $U$ such that for any two outcomes $A$
+	and $B$
+	\begin{align*}
+		U(A) & >U(B)\Leftrightarrow A\succ B, \\
+		U(A) & =U(B)\Leftrightarrow A\sim B.
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    The utility of a lottery is given by
-    \begin{align*}
-        U([p_1,S_1;...;p_n,S_n]) = \sum_i p_i U(S_i).
-    \end{align*}
+	The utility of a lottery is given by
+	\begin{align*}
+		U([p_1,S_1;...;p_n,S_n]) = \sum_i p_i U(S_i).
+	\end{align*}
 \end{theorem}
 
 \subsection{Utility functions}
 
 \begin{definition}[R\&N p. 615]
-    The values of a utility functions can be fixed by $U(S)=u_\top$ for the
-    best possible outcome and $U(S)=u_\bot$ for the worst possible outcome.
-    If a utility function is \emph{normalised} it uses $u_\top = 1$ and
-    $u_\bot = 0$.
+	The values of a utility functions can be fixed by $U(S)=u_\top$ for the
+	best possible outcome and $U(S)=u_\bot$ for the worst possible outcome.
+	If a utility function is \emph{normalised} it uses $u_\top = 1$ and
+	$u_\bot = 0$.
 \end{definition}
 
 \subsection{Decision networks}
 
 \begin{definition}[R\&N p. 626]
-    A \emph{decision network} uses three types of nodes:
-    \begin{itemize}
-        \item \emph{Chance nodes} (ovals) represent random variables, like in Bayesian networks.
-        \item \emph{Decision nodes} (rectangles) represent points where the decision maker
-              has a choice of actions.
-        \item \emph{Utility nodes} (diamonds) represent the agent's utility function.
-    \end{itemize}
+	A \emph{decision network} uses three types of nodes:
+	\begin{itemize}
+		\item \emph{Chance nodes} (ovals) represent random variables, like in Bayesian networks.
+		\item \emph{Decision nodes} (rectangles) represent points where the decision maker
+		      has a choice of actions.
+		\item \emph{Utility nodes} (diamonds) represent the agent's utility function.
+	\end{itemize}
 \end{definition}
 
 \begin{theorem}[R\&N p. 628]
-    The algorithm for evaluating decision networks is the following:
-    \begin{enumerate}
-        \item Set the evidence variables for the current state.
-        \item For each possible value of the decision node: \begin{enumerate}
-                  \item Set the decision node to that value.
-                  \item Calculate the posterior probabilities for the parent nodes of
-                        the utility node, using a standard probabilistic inference algorithm.
-                  \item Calculate the resulting utility for the action.
-              \end{enumerate}
-        \item Return the action with the highest utility.
-    \end{enumerate}
+	The algorithm for evaluating decision networks is the following:
+	\begin{enumerate}
+		\item Set the evidence variables for the current state.
+		\item For each possible value of the decision node: \begin{enumerate}
+			      \item Set the decision node to that value.
+			      \item Calculate the posterior probabilities for the parent nodes of
+			            the utility node, using a standard probabilistic inference algorithm.
+			      \item Calculate the resulting utility for the action.
+		      \end{enumerate}
+		\item Return the action with the highest utility.
+	\end{enumerate}
 \end{theorem}
 
 
@@ -1585,120 +1585,120 @@ conditioned on the current values of the variables in the Markov blanket of $X_i
 \subsection{Sequential decision problems}
 
 \begin{definition}[MDP and policy, R\&N p. 647]
-    A sequential decision problem for a fully observable, stochastic environment
-    with a Markovian transition model and additive rewards is called a \emph{Markovian
-        decision problem} and consists of a set of states (with an initial state $s_0$),
-    a set $\textsf{ACTIONS}(s)$ of
-    actions in each state $s$, a transition model $P(s'|s,a)$, and a reward function
-    $R(s)$.\\
-    A solution for such a problem must specify the agent's behaviour for any state
-    and is called a \emph{policy}.
+	A sequential decision problem for a fully observable, stochastic environment
+	with a Markovian transition model and additive rewards is called a \emph{Markovian
+		decision problem} and consists of a set of states (with an initial state $s_0$),
+	a set $\textsf{ACTIONS}(s)$ of
+	actions in each state $s$, a transition model $P(s'|s,a)$, and a reward function
+	$R(s)$.\\
+	A solution for such a problem must specify the agent's behaviour for any state
+	and is called a \emph{policy}.
 \end{definition}
 
 \begin{definition}[R\&N p. 648]
-    Let $U_h$ be a utility function on environment histories. Then, if there exists
-    a fixed time $N$ such that for all $k\in\N$
-    \begin{align*}
-        U([s_0,s_1,...,s_{N+k}]) = U([s_0,s_1,...,s_N])
-    \end{align*}
-    we say there is a \emph{finite horizon}. Otherwise there is a \emph{infinite
-        horizon}.
+	Let $U_h$ be a utility function on environment histories. Then, if there exists
+	a fixed time $N$ such that for all $k\in\N$
+	\begin{align*}
+		U([s_0,s_1,...,s_{N+k}]) = U([s_0,s_1,...,s_N])
+	\end{align*}
+	we say there is a \emph{finite horizon}. Otherwise there is a \emph{infinite
+		horizon}.
 \end{definition}
 
 \begin{theorem}
-    With a finite horizon the optimal action in a given state can change over time.
+	With a finite horizon the optimal action in a given state can change over time.
 \end{theorem}
 
 \begin{definition}[R\&N p. 649]
-    An agent's preferences are stationary if for two state sequences
-    $[s_0, s_1, s_2, ...]$ and $[s_0', s_1', s_2'...]$ with $s_0=s_0'$ we have
-    \begin{align*}
-        [s_0, s_1, s_2, ...] \prec [s_0', s_1', s_2'...]\hs & \Leftrightarrow\hs
-        [s_1, s_2, ...] \prec [s_1', s_2', ...],                                 \\
-        [s_0, s_1, s_2, ...] \sim [s_0', s_1', s_2'...]\hs  & \Leftrightarrow\hs
-        [s_1, s_2, ...] \sim [s_1', s_2', ...].
-    \end{align*}
+	An agent's preferences are stationary if for two state sequences
+	$[s_0, s_1, s_2, ...]$ and $[s_0', s_1', s_2'...]$ with $s_0=s_0'$ we have
+	\begin{align*}
+		[s_0, s_1, s_2, ...] \prec [s_0', s_1', s_2'...]\hs & \Leftrightarrow\hs
+		[s_1, s_2, ...] \prec [s_1', s_2', ...],                                 \\
+		[s_0, s_1, s_2, ...] \sim [s_0', s_1', s_2'...]\hs  & \Leftrightarrow\hs
+		[s_1, s_2, ...] \sim [s_1', s_2', ...].
+	\end{align*}
 \end{definition}
 
 \begin{theorem}
-    Let an agent's preferences be stationary. Then there are just two coherent
-    ways to assign utilities to a sequence of states $[s_0, s_1, s_2, ...]$
-    \begin{enumerate}
-        \item \emph{Additive rewards}: The utility is \begin{align*}
-                  U_h([s_0, s_1, s_2, ...]) = R(s_0) + R(s_1) + R(s_2) + \cdots.
-              \end{align*}
-        \item \emph{Discounted rewards}: For some $\gamma\in(0,1)$ the utility is \begin{align*}
-                  U_h([s_0, s_1, s_2, ...]) = R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots.
-              \end{align*}
-    \end{enumerate}
+	Let an agent's preferences be stationary. Then there are just two coherent
+	ways to assign utilities to a sequence of states $[s_0, s_1, s_2, ...]$
+	\begin{enumerate}
+		\item \emph{Additive rewards}: The utility is \begin{align*}
+			      U_h([s_0, s_1, s_2, ...]) = R(s_0) + R(s_1) + R(s_2) + \cdots.
+		      \end{align*}
+		\item \emph{Discounted rewards}: For some $\gamma\in(0,1)$ the utility is \begin{align*}
+			      U_h([s_0, s_1, s_2, ...]) = R(s_0) + \gamma R(s_1) + \gamma^2 R(s_2) + \cdots.
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}[R\&N p. 650]
-    The utility of an infinite sequence $[s_0, s_1, s_2, ...]$ with discounted
-    rewards and a reward function bounded by $\pm \hat R$ is bounded by
-    \begin{align*}
-        U_h([s_0, s_1, s_2, ...]) = \sum_{t=0}^\infty \gamma^t R(s_t) \leq \frac{\hat R}{1-\gamma}.
-    \end{align*}
+	The utility of an infinite sequence $[s_0, s_1, s_2, ...]$ with discounted
+	rewards and a reward function bounded by $\pm \hat R$ is bounded by
+	\begin{align*}
+		U_h([s_0, s_1, s_2, ...]) = \sum_{t=0}^\infty \gamma^t R(s_t) \leq \frac{\hat R}{1-\gamma}.
+	\end{align*}
 \end{theorem}
 
 \begin{definition}
-    A policy that is guaranteed to reach a terminal state is called \emph{proper}.
+	A policy that is guaranteed to reach a terminal state is called \emph{proper}.
 \end{definition}
 
 \begin{definition}
-    The expected utility obtained by executing a policy $\pi$ starting in $s$ is given by
-    \begin{align*}
-        U^\pi(s) = E\left[\sum_{t=0}^\infty \gamma^t R(S_t)\right]
-    \end{align*}
-    where the expectation is with respect to the probability distribution over state
-    sequences determined by $s$ and $\pi$. The policy $\pi_s^*$ given by
-    \begin{align*}
-        \pi_s^*=\argmax\limits_\pi U^\pi(s)
-    \end{align*}
-    is the one that has higher expected utilities than all the others.
+	The expected utility obtained by executing a policy $\pi$ starting in $s$ is given by
+	\begin{align*}
+		U^\pi(s) = E\left[\sum_{t=0}^\infty \gamma^t R(S_t)\right]
+	\end{align*}
+	where the expectation is with respect to the probability distribution over state
+	sequences determined by $s$ and $\pi$. The policy $\pi_s^*$ given by
+	\begin{align*}
+		\pi_s^*=\argmax\limits_\pi U^\pi(s)
+	\end{align*}
+	is the one that has higher expected utilities than all the others.
 \end{definition}
 
 \begin{corollary}
-    The policy $\pi_s^*$ is optimal when $s$ is the starting state.
+	The policy $\pi_s^*$ is optimal when $s$ is the starting state.
 \end{corollary}
 
 \begin{theorem}
-    Consider an environment with a state space $S$, an infinite horizon and discounted utilities. The
-    policy $\pi_s^*$ is optimal for some $s\in S$ is optimal for all $s'\in S$.
+	Consider an environment with a state space $S$, an infinite horizon and discounted utilities. The
+	policy $\pi_s^*$ is optimal for some $s\in S$ is optimal for all $s'\in S$.
 \end{theorem}
 
 \subsection{Value iteration}
 
 \begin{theorem}[Bellman equation, R\&N p. 652]
-    The utility of a state is given by
-    \begin{align*}
-        U(s) = R(s) + \gamma \max_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s').
-    \end{align*}
+	The utility of a state is given by
+	\begin{align*}
+		U(s) = R(s) + \gamma \max_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s').
+	\end{align*}
 \end{theorem}
 
 \begin{theorem}
-    The value iteration algorithm given by the Bellman update
-    \begin{align*}
-        U_{i+1}(s) \leftarrow R(s) + \gamma\max_{a\in A(s)} \sum_{s'} P(s'|s,a)U_i(s')
-    \end{align*}
-    is guaranteed to reach an equilibrium after some finite number of steps
-    and the resulting policy is optimal.
+	The value iteration algorithm given by the Bellman update
+	\begin{align*}
+		U_{i+1}(s) \leftarrow R(s) + \gamma\max_{a\in A(s)} \sum_{s'} P(s'|s,a)U_i(s')
+	\end{align*}
+	is guaranteed to reach an equilibrium after some finite number of steps
+	and the resulting policy is optimal.
 \end{theorem}
 
 \subsection{Policy iteration}
 
 \begin{theorem}[R\&N p. 656]
-    The \emph{policy iteration} algorithm alternates the following two steps beginning
-    from some initial policy $\pi_0$:
-    \begin{itemize}
-        \item \emph{Policy evaluation}: given a policy $\pi_i$, calculate $U_i=U^{\pi_i}$,
-              the utility of each state if $\pi_i$ were to be executed.
-        \item \emph{Policy improvement}: Calculate a new policy $\pi_{i+1}$, using one step
-              look-ahead based on $U_i$ as in
-              \begin{align*}
-                  \pi^*(s) = \argmax_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s')
-              \end{align*}
-    \end{itemize}
+	The \emph{policy iteration} algorithm alternates the following two steps beginning
+	from some initial policy $\pi_0$:
+	\begin{itemize}
+		\item \emph{Policy evaluation}: given a policy $\pi_i$, calculate $U_i=U^{\pi_i}$,
+		      the utility of each state if $\pi_i$ were to be executed.
+		\item \emph{Policy improvement}: Calculate a new policy $\pi_{i+1}$, using one step
+		      look-ahead based on $U_i$ as in
+		      \begin{align*}
+			      \pi^*(s) = \argmax_{a\in A(s)}\sum_{s'} P(s'|s,a)U(s')
+		      \end{align*}
+	\end{itemize}
 \end{theorem}
 
 \end{document}

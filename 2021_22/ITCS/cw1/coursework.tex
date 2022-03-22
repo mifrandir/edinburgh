@@ -9,66 +9,66 @@
 \section{Regular languages}
 
 \begin{claim}
-    Let $L$ be a regular language. Then its complement $\bar L$ is regular.
+	Let $L$ be a regular language. Then its complement $\bar L$ is regular.
 \end{claim}
 \begin{proof}
-    $L$ is regular, thus there exists a DFA, $M(L)=(Q,\Sigma,\delta,q_0,F)$,
-    that recognises $L$. We construct another DFA, 
-    $M(\bar L)=(Q,\Sigma,\delta,q_0,Q\setminus F)$, where a state $q\in Q$ is 
-    accepting if and only if and only if it is not an accept state in 
-    $M(L)$. Therefore a word $w\in\Sigma^*$ is accepted by $M(\bar L)$
-    if and only if it is not accepted by $M(L)$. Thereby $M(\bar L)$ 
-    recognises $\bar L$.
+	$L$ is regular, thus there exists a DFA, $M(L)=(Q,\Sigma,\delta,q_0,F)$,
+	that recognises $L$. We construct another DFA,
+	$M(\bar L)=(Q,\Sigma,\delta,q_0,Q\setminus F)$, where a state $q\in Q$ is
+	accepting if and only if and only if it is not an accept state in
+	$M(L)$. Therefore a word $w\in\Sigma^*$ is accepted by $M(\bar L)$
+	if and only if it is not accepted by $M(L)$. Thereby $M(\bar L)$
+	recognises $\bar L$.
 \end{proof}
 
 \begin{claim}
-    Let $L_1,L_2$ be regular. Then the intersection 
-    \begin{align*}
-        L_1\cap L_2 = \{w : w \in L_1 \text{ and } w \in L_2\}
-    \end{align*}
-    is regular.
+	Let $L_1,L_2$ be regular. Then the intersection
+	\begin{align*}
+		L_1\cap L_2 = \{w : w \in L_1 \text{ and } w \in L_2\}
+	\end{align*}
+	is regular.
 \end{claim}
 \begin{proof}
-    We have 
-    \begin{align*}
-        L_1 \cap L_2 = \Sigma^*\setminus (L_1\cup L_2) = \lneg{L_1\cup L_2}
-    \end{align*}
-    Since $L_1$ and $L_2$ are regular know that $L_1\cup L_2$ is regular.
-    Thus, by the above claim, $\lneg{L_1\cup L_2}=L_1\cap L_2$ is regular.
+	We have
+	\begin{align*}
+		L_1 \cap L_2 = \Sigma^*\setminus (L_1\cup L_2) = \lneg{L_1\cup L_2}
+	\end{align*}
+	Since $L_1$ and $L_2$ are regular know that $L_1\cup L_2$ is regular.
+	Thus, by the above claim, $\lneg{L_1\cup L_2}=L_1\cap L_2$ is regular.
 \end{proof}
 
 \begin{claim}
-    A language is regular if and only if there exists an all-NFA that recognises it.
+	A language is regular if and only if there exists an all-NFA that recognises it.
 \end{claim}
 \begin{proof}
-    Let $L$ be regular. Note that there exists a DFA $M=(Q,\Sigma,\delta,q_0,F)$ 
-    that recognises it. We construct an NFA $M'=(Q,\Sigma,\delta',\{q\},F)$
-    where $\delta':Q\times\Sigma \to \mathcal{P}(Q)$ is given by $q \mapsto \{\delta(q)\}$.
-    Observe that, for all $q\in Q$ and $x\in\Sigma$, $\abs{\delta'(q,x)}=1$.
-    Further, $M'$ recognises the same language $L$ as $M$.
-    Thus, for any $w\in L$, $\delta^*(q_0,w)\subset F$.
+	Let $L$ be regular. Note that there exists a DFA $M=(Q,\Sigma,\delta,q_0,F)$
+	that recognises it. We construct an NFA $M'=(Q,\Sigma,\delta',\{q\},F)$
+	where $\delta':Q\times\Sigma \to \mathcal{P}(Q)$ is given by $q \mapsto \{\delta(q)\}$.
+	Observe that, for all $q\in Q$ and $x\in\Sigma$, $\abs{\delta'(q,x)}=1$.
+	Further, $M'$ recognises the same language $L$ as $M$.
+	Thus, for any $w\in L$, $\delta^*(q_0,w)\subset F$.
 
-    Now let $M$ be an all-NFA that recognises the language $L$. Then $M$ is an
-    NFA, making $L$ regular.
+	Now let $M$ be an all-NFA that recognises the language $L$. Then $M$ is an
+	NFA, making $L$ regular.
 \end{proof}
 
 \begin{claim}
-    The language $L=\{0^n1^m2^{m-n}:n\geq m\geq 0\}$ is not regular.
+	The language $L=\{0^n1^m2^{m-n}:n\geq m\geq 0\}$ is not regular.
 \end{claim}
 \begin{proof}
-    By contradiction. Assume $L$ is regular. Then, by the \emph{Pumping Lemma},
-    there exists a positive integer $p$ such that any word $w\in L$ for which
-    $\abs w \geq p$ may be separated into three parts $w=xyz$ such that 
-    \begin{enumerate}[label=P\arabic*.]
-        \item for each $k \geq 0$, $xy^kz\in L$,
-        \item $\abs y > 0$,
-        \item $\abs{xy}\leq p$.
-    \end{enumerate}
-    Since $w=0^n1^m2^{m-n}$ for some $n\geq m\geq 0$, there are three cases:
-    \begin{enumerate}
-        \item $y$ contains no $2$s, i.e. $y=0^s1^t$ for some $s,t\in\Z_{\geq 0}$.
-            Then $w'=xy^0z=0^{n-s}1^{m-t}2^{n-m}$. However, $(n-s)-(m-t)=(n-m)-(s-t)$.
-    \end{enumerate}
+	By contradiction. Assume $L$ is regular. Then, by the \emph{Pumping Lemma},
+	there exists a positive integer $p$ such that any word $w\in L$ for which
+	$\abs w \geq p$ may be separated into three parts $w=xyz$ such that
+	\begin{enumerate}[label=P\arabic*.]
+		\item for each $k \geq 0$, $xy^kz\in L$,
+		\item $\abs y > 0$,
+		\item $\abs{xy}\leq p$.
+	\end{enumerate}
+	Since $w=0^n1^m2^{m-n}$ for some $n\geq m\geq 0$, there are three cases:
+	\begin{enumerate}
+		\item $y$ contains no $2$s, i.e. $y=0^s1^t$ for some $s,t\in\Z_{\geq 0}$.
+		      Then $w'=xy^0z=0^{n-s}1^{m-t}2^{n-m}$. However, $(n-s)-(m-t)=(n-m)-(s-t)$.
+	\end{enumerate}
 \end{proof}
 
 \end{document}

@@ -20,13 +20,13 @@ that is a sacrifice that is required to fit the problem description.
 A very common problem-solving approach is A*-search. Using an admissible heuristic,
 it is possible to very efficiently find the cheapest solution to a variety of problems
 involving search spaces that may be represented as a tree or a graph.
-A* is often used for pathfinding in graphs. There, its performance is asymptotically 
+A* is often used for pathfinding in graphs. There, its performance is asymptotically
 bounded above by the number of edges in finite graphs, making its runtime polynomial.
 Unfortunately, the space we would need to search through is not just the graph itself
 but the set of paths starting at a specified vertex involving each vertex at most once.
 For a graph with $n$ vertices and a starting vertex $v$, this leads to
 \begin{align*}
-    \sum_{k=1}^{n-1} k! = O((n-1)!)
+	\sum_{k=1}^{n-1} k! = O((n-1)!)
 \end{align*}
 nodes in the search tree and running A* in polynomial time would not be
 possible anymore.\\
@@ -39,7 +39,7 @@ efficiency.
 
 \subsection{Heuristic}
 
-A* search in general relies on assessing the fitness $f$ of a partial solution 
+A* search in general relies on assessing the fitness $f$ of a partial solution
 which represents its potential of leading to the optimal solution. To calculate the
 fitness, the cost of the steps required to reach the solution $g$ is added to an approximation
 of the remaining cost to reach the goal $h$. This $h$ is called a heuristic.
@@ -49,33 +49,33 @@ The heurisitic used in my algorithm makes use of a strict lower bound on the rem
 path cost by summing up the cheapest outgoing edge for all the relevant nodes, i.e.
 the ones that do not yet have a successor in the path. Specifically, if $G=(V,E)$ is
 a graph with edge weights $w:E\to\R^+$
- and $(p_n)_{1\leq n\leq k}\in V$ is a path, then we have the set of remaining vertices
+and $(p_n)_{1\leq n\leq k}\in V$ is a path, then we have the set of remaining vertices
 \begin{align*}
-    V'=\{v\in V : \forall n \leq k.\: p_n \not= v\}
+	V'=\{v\in V : \forall n \leq k.\: p_n \not= v\}
 \end{align*}
 and the heuristic
 \begin{align*}
-    h(p_n) = \sum_{a\in V'\cup\{p_k\}} \min\{w(a, b) : b\in V'\cup\{p_1\}\}.
+	h(p_n) = \sum_{a\in V'\cup\{p_k\}} \min\{w(a, b) : b\in V'\cup\{p_1\}\}.
 \end{align*}
-It is not difficult to see that this may be calculated in $O(\abs V^2)$ time. 
+It is not difficult to see that this may be calculated in $O(\abs V^2)$ time.
 
 \subsection{Total runtime}
 
 Now that we know the runtime of the heuristic, we can informally determine the entire
-runtime. Each A* run with depth $k$ evaluates less than $n^{k+1}$ partial solutions. 
+runtime. Each A* run with depth $k$ evaluates less than $n^{k+1}$ partial solutions.
 You can see this because the search tree has a branching factor of at most $n$ (number
 of vertices) and depth $k$. This leads to the total number of nodes
 \begin{align*}
-    \sum_{i=0}^k n^i < n^{k+1}
+	\sum_{i=0}^k n^i < n^{k+1}
 \end{align*}
 assuming $n>1$. This is a very pessimistic bound, even in the worst-case
 analysis. We can only visit each of those potential solutions once.
 Inserting a new candidate into the queue can thus be done in $O(\lg n^{k+1})
-= O(k\lg n)=O(\lg n)$ time. Each step thus takes $O(h)+O(\lg n)=O(n^2)$ time.
+	= O(k\lg n)=O(\lg n)$ time. Each step thus takes $O(h)+O(\lg n)=O(n^2)$ time.
 This leads us to an asymptotic upper bound on the runtime of a single
 such A* execution: $O(n^{k+3})$. Since we have to do $\ceil{n/k}$ such
 runs, we have a total runtime of the algorithm $O(\ceil{n/k}n^{k+3})=
-O(n^{k+4})$. While this is certainly an overestimate of the actual behaviour,
+	O(n^{k+4})$. While this is certainly an overestimate of the actual behaviour,
 this allows us to deduce that this algorithm does indeed run in
 polynomial time.
 
@@ -85,9 +85,9 @@ The implementation of this that I have given is hardly optimised in terms
 of performance. I have tried to keep it clean and easy to read. If
 someone wanted to push this to its limit, there is a lot that could be done.
 For example I have added a set of unused nodes to every unvisited node in the
-queue. Since we are using Python I doubt this matters too much though as any 
+queue. Since we are using Python I doubt this matters too much though as any
 attempt at non-asymptotic optimisation will be held back by the language.\\
-I have previously tried to practically optimise the algorithm for the $k=n$ 
+I have previously tried to practically optimise the algorithm for the $k=n$
 case, i.e. without the depth limit, to compete against my high school teacher.
 You can find the code \underline{\href{https://github.com/miltfra/tsp}{here}}.
 This is where most of the inspiration for this algorithm comes from, combined
@@ -143,18 +143,18 @@ the tour values and the runtime as $n$ increases.
 I have plotted the absolute tour values, the tour values normalised with
 respect to DLA* with depth $k=13$, the runtime and the runtime without
 DLA* to allows for comparisons between the much faster alternatives.
-The most notable observations here are: 
+The most notable observations here are:
 \begin{enumerate}
-    \item There is no real difference in tour values between DLA* and 2-Opt.
-    \item Greedy is consistenly in between Swap and 2-Opt/DLA*.
-    \item For Greedy and Swap, the general case seems to be harder than the
-    metric case and the metric case seems to be harder than the Euclidean case
-    in terms of tour values. For DLA* and 2-Opt the type of graph does not
-    seem to matter.
-    \item DLA* is \emph{by far} the slowest, 2-Opt is second and Greedy and 
-    Swap are \emph{extremely} fast. 
-    \item DLA* is significantly slower on Euclidean graphs.
-    \item Runtime of DLA* seems to be much less predictable than the others.
+	\item There is no real difference in tour values between DLA* and 2-Opt.
+	\item Greedy is consistenly in between Swap and 2-Opt/DLA*.
+	\item For Greedy and Swap, the general case seems to be harder than the
+	      metric case and the metric case seems to be harder than the Euclidean case
+	      in terms of tour values. For DLA* and 2-Opt the type of graph does not
+	      seem to matter.
+	\item DLA* is \emph{by far} the slowest, 2-Opt is second and Greedy and
+	      Swap are \emph{extremely} fast.
+	\item DLA* is significantly slower on Euclidean graphs.
+	\item Runtime of DLA* seems to be much less predictable than the others.
 \end{enumerate}
 
 While I am slightly disappointed that DLA* does not beat 2-Opt consistently,
@@ -166,12 +166,12 @@ the runtime as $k$ increases. This comparison naturally excludes Greedy as
 that algorithm does not have a parameter. The resulting plots are
 analogous to the case above. The most interesting observations are
 \begin{enumerate}
-    \item Swap and 2-Opt have diminishing returns for greater $k$.
-    \item Increasing $k$ for DLA* can negatively affect the result.
-    \item The runtime of DLA* increases drastically with larger choices of $k$.
-    \item The runtime of 2-Opt increases (seemingly) linearly with $k$.
-    \item The impact of $k$ on the runtime of Swap is negligible relative
-    to the other two algorithms.
+	\item Swap and 2-Opt have diminishing returns for greater $k$.
+	\item Increasing $k$ for DLA* can negatively affect the result.
+	\item The runtime of DLA* increases drastically with larger choices of $k$.
+	\item The runtime of 2-Opt increases (seemingly) linearly with $k$.
+	\item The impact of $k$ on the runtime of Swap is negligible relative
+	      to the other two algorithms.
 \end{enumerate}
 Most of these results are expected. I have two possible explanations
 for observation 2. Firstly and perhaps somewhat obviously, $k$ defines
@@ -179,20 +179,20 @@ when to cut off the search and use a greedy approach to limit the
 search space. It is completely possible that there is just
 some inconvenient feature in the graph that requires a certain number of
 steps to avoid. If, however, the search has to be cut off right in
-this feature (e.g. when it still looks favourable), the result may be 
+this feature (e.g. when it still looks favourable), the result may be
 worse than in a case where the search was cut off right in front.
 Another approach is to consider the very last search. The problem is that
 $n$ isn't always divisible by $k$, so I had to find a way to make $k$
 work anyways. I did this by simply stopping the last search as soon
 as a full path has been found. This leads to an A* search that
-is potentially much less deep than $k$. Perhaps the penalty by such 
+is potentially much less deep than $k$. Perhaps the penalty by such
 a small depth is bigger than the gain from increasing the other depths.
 
 
 
 \subsection{Ranking}
 
-Finally, let's discuss when to use which of the discussed algorithms. 
+Finally, let's discuss when to use which of the discussed algorithms.
 Essentially, there
 are two categories. One the one hand we have DLA* and 2-Opt which are
 more suited if you care about finding a very short path and less about
@@ -203,7 +203,7 @@ much better than Swap overall.\\
 Therefore, if you care about speed or want to solve TSP for very large
 graphs, you should choose Greedy. If you can afford it however, 2-Opt
 seems to be the better option. Obviously there are other algorithms
-out there that are very likely better in both cases. 
+out there that are very likely better in both cases.
 
 \pagebreak
 \section*{Appendix}
@@ -213,15 +213,15 @@ out there that are very likely better in both cases.
 \makeatletter
 \newcounter{int}
 \@whilenum \value{int}<13\do {
-    \stepcounter{int}
-    \includegraphics[width=\textwidth]{test6_k_\theint.png}
+	\stepcounter{int}
+	\includegraphics[width=\textwidth]{test6_k_\theint.png}
 }
 \makeatother
 \makeatletter
 \setcounter{int}{9}
 \@whilenum \value{int}<39\do {
-    \stepcounter{int}
-    \includegraphics[width=\textwidth]{test6_n_\theint.png}
+	\stepcounter{int}
+	\includegraphics[width=\textwidth]{test6_n_\theint.png}
 }
 \makeatother
 

@@ -13,67 +13,67 @@
 
 To find the minimum and maximum of
 \begin{align*}
-  f(x,y,z)=x + y + z
+	f(x,y,z)=x + y + z
 \end{align*}
 on the elipsoid with the condition
 \begin{align*}
-  g(x,y,z)=\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2}-1=0.
+	g(x,y,z)=\frac{x^2}{a^2} + \frac{y^2}{b^2} + \frac{z^2}{c^2}-1=0.
 \end{align*}
 we can write the Lagrangian function
 \begin{align*}
-  L(x,y,z,\lambda) = f(x,y,z)+\lambda g(x,y,z) =  x + y + z + \lambda\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1\right).
+	L(x,y,z,\lambda) = f(x,y,z)+\lambda g(x,y,z) =  x + y + z + \lambda\left(\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1\right).
 \end{align*}
 Differentiation lets us find $\grad L$ as follows:
 \begin{align*}
-  \grad L(x,y,z,\lambda)=\begin{pmatrix}
-    1+\frac{2\lambda x}{a^2} \\
-    1+\frac{2\lambda y}{b^2} \\
-    1+\frac{2\lambda z}{c^2} \\
-    \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1
-  \end{pmatrix}
+	\grad L(x,y,z,\lambda)=\begin{pmatrix}
+		                       1+\frac{2\lambda x}{a^2} \\
+		                       1+\frac{2\lambda y}{b^2} \\
+		                       1+\frac{2\lambda z}{c^2} \\
+		                       \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1
+	                       \end{pmatrix}
 \end{align*}
 Setting $\grad L(x,y,z,\lambda)=\vec 0$ gives us the equation
 \begin{align}
-  \label{eq1}
-  -\frac{1}{2\lambda} = \frac{x}{a^2} = \frac{y}{b^2} = \frac{z}{c^2}.
+	\label{eq1}
+	-\frac{1}{2\lambda} = \frac{x}{a^2} = \frac{y}{b^2} = \frac{z}{c^2}.
 \end{align}
 Additionally, we can rewrite
 \begin{align*}
-  \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1=0
+	\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}-1=0
 \end{align*}
 as
 \begin{align*}
-  \frac{x^2}{a^2}=1-\frac{y^2}{b^2}-\frac{z^2}{c^2}.
+	\frac{x^2}{a^2}=1-\frac{y^2}{b^2}-\frac{z^2}{c^2}.
 \end{align*}
 We can use equation \ref{eq1} to express $y$ and $z$ in terms of $x$ and
 insert the results to find
 \begin{align*}
-  \frac{x^2}{a^2}=1-\frac{b^2x^2}{a^4}-\frac{c^2x^2}{a^4}.
+	\frac{x^2}{a^2}=1-\frac{b^2x^2}{a^4}-\frac{c^2x^2}{a^4}.
 \end{align*}
 This equation is linear in $x^2$ so we can solve for it easily. We obtain
 \begin{align*}
-  x^2=\frac{a^2}{a^2+b^2+c^2} \Rightarrow |x|=x_0=\frac{a}{\sqrt{a^2+b^2+c^2}}.
+	x^2=\frac{a^2}{a^2+b^2+c^2} \Rightarrow |x|=x_0=\frac{a}{\sqrt{a^2+b^2+c^2}}.
 \end{align*}
 Notice that we can find $y^2$ and $z^2$ in much the same way to get
 \begin{align*}
-  y^2 & =\frac{b^2}{a^2+b^2+c^2}\Rightarrow |y|=y_0=\frac{b}{\sqrt{a^2+b^2+c^2}}, \\
-  z^2 & =\frac{c^2}{a^2+b^2+c^2}\Rightarrow |z|=z_0=\frac{c}{\sqrt{a^2+b^2+c^2}}.
+	y^2 & =\frac{b^2}{a^2+b^2+c^2}\Rightarrow |y|=y_0=\frac{b}{\sqrt{a^2+b^2+c^2}}, \\
+	z^2 & =\frac{c^2}{a^2+b^2+c^2}\Rightarrow |z|=z_0=\frac{c}{\sqrt{a^2+b^2+c^2}}.
 \end{align*}
 Furthermore, we observe that $f$ is linear in all of $x$, $y$ and $z$.
 So we need to find the largest possible values for each argument to maximise
 the function and do the opposite to minimise it. Therefore $f$ has a maximum
 on the ellipsoid $g=0$ at
 \begin{align*}
-  f(x_0,y_0,z_0) = \frac{a+b+c}{\sqrt{a^2+b^2+c^2}}
+	f(x_0,y_0,z_0) = \frac{a+b+c}{\sqrt{a^2+b^2+c^2}}
 \end{align*}
 and a minimum at
 \begin{align*}
-  f(-x_0, -y_0, -z_0) = -\frac{a+b+c}{\sqrt{a^2+b^2+c^2}}
+	f(-x_0, -y_0, -z_0) = -\frac{a+b+c}{\sqrt{a^2+b^2+c^2}}
 \end{align*}
 where $x_0$, $y_0$ and $z_0$ are as defined above.\\\\
 \emph{Note: If we were interested in all critical points we would need to find
-  $\lambda$ in terms of $a$, $b$ and $c$. Since we're only interested in maximum
-  and minimum values, we can skip other potential solutions.}
+	$\lambda$ in terms of $a$, $b$ and $c$. Since we're only interested in maximum
+	and minimum values, we can skip other potential solutions.}
 
 
 \section*{Question 2}
@@ -81,65 +81,65 @@ where $x_0$, $y_0$ and $z_0$ are as defined above.\\\\
 
 To evaluate
 \begin{align*}
-  \iint_R\frac{xy^2}{(4x^2+y^2)^2}dA
+	\iint_R\frac{xy^2}{(4x^2+y^2)^2}dA
 \end{align*}
 where $R$ is the finite region enclosed by $y=x^2$ and $y=2x$,
 we need to find $R$ first. To do that we find the intersections between the
 two curves as follows
 \begin{align*}
-  y=x^2 \text{ and } y = 2x \\
-  \Leftrightarrow x(x-2)=0.
+	y=x^2 \text{ and } y = 2x \\
+	\Leftrightarrow x(x-2)=0.
 \end{align*}
 Therefore the intersections are at $x=0$ and $x=2$. Observe that
 $\forall x\in[0,2], 2x\geq x^2$. Therefore
 \begin{align*}
-  \iint_R \frac{xy^2}{(4x^2+y^2)^2} dA
-  = \int_0^2\int_{x^2}^{2x} \frac{xy^2}{(4x^2+y^2)^2}dy\: dx.
+	\iint_R \frac{xy^2}{(4x^2+y^2)^2} dA
+	= \int_0^2\int_{x^2}^{2x} \frac{xy^2}{(4x^2+y^2)^2}dy\: dx.
 \end{align*}
 To solve these nested integrals, we first need to evaluate the
 integral
 \begin{align*}
-  I(x) = \int_{x^2}^{2x} \frac{xy^2}{(4x^2+y^2)^2}dy.
+	I(x) = \int_{x^2}^{2x} \frac{xy^2}{(4x^2+y^2)^2}dy.
 \end{align*}
 We can use $u=xy$ and $dv=y/(4x^2+y^2)^2$ and integration by
 parts to get
 \begin{align*}
-  I(x) = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{x}{2}\int \frac{1}{4x^2+y^2}dy\right]_{x^2}^{2x}.
+	I(x) = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{x}{2}\int \frac{1}{4x^2+y^2}dy\right]_{x^2}^{2x}.
 \end{align*}
 To solve the new integral we use $u=y/2x$ to find
 \begin{align*}
-  I(x) & = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{x}{2}\int \frac{2x}{4x^2(1+u^2)}du\right]_{x^2}^{2x}    \\
-       & = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{1}{4}\arctan(u)\right]_{x^2}^{2x}                       \\
-       & = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{1}{4}\arctan\left(\frac{y}{2x}\right)\right]_{x^2}^{2x} \\
-       & =-\frac{x^2}{4x^2+4x^2}+\frac{1}{4}\arctan(1)+\frac{x^3}{2(4x^2+x^4)}
-  -\frac{1}{4}\arctan\left(\frac{x}{2}\right)                                                          \\
-       & =-\frac{1}{8}+\frac{\pi}{16}+\frac{x}{2(4+x^2)}-\frac{1}{4}\arctan\left(\frac{x}{2}\right).
+	I(x) & = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{x}{2}\int \frac{2x}{4x^2(1+u^2)}du\right]_{x^2}^{2x}    \\
+	     & = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{1}{4}\arctan(u)\right]_{x^2}^{2x}                       \\
+	     & = \left[-\frac{xy}{2(4x^2+y^2)}+\frac{1}{4}\arctan\left(\frac{y}{2x}\right)\right]_{x^2}^{2x} \\
+	     & =-\frac{x^2}{4x^2+4x^2}+\frac{1}{4}\arctan(1)+\frac{x^3}{2(4x^2+x^4)}
+	-\frac{1}{4}\arctan\left(\frac{x}{2}\right)                                                          \\
+	     & =-\frac{1}{8}+\frac{\pi}{16}+\frac{x}{2(4+x^2)}-\frac{1}{4}\arctan\left(\frac{x}{2}\right).
 \end{align*}
 Thus
 \begin{align*}
-  \di_R\frac{xy^2}{(4x^2+y^2)^2}dA & =\int_0^2\left(\frac{\pi-2}{16}+\frac{x}{2(4+x^2)}-\frac{1}{4}\arctan\left(\frac{x}{2}\right)\right)dx                   \\
-                                   & =\frac{1}{16}\int_0^2(\pi-2)dx+\frac{1}{2}\int_0^2\frac{x}{4+x^2}dx-\frac{1}{4}\int_0^2\arctan\left(\frac{x}{2}\right)dx
+	\di_R\frac{xy^2}{(4x^2+y^2)^2}dA & =\int_0^2\left(\frac{\pi-2}{16}+\frac{x}{2(4+x^2)}-\frac{1}{4}\arctan\left(\frac{x}{2}\right)\right)dx                   \\
+	                                 & =\frac{1}{16}\int_0^2(\pi-2)dx+\frac{1}{2}\int_0^2\frac{x}{4+x^2}dx-\frac{1}{4}\int_0^2\arctan\left(\frac{x}{2}\right)dx
 \end{align*}
 We find
 \begin{align*}
-  \frac{1}{16}\int_0^2 (\pi-2)dx = \frac{\pi-2}{8},
+	\frac{1}{16}\int_0^2 (\pi-2)dx = \frac{\pi-2}{8},
 \end{align*}
 and
 \begin{align*}
-  \frac{1}{4}\int_0^2 \arctan\left(\frac{x}{2}\right)dx
-  =\frac{1}{4}\left[x\arctan\left(\frac{x}{2}\right)
-    -\ln (x^2+4)\right]^2_0=
-  \frac{\pi}{8}-\frac{1}{4}\ln(2).
+	\frac{1}{4}\int_0^2 \arctan\left(\frac{x}{2}\right)dx
+	=\frac{1}{4}\left[x\arctan\left(\frac{x}{2}\right)
+		-\ln (x^2+4)\right]^2_0=
+	\frac{\pi}{8}-\frac{1}{4}\ln(2).
 \end{align*}
 Finally, we obtain
 \begin{align*}
-  \frac{1}{2}\int_0^2\frac{x}{4+x^2}dx=\frac{1}{2}\left[\frac{1}{2}\ln(x^2+4)\right]_0^2=\frac{1}{4}\ln(2)
+	\frac{1}{2}\int_0^2\frac{x}{4+x^2}dx=\frac{1}{2}\left[\frac{1}{2}\ln(x^2+4)\right]_0^2=\frac{1}{4}\ln(2)
 \end{align*}
 by using $u=4+x^2$ as a substitution. We can combine those results
 to get
 \begin{align*}
-  \di_R\frac{xy^2}{(4x^2+y^2)^2}dA
-   & =\frac{\pi-2}{8}+\frac{1}{4}\ln(2)-\frac{\pi}{8}+\frac{1}{4}\ln(2)
-  =\frac{1}{2}\ln(2)-\frac{1}{4}   a.
+	\di_R\frac{xy^2}{(4x^2+y^2)^2}dA
+	 & =\frac{\pi-2}{8}+\frac{1}{4}\ln(2)-\frac{\pi}{8}+\frac{1}{4}\ln(2)
+	=\frac{1}{2}\ln(2)-\frac{1}{4}   a.
 \end{align*}
 \end{document}

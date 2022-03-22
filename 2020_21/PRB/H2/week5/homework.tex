@@ -13,39 +13,39 @@
 
 We know that, for our random variable $W$, the pdf is
 \begin{align*}
-  f_W(x) = 6x(1-x).
+	f_W(x) = 6x(1-x).
 \end{align*}
 Using
 \begin{align*}
-  \E(W) = \int_0^1 xf_W(x) dx,
+	\E(W) = \int_0^1 xf_W(x) dx,
 \end{align*}
 we find
 \begin{align*}
-  \E(W)=\int_0^1 6x^2-6x^3 dx = \left[2x^3 - \frac{3}{2}x^4\right]^1_0 = \frac{1}{2}.
+	\E(W)=\int_0^1 6x^2-6x^3 dx = \left[2x^3 - \frac{3}{2}x^4\right]^1_0 = \frac{1}{2}.
 \end{align*}
 Further, we know that
 \begin{align*}
-  \V(W) = \E(W^2) - (\E(W))^2.
+	\V(W) = \E(W^2) - (\E(W))^2.
 \end{align*}
 Since we have determined $\E(W)=1/2$, we only need to find $\E(W^2)$. We know
 \begin{align*}
-  \E(W^2) = \int_0^1 x^2 f_{W}(x)dx = \int_0^1 6x^3(1-x)dx.
+	\E(W^2) = \int_0^1 x^2 f_{W}(x)dx = \int_0^1 6x^3(1-x)dx.
 \end{align*}
 Thus
 \begin{align*}
-  \E(W^2) = \int_0^1 6x^3-6x^4 dx = \left[\frac{3}{2} x^4 - \frac{6}{5}x^5\right]_0^1=\frac{3}{10}.
+	\E(W^2) = \int_0^1 6x^3-6x^4 dx = \left[\frac{3}{2} x^4 - \frac{6}{5}x^5\right]_0^1=\frac{3}{10}.
 \end{align*}
 Now we know
 \begin{align*}
-  \V(W) = \frac{3}{10}-\frac{1}{4} = \frac{1}{20}.
+	\V(W) = \frac{3}{10}-\frac{1}{4} = \frac{1}{20}.
 \end{align*}
 It makes sense that $\E(W) = \E(X) = \E(Y) = \E(Z)$ if we define $W$ to be the middle one of $X$, $Y$ and $Z$ because
 it means that $W$ is most likely to be the closest to the middle of the intervall and thus the expected value.\\
 
 \emph{Note: I could not use the Beta distribution as I don't have
-  a clue how it works or what its parameters $\alpha$ and $\beta$ are.
-  As far as I can tell it hasn't been explained in the notes so I don't
-  think it's required to do this.}
+	a clue how it works or what its parameters $\alpha$ and $\beta$ are.
+	As far as I can tell it hasn't been explained in the notes so I don't
+	think it's required to do this.}
 
 
 \section*{P 5.2}
@@ -53,40 +53,40 @@ it means that $W$ is most likely to be the closest to the middle of the interval
 
 We have a random variable $X$ with a generating function
 \begin{align*}
-  G_X(s) = \frac{1}{2-s^2}.
+	G_X(s) = \frac{1}{2-s^2}.
 \end{align*}
 Observe that
 \begin{align*}
-  \frac{dG_X}{ds} = \frac{2s}{(2-s^2)^2}
+	\frac{dG_X}{ds} = \frac{2s}{(2-s^2)^2}
 \end{align*}
 and thus
 \begin{align*}
-  \frac{dG_X}{ds}(1) = 2 = \E(X).
+	\frac{dG_X}{ds}(1) = 2 = \E(X).
 \end{align*}
 Further
 \begin{align*}
-  \frac{d^2G_X}{ds^2}=\frac{6s^2+4}{(2-s^2)^3}
+	\frac{d^2G_X}{ds^2}=\frac{6s^2+4}{(2-s^2)^3}
 \end{align*}
 and therefore
 \begin{align*}
-  \frac{d^2G_X}{ds^2}(1) = 10.
+	\frac{d^2G_X}{ds^2}(1) = 10.
 \end{align*}
 We find
 \begin{align*}
-  \V(X) = \frac{d^2G_X}{ds}(1) + \frac{dG_X}{ds}(1) - \left(\frac{dG_X}{ds}(1)\right)^2
-  = 10 + 2 - 4 = 8.
+	\V(X) = \frac{d^2G_X}{ds}(1) + \frac{dG_X}{ds}(1) - \left(\frac{dG_X}{ds}(1)\right)^2
+	= 10 + 2 - 4 = 8.
 \end{align*}
 Since
 \begin{align*}
-  G_X(s) = \frac{1}{2-s^2} = \frac{1}{2} + \frac{s^2}{4} + \frac{s^4}{8} + \frac{s^6}{16} + \cdots
+	G_X(s) = \frac{1}{2-s^2} = \frac{1}{2} + \frac{s^2}{4} + \frac{s^4}{8} + \frac{s^6}{16} + \cdots
 \end{align*}
 we can observe
 \begin{align*}
-  \P(X=3) = 0
+	\P(X=3) = 0
 \end{align*}
 and
 \begin{align*}
-  \P(X=4) = 1/8.
+	\P(X=4) = 1/8.
 \end{align*}
 
 
@@ -95,39 +95,39 @@ and
 
 We have a random variable $Y\sim\Geom(1/6)$. Therefore
 \begin{align*}
-  \P(Y=k) = \left(\frac{5}{6}\right)^{k-1}\left(\frac{1}{6}\right).
+	\P(Y=k) = \left(\frac{5}{6}\right)^{k-1}\left(\frac{1}{6}\right).
 \end{align*}
 Also note
 \begin{align*}
-  \P(|Y-6|\geq 6) = \P(Y \geq 12) = \frac{1}{6}\sum_{i=1}^{11} \left(\frac{5}{6}\right)^i.
+	\P(|Y-6|\geq 6) = \P(Y \geq 12) = \frac{1}{6}\sum_{i=1}^{11} \left(\frac{5}{6}\right)^i.
 \end{align*}
 We can compute this sum to find
 \begin{align*}
-  \P(|Y-6|\geq 6) = \frac{6069373681}{2176782336} \approx 0.279.
+	\P(|Y-6|\geq 6) = \frac{6069373681}{2176782336} \approx 0.279.
 \end{align*}
 We know the \emph{Chebyshev Inequality}
 \begin{align*}
-  \P(|X-\mu|\geq k\sigma) \leq \frac{1}{k^2}.
+	\P(|X-\mu|\geq k\sigma) \leq \frac{1}{k^2}.
 \end{align*}
 The variance of a geometric random variable $X\sim\Geom(p)$ is given by
 \begin{align*}
-  \V(X) = \frac{1-p}{p^2}.
+	\V(X) = \frac{1-p}{p^2}.
 \end{align*}
 Thus
 \begin{align*}
-  \V(X) = \V(Y) = \frac{1-1/6}{(1/6)^2} = 30
+	\V(X) = \V(Y) = \frac{1-1/6}{(1/6)^2} = 30
 \end{align*}
 and
 \begin{align*}
-  \sigma_X = \sqrt{30}.
+	\sigma_X = \sqrt{30}.
 \end{align*}
 We solve
 \begin{align*}
-  6 = k\sqrt{30} \Leftrightarrow k = \sqrt{\frac{6}{5}}
+	6 = k\sqrt{30} \Leftrightarrow k = \sqrt{\frac{6}{5}}
 \end{align*}
 and insert this result to find
 \begin{align*}
-  \P(|X-6| \geq 6) \leq \frac{5}{6}.
+	\P(|X-6| \geq 6) \leq \frac{5}{6}.
 \end{align*}
 
 
@@ -138,24 +138,24 @@ We have a random variable $X_n\sim\Binom(n,1/2)$. We define
 $A_n = X_n / n$ to be the average of all the $n$ coin flips.
 We know
 \begin{align*}
-  \E(A_n) = \frac{1}{2} \text{ and }
-  \V(A_n) = \V\left(\frac{1}{n}X_n\right) = \frac{npq}{n^2} = \frac{1}{4n}.
+	\E(A_n) = \frac{1}{2} \text{ and }
+	\V(A_n) = \V\left(\frac{1}{n}X_n\right) = \frac{npq}{n^2} = \frac{1}{4n}.
 \end{align*}
 Using \emph{Chebyshev's inequality} with $a=k\sigma$, we know
 \begin{align*}
-  \P(|A_n - \mu| \leq k\sigma) \geq 1 - \frac{1}{k^2}.
+	\P(|A_n - \mu| \leq k\sigma) \geq 1 - \frac{1}{k^2}.
 \end{align*}
 We choose $k=5$ to get
 \begin{align*}
-  \P(|A_n - \mu| \leq 5\sigma) \geq 0.96
+	\P(|A_n - \mu| \leq 5\sigma) \geq 0.96
 \end{align*}
 which is greater than $0.95$ and thus suitable for our purpose.
 We want $a=1/100$ and thus
 \begin{align*}
-  5\sigma                       & = \frac{1}{100}  \\
-  \Leftrightarrow \frac{25}{4n} & = \frac{1}{10^4} \\
-  \Leftrightarrow 4n            & = 25\cdot 10^4   \\
-  \Leftrightarrow n             & = 62500.
+	5\sigma                       & = \frac{1}{100}  \\
+	\Leftrightarrow \frac{25}{4n} & = \frac{1}{10^4} \\
+	\Leftrightarrow 4n            & = 25\cdot 10^4   \\
+	\Leftrightarrow n             & = 62500.
 \end{align*}
 Note that this is not the lowest $n$ can be, but rather a conservative
 estimate that is guranteed to work.

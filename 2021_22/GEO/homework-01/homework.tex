@@ -8,194 +8,194 @@
 \maketitle
 
 \begin{claim*}[Question 1]
-   Let $\vec x: I\to \E^3$ be the space curve given by
-   \begin{align*}
-      \vec x(s) = \begin{pmatrix}
-         \frac{\sqrt{3}}{2}\sin s \\
-         \cos s                   \\
-         \frac{1}{2}\sin s
-      \end{pmatrix}.
-   \end{align*}
-   Then
-   \begin{align*}
-      v(s) = 1, \kappa(s) = 1, \tau(s) = 0, \\
-   \end{align*}
-   and
-   \begin{align*}
-      \{\vec T(s), \vec N(s), \vec B(s)\} =
-      \left\lbrace  \begin{pmatrix}
-         \frac{\sqrt{3}}{2}\cos s \\
-         - \sin s                 \\
-         \frac{1}{2}\cos s
-      \end{pmatrix}, \begin{pmatrix}
-         -\frac{\sqrt{3}}{2}\sin s \\
-         - \cos s                  \\
-         -\frac{1}{2}\sin s
-      \end{pmatrix}, \begin{pmatrix}
-         1/2 \\ 0 \\ \sqrt{3}/2
-      \end{pmatrix}
-      \right\rbrace
-   \end{align*}
-   for all $s\in I$.
+	Let $\vec x: I\to \E^3$ be the space curve given by
+	\begin{align*}
+		\vec x(s) = \begin{pmatrix}
+			            \frac{\sqrt{3}}{2}\sin s \\
+			            \cos s                   \\
+			            \frac{1}{2}\sin s
+		            \end{pmatrix}.
+	\end{align*}
+	Then
+	\begin{align*}
+		v(s) = 1, \kappa(s) = 1, \tau(s) = 0, \\
+	\end{align*}
+	and
+	\begin{align*}
+		\{\vec T(s), \vec N(s), \vec B(s)\} =
+		\left\lbrace  \begin{pmatrix}
+			              \frac{\sqrt{3}}{2}\cos s \\
+			              - \sin s                 \\
+			              \frac{1}{2}\cos s
+		              \end{pmatrix}, \begin{pmatrix}
+			                             -\frac{\sqrt{3}}{2}\sin s \\
+			                             - \cos s                  \\
+			                             -\frac{1}{2}\sin s
+		                             \end{pmatrix}, \begin{pmatrix}
+			                                            1/2 \\ 0 \\ \sqrt{3}/2
+		                                            \end{pmatrix}
+		\right\rbrace
+	\end{align*}
+	for all $s\in I$.
 \end{claim*}
 \begin{proof}
-   We have
-   \begin{align*}
-      \vec x'(s) = \begin{pmatrix}
-         \frac{\sqrt{3}}{2}\cos s \\
-         - \sin s                 \\
-         \frac{1}{2}\cos s
-      \end{pmatrix},\hs
-      \vec x''(s) = \begin{pmatrix}
-         -\frac{\sqrt{3}}{2}\sin s \\
-         - \cos s                  \\
-         -\frac{1}{2}\sin s
-      \end{pmatrix}.
-   \end{align*}
-   Therefore
-   \begin{align*}
-      v(s) = \abs{x'(s)}       & = \frac{3}{4}\cos^2 s + \sin^2 s + \frac{1}{4}\cos^2 s = 1, \\
-      \kappa(s) = \abs{x''(s)} & = \frac{3}{4}\sin^2 s + \cos^2 s + \frac{1}{4}\cos^2 s = 1.
-   \end{align*}
-   Since $v(s)=1$ we have $\vec T(s)=\vec x'(x)$. Further, since
-   $\vec T'(s)=\vec x''(s)$,
-   \begin{align*}
-      \vec N(s) = \frac{\vec T'(s)}{\abs{\vec T'(s)}} = \vec x''(s).
-   \end{align*}
-   Finally,
-   \begin{align*}
-      \vec B (s) = \vec T(s) \times \vec N(s) = \begin{pmatrix}
-         1/2 \\ 0 \\ \sqrt{3}/2
-      \end{pmatrix}.
-   \end{align*}
-   This allows us to compute the torsion $\tau$,
-   \begin{align*}
-      \tau(s) = -\vec B'(s) \cdot \vec N(s) = \vec 0 \cdot \vec N(s) = 0.
-   \end{align*}
-   The Frenet-Serret frame is given by the vectors
-   \begin{align*}
-      \vec T(s) = \begin{pmatrix}
-         \frac{\sqrt{3}}{2}\cos s \\
-         - \sin s                 \\
-         \frac{1}{2}\cos s
-      \end{pmatrix},\:
-      \vec N(s)=\begin{pmatrix}
-         -\frac{\sqrt{3}}{2}\sin s \\
-         - \cos s                  \\
-         -\frac{1}{2}\sin s
-      \end{pmatrix}, \:
-      \vec B(s) = \begin{pmatrix}
-         1/2 \\ 0 \\ \sqrt{3}/2
-      \end{pmatrix}.
-   \end{align*}
+	We have
+	\begin{align*}
+		\vec x'(s) = \begin{pmatrix}
+			             \frac{\sqrt{3}}{2}\cos s \\
+			             - \sin s                 \\
+			             \frac{1}{2}\cos s
+		             \end{pmatrix},\hs
+		\vec x''(s) = \begin{pmatrix}
+			              -\frac{\sqrt{3}}{2}\sin s \\
+			              - \cos s                  \\
+			              -\frac{1}{2}\sin s
+		              \end{pmatrix}.
+	\end{align*}
+	Therefore
+	\begin{align*}
+		v(s) = \abs{x'(s)}       & = \frac{3}{4}\cos^2 s + \sin^2 s + \frac{1}{4}\cos^2 s = 1, \\
+		\kappa(s) = \abs{x''(s)} & = \frac{3}{4}\sin^2 s + \cos^2 s + \frac{1}{4}\cos^2 s = 1.
+	\end{align*}
+	Since $v(s)=1$ we have $\vec T(s)=\vec x'(x)$. Further, since
+	$\vec T'(s)=\vec x''(s)$,
+	\begin{align*}
+		\vec N(s) = \frac{\vec T'(s)}{\abs{\vec T'(s)}} = \vec x''(s).
+	\end{align*}
+	Finally,
+	\begin{align*}
+		\vec B (s) = \vec T(s) \times \vec N(s) = \begin{pmatrix}
+			                                          1/2 \\ 0 \\ \sqrt{3}/2
+		                                          \end{pmatrix}.
+	\end{align*}
+	This allows us to compute the torsion $\tau$,
+	\begin{align*}
+		\tau(s) = -\vec B'(s) \cdot \vec N(s) = \vec 0 \cdot \vec N(s) = 0.
+	\end{align*}
+	The Frenet-Serret frame is given by the vectors
+	\begin{align*}
+		\vec T(s) = \begin{pmatrix}
+			            \frac{\sqrt{3}}{2}\cos s \\
+			            - \sin s                 \\
+			            \frac{1}{2}\cos s
+		            \end{pmatrix},\:
+		\vec N(s)=\begin{pmatrix}
+			          -\frac{\sqrt{3}}{2}\sin s \\
+			          - \cos s                  \\
+			          -\frac{1}{2}\sin s
+		          \end{pmatrix}, \:
+		\vec B(s) = \begin{pmatrix}
+			            1/2 \\ 0 \\ \sqrt{3}/2
+		            \end{pmatrix}.
+	\end{align*}
 \end{proof}
 
 \begin{claim*}[Question 2.1]
-   Let $\vec x : I \to \E^n$ be a unit-speed parameterised curve such that
-   \begin{align}
-      \label{premise}
-      \abs{\vec x(s) - \vec p}^2 = R^2 \hs\text{for all } s\in I
-   \end{align}
-   where $R\in\R$ and $\vec p\in\E^n$. Then $\kappa(s)\geq 1/R$ for all $s\in I$.
+	Let $\vec x : I \to \E^n$ be a unit-speed parameterised curve such that
+	\begin{align}
+		\label{premise}
+		\abs{\vec x(s) - \vec p}^2 = R^2 \hs\text{for all } s\in I
+	\end{align}
+	where $R\in\R$ and $\vec p\in\E^n$. Then $\kappa(s)\geq 1/R$ for all $s\in I$.
 \end{claim*}
 \begin{proof}
-   We differentiate (\ref{premise}) with respect to $s$ to obtain
-   \begin{align*}
-      \vec x'(s) \cdot (\vec x(s) - \vec p) = 0.
-   \end{align*}
-   Doing this again yields
-   \begin{align}
-      \label{d2}
-      \vec x''(s)\cdot (\vec x(s) - \vec p) + \vec x'(s)\cdot\vec x'(s) = 0.
-   \end{align}
-   Note that $\vec x(s)$ is unit-speed parameterised and therefore
-   \begin{align*}
-      \vec x'(s) = \vec T(s), \hs \abs{\vec x'(s)} = 1.
-   \end{align*}
-   We use this to simplify (\ref{d2}) to
-   \begin{align}
-      \label{t}
-      \vec T'(s) \cdot (\vec x(s) - \vec p) + 1 = 0.
-   \end{align}
-   Therefore, $\vec T'(s)\not= \vec 0$, making $\vec x$ biregular. This allows
-   us to use the structure equations to obtain
-   \begin{align*}
-      \kappa(s)\vec N(s)\cdot(\vec x(s)-\vec p) + 1 = 0
-   \end{align*}
-   which, since $\vec N(s)\cdot(\vec x(s)-\vec p)$ is clearly nonzero, we
-   can rearrange as follows
-   \begin{align*}
-      \kappa(s)=-\frac{1}{\vec N(s)\cdot(\vec x(s) - \vec p)}.
-   \end{align*}
-   However, we know that $\kappa(s)>0$ for all $s$. Thus
-   \begin{align}
-      \label{curvature}
-      \kappa(s) = \frac{1}{\abs{\vec N(s)\cdot(\vec x(s)-\vec p)}}.
-   \end{align}
-   By the \emph{Cauchy-Schwarz inequality} we have
-   \begin{align*}
-      0 < \abs{\vec N(s)\cdot(\vec x(s) - \vec p)} \leq \abs{\vec N(s)}\abs{\vec x(s)-\vec p}.
-   \end{align*}
-   Observe that $\abs{\vec N(s)} = 1$, $\abs{\vec x(s) - \vec p} = R$ and thereby
-   \begin{align*}
-      0 <\abs{\vec N(s) \cdot (\vec x(s) - \vec p)} \leq R
-   \end{align*}
-   which shows
-   \begin{align*}
-      \kappa(s) \geq \frac{1}{R}.
-   \end{align*}
+	We differentiate (\ref{premise}) with respect to $s$ to obtain
+	\begin{align*}
+		\vec x'(s) \cdot (\vec x(s) - \vec p) = 0.
+	\end{align*}
+	Doing this again yields
+	\begin{align}
+		\label{d2}
+		\vec x''(s)\cdot (\vec x(s) - \vec p) + \vec x'(s)\cdot\vec x'(s) = 0.
+	\end{align}
+	Note that $\vec x(s)$ is unit-speed parameterised and therefore
+	\begin{align*}
+		\vec x'(s) = \vec T(s), \hs \abs{\vec x'(s)} = 1.
+	\end{align*}
+	We use this to simplify (\ref{d2}) to
+	\begin{align}
+		\label{t}
+		\vec T'(s) \cdot (\vec x(s) - \vec p) + 1 = 0.
+	\end{align}
+	Therefore, $\vec T'(s)\not= \vec 0$, making $\vec x$ biregular. This allows
+	us to use the structure equations to obtain
+	\begin{align*}
+		\kappa(s)\vec N(s)\cdot(\vec x(s)-\vec p) + 1 = 0
+	\end{align*}
+	which, since $\vec N(s)\cdot(\vec x(s)-\vec p)$ is clearly nonzero, we
+	can rearrange as follows
+	\begin{align*}
+		\kappa(s)=-\frac{1}{\vec N(s)\cdot(\vec x(s) - \vec p)}.
+	\end{align*}
+	However, we know that $\kappa(s)>0$ for all $s$. Thus
+	\begin{align}
+		\label{curvature}
+		\kappa(s) = \frac{1}{\abs{\vec N(s)\cdot(\vec x(s)-\vec p)}}.
+	\end{align}
+	By the \emph{Cauchy-Schwarz inequality} we have
+	\begin{align*}
+		0 < \abs{\vec N(s)\cdot(\vec x(s) - \vec p)} \leq \abs{\vec N(s)}\abs{\vec x(s)-\vec p}.
+	\end{align*}
+	Observe that $\abs{\vec N(s)} = 1$, $\abs{\vec x(s) - \vec p} = R$ and thereby
+	\begin{align*}
+		0 <\abs{\vec N(s) \cdot (\vec x(s) - \vec p)} \leq R
+	\end{align*}
+	which shows
+	\begin{align*}
+		\kappa(s) \geq \frac{1}{R}.
+	\end{align*}
 \end{proof}
 
 \begin{claim*}[Question 2.2]
-   Let $\vec x : I \to \E^n$ be a unit-speed parameterised curve such that
-   \begin{align*}
-      \abs{\vec x(s) - \vec p}^2 = R^2,\hs\kappa(s)=c \hs\text{for all } s\in I
-   \end{align*}
-   where $c, R\in\R$ and $\vec p\in\E^n$.
-   Then $\vec x(s)$ is part of a circle.
+	Let $\vec x : I \to \E^n$ be a unit-speed parameterised curve such that
+	\begin{align*}
+		\abs{\vec x(s) - \vec p}^2 = R^2,\hs\kappa(s)=c \hs\text{for all } s\in I
+	\end{align*}
+	where $c, R\in\R$ and $\vec p\in\E^n$.
+	Then $\vec x(s)$ is part of a circle.
 \end{claim*}
 \begin{proof}
-   In the proof above we have established that
-   \begin{align*}
-      \kappa(s)\vec N(s)\cdot (\vec x(s)-\vec p) + 1 = 0.
-   \end{align*}
-   Since $\kappa(s)=c$, this is equivalent to
-   \begin{align}
-      \label{eq1}
-      \vec N(s)\cdot (\vec x(s) - \vec p) + \frac{1}{c} = 0.
-   \end{align}
-   We can differentiate to obtain
-   \begin{align*}
-      \vec N'(s)\cdot (\vec x(s) - \vec p) + \vec N(s)\cdot \vec x'(s)=0.
-   \end{align*}
-   Since $\vec T(s) = \vec x'(s)$ and $\vec T(s) \cdot \vec N(s)=0$ by
-   \emph{Notes, Proposition 3.14}, this simplifies to
-   \begin{align*}
-      \vec N'(s)\cdot (\vec x(s)-\vec p) = 0.
-   \end{align*}
-   We can use the structure equations again to get
-   \begin{align*}
-      (-c \vec T'(s) + \tau\vec B'(s))\cdot (\vec x(s)-\vec p) = 0.
-   \end{align*}
-   By differentiation this shows
-   \begin{align*}
-      (-c \vec T'(s) + \tau \vec B'(s)) \cdot (\vec x(s) - \vec p)
-      + (-c \vec T(s) + \tau \vec B(s)) \cdot \vec T = 0,
-   \end{align*}
-   which we can simplify by using $\vec T(s)\cdot \vec T(s)=1$ and $\vec B(s)\cdot \vec T(s)=0$:
-   \begin{align*}
-      (-c \vec T'(s) + \tau \vec B'(s)) \cdot (\vec x(s) - \vec p) = c.
-   \end{align*}
-   However, due to (\ref{t}), we find
-   \begin{align*}
-      \tau \vec B'(s)\cdot (\vec x(s) - \vec p) = 0.
-   \end{align*}
-   By applying the structure equations one last time, we find
-   \begin{align*}
-      -\tau^2 \vec N(s)\cdot (\vec x(s)-\vec p) = 0.
-   \end{align*}
-   Due to (\ref{eq1}), $\vec N(s)\cdot (\vec x(s)-\vec p)\not=0$, which shows $\tau=0$.
-   By \emph{Notes, Corollary 3.26}, this makes $\vec x(s)$ part of a circle.
+	In the proof above we have established that
+	\begin{align*}
+		\kappa(s)\vec N(s)\cdot (\vec x(s)-\vec p) + 1 = 0.
+	\end{align*}
+	Since $\kappa(s)=c$, this is equivalent to
+	\begin{align}
+		\label{eq1}
+		\vec N(s)\cdot (\vec x(s) - \vec p) + \frac{1}{c} = 0.
+	\end{align}
+	We can differentiate to obtain
+	\begin{align*}
+		\vec N'(s)\cdot (\vec x(s) - \vec p) + \vec N(s)\cdot \vec x'(s)=0.
+	\end{align*}
+	Since $\vec T(s) = \vec x'(s)$ and $\vec T(s) \cdot \vec N(s)=0$ by
+	\emph{Notes, Proposition 3.14}, this simplifies to
+	\begin{align*}
+		\vec N'(s)\cdot (\vec x(s)-\vec p) = 0.
+	\end{align*}
+	We can use the structure equations again to get
+	\begin{align*}
+		(-c \vec T'(s) + \tau\vec B'(s))\cdot (\vec x(s)-\vec p) = 0.
+	\end{align*}
+	By differentiation this shows
+	\begin{align*}
+		(-c \vec T'(s) + \tau \vec B'(s)) \cdot (\vec x(s) - \vec p)
+		+ (-c \vec T(s) + \tau \vec B(s)) \cdot \vec T = 0,
+	\end{align*}
+	which we can simplify by using $\vec T(s)\cdot \vec T(s)=1$ and $\vec B(s)\cdot \vec T(s)=0$:
+	\begin{align*}
+		(-c \vec T'(s) + \tau \vec B'(s)) \cdot (\vec x(s) - \vec p) = c.
+	\end{align*}
+	However, due to (\ref{t}), we find
+	\begin{align*}
+		\tau \vec B'(s)\cdot (\vec x(s) - \vec p) = 0.
+	\end{align*}
+	By applying the structure equations one last time, we find
+	\begin{align*}
+		-\tau^2 \vec N(s)\cdot (\vec x(s)-\vec p) = 0.
+	\end{align*}
+	Due to (\ref{eq1}), $\vec N(s)\cdot (\vec x(s)-\vec p)\not=0$, which shows $\tau=0$.
+	By \emph{Notes, Corollary 3.26}, this makes $\vec x(s)$ part of a circle.
 \end{proof}
 
 \end{document}

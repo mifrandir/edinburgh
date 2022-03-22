@@ -12,13 +12,13 @@
 \subsection{Reading}
 \subsection{Tutorial}
 \begin{itemize}
-    \item do exercise before
-    \item collaboration is fine
-    \item no marks
-    \item mandatory to not fail the exam
+	\item do exercise before
+	\item collaboration is fine
+	\item no marks
+	\item mandatory to not fail the exam
 \end{itemize}
 \begin{itemize}
-    \item look at Piazza forum
+	\item look at Piazza forum
 \end{itemize}
 \subsection{Ethics}
 Think about your impact on the world.\\
@@ -27,60 +27,60 @@ Think about your own prejudices:
 \section{Lecture 1 (FP), September 17}
 \subsection{Prolog}
 \begin{itemize}
-    \item Tutorials start this week. (Thursday/Friday)
-    \item Everyone should install Haskell.
-    \item Get the Tutorial! (May involve extra steps. Sorry.)
-    \item You may read in before or after the lecture.
+	\item Tutorials start this week. (Thursday/Friday)
+	\item Everyone should install Haskell.
+	\item Get the Tutorial! (May involve extra steps. Sorry.)
+	\item You may read in before or after the lecture.
 \end{itemize}
 \subsection{Why FP first?}
 \begin{itemize}
-    \item Diversity is important.
-    \item Increasingly important.
-    \item Equality throughout the course.
-    \item Operate on data structure \emph{as a whole} rather than \emph{piecemeal}. $\Rightarrow$ higher level
-    \item Good for councurrency.
-    $\Leftarrow$ Everything is immutable.
-    You don't need to worry about different instances changing the data.
+	\item Diversity is important.
+	\item Increasingly important.
+	\item Equality throughout the course.
+	\item Operate on data structure \emph{as a whole} rather than \emph{piecemeal}. $\Rightarrow$ higher level
+	\item Good for councurrency.
+	      $\Leftarrow$ Everything is immutable.
+	      You don't need to worry about different instances changing the data.
 \end{itemize}
 Quote of the day:
 \begin{quotation}
-    Premature optimization is the root of all evil.
-    (Philip Wadler)
+	Premature optimization is the root of all evil.
+	(Philip Wadler)
 \end{quotation}
 \subsection{What is Haskell?}
 \begin{itemize}
-    \item A functional programming language
-    \item Designed by a committee 30 years ago.
-    \item Phil was part of it.
+	\item A functional programming language
+	\item Designed by a committee 30 years ago.
+	\item Phil was part of it.
 \end{itemize}
 \subsection{What is Haskell for?}
 \begin{itemize}
-    \item Research
-    \item Teaching
-    \item Industry
+	\item Research
+	\item Teaching
+	\item Industry
 \end{itemize}
 \subsection{Families}
 \begin{itemize}
-    \item FP: Haskell, Erlang, Purescript, Racket, Scala
-    \item OO: C++, Java, C\#, Python
+	\item FP: Haskell, Erlang, Purescript, Racket, Scala
+	\item OO: C++, Java, C\#, Python
 \end{itemize}
 Ideas from FP have found their way into OOP. (GC, Higher-order functions, generics, list comprehension, ...)
 \subsection{Functions}
 \subsubsection{Definitions}
 \begin{itemize}
-    \item Recipe / Instructions
-    \item I/O pair set
-    \item equation
-    \item a graph
+	\item Recipe / Instructions
+	\item I/O pair set
+	\item equation
+	\item a graph
 \end{itemize}
 \subsubsection{Kinds of data}
 \begin{itemize}
-    \item integers
-    \item floats
-    \item characters
-    \item strings
-    \item booleans
-    \item pictures
+	\item integers
+	\item floats
+	\item characters
+	\item strings
+	\item booleans
+	\item pictures
 \end{itemize}
 \subsubsection{Applying a function}
 \begin{minted}{haskell}
@@ -120,23 +120,23 @@ double p = beside (invert p) (flipV p) -- function definition
 double knight                          -- expression
 \end{minted}
 \begin{itemize}
-    \item \texttt{double}: function name
-    \item \texttt{p}: formal parameter
-    \item \texttt{beside (invert p) (flipV p)}: function body
-    \item \texttt{knight}: actual parameter
+	\item \texttt{double}: function name
+	\item \texttt{p}: formal parameter
+	\item \texttt{beside (invert p) (flipV p)}: function body
+	\item \texttt{knight}: actual parameter
 \end{itemize}
 Tip: Always define types beforehand.
 \subsection{List and Comprehensions}
 \subsubsection{Lists}
 \begin{itemize}
-    \item ordered
-    \item same type
-    \item allows duplicates
+	\item ordered
+	\item same type
+	\item allows duplicates
 \end{itemize}
 \subsubsection{List comprehensions}
 \begin{itemize}
-    \item Generator: where the values come from
-    \item Guard: Condition for when to take an element from the generator
+	\item Generator: where the values come from
+	\item Guard: Condition for when to take an element from the generator
 \end{itemize}
 \section{Lecture 3 (FP), September 20}
 \subsubsection{Cons and append}
@@ -147,15 +147,15 @@ Tip: Always define types beforehand.
 \subsubsection{More Lists}
 A recursive defintion of lists:
 \begin{itemize}
-    \item empty, written \texttt{[]}, or
-    \item contstructed, written \texttt{x:xs}, with head x and tail xs.
+	\item empty, written \texttt{[]}, or
+	\item contstructed, written \texttt{x:xs}, with head x and tail xs.
 \end{itemize}
 \subsection{Recursion}
 Defining something in terms of itself.
 You need:
 \begin{itemize}
-    \item base case
-    \item recursive case
+	\item base case
+	\item recursive case
 \end{itemize}
 \begin{minted}{haskell}
 sqauresRec :: [Int] -> [Int]
@@ -280,9 +280,9 @@ area (Circle r) = pi*r*r
 area (Rect w h) = w*h
 \end{minted}
 \begin{description}
-    \item[Functions] can appear on the right of the equals sign.
-    \item[Constructors] are special functions that can appear on the left of the equals sign.
-\end{description} 
+	\item[Functions] can appear on the right of the equals sign.
+	\item[Constructors] are special functions that can appear on the left of the equals sign.
+\end{description}
 Tip: Capitalize only constructors.
 \subsubsection{Tests and selectors}
 isRect :: Shape -> Bool
@@ -315,10 +315,10 @@ evalExp (Add x y) = evalExp x + evalExp y
 evalExp (Mul x y) = evalExp x * evalExp y
 \end{minted}
 \section{Lecture 10, October 21}
-... 
+...
 \section{Lecture 12-13, October 28}
 \subsection{Big O-notation and efficiency}
-We say $f$ is $O(g)$ when $g$ is an upper bound for $f$, for big enough inputs.\\ 
+We say $f$ is $O(g)$ when $g$ is an upper bound for $f$, for big enough inputs.\\
 Only care about how much the worst-time grows, not about the absolute values.
 
 \subsubsection{Parallelism}
@@ -326,7 +326,7 @@ If you can make something parallel and have many computer, you should. You might
 \section{Lecture 14}
 \subsection{Lazy Evaluation}
 \begin{definition}
-    A closure is a bit of code, that still needs to be executed unless a return value is found before it's needed.
+	A closure is a bit of code, that still needs to be executed unless a return value is found before it's needed.
 \end{definition}
 \begin{minted}{haskell}
 ho :: Int -> [Int]
@@ -524,11 +524,11 @@ We know that (\texttt{>>}) and \texttt{done} satisfy the laws of a \emph{monoid}
 \subsection{Substitution}
 We write \texttt{n[x := v]} to stand for
 \begin{center}
-    term \texttt{m} with variable \texttt{x} replaced by value \texttt{v]}.
+	term \texttt{m} with variable \texttt{x} replaced by value \texttt{v]}.
 \end{center}
 For example, in \texttt{n} is \texttt{x * x} and \texttt{x} is \texttt{x} and \texttt{v} is \texttt{3},
 \begin{center}
-    \texttt{(x * x) [x := 3] = (3 * 3)}
+	\texttt{(x * x) [x := 3] = (3 * 3)}
 \end{center}
 \subsection{The monad of lists}
 In the standard prelude:

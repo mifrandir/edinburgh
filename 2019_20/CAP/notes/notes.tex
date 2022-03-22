@@ -12,932 +12,932 @@ Textbook: James Stewart, \emph{Essential Calculus: Early Transcendentals}, Secon
 \section{Functions and models}
 \subsection{Four ways to represent a function}
 \begin{definition}
-    A \textbf{function} $f$ is a rule that assigns to each element $x$ in a set $D$ exactly one element, called $f(x)$, in a set $E$.\\
-    $D$ is called the \textbf{domain}.\\
-    The set of all possible values of $f(x)$ as $x$ varies throughout the domain is called the \textbf{range}.\\
+	A \textbf{function} $f$ is a rule that assigns to each element $x$ in a set $D$ exactly one element, called $f(x)$, in a set $E$.\\
+	$D$ is called the \textbf{domain}.\\
+	The set of all possible values of $f(x)$ as $x$ varies throughout the domain is called the \textbf{range}.\\
 \end{definition}
 \begin{definition}
-    A function $f$ that satisfies $f(-x)=f(x)$ for all $x$ in its domain is called an \textbf{even function}.
+	A function $f$ that satisfies $f(-x)=f(x)$ for all $x$ in its domain is called an \textbf{even function}.
 \end{definition}
 \begin{definition}
-    A function $f$ that satisfies $f(-x)=-f(x)$ for all $x$ in its domain is called an \textbf{odd function}.
+	A function $f$ that satisfies $f(-x)=-f(x)$ for all $x$ in its domain is called an \textbf{odd function}.
 \end{definition}
 \begin{definition}
-    A function $f$ is called \textbf{increasing} on an interval $I$ if
-    \begin{align*}
-        \forall x_1, x_2 \in I.\:x_1 < x_2 \Rightarrow f(x_1) < f(x_2).
-    \end{align*}
-    It is called \textbf{decreasing} on $I$ if
-    \begin{align*}
-        \forall x_1, x_2 \in I.\: x_1 < x_2 \Rightarrow f(x_1) > f(x_2).
-    \end{align*}
+	A function $f$ is called \textbf{increasing} on an interval $I$ if
+	\begin{align*}
+		\forall x_1, x_2 \in I.\:x_1 < x_2 \Rightarrow f(x_1) < f(x_2).
+	\end{align*}
+	It is called \textbf{decreasing} on $I$ if
+	\begin{align*}
+		\forall x_1, x_2 \in I.\: x_1 < x_2 \Rightarrow f(x_1) > f(x_2).
+	\end{align*}
 \end{definition}
 \subsection{Mathematical models: Essential functions}
 \begin{definition}
-    A \textbf{linear function} is a function $f$ of the form
-    \begin{align*}
-        f(x) = mx + b
-    \end{align*}
-    where $m, b\in\R$.
+	A \textbf{linear function} is a function $f$ of the form
+	\begin{align*}
+		f(x) = mx + b
+	\end{align*}
+	where $m, b\in\R$.
 \end{definition}
 \begin{definition}
-    A function $P$ is called a \textbf{polynomial} if
-    \begin{align*}
-        P(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots +a_2x^2 + a_1x+a_0
-    \end{align*}
-    where $n\in\N$ is the \textbf{degree} and the $a_0, a_1, ..., a_n$ are constants called the \textbf{coefficients}.
+	A function $P$ is called a \textbf{polynomial} if
+	\begin{align*}
+		P(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots +a_2x^2 + a_1x+a_0
+	\end{align*}
+	where $n\in\N$ is the \textbf{degree} and the $a_0, a_1, ..., a_n$ are constants called the \textbf{coefficients}.
 \end{definition}
 \begin{definition}
-    A function $f$ is called \textbf{rational function} if
-    \begin{align*}
-        f(x) = \frac{P(x)}{Q(x)}
-    \end{align*}
-    where $P$ and $Q$ are polynomials.
+	A function $f$ is called \textbf{rational function} if
+	\begin{align*}
+		f(x) = \frac{P(x)}{Q(x)}
+	\end{align*}
+	where $P$ and $Q$ are polynomials.
 \end{definition}
 \begin{definition}
-    A function $f$ is called an \textbf{algebraic function} if it can be constructed using algebraic operations starting with polynomials.
+	A function $f$ is called an \textbf{algebraic function} if it can be constructed using algebraic operations starting with polynomials.
 \end{definition}
 \begin{definition}
-    A function $f$ is called an \textbf{exponential function} if it has the form
-    \begin{align*}
-        f(x) = a^x
-    \end{align*}
+	A function $f$ is called an \textbf{exponential function} if it has the form
+	\begin{align*}
+		f(x) = a^x
+	\end{align*}
 \end{definition}
 \begin{definition}
-    The \textbf{logarithmic functions} $f(x) = \log_ax$ where the base $a$ is a positive constant, are the inverse functions of the exponential functions.
+	The \textbf{logarithmic functions} $f(x) = \log_ax$ where the base $a$ is a positive constant, are the inverse functions of the exponential functions.
 \end{definition}
 \subsection{New functions from old functions}
 \begin{definition}
-    Shifting the graph of a function in a certain direction is called \textbf{translation}.
-    \begin{itemize}
-        \item $y = f(x) + c$ shifts the graph a distance $c$ upward.
-        \item $y= f(x - c)$ shifts the graph a distance $c$ to the right.
-    \end{itemize}
+	Shifting the graph of a function in a certain direction is called \textbf{translation}.
+	\begin{itemize}
+		\item $y = f(x) + c$ shifts the graph a distance $c$ upward.
+		\item $y= f(x - c)$ shifts the graph a distance $c$ to the right.
+	\end{itemize}
 \end{definition}
 \begin{definition}
-    The graph of a function can be \textbf{stretched}.
-    \begin{itemize}
-        \item $y=cf(x)$ stretches the graph vertically by a factor of $c$.
-        \item $y=f(x/c)$ stretches the graph horizontally by a factor of $c$.
-    \end{itemize}
+	The graph of a function can be \textbf{stretched}.
+	\begin{itemize}
+		\item $y=cf(x)$ stretches the graph vertically by a factor of $c$.
+		\item $y=f(x/c)$ stretches the graph horizontally by a factor of $c$.
+	\end{itemize}
 \end{definition}
 \begin{definition}
-    The graph of a function can be \textbf{reflected}.
-    \begin{itemize}
-        \item $y=-f(x)$ reflects the graph about the $x$-axis.
-        \item $y=f(-x)$ reflects the graph about the $y$-axis.
-    \end{itemize}
+	The graph of a function can be \textbf{reflected}.
+	\begin{itemize}
+		\item $y=-f(x)$ reflects the graph about the $x$-axis.
+		\item $y=f(-x)$ reflects the graph about the $y$-axis.
+	\end{itemize}
 \end{definition}
 \begin{definition}
-    Functions may be \textbf{combined}.
-    \begin{align*}
-        (f+g)(x)         & := f(x) + g(x)      \\
-        (f-g)(x)         & := f(x) - g(x)      \\
-        (fg)(x)          & := f(x)g(x)         \\
-        (\frac{f}{g})(x) & :=\frac{f(x)}{g(x)} \\
-        (f\circ g)(x)    & := f(g(x))
-    \end{align*}
+	Functions may be \textbf{combined}.
+	\begin{align*}
+		(f+g)(x)         & := f(x) + g(x)      \\
+		(f-g)(x)         & := f(x) - g(x)      \\
+		(fg)(x)          & := f(x)g(x)         \\
+		(\frac{f}{g})(x) & :=\frac{f(x)}{g(x)} \\
+		(f\circ g)(x)    & := f(g(x))
+	\end{align*}
 \end{definition}
 \setcounter{subsection}{4}
 \subsection{Exponential functions}
 \begin{theorem}
-    Let $a$ and $b$ be positive numbers and $x$ and $y$ be any real numbers. Then
-    \begin{enumerate}
-        \item $a^{x+y}=a^xa^y$,
-        \item $a^{x-y}=\frac{a^x}{a^y}$,
-        \item $(a^x)^y=a^{xy}$,
-        \item $(ab)^x=a^xb^x$.
-    \end{enumerate}
+	Let $a$ and $b$ be positive numbers and $x$ and $y$ be any real numbers. Then
+	\begin{enumerate}
+		\item $a^{x+y}=a^xa^y$,
+		\item $a^{x-y}=\frac{a^x}{a^y}$,
+		\item $(a^x)^y=a^{xy}$,
+		\item $(ab)^x=a^xb^x$.
+	\end{enumerate}
 \end{theorem}
 \subsection{Inverse functions and logarithms}
 \begin{definition}
-    A function $f$ with the domain $D$ is called a \textbf{one-to-one function} if it never takes on the same value twice; that is
-    \begin{align*}
-        \forall x_1, x_2 \in D.\: x_1\not=x_2 \Rightarrow f(x_1)\not= f(x_2)
-    \end{align*}
+	A function $f$ with the domain $D$ is called a \textbf{one-to-one function} if it never takes on the same value twice; that is
+	\begin{align*}
+		\forall x_1, x_2 \in D.\: x_1\not=x_2 \Rightarrow f(x_1)\not= f(x_2)
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $f$ be a one-to-one function with domain $A$ and range $B$. Then its \textbf{inverse function} $f^{-1}$ has domain $B$ and range $A$ and is defined by
-    \begin{align*}
-        f^{-1}(y) = x \Leftrightarrow f(x) = y
-    \end{align*}
+	Let $f$ be a one-to-one function with domain $A$ and range $B$. Then its \textbf{inverse function} $f^{-1}$ has domain $B$ and range $A$ and is defined by
+	\begin{align*}
+		f^{-1}(y) = x \Leftrightarrow f(x) = y
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    The graph of $f^{-1}$ is obtained by reflecting the graph of $f$ about the line $y=x$.
+	The graph of $f^{-1}$ is obtained by reflecting the graph of $f$ about the line $y=x$.
 \end{theorem}
 \begin{theorem}
-    If $x$ and $y$ are positive numbers, then
-    \begin{enumerate}
-        \item $\log_a(xy)=\log_ax=\log_ay$
-        \item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
-        \item $\log_a(x^r)=r\log_ax$ where $r\in\R$
-    \end{enumerate}
+	If $x$ and $y$ are positive numbers, then
+	\begin{enumerate}
+		\item $\log_a(xy)=\log_ax=\log_ay$
+		\item $\log_a(\frac{x}{y}) = \log_ax - \log_ay$
+		\item $\log_a(x^r)=r\log_ax$ where $r\in\R$
+	\end{enumerate}
 \end{theorem}
 \begin{definition}
-    The \textbf{natural logarithm} $\ln x$ is defined as
-    \begin{align*}
-        \ln x := \log_e x
-    \end{align*}
+	The \textbf{natural logarithm} $\ln x$ is defined as
+	\begin{align*}
+		\ln x := \log_e x
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    For any positive number $a$ ($a\not=1$), we have
-    \begin{align*}
-        \log_a x = \frac{\ln x}{\ln a}
-    \end{align*}
+	For any positive number $a$ ($a\not=1$), we have
+	\begin{align*}
+		\log_a x = \frac{\ln x}{\ln a}
+	\end{align*}
 \end{theorem}
 \section{Limits and derivatives}
 \setcounter{subsection}{1}
 \subsection{The limit of a function}
 \begin{definition}
-    We write
-    \begin{align*}
-        \lim_{x\to a} f(x) = L
-    \end{align*}
-    and say "the limit of $f(x)$, as $x$ approaches $a$, equals $L$" if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ to be sufficiently close to $a$, but not equal to $a$.
+	We write
+	\begin{align*}
+		\lim_{x\to a} f(x) = L
+	\end{align*}
+	and say "the limit of $f(x)$, as $x$ approaches $a$, equals $L$" if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ to be sufficiently close to $a$, but not equal to $a$.
 \end{definition}
 \begin{definition}
-    We write
-    \begin{align*}
-        \lim_{x\to a^-}f(x) = L
-    \end{align*}
-    and say the \textbf{left-hand limit of $f(x)$ as x approachse $a$} is equal to $L$ if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ to be sufficiently close to $a$ and $x$ less than $a$.
+	We write
+	\begin{align*}
+		\lim_{x\to a^-}f(x) = L
+	\end{align*}
+	and say the \textbf{left-hand limit of $f(x)$ as x approachse $a$} is equal to $L$ if we can make the values of $f(x)$ arbitrarily close to $L$ by taking $x$ to be sufficiently close to $a$ and $x$ less than $a$.
 \end{definition}
 \begin{theorem}
-    \begin{align*}
-        \lim_{x\to a}f(x) = L \text{ iff } \lim_{x\to a^-}f(x) = L \text{ and } \lim_{x\to a^+}f(x) = L
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to a}f(x) = L \text{ iff } \lim_{x\to a^-}f(x) = L \text{ and } \lim_{x\to a^+}f(x) = L
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    Let $f$ be a function defined on both sides of $a$, except possibly at $a$ itself. Then
-    \begin{align*}
-        \lim_{x\to a} f(x) = \infty
-    \end{align*}
-    means that the values of $f(x)$ can be made arbitrarily large by taking $x$ sufficiently close to $a$, but not equal to $a$.
+	Let $f$ be a function defined on both sides of $a$, except possibly at $a$ itself. Then
+	\begin{align*}
+		\lim_{x\to a} f(x) = \infty
+	\end{align*}
+	means that the values of $f(x)$ can be made arbitrarily large by taking $x$ sufficiently close to $a$, but not equal to $a$.
 \end{definition}
 \begin{definition}
-    Let $f$ be a function defined on both sides of $a$, except possibly at $a$ itself. Then
-    \begin{align*}
-        \lim_{x\to a} f(x) = -\infty
-    \end{align*}
-    means that the values of $f(x)$ can be made arbitrarily large negative by taking $x$ sufficiently close to $a$, but not equal to $a$.
+	Let $f$ be a function defined on both sides of $a$, except possibly at $a$ itself. Then
+	\begin{align*}
+		\lim_{x\to a} f(x) = -\infty
+	\end{align*}
+	means that the values of $f(x)$ can be made arbitrarily large negative by taking $x$ sufficiently close to $a$, but not equal to $a$.
 \end{definition}
 \begin{definition}
-    The line $x=a$ is called a \textbf{vertical asymptote} of the curve $y=f(x)$ if at least one of the following statements is true:
-    \begin{align*}
-        \lim_{x\to a}f(x) = \infty    \\
-        \lim_{x\to a^-}f(x) = \infty  \\
-        \lim_{x\to a^+}f(x) = \infty  \\
-        \lim_{x\to a}f(x) = -\infty   \\
-        \lim_{x\to a^-}f(x) = -\infty \\
-        \lim_{x\to a^+}f(x) = -\infty
-    \end{align*}
+	The line $x=a$ is called a \textbf{vertical asymptote} of the curve $y=f(x)$ if at least one of the following statements is true:
+	\begin{align*}
+		\lim_{x\to a}f(x) = \infty    \\
+		\lim_{x\to a^-}f(x) = \infty  \\
+		\lim_{x\to a^+}f(x) = \infty  \\
+		\lim_{x\to a}f(x) = -\infty   \\
+		\lim_{x\to a^-}f(x) = -\infty \\
+		\lim_{x\to a^+}f(x) = -\infty
+	\end{align*}
 \end{definition}
 \subsection{Calculating limits and using the limit laws}
 \begin{theorem}
-    Suppose that $c$ is a constant and the limits $\lim_{x\to a}f(x)$ and $\lim_{x\to a}g(x)$ exists. Then
-    \begin{align*}
-        \lim_{x\to a}\left[f(x)+g(x)\right]
-                          & =\lim_{x\to a}f(x)+\lim_{x\to a}g(x)                                              \\
-        \lim_{x\to a}\left[f(x)-g(x)\right]
-                          & =\lim_{x\to a}f(x)-\lim_{x\to a}g(x)                                              \\
-        \lim_{x\to a}\left[cf(x)\right]
-                          & =c\lim_{x\to a}f(x)                                                               \\
-        \lim_{x\to a}\left[f(x)g(x)\right]
-                          & =\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)                                          \\
-        \lim_{x\to a}\left[\frac{f(x)}{g(x)}\right]
-                          & =\frac{\lim_{x\to a}f(x)}{\lim_{x\to a}g(x)}\text{ if } \lim_{x\to a}g(x)\not = 0 \\
-        \lim_{x\to a}\left[f(x)\right]^n
-                          & =\left[\lim_{x\to a}f(x)\right]^n                                                 \\
-        \lim_{x\to a}c    & = c                                                                               \\
-        \lim_{x \to a}x   & = a                                                                               \\
-        \lim_{x \to a}x^n & = a^n \text{ where } n\in\mathbb{Z}^+
-    \end{align*}
+	Suppose that $c$ is a constant and the limits $\lim_{x\to a}f(x)$ and $\lim_{x\to a}g(x)$ exists. Then
+	\begin{align*}
+		\lim_{x\to a}\left[f(x)+g(x)\right]
+		                  & =\lim_{x\to a}f(x)+\lim_{x\to a}g(x)                                              \\
+		\lim_{x\to a}\left[f(x)-g(x)\right]
+		                  & =\lim_{x\to a}f(x)-\lim_{x\to a}g(x)                                              \\
+		\lim_{x\to a}\left[cf(x)\right]
+		                  & =c\lim_{x\to a}f(x)                                                               \\
+		\lim_{x\to a}\left[f(x)g(x)\right]
+		                  & =\lim_{x\to a}f(x)\cdot\lim_{x\to a}g(x)                                          \\
+		\lim_{x\to a}\left[\frac{f(x)}{g(x)}\right]
+		                  & =\frac{\lim_{x\to a}f(x)}{\lim_{x\to a}g(x)}\text{ if } \lim_{x\to a}g(x)\not = 0 \\
+		\lim_{x\to a}\left[f(x)\right]^n
+		                  & =\left[\lim_{x\to a}f(x)\right]^n                                                 \\
+		\lim_{x\to a}c    & = c                                                                               \\
+		\lim_{x \to a}x   & = a                                                                               \\
+		\lim_{x \to a}x^n & = a^n \text{ where } n\in\mathbb{Z}^+
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f$ is a polynomial or a rational function and $a$ is in the domain of $f$, then
-    \begin{align*}
-        \lim_{x\to a}f(x) = f(a)
-    \end{align*}
+	If $f$ is a polynomial or a rational function and $a$ is in the domain of $f$, then
+	\begin{align*}
+		\lim_{x\to a}f(x) = f(a)
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f(x) = g(x)$ when $x\not=a$, then $\lim_{x\to a}f(x) = \lim_{x\to a}g(x)$, provided the limits exists.
+	If $f(x) = g(x)$ when $x\not=a$, then $\lim_{x\to a}f(x) = \lim_{x\to a}g(x)$, provided the limits exists.
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \lim_{x\to a} f(x) = L\text{ iff } \lim_{x\to a^-}=L=\lim_{x\to a^+} f(x)
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to a} f(x) = L\text{ iff } \lim_{x\to a^-}=L=\lim_{x\to a^+} f(x)
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f(x) \leq g(x)$ when $x$ is near a (except possibly at $a$) and the limits of $f$ and $g$ both exists as $x$ approaches $a$, then
-    \begin{align*}
-        \lim_{x\to a}f(x) \leq \lim_{x\to a} g(x)
-    \end{align*}
+	If $f(x) \leq g(x)$ when $x$ is near a (except possibly at $a$) and the limits of $f$ and $g$ both exists as $x$ approaches $a$, then
+	\begin{align*}
+		\lim_{x\to a}f(x) \leq \lim_{x\to a} g(x)
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{The squeeze theorem.}\\
-    If $f(x)\leq g(x)\leq h(x)$ when $x$ is near $a$ (except possibly at $a$) and
-    \begin{align*}
-        \lim_{x\to a}f(x) = \lim_{x\to a}h(x) = L
-    \end{align*}
-    then
-    \begin{align*}
-        \lim_{x \to a}g(x) = L.
-    \end{align*}
+	\textbf{The squeeze theorem.}\\
+	If $f(x)\leq g(x)\leq h(x)$ when $x$ is near $a$ (except possibly at $a$) and
+	\begin{align*}
+		\lim_{x\to a}f(x) = \lim_{x\to a}h(x) = L
+	\end{align*}
+	then
+	\begin{align*}
+		\lim_{x \to a}g(x) = L.
+	\end{align*}
 \end{theorem}
 \subsection{The precise definition of a limit}
 \begin{definition}
-    Let $f$ be a function defined on some open interval that contains the number $a$, except possibly at $a$ itself. Then we say that the \textbf{limit of $f(x)$ as $x$ approaches $a$ is $L$}, and we write
-    \begin{align*}
-        \lim_{x\to a}f(x) = L
-    \end{align*}
-    if for every number $\varepsilon>0$ there is a number $\delta>0$ such that
-    \begin{align*}
-        0<|x-a|<\delta \Rightarrow |f(x)-L|<\varepsilon.
-    \end{align*}
+	Let $f$ be a function defined on some open interval that contains the number $a$, except possibly at $a$ itself. Then we say that the \textbf{limit of $f(x)$ as $x$ approaches $a$ is $L$}, and we write
+	\begin{align*}
+		\lim_{x\to a}f(x) = L
+	\end{align*}
+	if for every number $\varepsilon>0$ there is a number $\delta>0$ such that
+	\begin{align*}
+		0<|x-a|<\delta \Rightarrow |f(x)-L|<\varepsilon.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    \begin{align*}
-        \lim_{x\to a^-}f(x) = L
-    \end{align*}
-    if for every number $\varepsilon > 0$ there is a number $\delta > 0$ such that
-    \begin{align*}
-        a-\delta < x < a \Rightarrow |f(x)-L| < \varepsilon.
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to a^-}f(x) = L
+	\end{align*}
+	if for every number $\varepsilon > 0$ there is a number $\delta > 0$ such that
+	\begin{align*}
+		a-\delta < x < a \Rightarrow |f(x)-L| < \varepsilon.
+	\end{align*}
 \end{definition}
 \begin{align*}
-    \lim_{x\to a^+}f(x) = L
+	\lim_{x\to a^+}f(x) = L
 \end{align*}
 if for every number $\varepsilon > 0$ there is a number $\delta > 0$ such that
 \begin{align*}
-    a < x < a+\delta \Rightarrow |f(x)-L| < \varepsilon.
+	a < x < a+\delta \Rightarrow |f(x)-L| < \varepsilon.
 \end{align*}
 \begin{definition}
-    Let $f$ be a function defined on some open interval that contains the number $a$, except possibly at $a$ itself. Then
-    \begin{align*}
-        \lim_{x\to a}f(x) = \infty
-    \end{align*}
-    means that for every positive number $M$ there is a positive number $\delta$ such that
-    \begin{align*}
-        0<|x-a|<\delta \Rightarrow f(x)>M.
-    \end{align*}
+	Let $f$ be a function defined on some open interval that contains the number $a$, except possibly at $a$ itself. Then
+	\begin{align*}
+		\lim_{x\to a}f(x) = \infty
+	\end{align*}
+	means that for every positive number $M$ there is a positive number $\delta$ such that
+	\begin{align*}
+		0<|x-a|<\delta \Rightarrow f(x)>M.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $f$ be a function defined on some open interval that contains the number $a$, except possibly at $a$ itself. Then
-    \begin{align*}
-        \lim_{x\to a}f(x) = -\infty
-    \end{align*}
-    means that for every negative number $N$ there is a positive number $\delta$ such that
-    \begin{align*}
-        0<|x-a|<\delta \Rightarrow f(x)<N.
-    \end{align*}
+	Let $f$ be a function defined on some open interval that contains the number $a$, except possibly at $a$ itself. Then
+	\begin{align*}
+		\lim_{x\to a}f(x) = -\infty
+	\end{align*}
+	means that for every negative number $N$ there is a positive number $\delta$ such that
+	\begin{align*}
+		0<|x-a|<\delta \Rightarrow f(x)<N.
+	\end{align*}
 \end{definition}
 \subsection{Continuity}
 \begin{definition}
-    A function $f$ is \textbf{continuous at a number $a$} if
-    \begin{align*}
-        \lim_{x\to a}f(x)=f(a).
-    \end{align*}
+	A function $f$ is \textbf{continuous at a number $a$} if
+	\begin{align*}
+		\lim_{x\to a}f(x)=f(a).
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A function $f$ is \textbf{continuous from the right at a number $a$} if
-    \begin{align*}
-        \lim_{x\to a^+}f(x) = f(a)
-    \end{align*}
-    and $f$ is \textbf{continuous from the left at $a$} if
-    \begin{align*}
-        \lim_{x\to a^-}f(x) = f(a).
-    \end{align*}
+	A function $f$ is \textbf{continuous from the right at a number $a$} if
+	\begin{align*}
+		\lim_{x\to a^+}f(x) = f(a)
+	\end{align*}
+	and $f$ is \textbf{continuous from the left at $a$} if
+	\begin{align*}
+		\lim_{x\to a^-}f(x) = f(a).
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A function $f$ is \textbf{continuous on an interval $I$} if
-    \begin{align*}
-        \forall a \in I, \lim_{x\to a}f(x) = f(a).
-    \end{align*}
+	A function $f$ is \textbf{continuous on an interval $I$} if
+	\begin{align*}
+		\forall a \in I, \lim_{x\to a}f(x) = f(a).
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    If $f$ and $g$ are continuous at $a$ and $c$ is a constant, then the following functions are also continuous at $a$:
-    \begin{enumerate}
-        \item $f+g$
-        \item $f-g$
-        \item $cf$
-        \item $fg$
-        \item $\frac{f}{g}$ if $g(a)\not= 0$
-    \end{enumerate}
+	If $f$ and $g$ are continuous at $a$ and $c$ is a constant, then the following functions are also continuous at $a$:
+	\begin{enumerate}
+		\item $f+g$
+		\item $f-g$
+		\item $cf$
+		\item $fg$
+		\item $\frac{f}{g}$ if $g(a)\not= 0$
+	\end{enumerate}
 \end{theorem}
 \begin{theorem}
-    \begin{enumerate}
-        \item Any polynomial is continuous everywhere.
-        \item Any rational function is continuous wherever it is defined.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Any polynomial is continuous everywhere.
+		\item Any rational function is continuous wherever it is defined.
+	\end{enumerate}
 \end{theorem}
 \begin{theorem}
-    The following types of functions are continuous at every number in their domains:
-    \begin{itemize}
-        \item polynomials,
-        \item rational functions,
-        \item root functions,
-        \item trigonometric functions,
-        \item inverse trigonometric functions,
-        \item exponential functions,
-        \item logarithmic functions.
-    \end{itemize}
+	The following types of functions are continuous at every number in their domains:
+	\begin{itemize}
+		\item polynomials,
+		\item rational functions,
+		\item root functions,
+		\item trigonometric functions,
+		\item inverse trigonometric functions,
+		\item exponential functions,
+		\item logarithmic functions.
+	\end{itemize}
 \end{theorem}
 \begin{theorem}
-    If $f$ is continuous at $b$ and $\lim_{x\to a}g(x) = b$, then $\lim_{x\to a}f(g(x))=f(b)$. In other words,
-    \begin{align*}
-        \lim_{x\to a}f(g(x))=f\left(\lim_{x\to a}g(x)\right).
-    \end{align*}
+	If $f$ is continuous at $b$ and $\lim_{x\to a}g(x) = b$, then $\lim_{x\to a}f(g(x))=f(b)$. In other words,
+	\begin{align*}
+		\lim_{x\to a}f(g(x))=f\left(\lim_{x\to a}g(x)\right).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$, then the composite function $f\circ g$ is continuous at $a$.
+	If $g$ is continuous at $a$ and $f$ is continuous at $g(a)$, then the composite function $f\circ g$ is continuous at $a$.
 \end{theorem}
 \begin{theorem}
-    \textbf{The intermediate value theorem}\\
-    Suppose that $f$ is continuous on the closed interval $[a,b]$ and let $N$ be any number between $f(a)$ and $f(b)$, where $f(a)\not=f(b)$. Then there exists a number $c$ in $(a,b)$ such that $f(c)=N$.
+	\textbf{The intermediate value theorem}\\
+	Suppose that $f$ is continuous on the closed interval $[a,b]$ and let $N$ be any number between $f(a)$ and $f(b)$, where $f(a)\not=f(b)$. Then there exists a number $c$ in $(a,b)$ such that $f(c)=N$.
 \end{theorem}
 \subsection{Limits at infinity; horizontal asymptotes}
 \begin{definition}
-    Let $f$ be a function defined on some interval $(a,\infty)$. Then
-    \begin{align*}
-        \lim_{x\to\infty}f(x)=L
-    \end{align*}
-    means that the values of $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently large.
+	Let $f$ be a function defined on some interval $(a,\infty)$. Then
+	\begin{align*}
+		\lim_{x\to\infty}f(x)=L
+	\end{align*}
+	means that the values of $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently large.
 \end{definition}
 \begin{definition}
-    Let $f$ be a function defined on some interval $(\infty, a)$. Then
-    \begin{align*}
-        \lim_{x\to -\infty}f(x)=L
-    \end{align*}
-    means that the values of $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently large negative.
+	Let $f$ be a function defined on some interval $(\infty, a)$. Then
+	\begin{align*}
+		\lim_{x\to -\infty}f(x)=L
+	\end{align*}
+	means that the values of $f(x)$ can be made arbitrarily close to $L$ by taking $x$ sufficiently large negative.
 \end{definition}
 \begin{definition}
-    The line $y=L$ is called a \textbf{horizontal asymptote} of the curve $y=f(x)$ if either
-    \begin{align*}
-        \lim_{x\to \infty}f(x)=L \text{ or } \lim_{x\to-\infty}f(x)=L
-    \end{align*}
+	The line $y=L$ is called a \textbf{horizontal asymptote} of the curve $y=f(x)$ if either
+	\begin{align*}
+		\lim_{x\to \infty}f(x)=L \text{ or } \lim_{x\to-\infty}f(x)=L
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \begin{align*}
-        \lim_{x\to-\infty}tan^{-1}x=-\frac{\pi}{2}. \\
-        \lim_{x\to\infty}tan^{-1}x=\frac{\pi}{2}.
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to-\infty}tan^{-1}x=-\frac{\pi}{2}. \\
+		\lim_{x\to\infty}tan^{-1}x=\frac{\pi}{2}.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $r>0$ is a rational number, then
-    \begin{align*}
-        \lim_{x\to\infty}\frac{1}{x^r}=0
-    \end{align*}
-    If $r>0$ is a rational number such that $x^r$ is defined for all $x$, then
-    \begin{align*}
-        \lim_{x\to-\infty}\frac{1}{x^r}=0.
-    \end{align*}
+	If $r>0$ is a rational number, then
+	\begin{align*}
+		\lim_{x\to\infty}\frac{1}{x^r}=0
+	\end{align*}
+	If $r>0$ is a rational number such that $x^r$ is defined for all $x$, then
+	\begin{align*}
+		\lim_{x\to-\infty}\frac{1}{x^r}=0.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \lim_{x\to-\infty}e^x=0.
-    \end{align*}
+	\begin{align*}
+		\lim_{x\to-\infty}e^x=0.
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    Let $f$ be a function defined on some interval $(a, \infty)$. Then
-    \begin{align*}
-        \lim_{x\to\infty}f(x)=L
-    \end{align*}
-    means that for every $\varepsilon>0$ there is a corresponding number $N$ such that
-    \begin{align*}
-        x>N\Rightarrow|f(x)-L|<\varepsilon.
-    \end{align*}
+	Let $f$ be a function defined on some interval $(a, \infty)$. Then
+	\begin{align*}
+		\lim_{x\to\infty}f(x)=L
+	\end{align*}
+	means that for every $\varepsilon>0$ there is a corresponding number $N$ such that
+	\begin{align*}
+		x>N\Rightarrow|f(x)-L|<\varepsilon.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $f$ be a function defined on some interval $(-\infty, a)$. Then
-    \begin{align*}
-        \lim_{x\to-\infty}f(x)=L
-    \end{align*}
-    means that for every $\varepsilon>0$ there is a corresponding number $N$ such that
-    \begin{align*}
-        x<N\Rightarrow |f(x)-L|<\varepsilon.
-    \end{align*}
+	Let $f$ be a function defined on some interval $(-\infty, a)$. Then
+	\begin{align*}
+		\lim_{x\to-\infty}f(x)=L
+	\end{align*}
+	means that for every $\varepsilon>0$ there is a corresponding number $N$ such that
+	\begin{align*}
+		x<N\Rightarrow |f(x)-L|<\varepsilon.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $f$ be a function defined on some interval $(a, \infty)$. Then
-    \begin{align*}
-        \lim_{x\to\infty}f(x)=\infty
-    \end{align*}
-    means that for every positive number $M$ there is a corresponding positive number $N$ such that
-    \begin{align*}
-        x>N\Rightarrow f(x)>M.
-    \end{align*}
+	Let $f$ be a function defined on some interval $(a, \infty)$. Then
+	\begin{align*}
+		\lim_{x\to\infty}f(x)=\infty
+	\end{align*}
+	means that for every positive number $M$ there is a corresponding positive number $N$ such that
+	\begin{align*}
+		x>N\Rightarrow f(x)>M.
+	\end{align*}
 \end{definition}
 \subsection{Derivatives and rates of change}
 \begin{definition}
-    The \textbf{tangent line} to the curve $y=f(x)$ at the point $P(a, f(a))$ is the line through $P$ with slope
-    \begin{align*}
-        m=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
-    \end{align*}
-    provided that this limit exists.
+	The \textbf{tangent line} to the curve $y=f(x)$ at the point $P(a, f(a))$ is the line through $P$ with slope
+	\begin{align*}
+		m=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+	\end{align*}
+	provided that this limit exists.
 \end{definition}
 \begin{theorem}
-    \begin{align*}
-        m=\lim_{h\to 0}\frac{f(a + h)-f(a)}{h}
-    \end{align*}
+	\begin{align*}
+		m=\lim_{h\to 0}\frac{f(a + h)-f(a)}{h}
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        v(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
-    \end{align*}
+	\begin{align*}
+		v(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    The \textbf{derivative of a function $f$ at a number $a$}, denoted $f'(a)$, is
-    \begin{align*}
-        f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
-    \end{align*}
-    if this limit exists.
+	The \textbf{derivative of a function $f$ at a number $a$}, denoted $f'(a)$, is
+	\begin{align*}
+		f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}
+	\end{align*}
+	if this limit exists.
 \end{definition}
 \begin{theorem}
-    \begin{align*}
-        f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
-    \end{align*}
+	\begin{align*}
+		f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    The \textbf{derivative of $f$}, $f'$, is defined by
-    \begin{align*}
-        f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
-    \end{align*}
+	The \textbf{derivative of $f$}, $f'$, is defined by
+	\begin{align*}
+		f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A function $f$ is \textbf{differentiable at $a$} if $f'(a)$ exists. It is \textbf{differentiable on an open interval $(a,b)$} if it is differentiable at every number in the interval.
+	A function $f$ is \textbf{differentiable at $a$} if $f'(a)$ exists. It is \textbf{differentiable on an open interval $(a,b)$} if it is differentiable at every number in the interval.
 \end{definition}
 \begin{theorem}
-    If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
+	If $f$ is differentiable at $a$, then $f$ is continuous at $a$.
 \end{theorem}
 \section{Differentiation rules}
 \subsection{Derivatives of polynomials and exponential functions}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(c) = 0
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(c) = 0
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(x) = 1
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(x) = 1
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $n$ is any real number, then
-    \begin{align*}
-        \frac{d}{dx}(x^n) = nx^{n-1}.
-    \end{align*}
+	If $n$ is any real number, then
+	\begin{align*}
+		\frac{d}{dx}(x^n) = nx^{n-1}.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $c$ is a constant and $f$ is a differentiable function, then
-    \begin{align*}
-        \frac{d}{dx}(cf(x))=c\frac{d}{dx}f(x).
-    \end{align*}
+	If $c$ is a constant and $f$ is a differentiable function, then
+	\begin{align*}
+		\frac{d}{dx}(cf(x))=c\frac{d}{dx}f(x).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f$ and $g$ are both differentiable, then
-    \begin{align*}
-        \frac{d}{dx}(f(x)+g(x))=\frac{d}{dx}f(x)+\frac{d}{dx}g(x).
-    \end{align*}
+	If $f$ and $g$ are both differentiable, then
+	\begin{align*}
+		\frac{d}{dx}(f(x)+g(x))=\frac{d}{dx}f(x)+\frac{d}{dx}g(x).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f$ and $g$ are both differentiable, then
-    \begin{align*}
-        \frac{d}{dx}(f(x)-g(x))=\frac{d}{dx}f(x)-\frac{d}{dx}g(x).
-    \end{align*}
+	If $f$ and $g$ are both differentiable, then
+	\begin{align*}
+		\frac{d}{dx}(f(x)-g(x))=\frac{d}{dx}f(x)-\frac{d}{dx}g(x).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(e^x)=e^x
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(e^x)=e^x
+	\end{align*}
 \end{theorem}
 \subsection{Product and quotient rules}
 \begin{theorem}
-    If $f$ and $g$ are both differentiable, then
-    \begin{align*}
-        \frac{d}{dx}(f(x)g(x))=f(x)\frac{d}{dx}(g(x))+g(x)\frac{d}{dx}(f(x))
-    \end{align*}
+	If $f$ and $g$ are both differentiable, then
+	\begin{align*}
+		\frac{d}{dx}(f(x)g(x))=f(x)\frac{d}{dx}(g(x))+g(x)\frac{d}{dx}(f(x))
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    If $f$ and $g$ are differentiable, then
-    \begin{align*}
-        \frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{g(x)\frac{d}{dx}(f(x))-f(x)\frac{d}{dx}(g(x))}{(g(x))^2}
-    \end{align*}
+	If $f$ and $g$ are differentiable, then
+	\begin{align*}
+		\frac{d}{dx}\left(\frac{f(x)}{g(x)}\right)=\frac{g(x)\frac{d}{dx}(f(x))-f(x)\frac{d}{dx}(g(x))}{(g(x))^2}
+	\end{align*}
 \end{theorem}
 \subsection{Derivatives of trigonometric functions}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(\sin x)=\cos x
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(\sin x)=\cos x
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(\cos x)=-\sin x
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(\cos x)=-\sin x
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(\tan x)=\frac{1}{\cos^2 x}
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(\tan x)=\frac{1}{\cos^2 x}
+	\end{align*}
 \end{theorem}
 \subsection{The chain rule}
 \begin{theorem}
-    If $g$ is differentiable at $x$ and $f$ is differentiable at $g(x)$, then the composite function $F=f\circ g$ is differentiable at $x$ and $F'$ is given by the product
-    \begin{align*}
-        F'(x)=f'(g(x))\cdot g'(x).
-    \end{align*}
-    In Leibniz notation, if $y=f(u)$ and $u=g(x)$ are both differentiable functions, then
-    \begin{align*}
-        \frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}
-    \end{align*}
+	If $g$ is differentiable at $x$ and $f$ is differentiable at $g(x)$, then the composite function $F=f\circ g$ is differentiable at $x$ and $F'$ is given by the product
+	\begin{align*}
+		F'(x)=f'(g(x))\cdot g'(x).
+	\end{align*}
+	In Leibniz notation, if $y=f(u)$ and $u=g(x)$ are both differentiable functions, then
+	\begin{align*}
+		\frac{dy}{dx}=\frac{dy}{du}\frac{du}{dx}
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \frac{d}{dx}(a^x)=a^x\ln a
-    \end{align*}
+	\begin{align*}
+		\frac{d}{dx}(a^x)=a^x\ln a
+	\end{align*}
 \end{theorem}
 \subsection{Implicit differentiation}
 \begin{theorem}
-    \textbf{Derivatives of inverse trigonometric functions}\\
-    \begin{align*}
-        \frac{d}{dx}(\sin^{-1}x) & =\frac{1}{\sqrt{1-x^2}}  \\
-        \frac{d}{dx}(\cos^{-1}x) & =-\frac{1}{\sqrt{1-x^2}} \\
-        \frac{d}{dx}(\tan^{-1}x) & =\frac{1}{1+x^2}
-    \end{align*}
+	\textbf{Derivatives of inverse trigonometric functions}\\
+	\begin{align*}
+		\frac{d}{dx}(\sin^{-1}x) & =\frac{1}{\sqrt{1-x^2}}  \\
+		\frac{d}{dx}(\cos^{-1}x) & =-\frac{1}{\sqrt{1-x^2}} \\
+		\frac{d}{dx}(\tan^{-1}x) & =\frac{1}{1+x^2}
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    The only solutions to the differential equation $\nicefrac{dy}{dt}=ky$ are the exponential functions
-    \begin{align*}
-        y(t)=y(0)e^{kt}.
-    \end{align*}
+	The only solutions to the differential equation $\nicefrac{dy}{dt}=ky$ are the exponential functions
+	\begin{align*}
+		y(t)=y(0)e^{kt}.
+	\end{align*}
 \end{theorem}
 \setcounter{subsection}{9}
 \subsection{Linear approximations and differentials}
 \begin{theorem}
-    \begin{align*}
-        f(x)\approx f(a)+f'(a)(x-a)
-    \end{align*}
-    is called the \textbf{linear approximation} or \textbf{tangent line approximation} of $f$ at $a$.
+	\begin{align*}
+		f(x)\approx f(a)+f'(a)(x-a)
+	\end{align*}
+	is called the \textbf{linear approximation} or \textbf{tangent line approximation} of $f$ at $a$.
 \end{theorem}
 \subsection{Hyperbolic functions}
 \begin{definition}
-    \begin{align*}
-        \sinh x & := \frac{e^x-e^{-x}}{2}    \\
-        \cosh x & := \frac{e^x+e^{-x}}{2}    \\
-        \tanh x & := \frac{\sinh x}{\cosh x}
-    \end{align*}
+	\begin{align*}
+		\sinh x & := \frac{e^x-e^{-x}}{2}    \\
+		\cosh x & := \frac{e^x+e^{-x}}{2}    \\
+		\tanh x & := \frac{\sinh x}{\cosh x}
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \textbf{Hyperbolic identities}
-    \begin{align*}
-        \sinh(-x)           & = -\sinh x                          \\
-        \cosh(-x)           & = \cosh x                           \\
-        \cosh^2x - \sinh^2x & = 1                                 \\
-        1-\tanh^2 x         & = \nicefrac{1}{\cosh^2x}            \\
-        \sinh(x+y)          & =\sinh x \cosh x + \cosh x \sinh y  \\
-        \cosh(x+y)          & = \cosh x \cosh y + \sinh x \sinh y
-    \end{align*}
+	\textbf{Hyperbolic identities}
+	\begin{align*}
+		\sinh(-x)           & = -\sinh x                          \\
+		\cosh(-x)           & = \cosh x                           \\
+		\cosh^2x - \sinh^2x & = 1                                 \\
+		1-\tanh^2 x         & = \nicefrac{1}{\cosh^2x}            \\
+		\sinh(x+y)          & =\sinh x \cosh x + \cosh x \sinh y  \\
+		\cosh(x+y)          & = \cosh x \cosh y + \sinh x \sinh y
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{Derivatives of hyperbolic functions and their inverses}
-    \begin{align*}
-        \begin{aligned}
-            \frac{d}{dx}(\sinh x) & =\cosh x           \\
-            \frac{d}{dx}(\csch x) & =-\csch x \coth x  \\
-            \frac{d}{dx}(\cosh x) & =\sinh x           \\
-            \frac{d}{dx}(\sech x) & = -\tanh x \sech x \\
-            \frac{d}{dx}(\tanh x) & =\sech^2 x         \\
-            \frac{d}{dx}(\coth x) & = -\csch^2 x
-        \end{aligned}
-        \hspace{1cm}
-        \begin{aligned}
-            \frac{d}{dx}(\arcsinh x) & =\frac{1}{\sqrt{1+x^2}}     \\
-            \frac{d}{dx}(\arccsch x) & =-\frac{1}{|x|\sqrt{x^2+1}} \\
-            \frac{d}{dx}(\arccosh x) & =\frac{1}{\sqrt{x^2-1}}     \\
-            \frac{d}{dx}(\arcsech x) & = -\frac{1}{x\sqrt{1-x^2}}  \\
-            \frac{d}{dx}(\arctanh x) & =\frac{1}{1-x^2}            \\
-            \frac{d}{dx}(\arccoth x) & = \frac{1}{1-x^2}
-        \end{aligned}
-    \end{align*}
+	\textbf{Derivatives of hyperbolic functions and their inverses}
+	\begin{align*}
+		\begin{aligned}
+			\frac{d}{dx}(\sinh x) & =\cosh x           \\
+			\frac{d}{dx}(\csch x) & =-\csch x \coth x  \\
+			\frac{d}{dx}(\cosh x) & =\sinh x           \\
+			\frac{d}{dx}(\sech x) & = -\tanh x \sech x \\
+			\frac{d}{dx}(\tanh x) & =\sech^2 x         \\
+			\frac{d}{dx}(\coth x) & = -\csch^2 x
+		\end{aligned}
+		\hspace{1cm}
+		\begin{aligned}
+			\frac{d}{dx}(\arcsinh x) & =\frac{1}{\sqrt{1+x^2}}     \\
+			\frac{d}{dx}(\arccsch x) & =-\frac{1}{|x|\sqrt{x^2+1}} \\
+			\frac{d}{dx}(\arccosh x) & =\frac{1}{\sqrt{x^2-1}}     \\
+			\frac{d}{dx}(\arcsech x) & = -\frac{1}{x\sqrt{1-x^2}}  \\
+			\frac{d}{dx}(\arctanh x) & =\frac{1}{1-x^2}            \\
+			\frac{d}{dx}(\arccoth x) & = \frac{1}{1-x^2}
+		\end{aligned}
+	\end{align*}
 \end{theorem}
 \section{Applications of Differentiation}
 \subsection{Maximum and minimum values}
 \begin{definition}
-    A function $f$ has an \textbf{absolute maximum} (or \textbf{global maximum}) at $c$ if
-    \begin{align*}
-        \forall x\in \dom f, f(x)\geq f(x).
-    \end{align*}
-    Similarly, $f$ has an \textbf{absolute minimum} at $c$ if
-    \begin{align*}
-        \forall x\in \dom f, f(x)\leq f(x).
-    \end{align*}
+	A function $f$ has an \textbf{absolute maximum} (or \textbf{global maximum}) at $c$ if
+	\begin{align*}
+		\forall x\in \dom f, f(x)\geq f(x).
+	\end{align*}
+	Similarly, $f$ has an \textbf{absolute minimum} at $c$ if
+	\begin{align*}
+		\forall x\in \dom f, f(x)\leq f(x).
+	\end{align*}
 \end{definition}
 \begin{definition}
-    A function $f$ has a \textbf{local maximum} at $c$ if
-    \begin{align*}
-        \exists a,b\in \dom f \st \forall x\in (a,b), f(c)\geq f(x).
-    \end{align*}
-    Similarly, $f$ has a \textbf{local minimum} at $c$ if
-    \begin{align*}
-        \exists a,b\in \dom f\st \forall x\in(a,b), f(c)\geq f(x).
-    \end{align*}
+	A function $f$ has a \textbf{local maximum} at $c$ if
+	\begin{align*}
+		\exists a,b\in \dom f \st \forall x\in (a,b), f(c)\geq f(x).
+	\end{align*}
+	Similarly, $f$ has a \textbf{local minimum} at $c$ if
+	\begin{align*}
+		\exists a,b\in \dom f\st \forall x\in(a,b), f(c)\geq f(x).
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \textbf{The extreme value theorem}\\
-    If $f$ is continuous on a close interval $[a,b]$, then $f$ attains an absolute maximum value $f(c)$ and an absolute minimum value $f(d)$ at some numbers $c,d\in[a,b]$.
+	\textbf{The extreme value theorem}\\
+	If $f$ is continuous on a close interval $[a,b]$, then $f$ attains an absolute maximum value $f(c)$ and an absolute minimum value $f(d)$ at some numbers $c,d\in[a,b]$.
 \end{theorem}
 \begin{theorem}
-    \textbf{Fermat's theorem}\\
-    If $f$ has a local maximum or minimum at $c$, and if $f'(c)$ exists, then $f'(c)=0$.
+	\textbf{Fermat's theorem}\\
+	If $f$ has a local maximum or minimum at $c$, and if $f'(c)$ exists, then $f'(c)=0$.
 \end{theorem}
 \begin{definition}
-    A \textbf{critical number} of a function $f$ is a number $c$ in the domain of $f$ such that either $f'(c)=0$ or $f'(c)$ does not exists.
+	A \textbf{critical number} of a function $f$ is a number $c$ in the domain of $f$ such that either $f'(c)=0$ or $f'(c)$ does not exists.
 \end{definition}
 \subsection{The mean value theorem}
 \begin{theorem}
-    \textbf{Rolle's theorem}\\
-    Let $f$ be a function that satisfies the following three hypotheses:
-    \begin{enumerate}
-        \item $f$ is continuous on the closed interval $[a,b]$.
-        \item $f$ is differentiable on the open interval $(a,b)$.
-        \item $f(a)=f(b)$.
-    \end{enumerate}
-    Then there is a number $c \in (a,b)$ such that $f'(c)=0$.
+	\textbf{Rolle's theorem}\\
+	Let $f$ be a function that satisfies the following three hypotheses:
+	\begin{enumerate}
+		\item $f$ is continuous on the closed interval $[a,b]$.
+		\item $f$ is differentiable on the open interval $(a,b)$.
+		\item $f(a)=f(b)$.
+	\end{enumerate}
+	Then there is a number $c \in (a,b)$ such that $f'(c)=0$.
 \end{theorem}
 \begin{theorem}
-    \textbf{The mean value theorem}\\
-    Let $f$ be a function that satisfies the following hypotheses:
-    \begin{enumerate}
-        \item $f$ is continuous on the closed interval $[a,b]$.
-        \item $f$ is differentiable on the open interval $(a,b)$.
-    \end{enumerate}
-    Then there is a number $c\in(a,b)$ such that
-    \begin{align*}
-        f'(c)=\frac{f(b)-f(a)}{b-a}
-    \end{align*}
+	\textbf{The mean value theorem}\\
+	Let $f$ be a function that satisfies the following hypotheses:
+	\begin{enumerate}
+		\item $f$ is continuous on the closed interval $[a,b]$.
+		\item $f$ is differentiable on the open interval $(a,b)$.
+	\end{enumerate}
+	Then there is a number $c\in(a,b)$ such that
+	\begin{align*}
+		f'(c)=\frac{f(b)-f(a)}{b-a}
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \text{If }
-        \forall x\in(a,b), f'(x)=0,
-        \text{ then }
-        \exists y\in\R\st\forall c\in(a,b), f(c)=y.
-    \end{align*}
+	\begin{align*}
+		\text{If }
+		\forall x\in(a,b), f'(x)=0,
+		\text{ then }
+		\exists y\in\R\st\forall c\in(a,b), f(c)=y.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \begin{align*}
-        \text{If }\forall x\in(a,b), f'(x)=g'(x)\text{, then } \exists c\in\R \st\forall x\in (a,b), f(x)=g(x)+c.
-    \end{align*}
+	\begin{align*}
+		\text{If }\forall x\in(a,b), f'(x)=g'(x)\text{, then } \exists c\in\R \st\forall x\in (a,b), f(x)=g(x)+c.
+	\end{align*}
 \end{theorem}
 \subsection{How derivatives affect the shape of a graph}
 \begin{definition}
-    If the graph of $f$ lies above all of its tangents on an interval $I$, then it is called \textbf{concave upward} on $I$. If the graph of $f$ lies below all of its tangents, then it is called \textbf{concave downward} on $I$.
+	If the graph of $f$ lies above all of its tangents on an interval $I$, then it is called \textbf{concave upward} on $I$. If the graph of $f$ lies below all of its tangents, then it is called \textbf{concave downward} on $I$.
 \end{definition}
 \begin{theorem}
-    \textbf{Concavity test}
-    \begin{enumerate}
-        \item If $\forall x\in I, f''(x)>0$, then the graph of $f$ is concave upward on $I$.
-        \item If $\forall x\in I, f''(x)<0$, then the graph of $f$ is concave downward on $I$.
-    \end{enumerate}
+	\textbf{Concavity test}
+	\begin{enumerate}
+		\item If $\forall x\in I, f''(x)>0$, then the graph of $f$ is concave upward on $I$.
+		\item If $\forall x\in I, f''(x)<0$, then the graph of $f$ is concave downward on $I$.
+	\end{enumerate}
 \end{theorem}
 \begin{definition}
-    A point $P$ on a curve $y=f(x)$ is called an \textbf{inflection point} if $f$ is continuous there and the curve changes its concavity.
+	A point $P$ on a curve $y=f(x)$ is called an \textbf{inflection point} if $f$ is continuous there and the curve changes its concavity.
 \end{definition}
 \begin{theorem}
-    Suppose $f''$ is continuous near $c$.
-    \begin{enumerate}
-        \item If $f'(c)=0$ and $f''(c)>0$, then $f$ has a local minimum at $c$.
-        \item If $f'(c)=0$ and $f''(c)<0$, then $f$ has a local maximum at $c$.
-    \end{enumerate}
+	Suppose $f''$ is continuous near $c$.
+	\begin{enumerate}
+		\item If $f'(c)=0$ and $f''(c)>0$, then $f$ has a local minimum at $c$.
+		\item If $f'(c)=0$ and $f''(c)<0$, then $f$ has a local maximum at $c$.
+	\end{enumerate}
 \end{theorem}
 \subsection{Indeterminate forms and l'Hospital's rule}
 \begin{theorem}
-    \textbf{L'Hosptial's rule}\\
-    Suppose $f$ and $g$ are differentiable and $g'(x)\not=0$ on an open interval $I$ that contains $a$ (except possibly at $a$). Suppose that
-    \begin{align*}
-        \lim_{x\to a}f(x)=0\text{ and } \lim_{x\to a}g(x)=0
-    \end{align*}
-    or that
-    \begin{align*}
-        \lim_{x\to a}f(x)=\pm\infty \text{ and } \lim_{x\to a}g(x) = \pm\infty.
-    \end{align*}
-    Then
-    \begin{align*}
-        \lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}
-    \end{align*}
-    if the limit on the right side exists (or is $\pm\infty$).
+	\textbf{L'Hosptial's rule}\\
+	Suppose $f$ and $g$ are differentiable and $g'(x)\not=0$ on an open interval $I$ that contains $a$ (except possibly at $a$). Suppose that
+	\begin{align*}
+		\lim_{x\to a}f(x)=0\text{ and } \lim_{x\to a}g(x)=0
+	\end{align*}
+	or that
+	\begin{align*}
+		\lim_{x\to a}f(x)=\pm\infty \text{ and } \lim_{x\to a}g(x) = \pm\infty.
+	\end{align*}
+	Then
+	\begin{align*}
+		\lim_{x\to a}\frac{f(x)}{g(x)}=\lim_{x\to a}\frac{f'(x)}{g'(x)}
+	\end{align*}
+	if the limit on the right side exists (or is $\pm\infty$).
 \end{theorem}
 \setcounter{subsection}{6}
 \subsection{Antiderivatives}
 \begin{definition}
-    A function $F$ is called an \textbf{antiderivative} of $f$ on an interval $I$ if $F'(x)=f(x)$ for all $x$ in $I$.
+	A function $F$ is called an \textbf{antiderivative} of $f$ on an interval $I$ if $F'(x)=f(x)$ for all $x$ in $I$.
 \end{definition}
 \begin{theorem}
-    If $F$ is an antiderivative of $f$ on an interval $I$, then the most general antiderivative of $f$ on $I$ is
-    \begin{align*}
-        F(x) + C
-    \end{align*}
-    where $C$ is an arbitrary constant.
+	If $F$ is an antiderivative of $f$ on an interval $I$, then the most general antiderivative of $f$ on $I$ is
+	\begin{align*}
+		F(x) + C
+	\end{align*}
+	where $C$ is an arbitrary constant.
 \end{theorem}
 \begin{theorem}
-    Particular antiderivatives of common functions:
-    \begin{itemize}
-        \item $\int cf(x)dx = c\int f(x)dx$
-        \item $\int f(x) + g(x) dx = \int f(x)dx + \int g(x)dx$
-        \item $\int x^n dx=\frac{x^{n+1}}{n+1}+C$
-        \item $\int \frac{1}{x}dx=\ln |x|+C$
-        \item $\int e^xdx=e^x+C$
-        \item $\int \cos x dx = \sin x+C$
-        \item $\int \sin x dx = -\cos x +C $
-        \item $\int \sec^2 x dx = \tan x + C$
-        \item $\int \sec x \tan x dx = \sec x + C$
-        \item $\int \frac{1}{\sqrt{1-x^2}}dx = \sin^{-1} x + C$
-        \item $\int \frac{1}{1+x^2}dx = \arctan x + C$
-        \item $\int \cosh x dx = \sinh x + C$
-        \item $\int \sinh x dx = \cosh x + C$
-    \end{itemize}
+	Particular antiderivatives of common functions:
+	\begin{itemize}
+		\item $\int cf(x)dx = c\int f(x)dx$
+		\item $\int f(x) + g(x) dx = \int f(x)dx + \int g(x)dx$
+		\item $\int x^n dx=\frac{x^{n+1}}{n+1}+C$
+		\item $\int \frac{1}{x}dx=\ln |x|+C$
+		\item $\int e^xdx=e^x+C$
+		\item $\int \cos x dx = \sin x+C$
+		\item $\int \sin x dx = -\cos x +C $
+		\item $\int \sec^2 x dx = \tan x + C$
+		\item $\int \sec x \tan x dx = \sec x + C$
+		\item $\int \frac{1}{\sqrt{1-x^2}}dx = \sin^{-1} x + C$
+		\item $\int \frac{1}{1+x^2}dx = \arctan x + C$
+		\item $\int \cosh x dx = \sinh x + C$
+		\item $\int \sinh x dx = \cosh x + C$
+	\end{itemize}
 \end{theorem}
 \section{Integrals}
 \subsection{Areas and Distances}
 \begin{definition}
-    The \textbf{area} $A$ of the region $S$ that lies under the graph of the continuous function $f$ is the limit of the sum of the areas of appoximating rectangles:
-    \begin{align*}
-        A=\lim_{n\to\infty}R_n = \lim_{n\to \infty}\left(f(x_1)\Delta x + f(x_2)\Delta x + \cdots + f(x_n)\delta x\right)
-    \end{align*}
+	The \textbf{area} $A$ of the region $S$ that lies under the graph of the continuous function $f$ is the limit of the sum of the areas of appoximating rectangles:
+	\begin{align*}
+		A=\lim_{n\to\infty}R_n = \lim_{n\to \infty}\left(f(x_1)\Delta x + f(x_2)\Delta x + \cdots + f(x_n)\delta x\right)
+	\end{align*}
 \end{definition}
 \subsection{The definite integral}
 \begin{definition}
-    If $f$ is a function defined on $[a,b]$, the \textbf{definite integral of $f$ from $a$ to $b$} is the number
-    \begin{align*}
-        \int_a^b f(x)dx=\lim_{\max \Delta x_i\to0}\sum_{i=1}^n f(x_i^*)\Delta x_i
-    \end{align*}
-    provided that this limit exists. If it does exist, we say that $f$ is \textbf{integrable} on $[a,b]$.
+	If $f$ is a function defined on $[a,b]$, the \textbf{definite integral of $f$ from $a$ to $b$} is the number
+	\begin{align*}
+		\int_a^b f(x)dx=\lim_{\max \Delta x_i\to0}\sum_{i=1}^n f(x_i^*)\Delta x_i
+	\end{align*}
+	provided that this limit exists. If it does exist, we say that $f$ is \textbf{integrable} on $[a,b]$.
 \end{definition}
 \begin{theorem}
-    If $f$ is continuous on $[a,b]$, or if $f$ has only a finite number of jump discontinuities, then $f$ is integrable on $[a,b]$; that is, the definite integral $\int_a^b f(x)dx$ exists.
+	If $f$ is continuous on $[a,b]$, or if $f$ has only a finite number of jump discontinuities, then $f$ is integrable on $[a,b]$; that is, the definite integral $\int_a^b f(x)dx$ exists.
 \end{theorem}
 \begin{theorem}
-    If $f$ is integrable on $[a,b]$, then \begin{align*}
-        \int_a^b f(x)dx = \lim_{n\to\infty}\sum_{i=1}^nf(x_i)\Delta x
-    \end{align*}
-    where \begin{align*}
-        \Delta x = \frac{b-a}{n} \text{ and } x_i=a+i\Delta x
-    \end{align*}
+	If $f$ is integrable on $[a,b]$, then \begin{align*}
+		\int_a^b f(x)dx = \lim_{n\to\infty}\sum_{i=1}^nf(x_i)\Delta x
+	\end{align*}
+	where \begin{align*}
+		\Delta x = \frac{b-a}{n} \text{ and } x_i=a+i\Delta x
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{The midpoint rule}.
-    \begin{align*}
-        \int_a^bf(x)dx \approx \sum_{i=1}^nf(\bar{x_i})\Delta x = \Delta x (f(\bar{x_i})+\cdots+f(\bar{x_n}))
-    \end{align*}
-    where
-    \begin{align*}
-        \Delta x = \frac{b-a}{n}, \\
-        \bar{x_i} = \frac{1}{2}(x_{i-1}+x_i).
-    \end{align*}
+	\textbf{The midpoint rule}.
+	\begin{align*}
+		\int_a^bf(x)dx \approx \sum_{i=1}^nf(\bar{x_i})\Delta x = \Delta x (f(\bar{x_i})+\cdots+f(\bar{x_n}))
+	\end{align*}
+	where
+	\begin{align*}
+		\Delta x = \frac{b-a}{n}, \\
+		\bar{x_i} = \frac{1}{2}(x_{i-1}+x_i).
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{Properties of integrals}.\\
-    Suppose all the following integrals exist and let $c$ be any constant.
-    \begin{enumerate}
-        \item $\int_a^b cdx = c(b-a)$
-        \item $\int_a^b(f(x)+g(x))dx=\int_a^b+\int_a^bg(x)dx$
-        \item $\int_a^b(cf(x))dx=c\int_a^bf(x)dx$
-        \item $\int_a^b(f(x)-g(x))dx=\int_a^bf(x)dx-\int_a^bg(x)dx$
-        \item $\int_a^cf(x)dx+\int_c^bf(x)dx = \int_a^bf(x)dx$
-        \item If $f(x)\geq 0$ for $x\in[a,b]$, then $\int_a^b f(x)dx \geq 0$.
-        \item If $f(x)\geq g(x)$ for $x\in[a,b]$, then $\int_a^b f(x)dx\geq \int_a^b g(x)dx$.
-        \item If $f(x)\in[m,M]$ for $x\in[a,b]$, then
-              \begin{align*}
-                  m(b-a)\leq \int_a^b f(x)dx \leq M(b-a)
-              \end{align*}
-    \end{enumerate}
+	\textbf{Properties of integrals}.\\
+	Suppose all the following integrals exist and let $c$ be any constant.
+	\begin{enumerate}
+		\item $\int_a^b cdx = c(b-a)$
+		\item $\int_a^b(f(x)+g(x))dx=\int_a^b+\int_a^bg(x)dx$
+		\item $\int_a^b(cf(x))dx=c\int_a^bf(x)dx$
+		\item $\int_a^b(f(x)-g(x))dx=\int_a^bf(x)dx-\int_a^bg(x)dx$
+		\item $\int_a^cf(x)dx+\int_c^bf(x)dx = \int_a^bf(x)dx$
+		\item If $f(x)\geq 0$ for $x\in[a,b]$, then $\int_a^b f(x)dx \geq 0$.
+		\item If $f(x)\geq g(x)$ for $x\in[a,b]$, then $\int_a^b f(x)dx\geq \int_a^b g(x)dx$.
+		\item If $f(x)\in[m,M]$ for $x\in[a,b]$, then
+		      \begin{align*}
+			      m(b-a)\leq \int_a^b f(x)dx \leq M(b-a)
+		      \end{align*}
+	\end{enumerate}
 \end{theorem}
 \subsection{Evaluating definite integrals}
 \begin{theorem}
-    \textbf{Net change theorem}. The integral of a rate of change is the net change:
-    \begin{align*}
-        \int_a^bF'(x)dx=F(b)-F(a)
-    \end{align*}
+	\textbf{Net change theorem}. The integral of a rate of change is the net change:
+	\begin{align*}
+		\int_a^bF'(x)dx=F(b)-F(a)
+	\end{align*}
 \end{theorem}
 \subsection{The fundamental theorem of calculus}
 \begin{theorem}
-    Suppose $f$ is continuous on $[a,b]$.
-    \begin{enumerate}
-        \item If $g(x)=\int_a^x f(t)dt$, then $g'(x)=f(x)$.
-        \item $\int_a^b f(x)dx=F(b)-F(a)$, where $F$ is any antiderivative of $f$, that is $F'=f$.
-    \end{enumerate}
+	Suppose $f$ is continuous on $[a,b]$.
+	\begin{enumerate}
+		\item If $g(x)=\int_a^x f(t)dt$, then $g'(x)=f(x)$.
+		\item $\int_a^b f(x)dx=F(b)-F(a)$, where $F$ is any antiderivative of $f$, that is $F'=f$.
+	\end{enumerate}
 \end{theorem}
 \begin{definition}
-    The \textbf{average value of $f$} on the interval $[a,b]$ is
-    \begin{align*}
-        f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx.
-    \end{align*}
+	The \textbf{average value of $f$} on the interval $[a,b]$ is
+	\begin{align*}
+		f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \textbf{The mean value theorem for integrals.} If $f$ is continuous on $[a,b]$, then there exists a number $c$ in $[a,b]$ such that
-    \begin{align*}
-        f(c)=f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx
-    \end{align*}
-    that is,
-    \begin{align*}
-        \int_a^b f(x)dx=f(x)(b-a).
-    \end{align*}
+	\textbf{The mean value theorem for integrals.} If $f$ is continuous on $[a,b]$, then there exists a number $c$ in $[a,b]$ such that
+	\begin{align*}
+		f(c)=f_{ave}=\frac{1}{b-a}\int_a^b f(x)dx
+	\end{align*}
+	that is,
+	\begin{align*}
+		\int_a^b f(x)dx=f(x)(b-a).
+	\end{align*}
 \end{theorem}
 \subsection{The substitution rule}
 \begin{theorem}
-    \textbf{The substitution rule.}
-    If $u=g(x)$ is a differetiable function whose range is an interval $I$ and $f$ is continuous on $I$, then
-    \begin{align*}
-        \int f(g(x))g'(x)\:dx=\int f(u)\:du
-    \end{align*}
+	\textbf{The substitution rule.}
+	If $u=g(x)$ is a differetiable function whose range is an interval $I$ and $f$ is continuous on $I$, then
+	\begin{align*}
+		\int f(g(x))g'(x)\:dx=\int f(u)\:du
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{The substitution rule for definite integrals.}
-    If $g'$ is continuous on $[a,b]$ and $f$ is continuous on the range of $u=g(x)$, then
-    \begin{align*}
-        \int_a^b f(g(x))g'(x)\:dx=\int_{g(a)}^{g(b)}f(u)\:du.
-    \end{align*}
+	\textbf{The substitution rule for definite integrals.}
+	If $g'$ is continuous on $[a,b]$ and $f$ is continuous on the range of $u=g(x)$, then
+	\begin{align*}
+		\int_a^b f(g(x))g'(x)\:dx=\int_{g(a)}^{g(b)}f(u)\:du.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{Integrals of symmetric functions.} Suppose $f$ is continuous on $[-a,a]$.
-    \begin{enumerate}
-        \item If $f$ is even, then $\int_{-a}^a f(x)\:dx= 2\int_0^a f(x)\:dx$.
-        \item If $f$ is odd, then $\int_{-a}^a f(x)\:dx = 0$.
-    \end{enumerate}
+	\textbf{Integrals of symmetric functions.} Suppose $f$ is continuous on $[-a,a]$.
+	\begin{enumerate}
+		\item If $f$ is even, then $\int_{-a}^a f(x)\:dx= 2\int_0^a f(x)\:dx$.
+		\item If $f$ is odd, then $\int_{-a}^a f(x)\:dx = 0$.
+	\end{enumerate}
 \end{theorem}
 \section{Techniques of integration}
 \begin{theorem}
-    \begin{align*}
-        \int u dv = uv - \int v du
-    \end{align*}
+	\begin{align*}
+		\int u dv = uv - \int v du
+	\end{align*}
 \end{theorem}
 \begin{definition}
-    \textbf{of an improper integral of type 1.}
-    \begin{enumerate}
-        \item If $\int_a^t f(x)\:dx$ exists for every number $t\geq a$, then
-              \begin{align*}
-                  \int_a^\infty f(x)\:dx = \lim_{t\to \infty}\int_a^t f(x)\:dx.
-              \end{align*}
-              provided this limit exists (as a finite number).
-        \item If $\int_t^b f(x)\:dx$ exists for every $t\leq b$, then
-              \begin{align*}
-                  \int_{-\infty}^b f(x)\: dx = \lim_{t\to-\infty}\int_t^b f(x)\:dx
-              \end{align*}
-              provided this limit exists (as a finite number).
-    \end{enumerate}
-    The improper integrals $\int_a^\infty f(x)\:dx$ and $\int_{-\infty}^b f(x)\:dx$ are called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} otherwise.\\
-    If both  $\int_a^\infty f(x)\:dx$ and $\int_{-\infty}^a f(x)\:dx$ are convergent, then we define
-    \begin{align*}
-        \int_{-\infty}^\infty f(x)\:dx = \int_a^\infty f(x)\:dx + \int_{-\infty}^a f(x)\:dx
-    \end{align*}
+	\textbf{of an improper integral of type 1.}
+	\begin{enumerate}
+		\item If $\int_a^t f(x)\:dx$ exists for every number $t\geq a$, then
+		      \begin{align*}
+			      \int_a^\infty f(x)\:dx = \lim_{t\to \infty}\int_a^t f(x)\:dx.
+		      \end{align*}
+		      provided this limit exists (as a finite number).
+		\item If $\int_t^b f(x)\:dx$ exists for every $t\leq b$, then
+		      \begin{align*}
+			      \int_{-\infty}^b f(x)\: dx = \lim_{t\to-\infty}\int_t^b f(x)\:dx
+		      \end{align*}
+		      provided this limit exists (as a finite number).
+	\end{enumerate}
+	The improper integrals $\int_a^\infty f(x)\:dx$ and $\int_{-\infty}^b f(x)\:dx$ are called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} otherwise.\\
+	If both  $\int_a^\infty f(x)\:dx$ and $\int_{-\infty}^a f(x)\:dx$ are convergent, then we define
+	\begin{align*}
+		\int_{-\infty}^\infty f(x)\:dx = \int_a^\infty f(x)\:dx + \int_{-\infty}^a f(x)\:dx
+	\end{align*}
 \end{definition}
 \begin{definition}
-    \textbf{of an improper integral of type 2.}
-    \begin{enumerate}
-        \item If $f$ is continuous on $[a,b)$ and discontinuous at $b$, then
-              \begin{align*}
-                  \int_a^b f(x)\:dx = \lim_{t\to b^-}\int_a^t f(x)\: dx
-              \end{align*}
-              if this limit exists.
-        \item If $f$ is continuous on $(a,b]$ and discontinuous at $a$, then
-              \begin{align*}
-                  \int_a^b f(x)\:dx = \lim_{t\to a^+}\int_t^b f(x)\: dx
-              \end{align*}
-              if this limit exists.
-    \end{enumerate}
-    The improer integral $\int_a^b f(x)\:dx$ is called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} otherwise.\\
-    If $f$ has a discontinuity at $c$, where $a<c<b$, and both $\int_a^c f(x)\:dx$ and $\int_c^b f(x)\:dx$ are convergent, then we define
-    \begin{align*}
-        \int_a^b f(x)\: dx = \int_a^c f(x)\:dx + \int_c^b f(x)\:dx.
-    \end{align*}
+	\textbf{of an improper integral of type 2.}
+	\begin{enumerate}
+		\item If $f$ is continuous on $[a,b)$ and discontinuous at $b$, then
+		      \begin{align*}
+			      \int_a^b f(x)\:dx = \lim_{t\to b^-}\int_a^t f(x)\: dx
+		      \end{align*}
+		      if this limit exists.
+		\item If $f$ is continuous on $(a,b]$ and discontinuous at $a$, then
+		      \begin{align*}
+			      \int_a^b f(x)\:dx = \lim_{t\to a^+}\int_t^b f(x)\: dx
+		      \end{align*}
+		      if this limit exists.
+	\end{enumerate}
+	The improer integral $\int_a^b f(x)\:dx$ is called \textbf{convergent} if the corresponding limit exists and \textbf{divergent} otherwise.\\
+	If $f$ has a discontinuity at $c$, where $a<c<b$, and both $\int_a^c f(x)\:dx$ and $\int_c^b f(x)\:dx$ are convergent, then we define
+	\begin{align*}
+		\int_a^b f(x)\: dx = \int_a^c f(x)\:dx + \int_c^b f(x)\:dx.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \textbf{The comparison theorem.} Suppose that $f$ and $g$ are continuous functions with $f(x)\geq g(x)\geq 0$ for $x\geq a$.
-    \begin{enumerate}
-        \item If $\int_a^\infty f(x)\:dx$ is convergent, then $\int_a^\infty g(x)\:dx$ is convergent.
-        \item If $\int_a^\infty g(x)\:dx$ is divergent, then $\int_a^\infty f(x)\:dx$ is divergent.
-    \end{enumerate}
+	\textbf{The comparison theorem.} Suppose that $f$ and $g$ are continuous functions with $f(x)\geq g(x)\geq 0$ for $x\geq a$.
+	\begin{enumerate}
+		\item If $\int_a^\infty f(x)\:dx$ is convergent, then $\int_a^\infty g(x)\:dx$ is convergent.
+		\item If $\int_a^\infty g(x)\:dx$ is divergent, then $\int_a^\infty f(x)\:dx$ is divergent.
+	\end{enumerate}
 \end{theorem}
 \section{Applications}
 \begin{definition}
-    The area $A$ of the region bounded by the curves $y=f(x)$, $y=g(x)$, and the lines $x=a$, $x=b$, where $f$ and $g$ are continuous and $f(x)\geq g(x)$ for all $x\in[a,b]$, is
-    \begin{align*}
-        A=\int_a^b \left(f(x)-g(x)\right)\:dx.
-    \end{align*}
+	The area $A$ of the region bounded by the curves $y=f(x)$, $y=g(x)$, and the lines $x=a$, $x=b$, where $f$ and $g$ are continuous and $f(x)\geq g(x)$ for all $x\in[a,b]$, is
+	\begin{align*}
+		A=\int_a^b \left(f(x)-g(x)\right)\:dx.
+	\end{align*}
 \end{definition}
 \begin{definition}
-    Let $S$ be a solid that lies between $x=a$ and $x=b$. If the cross-sectional area of $S$ in the plane $P_x$, through $x$ and perpendicular to the $x$-axis, is $A(x)$, where $A$ is an integrable function, then the \textbf{volume} of $S$ is
-    \begin{align*}
-        V=\int_a^b A(x)\:dx.
-    \end{align*}
+	Let $S$ be a solid that lies between $x=a$ and $x=b$. If the cross-sectional area of $S$ in the plane $P_x$, through $x$ and perpendicular to the $x$-axis, is $A(x)$, where $A$ is an integrable function, then the \textbf{volume} of $S$ is
+	\begin{align*}
+		V=\int_a^b A(x)\:dx.
+	\end{align*}
 \end{definition}
 \begin{theorem}
-    \textbf{The arc length formula.} If $f'$ is continuous on $[a,b]$, then the length of the curve $y=f(x)$, $a\leq x \leq b$, is
-    \begin{align*}
-        L = \int_a^b \sqrt{1+\left(\frac{df}{dx}\right)^2}\:dx.
-    \end{align*}
+	\textbf{The arc length formula.} If $f'$ is continuous on $[a,b]$, then the length of the curve $y=f(x)$, $a\leq x \leq b$, is
+	\begin{align*}
+		L = \int_a^b \sqrt{1+\left(\frac{df}{dx}\right)^2}\:dx.
+	\end{align*}
 \end{theorem}
 \begin{theorem}
-    \textbf{of Pappus.} Let $R$ be a plane region that lies entirely on one side of a line $l$ in the plane.
-    If $R$ is rotated about $l$, then the volume of the resulting solid is the product of the area $A$ of $R$ and the distance $d$ traveled by the centroid of $R$.
+	\textbf{of Pappus.} Let $R$ be a plane region that lies entirely on one side of a line $l$ in the plane.
+	If $R$ is rotated about $l$, then the volume of the resulting solid is the product of the area $A$ of $R$ and the distance $d$ traveled by the centroid of $R$.
 \end{theorem}
 \end{document}

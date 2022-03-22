@@ -16,34 +16,34 @@
 \begin{document}
 \frame{\titlepage}
 \begin{frame}
-    \frametitle{Theorem}
-    Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions
-    on an interval $I$. I.e.
-    \begin{align*}
-        f_1(x)\leq f_2(x) \leq f_3(x) \leq ... \hspace{1cm} \text{for all $x\in I$}.
-    \end{align*}
-    For all $x\in I$ let
-    \begin{align*}
-        f(x) = \lim_{n\to\infty} f_n(x).
-    \end{align*}
-    Then $f$ is integrable on $I$ iff
-    \begin{align*}
-        \sup_{n\in\mathbb{N}} \int_I f_n = \lim_{n\to\infty} \int_I f_n <\infty.
-    \end{align*}
+	\frametitle{Theorem}
+	Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions
+	on an interval $I$. I.e.
+	\begin{align*}
+		f_1(x)\leq f_2(x) \leq f_3(x) \leq ... \hspace{1cm} \text{for all $x\in I$}.
+	\end{align*}
+	For all $x\in I$ let
+	\begin{align*}
+		f(x) = \lim_{n\to\infty} f_n(x).
+	\end{align*}
+	Then $f$ is integrable on $I$ iff
+	\begin{align*}
+		\sup_{n\in\mathbb{N}} \int_I f_n = \lim_{n\to\infty} \int_I f_n <\infty.
+	\end{align*}
 \end{frame}
 \begin{frame}
-    \frametitle{Proof (sketch)}
+	\frametitle{Proof (sketch)}
 
-    \begin{enumerate}
-        \item Since $(f_n)$ is nondecreasing, $\left(\int_I f_n\right)$ is nondecreasing.
-        \item If $\left(\int_I f_n\right)$ is bounded, finding $N$ such that for all $n>N$, \begin{align*}
-                  \left\vert \int_I f_n - \sup_{n\in\mathbb{N}}\int_I f_n\right\vert < \varepsilon
-              \end{align*}
-              is straightforward.
-        \item If $f$ is integrable, we can show $f\geq f_n$ and thereby \begin{align*}
-                  \int_I f \geq \int_I f_n
-              \end{align*}
-              for all $n$. Thus $\left(\int_I f_n\right)$ is bounded above.
-    \end{enumerate}
+	\begin{enumerate}
+		\item Since $(f_n)$ is nondecreasing, $\left(\int_I f_n\right)$ is nondecreasing.
+		\item If $\left(\int_I f_n\right)$ is bounded, finding $N$ such that for all $n>N$, \begin{align*}
+			      \left\vert \int_I f_n - \sup_{n\in\mathbb{N}}\int_I f_n\right\vert < \varepsilon
+		      \end{align*}
+		      is straightforward.
+		\item If $f$ is integrable, we can show $f\geq f_n$ and thereby \begin{align*}
+			      \int_I f \geq \int_I f_n
+		      \end{align*}
+		      for all $n$. Thus $\left(\int_I f_n\right)$ is bounded above.
+	\end{enumerate}
 \end{frame}
 \end{document}

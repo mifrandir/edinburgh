@@ -10,167 +10,167 @@
 \section*{Workshop 4 - Question 2}
 
 \begin{claim*}
-   Let $f_n:\left[0,1\right)\to\R$ be defined by $f_n(x)=nx^n$.
-   Then $f_n\to 0$ pointwise but $\int_0^1 f_n(x)\:dx\to 1$.
+	Let $f_n:\left[0,1\right)\to\R$ be defined by $f_n(x)=nx^n$.
+	Then $f_n\to 0$ pointwise but $\int_0^1 f_n(x)\:dx\to 1$.
 \end{claim*}
 
 \begin{proof}
-   We show $f_n(x)\to 0$.
-   Note if $x=0$, then $f_n(x)=0$ for all $n$. Consider $x\in(0,1)$.
-   Consider the limit
-   \begin{align*}
-      r = \lim_{n\to\infty} \frac{\abs{f_{n+1}(x)}}{\abs{f_n(x)}}
-      = \lim_{n\to\infty}\frac{\abs{(n+1)x^{n+1}}}{\abs{nx^n}}
-      = \lim_{n\to\infty}\frac{(n+1)x}{n} = x < 1.
-   \end{align*}
-   By the \emph{Ratio Test} this implies the series $\sum_{n=1}^\infty
-      f_n(x)$ converges absolutely for all $x$ which implies that
-   $f_n\to 0$ pointwise. However,
-   \begin{align*}
-      \lim_{n\to\infty} \int_0^1 f_n(x)\:dx
-      = \lim_{n\to\infty}\int_0^1 nx^n\:dx
-      = \lim_{n\to\infty}\frac{n}{n+1} = 1.
-   \end{align*}
-   This demonstrates that uniform convergence is required as a premise for
-   \emph{Theorem 2.2} in the notes since
-   \begin{align*}
-      \lim_{n\to\infty} \int_0^1 f_n(x)\:dx
-      \not = \int_0^1\left(\lim_{n\to\infty} f_n(x)\right)\:dx.
-   \end{align*}
+	We show $f_n(x)\to 0$.
+	Note if $x=0$, then $f_n(x)=0$ for all $n$. Consider $x\in(0,1)$.
+	Consider the limit
+	\begin{align*}
+		r = \lim_{n\to\infty} \frac{\abs{f_{n+1}(x)}}{\abs{f_n(x)}}
+		= \lim_{n\to\infty}\frac{\abs{(n+1)x^{n+1}}}{\abs{nx^n}}
+		= \lim_{n\to\infty}\frac{(n+1)x}{n} = x < 1.
+	\end{align*}
+	By the \emph{Ratio Test} this implies the series $\sum_{n=1}^\infty
+		f_n(x)$ converges absolutely for all $x$ which implies that
+	$f_n\to 0$ pointwise. However,
+	\begin{align*}
+		\lim_{n\to\infty} \int_0^1 f_n(x)\:dx
+		= \lim_{n\to\infty}\int_0^1 nx^n\:dx
+		= \lim_{n\to\infty}\frac{n}{n+1} = 1.
+	\end{align*}
+	This demonstrates that uniform convergence is required as a premise for
+	\emph{Theorem 2.2} in the notes since
+	\begin{align*}
+		\lim_{n\to\infty} \int_0^1 f_n(x)\:dx
+		\not = \int_0^1\left(\lim_{n\to\infty} f_n(x)\right)\:dx.
+	\end{align*}
 \end{proof}
 
 \section*{Workshop 4 - Question 5}
 
 \begin{claim*}
-   Let $f_n:[0,\infty)\to\R$ be defined by
-   \begin{align*}
-      f_n(x) = \frac{x^n}{1+x^n}.
-   \end{align*}
-   Then $f_n\to f$ pointwise where
-   \begin{align*}
-      f(x) = \begin{cases}
-         1,   & \text{if }x > 1, \\
-         1/2, & \text{if }x = 1, \\
-         0,   & \text{if }x < 1.
-      \end{cases}
-   \end{align*}
-   This convergence is not uniform on any interval $[0, a)$ where
-   $a\geq 1/2$ is an extended real number but it
+	Let $f_n:[0,\infty)\to\R$ be defined by
+	\begin{align*}
+		f_n(x) = \frac{x^n}{1+x^n}.
+	\end{align*}
+	Then $f_n\to f$ pointwise where
+	\begin{align*}
+		f(x) = \begin{cases}
+			       1,   & \text{if }x > 1, \\
+			       1/2, & \text{if }x = 1, \\
+			       0,   & \text{if }x < 1.
+		       \end{cases}
+	\end{align*}
+	This convergence is not uniform on any interval $[0, a)$ where
+	$a\geq 1/2$ is an extended real number but it
 \end{claim*}
 \begin{proof}
-   Consider $x>1$. Let $\e>0$. Then pick $N\in\R$ as follows
-   \begin{align*}
-      N = \begin{cases}
-         0,              & \text{if }1/\e \leq 1, \\
-         \log_x(1/\e-1), & \text{otherwise.}
-      \end{cases}
-   \end{align*}
-   Observe that now, for all $n>N$,
-   \begin{align*}
-      \frac{1}{\e} - 1 < x^n,
-      \hs\text{or equivalently}\hs
-      \frac{1}{1+x^n}< \e.
-   \end{align*}
-   Since $x^n\geq 0$ for all $x,n$, we have
-   \begin{align*}
-      \abs{\frac{1}{1+x^n}}=\abs{\frac{x^n}{1+x^n}-\frac{1+x^n}{1+x^n}}
-      =\abs{\frac{x^n}{1+x^n}-1}<\e.
-   \end{align*}
-   Now observe that $f_n(1)=1/2$ for all $n$.
-   This shows that $f_n\to f$ pointwise on $[1,\infty)$. Consider $0\leq x<1$.
-   We observe
-   \begin{align*}
-      0 \leq f_n(x)=\frac{x^n}{1 + x^n} \leq x^n\hs\text{for all }n.
-   \end{align*}
-   Since $x^n\to 0$, we can use the \emph{Squeeze Theorem} to show that
-   $f_n\to 0$ pointwise as $n\to\infty$. Combining all the cases, we have shown that
-   $f_n\to f$ pointwise on $[0, \infty)$. Consider an interval $[0,a)$ where $a\geq 1$
-   is an extended real number. If $f_n$ converges uniformly then it must be the
-   case that the limit is $f$. Consider a sequence $(x_k)$ such that $x_k\to 1$ as
-   $k\to\infty$ and $x_k\in[0,1)$. Let $\e=1/4$. If $f_n\to f$ uniformly on $[0, a)$, then
-   there exists an $N$ such that for all $n>N$,
-   \begin{align}
-      \label{cond1}
-      \abs{f_n(x)-f(x)} < \e \hs\text{for all }x\in [0, 1) \subseteq [0, a).
-   \end{align}
-   However, observe that for all $n$, $f_n$ is a rational function. Thus it is
-   continuous on its domain. Since $f_n(1)=1/2$, we find
-   \begin{align*}
-      \lim_{x\to 1} f_n(x) = \frac{1}{2}.
-   \end{align*}
-   Since $x_k\to 1$ as $k\to\infty$, this implies $f_n(x_k)\to 1/2$ as $k\to\infty$ for all $n$.
-   By definition, this means that there exists at least one $k_0$ such that
-   \begin{align}
-      \label{cond2}
-      \abs{f_n(x_{k_0}) - \frac{1}{2}} < \e, \hs\text{or equivalently}\hs \abs{f_n(x_{k_0})} > \frac{1}{4}.
-   \end{align}
-   Assume that $f_n\to f$ on $[0, a)$. Then (\ref{cond1}) holds. Using $x=x_{k_0}$, this implies
-   \begin{align*}
-      \abs{f_n(x_{k_0})} < \e = \frac{1}{4}
-   \end{align*}
-   which directly contradicts (\ref{cond2}). Therefore $f_n$ cannot converge uniformly on $[0, a)$.
-   Now consider the case where $a<1$.
-   Note that the rational functions $f_n$ are differentiable on $[0, \infty)$ with
-   \begin{align*}
-      f_n'(x) =  \frac{nx^{n-1}}{(1+x^n)^2}.
-   \end{align*}
-   Note that $f'_n(x)>0$ for all $x\in(0,\infty)$. Additionally, $f_n(0) = 0 < f_(x)$ on $x\in(0, \infty)$.
-   Therefore all $f_n$ are strictly increasing on $[0, \infty)$. Therefore, for all $x\in[0,a)$,
-   \begin{align}
-      f_n(x) < f_n(a).
-   \end{align}
-   Observe that $f_n\to f$ pointwise and thus $f_n(a)\to f(a)$. Let $\e>0$. Choose $N$ such that
-   for all $n>N$,
-   \begin{align*}
-      \abs{f_n(a)-f(a)} < \e.
-   \end{align*}
-   With $f_n(x)\geq 0$ and $f(x)=0$ for all $x\in[0,1)$, we have
-   \begin{align*}
-      \abs{f_n(x)-f(x)}=f_n(x)<f_n(a)=\abs{f_n(a) - f(a)} < \e.
-   \end{align*}
-   This shows $f_n\to f$ uniformly on any interval $[0, a)$ where $a<1$.
+	Consider $x>1$. Let $\e>0$. Then pick $N\in\R$ as follows
+	\begin{align*}
+		N = \begin{cases}
+			    0,              & \text{if }1/\e \leq 1, \\
+			    \log_x(1/\e-1), & \text{otherwise.}
+		    \end{cases}
+	\end{align*}
+	Observe that now, for all $n>N$,
+	\begin{align*}
+		\frac{1}{\e} - 1 < x^n,
+		\hs\text{or equivalently}\hs
+		\frac{1}{1+x^n}< \e.
+	\end{align*}
+	Since $x^n\geq 0$ for all $x,n$, we have
+	\begin{align*}
+		\abs{\frac{1}{1+x^n}}=\abs{\frac{x^n}{1+x^n}-\frac{1+x^n}{1+x^n}}
+		=\abs{\frac{x^n}{1+x^n}-1}<\e.
+	\end{align*}
+	Now observe that $f_n(1)=1/2$ for all $n$.
+	This shows that $f_n\to f$ pointwise on $[1,\infty)$. Consider $0\leq x<1$.
+	We observe
+	\begin{align*}
+		0 \leq f_n(x)=\frac{x^n}{1 + x^n} \leq x^n\hs\text{for all }n.
+	\end{align*}
+	Since $x^n\to 0$, we can use the \emph{Squeeze Theorem} to show that
+	$f_n\to 0$ pointwise as $n\to\infty$. Combining all the cases, we have shown that
+	$f_n\to f$ pointwise on $[0, \infty)$. Consider an interval $[0,a)$ where $a\geq 1$
+	is an extended real number. If $f_n$ converges uniformly then it must be the
+	case that the limit is $f$. Consider a sequence $(x_k)$ such that $x_k\to 1$ as
+	$k\to\infty$ and $x_k\in[0,1)$. Let $\e=1/4$. If $f_n\to f$ uniformly on $[0, a)$, then
+	there exists an $N$ such that for all $n>N$,
+	\begin{align}
+		\label{cond1}
+		\abs{f_n(x)-f(x)} < \e \hs\text{for all }x\in [0, 1) \subseteq [0, a).
+	\end{align}
+	However, observe that for all $n$, $f_n$ is a rational function. Thus it is
+	continuous on its domain. Since $f_n(1)=1/2$, we find
+	\begin{align*}
+		\lim_{x\to 1} f_n(x) = \frac{1}{2}.
+	\end{align*}
+	Since $x_k\to 1$ as $k\to\infty$, this implies $f_n(x_k)\to 1/2$ as $k\to\infty$ for all $n$.
+	By definition, this means that there exists at least one $k_0$ such that
+	\begin{align}
+		\label{cond2}
+		\abs{f_n(x_{k_0}) - \frac{1}{2}} < \e, \hs\text{or equivalently}\hs \abs{f_n(x_{k_0})} > \frac{1}{4}.
+	\end{align}
+	Assume that $f_n\to f$ on $[0, a)$. Then (\ref{cond1}) holds. Using $x=x_{k_0}$, this implies
+	\begin{align*}
+		\abs{f_n(x_{k_0})} < \e = \frac{1}{4}
+	\end{align*}
+	which directly contradicts (\ref{cond2}). Therefore $f_n$ cannot converge uniformly on $[0, a)$.
+	Now consider the case where $a<1$.
+	Note that the rational functions $f_n$ are differentiable on $[0, \infty)$ with
+	\begin{align*}
+		f_n'(x) =  \frac{nx^{n-1}}{(1+x^n)^2}.
+	\end{align*}
+	Note that $f'_n(x)>0$ for all $x\in(0,\infty)$. Additionally, $f_n(0) = 0 < f_(x)$ on $x\in(0, \infty)$.
+	Therefore all $f_n$ are strictly increasing on $[0, \infty)$. Therefore, for all $x\in[0,a)$,
+	\begin{align}
+		f_n(x) < f_n(a).
+	\end{align}
+	Observe that $f_n\to f$ pointwise and thus $f_n(a)\to f(a)$. Let $\e>0$. Choose $N$ such that
+	for all $n>N$,
+	\begin{align*}
+		\abs{f_n(a)-f(a)} < \e.
+	\end{align*}
+	With $f_n(x)\geq 0$ and $f(x)=0$ for all $x\in[0,1)$, we have
+	\begin{align*}
+		\abs{f_n(x)-f(x)}=f_n(x)<f_n(a)=\abs{f_n(a) - f(a)} < \e.
+	\end{align*}
+	This shows $f_n\to f$ uniformly on any interval $[0, a)$ where $a<1$.
 \end{proof}
 
 \section*{Workshop 4 - Question 7}
 
 \begin{claim*}
-   Let $f_n:\R\to\R$ be a sequence of continuous functions which converges uniformly to a
-   function $f:\R\to\R$. Let $(x_n)$ be a sequence of real numbers which converges to
-   $x\in\R$. Then $f_n(x_n)\to f(x)$.
+	Let $f_n:\R\to\R$ be a sequence of continuous functions which converges uniformly to a
+	function $f:\R\to\R$. Let $(x_n)$ be a sequence of real numbers which converges to
+	$x\in\R$. Then $f_n(x_n)\to f(x)$.
 \end{claim*}
 \begin{proof}
-   Let $\e>0$. Since $f_n\to f$ uniformly, we can choose an $N_1$ such that for all
-   $n>N_1$ and all $x\in\R$,
-   \begin{align}
-      \label{uniform}
-      \abs{f_n(x)-f(x)} < \frac{\e}{3}.
-   \end{align}
-   Further, since $f_k$ is continuous for all $k\in\N$, there exists an $N_2$ such that
-   for all $n>N_2$,
-   \begin{align}
-      \label{continuous}
-      \abs{f_k(x_n) - f_k(x)} < \frac{\e}{3}.
-   \end{align}
-   The above shows that $f_k(x_n)\to f_k(x)$ for all $k\in\N$. Therefore \emph{Cauchy's Criterion}
-   holds: We can pick an $N_3$ such that for all $k\in\N$ and $m,n>N_3$,
-   \begin{align}
-      \label{cauchy}
-      \abs{f_k(x_n) - f_k(x_m)} < \frac{\e}{3}.
-   \end{align}
-   We choose $N=\max\{N_1,N_2,N_3\}$. Then for all $k,n>N$, the following inequalities hold
-   due to (\ref{uniform}), (\ref{continuous}) and (\ref{cauchy}) respectively
-   \begin{align*}
-      \abs{f_n(x) - f(x)} < \frac{\e}{3}, \hs\abs{f_n(x_k)-f_n(x)} < \frac{\e}{3},
-      \hs\abs{f_n(x_n)-f_n(x_k)} < \frac{\e}{3}.
-   \end{align*}
-   We sum them up to get
-   \begin{align*}
-      \abs{f_n(x_n)-f_n(x_k)} + \abs{f_n(x_k)-f_n(x)} + \abs{f_n(x)-f(x)} < \e.
-   \end{align*}
-   Due to the \emph{Triangle Inequality}, it follows that
-   \begin{align*}
-      \abs{f_n(x_n)-f(x)}<\e.
-   \end{align*}
+	Let $\e>0$. Since $f_n\to f$ uniformly, we can choose an $N_1$ such that for all
+	$n>N_1$ and all $x\in\R$,
+	\begin{align}
+		\label{uniform}
+		\abs{f_n(x)-f(x)} < \frac{\e}{3}.
+	\end{align}
+	Further, since $f_k$ is continuous for all $k\in\N$, there exists an $N_2$ such that
+	for all $n>N_2$,
+	\begin{align}
+		\label{continuous}
+		\abs{f_k(x_n) - f_k(x)} < \frac{\e}{3}.
+	\end{align}
+	The above shows that $f_k(x_n)\to f_k(x)$ for all $k\in\N$. Therefore \emph{Cauchy's Criterion}
+	holds: We can pick an $N_3$ such that for all $k\in\N$ and $m,n>N_3$,
+	\begin{align}
+		\label{cauchy}
+		\abs{f_k(x_n) - f_k(x_m)} < \frac{\e}{3}.
+	\end{align}
+	We choose $N=\max\{N_1,N_2,N_3\}$. Then for all $k,n>N$, the following inequalities hold
+	due to (\ref{uniform}), (\ref{continuous}) and (\ref{cauchy}) respectively
+	\begin{align*}
+		\abs{f_n(x) - f(x)} < \frac{\e}{3}, \hs\abs{f_n(x_k)-f_n(x)} < \frac{\e}{3},
+		\hs\abs{f_n(x_n)-f_n(x_k)} < \frac{\e}{3}.
+	\end{align*}
+	We sum them up to get
+	\begin{align*}
+		\abs{f_n(x_n)-f_n(x_k)} + \abs{f_n(x_k)-f_n(x)} + \abs{f_n(x)-f(x)} < \e.
+	\end{align*}
+	Due to the \emph{Triangle Inequality}, it follows that
+	\begin{align*}
+		\abs{f_n(x_n)-f(x)}<\e.
+	\end{align*}
 \end{proof}
 
 \end{document}

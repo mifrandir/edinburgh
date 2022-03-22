@@ -16,72 +16,72 @@
 \begin{document}
 \frame{\titlepage}
 \begin{frame}
-    \frametitle{Motivation}
-    Consider a sequence of functions $(f_n)$.
-    \begin{enumerate}
-        \item \emph{Does $f_n$ get arbitrarily close to some $f$ as $n\to\infty$?}
-        \item \emph{How are the properties of the limit $f$ and each $f_n$ related?}
-    \end{enumerate}
-    \emph{Idea: Consider $(f_n(x))$ for individual $x$.}
+	\frametitle{Motivation}
+	Consider a sequence of functions $(f_n)$.
+	\begin{enumerate}
+		\item \emph{Does $f_n$ get arbitrarily close to some $f$ as $n\to\infty$?}
+		\item \emph{How are the properties of the limit $f$ and each $f_n$ related?}
+	\end{enumerate}
+	\emph{Idea: Consider $(f_n(x))$ for individual $x$.}
 \end{frame}
 \begin{frame}
-    \frametitle{Definition}
-    Let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
-    \begin{definition}
-        $(f_n)$ converges pointwise to some $f:E\to\mathbb{R}$ if
-        for all $x\in E$,
-        \begin{align*}
-            \lim_{n\to\infty} f_n(x) = f(x),
-        \end{align*}
-        or equivalently,
-        \begin{align*}
-            \forall \varepsilon > 0.\:
-            \underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
-            \forall n>N.\:\left\vert f_n(x)-f(x) \right\vert < \varepsilon.
-        \end{align*}
-    \end{definition}
+	\frametitle{Definition}
+	Let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
+	\begin{definition}
+		$(f_n)$ converges pointwise to some $f:E\to\mathbb{R}$ if
+		for all $x\in E$,
+		\begin{align*}
+			\lim_{n\to\infty} f_n(x) = f(x),
+		\end{align*}
+		or equivalently,
+		\begin{align*}
+			\forall \varepsilon > 0.\:
+			\underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
+			\forall n>N.\:\left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+		\end{align*}
+	\end{definition}
 \end{frame}
 \begin{frame}
-    \frametitle{Motivation}
-    \emph{Problem: Pointwise convergence does not preserve properties of the $f_n$.
-        (e.g. continuity, integrability, ...)}
+	\frametitle{Motivation}
+	\emph{Problem: Pointwise convergence does not preserve properties of the $f_n$.
+		(e.g. continuity, integrability, ...)}
 \end{frame}
 \begin{frame}
-    \frametitle{Definition}
-    Let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
+	\frametitle{Definition}
+	Let $(f_n:E\to\mathbb{R})$ be a sequence of functions.
 
-    \begin{definition}
-        $(f_n)$ converges \textbf{pointwise} to some $f:E\to\mathbb{R}$ if
-        \begin{align*}
-            \forall \varepsilon > 0.\:
-            \underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
-            \forall n>N.\:\left\vert f_n(x)-f(x) \right\vert < \varepsilon.
-        \end{align*}
-    \end{definition}
-    \begin{definition}
-        $(f_n)$ converges \textbf{uniformly} to some $f:E\to\mathbb{R}$ if
-        \begin{align*}
-            \forall \varepsilon >0.\:
-            \underline{\mathbf{\exists N\in\mathbb{N}.\:\forall x\in E.}}\:
-            \forall n > N.\: \left\vert f_n(x)-f(x) \right\vert < \varepsilon.
-        \end{align*}
-    \end{definition}
+	\begin{definition}
+		$(f_n)$ converges \textbf{pointwise} to some $f:E\to\mathbb{R}$ if
+		\begin{align*}
+			\forall \varepsilon > 0.\:
+			\underline{\mathbf{\forall x\in E.\:\exists N\in\mathbb{N}.}}\:
+			\forall n>N.\:\left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+		\end{align*}
+	\end{definition}
+	\begin{definition}
+		$(f_n)$ converges \textbf{uniformly} to some $f:E\to\mathbb{R}$ if
+		\begin{align*}
+			\forall \varepsilon >0.\:
+			\underline{\mathbf{\exists N\in\mathbb{N}.\:\forall x\in E.}}\:
+			\forall n > N.\: \left\vert f_n(x)-f(x) \right\vert < \varepsilon.
+		\end{align*}
+	\end{definition}
 \end{frame}
 \begin{frame}
-    \frametitle{Properties}
-    Preserves the following to some degree:
-    \begin{itemize}
-        \item Continuity at $x_0\in E$. (\emph{Theorem 2.1})
-        \item Integrability and integrals on $[a,b]\subseteq E$. (\emph{Theorem 2.2})
-        \item Derivatives on bounded $(a,b)\subseteq E$. (\emph{Theorem 2.3})
-    \end{itemize}
+	\frametitle{Properties}
+	Preserves the following to some degree:
+	\begin{itemize}
+		\item Continuity at $x_0\in E$. (\emph{Theorem 2.1})
+		\item Integrability and integrals on $[a,b]\subseteq E$. (\emph{Theorem 2.2})
+		\item Derivatives on bounded $(a,b)\subseteq E$. (\emph{Theorem 2.3})
+	\end{itemize}
 \end{frame}
 \begin{frame}
-    \frametitle{Intuition}
-    \includegraphics[width=11cm]{skills5-pointwise.png}
+	\frametitle{Intuition}
+	\includegraphics[width=11cm]{skills5-pointwise.png}
 \end{frame}
 \begin{frame}
-    \frametitle{Intuition}
-    \includegraphics[width=11cm]{skills5-uniform.png}
+	\frametitle{Intuition}
+	\includegraphics[width=11cm]{skills5-uniform.png}
 \end{frame}
 \end{document}

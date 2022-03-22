@@ -9,86 +9,86 @@
 \section*{Q32}
 To find the fourth point in the rectangle, we need to calculate the vectors representing its unique sides $\vec a, \vec b$. Since we don't want to deal with signs later, we choose to let them originate from $B$, the point opposite of $D$.
 \begin{align}
-    \vec a = \vec{BA} =
-    \begin{bmatrix}
-        1 - 3 \\
-        2 - 1 \\
-        3 - 2
-    \end{bmatrix} =
-    \begin{bmatrix}
-        -2 \\
-        -4 \\
-        -1
-    \end{bmatrix} \\
-    \vec b = \vec{BC} =
-    \begin{bmatrix}
-        0 - 3 \\
-        5 - 6 \\
-        -4 + 2
-    \end{bmatrix} =
-    \begin{bmatrix}
-        -3 \\
-        -1 \\
-        -2
-    \end{bmatrix}
+	\vec a = \vec{BA} =
+	\begin{bmatrix}
+		1 - 3 \\
+		2 - 1 \\
+		3 - 2
+	\end{bmatrix} =
+	\begin{bmatrix}
+		-2 \\
+		-4 \\
+		-1
+	\end{bmatrix} \\
+	\vec b = \vec{BC} =
+	\begin{bmatrix}
+		0 - 3 \\
+		5 - 6 \\
+		-4 + 2
+	\end{bmatrix} =
+	\begin{bmatrix}
+		-3 \\
+		-1 \\
+		-2
+	\end{bmatrix}
 \end{align}
 Doing both of these calculations might be redundant, but it let's us verify our result later. Now we can calculate $\vec D$ by either following $b$ from $A$ or $a$ from $C$.
 \begin{align}
-    \vec D = \vec A + \vec b =
-    \begin{bmatrix}
-        1 - 3 \\
-        2 - 1 \\
-        3 - 2
-    \end{bmatrix} =
-    \begin{bmatrix}
-        -2 \\
-        1  \\
-        1
-    \end{bmatrix}
+	\vec D = \vec A + \vec b =
+	\begin{bmatrix}
+		1 - 3 \\
+		2 - 1 \\
+		3 - 2
+	\end{bmatrix} =
+	\begin{bmatrix}
+		-2 \\
+		1  \\
+		1
+	\end{bmatrix}
 \end{align}
 Now, let's do the same with $a$ and $C$:
 \begin{align}
-    \vec D = \vec C + \vec a =
-    \begin{bmatrix}
-        0 - 2 \\
-        5 - 4 \\
-        -4 + 5
-    \end{bmatrix} =
-    \begin{bmatrix}
-        -2 \\
-        1  \\
-        1
-    \end{bmatrix}
+	\vec D = \vec C + \vec a =
+	\begin{bmatrix}
+		0 - 2 \\
+		5 - 4 \\
+		-4 + 5
+	\end{bmatrix} =
+	\begin{bmatrix}
+		-2 \\
+		1  \\
+		1
+	\end{bmatrix}
 \end{align}
 As you can see, the result is the same. Therefore we can be confident that this result is correct.
 \section*{Q52}
 By thinking about the geometrical implications of the two equations (especially the first one), we can deduce that the only way this might end up being true is, when $\vec u$ and $\vec v$ are parallel. This is the case because of the triangle inequality:
 \begin{align}
-    a + b > c \text{ with } a = |u|, b = |v| \text{ and } c = |u+v|
+	a + b > c \text{ with } a = |u|, b = |v| \text{ and } c = |u+v|
 \end{align}
 The fact that those three vectors may be aligned in a triangle, should be trivial.\\
 Therefore, we will use the following equation for the rest of this task:
 \begin{align}
-    \vec v = r \vec u
+	\vec v = r \vec u
 \end{align}
 Furthermore, we can see the similarities on the left-hand side (LHS) of both of these equations. Let's apply $(6)$ to that.
 \begin{align}
-    |\vec u + \vec v| & = |\vec u + r \vec u| = |(1+r)\vec u|=|1+r||\vec u|
+	|\vec u + \vec v| & = |\vec u + r \vec u| = |(1+r)\vec u|=|1+r||\vec u|
 \end{align}
 Now, let's deal with the right-hand side (RHS).
 \begin{align}
-    |\vec u| + |\vec v| & = |\vec u| + |r \vec u| = (1 + |r|)|\vec u| \\
-    |\vec u| - |\vec v| & = |\vec u| - |r \vec u| = (1 - |r|)|\vec u|
+	|\vec u| + |\vec v| & = |\vec u| + |r \vec u| = (1 + |r|)|\vec u| \\
+	|\vec u| - |\vec v| & = |\vec u| - |r \vec u| = (1 - |r|)|\vec u|
 \end{align}
 When does either of those equal the LHS? Let's start with (a):
 \begin{align}
-    |1 + r||\vec u|      & = (1 + |r|)|\vec u| \\
-    \Leftrightarrow|1+r| & =1+|r|
+	|1 + r||\vec u|      & = (1 + |r|)|\vec u| \\
+	\Leftrightarrow|1+r| & =1+|r|
 \end{align}
 This equation is obviously true iff $r \geq 0$. Now, let's look at (b):
 \begin{align}
-    |1 + r||\vec u|      & = (1 - |r|)|\vec u| \\
-    \Leftrightarrow|1+r| & =1-|r|
+	|1 + r||\vec u|      & = (1 - |r|)|\vec u| \\
+	\Leftrightarrow|1+r| & =1-|r|
 \end{align}
 One might be tempted to think, that this is only true iff $r \leq 0$. There is another restriction, though. This is because the LHS can never be less than $0$ due to the absolute value. The RHS on the other hand may very well be negative. Therefore this equation is true iff $r \leq 0 \wedge |r| \leq 1$.\\
 According to the reasoning above (a) is true iff $\vec u$ and $\vec v$ are parallel and have the same direction and (b) is true iff $\vec u$ and $\vec v$ are parallel, have the same direction and $|\vec v| < |\vec u|$.
