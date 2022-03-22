@@ -8,188 +8,286 @@
 \begin{document}
 \maketitle
 \noindent The encoding of the register machine program $P$ as described in the lectures shall be denoted $\enc P$.
-We shall also say that an RM $M$ halts with value $y$ on input $x$ if, given $x$ in $R_0$, $M$ halts 
+We shall also say that an RM $M$ halts with value $y$ on input $x$ if, given $x$ in $R_0$, $M$ halts
 with $y$ in $R_0$.
 \renewcommand{\N}{\mathbb{Z}_{\geq 0}}
 \section{Partial functions}
 \begin{claim*}[a, 1]
-    Let $\hat H:\N\times\N\rightharpoonup\N$ be the partial function given by 
-    \begin{align*}
-        \hat H(m,n)=\begin{cases}
-            0 &\text{if $m$ is not the code of any RM program $P$;}\\
-            1 &\text{if $m=\enc P$ for some $P$, and $P$ halts on input $n$;}\\
-            \bot & \text{otherwise}.
-        \end{cases}
-    \end{align*}
-    Then $\hat H$ is computable.
-    \begin{proof}
-        As mentioned in (b), it is easily decidable whether a number $n$ is the code $\enc P$ of a 
-        machine. Further, as used in the proof of \emph{Theorem I.26} of the notes, it is possible 
-        to use the encoding $\enc M$ of an RM $M$ to simulate a single step of the computation and decide whether 
-        $M$ has halted. Combining these, we construct an RM using the following algorithm to compute 
-        $\hat H(m,n)$:
-        \begin{enumerate}
-            \item Decide wether $m$ is an encoding of some $P$. If not, return $0$.
-            \item Encode $\enc M=\lra{m, \lra{n, \lra{}}, 0}$ and store the result in $R_0$.
-            \item While the encoding in $R_0$ is not in a halting state, simulate another step and store the result in $R_0$.
-            \item Return $1$.
-        \end{enumerate}
-        Observe that, if $P$ halts on input $n$, the algorithm above will indeed return $1$. Trivially,
-        if there is no $P$ with encoding $m$, then the algorithm returns $0$.
-        Appealing to the \emph{Church-Turing thesis} and the computabilitiy of the functions involved, 
-        we conclude that there exists a machine that computes the partial function $\hat H$.
-    \end{proof}
+	Let $\hat H:\N\times\N\rightharpoonup\N$ be the partial function given by
+	\begin{align*}
+		\hat H(m,n)=\begin{cases}
+			            0    & \text{if $m$ is not the code of any RM program $P$;}           \\
+			            1    & \text{if $m=\enc P$ for some $P$, and $P$ halts on input $n$;} \\
+			            \bot & \text{otherwise}.
+		            \end{cases}
+	\end{align*}
+	Then $\hat H$ is computable.
+	\begin{proof}
+		As mentioned in (b), it is easily decidable whether a number $n$ is the code $\enc P$ of a
+		machine. Further, as used in the proof of \emph{Theorem I.26} of the notes, it is possible
+		to use the encoding $\enc M$ of an RM $M$ to simulate a single step of the computation and decide whether
+		$M$ has halted. Combining these, we construct an RM using the following algorithm to compute
+		$\hat H(m,n)$:
+		\begin{enumerate}
+			\item Decide wether $m$ is an encoding of some $P$. If not, return $0$.
+			\item Encode $\enc M=\lra{m, \lra{n, \lra{}}, 0}$ and store the result in $R_0$.
+			\item While the encoding in $R_0$ is not in a halting state, simulate another step and store the result in $R_0$.
+			\item Return $1$.
+		\end{enumerate}
+		Observe that, if $P$ halts on input $n$, the algorithm above will indeed return $1$. Trivially,
+		if there is no $P$ with encoding $m$, then the algorithm returns $0$.
+		Appealing to the \emph{Church-Turing thesis} and the computabilitiy of the functions involved,
+		we conclude that there exists a machine that computes the partial function $\hat H$.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[a, 2]
-    Let $f:\N\rightharpoonup\N$ be a computable partial function. Then it is undecidable whether $f$ 
-    is total. 
-    \begin{proof}
-        Let $\enc M$ be a register machine state encoding.  Note that the partial function $H_M:\N\to\N$
-        given by $\hat H_M(n)=H(\enc M, n)$ is computable.
+	Let $f:\N\rightharpoonup\N$ be a computable partial function. Then it is undecidable whether $f$
+	is total.
+	\begin{proof}
+		Let $\enc M$ be a register machine state encoding.  Note that the partial function $H_M:\N\to\N$
+		given by $\hat H_M(n)=H(\enc M, n)$ is computable.
 
-        Assume that there exists an RM $I$ that decides whether, given a suitable encoding, a partial
-        function $f:\N\to\N$ is total. Then we may construct an RM $H$ which takes as input an encoding 
-        of a register machine state $\enc M$, encodes the function $\hat H_M$, and runs $I$ on the result.
-        Clearly, $H$ halts in all cases and returns `1' iff $M$ halts on all inputs. In other words,
-        $UH$ decides the uniform halting problem; contradiction.
-    \end{proof}
+		Assume that there exists an RM $I$ that decides whether, given a suitable encoding, a partial
+		function $f:\N\to\N$ is total. Then we may construct an RM $H$ which takes as input an encoding
+		of a register machine state $\enc M$, encodes the function $\hat H_M$, and runs $I$ on the result.
+		Clearly, $H$ halts in all cases and returns `1' iff $M$ halts on all inputs. In other words,
+		$UH$ decides the uniform halting problem; contradiction.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[b]
-    The partial function $d:\N\rightharpoonup\N$ given by 
-    \begin{align*}
-        d(n)=\begin{cases}
-            P_n(n)+1 &\text{if $P_n$ returns a result on input $n$;}\\
-            \bot &\text{otherwise,}
-        \end{cases}
-    \end{align*} 
-    where $(P_k)_{k\in\N}$ is the sequence of all register machines, is 
-    computable.
-    \begin{proof}
-        We construct the following machine $M$:
-        \begin{enumerate}
-            \item Given input $n$, compute $\hat H(P_n,n)$.
-            \item Simulate $P_n$ until termination and store the result in $R_0$.
-            \item Increment $R_0$ and halt.
-        \end{enumerate}
-        Clearly, all steps of this computation are possible. In particular, $M$ doesn't halt 
-        if $\hat H(P_n,n)=\bot$ which implies $d(n)=\bot$. This is consistent. Thus $M$ 
-        computes the partial function $d$.
-        
-        \emph{It is worth mentioning that an implicit consequence of the above is $d(k)=\bot$
-        whenever $P_k$ computes $d$.}
-    \end{proof}
+	The partial function $d:\N\rightharpoonup\N$ given by
+	\begin{align*}
+		d(n)=\begin{cases}
+			     P_n(n)+1 & \text{if $P_n$ returns a result on input $n$;} \\
+			     \bot     & \text{otherwise,}
+		     \end{cases}
+	\end{align*}
+	where $(P_k)_{k\in\N}$ is the sequence of all register machines, is
+	computable.
+	\begin{proof}
+		We construct the following machine $M$:
+		\begin{enumerate}
+			\item Given input $n$, compute $\hat H(P_n,n)$.
+			\item Simulate $P_n$ until termination and store the result in $R_0$.
+			\item Increment $R_0$ and halt.
+		\end{enumerate}
+		Clearly, all steps of this computation are possible. In particular, $M$ doesn't halt
+		if $\hat H(P_n,n)=\bot$ which implies $d(n)=\bot$. This is consistent. Thus $M$
+		computes the partial function $d$.
+
+		\emph{It is worth mentioning that an implicit consequence of the above is $d(k)=\bot$
+			whenever $P_k$ computes $d$.}
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[c]
-    Let $f:\N\to\N$ be a total function such that $f(n)=d(n)$ for all $n\in\N$ where 
-    $d(n)\not=\bot$. Then $f$ is not computable.
-    \begin{proof}
-        Assume there exists an RM $M$ that computes $f$. Then there exists $k\in\N$ such that 
-        $P_k$ computes $f$. Since $f$ is total, $P_k$ returns $f(k)$ on input $k$. However,
-        then $d(k)=f(k)+1$. This contradicts the premise that $f(k)=d(k)$ whenever $P_k$ terminates 
-        on input $k$.
-    \end{proof}
+	Let $f:\N\to\N$ be a total function such that $f(n)=d(n)$ for all $n\in\N$ where
+	$d(n)\not=\bot$. Then $f$ is not computable.
+	\begin{proof}
+		Assume there exists an RM $M$ that computes $f$. Then there exists $k\in\N$ such that
+		$P_k$ computes $f$. Since $f$ is total, $P_k$ returns $f(k)$ on input $k$. However,
+		then $d(k)=f(k)+1$. This contradicts the premise that $f(k)=d(k)$ whenever $P_k$ terminates
+		on input $k$.
+	\end{proof}
 \end{claim*}
 
 \section{P, NP}
 
 \begin{claim*}[a]
-    \begin{align}
-        \label{on2}
-        n^2&\not=O(n\lg n)\\
-        \label{onlgn}
-        n\lg n &=O(n^2)\\
-        \label{o3n}
-        3^n&\not=O(2^n)
-    \end{align}
-    The statement $3^n=2^{O(n)}$ is nonsensical and may therefore be true or false, depending on 
-    definition.
+	\begin{align}
+		\label{on2}
+		n^2    & \not=O(n\lg n) \\
+		\label{onlgn}
+		n\lg n & =O(n^2)        \\
+		\label{o3n}
+		3^n    & \not=O(2^n)
+	\end{align}
+	The statement $3^n=2^{O(n)}$ is nonsensical and may therefore be true or false, depending on
+	definition.
 \end{claim*}
 
 \begin{claim*}[b]
-    Let $(D,X)$ and $(D,Y)$ be decision problems in \ptime. Then the decision problems
-    \begin{align*}
-        (D,X\cup Y), (D,X\cap Y), (D,D\setminus X)
-    \end{align*}
-    are in \ptime.
-    \begin{proof}
-        Let $M_X,M_Y$ be the RMs that decide $(D,X),(D,Y)$ in time $T_X(n)=O(n^c),T_Y(n)=O(n^d)$ for some $c,d$, 
-        respectively. Then we may construct $U$ that decides $(D,X\cup Y)$ as follows:
-        \begin{enumerate}[label=U\arabic*]
-            \item Run $M_X$ on input $d$ and store the output in $R_1$.
-            \item Run $M_Y$ on input $d$ and store the output in $R_2$.
-            \item If $R_1$ or $R_2$ contains a non-zero value then return $1$, else return $0$.
-        \end{enumerate}
-        Note that the runtime is $T_U(n)=T_X(n)+T_Y(n)+\Theta(1)$ since there are only four possible scenarios 
-        for U3. Thus we obtain the very generous bound $T_U(n)=O(n^{c+d})$, showing that $X\cup Y$ is in \ptime.
+	Let $(D,X)$ and $(D,Y)$ be decision problems in \ptime. Then the decision problems
+	\begin{align*}
+		(D,X\cup Y), (D,X\cap Y), (D,D\setminus X)
+	\end{align*}
+	are in \ptime.
+	\begin{proof}
+		Let $M_X,M_Y$ be the RMs that decide $(D,X),(D,Y)$ in time $T_X(n)=O(n^c),T_Y(n)=O(n^d)$ for some $c,d$,
+		respectively. Then we may construct $U$ that decides $(D,X\cup Y)$ as follows:
+		\begin{enumerate}[label=U\arabic*]
+			\item Run $M_X$ on input $d$ and store the output in $R_1$.
+			\item Run $M_Y$ on input $d$ and store the output in $R_2$.
+			\item If $R_1$ or $R_2$ contains a non-zero value then return $1$, else return $0$.
+		\end{enumerate}
+		Note that the runtime is $T_U(n)=T_X(n)+T_Y(n)+\Theta(1)$ since there are only four possible scenarios
+		for U3. Thus we obtain the very generous bound $T_U(n)=O(n^{c+d})$, showing that $X\cup Y$ is in \ptime.
 
-        Similarly, we construct the RM $I$ that decides $X\cap Y$:
-        \begin{enumerate}[label=I\arabic*]
-            \item Run $M_X$ on input $d$ and store the output in $R_1$.
-            \item Run $M_Y$ on input $d$ and store the output in $R_2$.
-            \item If $R_1$ or $R_2$ contain zero then return $0$, else return $1$.
-        \end{enumerate}
-        Completely analogously to $U$, we obtain the runtime $T_I(n)=O(n^{c+d})$, again proving that 
-        $X\cap Y$ is in \ptime.
+		Similarly, we construct the RM $I$ that decides $X\cap Y$:
+		\begin{enumerate}[label=I\arabic*]
+			\item Run $M_X$ on input $d$ and store the output in $R_1$.
+			\item Run $M_Y$ on input $d$ and store the output in $R_2$.
+			\item If $R_1$ or $R_2$ contain zero then return $0$, else return $1$.
+		\end{enumerate}
+		Completely analogously to $U$, we obtain the runtime $T_I(n)=O(n^{c+d})$, again proving that
+		$X\cap Y$ is in \ptime.
 
-        Even simpler is the construction of $N$ that decides $(D, D\setminus X)$, i.e. `$\neg X$':
-        \begin{enumerate}[label=N\arabic*]
-            \item Run $M_X$ on input $d$ and store the output in $R_0$.
-            \item If $R_0$ is $0$ then return $1$, otherwise return $0$.
-        \end{enumerate}
-        The runtime we obtain is $T_N(n)=O(n^c)$. Thus $\neg X$ is in \ptime.
-    \end{proof}
+		Even simpler is the construction of $N$ that decides $(D, D\setminus X)$, i.e. `$\neg X$':
+		\begin{enumerate}[label=N\arabic*]
+			\item Run $M_X$ on input $d$ and store the output in $R_0$.
+			\item If $R_0$ is $0$ then return $1$, otherwise return $0$.
+		\end{enumerate}
+		The runtime we obtain is $T_N(n)=O(n^c)$. Thus $\neg X$ is in \ptime.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[c]
-    Let $L_1,L_2$ be languages of strings over some finite alphabet $\Sigma$ whose decision problems are in 
-    \nptime. Then the decision problem of $L=L_1L_2$ is in \nptime.
-    \begin{proof}
-        Let $M_1,M_2$ be the NRMs bounded by the polynomials $f_1(n),f_2(n)$ that decide $L_1,L_2$, respectively.
-        We construct an NRM $M$ that decides $L$ as follows:
-        \begin{enumerate}[label=M\arabic*]
-            \item \label{split} Non-deterministically split the input into two parts. This could be done in the following way:
-                \begin{enumerate}
-                    \item Write the empty sequence into $R_1$.
-                    \item \label{emptycheck} If $R_0$ is the empty sequence, go to \ref{deterministic}.
-                    \item Maybe go to \ref{deterministic}.
-                    \item Take one character from the end of the sequence in $R_0$ and append it to $R_1$.
-                    \item Go to \ref{emptycheck}.
-                \end{enumerate}
-            \item \label{deterministic} Reverse $R_1$.
-            \item \label{runm1} Run $M_1$ on $R_0$.
-            \item \label{runm2} Run $M_2$ on $R_1$.
-            \item \label{trivial} If both $R_0$ and $R_1$ returned `1', accept the string.
-        \end{enumerate}
-        Firstly, we shall show that $M$ behaves as intended. If there exist words $x_1\in L_1$ and $x_2\in L_2$ such that the input 
-        is the concatenation $w=x_1x_2$ then one of the runs will result in the correct 
-        split and $M_1$ and $M_2$ will accept each string individually.  Conversely, 
-        if $M$ accepts a word $w$ it means that there exists a split such that 
-        $w=x_1x_2$ and $x_1\in L_1$ and $x_2\in L_2$, i.e. $w\in L_1L_2$. Thus $M$ 
-        decides $L$.
+	Let $L_1,L_2$ be languages of strings over some finite alphabet $\Sigma$ whose decision problems are in
+	\nptime. Then the decision problem of $L=L_1L_2$ is in \nptime.
+	\begin{proof}
+		Let $M_1,M_2$ be the NRMs bounded by the polynomials $f_1(n),f_2(n)$ that decide $L_1,L_2$, respectively.
+		We construct an NRM $M$ that decides $L$ as follows:
+		\begin{enumerate}[label=M\arabic*]
+			\item \label{split} Non-deterministically split the input into two parts. This could be done in the following way:
+			      \begin{enumerate}
+				      \item Write the empty sequence into $R_1$.
+				      \item \label{emptycheck} If $R_0$ is the empty sequence, go to \ref{deterministic}.
+				      \item Maybe go to \ref{deterministic}.
+				      \item Take one character from the end of the sequence in $R_0$ and append it to $R_1$.
+				      \item Go to \ref{emptycheck}.
+			      \end{enumerate}
+			\item \label{deterministic} Reverse $R_1$.
+			\item \label{runm1} Run $M_1$ on $R_0$.
+			\item \label{runm2} Run $M_2$ on $R_1$.
+			\item \label{trivial} If both $R_0$ and $R_1$ returned `1', accept the string.
+		\end{enumerate}
+		Firstly, we shall show that $M$ behaves as intended. If there exist words $x_1\in L_1$ and $x_2\in L_2$ such that the input
+		is the concatenation $w=x_1x_2$ then one of the runs will result in the correct
+		split and $M_1$ and $M_2$ will accept each string individually.  Conversely,
+		if $M$ accepts a word $w$ it means that there exists a split such that
+		$w=x_1x_2$ and $x_1\in L_1$ and $x_2\in L_2$, i.e. $w\in L_1L_2$. Thus $M$
+		decides $L$.
 
-        Secondly, we show that $M$ is polynomially bounded. Consider \ref{split}. Since $\Sigma$ is finite, we may 
-        represent a single character using 
-        $d$ bits. Thus a word $w=w_1\cdots w_k \in\Sigma^*$ may be encoded using $n=kd$ bits in total.
-        Multiplication and division (by constants $p$ and $q$) are polynomial time operations, so we know
-        they must be bounded by some polynomials $g_1(n),g_2(n)$ respectively. In the worst case, $M$ may move
-        every character out of $R_0$ into $R_1$ individually, which takes $k$ steps. Each one of these steps 
-        may be solved by dividing by $2^d$, multiplying by $2^d$ twice (once $R_1$ for appending and once a
-        temporary register for the modulo operation) and then a constant number of additions and multiplications.
-        Thus we end up with a runtime bound for each step of $2g_1(n)+g_2(n)+O(n)$ so clearly all of \ref{split}
-        is polynomially bounded.
+		Secondly, we show that $M$ is polynomially bounded. Consider \ref{split}. Since $\Sigma$ is finite, we may
+		represent a single character using
+		$d$ bits. Thus a word $w=w_1\cdots w_k \in\Sigma^*$ may be encoded using $n=kd$ bits in total.
+		Multiplication and division (by constants $p$ and $q$) are polynomial time operations, so we know
+		they must be bounded by some polynomials $g_1(n),g_2(n)$ respectively. In the worst case, $M$ may move
+		every character out of $R_0$ into $R_1$ individually, which takes $k$ steps. Each one of these steps
+		may be solved by dividing by $2^d$, multiplying by $2^d$ twice (once $R_1$ for appending and once a
+		temporary register for the modulo operation) and then a constant number of additions and multiplications.
+		Thus we end up with a runtime bound for each step of $2g_1(n)+g_2(n)+O(n)$ so clearly all of \ref{split}
+		is polynomially bounded.
 
-        The runtime of \ref{deterministic} is similar to the worst case of \ref{split}. One can reverse a list 
-        by removing them and appending them to a temporary register. This has been shown above to be possible in 
-        polynomial time.
+		The runtime of \ref{deterministic} is similar to the worst case of \ref{split}. One can reverse a list
+		by removing them and appending them to a temporary register. This has been shown above to be possible in
+		polynomial time.
 
-        Finally, it is clear that \ref{runm1} and \ref{runm2} are bounded by $f_1(n)$, $f_2(n)$ up to some 
-        constant overhead. Similarly, \ref{trivial} only takes a constant number of instructions, thus it is polynomially bounded, too. 
-        We conclude that $M$ as a whole is polynomially bounded. Since $M$ decides $L$, the decision problem 
-        $(\Sigma^*, L)$ is in \nptime.
-    \end{proof}
+		Finally, it is clear that \ref{runm1} and \ref{runm2} are bounded by $f_1(n)$, $f_2(n)$ up to some
+		constant overhead. Similarly, \ref{trivial} only takes a constant number of instructions, thus it is polynomially bounded, too.
+		We conclude that $M$ as a whole is polynomially bounded. Since $M$ decides $L$, the decision problem
+		$(\Sigma^*, L)$ is in \nptime.
+	\end{proof}
+\end{claim*}
+
+\section{Reductions for NP-completeness}
+
+\begin{claim*}[a]
+	\text{EXACT-3SAT} is NP-complete.
+	\begin{proof}
+		As a special case of 3SAT, which itself is NP-complete, EXACT-3SAT clearly lies in \nptime.
+
+		We shall reduce 3SAT to EXACT-3SAT to show NP-completeness. Consider a 3-CNF
+		\begin{align*}
+			\phi = C_1\wedge \cdots\wedge C_n.
+		\end{align*}
+		In particular, each clause $C_i$ is a disjunction of at most three literals. We note that
+		EXACT-3SAT requires each $C_i$ to have exactly three literals. However, it is also worth
+		mentioning that those literals need not be distinct. Therefore we may define a map
+		\begin{align*}
+			f:C_i \mapsto \begin{cases}
+				              l_1\vee l_1\vee l_1 & C_i = l_1 \text{ for some literal $l_1$}                              \\
+				              l_1\vee l_2\vee l_1 & C_i = l_1 \vee l_2 \text{ for some literal $l_1, l_2$}                \\
+				              l_1\vee l_2\vee l_3 & C_i = l_1 \vee l_2 \vee l_3 \text{ for some literals $l_1, l_2, l_3$}
+			              \end{cases}
+		\end{align*}
+		We observe that if $\phi$ has $n$ clauses and $k$ unique propositional variables, then we may represent
+		it using at most
+		\begin{align*}
+			d=3n(2+\lg k)=O(n\lg k)
+		\end{align*}
+		bits where we added one bit per literal for the negation and another
+		in order to avoid rounding and to make sure that at least one value exists to represent the absence of
+		a literal, i.e.\ zero.
+
+		Now we may note that, given a clause, $f$ may be computed as follows:
+		\begin{enumerate}[label=F\arabic*]
+			\item Extract $l_1$ into a temporary register $R_{j}$.
+			\item Extract $l_2$ into a temporary register $R_{j+1}$
+			\item If $R_{j+1}$ is zero (i.e.\ an invalid literal), copy $R_j$ into $R_{j+1}$
+			\item Extract $l_3$ into a temporary register $R_{j+2}$
+			\item If $R_{j+2}$ is zero (i.e.\ an invalid literal), copy $R_j$ into $R_{j+2}$
+			\item Combine $R_j,R_{j+1},R_{j+2}$ into a clause.
+		\end{enumerate}
+		While certainly not the most efficient approach, this is clearly still polynomial in $d$.
+		Finally, we are required to combine all the new clauses into one 3-CNF.\@ Doing this involves
+		multiplication by $2^{d/n}$ and a single addition. This can be done in
+		\begin{align*}
+			(d/n+1)\lg d=O(\lg k\lg (n\lg k))
+		\end{align*}
+		time. We conclude that the whole procedure only takes polynomial time in general.
+		The result is a CNF with exactly three literals per clause, i.e.\ an instance of EXACT-3SAT.\@
+		Thus $\text{3SAT}\leq_p\text{EXACT-3SAT}$ and therefore EXACT-3SAT is NP-complete.
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+	$\text{EXACT-3SAT}\leq_p\text{3PRODEQNS}$.
+	\begin{proof}
+		Consider an exact 3-CNF with $k$ propositional variables,
+		\begin{align*}
+			\phi = C_1 \wedge \cdots \wedge C_n.
+		\end{align*}
+		The key observation is that an assignment $h$ satisfies a clause
+		\begin{align}
+			\label{ciexact}
+			C_i = l_1 \vee l_2 \vee l_3
+		\end{align}
+		if and only if
+		\begin{align}
+			\label{prod}
+			(a_1-x_1)(a_2-x_2)(a_3-x_3) = 0
+		\end{align}
+		where the $x_i$ are the truth values of the propositional variables in each $l_i$ assigned
+		by $h$ converted to an integer in $\{0,1\}$ in the obvious way, and, for all $i$, $a_i=0$
+		iff $l_i$ is a negation of some propositional variable.
+
+		We may now convert $\phi$ to an equivalent instance of 3PRODEQNS by converting each clause
+		(\ref{ciexact}) to a product (\ref{prod}). The resulting set of 3-products will then clearly
+		be satisfiable iff $\phi$ is.
+
+		Similar to previous considerations, we may represent $\phi$ using $O(n\lg k)$ bits.
+		Thus the maximum number of bits required to represent the value in any register is $O(n\lg k + k)$.
+
+		We see that the resulting instance of 3PRODEQNS may be encoded using $\lg k+1$ bits to represent
+		an upper bound for the number of variables and $3n(\lg k + 2)=O(n\lg k)$ bits to represent the $n$
+		clauses each containing three terms.
+
+		Since the transformation from one representation to the other can be done by mapping literals in the CNF
+		directly to factors in the 3-products, it is clear that each such step can be performed in polynomial time.
+		The detailed analysis is omitted as it would not provide any additional insights.
+		Since we require at most $3n$ such steps in total, the whole procedure may be completed
+		in polynomial time. The claim follows.
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}
+	INDSET is NP-complete.
+	\begin{proof}
+
+	\end{proof}
 \end{claim*}
 
 \end{document}
