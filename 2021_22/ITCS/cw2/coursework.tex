@@ -82,7 +82,7 @@ with $y$ in $R_0$.
     \end{proof}
 \end{claim*}
 
-\begin{claim*}
+\begin{claim*}[c]
     Let $f:\N\to\N$ be a total function such that $f(n)=d(n)$ for all $n\in\N$ where 
     $d(n)\not=\bot$. Then $f$ is not computable.
     \begin{proof}
@@ -92,4 +92,104 @@ with $y$ in $R_0$.
         on input $k$.
     \end{proof}
 \end{claim*}
+
+\section{P, NP}
+
+\begin{claim*}[a]
+    \begin{align}
+        \label{on2}
+        n^2&\not=O(n\lg n)\\
+        \label{onlgn}
+        n\lg n &=O(n^2)\\
+        \label{o3n}
+        3^n&\not=O(2^n)
+    \end{align}
+    The statement $3^n=2^{O(n)}$ is nonsensical and may therefore be true or false, depending on 
+    definition.
+\end{claim*}
+
+\begin{claim*}[b]
+    Let $(D,X)$ and $(D,Y)$ be decision problems in \ptime. Then the decision problems
+    \begin{align*}
+        (D,X\cup Y), (D,X\cap Y), (D,D\setminus X)
+    \end{align*}
+    are in \ptime.
+    \begin{proof}
+        Let $M_X,M_Y$ be the RMs that decide $(D,X),(D,Y)$ in time $T_X(n)=O(n^c),T_Y(n)=O(n^d)$ for some $c,d$, 
+        respectively. Then we may construct $U$ that decides $(D,X\cup Y)$ as follows:
+        \begin{enumerate}[label=U\arabic*]
+            \item Run $M_X$ on input $d$ and store the output in $R_1$.
+            \item Run $M_Y$ on input $d$ and store the output in $R_2$.
+            \item If $R_1$ or $R_2$ contains a non-zero value then return $1$, else return $0$.
+        \end{enumerate}
+        Note that the runtime is $T_U(n)=T_X(n)+T_Y(n)+\Theta(1)$ since there are only four possible scenarios 
+        for U3. Thus we obtain the very generous bound $T_U(n)=O(n^{c+d})$, showing that $X\cup Y$ is in \ptime.
+
+        Similarly, we construct the RM $I$ that decides $X\cap Y$:
+        \begin{enumerate}[label=I\arabic*]
+            \item Run $M_X$ on input $d$ and store the output in $R_1$.
+            \item Run $M_Y$ on input $d$ and store the output in $R_2$.
+            \item If $R_1$ or $R_2$ contain zero then return $0$, else return $1$.
+        \end{enumerate}
+        Completely analogously to $U$, we obtain the runtime $T_I(n)=O(n^{c+d})$, again proving that 
+        $X\cap Y$ is in \ptime.
+
+        Even simpler is the construction of $N$ that decides $(D, D\setminus X)$, i.e. `$\neg X$':
+        \begin{enumerate}[label=N\arabic*]
+            \item Run $M_X$ on input $d$ and store the output in $R_0$.
+            \item If $R_0$ is $0$ then return $1$, otherwise return $0$.
+        \end{enumerate}
+        The runtime we obtain is $T_N(n)=O(n^c)$. Thus $\neg X$ is in \ptime.
+    \end{proof}
+\end{claim*}
+
+\begin{claim*}[c]
+    Let $L_1,L_2$ be languages of strings over some finite alphabet $\Sigma$ whose decision problems are in 
+    \nptime. Then the decision problem of $L=L_1L_2$ is in \nptime.
+    \begin{proof}
+        Let $M_1,M_2$ be the NRMs bounded by the polynomials $f_1(n),f_2(n)$ that decide $L_1,L_2$, respectively.
+        We construct an NRM $M$ that decides $L$ as follows:
+        \begin{enumerate}[label=M\arabic*]
+            \item \label{split} Non-deterministically split the input into two parts. This could be done in the following way:
+                \begin{enumerate}
+                    \item Write the empty sequence into $R_1$.
+                    \item \label{emptycheck} If $R_0$ is the empty sequence, go to \ref{deterministic}.
+                    \item Maybe go to \ref{deterministic}.
+                    \item Take one character from the end of the sequence in $R_0$ and append it to $R_1$.
+                    \item Go to \ref{emptycheck}.
+                \end{enumerate}
+            \item \label{deterministic} Reverse $R_1$.
+            \item \label{runm1} Run $M_1$ on $R_0$.
+            \item \label{runm2} Run $M_2$ on $R_1$.
+            \item \label{trivial} If both $R_0$ and $R_1$ returned `1', accept the string.
+        \end{enumerate}
+        Firstly, we shall show that $M$ behaves as intended. If there exist words $x_1\in L_1$ and $x_2\in L_2$ such that the input 
+        is the concatenation $w=x_1x_2$ then one of the runs will result in the correct 
+        split and $M_1$ and $M_2$ will accept each string individually.  Conversely, 
+        if $M$ accepts a word $w$ it means that there exists a split such that 
+        $w=x_1x_2$ and $x_1\in L_1$ and $x_2\in L_2$, i.e. $w\in L_1L_2$. Thus $M$ 
+        decides $L$.
+
+        Secondly, we show that $M$ is polynomially bounded. Consider \ref{split}. Since $\Sigma$ is finite, we may 
+        represent a single character using 
+        $d$ bits. Thus a word $w=w_1\cdots w_k \in\Sigma^*$ may be encoded using $n=kd$ bits in total.
+        Multiplication and division (by constants $p$ and $q$) are polynomial time operations, so we know
+        they must be bounded by some polynomials $g_1(n),g_2(n)$ respectively. In the worst case, $M$ may move
+        every character out of $R_0$ into $R_1$ individually, which takes $k$ steps. Each one of these steps 
+        may be solved by dividing by $2^d$, multiplying by $2^d$ twice (once $R_1$ for appending and once a
+        temporary register for the modulo operation) and then a constant number of additions and multiplications.
+        Thus we end up with a runtime bound for each step of $2g_1(n)+g_2(n)+O(n)$ so clearly all of \ref{split}
+        is polynomially bounded.
+
+        The runtime of \ref{deterministic} is similar to the worst case of \ref{split}. One can reverse a list 
+        by removing them and appending them to a temporary register. This has been shown above to be possible in 
+        polynomial time.
+
+        Finally, it is clear that \ref{runm1} and \ref{runm2} are bounded by $f_1(n)$, $f_2(n)$ up to some 
+        constant overhead. Similarly, \ref{trivial} only takes a constant number of instructions, thus it is polynomially bounded, too. 
+        We conclude that $M$ as a whole is polynomially bounded. Since $M$ decides $L$, the decision problem 
+        $(\Sigma^*, L)$ is in \nptime.
+    \end{proof}
+\end{claim*}
+
 \end{document}
