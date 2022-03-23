@@ -103,9 +103,40 @@ with $y$ in $R_0$.
 		\label{o3n}
 		3^n    & \not=O(2^n)
 	\end{align}
-	The statement $3^n=2^{O(n)}$ is nonsensical and may therefore be true or false, depending on
-	definition.
+	The statement $3^n=2^{O(n)}$ is nonsensical and may therefore not be considered true
+	unless further definitions are given.
 \end{claim*}
+
+The following result shall serve as a more rigorous justificaiton for some of the less precise 
+arguments further below.
+
+\begin{lemma*}
+	\label{pbits}	
+	Let $R_i$ be a register containing a value $n$. Then all of the following operations
+	have a runtime that is $O(p(d))$ where $p(d)$ is a polynomial in $d=\lg n$:
+	\begin{enumerate}
+		\item Multiplication by $2$, i.e. bit shifting left.
+		\item Extracting the $k$th bit where $0\leq k\leq d$.
+		\item Division by $2$, i.e. bit shifting right.
+	\end{enumerate}
+	\begin{proof}
+		Bit shifting the value $n$ in register $R_i$ can be done using the $\texttt{ADD}(i,i)$
+		instruction in $O(d)$ time.
+		To extract the $k$th bit from $R_i$, do the following:
+		\begin{enumerate}
+			\item Use temporary registers to calculate the greatest $j$ such that $2^j\leq n$
+				where $n$ is the value in $R_i$.
+				For example, starting with $2$, keep doubling a value in $R_t$ until $R_i-R_t$ 
+				is zero. Count the number of steps it takes and infer $j$.
+			\item If $j>k$, substract $2^j$ from the value in $R_i$ and repeat.
+			\item If $j=k$ then the $k$th bit is not set.
+			\item If $j<k$ then the $k$th bit is set.
+		\end{enumerate}
+		Clearly, the worst case is $k=0$. This requires $d$ steps, all of which only involve 
+		$O(d)$ operations which take $O(d)$ time. Therefore bit extraction overall can be done 
+		in polynomial time.
+	\end{proof}
+\end{lemma*}
 
 \begin{claim*}[b]
 	Let $(D,X)$ and $(D,Y)$ be decision problems in \ptime. Then the decision problems
@@ -172,13 +203,11 @@ with $y$ in $R_0$.
 		Secondly, we show that $M$ is polynomially bounded. Consider \ref{split}. Since $\Sigma$ is finite, we may
 		represent a single character using
 		$d$ bits. Thus a word $w=w_1\cdots w_k \in\Sigma^*$ may be encoded using $n=kd$ bits in total.
-		Multiplication and division (by constants $p$ and $q$) are polynomial time operations, so we know
-		they must be bounded by some polynomials $g_1(n),g_2(n)$ respectively. In the worst case, $M$ may move
+		In the worst case, $M$ may move
 		every character out of $R_0$ into $R_1$ individually, which takes $k$ steps. Each one of these steps
-		may be solved by dividing by $2^d$, multiplying by $2^d$ twice (once $R_1$ for appending and once a
-		temporary register for the modulo operation) and then a constant number of additions and multiplications.
-		Thus we end up with a runtime bound for each step of $2g_1(n)+g_2(n)+O(n)$ so clearly all of \ref{split}
-		is polynomially bounded.
+		may be solved by bit shifting right $d$ times, bit shifting right $2d$ times ($d$ times on $R_1$ for appending 
+		and $d$ times on a temporary register for the modulo operation) and then a constant number of additions and multiplications.
+		Since all $k$ steps are polynomial in $n$, so is \ref{split} in general.
 
 		The runtime of \ref{deterministic} is similar to the worst case of \ref{split}. One can reverse a list
 		by removing them and appending them to a temporary register. This has been shown above to be possible in
@@ -232,11 +261,9 @@ with $y$ in $R_0$.
 		\end{enumerate}
 		While certainly not the most efficient approach, this is clearly still polynomial in $d$.
 		Finally, we are required to combine all the new clauses into one 3-CNF.\@ Doing this involves
-		multiplication by $2^{d/n}$ and a single addition. This can be done in
-		\begin{align*}
-			(d/n+1)\lg d=O(\lg k\lg (n\lg k))
-		\end{align*}
-		time. We conclude that the whole procedure only takes polynomial time in general.
+		shifting left $d/n$ times and a single addition. The runtime of this is polynomial in $d$. 
+		We conclude that the whole procedure only takes polynomial time in general.
+
 		The result is a CNF with exactly three literals per clause, i.e.\ an instance of EXACT-3SAT.\@
 		Thus $\text{3SAT}\leq_p\text{EXACT-3SAT}$ and therefore EXACT-3SAT is NP-complete.
 	\end{proof}
