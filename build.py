@@ -3,6 +3,7 @@ import os
 import sys
 import subprocess
 import time
+from typing import List
 
 OUT_DIR = "./out"
 TEX_CMD = [
@@ -11,7 +12,30 @@ TEX_CMD = [
 ]
 FORMAT_CMD = ["latexindent", "-w"]
 
-def format(tex_file):
+
+def clear_format_backup(tex_file: str) -> subprocess.CompletedProcess[bytes]:
+    tex_dir = os.path.dirname(tex_file)
+    tex_file_name = os.path.basename(tex_file)
+    backup_file_name = os.path.splitext(tex_file_name)[0] + ".bak0"
+    cmd = ["rm", backup_file_name]
+    p = subprocess.run(cmd,
+                       stdout=subprocess.PIPE,
+                       stderr=subprocess.PIPE,
+                       cwd=tex_dir,
+                       timeout=5)
+    if p.returncode:
+        print(" in directory", tex_dir, flush=True)
+        print(">", ' '.join(cmd), flush=True)
+        print("--- BEGIN STDERR ---")
+        print(p.stderr.decode("utf-8"))
+        print("---- END STDERR ----")
+        return p
+    else:
+        print("...", end='', flush=True)
+    return p
+
+
+def format(tex_file: str) -> subprocess.CompletedProcess[bytes]:
     tex_dir = os.path.dirname(tex_file)
     tex_file_name = os.path.basename(tex_file)
     cmd = FORMAT_CMD + [tex_file_name]
@@ -32,8 +56,7 @@ def format(tex_file):
     return p
 
 
-
-def compile_with_recipe(tex_file):
+def compile_with_recipe(tex_file: str) -> subprocess.CompletedProcess[bytes]:
     tex_dir = os.path.dirname(tex_file)
     tex_file_name = os.path.basename(tex_file)
     cmd = TEX_CMD + [f"-outdir=.", tex_file_name]
@@ -53,7 +76,7 @@ def compile_with_recipe(tex_file):
     return p
 
 
-def is_target(tex_path):
+def is_target(tex_path: str) -> bool:
     _, e = os.path.splitext(tex_path)
     if e != '.tex':
         return False
@@ -63,7 +86,7 @@ def is_target(tex_path):
     return True
 
 
-def compile_pdf(tex_path):
+def compile_pdf(tex_path: str) -> int:
     if not is_target(tex_path):
         print(
             f"WARN: The given file is not a suitable source file. Skipping. ({tex_path})",
@@ -72,6 +95,10 @@ def compile_pdf(tex_path):
     t = time.time()
     print(f"Compiling {tex_path}", end='', flush=True)
     tex_path_no_ext, _ = os.path.splitext(tex_path)
+    p = clear_format_backup(tex_path)
+    if p.returncode:
+        print("FAIL (Clearing backup)", flush=True)
+        return 0
     p = format(tex_path)
     if p.returncode:
         print("FAIL (Formatting)", flush=True)
@@ -99,14 +126,14 @@ def compile_pdf(tex_path):
         return 1
 
 
-def find_all_tex():
+def find_all_tex() -> List[str]:
     targets = []
     for r, _, f in os.walk(os.curdir):
         targets.extend(map(lambda x, r=r: os.path.join(r, x), f))
     return sorted(list(filter(is_target, targets)))
 
 
-def default_build():
+def default_build() -> None:
     sources = find_all_tex()
     t = time.time()
     print(f"Found {len(sources)} source files, starting compilation.")
@@ -118,12 +145,12 @@ def default_build():
     )
 
 
-def prep_dirs():
+def prep_dirs() -> None:
     if not os.path.isdir(OUT_DIR):
         os.mkdir(OUT_DIR)
 
 
-def clean():
+def clean() -> None:
     if os.path.isdir(OUT_DIR):
         subprocess.call(['rm', '-r', OUT_DIR])
 

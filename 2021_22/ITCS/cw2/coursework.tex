@@ -10,7 +10,6 @@
 \noindent The encoding of the register machine program $P$ as described in the lectures shall be denoted $\enc P$.
 We shall also say that an RM $M$ halts with value $y$ on input $x$ if, given $x$ in $R_0$, $M$ halts
 with $y$ in $R_0$.
-\renewcommand{\N}{\mathbb{Z}_{\geq 0}}
 \section{Partial functions}
 \begin{claim*}[a, 1]
 	Let $\hat H:\N\times\N\rightharpoonup\N$ be the partial function given by
@@ -287,30 +286,303 @@ with $y$ in $R_0$.
 	INDSET is NP-complete.
 	\begin{proof}
 		Let $G=(V,E)$ be a graph. We shall denote by $G^c$ the graph that has an edge $(u,v)$ iff $(u,v)\not\in E$.
-		I.e. $G^c=(V, V\times V\setminus E)$. Consider a set of vertices $X\subseteq V$. Then $X$ is an 
-		independent set in $G$ iff, for all distinct $u,v\in X$, $(u,v)\not\in E$. By construction, this is equivalent to 
+		I.e. $G^c=(V, V\times V\setminus E)$. Consider a set of vertices $X\subseteq V$. Then $X$ is an
+		independent set in $G$ iff, for all distinct $u,v\in X$, $(u,v)\not\in E$. By construction, this is equivalent to
 		the condition that, for all distinct $u,v\in X$, $(u,v)\in E$.
 
-		In other words, $X$ is an independent set in $G$ iff it is a clique in $G^c$. Therefore solving 
+		In other words, $X$ is an independent set in $G$ iff it is a clique in $G^c$. Therefore solving
 		INDSET on $(G, k)$ is equivalent to solving CLIQUE on $(G^c, k)$.
 
-		We observe $(G^c)^c=G$. Reducing CLIQUE to INDSET and vice versa is therefore the same as converting 
-		a graph to its complement. This can be done in polynomial time. To see this, one may assume that 
+		We observe $(G^c)^c=G$. Reducing CLIQUE to INDSET and vice versa is therefore the same as converting
+		a graph to its complement. This can be done in polynomial time. To see this, one may assume that
 		$E$ is represented as a flattened adjacency matrix with $\abs V^2$ entries. In this case the
 		conversion is the same as flipping each bit in the representation of $E$ and copying the rest.
-		Na\"ively, this may be done by extracting each bit, fliping it, and inserting it into the new 
-		matrix. This completes the task in $\abs V^2$ polynomial time steps, and therefore in polynomial time 
+		Na\"ively, this may be done by extracting each bit, fliping it, and inserting it into the new
+		matrix. This completes the task in $\abs V^2$ polynomial time steps, and therefore in polynomial time
 		overall.
 
 		We have shown
 		\begin{align}
 			\text{INDSET} \leq_p \text{CLIQUE}
 		\end{align}
-		and 
+		and
 		\begin{align}
 			\text{INDSET} \geq_p \text{CLIQUE}.
 		\end{align}
 		As CLIQUE is NP-complete, so is INDSET.
+	\end{proof}
+\end{claim*}
+
+\section{Untyped and simply typed lambda-calculus}
+
+\newcommand{\betareduce}{\xrightarrow{\beta}}
+\newcommand{\alphareduce}{\xrightarrow{\alpha}}
+
+\begin{claim*}[a]
+	The term
+	\begin{align}
+		\label{eq:t}
+		(\lambda m. \lambda n.\lambda f.\lambda x.mf(nfx))(\lambda f.\lambda x.fx)(\lambda f.\lambda x f(fx))
+	\end{align}
+	reduces to
+	\begin{align*}
+		\lambda f.\lambda x f(f(fx)).
+	\end{align*}
+	\begin{proof}
+		Firstly, we $\alpha$-convert (\ref{eq:t}) to
+		\begin{align*}
+			T:=(\lambda m. \lambda n.\lambda f.\lambda x.mf(nfx))(\lambda g.\lambda y.gy)(\lambda h.\lambda z.h(hz))
+		\end{align*}
+		in order to avoid naming conflicts. We now perform a sequence of $\beta$-reductions,
+		substituting $m,n,g,y,h,z$ in that order.
+		\begin{align*}
+			T
+			 & \betareduce(\lambda n.\lambda f.\lambda x.(\lambda g.\lambda y.gy)f(nfx))(\lambda h.\lambda z.h(hz)) \\
+			 & \betareduce\lambda f.\lambda x.(\lambda g.\lambda y.gy)f((\lambda h.\lambda z.h(hz))fx)              \\
+			 & \betareduce\lambda f.\lambda x.(\lambda y.fy)((\lambda h.\lambda z.h(hz))fx)                         \\
+			 & \betareduce\lambda f.\lambda x.f((\lambda h.\lambda z.h(hz))fx)                                      \\
+			 & \betareduce\lambda f\lambda x.f((\lambda f.\lambda z.f(fz))x)                                        \\
+			 & \betareduce\lambda f.\lambda x.f(f(fx)).
+		\end{align*}
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+	Let
+	\begin{align}
+		\label{ycombinator}
+		Y:=\lambda f.(\lambda x. f(xx))(\lambda x. f(xx))
+	\end{align}
+	and
+	\begin{align}
+		\label{newycombinator}
+		Y':=\lambda f.(\lambda x. xx)(\lambda x. f(xx)).
+	\end{align}
+	Then $Y'G=G(YG)$ and $Y'\betareduce Y$.
+	\begin{proof}
+		We simplify
+		\begin{align*}
+			Y'G & = (\lambda f.(\lambda x. xx)(\lambda x. f(xx)))G     \\
+			    & \betareduce (\lambda x. xx)(\lambda x. G(xx))        \\
+			    & \betareduce (\lambda x. G(xx))(\lambda x. G(xx))     \\
+			    & \betareduce G((\lambda x. G(xx))(\lambda x. G(xx))).
+		\end{align*}
+		We note that
+		\begin{align*}
+			G(YG) & = G((\lambda f.(\lambda x. f(xx))(\lambda x. f(xx)))G) \\
+			      & \betareduce G((\lambda x. G(xx))(\lambda x. G(xx))).
+		\end{align*}
+		Therefore $Y'G=G(YG)$. Further, we may reduce $Y$ to $Y'$. To see this,
+		we first $\alpha$-convert $Y'$ to
+		\begin{align*}
+			Y'':=\lambda f.(\lambda y. yy)(\lambda x. f(xx)).
+		\end{align*}
+		Then, by substituting $y$,
+		\begin{align*}
+			Y'' & \betareduce \lambda f. ((\lambda x.f(xx))(\lambda x.f(xx))) = Y
+		\end{align*}
+		Since $Y'\alphareduce Y''$, we find $Y'\betareduce Y$.
+	\end{proof}
+\end{claim*}
+\newcommand{\nat}{\texttt{nat}}
+\begin{claim*}[c]
+	\begin{align*}
+		(\lambda f: \nat\to\nat.\lambda x:\nat.f(fx)):(\nat\to\nat)\to\nat\to\nat
+	\end{align*}
+	\begin{proof}
+		Firstly, we have
+		\begin{align}
+			\label{pf1}
+			\infer{
+				f:\nat\to\nat,x:\nat \vdash fx:\nat
+			}{
+				\infer{
+					f:\nat\to\nat,x:\nat \vdash f:\nat\to\nat
+				}{}
+				\hs
+				\infer{
+					f:\nat\to\nat,x:\nat \vdash x:\nat
+				}{}
+			}
+		\end{align}
+		Using this, we find
+		\begin{align*}
+			\infer{
+				\vdash(\lambda f: \nat\to\nat.\lambda x:\nat.f(fx)):(\nat\to\nat)\to\nat\to\nat
+			}{
+				\infer{
+					f:\nat\to\nat \vdash (\lambda x : \nat. f(fx)):\nat\to\nat
+				}{
+					\infer{
+						f:\nat\to\nat,x:\nat \vdash f(fx):\nat
+					}{
+						\infer{f:\nat\to\nat,x:\nat \vdash f:\nat\to\nat}{ }
+						\hs
+						\infer{
+							f:\nat\to\nat,x:\nat \vdash fx:\nat
+						}{(\ref{pf1})}
+					}
+				}
+			}
+		\end{align*}
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}[d]
+	\begin{align*}
+		(\lambda m:T. \lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx))(\lambda f:\tau\to\tau.\lambda x:\tau.fx)(\lambda f:\tau\to\tau.\lambda x:\tau. f(fx)):T
+	\end{align*}
+	where
+	\begin{align*}
+		T=(\tau\to\tau)\to\tau\to\tau.
+	\end{align*}
+	\begin{proof}
+		For readability, we adapt the application rule to be
+		\begin{align*}
+			\infer{\Sigma,\Gamma\vdash ts:\tau}{\Sigma\vdash t:\sigma\to\tau\hs\Gamma\vdash s:\sigma}.
+		\end{align*}
+		Clearly this is possible as we prove each branch with potentially fewer assumptions.
+		We begin with an auxillary proof:
+		\begin{align}
+			\label{eq:h2}
+			\infer{
+				n:T,f:\tau\to\tau,x:\tau\vdash nfx:\tau
+			}{
+				\infer{
+					n:T,f:\tau\to\tau\vdash nf:\tau\to\tau
+				}{
+					\infer{
+						n:T\vdash n:(\tau\to\tau)\to\tau\to\tau
+					}{}
+					\hs
+					\infer{
+						f:\tau\to\tau\vdash f:\tau\to\tau
+					}{}
+				}
+				\hs
+				\infer{
+					x:\tau\vdash x:\tau
+				}{}
+			}
+		\end{align}
+		Now we can prove the type of the first parenthesised term:
+		\begin{align}
+			\label{eq:abs1}
+			\infer{
+				\vdash\lambda m:T. \lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx):T\to T\to T
+			}{
+				\infer{
+					m:T\vdash\lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx):T\to T
+				}{
+					\infer{
+						m:T,n:T\vdash\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx):T=(\tau\to\tau)\to\tau\to\tau
+					}{
+						\infer{
+							m:T,n:T,f:\tau\to\tau\vdash\lambda x:\tau.mf(nfx):\tau\to\tau
+						}{
+							\infer{
+								m:T,n:T,f:\tau\to\tau,x:\tau\vdash mf(nfx):\tau
+							}{
+								\infer{
+									m:T,f:\tau\to\tau\vdash mf:\tau\to\tau
+								}{
+									\infer{
+										m:T\vdash m:T
+									}{}
+									\hs
+									\infer{
+										f:\tau\to\tau\vdash f:\tau\to\tau
+									}{}
+								}
+								\hs
+								\infer{
+									n:T,f:\tau\to\tau,x:\tau\vdash nfx:\tau
+								}{
+									(\ref{eq:h2})
+								}
+							}
+						}
+					}
+				}
+			}
+		\end{align}
+		Then the second one:
+		\begin{align}
+			\label{eq:abs2}
+			\infer{
+				\vdash\lambda f:\tau\to \tau.\lambda x:\tau. fx:T=(\tau\to\tau)\to\tau\to\tau
+			}{
+				\infer{f:\tau\to \tau\vdash\lambda x:\tau. fx:\tau\to\tau}{
+					\infer{
+						f:\tau\to \tau,x:\tau\vdash fx:\tau
+					}{
+						\infer{f:\tau\to \tau\vdash f:\tau\to \tau}{}
+						\hs
+						\infer{x:\tau\vdash x:\tau}{}
+					}
+				}
+			}
+		\end{align}
+		And now the third:
+		\begin{align}
+			\label{eq:abs3}
+			\infer{
+				\vdash\lambda f:\tau\to\tau.\lambda x:\tau. f(fx):T=(\tau\to\tau)\to\tau\to\tau
+			}{
+				\infer{
+					f:\tau\to\tau\vdash \lambda x:\tau. f(fx):\tau\to\tau
+				}{
+					\infer{
+						f:\tau\to\tau,x:\tau \vdash f(fx):\tau
+					}{
+						\infer{f:\tau\to\tau\vdash f:\tau\to\tau}{}
+						\hs
+						\infer{
+							f:\tau\to\tau,x:\tau\vdash fx:\tau
+						}{
+							\infer{f:\tau\to \tau\vdash f:\tau\to \tau}{}
+							\hs
+							\infer{x:\tau\vdash x:\tau}{}
+						}
+					}
+				}
+			}
+		\end{align}
+		Putting together the first two:
+		\begin{align}
+			\label{eq:join}
+			\infer{
+				\vdash(\lambda m:T. \lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx))(\lambda f:\tau\to \tau.\lambda x:T.fx):T\to T
+			}{
+				\infer{
+					\vdash\lambda m:T. \lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx):T\to T\to T
+				}{
+					(\ref{eq:abs1})
+				}
+				\hs
+				\infer{
+					\vdash\lambda f:\tau\to \tau.\lambda x:T. fx:T
+				}{
+					(\ref{eq:abs2})
+				}
+			}
+		\end{align}
+		And finally, barely fitting the page,
+		\begin{align*}
+			\infer{
+				(\lambda m:T. \lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx))(\lambda f:\tau\to\tau.\lambda x:\tau\to\tau.fx)(\lambda f:\tau\to\tau.\lambda x:\tau\to\tau f(fx)):T
+			}{
+				\infer{
+					\vdash(\lambda m:T. \lambda n:T.\lambda f:\tau\to\tau.\lambda x:\tau.mf(nfx))(\lambda f:\tau\to \tau.\lambda x:T.fx):T\to T
+				}{
+					(\ref{eq:join})
+				}
+				\hspace{.2cm}
+				\infer{
+					\lambda f:\tau\to\tau.\lambda x:\tau\to\tau f(fx):T
+				}{(\ref{eq:abs3})}
+			}
+		\end{align*}
 	\end{proof}
 \end{claim*}
 
