@@ -24,7 +24,7 @@
 	\end{align*}
 	where $a_{ij},b_i\in F$ are fixed.
 
-	If all $b_i$ are zero, then we call our system \emph{homogeneous}. Every system
+	Iff all $b_i$ are zero, then we call our system \emph{homogeneous}. Every system
 	has an associated \emph{homogenised} system of equations.
 	The set $L\subseteq F^m$ consisting of all $m$-tuples that satisfy the
 	$n$ equations is called the \emph{solution set} of our system.
@@ -91,7 +91,7 @@
 
 \begin{definition}
 	A subset $U$ of a vector space $V$ is called a \emph{vector subspace} or
-	\emph{subspace} if $U$ contains the zero vector and whenever $\vec u,\vec v\in U$
+	\emph{subspace} iff $U$ contains the zero vector and whenever $\vec u,\vec v\in U$
 	and $\lambda\in F$ we have $\vec u + \vec v\in U$ and $\lambda\vec v\in U$.
 \end{definition}
 
@@ -108,16 +108,16 @@
 \end{proposition}
 
 \begin{definition}
-	A subset $U$ of a vector space $V$ is called a \emph{generating set of $V$}
-	if its span is all of $V$. A vector space that has a finite generating set
+	A subset $U$ of a vector space $V$ is a \emph{generating set of $V$}
+	iff its span is all of $V$. A vector space that has a finite generating set
 	is said to be \emph{finitely generated}.
 \end{definition}
 
 \subsection{Linear independence and bases}
 
 \begin{definition}
-	A subset $L$ of a vector space $V$ is called \emph{linearly independent}
-	if for all pairwise different vectors $\vec v_1,...,\vec v_r\in L$ and
+	A subset $L$ of a vector space $V$ is \emph{linearly independent}
+	iff for all pairwise different vectors $\vec v_1,...,\vec v_r\in L$ and
 	arbitrary scalars $\alpha_1,...,\alpha_r\in F$,
 	\begin{align*}
 		\alpha_1\vec v_1+\cdots+\alpha_r\vec v_r = \vec 0
@@ -134,7 +134,7 @@
 \begin{theorem}[Notes 1.5.11]
 	Let $F$ be a field, $V$ a vector space over $F$ and $\vec v_1,...,\vec v_r\in V$
 	vectors. The family $\left(\vec v_i\right)_{1\leq i\leq r}$ is a basis of $V$
-	if and only if the following mapping
+	iff the following mapping
 	\begin{align*}
 		\Phi:F^r                & \to V                                                \\
 		(\alpha_1,...,\alpha_r) & \mapsto \alpha_1\vec v_1 + \cdots + \alpha_r\vec v_r
@@ -249,7 +249,7 @@
 
 \begin{definition}
 	Let $V,W$ be vector spaces over a field $F$. A mapping $f:V\to W$ is called
-	\emph{$F$-linear} or a \emph{homomorphism} if for all $\vec v_1,\vec v_1\in V$ and $\lambda \in F$ we
+	\emph{$F$-linear} or a \emph{homomorphism} iff for all $\vec v_1,\vec v_1\in V$ and $\lambda \in F$ we
 	have
 	\begin{align*}
 		f(\vec v_1+\vec v_2) & = f(\vec v_1) + f(\vec v_2), \\
@@ -270,7 +270,7 @@
 
 \begin{definition}
 	Two vector subspaces $V_1,V_2$ of a vector space $V$ are called \emph{complementary}
-	if addition defines a bijection
+	iff addition defines a bijection
 	\begin{align*}
 		V_1\times V_2 \to V.
 	\end{align*}
@@ -286,7 +286,7 @@
 
 \begin{theorem}[Notes 1.7.7]
 	Let $n$ be a natural number. Then a vector space over a field is isomorphic
-	to $F^n$ if and only if it has dimension $n$.
+	to $F^n$ iff it has dimension $n$.
 \end{theorem}
 
 \begin{lemma}[Notes 1.7.8]
@@ -390,7 +390,7 @@
 \subsection{Basic properties of matrices}
 
 \begin{definition}
-	A matrix $A$ is called \emph{invertible} if there exist matrices $B$ and $C$
+	A matrix $A$ is called \emph{invertible} iff there exist matrices $B$ and $C$
 	such that $BA=I$ and $AC=I$.
 \end{definition}
 
@@ -584,7 +584,7 @@
 \end{lemma}
 
 \begin{definition}
-	Let $R$ be a ring. An element $a\in R$ is called a \emph{unit} if it has a
+	Let $R$ be a ring. An element $a\in R$ is a \emph{unit} iff it has a
 	multiplicative inverse in $R$.
 \end{definition}
 
@@ -593,7 +593,7 @@
 \end{proposition}
 
 \begin{definition}
-	In a ring $R$ a non-zero element $a$ is called a \emph{zero-divisor} if
+	In a ring $R$ a non-zero element $a$ is called a \emph{zero-divisor} iff
 	there exists a non-zero element $b$ such that either $ab=0$ or $ba=0$.
 \end{definition}
 
@@ -655,7 +655,7 @@
 	\begin{align*}
 		R[X] \to \text{Maps}(R,R).
 	\end{align*}
-	An element $\lambda\in R$ is a \emph{root} of $P$ if $P(\lambda) = 0$.
+	An element $\lambda\in R$ is a \emph{root} of $P$ iff $P(\lambda) = 0$.
 \end{definition}
 
 \begin{proposition}[Notes 3.3.9]
@@ -669,7 +669,7 @@
 \end{theorem}
 
 \begin{definition}
-	A field $F$ is \emph{algebraically closed} if each non-constant polynomial $P\in F[X]\setminus F$
+	A field $F$ is \emph{algebraically closed} iff each non-constant polynomial $P\in F[X]\setminus F$
 	with coefficients in $F$ has a root in $F$.
 \end{definition}
 
@@ -690,7 +690,7 @@
 \subsection{Homomorphisms, ideals and subrings}
 
 \begin{definition}
-	Let $R$ and $S$ be rings. A mapping $f:R\to S$ is a \emph{ring homomorphism} if
+	Let $R$ and $S$ be rings. A mapping $f:R\to S$ is a \emph{ring homomorphism} iff
 	the following hold for all $x,y\in R$:
 	\begin{align*}
 		f(x+y) & = f(x) + f(y), \\
@@ -711,7 +711,7 @@
 \end{lemma}
 
 \begin{definition}
-	A subset $I$ of a ring $R$ is an \emph{ideal}, written $I\trianglelefteq R$, if
+	A subset $I$ of a ring $R$ is an \emph{ideal}, written $I\trianglelefteq R$, iff
 	the following hold:
 	\begin{enumerate}
 		\item $I\not=\emptyset$;
@@ -736,7 +736,7 @@
 \end{proposition}
 
 \begin{definition}
-	Let $R$ be a commutative ring. An ideal $I$ of $R$ is called \emph{principal} if
+	Let $R$ be a commutative ring. An ideal $I$ of $R$ is called \emph{principal} iff
 	$I=\lra{t}$ for some $t\in R$.
 \end{definition}
 
@@ -770,7 +770,7 @@
 \end{lemma}
 
 \begin{definition}
-	Let $R$ be a ring. A subset $R'$ of $R$ is a subring of $R$ if $R'$ itself
+	Let $R$ be a ring. A subset $R'$ of $R$ is a subring of $R$ iff $R'$ itself
 	is a ring under the operations of addition and multiplication defined in $R$.
 \end{definition}
 
@@ -798,12 +798,12 @@
 \begin{definition}
 	A \emph{relation $R$} on a set $X$ is a subset $R\subseteq X\times X$. In this context we
 	may write $xRy$ instead of $(x,y)\in R$. Then $R$ is an \emph{equivalence equation on $X$}
-	if it is reflexive, symmetric and transitive.
+	iff it is reflexive, symmetric and transitive.
 \end{definition}
 \begin{definition}
 	Let $\sim$ be an equivalence relation on a set $X$. For $x\in X$ the set $\eqc{x}:=\{z\in X:z\sim x\}$
 	is called the \emph{equivalence class of $x$}. A subset $E\subseteq X$ is called an equivalence
-	class for $\sim$ if there is an $x\in X$ such that $E=E(x)$. A subset $Z\subseteq X$ containing
+	class for $\sim$ iff there is an $x\in X$ such that $E=E(x)$. A subset $Z\subseteq X$ containing
 	precisely one element from each equivalence class is called a \emph{system of representatives}
 	for the equivalence relation.
 \end{definition}
@@ -818,7 +818,7 @@
 \end{definition}
 
 \begin{definition}
-	A map $g:(X/\sim)\to Z$ is \emph{well-defined} if there exists a mapping $f:X\to Z$
+	A map $g:(X/\sim)\to Z$ is \emph{well-defined} iff there exists a mapping $f:X\to Z$
 	such that $f$ has the property $x\sim y\Leftrightarrow f(x)=f(y)$ and $f=g\circ\eqc-$.
 \end{definition}
 
@@ -894,7 +894,7 @@
 \end{lemma}
 
 \begin{definition}
-	Let $M,N$ be $R$-modules. A mapping $f:M\to N$ is an \emph{$R$-homomorphism} if the following
+	Let $M,N$ be $R$-modules. A mapping $f:M\to N$ is an \emph{$R$-homomorphism} iff the following
 	hold for all $a,b\in M$ and $r\in R$:
 	\begin{align*}
 		f(a+b) & = f(a) + f(b) \\
@@ -904,7 +904,7 @@
 \end{definition}
 
 \begin{definition}
-	A non-empty subset $M'$ of an $R$-module $M$ is a \emph{submodule} if $M'$ is an
+	A non-empty subset $M'$ of an $R$-module $M$ is a \emph{submodule} iff $M'$ is an
 	$R$-module with respect to the operations of $M$ restricted to $M'$.
 \end{definition}
 
@@ -925,7 +925,7 @@
 		_R\lra T = \{r_1t_1+\cdots+r_mt_m:t_1,...,t_m\in T,r_1,...,r_m\in R\},
 	\end{align*}
 	together with the zero element in the case $T=\emptyset$. The module $M$ is \emph{finitely generated}
-	if it is generated by a finite set. It is called \emph{cyclic} if it is generated by a singleton.
+	iff it is generated by a finite set. It is called \emph{cyclic} iff it is generated by a singleton.
 \end{definition}
 
 \begin{lemma}[Notes 3.7.28-30]
@@ -1018,8 +1018,8 @@
 
 \begin{definition}
 	Let $V_1,...,V_n,W$ be $F$-vector spaces. A mapping $H:V_1\times\cdots V_n\to W$
-	is \emph{multilinear} if it is linear in each of its arguments. A multilinear form
-	$H:V\times \cdots V\to W$ is \emph{alternating} if it vanishes on every $n$-tuple of
+	is \emph{multilinear} iff it is linear in each of its arguments. A multilinear form
+	$H:V\times \cdots V\to W$ is \emph{alternating} iff it vanishes on every $n$-tuple of
 	elements that has at least two entries equal.
 \end{definition}
 
@@ -1105,7 +1105,7 @@
 
 \begin{definition}
 	Let $f:V\to V$ be an endomorphism of an $F$-vector space $V$. A scalar $\lambda\in F$ is
-	an \emph{eigenvalue of $f$} if there exists a non-zero vector $\vec v \in V$ such that
+	an \emph{eigenvalue of $f$} iff there exists a non-zero vector $\vec v \in V$ such that
 	$f(\vec v)=\lambda \vec v$. Each such vector is called an \emph{eigenvector of $f$ with
 		eigenvalue $\lambda$}. For any $\lambda\in F$, the \emph{eigenspace of $f$ with eigenvalue $\lambda$}
 	is
@@ -1148,15 +1148,15 @@
 \end{proposition}
 
 \begin{definition}
-	An endomorphism $f:V\to V$ of an $F$-vector space $V$ is \emph{diagonalisable} if there exists
+	An endomorphism $f:V\to V$ of an $F$-vector space $V$ is \emph{diagonalisable} iff there exists
 	a basis of $V$ consisting of eigenvectors of $f$.
 
-	A square matrix $A\in\Mat(n;F)$ is \emph{diagonalisable} if the corresponding linear mapping
+	A square matrix $A\in\Mat(n;F)$ is \emph{diagonalisable} iff the corresponding linear mapping
 	given by left multiplication by $A$ is.
 \end{definition}
 
 \begin{theorem}
-	A square matrix $A\in\Mat(n;F)$ is diagonalisable if and only if it is conjugate to a diagonal
+	A square matrix $A\in\Mat(n;F)$ is diagonalisable iff it is conjugate to a diagonal
 	matrix, i.e. there exists an invertible $P\in\Mat(n;F)$ such that
 	$\inv PAP=\text{diag}(\lambda_1,...,\lambda_n)$.
 \end{theorem}
@@ -1189,5 +1189,179 @@
 	entries are positive real numbers, $v_i>0$ for all $i$, and such that the sum of its entries is $1$,
 	$\sum_{i=1}^n v_i=1$.
 \end{theorem}
+
+\section{Inner product spaces}
+
+\subsection{Definition of an inner product space}
+
+\begin{definition}
+	Let $V$ be an $\R$-vector space. An \emph{inner product} on $V$ is positive definite symmetric bilinear 
+	form
+	\begin{align*}
+		\lra{-,-}:V\times V\to\R.
+	\end{align*}
+	I.e. it satisfies the following for all $\vec x,\vec y,\vec z\in V$ and $\lambda,\mu\in\R$:
+	\begin{enumerate}
+		\item $\lra{\lambda\vec x+\mu\vec y,\vec z}=\lambda\lra{\vec x,\vec z}+\mu\lra{\vec y,\vec z}$,
+		\item $\lra{\vec x,\vec y}=\lra{\vec y,\vec x}$,
+		\item $\lra{\vec x,\vec x}\geq 0$, with equality iff $\vec x =0$.
+	\end{enumerate}
+	The pair $(V,\lra{-,-})$ is called a \emph{real inner product space}.
+\end{definition}
+
+\begin{definition}
+	Let $V$ be a $\C$-vector space. An \emph{inner product} on $V$ is positive definite sesquilinear 
+	form
+	\begin{align*}
+		\lra{-,-}:V\times V\to\C.
+	\end{align*}
+	I.e. it satisfies the following for all $\vec x,\vec y,\vec z\in V$ and $\lambda,\mu\in\R$:
+	\begin{enumerate}
+		\item $\lra{\lambda\vec x+\mu\vec y,\vec z}=\lambda\lra{\vec x,\vec z}+\mu\lra{\vec y,\vec z}$,
+		\item $\lra{\vec x,\vec y}=\overline{\lra{\vec y,\vec x}}$,
+		\item $\lra{\vec x,\vec x}\geq 0$, with equality iff $\vec x =0$.
+	\end{enumerate}
+	The pair $(V,\lra{-,-})$ is called a \emph{complex inner product space}.
+\end{definition}
+
+\begin{definition}
+	In a real or complex inner product space $V$ the \emph{norm} $\vabs{\vec v}\in\R$ of a vector $v\in V$
+	is defined by 
+	\begin{align*}
+		\vabs{\vec v}=\sqrt{\lra{\vec v, \vec v}}.
+	\end{align*}
+	Whenever $\vabs{\vec v}=1$ we call $\vec v\in V$ a \emph{unit}. Two vectors $\vec v,\vec w\in V$
+	are \emph{orthogonal}, written $\vec v\perp \vec w$, iff $\lra{\vec v,\vec w}=0$. 
+\end{definition}
+
+\begin{definition}
+	Let $V$ an inner product space. A family $(\vec v_i\in V)_{i\in I}$ is an \emph{orthonormal family}
+	iff $\lra{\vec v_i,\vec v_j}=\delta_{ij}$. An orthonormal family that is a basis is an 
+	\emph{orthonormal basis}.
+\end{definition}
+
+\begin{theorem}[Notes 5.1.10]
+	Every finite dimensional inner product space has an orthonormal basis.	
+\end{theorem}
+
+\subsection{Orthogonal complements and orthogonal projections}
+
+\begin{definition}
+	Let $V$ be an  inner product space and let $T\subseteq V$ be an arbitrary subset. Define 
+	the \emph{orthogonal} to $T$ by
+	\begin{align*}
+		T^\bot = \{\vec v \in V : \vec v \perp \vec t \text{ for all }\vec t \in T\}.
+	\end{align*}
+\end{definition}
+
+\begin{proposition}[Notes 5.2.2]
+	Let $V$ be an inner product space and let $U$ be a finite dimensional subspace $U\subseteq V$.
+	Then $U$ and $U^\bot$ are complementary, i.e. 
+	\begin{align*}
+		V = U\oplus U^\bot.
+	\end{align*}	
+\end{proposition}
+
+\begin{definition}
+	Let $U\subseteq V$ be a finite dimensional subspace of an inner product space $V$. The space $U^\bot$
+	is the \emph{orthogonal complement to $U$}. The \emph{orthogonal projection from $V$ to $U$} is 
+	the mapping 
+	\begin{align*}
+		\pi_U:V\to V
+	\end{align*}
+	that sends $\vec v = \vec p + \vec r$ to $\vec p$ where $\vec v\in V$, $\vec p\in U$, and $\vec r\in U^\bot$.
+\end{definition}
+
+\begin{proposition}[Notes 5.2.4]
+	Let $U$ be a finite dimensional subspace of an inner product space $V$ and let $\pi_U$ be the 
+	orthogonal projection from $V$ onto $U$.	
+	\begin{enumerate}
+		\item $\pi_U$ is a linear mapping with $\im \pi_U=U$ and kernel $\ker \pi_U = U^\bot$.
+		\item If $\{\vec v_1,...,\vec v_n\}$ is an orthonormal basis of $U$, then $\pi_U$ is given 
+			by
+			\begin{align*}
+				\pi_U(\vec v)=\sum_{i=1}^n\lra{\vec v,\vec v_i}\vec v_i,
+			\end{align*}
+			for all $\vec v\in V$.
+		\item $\pi_U^2=\pi_U$, i.e. $\pi_U$ is an idempotent.
+	\end{enumerate}
+\end{proposition}
+
+\begin{theorem}[Cauchy-Schwarz Inequality]
+	Let $V$ an inner product space and $\vec v,\vec w\in V$ . Then 
+	\begin{align*}
+		\abs{\lra{v,w}}\leq \vabs{\vec v}\vabs{\vec w}
+	\end{align*}
+	with equality iff $\vec v$ and $\vec w$ are linearly dependent.
+\end{theorem}
+
+\begin{theorem}[Notes 5.2.7]
+	Let $\vec v_1,...,\vec v_k$ be linearly independent vectors in an inner product space $V$. Then 
+	there exists an orthonormal family $\vec w_1,...,\vec w_k$ such that, for all $1\leq i\leq k$,
+	\begin{align*}
+		\vec w_i\in \R_{>0}\vec v_i + \lra{\vec v_1,...,\vec v_{i-1}}.	
+	\end{align*}
+	\begin{proof}
+		Decompose $\vec v_i=\vec p_i+\vec r_i$ where $\vec p_i$ is the orthogonal projection of $\vec v_i$
+		onto the subspace $\lra{\vec v_1,...,\vec v_{i-1}}$ and where $\vec r_i$ belongs to the orthogonal
+		complement of this subspace. The vectors $\vec w_i=\vec r_i/\vabs{\vec r_i}$ are then an orthogonal
+		family with the displayed property.
+	\end{proof}
+\end{theorem}
+
+\subsection{Adjoints and self-adjoints}
+
+\begin{definition}
+	Let $V$ be an inner product space. Then two endomorphisms $T,S:V\to V$ are \emph{adjoint}
+	to one another iff the follwing holds, for all $\vec v, \vec w\in V$,
+	\begin{align*}
+		\lra{T\vec v,\vec w}=\lra{\vec v, S\vec w}.
+	\end{align*}
+	We write $S=T^*$ and call $S$ the \emph{adjoint} of $T$.
+\end{definition}
+
+\begin{theorem}[Notes 5.3.4]
+	Let $V$ be a finite dimensional inner product space. Let $T:V\to V$ be an endomorphism. Then $T^*$
+	exists. That is, there exists a unique linear mapping $T^*:V\to V$ such that, for all $\vec v,\vec w\in V$,	
+	\begin{align*}
+		\lra{T\vec v,\vec w}=\lra{\vec v, T^*\vec w}.
+	\end{align*}
+\end{theorem}
+
+\begin{definition}
+	An endomorphism of an inner product space $T:V\to V$ is \emph{self-adjoint} iff $T=T^*$.
+\end{definition}
+
+\begin{theorem}[Notes 5.3.7]
+	Let $T:V\to V$ be a self-adjoint linear mapping on an inner product space $V$.
+	\begin{enumerate}
+		\item Every eigenvalue of $T$ is real.
+		\item If $\lambda$ and $\mu$ are distinct eigenvalues of $T$ with corresponding eigenvectors
+			$\vec v,\vec u$, then $\lra{\vec v,\vec u}=0$.
+		\item $T$ has an eigenvalue.
+	\end{enumerate}	
+\end{theorem}
+
+\begin{theorem}[The spectral theorem for self-adjoint endomorphisms]
+	Let $V$ be a finite dimensional inner product space and let $T:V\to V$ be a self-adjoint linear 
+	mapping. Then $V$ has an orthonormal basis consisting of eigenvectors of $T$.	
+\end{theorem}
+
+\begin{definition}
+	An \emph{orthogonal matrix} is an $(n\times n)$-matrix $P$ with real entries such that $\inv P=P^\top$.
+\end{definition}
+
+\begin{corollary}[The spectral theorem for real symmetric matrices]
+	Let $A$ be a real symmetric $(n\times n)$-matrix. Then there is an $(n\times n)$-orthogonal matrix $P$
+	such that 
+	\begin{align*}
+		P^\top AP = \inv PAP = \diag(\lambda_1,...,\lambda_n)
+	\end{align*}
+	where $\lambda_1,...,\lambda_n$ are the eigenvalues of $A$, repeated according to their multiplicity.
+\end{corollary}
+
+\begin{definition}
+	A matrix $P\in\Mat(n;\C)$ is \emph{unitary} iff $\inv P=\overline{P}^\top$.
+\end{definition}
 
 \end{document}
