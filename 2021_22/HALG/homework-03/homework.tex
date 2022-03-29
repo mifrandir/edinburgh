@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{Honours Algebra: Practicing Proof 3}
+\author{Franz Miltz (UUN: S1971811)}
+\date{1 April 2022}
+\maketitle
+\begin{claim*}[1a]
+	The set $\mathcal{A}\subseteq W:=\Mat(n;\R)$ of antisymmetric $(n\times n)$-matrices is an
+	vector subspace.
+	\begin{proof}
+		Let $X,Y\in\mathcal{A}$ and $\lambda\in\R$. By definition, we have $X^\top=-X$ and $Y^\top=-Y$.
+		Thus
+		\begin{align*}
+			(\lambda X)^\top = \lambda X^\top = -\lambda X
+		\end{align*}
+		and
+		\begin{align*}
+			(X+Y)^\top = X^\top + Y^\top = -(X+Y).
+		\end{align*}
+		I.e. $\lambda X,X+Y\in\mathcal{A}$. Finally, $0_n^\top = 0_n = -0_n$, where $0_n\in W$
+		is the $(n\times n)$-zero matrix, so $0_n\in\mathcal{A}$. Therefore $\mathcal{A}$ is a vector subspace.
+	\end{proof}
+\end{claim*}
+\begin{claim*}[1a]
+	The set $\mathcal{T}\subseteq W$ of upper triangluar $(n\times n)$-matrices is a vector subspace.
+	\begin{proof}
+		Let $X=(x_{ij}),Y=(y_{ij})\in\mathcal{T}$ and $\lambda\in\R$. By definition, for all $1\leq j<i\leq n$,
+		\begin{align*}
+			x_{ij}=y_{ij}=0.
+		\end{align*}
+		Therefore
+		\begin{align*}
+			\lambda X=(\lambda x_{ij})
+		\end{align*}
+		is upper triangular as $\lambda\cdot 0=0$, and
+		\begin{align*}
+			X + Y =(x_{ij}+y_{ij})
+		\end{align*}
+		is upper triangular as $0+0=0$. Finally, $0_n$ is trivially upper triangular. Thus $0_n,\lambda X,X+Y\in\mathcal{T}$,
+		making it a vector subspace.
+	\end{proof}
+\end{claim*}
+\begin{claim*}[1a]
+	\begin{align*}
+		W=\mathcal{A}\oplus\mathcal{T}.
+	\end{align*}
+	\begin{proof}
+		Consider the map $\phi:\mathcal{A}\times\mathcal{T}\to W$ given by
+		\begin{align*}
+			(X,U)\mapsto X+U.
+		\end{align*}
+		Let $X,Y\in\mathcal{A}$ , $U,V\in\mathcal{T}$ such that
+		\begin{align*}
+			\phi(X,U)=\phi(Y,V),
+		\end{align*}
+		i.e.
+		\begin{align*}
+			X-Y=V-U.
+		\end{align*}
+		As proven above, this shows $X-Y\in\mathcal{A}$ and $V-U\in\mathcal{T}$. However, the only matrix
+		that is both upper triangular and antisymmetric is the zero matrix $0_n$.
+		Thus
+		\begin{align*}
+			(X,U)=(Y,V),
+		\end{align*}
+		proving that $\phi$ is injective.
+
+		Further, for all $X=(x_{ij})\in W$ we define the antisymmetric matrix $Q=(q_{ij})\in\mathcal{A}$
+		by
+		\begin{align*}
+			q_{ij}=\begin{cases}
+				       -x_{ij} & i<j \\
+				       0       & i=j \\
+				       x_{ij}  & i>j
+			       \end{cases}.
+		\end{align*}
+		Clearly, $X-Q$ is now upper triangular, so
+		\begin{align*}
+			\phi(Q,X-Q)=Q+(X-Q)=X.
+		\end{align*}
+		Therefore $\phi$ is surjective. The claim is now immediate.
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}[1b]
+	We define the maps $F,H:W\times W\to\R$ by
+	\begin{align*}
+		F:(A,B)\mapsto \tr(AB),\hs H:(A,B)\mapsto \tr(AB^\top).
+	\end{align*}
+	Both $F$ and $H$ are bilinear forms on $W$.
+	\begin{proof}
+		Let $A,B,D,C\in W$ and $\lambda,\mu\in\R$. Then
+		\begin{align*}
+			F(\lambda A+B,\mu C + D) & =\tr((\lambda A+B)(\mu C+D))                               \\
+			                         & =\tr(\lambda\mu AC + \lambda AD + \mu BC + BD)             \\
+			                         & =\lambda\mu\tr (AC) + \lambda\tr(AD) +\mu\tr(BC) + \tr(BD) \\
+			                         & = \lambda\mu F(AC)+ \lambda F(A,D) + \mu F(B,C) + F(B,D).
+		\end{align*}
+		Thus $F$ is bilinear. Similarly,
+		\begin{align*}
+			H(\lambda A+B,\mu C + D) & =\tr((\lambda A+B)(\mu C+D)^\top)                                              \\
+			                         & =\tr((\lambda A+B)(\mu C^\top + D^\top))                                       \\
+			                         & =\tr(\lambda\mu AC^\top + \lambda AD^\top + \mu BC^\top + BD^\top)             \\
+			                         & =\lambda\mu\tr (AC^\top) + \lambda\tr(AD^\top) +\mu\tr(BC^\top) + \tr(BD^\top) \\
+			                         & = \lambda\mu H(A,C)+ \lambda H(A,D) + \mu H(B,C) + H(B,D),
+		\end{align*}
+		showing that $H$ is bilinear, too.
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}[1c]
+	Neither $F$ nor $H$ gives an inner product on $W$.
+	\begin{proof}
+		Note that an inner product is required to be positive definite. However,
+		\begin{align*}
+			F(-1_n,1_n)=\tr((-1_n)1_n)=-\tr(1_n)=-n < 0,
+		\end{align*}
+		and
+		\begin{align*}
+			H(-1_n,1_n)=\tr((-1_n)1_n^\top)=-\tr(1_n)=-n<0.
+		\end{align*}
+	\end{proof}
+\end{claim*}
+
+\end{document}
