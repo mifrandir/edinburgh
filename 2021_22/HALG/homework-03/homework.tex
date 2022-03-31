@@ -2,7 +2,7 @@
 \usepackage{homework-preamble}
 \mkanonthms
 \begin{document}
-\title{Honours Algebra: Practicing Proof 3}
+\title{Honours Algebra: Practising Proof 3}
 \author{Franz Miltz (UUN: S1971811)}
 \date{1 April 2022}
 \maketitle
@@ -71,7 +71,7 @@
 		by
 		\begin{align*}
 			q_{ij}=\begin{cases}
-				       -x_{ij} & i<j \\
+				       -x_{ji} & i<j \\
 				       0       & i=j \\
 				       x_{ij}  & i>j
 			       \end{cases}.
@@ -91,19 +91,19 @@
 	\end{align*}
 	It is true that both $F$ and $H$ are bilinear forms on $W$.
 	\begin{proof}
-		Let $A,B,D,C\in W$ and $\lambda,\mu\in\R$. Then
+		Let $A,B,D,C\in W$ and $\lambda,\mu\in\R$.
 		\begin{align*}
-			F(\lambda A+B,\mu C + D) & =\tr((\lambda A+B)(\mu C+D))                               \\
-			                         & =\tr(\lambda\mu AC + \lambda AD + \mu BC + BD)             \\
-			                         & =\lambda\mu\tr (AC) + \lambda\tr(AD) +\mu\tr(BC) + \tr(BD) \\
+			F(\lambda A+B,\mu C + D) & =\tr((\lambda A+B)(\mu C+D))                                                            \\
+			                         & =\tr(\lambda\mu AC + \lambda AD + \mu BC + BD)             & \text{(Proposition 2.1.9)} \\
+			                         & =\lambda\mu\tr (AC) + \lambda\tr(AD) +\mu\tr(BC) + \tr(BD) & \text{(Exercise 41)}       \\
 			                         & = \lambda\mu F(AC)+ \lambda F(A,D) + \mu F(B,C) + F(B,D).
 		\end{align*}
 		Thus $F$ is bilinear. Similarly,
 		\begin{align*}
-			H(\lambda A+B,\mu C + D) & =\tr((\lambda A+B)(\mu C+D)^\top)                                              \\
-			                         & =\tr((\lambda A+B)(\mu C^\top + D^\top))                                       \\
-			                         & =\tr(\lambda\mu AC^\top + \lambda AD^\top + \mu BC^\top + BD^\top)             \\
-			                         & =\lambda\mu\tr (AC^\top) + \lambda\tr(AD^\top) +\mu\tr(BC^\top) + \tr(BD^\top) \\
+			H(\lambda A+B,\mu C + D) & =\tr((\lambda A+B)(\mu C+D)^\top)                                                                           \\
+			                         & =\tr((\lambda A+B)(\mu C^\top + D^\top))                                       & \text{(Exercise 26)}       \\
+			                         & =\tr(\lambda\mu AC^\top + \lambda AD^\top + \mu BC^\top + BD^\top)             & \text{(Proposition 2.1.9)} \\
+			                         & =\lambda\mu\tr (AC^\top) + \lambda\tr(AD^\top) +\mu\tr(BC^\top) + \tr(BD^\top) & \text{(Exercise 41)}       \\
 			                         & = \lambda\mu H(A,C)+ \lambda H(A,D) + \mu H(B,C) + H(B,D),
 		\end{align*}
 		showing that $H$ is bilinear, too.
@@ -113,25 +113,25 @@
 \begin{claim*}[1c]
 	It is true that, of $F$ and $H$, only $H$ gives an inner product space.
 	\begin{proof}
-		To see that $F$ is not an inner product, consider the matrix 
+		To see that $F$ is not an inner product, consider the matrix
 		\begin{align*}
 			A=\begin{pmatrix}
-				0 &-1 \\ 
-				1 & 0
-			\end{pmatrix}.
+				  0 & -1 \\
+				  1 & 0
+			  \end{pmatrix}.
 		\end{align*}
-		Then $F(A,A)=-2<0$. Thus $F$ is not positive definite. For $H$, clearly 
+		Then $F(A,A)=-2<0$. Thus $F$ is not positive definite. For $H$, clearly
 		$H(0_n,0_n)=0$. To see $H(A,A)>0$ for $A=(a_{ij})\not=0$, observe
 		\begin{align*}
 			\tr(AA^\top) = \sum_{i=1}^n \sum_{j=1}^n a_{ij}^2 > 0
-		\end{align*} 
-		since the diagonal entries of the product are just the dot products of the column 
-		vectors with themselves. Note in general $\tr(AB)=\tr(BA)$ by \emph{Exercise 41} 
-		and $\tr A^\top=\tr A$ as the transpose leaves the diagonal unchanged. Now clearly, 
+		\end{align*}
+		since the diagonal entries of the product are just the dot products of the column
+		vectors with themselves. Note in general $\tr(AB)=\tr(BA)$ by \emph{Exercise 41}
+		and $\tr A^\top=\tr A$ as the transpose leaves the diagonal unchanged. Now clearly,
 		\begin{align*}
 			H(A,B) = \tr(AB^\top) = \tr((AB^\top)^\top)  = \tr(A^\top B) = \tr(BA^\top) = H(B,A).
-		\end{align*} 
-		We have shown that $H$ is a positive definite symmetric bilinear form, i.e. an inner 
+		\end{align*}
+		We have shown that $H$ is a positive definite symmetric bilinear form, i.e. an inner
 		product.
 	\end{proof}
 \end{claim*}
@@ -141,17 +141,18 @@
 	algebraically closed field $F$. Then $S$ and $T$ have a common non-zero eigenvector.
 	\begin{proof}
 		Let $\vec v\in V$ be an eigenvector of $T$, i.e. $T(\vec v) = \lambda \vec v$ for some $\lambda\in F$.
-		Then 
+		Then
 		\begin{align*}
 			T(S(\vec v)) = S(T(\vec v)) = S(\lambda\vec v) = \lambda S(\vec v),
 		\end{align*}
 		i.e. $S$ preserves eigenvectors of $T$. By \emph{Theorem 4.5.4}, we know that $T$ has
-		a non-zero eigenvector $\vec v$ with eigenvalue $\lambda\in F$. Consider the eigenspace 
-		$E=E(\lambda, F)$. Clearly $\dim E \geq 1$. Now observe that the restriction 
-		$\eval{S}{E}:E\to E$ is an $F$-linear endomorphism of the finite dimensional non-zero vector subspace $E\subseteq V$.
-		Invoking \emph{Theorem 4.5.4} once more, we obtain an eigenvector $\vec u\in E$ of $\eval{S}{E}$ 
-		with non-zero eigenvalue $\mu\in F$.
-		Since $\vec u\in E$ it is an eigenvector of $T$. Further, since $\eval SE(\vec u) = \mu\vec u$, 
+		a non-zero eigenvector $\vec v$ with eigenvalue $\lambda\in F$. Consider the eigenspace
+		$E=E(\lambda, F)$. Clearly $\dim E \geq 1$. Now observe that the restriction
+		$\eval{S}{E}:E\to E$ is an $F$-linear endomorphism of the finite dimensional non-zero vector
+		subspace $E\subseteq V$ (\emph{Exercise 76}).
+		Invoking \emph{Theorem 4.5.4} once more, we obtain a non-zero eigenvector $\vec u\in E$ of $\eval{S}{E}$
+		with eigenvalue $\mu\in F$.
+		Since $\vec u\in E$, it is an eigenvector of $T$. Further, since $\eval SE(\vec u) = \mu\vec u$,
 		we have $S(\vec u)=\mu \vec u$, i.e. $\vec u$ is a non-zero eigenvector of $S$, too.
 	\end{proof}
 \end{claim*}
