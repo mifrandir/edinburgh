@@ -55,3 +55,6 @@
 [submodule "2021_22/CT/cw2"]
 	path = 2021_22/CT/cw2
 	url = git@github.com:compiling-techniques/cw-2-semantic-analysis-MiltFra.git
+[submodule "2021_22/CT/cw3"]
+	path = 2021_22/CT/cw3
+	url = git@github.com:compiling-techniques/cw-3---code-generation-MiltFra.git
