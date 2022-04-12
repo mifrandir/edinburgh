@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\usepackage{enumitem}
+
+\mkanonthms
+
+
+\begin{document}
+
+
+\begin{claim*}
+	The map $F:\cat{Set}\to\cat{Meas}$ taking each set $X$ to the indiscrete measurable space 
+	$(X,\{\emptyset, X\})$ and each function $f:X\to Y$ to itself is a functor.
+	\begin{proof}
+		Firstly, let $f\in\cat{Set}(X,Y)$. Note that $\inv f(\emptyset)=\emptyset$ and 
+		$\inv f(Y)=X$. Thus $f$ is measurable, i.e. $f\in\cat{Meas}(FX, FY)$.
+		In particular, for each object $X\in\cat{Set}$ the identity function $1_X:X\to X$ is a measurable 
+		function from the indiscrete measurable space over $X$ to itself and any composition $g\circ f:X\to Z$
+		of functions $f\in\cat{Set}(X,Y)$ and $g\in\cat{Set}(Y,Z)$ is also measurable from $FX$ to $FY$.
+	\end{proof}
+\end{claim*}
+
+\end{document}
