@@ -16,14 +16,14 @@
 
 \subsubsection{Nested intervals}
 
-\begin{definition}[Notes 1.1]
+\begin{definition}
 	A sequence $(I_n)_{n\in\N}$ of sets is said to be nested if
 	\begin{align*}
 		I_1 \supset I_2 \supset I_3 \supset \dots
 	\end{align*}
 \end{definition}
 
-\begin{theorem}[Nested Interval Property; Notes 1.1]
+\begin{theorem}[Nested interval property]
 	If $(I_n)_{n\in\N}$ is a nested sequence of nonempty closed bounded intervals then
 	\begin{align*}
 		E=\bigcap_{n\in\N} I_n = \{x\in\R : x \in I_n \text{ for all } n\in\N\}
@@ -56,9 +56,9 @@
 
 \subsection{Sequences in $\R$}
 
-\begin{definition}[Notes 1.2]
+\begin{definition}
 	A sequence of real numbers $(x_n)$ is said to \emph{converge} to a real number
-	$a\in\R$ if and only if for every $\e>0$ there is an $N\in\N$ such that
+	$a\in\R$ iff for every $\e>0$ there is an $N\in\N$ such that
 	\begin{align*}
 		n\geq N \text{ implies } \abs{x_n-a} < \e.
 	\end{align*}
@@ -66,7 +66,7 @@
 	does not converge to a real number is said to \emph{diverge}.
 \end{definition}
 
-\begin{definition}[Notes 1.3]
+\begin{definition}
 	A sequence $(x_n)$ of numbers $x_n\in\R$ is said to be \emph{Cauchy} if for every $\e>0$ there
 	exists an $N\in\N$ such that
 	\begin{align*}
@@ -79,11 +79,10 @@
 \end{theorem}
 
 \begin{theorem}[Cauchy]
-	Let $(x_n)$ be a sequence of real numbers. Then $(x_n)$ is a Cauchy sequence if and only
-	if $(x_n)$ is a convergent sequence.
+	Let $(x_n)$ be a sequence of real numbers. Then $(x_n)$ is a Cauchy sequence iff $(x_n)$ is a convergent sequence.
 \end{theorem}
 
-\begin{definition}[Notes 1.4]
+\begin{definition}
 	Suppose $(x_n)_{n\in\N}$ is a sequence. A \emph{subsequence} of $(x_n)$ is a sequence of the form
 	$(x_{n_k})_k\in\N$ where for each $k$ there is a positive integer $n_k$ such that
 	\begin{align*}
@@ -95,7 +94,7 @@
 	Every bounded sequence of real numbers has a convergent subsequence.
 \end{theorem}
 
-\begin{definition}[Notes 1.5]
+\begin{definition}
 	If $(x_n)$ is a bounded sequence of real numbers we denote by
 	\begin{align*}
 		\limsup_{n\to\infty} x_n = \lim_{n\to\infty}\left(\sup_{k\geq n}x_k\right),\hs
@@ -104,7 +103,7 @@
 \end{definition}
 
 \begin{theorem}[Notes 1.6]
-	A sequence $(x_n)$ of real numbers is convergent if and only if $\limsup_{n\to\infty}x_n$
+	A sequence $(x_n)$ of real numbers is convergent iff $\limsup_{n\to\infty}x_n$
 	and $\liminf_{n\to\infty}x_n$ are real numbers and
 	\begin{align*}
 		\limsup_{n\to\infty}x_n =\liminf_{n\to\infty} x_n.
@@ -113,19 +112,19 @@
 
 \subsection{Infinite series of real numbers}
 
-\begin{definition}[Notes 1.6]
+\begin{definition}
 	Let $S=\sum_{k=1}^\infty a_k$ be an infinite series. For each $n\in\N$, the partial
 	sum of $S$ of order $n$ is defined by
 	\begin{align*}
 		s_n = \sum_{k=1}^n a_k.
 	\end{align*}
-	$S$ is said to \emph{converge} if and only if its sequence of partial sums $(s_n)$
+	$S$ is said to \emph{converge} iff its sequence of partial sums $(s_n)$
 	converges to some $s\in\R$ as $n\to\infty$.
 \end{definition}
 
-\begin{theorem}[Cauchy criterion for series; Notes 1.7]
+\begin{theorem}[Cauchy criterion for series]
 	Let $S=\sum_{k=1}^\infty a_k$ be a series. Then the series $S$ is convergent
-	if and only if for any $\e>0$ there exists $N$ such that for all $m\geq n\geq N$
+	iff for any $\e>0$ there exists $N$ such that for all $m\geq n\geq N$
 	we have that
 	\begin{align*}
 		\abs{\sum_{k=n+1}^m}<\e.
@@ -157,11 +156,11 @@
 
 \subsection{Continuity of real functions}
 
-\begin{definition}[Notes 1.7]
+\begin{definition}
 	Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. We say that $f$ is
 	continuous at some $a\in\dom(f)$ if for any sequence $(x_n)$ whose terms lie in
 	$\dom(f)$ and which converges to $a$, we have $\lim_{n\to\infty}f(x_n)=f(a)$. If
-	$f$ is continuous at each $a\in\S\subset\dom(f)$ then we say $f$ is continuos on $S$.
+	$f$ is continuous at each $a\in\S\subset\dom(f)$ then we say $f$ is continuous on $S$.
 	If $f$ is continuous on $\dom(f)$ then we say that $f$ is continuous.
 \end{definition}
 
@@ -175,7 +174,7 @@
 	\end{enumerate}
 \end{theorem}
 
-\begin{definition}[Notes 1.8]
+\begin{definition}
 	Let $A,B\subseteq\R$ be nonempty, let $f:A\to\R$, $g:B\to\R$ and $f(A)\subseteq B$. The
 	composition of $g$ with $f$ is the function $g\circ f:A\to\R$ defined by
 	\begin{align*}
@@ -190,7 +189,7 @@
 
 \begin{theorem}[Notes 1.12]
 	Let $f$ be a function $f:\dom(f)\to\R$ where $\dom(f)\subset\R$. Then $f$ is continuous
-	at $a\in\dom(f)$ if and only if for any $\e>0$ there exists $\delta>0$ such that
+	at $a\in\dom(f)$ iff for any $\e>0$ there exists $\delta>0$ such that
 	whenever $x\in\dom(f)$ and $\abs{x-a}<\delta$ we have $\abs{f(x)-f(a)}<\e$.
 \end{theorem}
 
@@ -213,9 +212,9 @@
 
 \subsection{Uniform convergence of sequences of functions}
 
-\begin{definition}[Notes 2.1]
+\begin{definition}
 	Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
-	\emph{converge poinwise} on $E$ if and only if $f(x)=\lim_{n\to\infty}f_n(x)$ exists
+	\emph{converge poinwise} on $E$ iff $f(x)=\lim_{n\to\infty}f_n(x)$ exists
 	for each $x\in E$.
 \end{definition}
 
@@ -232,7 +231,7 @@
 
 \begin{definition}
 	Let $E$ be a nonempty subset of $\R$. A sequence of functions $f_n:E\to\R$ is said to
-	\emph{converge uniformly} on $E$ to a function $f$ if and only if for every $\e>0$ there
+	\emph{converge uniformly} on $E$ to a function $f$ iff for every $\e>0$ there
 	is an $N\in\N$ such that
 	\begin{align*}
 		n\geq N\hs\text{implies}\hs \abs{f_n(x)-f(x)}<\e
@@ -280,7 +279,7 @@
 
 \subsection{Uniform convergence of series of functions}
 
-\begin{definition}[Notes 2.3]
+\begin{definition}
 	Let $f_k$ be a sequence of real functions defined on some set $E$ and set
 	\begin{align*}
 		s_n(x) = \sum_{k=1}^n f_k(x),\hs x\in E,n\in\N.
@@ -299,7 +298,7 @@
 	Let $E$ be a nonempty subset of $\R$ and let $(f_k)$ be a sequence of real functions defined on $E$.
 	\begin{enumerate}
 		\item Suppose that $x_0\in E$and that each $f_k$ is continuous at $x_0\in E$.
-		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is continuos at $x_0\in E$.
+		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is continuous at $x_0\in E$.
 		\item Term-by-term integration: Suppose that $E=[a,b]$ and that each $f_k$ is integrable on $[a,b]$.
 		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $[a,b]$, then $f$ is integrable on $[a,b]$
 		      and \begin{align*}
@@ -325,7 +324,7 @@
 
 \subsection{Introduction}
 
-\begin{definition}[Notes 3.1]
+\begin{definition}
 	The \emph{radius of convergence $R$} of the power series
 	\begin{align}
 		\label{ps}
@@ -385,11 +384,30 @@
 	series (\ref{ps}) which converges to $f$ on $\{x: \abs{x-c}<r\}$.
 \end{definition}
 
+\begin{definition}
+	The \emph{exponential function} $\exp : \R\to\R$ is defined by the power series
+	\begin{align*}
+		\exp x := \sum_{n=0}^\infty \frac{x^n}{n!}.
+	\end{align*}
+\end{definition}
+
+\begin{theorem}
+	For all $x,y\in\R$, and $q\in\Q$,
+	\begin{enumerate}
+		\item $\exp(x)\exp(-x)=1$,
+		\item $\exp x > 0$,
+		\item if $f:\R\to\R$ such that $f=f'$ and $f(0)=1$ then $f=\exp$,
+		\item $\exp(x+y)=\exp x + \exp y$
+		\item $\exp x = 1/\exp x$,
+		\item $\exp (qx) = (\exp x)^q$.
+	\end{enumerate}
+\end{theorem}
+
 \section{Integration}
 
 \subsection{Step functions}
 
-\begin{definition}[Notes 4.1]
+\begin{definition}
 	We say that $\phi:\R\to\R$ is a \emph{step function} if there exist real numbers
 	$x_0<x_1<\cdots < x_n$ (for some $n\in\N$) such that
 	\begin{enumerate}
@@ -398,17 +416,47 @@
 	\end{enumerate}
 \end{definition}
 
-\begin{definition}[Notes 4.2]
-	If $\phi$ is a step function with respect to $\{x_0, x_1, ..., x_n\}$ which takes the
-	value $c_j$ on $(x_{j-1}, x_j)$, then we define
+\begin{definition}
+	Let $f:\R\to\R$. Then $f$ has \emph{bounded support} if there exists a bounded
+	interval $I\subset\R$ such that $f(x)=0$ for all $x\not\in I$.
+\end{definition}
+
+\begin{lemma}
+	Let $\phi:\R\to\R$ a step function. Then
+	\begin{enumerate}
+		\item $\phi$ has bounded support,
+		\item $\phi$ is continuous everywhere except possibly at finitely many points
+		      $x_1,...,x_n\in\R$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{lemma}[Example 4.2]
+	Let $\phi:\R\to\R$. Then $\phi$ is a step function iff there exist $c_1,...,c_n\in\R$
+	and bounded intervals $J_1,...,J_n\subset\R$ such that
 	\begin{align*}
-		\int \phi = \sum_{j=1}^n c_j(x_j-x_{j-1}).
+		\phi = \sum_{j=1}^n c_j\chi_{J_j}.
+	\end{align*}
+\end{lemma}
+
+\begin{definition}
+	Let $J\subset\R$ be a bounded interval. Then we define the length of the interval $\lambda(J)\in\R$ by
+	\begin{align*}
+		\lambda(J) := \sup J - \inf J.
 	\end{align*}
 \end{definition}
 
-\subsection{Lebesgue integrability}
+\begin{definition}
+	\label{step_integration}
+	If $\phi$ is a step function with respect to $\{x_0, x_1, ..., x_n\}$ which takes the
+	value $c_j$ on $(x_{j-1}, x_j)$, then we define
+	\begin{align*}
+		\int \phi = \sum_{j=1}^n c_j\lambda((x_{j-1},x_j)).
+	\end{align*}
+\end{definition}
 
-\begin{definition}[Notes 4.3]
+\subsection{Lebesgue integral}
+
+\begin{definition}
 	A function $f:I\to\R$ is said to be \emph{Lebesgue integrable} on an interval
 	$I$ if there exist values $c_j$ and bounded intervals $J_j\subset I$, $j=1,2,3,...$
 	such that
@@ -423,11 +471,11 @@
 	\begin{align*}
 		\sum_{j=1}^\infty \abs{c_j} X_{J_j}(x) < \infty.
 	\end{align*}
-	We denote by $\int_I f$ the number
+	We denote by $\int_I f\:d\lambda$ the number
 	\begin{align*}
-		\int_I f = \sum_{j=1}^\infty c_j\lambda(J_j)
+		\int_I f\:d\lambda = \sum_{j=1}^\infty c_j\lambda(J_j)
 	\end{align*}
-	and call it the integral of $f$ over the interval $I$.
+	and call it the Lebesgue integral of $f$ over the interval $I$.
 \end{definition}
 
 \begin{theorem}[Notes 4.1]
@@ -449,32 +497,40 @@
 \end{theorem}
 
 \begin{corollary}
-	Let $\phi:\R\to\R$ be a step functin. Then $\phi$ is (Lebesgue) integrable on $\R$.
+	Let $\phi:\R\to\R$ be a step function. Then $\phi$ is Lebesgue integrable on $\R$
+	and $\int\phi\:d\lambda = \int\phi$.
 \end{corollary}
 
 \begin{corollary}
 	The function $\chi_{\Q\cap[0,1]}$ is (Lebesgue) integrable on $[0,1]$ and its integral is zero.
 \end{corollary}
 
-\subsection{Basic properties}
-
 \begin{theorem}[Notes 4.2]
 	Suppose $f$ and $g$ are integrable on $I$ and $\alpha$ and $\beta$ are real numbers. Then
 	\begin{enumerate}
 		\item $\alpha f + \beta g$ is integrable on $I$ and \begin{align*}
-			      \int_I (\alpha f + \beta g) = \alpha \int_I f + \beta \int_I g.
+			      \int_I (\alpha f + \beta g)\:d\lambda = \alpha \int_I f\:d\lambda + \beta \int_I g\:d\lambda.
 		      \end{align*}
-		\item If $f\geq 0$ on $I$ then $\int_I f \geq 0$; if $f\geq g$ on $I$ then $\int_I f\geq \int_I g$.
-		\item $\abs f$ is integrable on $I$ and $\abs{\int_I f}\leq \int_I \abs f$.
+		\item If $f\geq 0$ on $I$ then $\int_I f\:d\lambda \geq 0$; if $f\geq g$ on $I$ then
+		      $\int_I f\:d\lambda\geq \int_I g\:d\lambda$.
+		\item $\abs f$ is integrable on $I$ and $\abs{\int_I f\:d\lambda}\leq \int_I \abs f\:d\lambda$.
 		\item $\max\{f,g\}$ and $\min\{f,g\}$ are integrable on $I$.
 		\item If one of the functions is bounded then the product $fg$ is integrable on $I$.
-		\item If $f\geq 0$ with $\int_I f = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
+		\item If $f\geq 0$ with $\int_I f\:d\lambda = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
 	\end{enumerate}
 \end{theorem}
 
+\begin{lemma}[Exercise 4.6]
+	Let $f,g:I\to\R$ for some interval $I\subseteq\R$ such that $f=g$ almost everywhere.
+	If $f$ is integrable then so is $g$ and
+	\begin{align*}
+		\int_I f\:d\lambda = \int_I g\:d\lambda.
+	\end{align*}
+\end{lemma}
+
 \subsection{Riemann integration}
 
-\begin{definition}[Notes 4.4]
+\begin{definition}
 	Let $f:\R\to\R$. We say that $f$ is \emph{Riemann-integrable} if for every
 	$\e>0$ there exist step functions $\phi$ and $\psi$ such that
 	\begin{align*}
@@ -482,23 +538,24 @@
 	\end{align*}
 	and
 	\begin{align*}
-		\int \psi - \int \phi < \e.
+		\int \psi - \int \phi < \e
 	\end{align*}
+	where $\int\psi$, $\int\phi$ are as in (\ref{step_integration}).
 \end{definition}
 
 \begin{theorem}[Notes 4.5]
-	A function $f:\R\to\R$ is \emph{Riemann-integrable} if and only if
+	A function $f:\R\to\R$ is \emph{Riemann-integrable} iff
 	\begin{align*}
 		\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
 		= \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
 	\end{align*}
 \end{theorem}
 
-\begin{definition}[Notes 4.5]
-	If $f$ is Riemann-integrable we define its Riemann integral $(R) \int f$ as the common
+\begin{definition}
+	If $f$ is Riemann-integrable we define its Riemann integral $\int f\:dx$ as the common
 	value
 	\begin{align*}
-		(R) \int f
+		\int f\: dx
 		=\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
 		= \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
 	\end{align*}
@@ -508,7 +565,7 @@
 	Suppose that $f:\R\to\R$ is Riemann integrable. Then $f$ is also Lebesgue integrable on $\R$
 	and moreover
 	\begin{align*}
-		(R) \int f = \int f.
+		\int f\:dx = \int f\:d\lambda.
 	\end{align*}
 \end{theorem}
 
@@ -531,15 +588,18 @@
 	Suppose that $g:[a,b]\to\R$ and let $f$ be defined by $f(x)=g(x)$ for $x\in[a,b]$ and $f(x)=0$
 	otherwise.
 	\begin{enumerate}
-		\item If $g$ is continuos on $[a,b]$, then $f$ is Riemann-integrable.
+		\item If $g$ is continuous on $[a,b]$, then $f$ is Riemann-integrable.
 		\item If $g$ is a monotone function, then $f$ is Riemann-integrable.
 	\end{enumerate}
 \end{theorem}
 
 \begin{corollary*}
-	Let $I=(a,b)$ be a bounded interval and suppose that there exists points $a=x_0<x_1<\cdots<x_n=b$
+	Let $I$ be a bounded interval and suppose that there exists points
+	\begin{align*}
+		\inf I=x_0<x_1<\cdots<x_n=\sup I
+	\end{align*}
 	such that a function $f:I\to\R$ is bounded and continuous on each subinterval $(x_j,x_{j+1})$,
-	$j=0,1,...,n$. Then such function is Riemann integrable.
+	$j=0,1,...,n$. Then such a function is Riemann integrable.
 \end{corollary*}
 
 \subsection{Dependence on an interval}
@@ -550,35 +610,51 @@
 		\item If $f$ is integrable on $I$ then $f$ is integrable on $J$.
 		\item If $f$ is integrable on $J$ and simultaneously $f(x)=0$ for all $x\in I\setminus J$
 		      then $f$ is integrable on $I$ and \begin{align*}
-			      \int_J f = \int_I f.
+			      \int_J f\:d\lambda = \int_I f\:d\lambda.
 		      \end{align*}
 		\item If $f$ is integrable on $I$ and $f(x)\geq 0$ for all $x\in I$ then \begin{align*}
-			      \int_J f \leq \int_I f.
+			      \int_J f\:d\lambda \leq \int_I f\:d\lambda.
 		      \end{align*}
 		\item Suppose that $I$ can be written as the union of disjoint intervals $I_n$ and let $f$
-		      be integrable on each of the intervals $I_n$. Then $f$ is integrable on $I$ if and only if
+		      be integrable on each of the intervals $I_n$. Then $f$ is integrable on $I$ iff
 		      \begin{align*}
-			      \sum_{n=1}^\infty \int_{I_n} \abs f < \infty.
+			      \sum_{n=1}^\infty \int_{I_n} \abs f\:d\lambda < \infty.
 		      \end{align*}
 		      It then follows that \begin{align*}
-			      \int_I f = \sum_{n=1}^\infty \int_{I_n}f.
+			      \int_I f\:d\lambda = \sum_{n=1}^\infty \int_{I_n}f\:d\lambda.
 		      \end{align*}
 	\end{enumerate}
 \end{theorem}
 
+\begin{corollary}
+	Let $f:\R\to\R$ be Lebesgue integrable on an interval $I$ with $a=\inf I$ and $b=\sup I$.
+	Then $f$ is Lebesgue integrable on $(a,b)$, $(a,b]$, $[a,b)$, and $[a,b]$, and
+	\begin{align*}
+		\int_I f\:d\lambda 
+		= \int_{(a,b)} f\:d\lambda
+		= \int_{(a,b]} f\:d\lambda 
+		= \int_{[a,b)} f\:d\lambda 
+		= \int_{[a,b]} f\:d\lambda. 
+	\end{align*}
+	We define
+	\begin{align*}
+		\int_a^b f\:d\lambda := \int_If\:d\lambda.	
+	\end{align*}
+\end{corollary}
+
 \subsection{Fundamental Theorem of Calculus}
 
-\begin{theorem}[Notes 4.10]
+\begin{theorem}
 	Let $I$ be an interval and let $g:I\to\R$ be integrable on $I$. For all $x\in I$ and
-	some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g$. Suppose $g$ is continuous at $x$
+	some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g\:d\lambda$. Suppose $g$ is continuous at $x$
 	for some $x\in I$. Then $G$ is differentiable at $x$ and $G'(x)=g(x)$.
 \end{theorem}
 
-\begin{theorem}[Notes 4.11]
-	Suppose $f:I\to\R$ has continuous derivative $f'$ on the interval $I$. Then for any
-	$a,b\in I$
+\begin{theorem}
+	Suppose $f:I\to\R$ has continuous derivative $f'$ on the interval $I$. Then, for any
+	$a,b\in I$,
 	\begin{align*}
-		\int_a^b f' = f(b) - f(a).
+		\int_a^b f'\:d\lambda= f(b) - f(a).
 	\end{align*}
 \end{theorem}
 
@@ -588,50 +664,50 @@
 	Suppose that $(f_n)_{n\in\N}$ is a sequence of functions each of which is integrable on $I$.
 	\begin{enumerate}
 		\item Assume that \begin{align*}
-			      \sum_{n=1}^\infty \int_I \abs{f_n} < \infty.
+			      \sum_{n=1}^\infty \int_I \abs{f_n}\:d\lambda < \infty.
 		      \end{align*}
 		      Let $f$ be a function on the interval $I$ such that \begin{align*}
 			      f(x) = \sum_{n=1}^\infty f_n(x)\hs\text{for all $x\in I$ such that }\sum_{n=1}^\infty \abs{f_n(x)}<\infty.
 		      \end{align*}
 		      Then $f$ is integrable on $I$ and \begin{align*}
-			      \int_I f = \sum_{n=1}^\infty \int_I f_n.
+			      \int_I f\:d\lambda= \sum_{n=1}^\infty \int_I f_n\:d\lambda.
 		      \end{align*}
 		\item Assume that each $f_n\geq 0$ on $I$ and let $f(x)=\sum_{n=1}^\infty f_n(x)$ for all $x\in I$. Then $f$
-		      is integrable on $I$ if and only if \begin{align*}
-			      \sum_{n=1}^\infty \int_I f_n < \infty.
+		      is integrable on $I$ iff \begin{align*}
+			      \sum_{n=1}^\infty \int_I f_n\:d\lambda< \infty.
 		      \end{align*}
 	\end{enumerate}
 \end{theorem}
 
-\begin{theorem}[Monotone Convergence; Notes 4.4]
+\begin{theorem}[Monotone Convergence]
 	Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions on an interval $I$. That is
 	$f_1(x) \leq f_2(x) \leq \cdots$ for all $x\in I$. Then let
 	\begin{align*}
 		f(x) = \lim_{n\to\infty}f_n(x),
 	\end{align*}
 	where we allow for the possibility that at some points this limit is infinite. Then $f$ is integrable on $I$
-	if and only if
+	iff
 	\begin{align*}
-		\sup_{n\in\N}\int_I f_n = \lim_{n\to\infty}\int_I f_n < \infty.
+		\sup_{n\in\N}\int_I f_n\:\lambda = \lim_{n\to\infty}\int_I f_n\:d\lambda< \infty.
 	\end{align*}
 	Then further,
 	\begin{align*}
-		\int_I f = \lim_{n\to\infty} \int_I f_n.
+		\int_I f\:d\lambda= \lim_{n\to\infty} \int_I f_n\:d\lambda.
 	\end{align*}
 \end{theorem}
 
-\begin{lemma}[Fatoux; Notes 4.2]
+\begin{lemma}[Fatoux]
 	Let $(f_n)$ be a sequence of nonnegative integrable functions on an interval $I$. Let
 	\begin{align*}
 		f(x) = \liminf_{n\to\infty} f_n(x), \hs\text{for all $x\in I$}.
 	\end{align*}
-	If $\liminf_{n\to\infty}\int_I f_n<\infty$ then $f$ is integrable on $I$ and
+	If $\liminf_{n\to\infty}\int_I f_n\:d\lambda<\infty$ then $f$ is integrable on $I$ and
 	\begin{align*}
-		\int_I f \leq \liminf_{n\to\infty} \int_I f_n.
+		\int_I f\:d\lambda\leq \liminf_{n\to\infty} \int_I f_n\:d\lambda.
 	\end{align*}
 \end{lemma}
 
-\begin{theorem}[Dominated convergence; Notes 4.12]
+\begin{theorem}[Dominated convergence]
 	Let $(f_n)$ be a sequence of integrable functions on an interval $I$ and assume that
 	\begin{align*}
 		f(x) = \lim_{n\to\infty} f_n(x), \hs \text{for all $x\in I$}.
@@ -642,7 +718,7 @@
 	\end{align*}
 	Then the function $f$ is integrable on $I$ and
 	\begin{align*}
-		\int_I f = \lim_{n\to\infty} \int_I f_n.
+		\int_I f\:d\lambda= \lim_{n\to\infty} \int_I f_n\:d\lambda.
 	\end{align*}
 \end{theorem}
 
@@ -650,32 +726,61 @@
 	Let $(a,b)$ be a bounded interval and suppose that $f_n:(a,b)\to\R$ are integrable functions
 	which converge uniformly to a function $f$. Then $f$ is integrable on $(a,b)$ and
 	\begin{align*}
-		\int_a^b f = \lim_{n\to\infty} \int_a^b f_n.
+		\int_a^b f\:d\lambda= \lim_{n\to\infty} \int_a^b f_n\:d\lambda.
 	\end{align*}
 \end{theorem}
+
+\subsection{Cursed baby steps towards measure theory}
+
+\begin{definition}
+	Let $I\subseteq\R$ be an interval and $f:I\to\R$. We say that $f$ is measurable on $I$ if
+	there exists a sequence of integrable functions $(f_n)$ on $I$ such that
+	\begin{align*}
+		f(x)=\lim_{n\to\infty} f_n(x) \hs\text{for all $x\in I\setminus E$}
+	\end{align*}
+	where $E$ is a set of measure zero.
+
+	A set $E\subseteq\R$ is said to be measurable if $\chi_E$ is a measurable function
+	on $\R$.
+\end{definition}
+
+\begin{definition}
+	Let $E$ be a measruable set. Then we define the Lebesgue measure $\lambda(E)\in\R_{\geq 0}\cup\{\infty\}$ by
+	\begin{align*}
+		\lambda(E) := \int \chi_E\:d\lambda.
+	\end{align*}
+\end{definition}
 
 \section{Fourier series and orthogonality}
 
 \subsection{The space $L^2$}
 
-\begin{definition}[Notes 5.1]
+\begin{definition}
+	Let $g,h:\R\to\R$ be Lebesgue integrable on an interval $I$ and let $f=g+ih$. Then we
+	define
+	\begin{align*}
+		\int_I	f\:d\lambda = \int_I g\:d\lambda + i\int_I h\:d\lambda.
+	\end{align*}
+\end{definition}
+
+\begin{definition}
 	Define the space $L^2=L^2([a,b])$ as the set of measurable functions $f:[a,b]\to\C$
 	so that the function $x\mapsto \abs{f(x)}^2$ is Lebesgue integrable, i.e.
 	\begin{align*}
-		\vabs{f}_2^2 := \int_a^b \abs{f(x)}^2 dx < \infty.
+		\vabs{f}_2^2 := \int_a^b \abs{f}^2 d\lambda < \infty.
 	\end{align*}
 	The quantity $\vabs{f}_2$ is called the \emph{$L^2$-norm} of $f$. If $\vabs{f}_2=1$,
 	then we say that $f$ is \emph{$L^2$-normalised}.
 \end{definition}
 
-\begin{definition}[Notes 5.2]
+\begin{definition}
 	For two functions $f,g\in L^2([a,b])$ we define the \emph{inner product} by
 	\begin{align*}
-		\lra{f,g} = \int_a^b f(x)\overline{g(x)}dx.
+		\lra{f,g} := \int_a^b f(x)\overline{g(x)}\:d\lambda(x).
 	\end{align*}
 \end{definition}
 
-\begin{theorem}[Cauchy-Schwarz inequality; Notes 5.1]
+\begin{theorem}[Cauchy-Schwarz inequality]
 	Let $f,g\in L^2([a,b])$. Then the function $x\mapsto f(x)\overline{g(x)}$ is Lebesgue
 	integrable and we have
 	\begin{align*}
@@ -683,84 +788,102 @@
 	\end{align*}
 \end{theorem}
 
-\begin{definition}[Notes 5.3]
-	Let $f,f_1,f_2,...$ be functions in $L^2([a,b])$. We say that the sequence $(f_n)_n$ converges
+\begin{definition}
+	Let $f,f_1,f_2,...$ be functions in $L^2([a,b])$. We say that the sequence $(f_n)_{n\in\N}$ converges
 	to $f$ in $L^2$ if the sequence
 	\begin{align*}
-		\vabs{f_n - f}_2 = \left(\int_a^b \abs{f_n(x)-f(x)}^2dx\right)^{1/2}
+		\vabs{f_n - f}_2 = \left(\int_a^b \abs{f_n-f}^2\:d\lambda\right)^{1/2}
 	\end{align*}
 	converges to zero as $n\to\infty$. We also write $f_n\to f$ in $L^2$.
 \end{definition}
 
 \subsection{Orthonormal systems}
 
-\begin{definition}[Notes 5.4]
-	A sequence $(\phi_n)_n$ of $L^2$ functions on $[a,b]$ is called an \emph{orthonormal system on $[a,b]$}
-	if
+\begin{definition}
+	A countable family $(\phi_j)_{j\in J}$ of functions $\phi_j\in L^2([a,b])$ is
+	called an \emph{orthonormal system} iff, for all $j,j'\in J$,
 	\begin{align*}
-		\lra{\phi_n, \phi_m} = \begin{cases}
-			                       0, & \text{if }n\not=m, \\
-			                       1, & \text{if }n=m.
-		                       \end{cases}
+		\lra{\phi_j, \phi_{j'}} = \delta_{jj'}.
 	\end{align*}
-	The index $n$ may run over any countable set.
+	Without loss of generality, we assume $J=\N_{\leq N}$ for some $N\in\N\cup\{\infty\}$.
 \end{definition}
 
+\begin{lemma}
+	The following are orthonormal systems:
+	\begin{enumerate}
+		\item $\phi_n(x)=\chi_{[n-1,n)}$ for $N\in\N$ and $n\leq N$ on $[0,N]$,
+		\item $\phi_n(x)=e^{2\pi inx}$ for $n\in\Z$ on $[0,1]$,
+		\item $\phi_n(x)=\sqrt 2\cos(2\pi nx)$ for $n\in\Z$ on $[0,1]$,
+		\item $\phi_n(x)=\sqrt 2\sin(2\pi nx)$ for $n\in\Z$ on $[0,1]$,
+		\item $r_n(x)=\sgn(\sin(2^n\pi x))$ for $n\in\N$ on $[0,1]$.
+	\end{enumerate}
+\end{lemma}
+
 \begin{theorem}[Notes 5.2]
-	Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$ and $f\in L^2$. Consider
+	Let $(\phi_n)$ be an orthonormal system on $[a,b]$ and $f\in L^2$. Consider
 	\begin{align}
 		\label{sn}
-		s_N(x) = \sum_{n=1}^N \lra{f,\phi_n}\phi_n(x).
+		s_N(x) := \sum_{n=1}^N \lra{f,\phi_n}\phi_n(x).
 	\end{align}
-	Denote the linear span of the functions $(\phi_n)_{n=1,...,N}$ by $X_N$. Then
+	Denote the linear span of the functions $(\phi_n)_{n\leq N}$ by $X_N$. Then
 	\begin{align*}
 		\vabs{f-s_N}_2 \leq \vabs{f-g}_2
 	\end{align*}
-	holds for all $g\in X_N$ with equality if and only if $g=s_N$.
+	holds for all $g\in X_N$ with equality iff $g=s_N$.
 \end{theorem}
 
-\begin{theorem}[Bessel's inequality; Notes 5.3]
-	If $(\phi_n)_n$ is an orthonormal system on $[a,b]$ and $f\in L^2$, then
+\begin{theorem}[Bessel's inequality]
+	If $(\phi_n)_{j\in J}$ is an orthonormal system on $[a,b]$ and $f\in L^2$ then
 	\begin{align*}
-		\sum_n \abs{\lra{f,\phi_n}}^2 \leq \vabs f_2^2.
+		\sum_{j\in J} \abs{\lra{f,\phi_j}}^2 \leq \vabs f_2^2.
 	\end{align*}
 \end{theorem}
 
 \begin{corollary}[Riemann-Lebesgue lemma in $L^2$]
-	Let $(\phi_n)_{n=1,2,...}$ be an orthonormal system and $f\in L^2$, then
+	Let $(\phi_n)_{n\in\N}$ be an orthonormal system and $f\in L^2$, then
 	\begin{align*}
 		\lim_{n\to\infty} \lra{f,\phi_n}=0.
 	\end{align*}
 \end{corollary}
 
 \begin{theorem}[Notes 5.4]
-	Let $(\phi_n)_n$ be an orthonormal system on $[a,b]$. Let $(s_N)_N$ be as in (\ref{sn}).
-	Then $(\phi_n)_n$ is complete if and only if $(s_N)_N$ converges to $f$ in the $L^2$-norm
+	Let $(\phi_n)$ be an orthonormal system on $[a,b]$. Let $(s_N)$ be as in (\ref{sn}).
+	Then $(\phi_n)$ is complete iff $(s_N)$ converges to $f$ in the $L^2$-norm
 	for every $f\in L^2$.
 \end{theorem}
 
 \subsection{Trigonometric polynomials}
 
 \begin{definition}
-	A \emph{trigonometric polynomial} is a function of the form
+	A \emph{trigonometric polynomial} is a function $f:\R\to\C$ given by
 	\begin{align*}
-		f(x) = \sum_{n=-N}^N c_ne^{2\pi i n x} \hs (x\in\R),
+		f(x) = \sum_{n=-N}^N c_ne^{2\pi i n x},
 	\end{align*}
 	where $N\in\N$ and $c_n\in\C$. If $c_N$ or $c_{-N}$ is non-zero, then $N$ is called the
 	degree of $f$.
 \end{definition}
 
+\begin{definition}
+	A function $f:\R\to\C$ is $\lambda$-periodic for some $k\in\R$ iff,
+	for all $x\in\R$,
+	\begin{align*}
+		f(x) = f(x + \lambda).
+	\end{align*}
+\end{definition}
+
+\begin{lemma}
+	Every trigonometric polynomial is 1-periodic.
+\end{lemma}
+
 \begin{lemma}[Notes 5.1]
 	$(e^{2\pi inx})_{n\in\Z}$ forms an orthonormal system on $[0,1]$. In particular,
 	\begin{enumerate}
 		\item for all $n\in\Z$, \begin{align*}
-			      \int_0^1 e^{2\pi inx}dx = \begin{cases}
-				                                0, & \text{if }n\not=0, \\
-				                                1, & \text{if }n=0.
-			                                \end{cases}
+			      \int_0^1 e^{2\pi inx}\:d\lambda(x) = \delta_{0,n},
 		      \end{align*}
-		\item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial, then \begin{align*}
-			      c_n = \lra{f,\phi_n} = \int_0^1 f(t)e^{-2\pi int}dt.
+		\item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial
+			  then \begin{align*}
+			      c_n = \lra{f,\phi_n}.
 		      \end{align*}
 	\end{enumerate}
 \end{lemma}
@@ -769,7 +892,7 @@
 	For a $1$-periodic integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
 	by
 	\begin{align*}
-		\hat f(n) = \int_0^1 f(t)e^{-2\pi int}dt=\lra{f, \phi_n}.
+		\hat f(n) = \lra{f, \phi_n}.
 	\end{align*}
 	The double infinite series
 	\begin{align*}
@@ -781,7 +904,7 @@
 \begin{definition}
 	For a $1$-periodic integrable function $f$ we define the partial sums
 	\begin{align*}
-		S_Nf(x)=\sum_{n=-N}^N \hat f(n) e^{2\pi inx}.
+		S_Nf(x):=\sum_{n=-N}^N \hat f(n) e^{2\pi inx}.
 	\end{align*}
 \end{definition}
 
@@ -791,7 +914,7 @@
 	For two $1$-periodic functions $f,g\in L^2$ we define their \emph{convolutions}
 	by
 	\begin{align*}
-		f*g(x)=\int_0^1 f(t)g(x-t)dt.
+		(f*g)(x)=\int_0^1 f(t)g(x-t)\:d\lambda(t).
 	\end{align*}
 \end{definition}
 
@@ -803,22 +926,29 @@
 \end{lemma}
 
 \begin{definition}
-	The \emph{Dirichlet kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
+	The \emph{Dirichlet kernel} is the sequence of functions
 	$(D_N)$ defined by
 	\begin{align*}
-		D_N(x)=\sum_{n=-N}^N e^{2\pi inx}.
+		D_N(x):=\sum_{n=-N}^N e^{2\pi inx} \hs \text{for all }N\in\N.
 	\end{align*}
 \end{definition}
 
+\begin{lemma}
+	Let $f\in L^2$ be 1-periodic. Then
+	\begin{align*}
+		S_Nf(x) = (f*D_N)(x).
+	\end{align*}
+\end{lemma}
+
 \begin{lemma}[Notes 5.3]
-	We have
+	For all $N\in\N$,
 	\begin{align*}
 		D_N(x)=\frac{\sin(2\pi(N+1/2)x)}{\sin(\pi x)}.
 	\end{align*}
 \end{lemma}
 
 \begin{definition}
-	The \emph{Fej\'er kernel} of a 1-periodic function $f\in L^2$ is the sequence of functions
+	The \emph{Fej\'er kernel} is the sequence of functions
 	$(K_N)$ defined by
 	\begin{align*}
 		K_N(x)=\frac{1}{N+1}\sum_{n=0}^ND_n(x).
@@ -826,7 +956,7 @@
 \end{definition}
 
 \begin{lemma}[Notes 5.4]
-	We have
+	For all $N\in\N$,
 	\begin{align*}
 		K_N(x)=\frac{1}{2(N+1)}\frac{1-\cos(2\pi(N+1)x)}{\sin^2(\pi x)}
 		=\frac{1}{N+1}\left(\frac{\sin(\pi(N+1)x)}{\sin(\pi x)}\right)^2.
@@ -846,5 +976,76 @@
 	polynomials. That is, for every 1-periodic continuous $f$ there exists a sequence
 	$(f_n)$ of trigonometric polynomials such that $f_n\to f$ uniformly.
 \end{corollary*}
+
+\subsection{Approximations of unity}
+
+\begin{definition}
+	A sequence of 1-periodic integrable functions $(k_n)_{n\in\N}$ is called \emph{approximation
+	of unity} if for all 1-periodic continuous functions $f$ we have that $f*k_n$ converges
+	uniformly to $f$ on $\R$. That is, as $n\to\infty$,
+	\begin{align*}
+		\sup_{x\in\R}\abs{(f*k_n-f)(x)}\to 0.
+	\end{align*}
+\end{definition}
+
+\begin{lemma}
+	There is no continuous $k:\R\to\C$ such that, for all continuous, 1-periodic $f:\R\to\C$,
+	$k*f=f$.
+\end{lemma}
+
+\begin{lemma}
+	Let $(k_n)_{n\in\N}$ an approximation of unity and $f:\R\to\C$ continuous and 1-periodic. Then 
+	\begin{align*}
+		\lim_{n\to\infty} k_n * f = f.
+	\end{align*}
+\end{lemma}
+
+\begin{theorem}[Notes 5.6]
+	Let $(k_n)_{n\in\N}$ a sequence of integrable 1-periodic functions such that
+	\begin{enumerate}
+		\item $k_n(x)>0$ for all $n\in\N$ and $x\in\R$,
+		\item $\int_{-1/2}^{1/2} k_n\:d\lambda = 1$ for all $n\in\N$, and 
+		\item for all $0<\delta\leq 1/2$, \begin{align*}
+			\lim_{n\to\infty}\int_{-\delta}^\delta k_n\:d\lambda = 1.
+		\end{align*}
+	\end{enumerate}
+	Then $(k_n)_{n\in\N}$ is an approximation of unity.
+\end{theorem}
+
+\begin{corollary}
+	The Fej\'er kernel $(K_N)_{n\in\N}$ is an approximation of unity.
+\end{corollary}
+
+\subsection{Convergence of Fourier series}
+
+\begin{lemma}[Notes 5.5]
+	Let $f:\R\to\C$ be 1-periodic and continuous. Then 
+	\begin{align*}
+		\lim_{N\to\infty} \vabs{S_Nf-f}_2 = 0.
+	\end{align*}	
+\end{lemma}
+
+\begin{theorem}[Notes 5.7]
+	The trigonometric system is complete. In particular, for all 1-periodic $f\in L^2$,	
+	\begin{align*}
+		\lim_{N\to\infty}\vabs{S_Nf-f}_2=0.
+	\end{align*}
+\end{theorem}
+
+\begin{corollary}[Parseval's theorem]
+	If $f,g\in L^2$ are 1-periodic then 
+	\begin{align*}
+		\lra{f,g} = \sum_{n=-\infty}^\infty \hat f(n)\overline{g(n)}.
+	\end{align*}	
+	In particular,
+	\begin{align*}
+		\lra{f,g}^2 = \sum_{n=-\infty}^\infty \abs{\hat f(n)}^2.
+	\end{align*}
+\end{corollary}
+
+\begin{theorem}
+	Let $f$ be a continuous 1-periodic function and let $x\in\R$. If $f$ is differentiable
+	at $x$ then $S_Nf(x)\to f(x)$ as $N\to\infty$.
+\end{theorem}
 
 \end{document}
