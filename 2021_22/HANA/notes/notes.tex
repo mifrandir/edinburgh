@@ -6,7 +6,6 @@
 \title{Honours Analysis (SEM5)}
 \author{Franz Miltz}
 \maketitle
-\noindent Textbook: W. Wade, \emph{An Introduction to Analysis}
 \tableofcontents
 \pagebreak
 
@@ -223,9 +222,9 @@
 	\begin{itemize}
 		\item continuouity, i.e. all $f_n$ are continuous but $f$ is not,
 		\item differentiability, i.e. all $f_n$ are differentiable but $f$ is not,
-		\item itegrability, i.e. all $f_n$ are integrable but $f$ is not,
+		\item itegrability, i.e. all $f_n$ are Lebesgue integrable but $f$ is not,
 		\item derivatives, i.e. all $f_n$ and $f$ are differentiable, but $(f_n)'\not\to f'$,
-		\item integrals, i.e. all $f_n$ and $f$ are integrable, but $\int_a^b f_n(x)dx\not\to \int_a^b f(x)dx$.
+		\item integrals, i.e. all $f_n$ and $f$ are Lebesgue integrable, but $\int_a^b f_n\:d\lambda\not\to \int_a^b f\:d\lambda$.
 	\end{itemize}
 \end{theorem}
 
@@ -259,12 +258,12 @@
 \end{lemma}
 
 \begin{theorem}[Notes 2.2]
-	Suppose that $f_n\to f$ uniformly on a closed interval $[a,b]$. If each $f_n$ is integrable
+	Suppose that $f_n\to f$ uniformly on a closed interval $[a,b]$. If each $f_n$ is Lebesgue integrable
 	on $[a,b]$, then so is $f$ and
 	\begin{align*}
-		\lim_{n\to\infty} \int_a^b f_n(x)\:dx = \int_a^b\left(\lim_{n\to\infty}f_n(x)\right)\:dx.
+		\lim_{n\to\infty} \int_a^b f_n(x)\:d\lambda = \int_a^b\left(\lim_{n\to\infty}f_n(x)\right)\:d\lambda.
 	\end{align*}
-	In fact, $\lim_{n\to\infty} \int_a^x f_n(t)\:dt = \int_a^x f(t)\:dt$ uniformly for $x\in[a,b]$.
+	In fact, $\lim_{n\to\infty} \int_a^x f_n(t)\:d\lambda = \int_a^x f(t)\:d\lambda$ uniformly for $x\in[a,b]$.
 \end{theorem}
 
 \begin{theorem}[Notes 2.3]
@@ -295,22 +294,21 @@
 \end{definition}
 
 \begin{theorem}[Notes 2.4]
-	Let $E$ be a nonempty subset of $\R$ and let $(f_k)$ be a sequence of real functions defined on $E$.
+	Let $E\subseteq\R$ be non-empty and let $(f_k)$ be a sequence of functions $E\to\R$.
 	\begin{enumerate}
-		\item Suppose that $x_0\in E$and that each $f_k$ is continuous at $x_0\in E$.
+		\item Suppose that $x_0\in E$ and that each $f_k$ is continuous at $x_0\in E$.
 		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is continuous at $x_0\in E$.
-		\item Term-by-term integration: Suppose that $E=[a,b]$ and that each $f_k$ is integrable on $[a,b]$.
-		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $[a,b]$, then $f$ is integrable on $[a,b]$
+		\item Term-by-term integration: Suppose that $E=[a,b]$ and that each $f_k$ is Lebesgue integrable on $E$.
+		      If $f=\sum_{k=1}^\infty f_k$ converges uniformly on $E$, then $f$ is Lebesgue integrable on $E$
 		      and \begin{align*}
-			      \int_a^b \sum_{k=1}^\infty f_k(x)\:dx = \sum_{k=1}^\infty \int_a^b f_k(x)\:dx.
+			      \int_E\sum_{k=1}^\infty f_k(x)\:d\lambda = \sum_{k=1}^\infty \int_E f_k(x)\:d\lambda.
 		      \end{align*}
 		\item Term-by-term differentiation: Suppse that $E$ is a bounded, open interval and that each
 		      $f_k$ is differentiable on $E$. If $\sum_{k=1}^\infty f_k(x_0)$ converges at some $x_0\in E$,
 		      and $g=\sum_{k=1}^\infty f'_k$ converges uniformly on $E$, then $f=\sum_{k=1}^\infty f_k$
-		      converges uniformly on $E$, is differentiable on $E$, and \begin{align*}
-			      f'(x) = \left(\sum_{k=1}^\infty f_k(x)\right)' = \sum_{k=1}^\infty f'_k(x)= g(x)
+		      converges uniformly on $E$, is differentiable on $E$, and, for all $x\in E$, \begin{align*}
+			      f'(x) = \left(\sum_{k=1}^\infty f_k(x)\right)' = \sum_{k=1}^\infty f'_k(x)= g(x).
 		      \end{align*}
-		      for $x\in E$.
 	\end{enumerate}
 \end{theorem}
 
@@ -457,6 +455,7 @@
 \subsection{Lebesgue integral}
 
 \begin{definition}
+	\label{lebesgue}
 	A function $f:I\to\R$ is said to be \emph{Lebesgue integrable} on an interval
 	$I$ if there exist values $c_j$ and bounded intervals $J_j\subset I$, $j=1,2,3,...$
 	such that
@@ -502,27 +501,27 @@
 \end{corollary}
 
 \begin{corollary}
-	The function $\chi_{\Q\cap[0,1]}$ is (Lebesgue) integrable on $[0,1]$ and its integral is zero.
+	The function $\chi_{\Q\cap[0,1]}$ is Lebesgue integrable on $[0,1]$ and its integral is zero.
 \end{corollary}
 
 \begin{theorem}[Notes 4.2]
-	Suppose $f$ and $g$ are integrable on $I$ and $\alpha$ and $\beta$ are real numbers. Then
+	Suppose $f,g:I\to\R$ are Lebesgue integrable and $\alpha,\beta\in\R$. Then
 	\begin{enumerate}
-		\item $\alpha f + \beta g$ is integrable on $I$ and \begin{align*}
+		\item $\alpha f + \beta g$ is Lebesgue integrable and \begin{align*}
 			      \int_I (\alpha f + \beta g)\:d\lambda = \alpha \int_I f\:d\lambda + \beta \int_I g\:d\lambda.
 		      \end{align*}
-		\item If $f\geq 0$ on $I$ then $\int_I f\:d\lambda \geq 0$; if $f\geq g$ on $I$ then
+		\item If $f\geq 0$ then $\int_I f\:d\lambda \geq 0$; if $f\geq g$ then
 		      $\int_I f\:d\lambda\geq \int_I g\:d\lambda$.
-		\item $\abs f$ is integrable on $I$ and $\abs{\int_I f\:d\lambda}\leq \int_I \abs f\:d\lambda$.
-		\item $\max\{f,g\}$ and $\min\{f,g\}$ are integrable on $I$.
-		\item If one of the functions is bounded then the product $fg$ is integrable on $I$.
-		\item If $f\geq 0$ with $\int_I f\:d\lambda = 0$ then any function $h$ such that $0\leq h<f$ on $I$ is integrable on $I$.
+		\item $\abs f$ is Lebesgue integrable and $\abs{\int_I f\:d\lambda}\leq \int_I \abs f\:d\lambda$.
+		\item $\max\{f,g\}$ and $\min\{f,g\}$ are Lebesgue integrable.
+		\item If one of the functions is bounded then the product $fg$ is Lebesgue integrable.
+		\item If $f\geq 0$ with $\int_I f\:d\lambda = 0$ then any function $h$ such that $0\leq h<f$ is Lebesgue integrable.
 	\end{enumerate}
 \end{theorem}
 
 \begin{lemma}[Exercise 4.6]
 	Let $f,g:I\to\R$ for some interval $I\subseteq\R$ such that $f=g$ almost everywhere.
-	If $f$ is integrable then so is $g$ and
+	If $f$ is Lebesgue integrable then so is $g$ and
 	\begin{align*}
 		\int_I f\:d\lambda = \int_I g\:d\lambda.
 	\end{align*}
@@ -531,7 +530,7 @@
 \subsection{Riemann integration}
 
 \begin{definition}
-	Let $f:\R\to\R$. We say that $f$ is \emph{Riemann-integrable} if for every
+	Let $f:\R\to\R$. We say that $f$ is \emph{Riemann integrable} if for every
 	$\e>0$ there exist step functions $\phi$ and $\psi$ such that
 	\begin{align*}
 		\phi \leq f \leq \psi
@@ -544,7 +543,7 @@
 \end{definition}
 
 \begin{theorem}[Notes 4.5]
-	A function $f:\R\to\R$ is \emph{Riemann-integrable} iff
+	A function $f:\R\to\R$ is \emph{Riemann integrable} iff
 	\begin{align*}
 		\sup\left\lbrace\int\phi : \phi\text{ is a step function and }\phi\leq f\right\rbrace
 		= \inf\left\lbrace\int\psi : \psi\text{ is a step function and }\psi \geq f\right\rbrace.
@@ -552,7 +551,7 @@
 \end{theorem}
 
 \begin{definition}
-	If $f$ is Riemann-integrable we define its Riemann integral $\int f\:dx$ as the common
+	If $f$ is Riemann integrable we define its Riemann integral $\int f\:dx$ as the common
 	value
 	\begin{align*}
 		\int f\: dx
@@ -572,7 +571,7 @@
 \begin{lemma}[Notes 4.1]
 	Let $f:\R\to\R$ be a bounded function with bounded support $[a,b]$. The following are equivalent:
 	\begin{enumerate}
-		\item $f$ is Riemann-integrable.
+		\item $f$ is Riemann integrable.
 		\item for every $\e>0$ there exist $a=x_0<\cdots x_n=b$ such that if $M_j$ and $m_j$
 		      denote the supremum and infimum vallues of $f$ on $(x_{j-1}, x_j)$ respectively, then \begin{align*}
 			      \sum_{j=1}^n (M_j-m_j)(x_j-x_{j-1})<\e.
@@ -588,8 +587,8 @@
 	Suppose that $g:[a,b]\to\R$ and let $f$ be defined by $f(x)=g(x)$ for $x\in[a,b]$ and $f(x)=0$
 	otherwise.
 	\begin{enumerate}
-		\item If $g$ is continuous on $[a,b]$, then $f$ is Riemann-integrable.
-		\item If $g$ is a monotone function, then $f$ is Riemann-integrable.
+		\item If $g$ is continuous on $[a,b]$, then $f$ is Riemann integrable.
+		\item If $g$ is a monotone function, then $f$ is Riemann integrable.
 	\end{enumerate}
 \end{theorem}
 
@@ -607,16 +606,16 @@
 \begin{theorem}[Notes 4.8]
 	Let $I$ and $J$ be two intervals such that $J\subset I$.
 	\begin{enumerate}
-		\item If $f$ is integrable on $I$ then $f$ is integrable on $J$.
-		\item If $f$ is integrable on $J$ and simultaneously $f(x)=0$ for all $x\in I\setminus J$
-		      then $f$ is integrable on $I$ and \begin{align*}
+		\item If $f$ is Lebesgue integrable on $I$ then $f$ is Lebesgue integrable on $J$.
+		\item If $f$ is Lebesgue integrable on $J$ and simultaneously $f(x)=0$ for all $x\in I\setminus J$
+		      then $f$ is Lebesgue integrable on $I$ and \begin{align*}
 			      \int_J f\:d\lambda = \int_I f\:d\lambda.
 		      \end{align*}
-		\item If $f$ is integrable on $I$ and $f(x)\geq 0$ for all $x\in I$ then \begin{align*}
+		\item If $f$ is Lebesgue integrable on $I$ and $f(x)\geq 0$ for all $x\in I$ then \begin{align*}
 			      \int_J f\:d\lambda \leq \int_I f\:d\lambda.
 		      \end{align*}
 		\item Suppose that $I$ can be written as the union of disjoint intervals $I_n$ and let $f$
-		      be integrable on each of the intervals $I_n$. Then $f$ is integrable on $I$ iff
+		      be Lebesgue integrable on each of the intervals $I_n$. Then $f$ is Lebesgue integrable on $I$ iff
 		      \begin{align*}
 			      \sum_{n=1}^\infty \int_{I_n} \abs f\:d\lambda < \infty.
 		      \end{align*}
@@ -645,7 +644,7 @@
 \subsection{Fundamental Theorem of Calculus}
 
 \begin{theorem}
-	Let $I$ be an interval and let $g:I\to\R$ be integrable on $I$. For all $x\in I$ and
+	Let $I$ be an interval and let $g:I\to\R$ be Lebesgue integrable on $I$. For all $x\in I$ and
 	some fixed $x_0\in I$ let $G(x) = \int_{x_0}^x g\:d\lambda$. Suppose $g$ is continuous at $x$
 	for some $x\in I$. Then $G$ is differentiable at $x$ and $G'(x)=g(x)$.
 \end{theorem}
@@ -661,7 +660,7 @@
 \subsection{Integrability of sequences of functions}
 
 \begin{theorem}[Notes 4.3]
-	Suppose that $(f_n)_{n\in\N}$ is a sequence of functions each of which is integrable on $I$.
+	Suppose that $(f_n)_{n\in\N}$ is a sequence of functions each of which is Lebesgue integrable on $I$.
 	\begin{enumerate}
 		\item Assume that \begin{align*}
 			      \sum_{n=1}^\infty \int_I \abs{f_n}\:d\lambda < \infty.
@@ -669,23 +668,23 @@
 		      Let $f$ be a function on the interval $I$ such that \begin{align*}
 			      f(x) = \sum_{n=1}^\infty f_n(x)\hs\text{for all $x\in I$ such that }\sum_{n=1}^\infty \abs{f_n(x)}<\infty.
 		      \end{align*}
-		      Then $f$ is integrable on $I$ and \begin{align*}
+		      Then $f$ is Lebesgue integrable on $I$ and \begin{align*}
 			      \int_I f\:d\lambda= \sum_{n=1}^\infty \int_I f_n\:d\lambda.
 		      \end{align*}
 		\item Assume that each $f_n\geq 0$ on $I$ and let $f(x)=\sum_{n=1}^\infty f_n(x)$ for all $x\in I$. Then $f$
-		      is integrable on $I$ iff \begin{align*}
+		      is Lebesgue integrable on $I$ iff \begin{align*}
 			      \sum_{n=1}^\infty \int_I f_n\:d\lambda< \infty.
 		      \end{align*}
 	\end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Monotone Convergence]
-	Suppose that $(f_n)$ is a monotone nondecreasing sequence of integrable functions on an interval $I$. That is
+	Suppose that $(f_n)$ is a monotone nondecreasing sequence of Lebesgue integrable functions on an interval $I$. That is
 	$f_1(x) \leq f_2(x) \leq \cdots$ for all $x\in I$. Then let
 	\begin{align*}
 		f(x) = \lim_{n\to\infty}f_n(x),
 	\end{align*}
-	where we allow for the possibility that at some points this limit is infinite. Then $f$ is integrable on $I$
+	where we allow for the possibility that at some points this limit is infinite. Then $f$ is Lebesgue integrable on $I$
 	iff
 	\begin{align*}
 		\sup_{n\in\N}\int_I f_n\:\lambda = \lim_{n\to\infty}\int_I f_n\:d\lambda< \infty.
@@ -697,34 +696,34 @@
 \end{theorem}
 
 \begin{lemma}[Fatoux]
-	Let $(f_n)$ be a sequence of nonnegative integrable functions on an interval $I$. Let
+	Let $(f_n)$ be a sequence of nonnegative Lebesgue integrable functions on an interval $I$. Let
 	\begin{align*}
 		f(x) = \liminf_{n\to\infty} f_n(x), \hs\text{for all $x\in I$}.
 	\end{align*}
-	If $\liminf_{n\to\infty}\int_I f_n\:d\lambda<\infty$ then $f$ is integrable on $I$ and
+	If $\liminf_{n\to\infty}\int_I f_n\:d\lambda<\infty$ then $f$ is Lebesgue integrable on $I$ and
 	\begin{align*}
 		\int_I f\:d\lambda\leq \liminf_{n\to\infty} \int_I f_n\:d\lambda.
 	\end{align*}
 \end{lemma}
 
 \begin{theorem}[Dominated convergence]
-	Let $(f_n)$ be a sequence of integrable functions on an interval $I$ and assume that
+	Let $(f_n)$ be a sequence of Lebesgue integrable functions on an interval $I$ and assume that
 	\begin{align*}
 		f(x) = \lim_{n\to\infty} f_n(x), \hs \text{for all $x\in I$}.
 	\end{align*}
-	Assume also that the sequence $(f_n)$ is dominated by some integrable function $g$, that is
+	Assume also that the sequence $(f_n)$ is dominated by some Lebesgue integrable function $g$, that is
 	\begin{align*}
 		\abs{f_n(x)} \leq g(x), \hs \text{for all $x\in I$ and $n\in\N$.}
 	\end{align*}
-	Then the function $f$ is integrable on $I$ and
+	Then the function $f$ is Lebesgue integrable on $I$ and
 	\begin{align*}
 		\int_I f\:d\lambda= \lim_{n\to\infty} \int_I f_n\:d\lambda.
 	\end{align*}
 \end{theorem}
 
 \begin{theorem}[Notes 4.13]
-	Let $(a,b)$ be a bounded interval and suppose that $f_n:(a,b)\to\R$ are integrable functions
-	which converge uniformly to a function $f$. Then $f$ is integrable on $(a,b)$ and
+	Let $(a,b)$ be a bounded interval and suppose that $f_n:(a,b)\to\R$ are Lebesgue integrable functions
+	which converge uniformly to a function $f$. Then $f$ is Lebesgue integrable on $(a,b)$ and
 	\begin{align*}
 		\int_a^b f\:d\lambda= \lim_{n\to\infty} \int_a^b f_n\:d\lambda.
 	\end{align*}
@@ -734,7 +733,7 @@
 
 \begin{definition}
 	Let $I\subseteq\R$ be an interval and $f:I\to\R$. We say that $f$ is measurable on $I$ if
-	there exists a sequence of integrable functions $(f_n)$ on $I$ such that
+	there exists a sequence of Lebesgue integrable functions $(f_n)$ on $I$ such that
 	\begin{align*}
 		f(x)=\lim_{n\to\infty} f_n(x) \hs\text{for all $x\in I\setminus E$}
 	\end{align*}
@@ -889,7 +888,7 @@
 \end{lemma}
 
 \begin{definition}
-	For a $1$-periodic integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
+	For a $1$-periodic Lebesgue integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
 	by
 	\begin{align*}
 		\hat f(n) = \lra{f, \phi_n}.
@@ -902,7 +901,7 @@
 \end{definition}
 
 \begin{definition}
-	For a $1$-periodic integrable function $f$ we define the partial sums
+	For a $1$-periodic Lebesgue integrable function $f$ we define the partial sums
 	\begin{align*}
 		S_Nf(x):=\sum_{n=-N}^N \hat f(n) e^{2\pi inx}.
 	\end{align*}
@@ -980,7 +979,7 @@
 \subsection{Approximations of unity}
 
 \begin{definition}
-	A sequence of 1-periodic integrable functions $(k_n)_{n\in\N}$ is called \emph{approximation
+	A sequence of 1-periodic Lebesgue integrable functions $(k_n)_{n\in\N}$ is called \emph{approximation
 	of unity} if for all 1-periodic continuous functions $f$ we have that $f*k_n$ converges
 	uniformly to $f$ on $\R$. That is, as $n\to\infty$,
 	\begin{align*}
@@ -1001,7 +1000,7 @@
 \end{lemma}
 
 \begin{theorem}[Notes 5.6]
-	Let $(k_n)_{n\in\N}$ a sequence of integrable 1-periodic functions such that
+	Let $(k_n)_{n\in\N}$ a sequence of Lebesgue integrable 1-periodic functions such that
 	\begin{enumerate}
 		\item $k_n(x)>0$ for all $n\in\N$ and $x\in\R$,
 		\item $\int_{-1/2}^{1/2} k_n\:d\lambda = 1$ for all $n\in\N$, and 
