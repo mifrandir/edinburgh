@@ -255,10 +255,10 @@
 \begin{definition}
 	Let
 	\begin{itemize}
-		\item $\mathcal{V}$ an at most countable set of variables, and
-		\item $\mathcal{F}$ an at most countable set of function letters each assigned a unique arity
+		\item $\mathcal{V}$ a countable set of variables, and
+		\item $\mathcal{F}$ an at most countable set of function letters each assigned a unique arity.
 	\end{itemize}
-	then the set of \emph{well-formed terms} is the smallest set such that
+	Then the set of \emph{well-formed terms} is the smallest set such that
 	\begin{itemize}
 		\item any variable $v\in \mathcal{V}$ is a term, and
 		\item if $f\in \mathcal{F}$ has arity $n$, and $t_1,...,t_n$ are terms, so is $f(t_1, ..., t_n)$.
@@ -266,7 +266,7 @@
 \end{definition}
 
 \begin{definition}
-	Let $P$ an at most countable set of predicats, each assigned a unique arity,
+	Let $P$ an at most countable set of predicates, each assigned a unique arity,
 	then the set of \emph{well-formed formulas} is the smallest set such that
 	\begin{itemize}
 		\item if $A\in \mathcal{P}$ has arity $n$, and $t_1,...,t_n$ are terms, then $A(t_1, ..., t_n)$ is a wff,
@@ -300,8 +300,7 @@
 \begin{definition}[Assignment]
 	Given an interpretation $\mathcal{I}$, an \emph{assignment $s$} assigns a value
 	from the domain $\mathcal{D}$ to each variable $\mathcal{V}$ i.e. $s:\mathcal{V}\to\mathcal{D}$.
-
-	We extend this assignment $s$ to all terms inducively by saying that
+	We extend this assignment $s$ to all terms inductively by saying that
 	\begin{enumerate}
 		\item if $\mathcal{I}$ maps the $n$-ary function letter $f$ to the function $f^\mathcal{I}$, and
 		\item if terms $t_1, ..., t_n$ have been assigned concrete values $a_1,...,a_n\in D$
@@ -411,6 +410,54 @@
 
 \section{Unification}
 
+\subsection{Substitutions}
+
+\begin{definition}
+	We say two subsitutions $\phi$, $\psi$ are equal if for all variables $x$,
+	\begin{align*}
+		x[\phi] = x[\psi].
+	\end{align*}
+\end{definition}
+
+\paragraph{Combining subsitutions}
+
+To combine subsitutions $\phi$ and $\psi$
+\begin{enumerate}
+	\item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
+	\item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
+	\item Output the union of $\phi'$ and $\psi'$.
+\end{enumerate}
+
+\begin{definition}
+	If $\phi$ and $\psi$ are subsitutions then their \emph{composition $\phi\circ\psi$}
+	is also a subsitution which, for any term $t$, satisfies the following property:
+	\begin{align*}
+		t[\phi\circ\psi] \equiv (t[\phi])[\psi].
+	\end{align*}
+\end{definition}
+
+\begin{definition}
+	Given any two terms $s$ and $t$, a subsitution $\phi$ is their \emph{most general unifier}
+	if
+	\begin{align*}
+		s[\phi]\equiv t[\phi] \hs\text{and}\hs
+		\forall \psi.\: s[\psi] \equiv t[\psi]  \Rightarrow \exists \theta.\: \psi = \phi \circ \theta.
+	\end{align*}
+\end{definition}
+
+\begin{theorem}
+	The set of all subsitutions together with the operation $\circ$ forms a monoid. In particular,
+	for any substitutions $\phi,\psi,\theta$ and any variable $x$, we have
+	\begin{itemize}
+		\item \emph{associativity}: $(\phi \circ \psi) \circ \theta = \phi \circ (\psi \circ \theta)$,
+		\item \emph{unit}: $\phi\circ[] = \phi = []\circ\phi$.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}
+	The \emph{most general unifier} is unique up to alphabetic variance.
+\end{theorem}
+
 \subsection{Matching}
 
 \begin{definition}
@@ -486,54 +533,6 @@ To generally unify $S$ given $\phi$
 		Coalesce      & $P\wedge (X\equiv Y)$                  & $P[Y/X]\wedge(X\equiv Y)$             & $X,Y\in V(P)$, $X\not\equiv Y$
 	\end{tabular}
 \end{center}
-
-\subsection{Composition of subsitutions}
-
-\begin{definition}
-	If $\phi$ and $\psi$ are subsitutions then their \emph{composition $\phi\circ\psi$}
-	is also a subsitution which, for any term $t$, satisfies the following property:
-	\begin{align*}
-		t[\phi\circ\psi] \equiv (t[\phi])[\psi].
-	\end{align*}
-\end{definition}
-
-\begin{definition}
-	We say two subsitutions $\phi$, $\psi$ are equal if for all variables $x$,
-	\begin{align*}
-		x[\phi] = x[\psi].
-	\end{align*}
-\end{definition}
-
-\begin{theorem}
-	The set of all subsitutions together with the operation $\circ$ forms a monoid. In particular,
-	for any substitutions $\phi,\psi,\theta$ and any variable $x$, we have
-	\begin{itemize}
-		\item \emph{associativity}: $(\phi \circ \psi) \circ \theta = \phi \circ (\psi \circ \theta)$,
-		\item \emph{unit}: $\phi\circ[] = \phi = []\circ\phi$.
-	\end{itemize}
-\end{theorem}
-
-\begin{definition}
-	Given any two terms $s$ and $t$, a subsitution $\phi$ is their \emph{most general unifier}
-	if
-	\begin{align*}
-		s[\phi]\equiv t[\phi] \hs\text{and}\hs
-		\forall \psi.\: s[\psi] \equiv t[\psi]  \Rightarrow \exists \theta.\: \psi = \phi \circ \theta.
-	\end{align*}
-\end{definition}
-
-\begin{theorem}
-	The \emph{most general unifier} is unique up to alphabetic variance.
-\end{theorem}
-
-\paragraph{Combining subsitutions}
-
-To combine subsitutions $\phi$ and $\psi$
-\begin{enumerate}
-	\item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
-	\item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
-	\item Output the union of $\phi'$ and $\psi'$.
-\end{enumerate}
 
 \section{Rewriting}
 
