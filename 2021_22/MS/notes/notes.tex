@@ -702,4 +702,138 @@ Let $(X,d)$ be a metric space.
 	isometric to $X$.
 \end{proposition}
 
+\section{Separability}
+
+\begin{definition}
+	A metric space is called separable iff it has an at most countable dense subset.
+\end{definition}
+\begin{itemize}
+	\item $\R$ with the standard metric is separable due to $\Q$;
+	\item $\R^n$ with the Euclidean metric is separable due to $\Q^n$;
+	\item $L^2$ is separable due to the set of all rational sequences that are eventually zero;
+	\item $L^\infty$ is not separable.
+\end{itemize}
+
+\begin{proposition}[8.3]
+	In a separable metric space, every familty of pairwise disjoint non-empty open 
+	sets is at most countable.
+\end{proposition}
+
+\begin{definition}
+	An open base $B$ in a metric space $(X,d)$ is a collection $B$ of open subsets
+	of $X$ such that any open subset of $X$ can be written as a union of elements of $B$.
+\end{definition}
+
+\begin{proposition}[8.5]
+	Let $(X,d)$ be a metric space and let $D$ be a countable dense subset. Let $B$ 
+	be the collection of open balls centered at elements of $D$ whose radii are positive
+	rationals. Then $B$ is an open base.
+\end{proposition}
+
+\begin{proposition}[8.6]
+	Let $(X,d)$ a metric space, let $\emptyset\subset Y\subseteq X$, and let
+	$d_Y$ be the induced metric. If $(X,d)$ is separable then so is $(Y,d_Y)$.
+\end{proposition}
+
+\section{Compactness}
+
+\begin{definition}
+	A metric space is compact iff every sequence has a convergent subsequence.
+\end{definition}
+
+\begin{definition}
+	Let $(X,d)$ a metric space and $K\subseteq X$. Then $K$ is a compact subset iff
+	every sequence of elements of $K$ has a convergent subsequence whose limit is in
+	$K$.
+\end{definition}
+\begin{itemize}
+	\item Every closed and bounded interval on the real line is compact;
+	\item not every closed and bounded subset of a metric space is compact in general;
+	\item the closed unit ball in $(R^n,d_2)$ is a compact subset;
+	\item the closed unit ball in $L^2$ is not a compact subset.
+\end{itemize}
+
+\begin{proposition}[9.7, 9.8]
+	Every compact subset of a metric space is closed and bounded.
+\end{proposition}
+
+\begin{definition}
+	A metric space $(X,d)$ is totally bounded iff for every $\e>0$ there exists a 
+	finite family of open balls of radius $\e$ that covers $X$.
+\end{definition}
+
+\begin{proposition}[9.13]
+	Every compact metric space is totally bounded.
+\end{proposition}
+
+\begin{proposition}[9.14]
+	Every compact metric space is separable.
+\end{proposition}
+
+\begin{definition}
+	Let $(X,d)$ a metric space. An open cover of $X$ is a family $(G_i)_{i\in I}$ such 
+	that each $G_i$ is open and $X=\bigcup_{i\in I}G_i$. A subcover of $(G_i)_{i\in I}$
+	is a subfamily $(G_i)_{i\in I'}$ where $I'\subseteq I$ that still covers $X$.
+\end{definition}
+
+\begin{proposition}[Lebesgue number of an open cover]
+	Let $(X,d)$ a metric space and $(G_i)_{i\in I}$ an open cover. There exists 
+	$\delta>0$ such that for any $\emptyset\subset A\subseteq X$ with $\diam A < \delta$
+	there exists an $i\in I$ such that $A\subseteq G_i$.
+\end{proposition}
+
+\begin{definition}[Finite intersection property]
+	Let $(X,d)$ a metric space. A family $(A_i)_{i\in I}$ has the FIP iff 
+	the intersection of any finite subfamily is non-empty.
+\end{definition}
+
+\begin{theorem}[9.20]
+	Let $(X,d)$ a metric space. The following are equivalent:
+	\begin{enumerate}
+		\item $X$ is compact.
+		\item Every open cover of $X$ has a finite subcover.
+		\item Every family of closed subsets of $X$ with the FIP has a non-empty intersection.
+	\end{enumerate}	
+\end{theorem}
+
+\begin{proposition}[9.22]
+	Let $(X,d)$ a metric space and $f:X\to\R$ a function. 
+	If $X$ is compact and $f$ is continuous then $f$ is bounded.
+\end{proposition}
+
+\begin{proposition}[9.23]
+	Let $(X,d)$ a metric space and $f:X\to\R$ a function. If $X$ is compact
+	and $f$ is continuous then $f$ attains a maximum and a minimum on $X$.	
+\end{proposition}
+
+\begin{definition}
+	Let $(X,d_X),(Y,d_Y)$ metric spaces. A function $f:X\to Y$ is 
+	uniformly continuous iff, for every $\e>0$, there exists a $\delta>0$ such that,
+	for all $x,x'\in X$ with $d_X(x,x')<\delta$, we have $d_Y(f(x),f(x'))<\e$.
+\end{definition}
+
+\begin{proposition}[9.26]
+	Let $(X,d)$ a metric space and $K\subseteq X$ compact. If a function $f:X\to Y$
+	is continuous on $K$ then it is uniformly continuous on $K$.
+\end{proposition}
+
+\section{Connectedness}
+
+\subsection{Connected metric spaces}
+
+\begin{definition}
+	A metric space $(X,d)$ is disconnected iff there exist non-empty disjoint open sets 
+	$G_1,G_2$ such that $X=G_1\cup G_2$. Otherwise $X$ is connected.
+\end{definition}
+
+\begin{proposition}[10.4]
+	Let $I\subseteq\R$ an interval. Define $d:I\times I\to\R$ by $\lra{x,y}\mapsto\abs{x-y}$.
+	Then $(I,d)$ is a connected metric space.	
+\end{proposition}
+
+\begin{proposition}[10.5]
+	Let $\emptyset\subset Y\subseteq\R$ and let $d:Y\times Y\to\R$ the standard metric.
+	If $(Y,d)$ is a connected metric space then $Y$ is an interval.	
+\end{proposition}
+
 \end{document}
