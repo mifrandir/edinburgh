@@ -412,6 +412,12 @@
 
 \subsection{Substitutions}
 
+\begin{example}
+	\begin{align*}
+		(s(X)+Y)[0/X,s(0)/Y]\equiv (s(0)+s(0))
+	\end{align*}
+\end{example}
+
 \begin{definition}
 	We say two subsitutions $\phi$, $\psi$ are equal if for all variables $x$,
 	\begin{align*}
@@ -419,14 +425,14 @@
 	\end{align*}
 \end{definition}
 
-\paragraph{Combining subsitutions}
-
-To combine subsitutions $\phi$ and $\psi$
-\begin{enumerate}
-	\item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
-	\item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
-	\item Output the union of $\phi'$ and $\psi'$.
-\end{enumerate}
+\begin{definition}
+	To combine subsitutions $\phi$ and $\psi$
+	\begin{enumerate}
+		\item Replace each pair $s/X$ in $\phi$ by $s\psi/X$ to form $\phi'$.
+		\item Delete from $\phi$ each pair $t_1/Y$ such that $\phi'$ contains a pair $s/Y$ to form $\psi'$.
+		\item Output the union of $\phi'$ and $\psi'$.
+	\end{enumerate}
+\end{definition}
 
 \begin{definition}
 	If $\phi$ and $\psi$ are subsitutions then their \emph{composition $\phi\circ\psi$}
@@ -486,6 +492,18 @@ To match pattern and target given substitution $\phi$:
 	\item Else fail.
 \end{enumerate}
 
+\paragraph*{Matching rules}
+$s$ and $t$ are arbitrary terms, standardised apart.
+\begin{center}
+	\begin{tabular}{c | c | c | c}
+		\textbf{Name} & \textbf{Before}                        & \textbf{After}                        & \textbf{Condition}     \\\hline
+		Decompose     & $P\wedge (f(\vec s) \equiv f(\vec t))$ & $P\wedge\bigwedge_i (s_i \equiv t_i)$ &                        \\\hline
+		Conflict      & $P\wedge (f(\vec s) \equiv g(\vec t))$ & fail                                  & $f\not\equiv g$        \\\hline
+		Switch        & $P\wedge (s\equiv X)$                  & $P\wedge(X\equiv s)$                  & $X\in V$, $s\not\in V$ \\\hline
+		Delete        & $P\wedge (s\equiv s)$                  & P                                     &
+	\end{tabular}
+\end{center}
+
 \subsection{General unification}
 
 \begin{definition}
@@ -521,6 +539,8 @@ To generally unify $S$ given $\phi$
 	\end{enumerate}
 \end{definition}
 
+\paragraph*{Unification rules}
+$s$ and $t$ are arbitrary terms, standardised apart and $V=V(s)\cup V(t)$.
 \begin{center}
 	\begin{tabular}{c | c | c | c}
 		\textbf{Name} & \textbf{Before}                        & \textbf{After}                        & \textbf{Condition}                         \\\hline
@@ -528,7 +548,7 @@ To generally unify $S$ given $\phi$
 		Conflict      & $P\wedge (f(\vec s) \equiv g(\vec t))$ & fail                                  & $f\not\equiv g$                            \\\hline
 		Switch        & $P\wedge (s\equiv X)$                  & $P\wedge(X\equiv s)$                  & $X\in V$, $s\not\in V$                     \\\hline
 		Delete        & $P\wedge (s\equiv s)$                  & P                                     &                                            \\\hline
-		Eliminate     & $P\wedge (X\equiv s)$                  & $P[s/X]\wedge X\equiv s$              & $X\in V(P)$, $X\not\in V(s)$, $s\not\in V$ \\\hline
+		Eliminate     & $P\wedge (X\equiv s)$                  & $P[s/X]\wedge (X\equiv s)$            & $X\in V(P)$, $X\not\in V(s)$, $s\not\in V$ \\\hline
 		Occurs Check  & $P\wedge (X\equiv s)$                  & fail                                  & $X\in V(s)$, $s\not\in V$                  \\\hline
 		Coalesce      & $P\wedge (X\equiv Y)$                  & $P[Y/X]\wedge(X\equiv Y)$             & $X,Y\in V(P)$, $X\not\equiv Y$
 	\end{tabular}
@@ -562,6 +582,15 @@ To generally unify $S$ given $\phi$
 	We say that a set of rewrite rules is \emph{terminating} if starting with any expression,
 	successively applying rewrite rules eventually brings us to a state where no rule applies.
 \end{definition}
+
+\begin{example}
+	Rules that may cause non-termination:
+	\begin{itemize}
+		\item reflexive rules, e.g. $0\Rightarrow 0$,
+		\item self-commuting rewrites, e.g. $X\times Y\Rightarrow Y\times X$, without lexiographical measure,
+		\item commuting pairs of rewrites, e.g. $X \Rightarrow Y$ and $Y\Rightarrow X$.
+	\end{itemize}
+\end{example}
 
 \begin{theorem}
 	Suppose we have a measure $M$ that assigns to every expression a nonnegative integer and
