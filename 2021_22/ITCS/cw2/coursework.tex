@@ -107,11 +107,11 @@ with $y$ in $R_0$.
 	unless further definitions are given.
 \end{claim*}
 
-The following result shall serve as a more rigorous justificaiton for some of the less precise 
+The following result shall serve as a more rigorous justificaiton for some of the less precise
 arguments further below.
 
 \begin{lemma*}
-	\label{pbits}	
+	\label{pbits}
 	Let $R_i$ be a register containing a value $n$. Then all of the following operations
 	have a runtime that is $O(p(d))$ where $p(d)$ is a polynomial in $d=\lg n$:
 	\begin{enumerate}
@@ -125,15 +125,15 @@ arguments further below.
 		To extract the $k$th bit from $R_i$, do the following:
 		\begin{enumerate}
 			\item Use temporary registers to calculate the greatest $j$ such that $2^j\leq n$
-				where $n$ is the value in $R_i$.
-				For example, starting with $2$, keep doubling a value in $R_t$ until $R_i-R_t$ 
-				is zero. Count the number of steps it takes and infer $j$.
+			      where $n$ is the value in $R_i$.
+			      For example, starting with $2$, keep doubling a value in $R_t$ until $R_i-R_t$
+			      is zero. Count the number of steps it takes and infer $j$.
 			\item If $j>k$, substract $2^j$ from the value in $R_i$ and repeat.
 			\item If $j=k$ then the $k$th bit is not set.
 			\item If $j<k$ then the $k$th bit is set.
 		\end{enumerate}
-		Clearly, the worst case is $k=0$. This requires $d$ steps, all of which only involve 
-		$O(d)$ operations which take $O(d)$ time. Therefore bit extraction overall can be done 
+		Clearly, the worst case is $k=0$. This requires $d$ steps, all of which only involve
+		$O(d)$ operations which take $O(d)$ time. Therefore bit extraction overall can be done
 		in polynomial time.
 	\end{proof}
 \end{lemma*}
@@ -205,7 +205,7 @@ arguments further below.
 		$d$ bits. Thus a word $w=w_1\cdots w_k \in\Sigma^*$ may be encoded using $n=kd$ bits in total.
 		In the worst case, $M$ may move
 		every character out of $R_0$ into $R_1$ individually, which takes $k$ steps. Each one of these steps
-		may be solved by bit shifting right $d$ times, bit shifting right $2d$ times ($d$ times on $R_1$ for appending 
+		may be solved by bit shifting right $d$ times, bit shifting right $2d$ times ($d$ times on $R_1$ for appending
 		and $d$ times on a temporary register for the modulo operation) and then a constant number of additions and multiplications.
 		Since all $k$ steps are polynomial in $n$, so is \ref{split} in general.
 
@@ -261,7 +261,7 @@ arguments further below.
 		\end{enumerate}
 		While certainly not the most efficient approach, this is clearly still polynomial in $d$.
 		Finally, we are required to combine all the new clauses into one 3-CNF.\@ Doing this involves
-		shifting left $d/n$ times and a single addition. The runtime of this is polynomial in $d$. 
+		shifting left $d/n$ times and a single addition. The runtime of this is polynomial in $d$.
 		We conclude that the whole procedure only takes polynomial time in general.
 
 		The result is a CNF with exactly three literals per clause, i.e.\ an instance of EXACT-3SAT.\@

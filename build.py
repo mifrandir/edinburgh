@@ -3,7 +3,7 @@ import os
 import sys
 import subprocess
 import time
-from typing import List
+from typing import List, Optional
 
 OUT_DIR = "./out"
 TEX_CMD = [
@@ -13,10 +13,12 @@ TEX_CMD = [
 FORMAT_CMD = ["latexindent", "-w"]
 
 
-def clear_format_backup(tex_file: str) -> subprocess.CompletedProcess[bytes]:
+def clear_format_backup(tex_file: str) -> Optional[subprocess.CompletedProcess[bytes]]:
     tex_dir = os.path.dirname(tex_file)
     tex_file_name = os.path.basename(tex_file)
     backup_file_name = os.path.splitext(tex_file_name)[0] + ".bak0"
+    if not os.path.isfile(os.path.join(tex_dir, backup_file_name)):
+        return None
     cmd = ["rm", backup_file_name]
     p = subprocess.run(cmd,
                        stdout=subprocess.PIPE,
@@ -96,15 +98,15 @@ def compile_pdf(tex_path: str) -> int:
     print(f"Compiling {tex_path}", end='', flush=True)
     tex_path_no_ext, _ = os.path.splitext(tex_path)
     p = clear_format_backup(tex_path)
-    if p.returncode:
+    if p and p.returncode:
         print("FAIL (Clearing backup)", flush=True)
         return 0
     p = format(tex_path)
-    if p.returncode:
+    if p and p.returncode:
         print("FAIL (Formatting)", flush=True)
         return 0
     p = compile_with_recipe(tex_path)
-    if p.returncode:
+    if p and p.returncode:
         print("FAIL (Compilation)", flush=True)
         return 0
     target_file = tex_path_no_ext + ".pdf"
@@ -118,7 +120,7 @@ def compile_pdf(tex_path: str) -> int:
          os.path.join(target_file),
          os.path.join(OUT_DIR, out_name)],
         stdout=subprocess.PIPE)
-    if p.returncode:
+    if p and p.returncode:
         print("FAIL (Copying)", flush=True)
         return 0
     else:

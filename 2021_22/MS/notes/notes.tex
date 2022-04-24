@@ -715,7 +715,7 @@ Let $(X,d)$ be a metric space.
 \end{itemize}
 
 \begin{proposition}[8.3]
-	In a separable metric space, every familty of pairwise disjoint non-empty open 
+	In a separable metric space, every familty of pairwise disjoint non-empty open
 	sets is at most countable.
 \end{proposition}
 
@@ -725,7 +725,7 @@ Let $(X,d)$ be a metric space.
 \end{definition}
 
 \begin{proposition}[8.5]
-	Let $(X,d)$ be a metric space and let $D$ be a countable dense subset. Let $B$ 
+	Let $(X,d)$ be a metric space and let $D$ be a countable dense subset. Let $B$
 	be the collection of open balls centered at elements of $D$ whose radii are positive
 	rationals. Then $B$ is an open base.
 \end{proposition}
@@ -758,7 +758,7 @@ Let $(X,d)$ be a metric space.
 \end{proposition}
 
 \begin{definition}
-	A metric space $(X,d)$ is totally bounded iff for every $\e>0$ there exists a 
+	A metric space $(X,d)$ is totally bounded iff for every $\e>0$ there exists a
 	finite family of open balls of radius $\e$ that covers $X$.
 \end{definition}
 
@@ -771,19 +771,19 @@ Let $(X,d)$ be a metric space.
 \end{proposition}
 
 \begin{definition}
-	Let $(X,d)$ a metric space. An open cover of $X$ is a family $(G_i)_{i\in I}$ such 
+	Let $(X,d)$ a metric space. An open cover of $X$ is a family $(G_i)_{i\in I}$ such
 	that each $G_i$ is open and $X=\bigcup_{i\in I}G_i$. A subcover of $(G_i)_{i\in I}$
 	is a subfamily $(G_i)_{i\in I'}$ where $I'\subseteq I$ that still covers $X$.
 \end{definition}
 
 \begin{proposition}[Lebesgue number of an open cover]
-	Let $(X,d)$ a metric space and $(G_i)_{i\in I}$ an open cover. There exists 
+	Let $(X,d)$ a metric space and $(G_i)_{i\in I}$ an open cover. There exists
 	$\delta>0$ such that for any $\emptyset\subset A\subseteq X$ with $\diam A < \delta$
 	there exists an $i\in I$ such that $A\subseteq G_i$.
 \end{proposition}
 
 \begin{definition}[Finite intersection property]
-	Let $(X,d)$ a metric space. A family $(A_i)_{i\in I}$ has the FIP iff 
+	Let $(X,d)$ a metric space. A family $(A_i)_{i\in I}$ has the FIP iff
 	the intersection of any finite subfamily is non-empty.
 \end{definition}
 
@@ -793,21 +793,21 @@ Let $(X,d)$ be a metric space.
 		\item $X$ is compact.
 		\item Every open cover of $X$ has a finite subcover.
 		\item Every family of closed subsets of $X$ with the FIP has a non-empty intersection.
-	\end{enumerate}	
+	\end{enumerate}
 \end{theorem}
 
 \begin{proposition}[9.22]
-	Let $(X,d)$ a metric space and $f:X\to\R$ a function. 
+	Let $(X,d)$ a metric space and $f:X\to\R$ a function.
 	If $X$ is compact and $f$ is continuous then $f$ is bounded.
 \end{proposition}
 
 \begin{proposition}[9.23]
 	Let $(X,d)$ a metric space and $f:X\to\R$ a function. If $X$ is compact
-	and $f$ is continuous then $f$ attains a maximum and a minimum on $X$.	
+	and $f$ is continuous then $f$ attains a maximum and a minimum on $X$.
 \end{proposition}
 
 \begin{definition}
-	Let $(X,d_X),(Y,d_Y)$ metric spaces. A function $f:X\to Y$ is 
+	Let $(X,d_X),(Y,d_Y)$ metric spaces. A function $f:X\to Y$ is
 	uniformly continuous iff, for every $\e>0$, there exists a $\delta>0$ such that,
 	for all $x,x'\in X$ with $d_X(x,x')<\delta$, we have $d_Y(f(x),f(x'))<\e$.
 \end{definition}
@@ -822,18 +822,18 @@ Let $(X,d)$ be a metric space.
 \subsection{Connected metric spaces}
 
 \begin{definition}
-	A metric space $(X,d)$ is disconnected iff there exist non-empty disjoint open sets 
+	A metric space $(X,d)$ is disconnected iff there exist non-empty disjoint open sets
 	$G_1,G_2$ such that $X=G_1\cup G_2$. Otherwise $X$ is connected.
 \end{definition}
 
 \begin{proposition}[10.4]
 	Let $I\subseteq\R$ an interval. Define $d:I\times I\to\R$ by $\lra{x,y}\mapsto\abs{x-y}$.
-	Then $(I,d)$ is a connected metric space.	
+	Then $(I,d)$ is a connected metric space.
 \end{proposition}
 
 \begin{proposition}[10.5]
 	Let $\emptyset\subset Y\subseteq\R$ and let $d:Y\times Y\to\R$ the standard metric.
-	If $(Y,d)$ is a connected metric space then $Y$ is an interval.	
+	If $(Y,d)$ is a connected metric space then $Y$ is an interval.
 \end{proposition}
 
 \end{document}

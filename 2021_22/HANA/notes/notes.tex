@@ -629,15 +629,15 @@
 	Let $f:\R\to\R$ be Lebesgue integrable on an interval $I$ with $a=\inf I$ and $b=\sup I$.
 	Then $f$ is Lebesgue integrable on $(a,b)$, $(a,b]$, $[a,b)$, and $[a,b]$, and
 	\begin{align*}
-		\int_I f\:d\lambda 
+		\int_I f\:d\lambda
 		= \int_{(a,b)} f\:d\lambda
-		= \int_{(a,b]} f\:d\lambda 
-		= \int_{[a,b)} f\:d\lambda 
-		= \int_{[a,b]} f\:d\lambda. 
+		= \int_{(a,b]} f\:d\lambda
+		= \int_{[a,b)} f\:d\lambda
+		= \int_{[a,b]} f\:d\lambda.
 	\end{align*}
 	We define
 	\begin{align*}
-		\int_a^b f\:d\lambda := \int_If\:d\lambda.	
+		\int_a^b f\:d\lambda := \int_If\:d\lambda.
 	\end{align*}
 \end{corollary}
 
@@ -881,7 +881,7 @@
 			      \int_0^1 e^{2\pi inx}\:d\lambda(x) = \delta_{0,n},
 		      \end{align*}
 		\item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial
-			  then \begin{align*}
+		      then \begin{align*}
 			      c_n = \lra{f,\phi_n}.
 		      \end{align*}
 	\end{enumerate}
@@ -980,7 +980,7 @@
 
 \begin{definition}
 	A sequence of 1-periodic Lebesgue integrable functions $(k_n)_{n\in\N}$ is called \emph{approximation
-	of unity} if for all 1-periodic continuous functions $f$ we have that $f*k_n$ converges
+		of unity} if for all 1-periodic continuous functions $f$ we have that $f*k_n$ converges
 	uniformly to $f$ on $\R$. That is, as $n\to\infty$,
 	\begin{align*}
 		\sup_{x\in\R}\abs{(f*k_n-f)(x)}\to 0.
@@ -993,7 +993,7 @@
 \end{lemma}
 
 \begin{lemma}
-	Let $(k_n)_{n\in\N}$ an approximation of unity and $f:\R\to\C$ continuous and 1-periodic. Then 
+	Let $(k_n)_{n\in\N}$ an approximation of unity and $f:\R\to\C$ continuous and 1-periodic. Then
 	\begin{align*}
 		\lim_{n\to\infty} k_n * f = f.
 	\end{align*}
@@ -1003,10 +1003,10 @@
 	Let $(k_n)_{n\in\N}$ a sequence of Lebesgue integrable 1-periodic functions such that
 	\begin{enumerate}
 		\item $k_n(x)>0$ for all $n\in\N$ and $x\in\R$,
-		\item $\int_{-1/2}^{1/2} k_n\:d\lambda = 1$ for all $n\in\N$, and 
+		\item $\int_{-1/2}^{1/2} k_n\:d\lambda = 1$ for all $n\in\N$, and
 		\item for all $0<\delta\leq 1/2$, \begin{align*}
-			\lim_{n\to\infty}\int_{-\delta}^\delta k_n\:d\lambda = 1.
-		\end{align*}
+			      \lim_{n\to\infty}\int_{-\delta}^\delta k_n\:d\lambda = 1.
+		      \end{align*}
 	\end{enumerate}
 	Then $(k_n)_{n\in\N}$ is an approximation of unity.
 \end{theorem}
@@ -1018,24 +1018,24 @@
 \subsection{Convergence of Fourier series}
 
 \begin{lemma}[Notes 5.5]
-	Let $f:\R\to\C$ be 1-periodic and continuous. Then 
+	Let $f:\R\to\C$ be 1-periodic and continuous. Then
 	\begin{align*}
 		\lim_{N\to\infty} \vabs{S_Nf-f}_2 = 0.
-	\end{align*}	
+	\end{align*}
 \end{lemma}
 
 \begin{theorem}[Notes 5.7]
-	The trigonometric system is complete. In particular, for all 1-periodic $f\in L^2$,	
+	The trigonometric system is complete. In particular, for all 1-periodic $f\in L^2$,
 	\begin{align*}
 		\lim_{N\to\infty}\vabs{S_Nf-f}_2=0.
 	\end{align*}
 \end{theorem}
 
 \begin{corollary}[Parseval's theorem]
-	If $f,g\in L^2$ are 1-periodic then 
+	If $f,g\in L^2$ are 1-periodic then
 	\begin{align*}
 		\lra{f,g} = \sum_{n=-\infty}^\infty \hat f(n)\overline{g(n)}.
-	\end{align*}	
+	\end{align*}
 	In particular,
 	\begin{align*}
 		\lra{f,g}^2 = \sum_{n=-\infty}^\infty \abs{\hat f(n)}^2.
