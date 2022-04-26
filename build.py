@@ -108,6 +108,8 @@ def compile_pdf(tex_path: str) -> int:
 
 
 def find_all_tex(path: str) -> List[str]:
+    if os.path.isfile(path) and is_target(path):
+        return [path]
     targets = []
     for r, _, f in os.walk(path):
         targets.extend(map(lambda x, r=r: os.path.join(r, x), f))
@@ -115,11 +117,13 @@ def find_all_tex(path: str) -> List[str]:
 
 
 def build_default_dir() -> None:
-    build_dir(os.curdir)
+    build_dirs([os.curdir])
 
 
-def build_dir(path: str, num_cores: int = 8) -> None:
-    sources = find_all_tex(path)
+def build_dirs(paths: List[str], num_cores: int = 8) -> None:
+    sources = []
+    for path in paths:
+        sources += find_all_tex(path)
     t = time.time()
     print(f"Found {len(sources)} source files, starting compilation.")
     with multiprocessing.Pool(num_cores) as pool:
@@ -149,11 +153,5 @@ if __name__ == "__main__":
         prep_dirs()
         build_default_dir()
     else:
-        for i, path in enumerate(sys.argv[1:]):
-            prep_dirs()
-            if os.path.isfile(path):
-                compile_pdf(path)
-            elif os.path.isdir(path):
-                build_dir(path)
-            else:
-                print(f"ERROR: Unknown path in argument #{i} ({path})")
+        prep_dirs()
+        build_dirs(sys.argv[1:])
