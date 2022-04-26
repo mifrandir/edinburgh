@@ -108,7 +108,7 @@ def compile_pdf(tex_path: str) -> int:
 
 
 def find_all_tex(path: str) -> List[str]:
-    if os.path.isfile(path) and is_target(path):
+    if os.path.isfile(path):
         return [path]
     targets = []
     for r, _, f in os.walk(path):
