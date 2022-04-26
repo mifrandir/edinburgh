@@ -15,10 +15,10 @@ with $y$ in $R_0$.
 	Let $\hat H:\N\times\N\rightharpoonup\N$ be the partial function given by
 	\begin{align*}
 		\hat H(m,n)=\begin{cases}
-			            0    & \text{if $m$ is not the code of any RM program $P$;}           \\
-			            1    & \text{if $m=\enc P$ for some $P$, and $P$ halts on input $n$;} \\
-			            \bot & \text{otherwise}.
-		            \end{cases}
+			0    & \text{if $m$ is not the code of any RM program $P$;}           \\
+			1    & \text{if $m=\enc P$ for some $P$, and $P$ halts on input $n$;} \\
+			\bot & \text{otherwise}.
+		\end{cases}
 	\end{align*}
 	Then $\hat H$ is computable.
 	\begin{proof}
@@ -59,9 +59,9 @@ with $y$ in $R_0$.
 	The partial function $d:\N\rightharpoonup\N$ given by
 	\begin{align*}
 		d(n)=\begin{cases}
-			     P_n(n)+1 & \text{if $P_n$ returns a result on input $n$;} \\
-			     \bot     & \text{otherwise,}
-		     \end{cases}
+			P_n(n)+1 & \text{if $P_n$ returns a result on input $n$;} \\
+			\bot     & \text{otherwise,}
+		\end{cases}
 	\end{align*}
 	where $(P_k)_{k\in\N}$ is the sequence of all register machines, is
 	computable.
@@ -236,10 +236,10 @@ arguments further below.
 		mentioning that those literals need not be distinct. Therefore we may define a map
 		\begin{align*}
 			f:C_i \mapsto \begin{cases}
-				              l_1\vee l_1\vee l_1 & C_i = l_1 \text{ for some literal $l_1$}                              \\
-				              l_1\vee l_2\vee l_1 & C_i = l_1 \vee l_2 \text{ for some literal $l_1, l_2$}                \\
-				              l_1\vee l_2\vee l_3 & C_i = l_1 \vee l_2 \vee l_3 \text{ for some literals $l_1, l_2, l_3$}
-			              \end{cases}
+				l_1\vee l_1\vee l_1 & C_i = l_1 \text{ for some literal $l_1$}                              \\
+				l_1\vee l_2\vee l_1 & C_i = l_1 \vee l_2 \text{ for some literal $l_1, l_2$}                \\
+				l_1\vee l_2\vee l_3 & C_i = l_1 \vee l_2 \vee l_3 \text{ for some literals $l_1, l_2, l_3$}
+			\end{cases}
 		\end{align*}
 		We observe that if $\phi$ has $n$ clauses and $k$ unique propositional variables, then we may represent
 		it using at most

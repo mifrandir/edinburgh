@@ -145,10 +145,10 @@
 	with Jacobian matrix
 	\begin{align*}
 		J_F = \begin{bmatrix}
-			      \frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n} & \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
-			      \vdots                & \ddots & \vdots                & \vdots                & \ddots & \vdots                \\
-			      \frac{\p f^m}{\p x^1} & \cdots & \frac{\p f^m}{\p x^n} & \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
-		      \end{bmatrix}.
+			\frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n} & \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
+			\vdots                & \ddots & \vdots                & \vdots                & \ddots & \vdots                \\
+			\frac{\p f^m}{\p x^1} & \cdots & \frac{\p f^m}{\p x^n} & \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
+		\end{bmatrix}.
 	\end{align*}
 	If, at some point fixed $p\in D$, we have that the matrix
 	\begin{align*}
@@ -174,10 +174,10 @@
 		      \end{align*}
 		\item for all $q\in E$, we have that the Jacobian matrix is given by \begin{align*}
 			      J_\Phi(q)=-\inv{\begin{bmatrix}
-					                      \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
-					                      \vdots                & \ddots & \vdots                \\
-					                      \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
-				                      \end{bmatrix}}
+					      \frac{\p f^1}{\p y^1} & \cdots & \frac{\p f^1}{\p y^m} \\
+					      \vdots                & \ddots & \vdots                \\
+					      \frac{\p f^m}{\p y^1} & \cdots & \frac{\p f^m}{\p y^m}
+				      \end{bmatrix}}
 			      \begin{bmatrix}
 				      \frac{\p f^1}{\p x^1} & \cdots & \frac{\p f^1}{\p x^n} \\
 				      \vdots                & \ddots & \vdots                \\
@@ -196,11 +196,11 @@
 	$\vec x : (a,b) \to \E^n$,
 	\begin{align*}
 		t \mapsto\vec x(t) = \begin{pmatrix}
-			                     x^1(t) \\
-			                     x^2(t) \\
-			                     \vdots \\
-			                     x^n(t)
-		                     \end{pmatrix}.
+			x^1(t) \\
+			x^2(t) \\
+			\vdots \\
+			x^n(t)
+		\end{pmatrix}.
 	\end{align*}
 \end{definition}
 
@@ -208,11 +208,11 @@
 	The \emph{velocity vector} of the curve $\vec x(t)$ is given by
 	\begin{align*}
 		\vec x'(t) = \begin{pmatrix}
-			             (x^1)'(t) \\
-			             (x^2)'(t) \\
-			             \vdots    \\
-			             (x^n)'(t)
-		             \end{pmatrix}.
+			(x^1)'(t) \\
+			(x^2)'(t) \\
+			\vdots    \\
+			(x^n)'(t)
+		\end{pmatrix}.
 	\end{align*}
 	A curve $\vec x(t)$ is \emph{regular} if its velocity $\vec x'(t)\not=0$
 	for all $t\in(a,b)$. The \emph{tangent line} to a regular curve $\vec x(t)$
@@ -311,10 +311,10 @@
 			\vec B
 		\end{pmatrix}'
 		= v\begin{pmatrix}
-			   0       & \kappa & 0    \\
-			   -\kappa & 0      & \tau \\
-			   0       & -\tau  & 0
-		   \end{pmatrix}
+			0       & \kappa & 0    \\
+			-\kappa & 0      & \tau \\
+			0       & -\tau  & 0
+		\end{pmatrix}
 		\begin{pmatrix}
 			\vec T \\
 			\vec N \\
@@ -514,9 +514,9 @@
 	$\left\lbrace\eval{\frac{\p }{\p x^i}}p\right\rbrace$:
 	\begin{align*}
 		\eval{dx^j}p\left(\eval{\frac{\p }{\p x^k}}p\right)= \begin{cases}
-			                                                     1, & \text{if } j = k  \\
-			                                                     0, & \text{otherwise}.
-		                                                     \end{cases}
+			1, & \text{if } j = k  \\
+			0, & \text{otherwise}.
+		\end{cases}
 	\end{align*}
 	Equivalently, $\eval{dx^i}{p}$ are defined by their action on an arbitrary tangent vector
 	$\vec v = v^i\eval{\frac{\p }{\p x^i}}p$:
@@ -630,18 +630,18 @@
 	by the following bilinear and alternating map,
 	\begin{align*}
 		(\alpha\wedge\beta)(v,w) = \alpha(v)\beta(w) - \alpha(w)\beta(v) = \begin{vmatrix}
-			                                                                   \alpha(v) & \alpha(w) \\
-			                                                                   \beta(v)  & \beta(w)
-		                                                                   \end{vmatrix}.
+			\alpha(v) & \alpha(w) \\
+			\beta(v)  & \beta(w)
+		\end{vmatrix}.
 	\end{align*}
 	More generally, the wedge product of $k$ $1$-forms $\alpha^1,\alpha^2,...,\alpha^k$ can be defined as a
 	map acting on $k$ vectors $v_1,v_2,...,v_k$
 	\begin{align*}
 		(\alpha^1\wedge\cdots\wedge\alpha^k)(v_1,...,v_k) = \begin{vmatrix}
-			                                                    \alpha^1(v_1) & \cdots & \alpha^1(v_k) \\
-			                                                    \vdots        & \ddots & \vdots        \\
-			                                                    \alpha^k(v_1) & \cdots & \aleph^k(v_k)
-		                                                    \end{vmatrix}.
+			\alpha^1(v_1) & \cdots & \alpha^1(v_k) \\
+			\vdots        & \ddots & \vdots        \\
+			\alpha^k(v_1) & \cdots & \aleph^k(v_k)
+		\end{vmatrix}.
 	\end{align*}
 	The resulting map is linear in each vector separately and changes sign if any pair of vectors is exchanged.
 	Hence it defines a $k$-form.
@@ -826,8 +826,8 @@ Let $D\subseteq\R^n$ with coordinates $(u^1,u^2)$.
 	Graphs are always regular, and the unit normal is given by
 	\begin{align*}
 		\vec N = \frac{1}{\sqrt{1 + \left(\frac{\p g}{\p u^1}\right) + \left(\frac{\p y}{\p u^2}\right)}}\begin{pmatrix}
-			                                                                                                 -\frac{\p g}{\p u^1} \\ \frac{-\p g}{\p u^2} \\ 1
-		                                                                                                 \end{pmatrix}.
+			-\frac{\p g}{\p u^1} \\ \frac{-\p g}{\p u^2} \\ 1
+		\end{pmatrix}.
 	\end{align*}
 \end{proposition}
 
@@ -1092,8 +1092,8 @@ local surface.
 	the surface as the graph
 	\begin{align*}
 		\vec x(u,v)=\begin{pmatrix}
-			            u \\ v \\ f(u,v)
-		            \end{pmatrix}
+			u \\ v \\ f(u,v)
+		\end{pmatrix}
 	\end{align*}
 	where at the origin
 	\begin{align*}
@@ -1176,24 +1176,24 @@ local surface.
 	If $\vec v:D\to\E^3$, given by
 	\begin{align*}
 		\vec v(\vec u)=\vec v(u^1,...,u^n)=\begin{pmatrix}
-			                                   v^1(u^1,...,u^n) \\
-			                                   v^2(u^1,...,u^n) \\
-			                                   v^3(u^1,...,u^n)
-		                                   \end{pmatrix}
+			v^1(u^1,...,u^n) \\
+			v^2(u^1,...,u^n) \\
+			v^3(u^1,...,u^n)
+		\end{pmatrix}
 	\end{align*}
 	is an $\E^3$-valued function on $D$, then we write $d\vec v$ for its entry
 	by entry exterior derivative
 	\begin{align*}
 		d\vec v = \begin{pmatrix}
-			          dv^1 \\ dv^2 \\ dv^3
-		          \end{pmatrix}.
+			dv^1 \\ dv^2 \\ dv^3
+		\end{pmatrix}.
 	\end{align*}
 	We refer to an object like $d\vec v$ as a \emph{matrix of $1$-forms on $D$} or as a
 	\emph{$\E^3$-valued $1$-form on $D$}. If $\vec w:D\to\E^3$ is a vector field on $D$, then we write
 	\begin{align*}
 		d\vec v(w) = \begin{pmatrix}
-			             dv^1(\vec w) \\ dv^2(\vec w) \\ dv^3(\vec w)
-		             \end{pmatrix} : D\to\E^3.
+			dv^1(\vec w) \\ dv^2(\vec w) \\ dv^3(\vec w)
+		\end{pmatrix} : D\to\E^3.
 	\end{align*}
 \end{definition}
 
@@ -1226,16 +1226,16 @@ Let $\vec x : D \to \E^3$ be a map and $\vec e_1,\vec e_2,\vec e_3$ a moving fra
 	We denote
 	\begin{align*}
 		\vec w = \begin{pmatrix}
-			         0           & \omega_2^1  & \omega_3^1 \\
-			         -\omega_2^1 & 0           & \omega_3^2 \\
-			         -\omega_3^1 & -\omega_3^2 & 0
-		         \end{pmatrix}
+			0           & \omega_2^1  & \omega_3^1 \\
+			-\omega_2^1 & 0           & \omega_3^2 \\
+			-\omega_3^1 & -\omega_3^2 & 0
+		\end{pmatrix}
 	\end{align*}
 	and
 	\begin{align*}
 		d\vec E = \begin{pmatrix}
-			          d\vec e_1 & d\vec e_2 & d\vec e_3
-		          \end{pmatrix}.
+			d\vec e_1 & d\vec e_2 & d\vec e_3
+		\end{pmatrix}.
 	\end{align*}
 	Then
 	\begin{align*}

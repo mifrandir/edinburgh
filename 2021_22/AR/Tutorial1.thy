@@ -43,7 +43,6 @@ lemma "(~P \<longrightarrow> Q) \<longrightarrow> (~Q \<longrightarrow> P)"
    apply assumption
   by assumption
 
-thm excluded_middle
 lemma "P | ~P"
   apply (rule ccontr)
   apply (drule excluded_middle)

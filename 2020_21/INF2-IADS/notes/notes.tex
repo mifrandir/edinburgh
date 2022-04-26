@@ -78,17 +78,17 @@
 	Assume a recurrence relation $T$ has the form
 	\begin{align*}
 		T(n) = \begin{cases}
-			       \Theta(1)             & \text{if $n\leq n_0$} \\
-			       aT(n/b) + \Theta(n^k) & \text{if $n>n_0$}
-		       \end{cases}.
+			\Theta(1)             & \text{if $n\leq n_0$} \\
+			aT(n/b) + \Theta(n^k) & \text{if $n>n_0$}
+		\end{cases}.
 	\end{align*}
 	Then, with $e=\log_b a$,
 	\begin{align*}
 		T(n) = \begin{cases}
-			       \Theta(n^e)      & \text{if $e>k$} \\
-			       \Theta(n^k\lg n) & \text{if $e=k$} \\
-			       \Theta(n^k)      & \text{if $e<k$}
-		       \end{cases}
+			\Theta(n^e)      & \text{if $e>k$} \\
+			\Theta(n^k\lg n) & \text{if $e=k$} \\
+			\Theta(n^k)      & \text{if $e<k$}
+		\end{cases}
 	\end{align*}
 \end{theorem}
 
@@ -636,9 +636,9 @@ Weaknesses:
 	$A=(a_{ij})_{i,j\in[n]}$ with
 	\begin{align*}
 		a_{ij} = \begin{cases}
-			         1 & \text{if } (v_i,v_j)\in E \\
-			         0 & \text{otherwise}
-		         \end{cases}.
+			1 & \text{if } (v_i,v_j)\in E \\
+			0 & \text{otherwise}
+		\end{cases}.
 	\end{align*}
 \end{definition}
 
@@ -890,9 +890,9 @@ Weaknesses:
 	energy function. Then the \emph{energy} of a seam $s=(s_k)_{k\in\N}$ is defined as
 	\begin{align*}
 		e(s) := \begin{cases}
-			        \sum_{i=1}^m e_A(i,s_i) & \text{if } s \text{ is a vertical seam},   \\
-			        \sum_{j=1}^m e_A(s_j,j) & \text{if } s \text{ is a horizontal seam}.
-		        \end{cases}
+			\sum_{i=1}^m e_A(i,s_i) & \text{if } s \text{ is a vertical seam},   \\
+			\sum_{j=1}^m e_A(s_j,j) & \text{if } s \text{ is a horizontal seam}.
+		\end{cases}
 	\end{align*}
 \end{definition}
 
@@ -928,9 +928,9 @@ Weaknesses:
 	of a vertical seam ending in $\lra{i,j}$ is given by
 	\begin{align*}
 		c_A(i,j) = e_A(i,j) + \begin{cases}
-			                      0         & \text{if }i=1, \\
-			                      m_{i-1,j} & \text{if }i>1
-		                      \end{cases}
+			0         & \text{if }i=1, \\
+			m_{i-1,j} & \text{if }i>1
+		\end{cases}
 	\end{align*}
 	where $m_{i,j}$ is
 	\begin{align*}
@@ -1001,13 +1001,13 @@ Weaknesses:
 	restricted to $V_k$. Then, for $0\leq i,j<n$ and $k\geq 0$, let
 	\begin{align*}
 		d_{ij}^{<k}=\begin{cases}
-			            0                                                     &
-			            i=j,                                                      \\
-			            \min\{d_p:p\in P_k, p\text{ is from $v_i$ to $v_j$}\} &
-			            i\not=j, \text{path from $v_i$ to $v_j$ exists in $P_k$}, \\
-			            \infty                                                &
-			            i\not=j, \text{path from $v_i$ to $v_j$ does not exist in $P_k$}.
-		            \end{cases}
+			0                                                     &
+			i=j,                                                      \\
+			\min\{d_p:p\in P_k, p\text{ is from $v_i$ to $v_j$}\} &
+			i\not=j, \text{path from $v_i$ to $v_j$ exists in $P_k$}, \\
+			\infty                                                &
+			i\not=j, \text{path from $v_i$ to $v_j$ does not exist in $P_k$}.
+		\end{cases}
 	\end{align*}
 	Then we define $D^{<k}=(d_{ij}^{<k})_{0\leq i,j\leq n-1}$. We call $D^{<k}$
 	the matrix of distances via $V_k$-restridcted paths.
@@ -1017,17 +1017,17 @@ Weaknesses:
 	Let $0\leq i,j<n$. If $k>0$, then
 	\begin{align*}
 		D^{<k+1}[i,j]=\begin{cases}
-			              0                                           & \text{if $i=j$},  \\
-			              \min\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\} & \text{otherwise}.
-		              \end{cases}
+			0                                           & \text{if $i=j$},  \\
+			\min\{D^{<k}[i,j],D^{<k}[i,k]+D^{<k}[k,j]\} & \text{otherwise}.
+		\end{cases}
 	\end{align*}
 	Further,
 	\begin{align*}
 		D^{<0}[i,j] = \begin{cases}
-			              0      & \text{if $i=j$},                       \\
-			              w(i,j) & \text{if $i\not=j$, $(i,j)\in E$},     \\
-			              \infty & \text{if $i\not=j$, $(i,j)\not\in E$}.
-		              \end{cases}
+			0      & \text{if $i=j$},                       \\
+			w(i,j) & \text{if $i\not=j$, $(i,j)\in E$},     \\
+			\infty & \text{if $i\not=j$, $(i,j)\not\in E$}.
+		\end{cases}
 	\end{align*}
 	For all $x\in\R$ we define $x+\infty = \infty + x = \infty + \infty = \infty$,
 	$\min\{\infty, \infty\}=\infty$ and $\min\{\infty, x\}=x$.
@@ -1154,11 +1154,11 @@ Weaknesses:
 	and $t_n=(t_k)_{k\leq n}$ is given by
 	\begin{align*}
 		d(s_m,t_n) = \begin{cases}
-			             m                   & \text{if }n=0,        \\
-			             n                   & \text{if }m=0,        \\
-			             d(s_{m-1}, t_{n-1}) & \text{if }s_m=t_n,    \\
-			             1 + h_{m,n}         & \text{if }s_m\not=t_n
-		             \end{cases}
+			m                   & \text{if }n=0,        \\
+			n                   & \text{if }m=0,        \\
+			d(s_{m-1}, t_{n-1}) & \text{if }s_m=t_n,    \\
+			1 + h_{m,n}         & \text{if }s_m\not=t_n
+		\end{cases}
 	\end{align*}
 	where $h$ is given as
 	\begin{align*}
@@ -1383,9 +1383,9 @@ Weaknesses:
 	$A(\mathcal{J})$ satisfying
 	\begin{align*}
 		A(\mathcal{J}) \begin{cases}
-			               \leq \alpha \cdot \textsf{OPT}(\mathcal{J})   & \text{if \textsf{OPT} is a minimisation problem}, \\
-			               \geq 1/\alpha \cdot \textsf{OPT}(\mathcal{J}) & \text{if \textsf{OPT} is a maximisation problem}.
-		               \end{cases}
+			\leq \alpha \cdot \textsf{OPT}(\mathcal{J})   & \text{if \textsf{OPT} is a minimisation problem}, \\
+			\geq 1/\alpha \cdot \textsf{OPT}(\mathcal{J}) & \text{if \textsf{OPT} is a maximisation problem}.
+		\end{cases}
 	\end{align*}
 \end{definition}
 
@@ -1517,9 +1517,9 @@ Weaknesses:
 	an exit. Let $m,n\in\N$. Then the function $h$ given by
 	\begin{align*}
 		h(m,n)=\begin{cases}
-			       0 & \text{if machine $m$ halts on input $n$,} \\
-			       1 & \text{otherwise}
-		       \end{cases}
+			0 & \text{if machine $m$ halts on input $n$,} \\
+			1 & \text{otherwise}
+		\end{cases}
 	\end{align*}
 	is not RM-computable.
 \end{theorem}

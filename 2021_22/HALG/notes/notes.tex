@@ -1381,13 +1381,13 @@
 		size} $r$, by the rule $J(r)_{ij}=\delta_{i+1,j}$. I.e.
 	\begin{align*}
 		J(r) = \begin{pmatrix}
-			       0      & 1      & 0      & \cdots & 0      & 0      \\
-			       0      & 0      & 1      & \cdots & 0      & 0      \\
-			       0      & 0      & 0      & \cdots & 0      & 0      \\
-			       \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
-			       0      & 0      & 0      & \cdots & 0      & 1      \\
-			       0      & 0      & 0      & \cdots & 0      & 0
-		       \end{pmatrix}
+			0      & 1      & 0      & \cdots & 0      & 0      \\
+			0      & 0      & 1      & \cdots & 0      & 0      \\
+			0      & 0      & 0      & \cdots & 0      & 0      \\
+			\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+			0      & 0      & 0      & \cdots & 0      & 1      \\
+			0      & 0      & 0      & \cdots & 0      & 0
+		\end{pmatrix}
 	\end{align*}
 	Given $r\in\N$ and a scalar $\lambda\in F$ define $J(r,\lambda)\in\Mat(r; F)$, called the
 	\emph{Jordan block of size $r$ and eigenvalue $\lambda$}, by the rule
@@ -1397,13 +1397,13 @@
 	i.e.
 	\begin{align*}
 		J(r,\lambda) = \begin{pmatrix}
-			               \lambda & 1       & 0       & \cdots & 0       & 0       \\
-			               0       & \lambda & 1       & \cdots & 0       & 0       \\
-			               0       & 0       & \lambda & \cdots & 0       & 0       \\
-			               \vdots  & \vdots  & \vdots  & \ddots & \vdots  & \vdots  \\
-			               0       & 0       & 0       & \cdots & \lambda & 1       \\
-			               0       & 0       & 0       & \cdots & 0       & \lambda
-		               \end{pmatrix}.
+			\lambda & 1       & 0       & \cdots & 0       & 0       \\
+			0       & \lambda & 1       & \cdots & 0       & 0       \\
+			0       & 0       & \lambda & \cdots & 0       & 0       \\
+			\vdots  & \vdots  & \vdots  & \ddots & \vdots  & \vdots  \\
+			0       & 0       & 0       & \cdots & \lambda & 1       \\
+			0       & 0       & 0       & \cdots & 0       & \lambda
+		\end{pmatrix}.
 	\end{align*}
 	In particular, $J(1)=(0)$, $\lambda I_r=\diag(\lambda, ..., \lambda)$, and $DN=ND$.
 \end{definition}
@@ -1497,10 +1497,10 @@ for distinct $\lambda_1,...,\lambda_s\in F$.
 		      \end{align*}
 		\item Then $B=B_1\cup\cdots\cup B_s$ is a basis of $V$. Further, \begin{align*}
 			      \repr{B}{\phi}{B}=\begin{pmatrix}
-				                        \repr{B_1}{\phi_1}{B_1} & \cdots & 0                       \\
-				                        \vdots                  & \ddots & \vdots                  \\
-				                        0                       & \cdots & \repr{B_s}{\phi_s}{B_s}
-			                        \end{pmatrix}
+				      \repr{B_1}{\phi_1}{B_1} & \cdots & 0                       \\
+				      \vdots                  & \ddots & \vdots                  \\
+				      0                       & \cdots & \repr{B_s}{\phi_s}{B_s}
+			      \end{pmatrix}
 		      \end{align*}
 		      is block diagonal.
 	\end{enumerate}

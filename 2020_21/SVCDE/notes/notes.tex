@@ -536,9 +536,9 @@ Notation for higher derivatives:
 	\begin{align*}
 		D = f_{xx}(a,b)f_{yy}(a,b) -\left(f_{xy}(a,b)\right)^2
 		= \det\begin{bmatrix}
-			      f_{xx}(a,b) & f_{xy}(a,b) \\
-			      f_{xy}(a,b) & f_{yy}(a,b)
-		      \end{bmatrix}
+			f_{xx}(a,b) & f_{xy}(a,b) \\
+			f_{xy}(a,b) & f_{yy}(a,b)
+		\end{bmatrix}
 	\end{align*}
 	\begin{enumerate}
 		\item If $D>0$ and $f_{xx}(a,b)>0$ then $f(a,b)$ is a local minimum.
@@ -681,9 +681,9 @@ Notation for higher derivatives:
 	with domain $R$ per
 	\begin{align*}
 		F(x,y)=\begin{cases}
-			       f(x,y) & \text{if } (x,y)\in D     \\
-			       0      & \text{if } (x,y)\not\in D
-		       \end{cases}
+			f(x,y) & \text{if } (x,y)\in D     \\
+			0      & \text{if } (x,y)\not\in D
+		\end{cases}
 	\end{align*}
 	Thus the double integral of $f(x,y)$ over $D$ is defined as
 	\begin{align*}
@@ -838,9 +838,9 @@ Notation for higher derivatives:
 		=\frac{\partial x}{\partial u}\frac{\partial y}{\partial v}
 		- \frac{\partial x}{\partial v}\frac{\partial y}{\partial u}
 		=\begin{vmatrix}
-			 \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
-			 \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
-		 \end{vmatrix}.
+			\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} \\
+			\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v}
+		\end{vmatrix}.
 	\end{align*}
 	We regard $x$ and $y$ as independent functions of $u$ and $v$ if the Jacobian is nonzero.
 \end{definition}
@@ -866,10 +866,10 @@ Notation for higher derivatives:
 	The Jacobian of this transformation is the $3\times3$ matrix determinant
 	\begin{align*}
 		\frac{\partial(x,y,z)}{\partial(u,v,w)}=\begin{vmatrix}
-			                                        \frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
-			                                        \frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
-			                                        \frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
-		                                        \end{vmatrix}.
+			\frac{\partial x}{\partial u} & \frac{\partial x}{\partial v} & \frac{\partial x}{\partial w} \\
+			\frac{\partial y}{\partial u} & \frac{\partial y}{\partial v} & \frac{\partial y}{\partial w} \\
+			\frac{\partial z}{\partial u} & \frac{\partial z}{\partial v} & \frac{\partial z}{\partial w}
+		\end{vmatrix}.
 	\end{align*}
 \end{definition}
 \begin{theorem}
@@ -1339,10 +1339,10 @@ Notation for higher derivatives:
 	A \textbf{simple} 3-dimensional region $E$ may be specified in three different ways:
 	\begin{align*}
 		E=\begin{cases}
-			  \{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\} \\
-			  \{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\} \\
-			  \{(x,y,z)|(x,z)\in D_{xz}, u_5(x,z)\leq y \leq u_6(x,z)\}
-		  \end{cases}
+			\{(x,y,z)|(x,y)\in D_{xy}, u_1(x,y)\leq z \leq u_2(x,y)\} \\
+			\{(x,y,z)|(y,z)\in D_{yz}, u_3(y,z)\leq x \leq u_4(y,z)\} \\
+			\{(x,y,z)|(x,z)\in D_{xz}, u_5(x,z)\leq y \leq u_6(x,z)\}
+		\end{cases}
 	\end{align*}
 	where $u_{1,2,3,4,5,6}$ are continuous functions and $D_{xy,yz,xz}$ are the projections
 	of $E$ onto the $xy$-,$yz$-,$xz$-planes repsectively.
@@ -1613,9 +1613,9 @@ Notation for higher derivatives:
 	determinant
 	\begin{align*}
 		W(y_1, y_2) = \begin{vmatrix}
-			              y_1  & y_2  \\
-			              y'_1 & y'_2 \\
-		              \end{vmatrix} = y_1y'_2 - y'_1y_2.
+			y_1  & y_2  \\
+			y'_1 & y'_2 \\
+		\end{vmatrix} = y_1y'_2 - y'_1y_2.
 	\end{align*}
 \end{definition}
 \begin{theorem}
