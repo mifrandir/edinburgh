@@ -702,6 +702,37 @@ Let $(X,d)$ be a metric space.
 	isometric to $X$.
 \end{proposition}
 
+\subsection{Contractions}
+
+\begin{definition}[Contraction]
+	Let $(X,d)$ a complete metric space. A function $f:X\to X$ is a contraction iff
+	there exists a constant $0\leq q<1$ such that for all $x,y\in X$,
+	\begin{align}
+		\label{contraction_criterion}
+		d(f(x),f(y))\leq qd(x,y).
+	\end{align}
+\end{definition}
+
+\begin{theorem}[Banch fixed-point theorem]
+	Let $(X,d)$ a complete metric space and $f:X\to X$ a contraction. Then there exists a
+	unique $x\in X$ such that $f(x)=x$.
+	\begin{proof}
+		Sketch:
+		\begin{enumerate}
+			\item Fix $x_0\in X$ and define $x_n:= f^n(x_0)$ for all $n\in\N$.
+			\item Show by induction that \begin{align*}
+				d(x_n,x_0)\leq \frac{1-q^n}{1-q}a.
+			\end{align*}
+			\item Show that $(x_n)_{n\in\N}$ is Cauchy by using, for all $m\geq n$, \begin{align*}
+				d(x_m,x_n)<\frac{q_n}{1-q}a.
+			\end{align*}
+			\item Since $(X,d)$ is complete, there exists $x\in X$ such that $x_n\to x$ as $n\to\infty$.
+			\item Prove that $f(x)=x$ through $d(f(x),x)=0$.
+			\item Prove uniqueness by using $d(x,x')=d(f(x),f(x'))$ for fixed points $x,x'$.
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+
 \section{Separability}
 
 \begin{definition}
