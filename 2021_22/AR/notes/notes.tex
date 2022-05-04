@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \usepackage{enumitem}
+\usepackage{multicol}
 \mkthmstwounified
 
 \title{Automated Reasoning (SEM5)}
@@ -298,13 +299,13 @@
 \subsection{Semantics}
 
 \begin{definition}[Interpretation]
-	An \emph{interpretation} $\mathcal{I}$ consists of a non-empty set $\mathcal{D}$ of concrete values 
+	An \emph{interpretation} $\mathcal{I}$ consists of a non-empty set $\mathcal{D}$ of concrete values
 	called the \emph{domain} together with the following mappings:
 	\begin{itemize}
 		\item 0-ary predicate symbols $P\in\mathcal{P}$ are mapped to $P^\mathcal{I}\in\{\bot, \top\}$,
-		\item $n$-ary predicate symbols $P\in\mathcal{P}$ are mapped to predicates $P^\mathcal{I}\subseteq \mathcal{D}^n$, and 
+		\item $n$-ary predicate symbols $P\in\mathcal{P}$ are mapped to predicates $P^\mathcal{I}\subseteq \mathcal{D}^n$, and
 		\item $n$-ary function symbols $f\in\mathcal{F}$ are mapped to functions $f^\mathcal{I}:\mathcal{D}^n\to\mathcal{D}$.
-	\end{itemize}	
+	\end{itemize}
 \end{definition}
 
 \begin{definition}[Assignment]
@@ -420,6 +421,116 @@
 			      P\vee Q   & \equiv \forall R. (P\rightarrow R)\rightarrow (Q\rightarrow R) \rightarrow R
 		      \end{align*}
 	\end{itemize}
+\end{definition}
+
+\section{Structured Proofs}
+
+Isabelle's procedural proofs are
+\begin{itemize}
+	\item difficult to read,
+	\item hard to maintain, and
+	\item do not scale.
+\end{itemize}
+Yet they remain useful for proof exploration!
+
+\begin{definition}[Lemma]
+	A lemma can be declared as follows:
+	\begin{minted}{isabelle}
+lemma lemma_name:
+  fixes x1 :: t1 and x2 :: b2 and ...
+  assumes a1: P1 and a2: P2 and ... 
+  shows R
+	\end{minted}
+\end{definition}
+
+\begin{definition}
+	The following proof patterns may be used:
+	\begin{center}
+		\begin{tabular}{l | l | l }
+			\textbf{Case split}             &
+			\textbf{Contradiction}          &
+			\textbf{Iff}                      \\
+			\hline
+			\begin{minipage}[t]{0.25\textwidth}
+				\begin{minted}{isabelle}
+have "P \<or> Q"
+then show "R"
+proof
+  assume "P"
+  ...
+  show "R"
+next
+  assume "Q"
+  ... 
+  show "R"
+qed
+				\end{minted}
+			\end{minipage}      &
+			\begin{minipage}[t]{0.25\textwidth}
+				\begin{minted}{isabelle}
+show "P"
+proof (rule ccontr)
+  assume "~P"
+  ...
+  show "False"
+qed
+				\end{minted}
+			\end{minipage}      &
+			\begin{minipage}[t]{0.25\textwidth}
+				\begin{minted}{isabelle}
+show "P <--> Q"
+proof
+  assume "P"
+  ... 
+  show "Q"
+next
+  assume "Q"
+  ... 
+  show "P"
+qed
+					\end{minted}
+			\end{minipage}
+		\end{tabular}
+	\end{center}
+\end{definition}
+
+\begin{definition}
+	To proof existentially or universally quantified statements
+	use the following proof patterns:\par
+	\begin{center}
+		\begin{tabular}{l | l}
+			\textbf{$\forall$ introduction} &
+			\textbf{$\exists$ introduction}   \\
+			\hline
+			\begin{minipage}[t]{0.4\textwidth}
+				\begin{minted}{isabelle}
+show "\<forall> x. P x"
+proof
+  fix x 
+  show "P x" ...
+qed
+				\end{minted}
+			\end{minipage}      &
+			\begin{minipage}[t]{0.4\textwidth}
+				\begin{minted}{isabelle}
+show "\<exists> x. P x"
+proof
+  ...
+  show "P witness" ..
+qed
+				\end{minted}
+			\end{minipage}
+		\end{tabular}
+	\end{center}
+\end{definition}
+
+\begin{definition}
+	To eliminate an extential qunatification use
+	\begin{minted}{isabelle}
+have "\<exists> x. P x"
+then obtain "x" where p: "P x" by blast
+...	
+	\end{minted}
 \end{definition}
 
 \section{Unification}
@@ -698,6 +809,44 @@ $s$ and $t$ are arbitrary terms, standardised apart and $V=V(s)\cup V(t)$.
 	\end{enumerate}
 \end{theorem}
 
+\subsection{The Isabelle simplifier}
+
+\paragraph*{Tactics}
+
+\begin{itemize}
+	\item \texttt{simp} rewrites the first subgoal using the \texttt{simpset},
+	\item \texttt{auto} simplifies all subgoals and applies basic natural deduction steps.
+\end{itemize}
+It is also possible to control the simplification, e.g.
+\begin{itemize}
+	\item \texttt{simp add: ... del: ...} adds and deletes specific rules,
+	\item \texttt{simp (no\_asm)} ignores the assumptions,
+	\item \texttt{simp (no\_asm\_simp)} uses the assumptions but does not simplify them,
+	\item \texttt{simp (no\_asm\_use)} simplifies the assumptions but does not use them.
+\end{itemize}
+
+\paragraph*{More features}
+
+\begin{itemize}
+	\item Conditional rewriting: A rewrite rule
+	      \begin{align*}
+		      [[P_1;...;P_n]]\Longrightarrow s = t
+	      \end{align*}
+	      is applied if
+	      \begin{enumerate}
+		      \item the left-hand side $s$ matches some expression, and
+		      \item Isabelle can recursively prove $P1, ..., P_n$.
+	      \end{enumerate}
+	\item Ordered rewriting: A lexiographical ordering is used to prevent some rewrite loops.
+	\item Case splitting: A rule \begin{align*}
+		      ?P (\text{case $?x$ of True} \Rightarrow ?f_1 | \text{False} \Rightarrow f_2)
+		      = ((?x = \text{True}\longrightarrow ?P?f_1)\wedge (?x = \text{False} \longrightarrow ?P?f_2))
+	      \end{align*}
+	      is applied whenever there is an explicit case-split.
+	\item Definitions: Every definition \texttt{defn} generates an associated
+	      rewrite rule \texttt{defn\_def}.
+\end{itemize}
+
 \section{Inductive Proof}
 
 \begin{definition}
@@ -799,6 +948,11 @@ Automated techniques include
 	\begin{align*}
 		\infer{\hoare{Q[E/V]}{V:=E}{Q}}{}
 	\end{align*}
+	More intuitive statements are wrong, e.g.
+	\begin{itemize}
+		\item $\hoare{Q}{E:=V}{Q[E/V]}$ allows for $\hoare{X=0}{X:=1}{X=0}$;
+		\item $\hoare{Q}{E:=V}{Q[V/E]}$ allows for $\hoare{X=0}{X := 1}{1 = 0}$.
+	\end{itemize}
 \end{definition}
 
 \begin{definition}[Sequencing rule]
@@ -837,6 +991,12 @@ Automated techniques include
 	\begin{align*}
 		\infer{\hoare{P}{\texttt{WHILE $S$ DO $C$ OD}}{P\wedge\neg S}}{\hoare{P\wedge S}{C}{P}}
 	\end{align*}
+	The loop invariant $P$ should
+	\begin{itemize}
+		\item hold at each iteration of the loop,
+		\item ecapsulate the work that has been done and the work that remains, and
+		\item give the desired result when the loop terminates.
+	\end{itemize}
 \end{definition}
 
 \subsection{Meta-theory}
