@@ -1,60 +1,60 @@
-[submodule "2020_21/INF2-CS/cw"]
-	path = 2020_21/INF2-CS/cw
+[submodule "2021/INF2-CS/cw"]
+	path = 2021/INF2-CS/cw
 	url = git@git.ecdf.ed.ac.uk:s1971811/inf2c-cs-20.git
-[submodule "2020_21/INF2C/cw"]
-	path = 2020_21/INF2C/cw
+[submodule "2021/INF2C/cw"]
+	path = 2021/INF2C/cw
 	url = git@git.ecdf.ed.ac.uk:s1971811/inf2c-cs-20.git
-[submodule "2020_21/CNU/tutorial01"]
-	path = 2020_21/CNU/tutorial01
+[submodule "2021/CNU/tutorial01"]
+	path = 2021/CNU/tutorial01
 	url = git@github.com:cnu-2021/cnu-w01-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial02"]
-	path = 2020_21/CNU/tutorial02
+[submodule "2021/CNU/tutorial02"]
+	path = 2021/CNU/tutorial02
 	url = git@github.com:cnu-2021/cnu-w02-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial03"]
-	path = 2020_21/CNU/tutorial03
+[submodule "2021/CNU/tutorial03"]
+	path = 2021/CNU/tutorial03
 	url = git@github.com:cnu-2021/cnu-w03-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial04"]
-	path = 2020_21/CNU/tutorial04
+[submodule "2021/CNU/tutorial04"]
+	path = 2021/CNU/tutorial04
 	url = git@github.com:cnu-2021/cnu-w04-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial05"]
-	path = 2020_21/CNU/tutorial05
+[submodule "2021/CNU/tutorial05"]
+	path = 2021/CNU/tutorial05
 	url = git@github.com:cnu-2021/cnu-w05-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial06"]
-	path = 2020_21/CNU/tutorial06
+[submodule "2021/CNU/tutorial06"]
+	path = 2021/CNU/tutorial06
 	url = git@github.com:cnu-2021/cnu-w06-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial07"]
-	path = 2020_21/CNU/tutorial07
+[submodule "2021/CNU/tutorial07"]
+	path = 2021/CNU/tutorial07
 	url = git@github.com:cnu-2021/cnu-w07-tutorial-MiltFra.git
-[submodule "2020_21/CNU/A1"]
-	path = 2020_21/CNU/A1
+[submodule "2021/CNU/A1"]
+	path = 2021/CNU/A1
 	url = git@github.com:cnu-2021/cnu-A1-MiltFra.git
-[submodule "2020_21/CNU/tutorial08"]
-	path = 2020_21/CNU/tutorial08
+[submodule "2021/CNU/tutorial08"]
+	path = 2021/CNU/tutorial08
 	url = git@github.com:cnu-2021/cnu-w08-tutorial-MiltFra.git
-[submodule "2020_21/CNU/tutorial09"]
-	path = 2020_21/CNU/tutorial09
+[submodule "2021/CNU/tutorial09"]
+	path = 2021/CNU/tutorial09
 	url = git@github.com:cnu-2021/cnu-w09-tutorial-MiltFra.git
-[submodule "2020_21/CNU/A2"]
-	path = 2020_21/CNU/A2
+[submodule "2021/CNU/A2"]
+	path = 2021/CNU/A2
 	url = git@github.com:cnu-2021/cnu-A2-MiltFra.git
-[submodule "2020_21/CNU/tutorial10"]
-	path = 2020_21/CNU/tutorial10
+[submodule "2021/CNU/tutorial10"]
+	path = 2021/CNU/tutorial10
 	url = git@github.com:cnu-2021/cnu-w10-tutorial-MiltFra.git
-[submodule "2021_22/ILP"]
-	path = 2021_22/ILP
+[submodule "2022/ILP"]
+	path = 2022/ILP
 	url = git@github.com:MiltFra/ILP.git
 [submodule "latex-preamble"]
 	path = preamble
 	url = git@github.com:MiltFra/latex-preamble.git
-[submodule "2021_22/CT/cw1"]
-	path = 2021_22/CT/cw1
+[submodule "2022/CT/cw1"]
+	path = 2022/CT/cw1
 	url = git@github.com:compiling-techniques/cw1-parser-MiltFra.git
-[submodule "2020_21/INF2-FDS/cw03"]
-	path = 2020_21/INF2-FDS/cw03
+[submodule "2021/INF2-FDS/cw03"]
+	path = 2021/INF2-FDS/cw03
 	url = git@github.com:Inf2-FDS-2020-2021/final-project-indivisual-s1971811.git
-[submodule "2021_22/CT/cw2"]
-	path = 2021_22/CT/cw2
+[submodule "2022/CT/cw2"]
+	path = 2022/CT/cw2
 	url = git@github.com:compiling-techniques/cw-2-semantic-analysis-MiltFra.git
-[submodule "2021_22/CT/cw3"]
-	path = 2021_22/CT/cw3
+[submodule "2022/CT/cw3"]
+	path = 2022/CT/cw3
 	url = git@github.com:compiling-techniques/cw-3---code-generation-MiltFra.git
