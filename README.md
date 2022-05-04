@@ -42,8 +42,8 @@ Weighted average: 88.64
 Span     | School | Short     | Title                                               | Organiser                          | Mark | Grade | ECTS
 ---------|--------|-----------|-----------------------------------------------------|------------------------------------|------|-------|------
 SEM1     | MATH   | HANA      | Honours Analysis                                    | Martin Dindos                      |      |       | 10
-SEM1     | MATH   | GEO       | Geometry                                            | Johan Martens                      |      |       | 5
-SEM1     | INF    | ILP       | Informatics Large Practical                         | Stephen Gilmore                    |      |       | 10
+SEM1     | MATH   | GEO       | Geometry                                            | Johan Martens                      | 70   | A3    | 5
+SEM1     | INF    | ILP       | Informatics Large Practical                         | Stephen Gilmore                    | 88   | A2    | 10
 SEM1     | INF    | AR        | Automated Reasoning                                 | Jacques Fleuriot                   |      |       | 5
 SEM2     | MATH   | HALG      | Honours Algebra                                     | Harry Braden                       |      |       | 10
 SEM2     | MATH   | INT       | Introduction to Number Theory                       | Agata Smoktunowicz                 |      |       | 5
