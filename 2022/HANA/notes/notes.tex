@@ -318,6 +318,12 @@
 	$f=\sum_{k=1}^\infty f_k$ converges absolutely and uniformly on $E$.
 \end{theorem}
 
+\begin{lemma*}
+	\begin{align*}
+		\sum_{k=1}^\infty \frac{1}{k(k+1)} = \sum_{k=1}^\infty \left(\frac{1}{k+1}-\frac{1}{k}\right)=1.
+	\end{align*}	
+\end{lemma*}
+
 \section{Power series}
 
 \subsection{Introduction}
@@ -340,6 +346,14 @@
 	If $\abs{x-c}<R$, the power series (\ref{ps}) converges absolutely. If
 	$\abs{x-c}>R$, the power series (\ref{ps}) diverges.
 \end{theorem}
+
+\begin{lemma}[Example 2.2]
+	Consider a power series as in (\ref{ps}).
+	\begin{itemize}
+		\item If $\lim_{n\to\infty}\abs{\frac{a_n}{a_{n+1}}}$ exists then it equals $R$.
+		\item If $\lim_{n\to\infty}\abs{a_n}^{-1/n}$ exists then it equals $R$.
+	\end{itemize}
+\end{lemma}
 
 \subsection{Continuity and differentiability of power series}
 
@@ -389,6 +403,12 @@
 	\end{align*}
 \end{definition}
 
+\begin{corollary*}
+	\begin{align*}
+		\lim_{n\to\infty}\left(1+\frac{x}{n}\right)^n = \exp x.
+	\end{align*}	
+\end{corollary*}
+
 \begin{theorem}
 	For all $x,y\in\R$, and $q\in\Q$,
 	\begin{enumerate}
@@ -400,6 +420,14 @@
 		\item $\exp (qx) = (\exp x)^q$.
 	\end{enumerate}
 \end{theorem}
+
+\begin{definition}
+	The trigonometric functions sine and cosine are defined by the power series 
+	\begin{align*}
+		\sin x = \sum_{k=0}^\infty \frac{(-1)^k x^{2k+1}}{(2k+1)!},\hs
+		\cos x = \sum_{k=0}^\infty \frac{(-1)^k x^{2k}}{(2k)!}.
+	\end{align*}
+\end{definition}
 
 \section{Integration}
 
@@ -1031,16 +1059,19 @@
 	\end{align*}
 \end{theorem}
 
-\begin{corollary}[Parseval's theorem]
+\begin{theorem}[Parseval]
 	If $f,g\in L^2$ are 1-periodic then
 	\begin{align*}
 		\lra{f,g} = \sum_{n=-\infty}^\infty \hat f(n)\overline{g(n)}.
 	\end{align*}
-	In particular,
+\end{theorem}
+
+\begin{corollary*}
+	If $f,g\in L^2$ are 1-periodic then
 	\begin{align*}
-		\lra{f,g}^2 = \sum_{n=-\infty}^\infty \abs{\hat f(n)}^2.
+		\vabs{f}_2^2 = \sum_{n=-\infty}^\infty \abs{\hat f(n)}^2.
 	\end{align*}
-\end{corollary}
+\end{corollary*}
 
 \begin{theorem}
 	Let $f$ be a continuous 1-periodic function and let $x\in\R$. If $f$ is differentiable
