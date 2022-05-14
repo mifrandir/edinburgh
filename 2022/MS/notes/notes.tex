@@ -702,36 +702,6 @@ Let $(X,d)$ be a metric space.
 	isometric to $X$.
 \end{proposition}
 
-\subsection{Contractions}
-
-\begin{definition}[Contraction]
-	Let $(X,d)$ a complete metric space. A function $f:X\to X$ is a contraction iff
-	there exists a constant $0\leq q<1$ such that for all $x,y\in X$,
-	\begin{align}
-		\label{contraction_criterion}
-		d(f(x),f(y))\leq qd(x,y).
-	\end{align}
-\end{definition}
-
-\begin{theorem}[Banch fixed-point theorem]
-	Let $(X,d)$ a complete metric space and $f:X\to X$ a contraction. Then there exists a
-	unique $x\in X$ such that $f(x)=x$.
-	\begin{proof}
-		Sketch:
-		\begin{enumerate}
-			\item Fix $x_0\in X$ and define $x_n:= f^n(x_0)$ for all $n\in\N$.
-			\item Show by induction that \begin{align*}
-				d(x_n,x_0)\leq \frac{1-q^n}{1-q}a.
-			\end{align*}
-			\item Show that $(x_n)_{n\in\N}$ is Cauchy by using, for all $m\geq n$, \begin{align*}
-				d(x_m,x_n)<\frac{q_n}{1-q}a.
-			\end{align*}
-			\item Since $(X,d)$ is complete, there exists $x\in X$ such that $x_n\to x$ as $n\to\infty$.
-			\item Prove that $f(x)=x$ through $d(f(x),x)=0$.
-			\item Prove uniqueness by using $d(x,x')=d(f(x),f(x'))$ for fixed points $x,x'$.
-		\end{enumerate}
-	\end{proof}
-\end{theorem}
 
 \section{Separability}
 
@@ -928,6 +898,85 @@ Let $(X,d)$ be a metric space.
 
 \begin{proposition}
 	Every path-connected metric space is connected.
+\end{proposition}
+
+\section{Applications}
+
+\subsection{Lipschitz functions}
+
+\begin{definition}[Lipschitz functions]
+	Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces. A function $f:X\to Y$ is said to
+	be \emph{Lipschitz} iff there exists $L>0$ such that for all $x_1,x_2\in X$,
+	\begin{align*}
+		d_Y(f(x_1),f(x_2))\leq L d_X(x_1,x_2).
+	\end{align*}
+\end{definition}
+
+\begin{proposition}[11.4]
+	Let $f:X\to Y$ a Lipschitz function between metric spaces $(X,d_X)$, $(Y,d_Y)$.
+	There exists a smallest Lipschitz constant $\abs{f}_L$ for $f$ and if $X$ is not a singleton
+	\begin{align*}
+		\abs{f}_L=\sup\left\lbrace\frac{d_Y(f(x_1),f(x_2))}{d_X(x_1,x_2)}:x_1,x_2\in X, x_1\not=x_2\right\rbrace.
+	\end{align*}
+\end{proposition}
+
+\begin{proposition}[11.5]
+	Let $I\subseteq\R$ be a non-empty open interval and let $f:I\to\R$ be differentiable.
+	Then $f$ is Lipschitz iff $f'$ is bounded. Moreover,
+	\begin{align*}
+		\abs{f}_L = \sup\{\abs{f'(x)}:x\in I\}.
+	\end{align*}
+\end{proposition}
+
+\subsection{Contractions}
+
+\begin{definition}[Contraction]
+	Let $(X,d)$ a complete metric space. A function $f:X\to Y$ is a contraction iff
+	it is Lipschitz with $\abs{f}_L<1$.
+\end{definition}
+
+\begin{theorem}[Banach fixed-point]
+	Let $(X,d)$ a complete metric space and $f:X\to X$ a contraction. Then there exists a
+	unique $x\in X$ such that $f(x)=x$.
+	\begin{proof}
+		Sketch:
+		\begin{enumerate}
+			\item Fix $x_0\in X$ and define $x_n:= f^n(x_0)$ for all $n\in\N$.
+			\item Show by induction that \begin{align*}
+				d(x_n,x_0)\leq \frac{1-q^n}{1-q}a.
+			\end{align*}
+			\item Show that $(x_n)_{n\in\N}$ is Cauchy by using, for all $m\geq n$, \begin{align*}
+				d(x_m,x_n)<\frac{q_n}{1-q}a.
+			\end{align*}
+			\item Since $(X,d)$ is complete, there exists $x\in X$ such that $x_n\to x$ as $n\to\infty$.
+			\item Prove that $f(x)=x$ through $d(f(x),x)=0$.
+			\item Prove uniqueness by using $d(x,x')=d(f(x),f(x'))$ for fixed points $x,x'$.
+		\end{enumerate}
+	\end{proof}
+\end{theorem}
+
+\begin{theorem}[Contraction mapping]
+	Let $(X,d)$ a complete metric space and $f:X\to X$ a contraction with unique fixed
+	point $x\in X$. Then for any $x_1\in X$ the sequence $(x_n)_{n\in\N}$ given by 
+	\begin{align*}
+		x_n = f(x_{n-1}) \hs\text{for $x>1$}
+	\end{align*}
+	converges to $x$ as $n\to\infty$.
+\end{theorem}
+
+\subsection{Roots}
+
+\begin{proposition}[Newton's Method]
+	Let $f:\R\to\R$ a twice continuously differentiable function such that $f'(x)\neq 0$
+	for all $x\in\R$. Assume there exists $x\in\R$ such that $f(x)=0$. 
+	\begin{enumerate}
+		\item $x$ is the unique root of $f$.
+  		\item Fix $x_0\in\R$ and define $(x_n)_{n\in\N}$ by \begin{align*}
+			x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \hs\text{for $n>0$}.
+		\end{align*}
+		Then $x_n\to x$ as $n\to\infty$.
+	\end{enumerate}
+
 \end{proposition}
 
 \end{document}
