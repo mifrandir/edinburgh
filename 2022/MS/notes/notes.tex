@@ -93,43 +93,43 @@
 \begin{lemma}
 	Let $p\geq 1$ be a real number.
 	Let the set of all real sequences $(x_n)_{n\in\N}$ such that the series
-	$\sum_{n=1}^\infty \abs{x_n}^p$ converges be denoted by $L^p$.
+	$\sum_{n=1}^\infty \abs{x_n}^p$ converges be denoted by $\ell^p$.
 	We define the following operations:
 	\begin{align}
 		\label{sequence_operations}
-		+:L^1\times L^1\to L^1;(x,y)\mapsto x+y               & =(x_n+y_n)_{n\in\N}=(x_1+y_1,x_2+y_2,...,x_n+y_n,...),                 \\
-		\cdot:\R\times L^1\to L^1;(\lambda,x)\mapsto\lambda x & =(\lambda x_n)_{n\in\N}=(\lambda x_1,\lambda x_2,...,\lambda x_n,...).
+		+:\ell^1\times \ell^1\to \ell^1;(x,y)\mapsto x+y            & =(x_n+y_n)_{n\in\N}=(x_1+y_1,x_2+y_2,...,x_n+y_n,...),                 \\
+		\cdot:\R\times \ell^1\to \ell^1;(\lambda,x)\mapsto\lambda x & =(\lambda x_n)_{n\in\N}=(\lambda x_1,\lambda x_2,...,\lambda x_n,...).
 	\end{align}
-	Then $(L^p,+,\cdot)$ is a vector space.
-	We define $\vabs{-}_p:L^p\to\R$ by
+	Then $(\ell^p,+,\cdot)$ is a vector space.
+	We define $\vabs{-}_p:\ell^p\to\R$ by
 	\begin{align*}
 		\vabs x_p = \left(\sum_{n=1}^\infty \abs{x_n}^p\right)^{1/p}.
 	\end{align*}
-	Then $(L^p, \vabs{-}_p)$ is a normed linear space.
-	Further, we define $d_p:L^p\times L^p\to\R$ by
+	Then $(\ell^p, \vabs{-}_p)$ is a normed linear space.
+	Further, we define $d_p:\ell^p\times \ell^p\to\R$ by
 	\begin{align*}
 		d_p(x,y)=\vabs{x-y}_p=\left(\sum_{n=1}^\infty\abs{x_n-y_n}^p\right)^{1/p}.
 	\end{align*}
-	Then $(L^p,d_p)$ is a metric space.
+	Then $(\ell^p,d_p)$ is a metric space.
 \end{lemma}
 
 \begin{lemma}
-	Let the set of all bounded real sequences be denoted by $L^\infty$. Then, together with
-	the usual operations defined in (\ref{sequence_operations}), $L^\infty$ is a vector space.
-	We define $\vabs{-}_\infty:L^\infty\to\R$ by
+	Let the set of all bounded real sequences be denoted by $\ell^\infty$. Then, together with
+	the usual operations defined in (\ref{sequence_operations}), $\ell^\infty$ is a vector space.
+	We define $\vabs{-}_\infty:\ell^\infty\to\R$ by
 	\begin{align*}
 		\vabs x_\infty = \sup\{\abs{x_n}:n\in\N\}.
 	\end{align*}
-	Then $(L^\infty,\vabs{-}_\infty)$ is a normed linear space.
-	Further, let $d_\infty:L^\infty\times L^\infty\to\R$ is given by
+	Then $(\ell^\infty,\vabs{-}_\infty)$ is a normed linear space.
+	Further, let $d_\infty:\ell^\infty\times \ell^\infty\to\R$ is given by
 	\begin{align*}
 		d_\infty(x,y)=\vabs{x-y}_\infty = \sup\{\abs{x_1-y_1,x_2-y_2,...}\}.
 	\end{align*}
-	Then $(L^\infty, d_\infty)$ is a metric space.
+	Then $(\ell^\infty, d_\infty)$ is a metric space.
 \end{lemma}
 
 \begin{lemma}[Minkowski's inequality]
-	Let $p\geq 1$ be a real number. Let $x,y\in L^p$. Then
+	Let $p\geq 1$ be a real number. Let $x,y\in \ell^p$. Then
 	\begin{align*}
 		\left(\sum_{i=1}^\infty \abs{x_i+y_i}^p\right)^{1/p}
 		\leq \left(\sum_{i=1}^\infty \abs{x_i}^p\right)^{1/p}
@@ -138,7 +138,7 @@
 \end{lemma}
 
 \begin{lemma}[H\"older's inequality]
-	Let $p,q\geq 1$ be real numbers with $1/p+1/q=1$. Let $x\in L^p$ and $y\in L^q$. Then
+	Let $p,q\geq 1$ be real numbers with $1/p+1/q=1$. Let $x\in \ell^p$ and $y\in \ell^q$. Then
 	\begin{align*}
 		\sum_{n=1}^\infty \abs{x_ny_n}\leq
 		\left(\sum_{n=1}^\infty\abs{x_n}^p\right)^{1/p}
@@ -643,7 +643,7 @@ Let $(X,d)$ be a metric space.
 
 \begin{proposition}[7.7]
 	Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and let $C(X,Y)$ denote the set of all
-	bounded continuous functions from $X$ to $X$. We define $D:C(X,Y)\times C(X,Y)\to\R$
+	bounded continuous functions from $X$ to $Y$. We define $D:C(X,Y)\times C(X,Y)\to\R$
 	by
 	\begin{align*}
 		D(f,g)=\sup\{d_Y(f(x),g(x)):x\in X\}.
@@ -652,7 +652,7 @@ Let $(X,d)$ be a metric space.
 \end{proposition}
 
 \begin{proposition}[7.8]
-	The metric space $L^2$ is complete.
+	The metric space $\ell^2$ is complete.
 \end{proposition}
 
 \begin{proposition}[7.10]
@@ -711,8 +711,8 @@ Let $(X,d)$ be a metric space.
 \begin{itemize}
 	\item $\R$ with the standard metric is separable due to $\Q$;
 	\item $\R^n$ with the Euclidean metric is separable due to $\Q^n$;
-	\item $L^2$ is separable due to the set of all rational sequences that are eventually zero;
-	\item $L^\infty$ is not separable.
+	\item $\ell^2$ is separable due to the set of all rational sequences that are eventually zero;
+	\item $\ell^\infty$ is not separable.
 \end{itemize}
 
 \begin{proposition}[8.3]
@@ -751,7 +751,7 @@ Let $(X,d)$ be a metric space.
 	\item Every closed and bounded interval on the real line is compact;
 	\item not every closed and bounded subset of a metric space is compact in general;
 	\item the closed unit ball in $(R^n,d_2)$ is a compact subset;
-	\item the closed unit ball in $L^2$ is not a compact subset.
+	\item the closed unit ball in $\ell^2$ is not a compact subset.
 \end{itemize}
 
 \begin{proposition}[9.7, 9.8]
@@ -943,11 +943,11 @@ Let $(X,d)$ be a metric space.
 		\begin{enumerate}
 			\item Fix $x_0\in X$ and define $x_n:= f^n(x_0)$ for all $n\in\N$.
 			\item Show by induction that \begin{align*}
-				d(x_n,x_0)\leq \frac{1-q^n}{1-q}a.
-			\end{align*}
+				      d(x_n,x_0)\leq \frac{1-q^n}{1-q}a.
+			      \end{align*}
 			\item Show that $(x_n)_{n\in\N}$ is Cauchy by using, for all $m\geq n$, \begin{align*}
-				d(x_m,x_n)<\frac{q_n}{1-q}a.
-			\end{align*}
+				      d(x_m,x_n)<\frac{q_n}{1-q}a.
+			      \end{align*}
 			\item Since $(X,d)$ is complete, there exists $x\in X$ such that $x_n\to x$ as $n\to\infty$.
 			\item Prove that $f(x)=x$ through $d(f(x),x)=0$.
 			\item Prove uniqueness by using $d(x,x')=d(f(x),f(x'))$ for fixed points $x,x'$.
@@ -957,26 +957,43 @@ Let $(X,d)$ be a metric space.
 
 \begin{theorem}[Contraction mapping]
 	Let $(X,d)$ a complete metric space and $f:X\to X$ a contraction with unique fixed
-	point $x\in X$. Then for any $x_1\in X$ the sequence $(x_n)_{n\in\N}$ given by 
+	point $x\in X$. Then for any $x_1\in X$ the sequence $(x_n)_{n\in\N}$ given by
 	\begin{align*}
 		x_n = f(x_{n-1}) \hs\text{for $x>1$}
 	\end{align*}
 	converges to $x$ as $n\to\infty$.
 \end{theorem}
 
-\subsection{Roots}
+\subsection{Newton's method}
 
-\begin{proposition}[Newton's Method]
+\begin{proposition}[Newton]
 	Let $f:\R\to\R$ a twice continuously differentiable function such that $f'(x)\neq 0$
-	for all $x\in\R$. Assume there exists $x\in\R$ such that $f(x)=0$. 
+	for all $x\in\R$. Assume there exists $x\in\R$ such that $f(x)=0$.
 	\begin{enumerate}
 		\item $x$ is the unique root of $f$.
-  		\item Fix $x_0\in\R$ and define $(x_n)_{n\in\N}$ by \begin{align*}
-			x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \hs\text{for $n>0$}.
-		\end{align*}
-		Then $x_n\to x$ as $n\to\infty$.
+		\item Fix $x_0\in\R$ and define $(x_n)_{n\in\N}$ by \begin{align*}
+			      x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} \hs\text{for $n>0$}.
+		      \end{align*}
+		      Then $x_n\to x$ as $n\to\infty$.
 	\end{enumerate}
 
 \end{proposition}
+
+\subsection{Differential equations}
+
+\begin{theorem}[Picard]
+	Let $f:\R\times\R\to\R$ a bounded continuous function and assume that there
+	exists $L>0$ such that, for all $x,y_1,y_2\in\R$,
+	\begin{align*}
+		d(f(x,y_1),f(x,y_2)) \leq L|y_1-y_2|.
+	\end{align*}
+	Let $(x_0,y_0)\in\R\times\R$. Then there exists $\delta>0$ and a
+	unique differentiable function $g:(x_0-\delta,x_0+\delta)\to\R$
+	such that
+	\begin{align*}
+		g'(x)  & = f(x,g(x))\hs\text{for }x\in(x_0-\delta,x_0+\delta), \\
+		g(x_0) & = y_0.
+	\end{align*}
+\end{theorem}
 
 \end{document}
