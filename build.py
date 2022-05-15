@@ -20,7 +20,7 @@ FORMAT_CMD = ["latexindent", "-w"]
 
 def execute(cmd: List[str], cwd: str, timeout=5) -> subprocess.CompletedProcess[bytes]:
     p = subprocess.run(
-        cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=cwd, timeout=5
+        cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=cwd, timeout=timeout
     )
     if p.returncode:
         out = [
