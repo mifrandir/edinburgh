@@ -14,7 +14,7 @@
 \begin{definition}[Ring]
 	A \emph{ring} $(R,+,\cdot)$ is a set $R$ equipped with two binary operations
 	$+,\cdot:R\times R\to R$ such that $(R,+)$ is an abelian group, $(R,\cdot)$
-	is a monoid and the following equalities hold for all $a,b,c\in R$:
+	is a semigroup and the following equalities hold for all $a,b,c\in R$:
 	\begin{align*}
 		a       \cdot (b + c)   = a \cdot b + a \cdot c, \\
 		(a+b)   \cdot c         = a \cdot c + b \cdot c.
@@ -22,13 +22,11 @@
 \end{definition}
 
 \begin{definition}[Commutative ring]
-	A ring $(R,+,\cdot)$ where for all $a,b,c\in R$, $a\cdot(b\cdot c) = (a\cdot b)\cdot c$
-	is called a \emph{commutative ring}.
+	A ring $(R,+,\cdot)$ where $(R,+)$ is an abelian group.
 \end{definition}
 
 \begin{definition}[Unital ring]
-	A ring $(R,+,\cdot)$ where there exists an element $1\in R$ such that
-	for all $a\in R$, $1\cdot a = a \cdot 1 = a$ is called a \emph{unital ring}.
+	A ring $(R,+,\cdot)$ where $(R,\cdot)$ is a monoid.
 \end{definition}
 
 \begin{definition}[Commutative ring with identity]
@@ -42,7 +40,7 @@
 	\begin{align*}
 		\alpha(x)=\sum_{i=0}^\infty a_ix^i
 	\end{align*}
-	where $a_i\in R$ and $a_i=0$ almost everywhere.
+	where $a_i\in R$ and $a_i\neq 0$ for finitely many $i\in\Z_{\geq 0}$.
 \end{definition}
 
 \begin{definition}
@@ -65,19 +63,19 @@
 \subsection{Pythagorean triples}
 
 \begin{definition}
-	Three natural numbers $(a,b,c)$ are called a \emph{Pythagorean triple} if
+	A \emph{Pythagorean triple} is $(a,b,c)\in\Z^3$ such that
 	\begin{align*}
 		a^2 + b^2 = c^2.
 	\end{align*}
 \end{definition}
 
 \begin{lemma}[Lecture 1]
-	If $(a,b,c)$ is a Pythagorean triple and $d$ is any positive integer then
+	If $(a,b,c)$ is a Pythagorean triple and $d\in\Z_{>0}$ then
 	so is $(da,db,dc)$.
 \end{lemma}
 
 \begin{definition}
-	A Pythagorean triple $(a,b,c)$ is called \emph{primitive} if $a,b,c$ have no common factor.
+	A Pythagorean triple $(a,b,c)$ is \emph{primitive} iff $a,b,c$ have no common factor.
 \end{definition}
 
 \begin{theorem}[Lecture 1]
@@ -91,7 +89,7 @@
 \subsection{Division and remainders}
 
 \begin{theorem}[Division algorithm; Lecture 2]
-	Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $q,r\in\Z$ such that
+	Let $a,b\in\Z$ with $b>0$. Then there exists a unique pair $(q,r)\in\Z^2$ such that
 	\begin{align*}
 		a = qb + r
 	\end{align*}
@@ -99,7 +97,7 @@
 \end{theorem}
 
 \begin{definition}
-	Let $a,b\in\Z$. We say that \emph{$a$ divides $b$}, written $a|b$, if there exists $c\in\Z$
+	Let $a,b\in\Z$. Then \emph{$a$ divides $b$}, written $a|b$, iff there exists $c\in\Z$
 	such that $b=ac$.
 \end{definition}
 
@@ -382,7 +380,7 @@
 \end{theorem}
 
 \begin{definition}
-	Let $G$ be a group. An element $g\in G$ generates $G$ if
+	Let $G$ be a group. An element $g\in G$ generates $G$ iff
 	\begin{align*}
 		G = \{g^k : k \in \N\}.
 	\end{align*}
@@ -431,18 +429,18 @@
 \subsection{The Legendre symbol}
 
 \begin{definition}
-	Let $p>0$ prime and let $a,b\in\Z$ coprime to $p$.
+	Let $a,p\in\Z$ with $p$ prime and $a$ coprime to $p$.
 	Then the \emph{Legendre symbol} of $a$ modulo $p$, denoted $(a/p)$, is given by
 	\begin{align*}
 		\left(\frac{a}{p}\right)=\begin{cases}
-			1  & \text{if }a\equiv r^2\mod p\text{ for some $r\in\Z$},    \\
-			-1 & \text{if }a\not\equiv r^2\mod p\text{ for all $r\in\Z$}.
-		\end{cases}
+			                         1  & \text{if }a\equiv r^2\mod p\text{ for some $r\in\Z$},    \\
+			                         -1 & \text{if }a\not\equiv r^2\mod p\text{ for all $r\in\Z$}.
+		                         \end{cases}
 	\end{align*}
 \end{definition}
 
 \begin{theorem}[Lecture 11]
-	Let $p>0$ prime and $a\in\Z$ coprime to $p$. Then the following hold
+	Let $p,q\in\Z$ prime and $a\in\Z$ coprime to $p$. Then the following hold
 	\begin{enumerate}
 		\item If $p>2$ then \begin{align*}
 			      \left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}} \mod p.
@@ -453,7 +451,7 @@
 		\item If $a\equiv b$ then \begin{align*}
 			      \left(\frac{a}{p}\right)\equiv\left(\frac{b}{p}\right).
 		      \end{align*}
-		\item If $p,q>2$, $p\not=q$, and either $p\equiv 1\mod 4$ or $q\equiv 1\mod 4$ then \begin{align*}
+		\item If $p,q>2$, $p\not=q$, and $p\equiv 1\mod 4$ or $q\equiv 1\mod 4$ then \begin{align*}
 			      \left(\frac{p}{q}\right)=\left(\frac{q}{p}\right).
 		      \end{align*}
 		\item If $p,q>2$, $p\not=q$, and $p,q\equiv 3\mod 4$ then \begin{align*}
@@ -475,7 +473,8 @@
 \end{lemma}
 
 \begin{definition}
-	Let $\alpha(x)$ and $\gamma(x)$ be polynomials in $x$ over $R$ such that
+	Let $\alpha(x),\gamma(x)\in R[x]$ such that, for some
+	$a_0,...,c_0,...\in R$,
 	\begin{align*}
 		\alpha(x)=\sum_{i=0}^\infty a_ix^i,\hs
 		\gamma(x)=\sum_{i=0}^\infty c_ix^i.
@@ -499,7 +498,7 @@
 \subsection{Units, primes and irreducibles}
 
 \begin{definition}
-	A Gaussian integer $z=\Z[i]$ is a unit if there exists $z'\in\Z[i]$ such that
+	A Gaussian integer $z=\Z[i]$ is a unit iff there exists $z'\in\Z[i]$ such that
 	$zz'=1$.
 \end{definition}
 
@@ -508,17 +507,17 @@
 \end{lemma}
 
 \begin{definition}
-	Let $z,z'$ be Gaussian integers with $z\not=0$. We say $z$ divides $z'$ if $z'=zw$ for
+	Let $z,z'$ be Gaussian integers with $z\not=0$. We say $z$ divides $z'$ iff $z'=zw$ for
 	some $w\in\Z[i]$.
 \end{definition}
 
 \begin{definition}[Irreducibles]
-	Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is \emph{irreducible}
-	if whenever $z=uv$ then either $u$ or $v$ is a unit.
+	Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. Then $z$ is \emph{irreducible}
+	iff whenever $z=uv$ then either $u$ or $v$ is a unit.
 \end{definition}
 
 \begin{definition}[Gaussian primes]
-	Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. We say that $z$ is \emph{prime} if
+	Let $z=a+bi\in\Z[i]$ such that $z$ is neither zero nor a unit. Then $z$ is \emph{prime} iff
 	whenever $z|uv$ for $u,v\in\Z[i]$ it follows that either $z|u$ or $z|v$.
 \end{definition}
 
@@ -561,7 +560,7 @@
 \end{theorem}
 
 \begin{lemma}[Lectures 15-16]
-	Let $p\in\Z$ be prime. Then $p=a^2+b^2$ for some $a,b\in\Z$ iff $p$ is reducible
+	Let $p\in\Z$ be prime. Then $p=a^2+b^2$ for non-zero $a,b\in\Z$ iff $p$ is reducible
 	as a Gaussian integer.
 \end{lemma}
 
@@ -573,7 +572,7 @@
 \end{definition}
 
 \begin{definition}[Cyclic code; Lecture 9]
-	A linear code $C$ is called cyclic if $c_1\cdots c_n\in C$ implies $c_nc_1\cdots c_{n-1}\in C$.
+	A linear code $C$ is cyclic iff $c_1\cdots c_n\in C$ implies $c_nc_1\cdots c_{n-1}\in C$.
 \end{definition}
 
 \begin{definition}[Hamming metric; Lecture 10]
