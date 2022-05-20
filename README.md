@@ -49,7 +49,7 @@ SEM2     | MATH   | HALG      | Honours Algebra                                 
 SEM2     | MATH   | INT       | Introduction to Number Theory                       | Agata Smoktunowicz                 |      |       | 5
 SEM2     | MATH   | MS        | Metric Spaces                                       | Nikolaos Bournaveas                |      |       | 5
 SEM2     | INF    | ITCS      | Introduction to Theoretical Computer Science        | Julian Bradfield                   |      |       | 5
-SEM2     | INF    | CT        | Compiling Techniques                                | Tobias Grosser                     |      |       | 10
+SEM2     | INF    | CT        | Compiling Techniques                                | Tobias Grosser                     | 77   | 83    | 10
 
 Total credits sought: 120 + 10
 
