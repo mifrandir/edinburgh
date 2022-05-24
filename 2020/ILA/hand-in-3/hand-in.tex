@@ -29,9 +29,9 @@ Using those and appending $x_3=s$ we get the following solution:
 To see the effect of those row operations, let's define a matrix $A$ with two rows:
 \begin{align}
 	A = \begin{bmatrix}
-		\vec a \\
-		\vec b
-	\end{bmatrix}
+		    \vec a \\
+		    \vec b
+	    \end{bmatrix}
 \end{align}
 Here $\vec a$ and $\vec b$ are row vectors of arbitrary size with arbitrary values.
 (They might even be in one-dimensional, i.e. scalars.) Note as well, that the given operations do not influence any other row. Therefore we don't need to consider bigger matrices.\\
@@ -40,27 +40,27 @@ If we write this transformation matrix into an equation, we can apply the given 
 	\begin{bmatrix}
 		\vec a \\
 		\vec b
-	\end{bmatrix} \vec x                & = \vec d    \\
+	\end{bmatrix} \vec x           & = \vec d      \\
 	\Leftrightarrow\begin{bmatrix}
-		\vec a \\
-		\vec a + \vec b
-	\end{bmatrix} \vec x & = \vec d
-	                                                & (R_2 + R_1) \\
+		               \vec a \\
+		               \vec a + \vec b
+	               \end{bmatrix} \vec x & = \vec d
+	                               & (R_2 + R_1)   \\
 	\Leftrightarrow\begin{bmatrix}
-		-\vec b \\
-		\vec a + \vec b
-	\end{bmatrix} \vec x & = \vec d
-	                                                & (R_1 - R_2) \\
+		               -\vec b \\
+		               \vec a + \vec b
+	               \end{bmatrix} \vec x & = \vec d
+	                               & (R_1 - R_2)   \\
 	\Leftrightarrow\begin{bmatrix}
-		-\vec b \\
-		\vec a
-	\end{bmatrix} \vec x & = \vec d
-	                                                & (R_2 + R_1) \\
+		               -\vec b \\
+		               \vec a
+	               \end{bmatrix} \vec x & = \vec d
+	                               & (R_2 + R_1)   \\
 	\Leftrightarrow\begin{bmatrix}
-		\vec b \\
-		\vec a
-	\end{bmatrix} \vec x & = \vec d
-	                                                & (-R_1)
+		               \vec b \\
+		               \vec a
+	               \end{bmatrix} \vec x & = \vec d
+	                               & (-R_1)
 \end{align}
 The net effect is obvious: the first two rows of the matrix are swapped.
 This is therefore an important sequence of operations because it shows, that moving rows is possible without any side effects, which is necessary for finding the REF and RREF.

@@ -44,8 +44,8 @@ We get
 Therefore
 \begin{align*}
 	[\vec w]_\mathcal{B} = \begin{bmatrix}
-		7 \\ -4
-	\end{bmatrix}.
+		                       7 \\ -4
+	                       \end{bmatrix}.
 \end{align*}
 This means that a) $\vec w$ is in $span(\mathcal{B})$ because it is a linear combination of of the vectors in $\mathcal{B}$ and b) that the coordinate vector that presents $\vec w$ in terms of the vectors in $\mathcal{B}$, $[\vec w]_\mathcal{B}$, is the solution of the linear system.
 \section*{Q62}
@@ -58,17 +58,17 @@ To show that $P \Leftrightarrow Q$, we need to show that $P$ implies $Q$ and vic
 Let's look at $Q\Rightarrow P$: If $A=\vec u \otimes \vec v$ for some vectors $\vec u$ and $\vec v$, we know that
 \begin{align*}
 	A = \vec u \otimes \vec v = \begin{bmatrix}
-		u_1v_1 & u_1v_2 & \cdots & u_1v_n \\
-		u_2v_1 & u_2v_2 & \cdots & u_2v_n \\
-		\vdots & \vdots & \ddots & \vdots \\
-		u_mv_1 & u_mv_2 & \cdots & u_mv_n
-	\end{bmatrix}.
+		                            u_1v_1 & u_1v_2 & \cdots & u_1v_n \\
+		                            u_2v_1 & u_2v_2 & \cdots & u_2v_n \\
+		                            \vdots & \vdots & \ddots & \vdots \\
+		                            u_mv_1 & u_mv_2 & \cdots & u_mv_n
+	                            \end{bmatrix}.
 \end{align*}
 Therefore we can write $A$ in terms of its column vectors:
 \begin{align*}
 	A = \begin{bmatrix}
-		v_1\vec u & v_2 \vec u & \cdots & v_n\vec u
-	\end{bmatrix}.
+		    v_1\vec u & v_2 \vec u & \cdots & v_n\vec u
+	    \end{bmatrix}.
 \end{align*}
 Since all of the column vectors are a multiple of $\vec u$, we know that $col(A)=span(\vec u)$.
 Since $rank(A)=dim(col(A))$ in general, $rank(A)=1$ in this case.
@@ -76,18 +76,18 @@ Therefore $Q\Rightarrow P$.\\
 We can apply the same procedure to $P\Rightarrow Q$: Because of $P$ we know that $rank(A)=dim(col(A))=1$ and may thus choose to write $A$ in terms of it's collinear column vectors:
 \begin{align*}
 	A = \begin{bmatrix}
-		v_1\vec u & v_2 \vec u & \cdots & v_n\vec u
-	\end{bmatrix}.
+		    v_1\vec u & v_2 \vec u & \cdots & v_n\vec u
+	    \end{bmatrix}.
 \end{align*}
 As you can see, we have conveniently named the common factor in the columns $\vec u$ and the scalars $v_i$.
 This obviously means we can write $A$ as
 \begin{align*}
 	A = \begin{bmatrix}
-		u_1v_1 & u_1v_2 & \cdots & u_1v_n \\
-		u_2v_1 & u_2v_2 & \cdots & u_2v_n \\
-		\vdots & \vdots & \ddots & \vdots \\
-		u_mv_1 & u_mv_2 & \cdots & u_mv_n
-	\end{bmatrix} = \vec u \otimes \vec v.
+		    u_1v_1 & u_1v_2 & \cdots & u_1v_n \\
+		    u_2v_1 & u_2v_2 & \cdots & u_2v_n \\
+		    \vdots & \vdots & \ddots & \vdots \\
+		    u_mv_1 & u_mv_2 & \cdots & u_mv_n
+	    \end{bmatrix} = \vec u \otimes \vec v.
 \end{align*}
 Since $P\Rightarrow Q$ and $Q\Rightarrow P$, $P\Leftrightarrow Q$. $\square$
 \end{document}

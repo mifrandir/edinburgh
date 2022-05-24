@@ -803,7 +803,7 @@
 \begin{definition}
 	For two functions $f,g\in L^2([a,b])$ we define the \emph{inner product} by
 	\begin{align*}
-		\lra{f,g} := \int_a^b f(x)\overline{g(x)}\:d\lambda(x).
+		\angles{f,g} := \int_a^b f(x)\overline{g(x)}\:d\lambda(x).
 	\end{align*}
 \end{definition}
 
@@ -811,7 +811,7 @@
 	Let $f,g\in L^2([a,b])$. Then the function $x\mapsto f(x)\overline{g(x)}$ is Lebesgue
 	integrable and we have
 	\begin{align*}
-		\abs{\lra{f,g}}\leq \vabs f_2\vabs g_2.
+		\abs{\angles{f,g}}\leq \vabs f_2\vabs g_2.
 	\end{align*}
 \end{theorem}
 
@@ -830,7 +830,7 @@
 	A countable family $(\phi_j)_{j\in J}$ of functions $\phi_j\in L^2([a,b])$ is
 	called an \emph{orthonormal system} iff, for all $j,j'\in J$,
 	\begin{align*}
-		\lra{\phi_j, \phi_{j'}} = \delta_{jj'}.
+		\angles{\phi_j, \phi_{j'}} = \delta_{jj'}.
 	\end{align*}
 	Without loss of generality, we assume $J=\N_{\leq N}$ for some $N\in\N\cup\{\infty\}$.
 \end{definition}
@@ -850,7 +850,7 @@
 	Let $(\phi_n)$ be an orthonormal system on $[a,b]$ and $f\in L^2$. Consider
 	\begin{align}
 		\label{sn}
-		s_N(x) := \sum_{n=1}^N \lra{f,\phi_n}\phi_n(x).
+		s_N(x) := \sum_{n=1}^N \angles{f,\phi_n}\phi_n(x).
 	\end{align}
 	Denote the linear span of the functions $(\phi_n)_{n\leq N}$ by $X_N$. Then
 	\begin{align*}
@@ -862,14 +862,14 @@
 \begin{theorem}[Bessel's inequality]
 	If $(\phi_n)_{j\in J}$ is an orthonormal system on $[a,b]$ and $f\in L^2$ then
 	\begin{align*}
-		\sum_{j\in J} \abs{\lra{f,\phi_j}}^2 \leq \vabs f_2^2.
+		\sum_{j\in J} \abs{\angles{f,\phi_j}}^2 \leq \vabs f_2^2.
 	\end{align*}
 \end{theorem}
 
 \begin{corollary}[Riemann-Lebesgue lemma in $L^2$]
 	Let $(\phi_n)_{n\in\N}$ be an orthonormal system and $f\in L^2$, then
 	\begin{align*}
-		\lim_{n\to\infty} \lra{f,\phi_n}=0.
+		\lim_{n\to\infty} \angles{f,\phi_n}=0.
 	\end{align*}
 \end{corollary}
 
@@ -910,7 +910,7 @@
 		      \end{align*}
 		\item if $f(x)=\sum_{n=-N}^N c_ne^{2\pi inx}$ is a trigonometric polynomial
 		      then \begin{align*}
-			      c_n = \lra{f,\phi_n}.
+			      c_n = \angles{f,\phi_n}.
 		      \end{align*}
 	\end{enumerate}
 \end{lemma}
@@ -919,7 +919,7 @@
 	For a $1$-periodic Lebesgue integrable function $f$ and $n\in\Z$ we define the \emph{nth Fourier coefficient}
 	by
 	\begin{align*}
-		\hat f(n) = \lra{f, \phi_n}.
+		\hat f(n) = \angles{f, \phi_n}.
 	\end{align*}
 	The double infinite series
 	\begin{align*}
@@ -1062,7 +1062,7 @@
 \begin{theorem}[Parseval]
 	If $f,g\in L^2$ are 1-periodic then
 	\begin{align*}
-		\lra{f,g} = \sum_{n=-\infty}^\infty \hat f(n)\overline{g(n)}.
+		\angles{f,g} = \sum_{n=-\infty}^\infty \hat f(n)\overline{g(n)}.
 	\end{align*}
 \end{theorem}
 

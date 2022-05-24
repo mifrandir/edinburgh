@@ -15,7 +15,7 @@
 
 \subsection{Finite automata}
 
-\begin{definition}[DFA; Sipser, p. 35]
+\begin{definition*}[DFA; Sipser]
 	A \emph{deterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where
 	\begin{enumerate}
 		\item $Q$ is a finite set called the \emph{states},
@@ -24,9 +24,9 @@
 		\item $q_0\in Q$ is the \emph{start state}, and
 		\item $F\subseteq Q$ is the \emph{set of accept states}.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Formal language; Sipser]
 	A \emph{language} $A$ over an alphabet $\Sigma$ is a set such that for all
 	$w\in A$ there exist $w_1,w_2,...,w_n\in\Sigma$ such that $w=w_1w_2\cdots w_n$.
 
@@ -38,26 +38,26 @@
 		\item $r_n\in F$.
 	\end{enumerate}
 	We say $M$ recognises $A$ if and only if $A=\{w : M\text{ accepts }w\}$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}[Sipser p. 40]
-	A language is called a \emph{regular language} if some finite automaton recognises it.
-\end{definition}
+\begin{definition*}[Regular language; Sipser]
+	A language is called a \emph{regular} if some finite automaton recognises it.
+\end{definition*}
 
-\begin{definition}[Sipser p. 44]
+\begin{definition*}[Regular operations; Sipser]
 	Let $A$ and $B$ be languages. We define the following \emph{regular operations}:
 	\begin{enumerate}
 		\item \emph{union}: $A\cup B=\{x : x \in A \text{ or } x \in B\}$.
 		\item \emph{concatenation}: $A\circ B=\{xy : x \in A \text{ or } y \in B\}$.
 		\item \emph{star}: $A^* = \{x_1x_2\dots x_k:k\geq 0 \text{ and each }x_i\in A\}$.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Sipser p. 45, 60, 62]
+\begin{theorem*}[Sipser p. 45, 60, 62]
 	The class of regular languages is closed under regular operations.
-\end{theorem}
+\end{theorem*}
 
-\begin{theorem}[Pumping lemma; Sipser p. 78]
+\begin{theorem*}[Pumping lemma]
 	If $A$ is a regular language, then there is a number $p$ where if $s$
 	is any string in $A$ of length at least $p$, then $s$ may be divided
 	into three pieces, $s=xyz$, satisfying the following conditions:
@@ -66,11 +66,11 @@
 		\item $\abs y > 0$, and
 		\item $\abs{xy} \leq p$.
 	\end{enumerate}
-\end{theorem}
+\end{theorem*}
 
 \subsection{Nondeterminism}
 
-\begin{definition}[NFA; Sipser p. 53]
+\begin{definition*}[NFA; Sipser]
 	A \emph{nondeterministic finite automaton} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where
 	\begin{enumerate}
 		\item $Q$ is a finite set called the \emph{states},
@@ -79,9 +79,9 @@
 		\item $q_0\in Q$ is the \emph{start state}, and
 		\item $F\subseteq Q$ is the \emph{set of accept states}.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{definition}[$\e$-NFA; Sipser p. 53]
+\begin{definition*}[$\e$-NFA; Sipser]
 	An \emph{$\e$-NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,F)$ where
 	\begin{enumerate}
 		\item $Q$ is a finite set called the \emph{states},
@@ -90,9 +90,9 @@
 		\item $q_0\in Q$ is the \emph{start state}, and
 		\item $F\subseteq Q$ is the \emph{set of accept states}.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Sipser p. 55]
+\begin{theorem*}[Sipser p. 55]
 	Let $L$ be a language. Then the following statements are equivalent:
 	\begin{enumerate}
 		\item $L$ is regular.
@@ -100,11 +100,11 @@
 		\item There exists an NFA $M$ that recognises $L$.
 		\item There exists an $\e$-NFA $M$ that recognises $L$.
 	\end{enumerate}
-\end{theorem}
+\end{theorem*}
 
 \subsection{Regular expressions}
 
-\begin{definition}[Sipser p. 64]
+\begin{definition*}[Regular expression]
 	$R$ is a \emph{regular expression} over an alphabet $\Sigma$ if one of the following holds:
 	\begin{enumerate}
 		\item $R\in\Sigma$,
@@ -114,39 +114,27 @@
 		\item $R=(R_1\circ R_2)$, where $R_1,R_2$ are regular expressions, or
 		\item $R=(R_1^*)$, where $R_1$ is a regular expression.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Sipser p. 66]
-	A language is regular if and only if some regular expression describes it.
-\end{theorem}
-
-\begin{definition}[GNFA; Sipser p. 53]
-	A \emph{generalised NFA} is a $5$-tuple $(Q,\Sigma,\delta,q_0,q_1)$ where
-	\begin{enumerate}
-		\item $Q$ is a finite set called the \emph{states},
-		\item $\Sigma$ is a finite set called the \emph{alphabet},
-		\item $\delta:(Q\setminus\{q_0\})\times(Q\setminus\{q_1\})\to R$ is the \emph{transition function},
-		\item $q_0\in Q$ is the \emph{start state}, and
-		\item $q_1\in Q$ is the \emph{accept state},
-	\end{enumerate}
-	where $R$ is the collection of all regular expressions over the alphabet $\Sigma$.
-\end{definition}
+\begin{theorem*}[Sipser p. 66]
+	A language is regular iff some regular expression describes it.
+\end{theorem*}
 
 \section{Context-free languages}
 
 \subsection{Context-free grammars}
 
-\begin{definition}[Sipser p. 104]
-	A \emph{context-free grammar} (CFG) is a 4-tuple $(V,\Sigma,R,S)$ where
+\begin{definition*}[CFG; Sipser]
+	A \emph{context-free grammar} is a 4-tuple $(V,\Sigma,R,S)$ where
 	\begin{enumerate}
 		\item $V$ is a finite set called the \emph{variables},
 		\item $\Sigma$ is a finite set called the \emph{terminals},
 		\item $R\subseteq V\times(V\cup\Sigma)^*$ is a finite set of \emph{rules},
 		\item $S\in V$ is the \emph{start variable}.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Context-free language; Sipser]
 	Let $G=(V,\Sigma,R,S)$ be a CFG and let $u,v\in(V\cup\Sigma)^*$.
 	We say \emph{$u$ derives $v$}, written $u\Rightarrow^* v$, if $u=v$ or if a sequence
 	$u_1,...,u_k$ exists for $k\geq 0$ such that
@@ -155,17 +143,17 @@
 	\end{align*}
 	The \emph{language of the grammar} $G$ is $L=\{w\in\Sigma^*:S\Rightarrow^* w\}$,
 	called a \emph{context-free language} (CFL).
-\end{definition}
+\end{definition*}
 
-\begin{definition}[Sipser p. 108]
+\begin{definition*}[Ambiguitiy; Sipser]
 	A string $w$ is derived \emph{ambiguously} in CFG $G$ if it has
 	two or more different leftmost derivations. Grammar $G$ is \emph{ambiguous} if it
 	generates some string ambiguously.
 	A language which is only generated by ambiguous grammars is called \emph{inherently
 		ambiguous}.
-\end{definition}
+\end{definition*}
 
-\begin{definition}[Sipser p. 109]
+\begin{definition*}[Chomsky normal form; Sipser]
 	A CFG $G=(V,\Sigma,R,S)$ is in \emph{Chomsky normal form} if every rule is of the
 	form
 	\begin{align*}
@@ -174,15 +162,15 @@
 		S\to\e
 	\end{align*}
 	where $a\in\Sigma$ and $B,C\in V$
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Sipser p. 109]
+\begin{theorem*}[Sipser p. 109]
 	Any CFL is generated by a CFG in Chomsky normal form.
-\end{theorem}
+\end{theorem*}
 
 \subsection{Pushdown automata}
 
-\begin{definition}[Sipser p. 113]
+\begin{definition*}[PDA; Sipser]
 	A \emph{pushdown automaton} (PDA) is a 6-tuple $(Q,\Sigma,\Gamma,\delta,q_0,F)$,
 	where
 	\begin{enumerate}
@@ -202,19 +190,19 @@
 		      and $s_{i+1}=bt$ for some $a,b\in\Gamma_\e$ and $t\in\Gamma^*$,
 		\item $r_m\in F$.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Sipser p. 117]
-	A language is context-free if and only if a pushdown automaton recognises it.
-\end{theorem}
+\begin{theorem*}[Sipser p. 117]
+	A language is context-free iff a PDA recognises it.
+\end{theorem*}
 
-\begin{corollary}[Sipser p. 124]
+\begin{corollary*}[Sipser p. 124]
 	Every regular language is context-free.
-\end{corollary}
+\end{corollary*}
 
 \subsection{Non-context-free languages}
 
-\begin{theorem}[Pumping lemma for context-free languages; Sipser p. 125]
+\begin{theorem*}[Pumping lemma for context-free languages; Sipser p. 125]
 	If $A$ is a context-free language, then there is a number $p$ where,
 	if $s$ is any string in $A$ of length at least $p$, then $s$ may be
 	divided into five pieces $s=uvxyz$ such that
@@ -223,157 +211,25 @@
 		\item $\abs{vy}>0$, and
 		\item $\abs{vxy}\leq p$.
 	\end{enumerate}
-\end{theorem}
-
-\subsection{Deterministic context-free languages}
-
-Let $G=(V,\Sigma,R,S)$ be a CFG.
-
-\begin{definition}[Sipser p. 130]
-	A \emph{deterministic PDA} is a 6-tuple $(Q,\Sigma,\Gamma,\delta,q_0,F)$,
-	where
-	\begin{enumerate}
-		\item $Q$ is the finite set of states,
-		\item $\Sigma$ is the finite input alphabet,
-		\item $\Gamma$ is the finite stack alphabet,
-		\item $\delta:Q\times\Sigma_\e\times\Gamma_\e\to(Q\times\Gamma_\e)\cup\{\emptyset\}$ is the transition function
-		\item $q_0\in Q$ is the start state, and
-		\item $F\subseteq Q$ is the set of accept states.
-	\end{enumerate}
-	The transition function $\delta$ must satisfy the following condition. For every
-	$q\in Q$, $a\in\Sigma$, and $x\in\Gamma$, exactly one of the values
-	\begin{align*}
-		\delta(q,a,x),\hs \delta(q,a,\e),\hs \delta(q,\e,x),\hs \delta(q,\e,\e)
-	\end{align*}
-	is not $\emptyset$. The language accepted by a DPDA is called a \emph{deterministic
-		context-free language} (DCFL).
-\end{definition}
-
-\begin{lemma}[Sipser p. 132]
-	Every DPDA has an equivalent DPDA that always reads the entire input string.
-\end{lemma}
-
-\begin{theorem}[Sipser p. 133]
-	The class of DCFLs is closed under complementation.
-\end{theorem}
-
-\begin{definition}[Sipser p. 134]
-	Let $A$ be a language. Then the \emph{endmarked language} $A\!\dashv$ is given by
-	\begin{align*}
-		A\!\dashv\: = \{w\!\dashv\:: w \in A\}.
-	\end{align*}
-\end{definition}
-
-\begin{theorem}[Sipser p. 134]
-	Let $A$ be a language. Then $A$ is a DCFL if and only if $A\!\dashv$ is a DCFL.
-\end{theorem}
-
-\begin{definition}[Sipser p. 136]
-	Let $u,v\in(V\cup\Sigma)^*$. We say $u$
-	\emph{reduces} $v$, written $u\Leftarrow^*v$ if there exists a sequence
-	$u_1,...,u_k$ for $k\geq 0$ such that
-	\begin{align*}
-		u = u_1 \Leftarrow ... \Leftarrow u_k \Leftarrow v.
-	\end{align*}
-	The sequence $u_1,...,u_k$ is called a \emph{reduction from u to v}. A \emph{reduction from $u$}
-	is a reduction from $u$ to $S$.
-\end{definition}
-
-\begin{definition}[Sipser p. 136]
-	In a \emph{leftmost reduction}, each reducing string is reduced only after all
-	other reducing strings that lie entirely to its left.
-
-	Let $w\in L(G)$ and let $u_1,...,u_k$ be a leftmost reduction of $w$.
-	Let $T\to h$ be a rule in $R$ such that $u_i=xhy$ and $u_{i+1}=xTy$ for some $x,y$ and some
-	$i<k$. Then $h$ together with the rule $T\to h$ is called a \emph{handle} of $u_i$.
-\end{definition}
-
-\begin{definition}[Sipser p. 136]
-	A string $u\in(V\cup\Sigma)^*$ is called \emph{valid} if
-	there exists a word $w\in L(G)$ and a leftmost reduction $u_1,...,u_k$ such that $u=u_i$ for
-	some $i\leq k$.
-\end{definition}
-
-\begin{lemma}[Sipser p. 137]
-	In an unambiguous CFG, any valid string has precisely one handle.
-\end{lemma}
-
-\begin{definition}[Forced handles; Sipser p. 138]
-	A handle $h$ of a valid string $v=xhy$ with respect to $G$ is \emph{forced} if $h$ is
-	the unique handle in every valid string $xh\hat y$ where $\hat y\in\Sigma^*$.
-\end{definition}
-
-\begin{definition}[DCFG; Sipser p. 139]
-	A \emph{deterministic CFG} (DCFG) is a CFG such that every valid string has a forced handle.
-\end{definition}
-
-\begin{lemma}[Sipser p. 140]
-	\label{klemma}
-	Let $G=(V,\Sigma,R,S)$ be a DCFG and let $K$ be an NFA such that the states correspond to
-	dotted rules in $G$, i.e. for every rule $B\to u_1\cdots u_k$ with $u_1,...,u_k\in V\cup\Sigma$
-	there are $k+1$ dotted rules
-	\begin{align*}
-		B & \to .u_1u_2\cdots u_k \\
-		B & \to u_1.u_2\cdots u_k \\
-		B & \to u_1u_2.\cdots u_k \\
-		  & \hs\vdots             \\
-		B & \to u_1u_2\cdots .u_k \\
-		B & \to u_1u_2\cdots u_k,
-	\end{align*}
-	the transitions correspond to shift-moves, where for some rule $B\to uav$ we transition from
-	$B\to u.av$ to $B\to ua.v$ upon reading $a$, and $\e$-moves, where for some rules
-	$B\to uCv$ and $C\to r$ we $\e$-transition from $B\to u.Cv$ to $C\to r.$ and the accept states
-	are all $B\to u.$.
-
-	Then $K$ may enter state $T\to u.v$ on reading input $z$ if and only if $z=xu$ and
-	$xuvy$ is a valid string with handle $uv$ and reducing rule $T\to uv$, for some $y\in\Sigma^*$.
-	Further, $K$ may enter accept state $T\to h.$ on input $z$ if and only if $z=xh$ and $h$ is a
-	handle of some valid string $xhy$ with reducing rule $T\to h$.
-\end{lemma}
-
-\begin{theorem}[DK-test; Sipser p. 143]
-	Let $DK$ be the DFA corresponding to the NFA $K$ from (\ref{klemma}). Then $G$ is a
-	DCFG if and only if every one of $DK$'s accept states contains
-	\begin{enumerate}
-		\item exactly one completed rule, and
-		\item no dotted rule of the form $B\to u.av$ for $a\in\Sigma$.
-	\end{enumerate}
-\end{theorem}
-
-\begin{theorem}
-	An endmarked language is generated by a DCFG if and only if it is deterministic context-free.
-\end{theorem}
-
-\begin{definition}[LR(k) grammar; Sipser p. 152]
-	A handle $h$ of a valid string $v=xhy$ with respect to CFG $G$ is \emph{forced by lookahead k}
-	if $h$ is the unique handle in every valid string $xh\hat y$ where $\hat y\in\Sigma^*$ and
-	$y$ and $\hat y$ do not differ in their first $k$ symbols.
-
-	An $LR(k)$ grammar is a CFG grammar such that the handle of every valid string is forced by
-	lookahead $k$.
-\end{definition}
-
-\begin{theorem}[Sipser p. 154]
-	An endmarked language is generated by an $LR(1)$ grammar if and only if it is a DCFL.
-\end{theorem}
+\end{theorem*}
 
 \section{Register machines and Turing machines}
 
 \subsection{Programs}
 
-\begin{definition}[Notes I.1]
+\begin{definition*}[RM]
 	A \emph{register machine} (RM) has a fixed number of registers $R_0,...,R_{m-1}$
 	which each hold a natural number and a fixed program, i.e. a sequence of
 	instructions $P=I_0,...,I_{n-1}$. Each instruction is one of
 	\begin{enumerate}
 		\item $\inc(i)$, to add $1$ to $R_i$, or
-		\item $\decjz(i,j)$, if $R_i=0$ then go to $I_j$, else substract $1$ from $R_i$.
+		\item $\decjz(i,j)$, if $R_i=0$ then go to $I_j$, else subtract $1$ from $R_i$.
 	\end{enumerate}
 	Instructions are exectued instructions in order, except when
 	a jump is triggered.
-\end{definition}
+\end{definition*}
 
-\begin{definition}[Notes I.2]
+\begin{definition*}[RM computation]
 	A \emph{state} of a register machien $M$ as above is a tuple $(R_0,...,R_{m-1},C)$
 	where $R_i\in\N$ is the value of register $i$, and $0\leq C\leq n$ is the
 	\emph{program counter}.
@@ -393,9 +249,9 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 	such that either the sequence is infinite or the sequence is finite and the final
 	state $s_f$ has no next state. The \emph{output} of $M$ on input $R$ is the tuple
 	$R'$ of register values in state $s_f$, or undefined if there is no final state.
-\end{definition}
+\end{definition*}
 
-\begin{definition}[Notes I.3]
+\begin{definition*}[ERM]
 	An \emph{extended register machine program} comprises
 	\begin{itemize}
 		\item A set $L$ of labels,
@@ -420,45 +276,45 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 	where the $\rho_i$ are the $r$ register parameters, the $\lambda_i$ are the $s$
 	label parameters and the $H_k$ are extended instructions forming the body of the
 	definition.
-\end{definition}
+\end{definition*}
 
 \subsection{Pairing and encoding functions}
 
-\begin{definition}[Notes I.5]
-	A \emph{pairing function} is an injective function $\lra{-,-}_2:\N\times\N\to\N$.
-	If $z=\lra{x,y}_2$ then we may write $z_0:=x$ and $z_1:=y$.
-\end{definition}
+\begin{definition*}[Pairing function]
+	A \emph{pairing function} is an injective function $\angles{-,-}_2:\N\times\N\to\N$.
+	If $z=\angles{x,y}_2$ then we may write $z_0:=x$ and $z_1:=y$.
+\end{definition*}
 
-\begin{theorem}
+\begin{theorem*}
 	Let $M$ be a general RM. Then there exists a 2-register RM $M'$ such that
 	$M'$ computes a suitable encoding of $M$.
-\end{theorem}
+\end{theorem*}
 
-\begin{definition}
+\begin{definition*}[RM encoding]
 	Let $M$ be a register machine and let $R$ be the register contents $R_0,...,R_{m-1}$,
 	$P=I_0,...,I_{n-1}$ be the program itself and let $C$ be the program counter.
-	Let $\lra{-,-}$ be a sequence encoding function.
+	Let $\angles{-,-}$ be a sequence encoding function.
 
-	We define the RM coding function $[-]$ by:
+	We define the RM coding function $\ucorners{-}$ by:
 	\begin{align*}
-		[\inc(i)]     & = \lra{0,i}                   \\
-		[\decjz(i,j)] & = \lra{1,\lra{i,j}}           \\
-		[P]           & = \lra{[I_0], ..., [I_{n-1}]} \\
-		[R]           & = \lra{R_0, ..., R_{m-1}}     \\
-		[M]           & = \lra{[P], [R], C}
+		\ucorners{\inc(i)}     & = \angles{0,i}                   \\
+		\ucorners{\decjz(i,j)} & = \angles{1,\angles{i,j}}        \\
+		\ucorners{P}           & = \angles{\ucorners{I_0}, ..., \ucorners{I_{n-1}}} \\
+		\ucorners{R}           & = \angles{R_0, ..., R_{m-1}}     \\
+		\ucorners{M}           & = \angles{\ucorners{P}, \ucorners{R}, C}
 	\end{align*}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes I.7]
+\begin{theorem*}[Universal machine; Notes I.7]
 	There is a register machine $U$ which takes as input the code $\left[M\right]$ of the
 	initial state of an arbitrary RM $M$ and gives as output the code of the final
 	state, if there is one. If $M$ does not halt, $U$ does not halt on input
 	$\left[M\right]$.
-\end{theorem}
+\end{theorem*}
 
 \subsection{Turing machines}
 
-\begin{definition}[Turing machine; Sipser p. 168]
+\begin{definition*}[TM; Sipser]
 	A \emph{Turing machine} is a 7-tuple, $(Q, \Sigma, \Gamma, \delta, q_0, q_a, q_r)$,
 	where $Q,\Sigma,\Gamma$ are all finite sets and
 	\begin{enumerate}
@@ -470,242 +326,240 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 		\item $q_a\in Q$ is the accept state,
 		\item $q_r\in Q$ is the reject state.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{definition}[Sipser p. 170]
-	A language is called \emph{Turing-recognisable} or \emph{recursively enumerable}
-	if some Turing machine recognises it.
-\end{definition}
+\begin{definition*}[Turing recognisable; Sipser p. 170]
+	A language is \emph{Turing-recognisable} or \emph{recursively enumerable}
+	iff some Turing machine recognises it.
+\end{definition*}
 
-\begin{definition}[Sipser p. 170]
+\begin{definition*}[Decider; Sipser p. 170]
 	A \emph{decider} is a Turing machine that always halts. A language is called
 	\emph{Turing-decidable} or \emph{recursive} if some Turing machine decides it.
-\end{definition}
+\end{definition*}
 
 \subsection{Variants of Turing machines}
 
-\begin{theorem}[Sipser p. 176-180]
+\begin{theorem*}[Sipser p. 176-180]
 	Let $L$ be a language. Then the following are equivalent:
 	\begin{enumerate}
 		\item $L$ is Turing-recognisable.
 		\item Some multitape Turing machine recognises it.
 		\item Some nondeterministic Turing machine recognises it.
 	\end{enumerate}
-\end{theorem}
+\end{theorem*}
 
-\begin{corollary}[Sipser p. 180]
+\begin{corollary*}[Sipser p. 180]
 	A language is decidable if and only if some nondeterministic Turing machine
 	decides it.
-\end{corollary}
+\end{corollary*}
 
 \section{Computability}
 
-\subsection{Generalised computability}
+\subsection{Halting problem}
 
-\begin{definition}
+\begin{definition*}[Computable functions]
 	A (total) function $f:\N\to\N$ is \emph{computable} if there is an RM/TM which
 	computes $f$ and always terminates.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}
+\begin{theorem*}
 	There exists a function $f:\N\to\N$ which is not computable.
 	\begin{proof}
 		Note we can encode RMs as natural numbers, thus the set of all RMs is countable.
 		By diagonalisation, we may show that the set of all functions $f:\N\to\N$ is
 		uncountable. Thus there are more functions than RMs.
 	\end{proof}
-\end{theorem}
+\end{theorem*}
 
-\begin{theorem}[Notes I.8]
+\begin{theorem*}[Halting theorem]
 	There is no Register Machine $H$ such that $H$ takes as input an RM state encoding
-	$[M]$ and halts with output $1$ if $M$ halts or output $0$ if $M$ does not halt.
-\end{theorem}
+	$\ucorners{M}$ and halts with output $1$ if $M$ halts or output $0$ if $M$ does not halt.
+\end{theorem*}
 
 
-\begin{definition}
+\begin{definition*}[Decision problem]
 	A \emph{decision problem} is a set $D$ and a subset $Q\subseteq D$.
 	The problem is \emph{computable} iff the predicate $Q$ is computable.
-\end{definition}
+\end{definition*}
 
 \subsection{Reductions}
 
-\begin{definition}
+\begin{definition*}[Oracle]
 	Given a decision problem $(D,Q)$, an \emph{oracle} for $Q$ is an additional
 	RM instruction $\text{ORACLE}_Q(i)$ which assumes that $R_i$ contains an
 	encoding of some $d\in D$, and sets $R_i$ to contain $Q(d)$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Turing transucer]
 	A \emph{Turing transducer} is an RM that takes an instance $d$ of a problem $(D,Q)$
 	in $R_0$ and halts with instance $d'=f(d)$ of $(D',Q')$ in $R_0$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[m-reduction]
 	A \emph{mapping reduction} or \emph{many-one reduction} from $Q$ to $Q'$ is a
 	Turing transducer $f$ such that $d\in Q$ iff $f(d)\in Q'$. We write $Q\leq_m Q'$
 	iff there is an $m$-reduction from $Q$ to $Q'$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Turing reduction]
 	A \emph{Turing reduction} from $(D,Q)$ to $(D',Q')$ is an RM $M$, equipped with
 	an oracle for $Q'$ such that $M$ computes $Q$.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes I.15]
+\begin{theorem*}[Notes I.15]
 	Let $(D,Q)$ be a problem. Suppose there is an $m$-reduction $R(H,Q)$ from
 	$(RM, H)$ to $(D,Q)$. Then $Q$ is undecidable.
-\end{theorem}
+\end{theorem*}
 
 \subsection{Semi- and co-semi-decidability}
 
-\begin{definition}
-	The \emph{Looping Problem} $L$ is the subset of Register Machines with specified
+\begin{definition*}[Looping]
+	The \emph{looping Problem} $L$ is the subset of Register Machines with specified
 	inputs which do not terminate.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}
+\begin{theorem*}
 	$L$ is undecidable.
-\end{theorem}
+\end{theorem*}
 
-\begin{definition}
+\begin{definition*}[Semi-decidability]
 	A problem $(D,Q)$ is \emph{semi-decidable} iff there exists a RM $M$ taking
 	input $d\in D$ such that if $d\in Q$ then $M$ halts with output $1$ and if
 	$d\not\in Q$ then $M$ either halts with output $0$ or not at all.
-\end{definition}
+\end{definition*}
 
-\begin{corollary}
+\begin{corollary*}
 	The halting problem $H$ is semi-decidable.
-\end{corollary}
+\end{corollary*}
 
-\begin{definition}
+\begin{definition*}[Co-semi-decidability]
 	A problem $(D,Q)$ is \emph{co-semi-decidable} iff there exists an RM $M$
 	taking input $d\in D$ such that if $d\not\in Q$ then $M$ halts with output
 	$0$ and if $d\in Q$ then $M$ either halts with output $1$ or doe snot halt.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}
+\begin{theorem*}
 	$(D,Q)$ is semi-decidable iff $(D, Q^C)$ is co-semi-decidable.
-\end{theorem}
+\end{theorem*}
 
 \subsection{Enumerability and the interleaving technique}
 
-\begin{definition}
+\begin{definition*}[Enumerability]
 	An enumeration of a set $S$ is a surjective function $f:\N\to S$. A set $S$
 	is said to be \emph{enumerable} if there exists an enumeration of $S$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Computable enumerability]
 	Let $Q\subseteq\N$. The set $Q$ is \emph{computably enumerable} iff there is
 	an enumeration $f:\N\to Q$ of $Q$ such that $f$ is computable.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}
+\begin{theorem*}
 	Let $Q\subseteq\N$. Then the following are equivalent
 	\begin{enumerate}
 		\item $Q$ is computably enumerable.
 		\item There is an RM $M$ which on input $i$ always halts and outputs some $q_i\in Q$,
 		      and moreover $Q=\{q_i : i\geq 0\}$.
-		\item There is an RM $M$ which on input $i$ outputs a coded sequence $\lra{q_0,...,q_i}$,
+		\item There is an RM $M$ which on input $i$ outputs a coded sequence $\angles{q_0,...,q_i}$,
 		      and $Q=\{q_i:i\geq 0\}$.
 	\end{enumerate}
-\end{theorem}
+\end{theorem*}
 
-\begin{theorem}[Notes I.25]
+\begin{theorem*}[Notes I.25]
 	If $Q$ is decidable then $Q$ is computably enumerable.
-\end{theorem}
+\end{theorem*}
 
-\begin{theorem}[Notes I.26, I.27]
+\begin{theorem*}[Notes I.26, I.27]
 	$Q$ is semi-decidable iff $Q$ is computably enumerable.
-\end{theorem}
+\end{theorem*}
 
-\subsection{The uniform halting problem}
+\subsection{Uniform halting problem}
 
-\begin{definition}
-	The \emph{Uniform Halting Problem} (UH) is the subset of Register Machines
+\begin{definition*}[UH]
+	The \emph{Uniform Halting Problem} is the subset of Register Machines
 	which halts on every input.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes I.28]
+\begin{theorem*}[Notes I.28]
 	If $(D,Q)$ is both semi-decidable and co-semi-decidable then it is decidable.
-\end{theorem}
+\end{theorem*}
 
-\begin{corollary}
+\begin{corollary*}
 	$H$ is not co-semi-decidable and $L$ is not semi-decidable.
-\end{corollary}
+\end{corollary*}
 
-\begin{corollary}
+\begin{corollary*}
 	If there is an $m$-reduction from $H$ to $Q$ then $Q$ is not co-semi-decidable.
-\end{corollary}
+\end{corollary*}
 
-\begin{theorem}[Notes I.31]
+\begin{theorem*}[Notes I.31]
 	UH is not semi-decidable.
-\end{theorem}
+\end{theorem*}
 
 \subsection{$Q$-decidability}
 
-\begin{definition}
+\begin{definition*}[Q-semi-decidability]
 	Let $Q$ be a problem. We say that $Q'$ is $Q$-semi-decidable if it is semi-decidable
 	by a machine equipped with an oracle for $Q$. Let $\Sigma^T(Q)$ be the class of
 	$Q$-semi-decidable problems. Similarly, let $\Pi^T(Q)$ and $\Delta^T(Q)$ be the
 	classes of $Q$-co-semidecidable and $Q$-decidable problems.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}
+\begin{theorem*}
 	$UH\in\Pi^T(H)$.
-\end{theorem}
+\end{theorem*}
 
-\begin{definition}
+\begin{definition*}[Decision hierarchy]
 	Let $\Sigma_0^T=\Pi^T_0=\Delta^T_0$ be the class of decidable problems. We say
-	that $Q$ is $\Sigma_{n+1}^T$ (respectively $\Pi_{n+1}^T$, $\Delta_{n+1}^T$)
+	that $Q$ is $\Sigma_{n+1}^T$ (resp. $\Pi_{n+1}^T$, $\Delta_{n+1}^T$)
 	if there is some problem $Q'\in\Sigma_n^T$ such that $Q\in\Sigma^T(Q')$
-	(respectively $\Pi^T(Q')$, $\Delta^T(Q')$).
-\end{definition}
+	(resp. $\Pi^T(Q')$, $\Delta^T(Q')$).
+\end{definition*}
 
-\begin{definition}
+\begin{theorem*}[Notes I.35]
 	Let $Q$ be a problem. There is no register machine $H_Q$ with an oracle $Q$
 	such that $H_Q$ takes as input an RM-with-oracle-for-$Q$ state encoding
-	$[M]$ and halts with output $1$ if $M$ halts or output $0$ if $M$ does not halt.
-\end{definition}
+	$\ucorners{M}$ and halts with output $1$ if $M$ halts or output $0$ if $M$ does not halt.
+\end{theorem*}
 
-\begin{theorem}
+\begin{theorem*}[Notes I.36]
 	If $Q\in\Sigma_n^T\cap\Pi_n^T$ then $Q\in\Delta^T_n$.
-\end{theorem}
+\end{theorem*}
 
 \subsection{Computability and logic}
 
-\begin{definition}
+\begin{definition*}[Characteristic formula]
 	A set $S\subseteq\N$ is defined by a formula $\phi(x)$ with one free variable
 	$x$ iff $S=\{x:\phi(x)\}$ and similarly for sets of tupes of numbers.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Lightface Borel-hierarchy]
 	A formula is $\Sigma_0^0$ and $\Pi_0^0$ iff it has no quantifiers, i.e. is
 	constructred from basic formulae and terms using only boolean connectives.
 
-	A formula is $\Sigma_{n+1}^0$ (respectively $\Pi_{n+1}^0$) iff it has the form
-	$\exists x_1,...,x_k.\phi$ (respectively $\forall x_1,...,x_k.\phi$) where
-	$\phi$ is a $\Pi_n^0$ (respectively $\Sigma_n^0$) formula.
-\end{definition}
+	A formula is $\Sigma_{n+1}^0$ (resp. $\Pi_{n+1}^0$) iff it has the form
+	$\exists x_1,...,x_k.\phi$ (resp. $\forall x_1,...,x_k.\phi$) where
+	$\phi$ is a $\Pi_n^0$ (resp. $\Sigma_n^0$) formula.
 
-\begin{definition}
-	A set $S\subseteq\N$ is in the class $\Sigma_n^0$ (respectively $\Pi_n^0$)
-	iff it can be defined by a $\Sigma_n^0$ (respectively $\Pi_n^0$)
+	A set $S\subseteq\N$ is in the class $\Sigma_n^0$ (resp. $\Pi_n^0$)
+	iff it can be defined by a $\Sigma_n^0$ (resp. $\Pi_n^0$)
 	formula. The class $\Delta_n^0 = \Sigma_n^0\cap\Pi_n^0$.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes I.40]
+\begin{theorem*}[Notes I.40]
 	$\Sigma_n^T=\Sigma_n^0$ (and so $\Pi_n^T=\Pi_n^0$).
-\end{theorem}
+\end{theorem*}
 
-\begin{theorem}
+\begin{theorem*}[Notes I.41]
 	The language of first-order arithmetic is first-order logic with symbols for
 	equality, addition and multiplication over $\N$. Any semi-decidable predicate on
 	$\N$ can be defined by a $\Sigma_0^1$ formula of this logic.
-\end{theorem}
+\end{theorem*}
 
 \subsection{Primitive and partial recursion}
 
-\begin{definition}
+\begin{definition*}[Primitive recursive functions]
 	A function $f:\N^n\to\N$ is \emph{primitive recursive} if
 	\begin{enumerate}[label=R\arabic*.]
 		\item $f=0$, or
@@ -720,9 +574,9 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 			      f(S(y),x_1,...,x_k) & = g(y,f(y,x_1,...,x_k),x_1,...,x_k)
 		      \end{align*}
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes I.43]
+\begin{theorem*}[Notes I.43]
 	The \emph{Ackermann function} $A:\N^2\to\N$ defined by
 	\begin{align*}
 		A(0,n)        & = S(n)             \\
@@ -730,9 +584,9 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 		A(S(m), S(n)) & = A(m, A(S(m), n))
 	\end{align*}
 	is not a primitive recursive function.
-\end{theorem}
+\end{theorem*}
 
-\begin{definition}
+\begin{definition*}[Partial recursive functions]
 	A function $f:\N^n\to\N$ is \emph{partial recursive} if it is primitive recursive or
 	\begin{enumerate}[label=R\arabic*.]
 		\setcounter{enumi}{5}
@@ -740,18 +594,18 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 		      which returns the least $y$ such that $f(y,x_1,...,x_k)=0$ or is undefined if no such $y$
 		      exists.
 	\end{enumerate}
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes I.45]
+\begin{theorem*}[Notes I.45]
 	The computable functions are exactly the total recursive functions. The computable partial functions
 	are exactly the partial recursive functions.
-\end{theorem}
+\end{theorem*}
 
 \section{P and NP}
 
 \subsection{The class P}
 
-\begin{definition}
+\begin{definition*}[RM for complexity]
 	The RM architecture is extended with the following instructions:
 	\begin{itemize}
 		\item $\texttt{ADD}(i,j)$ which sets $R_i=R_i+R_j$,
@@ -759,84 +613,160 @@ Let $G=(V,\Sigma,R,S)$ be a CFG.
 	\end{itemize}
 	Every instruction is deemed to run in $\Theta(\lg n)$ time where $n$
 	is the value of the largest register referred to by the instruction.
-\end{definition}
+\end{definition*}
 
 
-\begin{definition}
+\begin{definition*}[Polynomial time]
 	A decision problem $(\N,Q)$ or a function $f:\N\to\N$ is in $P$ or \ptime if
 	it can be computed by some RM in time $t(n)\in O(n^k)$ for some $k$, where $n$ is the size
 	of the input instance $d$ or function input $d$, measued as the number of bits, i.e. $\lg(d)$.
 
 	More generally, a decision problem $(D,Q)$ or function $f:D\to D'$ is in $P$ relative to some
 	measure $\abs d$ of input size if it can be computed in time $O(\abs d^k)$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Polynomial reduction]
 	A \ptime \emph{reduction} or \emph{polynomial reduction} from $(D,Q)$ to $(D',Q')$ is
 	a \ptime-computable function $r:D\to D'$ such that $d\in Q$ iff $r(d)\in Q'$.
 	We write $Q\leq^P Q'$ if there exists a polynomial reduction from $Q$ to $Q'$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
-	$(D,Q)\leq^P_T (D',Q')$ if there exists a polynomially bounded RM, equipped with an oracle
-	for $Q'$, which decides $Q$.
-\end{definition}
-
-\begin{definition}
-	A \emph{polynomially-bounded Register Machine} is an RM together with a polynomial $f(n)$,
+\begin{definition*}
+	A \emph{polynomially bounded Register Machine} is an RM together with a polynomial $f(n)$,
 	such that if the size of the input is $n_0$, then the machine halts and rejects after
 	executing at most $f(n_0)$ instructions. Without loss of generality, $f(n)$ may be taken to be
 	$n^k$ for some $k\in\N$.
 
 	Thus a problem $Q$ is in $P$ iff it can be computed by some polynomially bounded RM.
-\end{definition}
+\end{definition*}
+
+\begin{definition*}[Polynomial reducability]
+	$(D,Q)\leq^P_T (D',Q')$ if there exists a polynomially bounded RM, equipped with an oracle
+	for $Q'$, which decides $Q$.
+\end{definition*}
 
 \subsection{The class NP}
 
-\begin{definition}
+\begin{definition*}[Hamiltonian path]
 	Let $G=(V,E)$ be a finite graph. A \emph{Hamiltonian path} is a sequence of vertices
 	$v_1,...,v_n$ where $n=\abs V$, such that $(v,v_{i+1})\in E$ for $i<n$, and $v_i=v_j
 		\Rightarrow i=j$, for all $1\leq i,j\leq n$.
 
 	The \emph{Hamlitonian Path Problem} (HP) is the set of finite graphs which have a Hamiltonian
 	path. The size of the input is $\abs G = \abs V + \abs E$.
-\end{definition}
+\end{definition*}
 
-\begin{definition}
+\begin{definition*}[Timetabling]
 	The \texttt{TIMETABLING} problem is the set of all tuples $(S,E,T,C)$ where $S,E,T$ are finite
 	sets and $C\subseteq S\times E$ is a relation for which there exists a function $t:E\to T$
 	such that, for every $s\in S$ and for every distinct pair $e,e'\in E$ such that $(s,e)\in C$
 	and $(s,e')\in C$, it is the case that $t(e)\not=t(e')$.
 	The size of the inputs is $\abs S + \abs E + \abs T + \abs C$.
-\end{definition}
+\end{definition*}
 
 
-\begin{definition}
-	\emph{Non-deterministic Register Machines} (NRMs) extend the instruction set with an instruction
+\begin{definition*}[NRM]
+	\emph{Non-deterministic Register Machines} extend the instruction set with an instruction
 	$\texttt{MAYBE(j)}$. If $I_i$ is the instruction $\texttt{MAYBE}(j)$, then the next executed instruction
 	may be either $I_{i+1}$ or $I_j$.
 
 	A \emph{run} of an NRM is any sequence of instructions satisfying the execution rules. An NRM accepts
 	an input $R_0$ if there exists a run that terminates with a one in $R_0$.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes II.10]
+\begin{theorem*}[Notes II.10]
 	Let $(D,Q)$ be a problem such that there is an NRM $M$ which accepts $d$ iff $d\in Q$.
 	Then there is an RM $M'$ which semi-decides $Q$.
 
 	Moreover, if $M$ halts on every run then $M'$ decides $Q$.
-\end{theorem}
+\end{theorem*}
 
-\begin{definition}
-	A \emph{polynomially-bounded non-deterministic Register Machine} is an NRM together with a polynomial
+\begin{definition*}
+	A \emph{polynomially bounded non-deterministic Register Machine} is an NRM together with a polynomial
 	$f$ such that, if the size of the input is $n_0$, then every run of the machine halts and
 	rejects after executing at most $f(n_0)$ instructions.
 
 	A problem $Q$ is in \nptime iff it can be computed by some polynomially-bounded NRM.
-\end{definition}
+\end{definition*}
 
-\begin{theorem}[Notes II.12]
+\begin{theorem*}[Notes II.12]
 	$HP\in NP$ and $\texttt{TIMETABLING}\in NP$.
-\end{theorem}
+\end{theorem*}
+
+\subsection{The class NPC}
+
+\begin{definition*}[NP-hard, NP-complete]
+	$Q$ is NP-hard iff $Q'\leq^P Q$ for every $Q\in NP$.
+
+	$Q$ is NP-complete iff $Q\in NP$ and $Q$ is NP-hard.
+\end{definition*}
+
+\begin{theorem*}[II.15]
+	If $Q$ is NP-complete and $Q'\in NP$ such that $Q\leq^P Q'$
+	then $Q'$ is NP-complete.
+\end{theorem*}
+
+\begin{definition*}[SAT]
+	Let $\phi$ be a boolean formula over a set $X=\{X_1, ..., X_m\}$ of 
+	boolean variables. A satisfying assignment of $\phi$ is a function
+	$X\to\{\bot,\top\}$ that makes $\phi$ true. $\phi$ is satisfiable iff
+	there exists a satisfying assignment.
+
+	\texttt{SAT} is the problem $\{\phi : \phi \text{ is satisfiable}\}$.
+	The input size is the length of $\phi$.	
+\end{definition*}
+
+\begin{theorem*}[Cook-Levin]
+	\texttt{SAT} is NP-complete.	
+\end{theorem*}
+
+\begin{definition*}[3SAT]
+	\texttt{3SAT} is the problem of whethre a satisfying assignment exists for a 
+	formula in 3-CNF.	
+\end{definition*}
+
+\begin{theorem*}[II.20]
+	\texttt{3SAT} is NP-complete.	
+\end{theorem*}
+
+\begin{definition*}[CLIQUE]
+	Let $G=(V,E)$ a graph and $k\in\N$. A $k$-clique $C\subset V$ is a 
+	set such that $\abs{C} = k$ and for all $u,v\in C$, $(u,v)\in E$,
+	i.e. $C$ is a complete subgraph of $G$.
+
+	The \texttt{$k$-CLIQUE} problem is to decide whether $G$ has a $k$-clique.
+\end{definition*}
+
+\begin{theorem*}[II.22]
+	\texttt{$k$-CLIQUE} is $NP$-complete.	
+\end{theorem*}
+
+\subsection{The polynomial hierarchy}
+
+\begin{definition*}[ExpTime]
+	\texttt{ExpTime} is the class of problems solvable by any exponentially
+	bounded RM. \texttt{NExpTime} is the class solvable by an exponentially
+	bounded NRM.	
+\end{definition*}
+
+\begin{definition*}[Polynomial hierarchy]
+	Let $C$ a complexity class. A decision problem $(D,Q)$ is in the class
+	co-C iff $(D, D\setminus Q)$ is in $C$. The class $P^C$ ($NP^C$) is the 
+	class of problems solvable by a polynomially bounded (non-deterministic)
+	RM equipped with an oracle for some problem in $C$.
+
+	We define 
+	\begin{itemize}
+		\item $\Delta_0^P=\Sigma_0^P=\Pi_0^P=P$.
+		\item $\Delta_{n+1}^P=P^{\Sigma_n^P}$.
+		\item $\Sigma_{n+1}^P=NP^{\Sigma_n^P}$.
+		\item $\Pi_{n+1}^P=\text{co-}\left(NP^{\Sigma_n^P}\right)$.
+	\end{itemize}
+\end{definition*}
+
+\begin{theorem*}[II.26]
+	If for some $k\in\N$ we have $\Sigma_k^P = \Pi_k^P$ then the hierarchy 
+	collapses at that level and $\Sigma_n^P = \Pi_n^P$ for all $n>k$.
+\end{theorem*}
 
 \end{document}

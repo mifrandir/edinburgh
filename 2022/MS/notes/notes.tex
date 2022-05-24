@@ -153,22 +153,22 @@
 
 \begin{definition}[Inner product space]
 	Let $X$ be a real vector space. An \emph{inner product}
-	is a map $\lra{.,.}:X\times X\to\R$ where for all $x,y,z\in X$ and
+	is a map $\angles{.,.}:X\times X\to\R$ where for all $x,y,z\in X$ and
 	$\lambda,\mu\in\R$,
 	\begin{enumerate}
-		\item $\lra{x,x}\geq 0$ with $\lra{x,x}=0$ iff $x=0$,
-		\item $\lra{x,y}=\lra{y,x}$,
-		\item $\lra{\lambda x+\mu y,z}=\lambda\lra{x,z}+\mu{y,z}$.
+		\item $\angles{x,x}\geq 0$ with $\angles{x,x}=0$ iff $x=0$,
+		\item $\angles{x,y}=\angles{y,x}$,
+		\item $\angles{\lambda x+\mu y,z}=\lambda\angles{x,z}+\mu{y,z}$.
 	\end{enumerate}
-	A \emph{inner product space} is a pair $(X, \lra{.,.})$ where $X$ is a real
-	vector space and $\lra{.,.}$ is a norm on $X$.
+	A \emph{inner product space} is a pair $(X, \angles{.,.})$ where $X$ is a real
+	vector space and $\angles{.,.}$ is a norm on $X$.
 \end{definition}
 
 \begin{lemma}
-	Let $(X,\lra{.,.})$ be an inner product space. Let $\vabs{-}:X\to\R$ be given
+	Let $(X,\angles{.,.})$ be an inner product space. Let $\vabs{-}:X\to\R$ be given
 	by
 	\begin{align*}
-		\vabs x = \sqrt{\lra{x,x}}.
+		\vabs x = \sqrt{\angles{x,x}}.
 	\end{align*}
 	Then $(X,\vabs{-})$ is a normed linear space. Further, let $d:X\times X\to\R$
 	be given by
@@ -839,7 +839,7 @@ Let $(X,d)$ be a metric space.
 \end{lemma}
 
 \begin{proposition}[10.4]
-	Let $I\subseteq\R$ an interval. Define $d:I\times I\to\R$ by $\lra{x,y}\mapsto\abs{x-y}$.
+	Let $I\subseteq\R$ an interval. Define $d:I\times I\to\R$ by $\angles{x,y}\mapsto\abs{x-y}$.
 	Then $(I,d)$ is a connected metric space.
 \end{proposition}
 

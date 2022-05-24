@@ -70,22 +70,22 @@ This lets us write
 \begin{align*}
 	\frac{\partial(x,y,z)}{\partial(u,v,w)}
 	= \begin{vmatrix}
-		1-v    & -u     & 0   \\
-		v(1-w) & u(1-w) & -uv \\
-		vw     & uw     & uv
-	\end{vmatrix}
+		  1-v    & -u     & 0   \\
+		  v(1-w) & u(1-w) & -uv \\
+		  vw     & uw     & uv
+	  \end{vmatrix}
 \end{align*}
 We expand via the first row to get
 \begin{align*}
 	\frac{\partial(x,y,z)}{\partial(u,v,w)}
 	= (1-v)\begin{vmatrix}
-		u(1-w) & -uv \\
-		uw     & uv
-	\end{vmatrix}
+		       u(1-w) & -uv \\
+		       uw     & uv
+	       \end{vmatrix}
 	+ (-u)\begin{vmatrix}
-		v(1-w) & -uv \\
-		vw     & uv
-	\end{vmatrix}.
+		      v(1-w) & -uv \\
+		      vw     & uv
+	      \end{vmatrix}.
 \end{align*}
 By applying the formula for $2\times 2$ determinants and
 simplifying the result, we find

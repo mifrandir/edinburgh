@@ -924,8 +924,8 @@ Weaknesses:
 	\begin{align*}
 		\forall i \leq m,\: e_A(i,1) = e_A(i,n) = \infty.
 	\end{align*}
-	Then, for every $\lra{i,j}\in[m]\times[n]$, the minimum cost $c_A(i,j)$
-	of a vertical seam ending in $\lra{i,j}$ is given by
+	Then, for every $\angles{i,j}\in[m]\times[n]$, the minimum cost $c_A(i,j)$
+	of a vertical seam ending in $\angles{i,j}$ is given by
 	\begin{align*}
 		c_A(i,j) = e_A(i,j) + \begin{cases}
 			                      0         & \text{if }i=1, \\
@@ -961,7 +961,7 @@ Weaknesses:
 	\textbf{for $j$ from $1$ to $n$}:										\\+
 	\textbf{if} $\textsf{opt}[m,j]<\textsf{opt}[m,j']$:					\\+
 	$j'\leftarrow j$												\\--
-	\textbf{return} $\lra{m,j'}, p$
+	\textbf{return} $\angles{m,j'}, p$
 
 \end{pseudo}
 
@@ -1052,7 +1052,7 @@ Weaknesses:
 
 \begin{definition}[L19]
 	A \emph{probabilistic FSM} is a finite-state machine of the form
-	$M=\lra{Q, \Sigma, q_0, F, \delta}$ where
+	$M=\angles{Q, \Sigma, q_0, F, \delta}$ where
 	\begin{itemize}
 		\item $Q$ is a set of states,
 		\item $\Sigma$ is an alphabet,
@@ -1062,14 +1062,14 @@ Weaknesses:
 		      (where $\mathcal{P}(Q)$ is the powerset of $Q$),
 	\end{itemize}
 	together with a \emph{probability label} $p_{q,a,q'}\in[0,1]$ for every
-	$\lra{q,a,q'}\in\Delta$ such that for every $q\in Q$, $a\in\Sigma$, we have
+	$\angles{q,a,q'}\in\Delta$ such that for every $q\in Q$, $a\in\Sigma$, we have
 	\begin{align*}
-		\sum_{q'\in Q, \lra{q,a,q'}\in\Delta} p_{q,a,q'}=1.
+		\sum_{q'\in Q, \angles{q,a,q'}\in\Delta} p_{q,a,q'}=1.
 	\end{align*}
 \end{definition}
 
 \begin{definition}[L19]
-	A \emph{Hidden Markov Model} is a state-machine $M=\lra{Q, \Sigma, \Delta, P,
+	A \emph{Hidden Markov Model} is a state-machine $M=\angles{Q, \Sigma, \Delta, P,
 			\{b_q:q\in Q\}, \pi}$ with $\Delta\subseteq Q\times Q$ where
 	\begin{itemize}
 		\item $Q$ is a set of states,
@@ -1077,7 +1077,7 @@ Weaknesses:
 		\item $\Delta:Q\to\mathcal{P}(Q)$ is a transition function
 		\item $P$ is a $\abs Q \times \abs Q$ \emph{transition matrix}
 		      defining a probability label $p_{q,q'}\in[0,1]$ for every
-		      $\lra{q,q'}\in\Delta$ such that for every $q\in Q$ we have
+		      $\angles{q,q'}\in\Delta$ such that for every $q\in Q$ we have
 		      \begin{align*}
 			      \sum_{q'\in Q}p_{q,q'} = 1.
 		      \end{align*}
@@ -1092,17 +1092,17 @@ Weaknesses:
 \end{definition}
 
 \begin{definition}[Max likelihood path]
-	Given a HMM defined by $M=\lra{Q,\Sigma,\Delta,P,\{b_q:q\in Q\},\pi}$, and
+	Given a HMM defined by $M=\angles{Q,\Sigma,\Delta,P,\{b_q:q\in Q\},\pi}$, and
 	a sequence $s\in\Sigma^*$, what is the \emph{most likely path} through $M$
 	to have generated $s$?
 \end{definition}
 
 \begin{theorem}[L19]
-	The max likelihood path through a HMM given by $M=\lra{Q,\Sigma,\Delta,
+	The max likelihood path through a HMM given by $M=\angles{Q,\Sigma,\Delta,
 			P,\{b_q:q\in Q\},\pi}$ to have generated a string $s$ can be calculated
 	using the algorithm below.
 	\begin{pseudo}
-		\textbf{function} \textsf{Viterbi}$(M=\lra{Q,\Sigma,\Delta, P,
+		\textbf{function} \textsf{Viterbi}$(M=\angles{Q,\Sigma,\Delta, P,
 				\{b_q:q\in Q\},\pi}, s=s_1...s_n)$:									\\+
 		$\textsf{mlp}, \textsf{prev}
 			\leftarrow \text{arrays of size $n\times\abs Q$}$				\\

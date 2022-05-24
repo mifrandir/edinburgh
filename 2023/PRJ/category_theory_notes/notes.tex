@@ -590,18 +590,18 @@
 			      \end{tikzcd}
 		      \end{center}
 		      where $\cong$ is the canonical associativity isomorphism for products. I.e. \begin{align*}
-			      m\circ \lra{m\circ \lra{x,y}, z} = m\circ\lra{x,m\circ\lra{y,z}}.
+			      m\circ \angles{m\circ \angles{x,y}, z} = m\circ\angles{x,m\circ\angles{y,z}}.
 		      \end{align*}
 		\item $u$ is a unit for $m$, that is, both triangles in the following commute: \begin{center}
 			      \begin{tikzcd}
-				      G \arrow[d, swap, "\lra{1_G, u}"] \arrow[dr, "1_G"] \arrow[r, "\lra{u, 1_G}"]
+				      G \arrow[d, swap, "\angles{1_G, u}"] \arrow[dr, "1_G"] \arrow[r, "\angles{u, 1_G}"]
 				      & G\times G\arrow[d, "m"]\\
 				      G\times G \arrow[r, swap, "m"]
 				      & G
 			      \end{tikzcd}
 		      \end{center}
 		      I.e. \begin{align*}
-			      m\circ\lra{x,u} = x = m\circ\lra{u, x}.
+			      m\circ\angles{x,u} = x = m\circ\angles{u, x}.
 		      \end{align*}
 		\item $i$ is an inverse with respect to $m$, that is, both sides of the following commute: \begin{center}
 			      \begin{tikzcd}
@@ -614,7 +614,7 @@
 			      \end{tikzcd}
 		      \end{center}
 		      I.e. \begin{align*}
-			      m\circ\lra{x,i\circ x} = u = m\circ\lra{i\circ x, x}
+			      m\circ\angles{x,i\circ x} = u = m\circ\angles{i\circ x, x}
 		      \end{align*}
 	\end{enumerate}
 \end{definition}
@@ -788,7 +788,7 @@
 	$E$, $p_1$, $p_2$ is a pullback of $f$ and $g$. Conversely, if $E$, $p_1$, $p_2$ are given as
 	such a pullback, then the arrow
 	\begin{align*}
-		e=\lra{p_1,p_2}:E\to A\times B
+		e=\angles{p_1,p_2}:E\to A\times B
 	\end{align*}
 	is an equaliser of $f\pi_1$ and $g\pi_2$.
 \end{proposition}
@@ -1031,12 +1031,12 @@
 		      \end{align*}
 		      and for each pair of arrows $f:Z\to A$ and $g:Z\to B$, there is given
 		      an arrow, \begin{align*}
-			      \lra{f,g}:Z\to A\times B
+			      \angles{f,g}:Z\to A\times B
 		      \end{align*}
 		      such that \begin{align*}
-			      p_1\lra{f,g}    & =f                                    \\
-			      p_2\lra{f,g}    & =g                                    \\
-			      \lra{p_1h,p_2h} & =h & \text{for all }h:Z\to A\times B.
+			      p_1\angles{f,g}    & =f                                    \\
+			      p_2\angles{f,g}    & =g                                    \\
+			      \angles{p_1h,p_2h} & =h & \text{for all }h:Z\to A\times B.
 		      \end{align*}
 		\item For each pair of objects $A$, $B$, there is given an object
 		      $B^A$ and an arrow, \begin{align*}
@@ -1054,7 +1054,7 @@
 		      for all $g:Z\to B^A$. Here, and generally, for any $a:X\to A$ and
 		      $b:Y\to B$, we write
 		      \begin{align*}
-			      a\times b = \lra{a\circ p_1, b\circ p_2}:X\times Y\to A\times B.
+			      a\times b = \angles{a\circ p_1, b\circ p_2}:X\times Y\to A\times B.
 		      \end{align*}
 	\end{itemize}
 \end{proposition}
@@ -1108,8 +1108,8 @@
 	\end{align*}
 	such that
 	\begin{align*}
-		\eqc{A\times B} & = \eqc A \times \eqc B \\
-		\eqc{\lra{f,g}} & = \lra{\eqc f, \eqc g} \\
+		\eqc{A\times B}    & = \eqc A \times \eqc B    \\
+		\eqc{\angles{f,g}} & = \angles{\eqc f, \eqc g} \\
 		\text{etc.}
 	\end{align*}
 	and
