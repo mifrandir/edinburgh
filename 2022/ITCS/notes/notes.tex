@@ -761,12 +761,38 @@
 		\item $\Delta_{n+1}^P=P^{\Sigma_n^P}$.
 		\item $\Sigma_{n+1}^P=NP^{\Sigma_n^P}$.
 		\item $\Pi_{n+1}^P=\text{co-}\left(NP^{\Sigma_n^P}\right)$.
+		\item $PH=\cup_n \Sigma_n^P$.
 	\end{itemize}
 \end{definition*}
 
 \begin{theorem*}[II.26]
 	If for some $k\in\N$ we have $\Sigma_k^P = \Pi_k^P$ then the hierarchy 
 	collapses at that level and $\Sigma_n^P = \Pi_n^P$ for all $n>k$.
+\end{theorem*}
+
+\subsection{Space complexity}
+
+\begin{definition*}[Space-bounded RM]
+	Let $f:\N\to\N$.
+	A (non-)deterministic RM is $f(n)$-space bounded if it may use only $f(n)$ 
+	space when computing a problem of size $n$, where space is measured in the
+	number of bits required to store the register values.
+
+	For TMs, space means the number of non-empty cells on the tape.
+
+	\texttt{PSpace} is the class of problems solvable with polynomially-space-bounded
+	machines.
+\end{definition*}
+
+\begin{theorem*}[II.28]
+	The following hold:
+	\begin{enumerate}
+		\item $\texttt{PTime}\subseteq\texttt{PSpace}$,
+		\item $\texttt{NPTime}\subseteq\texttt{PSpace}$,
+		\item $\texttt{PSpace}\subseteq\texttt{ExpTime}$,
+		\item $PH\subseteq\texttt{PSpace}$,
+		\item if $PH=\texttt{PSpace}$ then the polynomially hierarchy collapses.
+	\end{enumerate}	
 \end{theorem*}
 
 \end{document}
