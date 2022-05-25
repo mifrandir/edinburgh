@@ -392,8 +392,8 @@
 \end{definition*}
 
 \begin{definition*}[Turing transucer]
-	A \emph{Turing transducer} is an RM that takes an instance $d$ of a problem $(D,Q)$
-	in $R_0$ and halts with instance $d'=f(d)$ of $(D',Q')$ in $R_0$.
+	A \emph{Turing transducer} from a decision problem $(D,Q)$ to a decision problem 
+	$(D',Q')$ is a computable function $f:D\to D'$.
 \end{definition*}
 
 \begin{definition*}[m-reduction]
@@ -837,9 +837,9 @@
 \end{definition*}
 
 \begin{definition*}[\beta-reduction]
-	Let $t=(\lambda x.t')s$ be an application $u$ of the \beta-redex $t$ is constructed as follows:
+	Let $t=(\lambda x.t')s\in\mathcal{T}$. An application $u$ of the \beta-redex $t$ is constructed as follows:
 	\begin{enumerate}
-		\item \alpha-convert $(\lambda x. t')$ to $(\lambda x'.t'')$ such that every bound variable in is 
+		\item \alpha-convert $(\lambda x. t')$ to $(\lambda x'.t'')$ such that every bound variable in it is 
 			not free in $s$.
 		\item Substitute $s$ for every free occurence of $x'$ in $t''$.
 	\end{enumerate}
@@ -1051,7 +1051,7 @@
 	\end{align*}
 \end{definition*} 
 
-\begin{definition*}[let proof rules]
+\begin{definition*}[Hindley-Milner type inference]
 	If $\tau\in\mathcal{O}$ and $\alpha,\beta\in\mathcal{O}_1$ then $\forall \alpha, \beta, ... .\tau$ 
 	is a \emph{type scheme}, and the variables are bound in it. The type scheme $\forall.\tau$ with
 	no bound variables is identified with the type $\tau$.
@@ -1059,7 +1059,7 @@
 	Assumptions are extended to be $x:\tau$ where $\tau$ is a type scheme, and in the following $\sigma,\tau$
 	range over type schemes.
 
-	Let $\Sigma$ be a set of assumptions and let $\sigma$ be a type scheme. $\bar\Gamma(\sigma)$ denotes 
+	Let $\Gamma\subseteq\mathcal{T}$ be a set of assumptions and let $\sigma$ be a type scheme. $\bar\Gamma(\sigma)$ denotes 
 	the generalisation of $\sigma$ with respect to $\Gamma$, which is defined to be the result of binding 
 	with $\forall$ all type variables in $\sigma$ that do not occur free in $\Gamma$.
 
