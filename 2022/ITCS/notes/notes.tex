@@ -37,7 +37,7 @@
 		\item $\delta(r_i,w_{i+1})=r_{i+1}$, for $i<n$, and
 		\item $r_n\in F$.
 	\end{enumerate}
-	We say $M$ recognises $A$ if and only if $A=\{w : M\text{ accepts }w\}$.
+	We say $M$ recognises $A$ iff $A=\{w : M\text{ accepts }w\}$.
 \end{definition*}
 
 \begin{definition*}[Regular language; Sipser]
@@ -47,14 +47,33 @@
 \begin{definition*}[Regular operations; Sipser]
 	Let $A$ and $B$ be languages. We define the following \emph{regular operations}:
 	\begin{enumerate}
-		\item \emph{union}: $A\cup B=\{x : x \in A \text{ or } x \in B\}$.
-		\item \emph{concatenation}: $A\circ B=\{xy : x \in A \text{ or } y \in B\}$.
-		\item \emph{star}: $A^* = \{x_1x_2\dots x_k:k\geq 0 \text{ and each }x_i\in A\}$.
+		\item $A\cup B=\{x : x \in A \text{ or } x \in B\}$.
+		\item $AB=\{xy : x \in A \text{ and } y \in B\}$.
+		\item $A^* = \{x_1x_2\dots x_k:k\geq 0 \text{ and each }x_i\in A\}$.
 	\end{enumerate}
 \end{definition*}
 
 \begin{theorem*}[Sipser p. 45, 60, 62]
 	The class of regular languages is closed under regular operations.
+\end{theorem*}
+
+\begin{definition*}[Quotient]
+	Let $L_1,L_2$ be languages over $\Sigma$. Then the quotient $L_1/L_2$ is the language 
+	given by 
+	\begin{align*}
+		L_1/L_2 := \{w \in \Sigma^* : \exists x\in L_2. wx \in L_1\}.
+	\end{align*}
+\end{definition*}
+
+\begin{theorem*}
+	Let $L_1,L_2$ be languages over $\Sigma$. If $L_1$ is regular then $L_1/L_2$ is regular.
+	\begin{proof}
+		Let $M=(Q, \Sigma, \delta, q_0, F)$ be a DFA accepting $L_1$. Then construct $M'=(Q,\Sigma,\delta,q_0,F')$
+		which is identical to $M$ except $q\in F'$ iff there exists $y\in L_2$ such that 
+		$\delta^*(q, y)\in F$.
+		Then $\delta^*(q_0, x)$, i.e. $M'$ accepts $x$, iff $\delta(q_0,xy)\in F$, i.e. 
+		$y\in L_2$. Thus $M'$ recognises $R/L$.
+	\end{proof}
 \end{theorem*}
 
 \begin{theorem*}[Pumping lemma]
@@ -379,7 +398,7 @@
 \end{theorem*}
 
 \begin{corollary*}[Sipser p. 180]
-	A language is decidable if and only if some nondeterministic Turing machine
+	A language is decidable iff some nondeterministic Turing machine
 	decides it.
 \end{corollary*}
 
