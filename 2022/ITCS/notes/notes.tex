@@ -68,6 +68,22 @@
 	\end{enumerate}
 \end{theorem*}
 
+\begin{definition*}[Distinguishable]
+	Let $L\subseteq \Sigma^*$ and $x,y\in\Sigma^*$. If there exists a suffix string
+	$z$ such that $xz\in L$ but $yz\not\in L$ then $x$ and $y$ are distinguishable
+	by $L$.
+
+	If $x$ and $y$ are not distinguishable by $L$, we say $x\equiv_L y$.
+\end{definition*}
+
+\begin{lemma*}
+	$\equiv_L$ forms an equivalence relation on $\Sigma^*$.
+\end{lemma*}
+
+\begin{theorem*}[Myhill-Nerode]
+	A language $L$ is regular iff $\Sigma^*/\equiv_L$ is finite.
+\end{theorem*}
+
 \subsection{Nondeterminism}
 
 \begin{definition*}[NFA; Sipser]
@@ -213,6 +229,19 @@
 	\end{enumerate}
 \end{theorem*}
 
+\begin{definition*}[Chomsky hierarchy]
+	A grammar $G=(N,\Sigma,P,S)$ is of type
+	\begin{itemize}
+		\item 0 (or recursively enumerable) in the general case,
+		\item 1 (or context-sensitive) if $\abs\alpha \leq \abs\beta$ for all
+		      productions $\alpha\to\beta$, except we allow $S\to\e$ if $S$ does
+		      not occur on the RHS of any rule,
+		\item 2 (or context-free) if all productions are of the form $A\to\alpha$,
+		\item 3 (or right-linear) if all productions are of the form $A\to w$ or
+		      $A\to wB$ where $w\in\Sigma$ and $B\in N$.
+	\end{itemize}
+\end{definition*}
+
 \section{Register machines and Turing machines}
 
 \subsection{Programs}
@@ -297,10 +326,10 @@
 
 	We define the RM coding function $\ucorners{-}$ by:
 	\begin{align*}
-		\ucorners{\inc(i)}     & = \angles{0,i}                   \\
-		\ucorners{\decjz(i,j)} & = \angles{1,\angles{i,j}}        \\
+		\ucorners{\inc(i)}     & = \angles{0,i}                                     \\
+		\ucorners{\decjz(i,j)} & = \angles{1,\angles{i,j}}                          \\
 		\ucorners{P}           & = \angles{\ucorners{I_0}, ..., \ucorners{I_{n-1}}} \\
-		\ucorners{R}           & = \angles{R_0, ..., R_{m-1}}     \\
+		\ucorners{R}           & = \angles{R_0, ..., R_{m-1}}                       \\
 		\ucorners{M}           & = \angles{\ucorners{P}, \ucorners{R}, C}
 	\end{align*}
 \end{definition*}
@@ -392,7 +421,7 @@
 \end{definition*}
 
 \begin{definition*}[Turing transucer]
-	A \emph{Turing transducer} from a decision problem $(D,Q)$ to a decision problem 
+	A \emph{Turing transducer} from a decision problem $(D,Q)$ to a decision problem
 	$(D',Q')$ is a computable function $f:D\to D'$.
 \end{definition*}
 
@@ -401,8 +430,8 @@
 	Turing transducer $f$ such that $d\in Q$ iff $f(d)\in Q'$. We write $Q\leq_m Q'$
 	iff there is an $m$-reduction from $Q$ to $Q'$.
 	\begin{itemize}
-		\item Note that the answer may not be modified. In particular, one cannot negate 
-			the answer and thus arrange $d\in Q$ iff $f(d)\not\in Q'$.
+		\item Note that the answer may not be modified. In particular, one cannot negate
+		      the answer and thus arrange $d\in Q$ iff $f(d)\not\in Q'$.
 	\end{itemize}
 \end{definition*}
 
@@ -711,38 +740,50 @@
 \end{theorem*}
 
 \begin{definition*}[SAT]
-	Let $\phi$ be a boolean formula over a set $X=\{X_1, ..., X_m\}$ of 
+	Let $\phi$ be a boolean formula over a set $X=\{X_1, ..., X_m\}$ of
 	boolean variables. A satisfying assignment of $\phi$ is a function
 	$X\to\F_2$ that makes $\phi$ true. $\phi$ is satisfiable iff
 	there exists a satisfying assignment.
 
 	\texttt{SAT} is the problem $\{\phi : \phi \text{ is satisfiable}\}$.
-	The input size is the length of $\phi$.	
+	The input size is the length of $\phi$.
 \end{definition*}
 
 \begin{theorem*}[Cook-Levin]
-	\texttt{SAT} is NP-complete.	
+	\texttt{SAT} is NP-complete.
 \end{theorem*}
 
 \begin{definition*}[3SAT]
-	\texttt{3SAT} is the problem of whethre a satisfying assignment exists for a 
-	formula in 3-CNF.	
+	\texttt{3SAT} is the problem of whethre a satisfying assignment exists for a
+	formula in 3-CNF.
 \end{definition*}
 
 \begin{theorem*}[II.20]
-	\texttt{3SAT} is NP-complete.	
+	\texttt{3SAT} is NP-complete.
 \end{theorem*}
 
 \begin{definition*}[CLIQUE]
-	Let $G=(V,E)$ a graph and $k\in\N$. A $k$-clique $C\subset V$ is a 
-	set such that $\abs{C} = k$ and for all $u,v\in C$, $(u,v)\in E$,
-	i.e. $C$ is a complete subgraph of $G$.
+	Let $G=(V,E)$ a finite graph and $k\in\N$. Then $C\subseteq V$ is a
+	$k$-clique iff $\abs{C} = k$ and for all $u,v\in C$, $(u,v)\in E$.
 
-	The \texttt{$k$-CLIQUE} problem is to decide whether $G$ has a $k$-clique.
+	The \texttt{CLIQUE} problem is the set of pairs $(G,k)$ such that
+	$G$ is a finite graph with a $k$-clique.
 \end{definition*}
 
 \begin{theorem*}[II.22]
-	\texttt{$k$-CLIQUE} is $NP$-complete.	
+	\texttt{CLIQUE} is $NP$-complete.
+\end{theorem*}
+
+\begin{definition*}[VERTEX-COVER]
+	Let $G=(V,E)$ a finite graph and $k\in\N$. Then $C\subseteq V$ is a
+	$k$-cover iff $\abs C = k$ and for all $(u,v)\in E$, $u\in C$ or $v\in C$.
+
+	The \texttt{VERTEX-COVER} problem is the set of paris $(G,k)$ such that
+	$G$ is a finite graph with a $k$-cover.
+\end{definition*}
+
+\begin{theorem*}
+	\texttt{VERTEX-COVER} is $NP$-complete.
 \end{theorem*}
 
 \subsection{The polynomial hierarchy}
@@ -750,16 +791,16 @@
 \begin{definition*}[ExpTime]
 	\texttt{ExpTime} is the class of problems solvable by any exponentially
 	bounded RM. \texttt{NExpTime} is the class solvable by an exponentially
-	bounded NRM.	
+	bounded NRM.
 \end{definition*}
 
 \begin{definition*}[Polynomial hierarchy]
 	Let $C$ a complexity class. A decision problem $(D,Q)$ is in the class
-	co-C iff $(D, D\setminus Q)$ is in $C$. The class $P^C$ ($NP^C$) is the 
+	co-C iff $(D, D\setminus Q)$ is in $C$. The class $P^C$ ($NP^C$) is the
 	class of problems solvable by a polynomially bounded (non-deterministic)
 	RM equipped with an oracle for some problem in $C$.
 
-	We define 
+	We define
 	\begin{itemize}
 		\item $\Delta_0^P=\Sigma_0^P=\Pi_0^P=P$.
 		\item $\Delta_{n+1}^P=P^{\Sigma_n^P}$.
@@ -770,7 +811,7 @@
 \end{definition*}
 
 \begin{theorem*}[II.26]
-	If for some $k\in\N$ we have $\Sigma_k^P = \Pi_k^P$ then the hierarchy 
+	If for some $k\in\N$ we have $\Sigma_k^P = \Pi_k^P$ then the hierarchy
 	collapses at that level and $\Sigma_n^P = \Pi_n^P$ for all $n>k$.
 \end{theorem*}
 
@@ -778,7 +819,7 @@
 
 \begin{definition*}[Space-bounded RM]
 	Let $f:\N\to\N$.
-	A (non-)deterministic RM is $f(n)$-space bounded if it may use only $f(n)$ 
+	A (non-)deterministic RM is $f(n)$-space bounded if it may use only $f(n)$
 	space when computing a problem of size $n$, where space is measured in the
 	number of bits required to store the register values.
 
@@ -796,7 +837,7 @@
 		\item $\texttt{PSpace}\subseteq\texttt{ExpTime}$,
 		\item $PH\subseteq\texttt{PSpace}$,
 		\item if $PH=\texttt{PSpace}$ then the polynomially hierarchy collapses.
-	\end{enumerate}	
+	\end{enumerate}
 \end{theorem*}
 
 \section{Lambda calculus}
@@ -810,10 +851,10 @@
 		\item There is a countable set of variables $\mathcal{V}$. Every variable is a term.
 		\item If $x\in\mathcal{V}$ and $t\in\mathcal{T}$ then $(\lambda x.t)\in\mathcal{T}$.
 		\item \label{l3a} If $s,t\in\mathcal{T}$ then $(st)\in\mathcal{T}$.
-	\end{enumerate}	
+	\end{enumerate}
 	Conventions:
 	\begin{itemize}
-		\item Application is left-associative. 
+		\item Application is left-associative.
 		\item Application takes precedence over abstraction.
 		\item For $t\in\mathcal{T}$, we denote by $\mathcal{V}(t)$ the set of variables in $t$.
 		\item For $t\in\mathcal{T}$, we denote by $\mathcal{T}(t)$ the set of subterms of $t$, including $t$.
@@ -821,15 +862,15 @@
 \end{definition}
 
 \begin{definition*}[Free and bound occurences]
-	If $x\in\mathcal{V}(t)$ the occurence is free in $t$ iff $x$ is not inside a subterm 
+	If $x\in\mathcal{V}(t)$ the occurence is free in $t$ iff $x$ is not inside a subterm
 	$\lambda x.t'$ of $t$. If $x$ is free in $t'$, it is bound in $\lambda x.t'$.
 \end{definition*}
 
 \subsection{Conversions and reductions}
 
 \begin{definition*}[\alpha-conversion]
-	An \alpha-conversion of a term $t$ is an instance of the following procedure: let 
-	$\lambda x.t'\in \mathcal{T}(t)$, and let $y\in\mathcal{V}$ such that $y$ is not free 
+	An \alpha-conversion of a term $t$ is an instance of the following procedure: let
+	$\lambda x.t'\in \mathcal{T}(t)$, and let $y\in\mathcal{V}$ such that $y$ is not free
 	in $t'$. Replace the binding occurence of $x$, and every free occurence of $x$ in $t'$
 	by $y$.
 
@@ -839,28 +880,28 @@
 \begin{definition*}[\beta-reduction]
 	Let $t=(\lambda x.t')s\in\mathcal{T}$. An application $u$ of the \beta-redex $t$ is constructed as follows:
 	\begin{enumerate}
-		\item \alpha-convert $(\lambda x. t')$ to $(\lambda x'.t'')$ such that every bound variable in it is 
-			not free in $s$.
+		\item \alpha-convert $(\lambda x. t')$ to $(\lambda x'.t'')$ such that every bound variable in it is
+		      not free in $s$.
 		\item Substitute $s$ for every free occurence of $x'$ in $t''$.
 	\end{enumerate}
 	We write $t\to_\beta u$.
 \end{definition*}
 
 \begin{definition*}[\eta-equivalence]
-	If $x\in\mathcal{V}$ is not free in $f$ then $(\lambda x. f x)$ is \eta-equivalent to $f$. We write 
-	$(\lambda x. f x)\leftrightarrow_\eta f$.	
+	If $x\in\mathcal{V}$ is not free in $f$ then $(\lambda x. f x)$ is \eta-equivalent to $f$. We write
+	$(\lambda x. f x)\leftrightarrow_\eta f$.
 \end{definition*}
 
 \begin{definition*}[Evaluation]
-	An evaluation strategy is a rule which, given a lambda-term, decides which $\beta$-redex to reduce 
-	next. 
+	An evaluation strategy is a rule which, given a lambda-term, decides which $\beta$-redex to reduce
+	next.
 
-	Call by name is the following stragey. Let $t\in\mathcal{T}$. Then 
+	Call by name is the following strategy. Let $t\in\mathcal{T}$. Then
 	\begin{itemize}
 		\item if $t$ is $(\lambda x. u) v$ then \beta-reduce it; otherwise,
 		\item if $t$ is $uv$ then reduce in $u$ if possible.
 	\end{itemize}
-	Call by value is the following stragey. Let $t\in\mathcal{T}$. Then 
+	Call by value is the following strategy. Let $t\in\mathcal{T}$. Then
 	\begin{itemize}
 		\item if $t$ is $(\lambda x. u) v$ then reduce in $v$ if possible; otherwise $\beta$-reduce it; otherwise,
 		\item if $t$ is $uv$, reduce $u$ if possible.
@@ -868,18 +909,6 @@
 	Full leftmost redution is the strategy that chooses the leftmost redex and reduces it.
 \end{definition*}
 
-\begin{definition*}[Y-combinator]
-	Let $Y$ denote the lambda-term 
-	\begin{align*}
-		Y := \lambda f. (\lambda x. f (x x)) (\lambda x. f (x x)).
-	\end{align*}	
-\end{definition*}
-
-\begin{lemma*}
-	\begin{align*}
-		Y g \to_\beta g (Y g).
-	\end{align*}
-\end{lemma*}
 
 \subsection{Simple types}
 
@@ -889,13 +918,13 @@
 	\begin{itemize}
 		\item Let $\mathcal{O}_0\subseteq\mathcal{O}$ a set of base types.
 		\item If $\sigma,\tau\in\mathcal{O}$ then $(\sigma\to\tau)\in\mathcal{O}$.
-	\end{itemize}	
+	\end{itemize}
 	The syntax of simply typed lambda-calculus is identical to \ref{untyped lcalc} except \ref{l3a}
-	is replaced by 
+	is replaced by
 	\begin{enumerate}[label=L3'.]
-		\item \label{l3b} If $x\in\mathcal{V}$, $t\in\mathcal{T}$, and $\tau\in\mathcal{O}$ then 
-			$(\lambda x:\sigma. t) \in\mathcal{T}$.
-	\end{enumerate} 
+		\item \label{l3b} If $x\in\mathcal{V}$, $t\in\mathcal{T}$, and $\tau\in\mathcal{O}$ then
+		      $(\lambda x:\sigma. t) \in\mathcal{T}$.
+	\end{enumerate}
 	Convention:
 	\begin{itemize}
 		\item $\sigma\to\tau\to\pi\equiv \sigma\to(\tau\to\pi)$.
@@ -913,27 +942,27 @@
 \end{definition*}
 
 \begin{definition*}[Proof of judgement]
-	The judgement $\Gamma\vdash t:\tau$ is true iff it can be proved from the following rules and 
+	The judgement $\Gamma\vdash t:\tau$ is true iff it can be proved from the following rules and
 	axioms:
 	\begin{itemize}
 		\item Constant axioms: For any set of assumptions $\Gamma$, and for every constant $c$, there is an axiom \begin{align*}
-			\infer{\Gamma \vdash c:\tau}{}
-		\end{align*}
-		where $\tau$ is the type assigned to $c$ by its definition.
+			      \infer{\Gamma \vdash c:\tau}{}
+		      \end{align*}
+		      where $\tau$ is the type assigned to $c$ by its definition.
 		\item Variable rule: \begin{align*}
-			\infer{\Gamma\vdash x:\sigma}{x:\sigma \in\Gamma}.
-		\end{align*}
+			      \infer{\Gamma\vdash x:\sigma}{x:\sigma \in\Gamma}.
+		      \end{align*}
 		\item Abstraction rule: \begin{align*}
-			\infer{\Gamma\vdash \lambda x:\sigma.t:\sigma\to\tau}{\Gamma,x:\sigma\vdash t:\tau}.
-		\end{align*}
+			      \infer{\Gamma\vdash \lambda x:\sigma.t:\sigma\to\tau}{\Gamma,x:\sigma\vdash t:\tau}.
+		      \end{align*}
 		\item Application rule: \begin{align*}
-			\infer{\Gamma \vdash ts : \tau }{\Gamma \vdash t : \sigma\to\tau \hs \Gamma\vdash s:\sigma}
-		\end{align*}
+			      \infer{\Gamma \vdash ts : \tau }{\Gamma \vdash t : \sigma\to\tau \hs \Gamma\vdash s:\sigma}
+		      \end{align*}
 	\end{itemize}
 \end{definition*}
 
 \begin{theorem*}[Uniqueness of types]
-	In a given consistent set of assumptions, any simply typed lambda term has at most one type. 
+	In a given consistent set of assumptions, any simply typed lambda term has at most one type.
 \end{theorem*}
 
 \begin{theorem*}[III.11]
@@ -953,17 +982,38 @@
 	Simply typed lambda calculus is not Turing-complete.
 \end{corollary*}
 
-\begin{proposition*}[III.15]
+\begin{proposition}[III.15]
+	\label{self-application}
 	Any term containing a self-application cannot be given a simple type.
-\end{proposition*}
+\end{proposition}
 
 \subsection{Recursion}
+
+\begin{definition*}[Y-combinator]
+	Let $Y$ denote the untyped lambda-term
+	\begin{align*}
+		Y := \lambda f. (\lambda x. f (x x)) (\lambda x. f (x x)).
+	\end{align*}
+\end{definition*}
+
+\begin{lemma*}
+	\begin{align*}
+		Y g \to_\beta g (Y g).
+	\end{align*}
+\end{lemma*}
+
+\begin{corollary*}
+	The $Y$-combinator cannot be given a simple type.
+	\begin{proof}
+		Immediate by \ref{self-application}.
+	\end{proof}
+\end{corollary*}
 
 \begin{definition*}[Recursion for simple types]
 	The syntax in \ref{simply typed lcalc} is extended as follows:
 	\begin{enumerate}[label=L4.]
 		\item If $t\in\mathcal{T}$ then $(\textbf{fix }t)\in\mathcal{T}$.
-	\end{enumerate}	
+	\end{enumerate}
 	The $\beta$-reduction rules are extended by \begin{align*}
 		\textbf{fix}(\lambda x:\tau.t)\to_\beta t[\textbf{fix}(\lambda x:\tau.t)/x].
 	\end{align*}
@@ -975,14 +1025,14 @@
 \begin{definition*}[let]
 	For $x\in\mathcal{V}$, $\tau\in\mathcal{O}$, and $t,t'\in\mathcal{T}$,
 	\begin{align*}
-		(\textbf{let $x:\tau = t$ in $t'$}) := (\lambda x:t.t')t.	
+		(\textbf{let $x:\tau = t$ in $t'$}) := (\lambda x:t.t')t.
 	\end{align*}
 \end{definition*}
 
 \begin{definition*}[letrec]
 	For $x\in\mathcal{V}$, $\tau\in\mathcal{O}$, and $t,t'\in\mathcal{T}$,
 	\begin{align*}
-		(\textbf{letrec $x:\tau=t$ in $t'$}) := (\textbf{let $x:\tau=$ fix$(\lambda x:\tau.t)$ in $t'$}).	
+		(\textbf{letrec $x:\tau=t$ in $t'$}) := (\textbf{let $x:\tau=$ fix$(\lambda x:\tau.t)$ in $t'$}).
 	\end{align*}
 \end{definition*}
 
@@ -993,10 +1043,10 @@
 	that contains no type variables is called \emph{closed}.
 
 	A \emph{type substitution} is a function $\mathcal{O}_1\to\mathcal{O}$. If
-	$\mathcal{T}:\mathcal{O}_1\to\mathcal{O}$ and $t\in\mathcal{T}$ then $\mathcal{F} t$ is the result 
+	$\mathcal{T}:\mathcal{O}_1\to\mathcal{O}$ and $t\in\mathcal{T}$ then $\mathcal{F} t$ is the result
 	of applying $\mathcal{F}$ to $t$; similarly, we applyl substitutions to types, assumptions, etc.
-	We specify substitutions explicitly by the notation $[\mathcal{F}(\alpha)/\alpha, 
-	\mathcal{F}(\beta)/\beta,...]$.
+	We specify substitutions explicitly by the notation $[\mathcal{F}(\alpha)/\alpha,
+				\mathcal{F}(\beta)/\beta,...]$.
 \end{definition*}
 
 \begin{proposition*}[III.20]
@@ -1005,27 +1055,27 @@
 
 \begin{definition*}[]
 	Let $\sigma,\tau\in\mathcal{T}$. A \emph{type equation} is an equation of the form $\sigma=\tau$. A solution
-	to the equation is a type substitution $\mathcal{F}$ such that $\mathcal{F}\sigma=\mathcal{F}\tau$. A 
+	to the equation is a type substitution $\mathcal{F}$ such that $\mathcal{F}\sigma=\mathcal{F}\tau$. A
 	solution to a set of equations is a substitution that solves all equations simultaneously.
 
 	We modify the typing proof rules:
 	\begin{itemize}
 		\item Constant axiom schema: \begin{align*}
-			\infer{\Gamma\vdash c:\tau}{}
-		\end{align*}
-		which generates the equation $\tau=\tau'$ where $\tau'$ is the type assigned to $c$.
+			      \infer{\Gamma\vdash c:\tau}{}
+		      \end{align*}
+		      which generates the equation $\tau=\tau'$ where $\tau'$ is the type assigned to $c$.
 		\item Variable rule: \begin{align*}
-			\infer{\Gamma\vdash x:\sigma}{x:\sigma'\in\Gamma}
-		\end{align*}
-		which generates the equation $\sigma'=\sigma$
+			      \infer{\Gamma\vdash x:\sigma}{x:\sigma'\in\Gamma}
+		      \end{align*}
+		      which generates the equation $\sigma'=\sigma$
 		\item Abstraction rule: \begin{align*}
-			\infer{\Gamma\vdash\lambda x.t:\sigma}{\Gamma,x:\alpha\vdash t:\beta}
-		\end{align*}
-		which generates the equation $\alpha\to\beta = \sigma$ where $\alpha,\beta$ are new type variables j.
+			      \infer{\Gamma\vdash\lambda x.t:\sigma}{\Gamma,x:\alpha\vdash t:\beta}
+		      \end{align*}
+		      which generates the equation $\alpha\to\beta = \sigma$ where $\alpha,\beta$ are new type variables j.
 		\item Application rule: \begin{align*}
-			\infer{\Gamma\vdash ts:\tau}{\Gamma\vdash t:\alpha\to\tau\hs \Gamma\vdash s:\alpha}
-		\end{align*}
-		where $\alpha$ is a new type variable.
+			      \infer{\Gamma\vdash ts:\tau}{\Gamma\vdash t:\alpha\to\tau\hs \Gamma\vdash s:\alpha}
+		      \end{align*}
+		      where $\alpha$ is a new type variable.
 	\end{itemize}
 	We say $t:\tau$ iff there is a proof-tree for some $\vdash t:\tau'$ and there is a solution $\mathcal{F}$
 	for the set of equations generated by the pfoorf tree, such that $\tau=\mathcal{F}\tau'$.
@@ -1034,14 +1084,14 @@
 \begin{proposition*}[III.22]
 	Given a set of type equations, we can in linear time either find a solution or show that no solutioin exists.
 
-	Moreover, we can find the most general solution, i.e. a solution $\mathcal{F}$ such that any other 
+	Moreover, we can find the most general solution, i.e. a solution $\mathcal{F}$ such that any other
 	solution $\mathcal{F}'$ is equal to $\mathcal{F}''$ applied to $\mathcal{F}$ for some $\mathcal{F}''$.
 \end{proposition*}
 
 \subsection{Polymorphism}
 
 \begin{definition*}[Let-polymorphic lambda calculus]
-	The let-polymorphic lambda-calculus extends the untyped lambda calculus together with the 
+	The let-polymorphic lambda-calculus extends the untyped lambda calculus together with the
 	\textbf{fix} constructor and any other primitve terms, with the following term construction:
 	\begin{enumerate}[label=L5.]
 		\item If $x\in\mathcal{V}$ and $t,t'\in\mathcal{T}$ then $(\textbf{let $x=t$ in $t'$})\in\mathcal{T}$.
@@ -1049,29 +1099,29 @@
 	The \beta-reduction rule for this term is \begin{align*}
 		\textbf{let $x=t$ in $t'\to_\beta t'[t/x]$}.
 	\end{align*}
-\end{definition*} 
+\end{definition*}
 
 \begin{definition*}[Hindley-Milner type inference]
-	If $\tau\in\mathcal{O}$ and $\alpha,\beta\in\mathcal{O}_1$ then $\forall \alpha, \beta, ... .\tau$ 
+	If $\tau\in\mathcal{O}$ and $\alpha,\beta\in\mathcal{O}_1$ then $\forall \alpha, \beta, ... .\tau$
 	is a \emph{type scheme}, and the variables are bound in it. The type scheme $\forall.\tau$ with
 	no bound variables is identified with the type $\tau$.
-	
+
 	Assumptions are extended to be $x:\tau$ where $\tau$ is a type scheme, and in the following $\sigma,\tau$
 	range over type schemes.
 
-	Let $\Gamma\subseteq\mathcal{T}$ be a set of assumptions and let $\sigma$ be a type scheme. $\bar\Gamma(\sigma)$ denotes 
-	the generalisation of $\sigma$ with respect to $\Gamma$, which is defined to be the result of binding 
+	Let $\Gamma\subseteq\mathcal{T}$ be a set of assumptions and let $\sigma$ be a type scheme. $\bar\Gamma(\sigma)$ denotes
+	the generalisation of $\sigma$ with respect to $\Gamma$, which is defined to be the result of binding
 	with $\forall$ all type variables in $\sigma$ that do not occur free in $\Gamma$.
 
-	If $\sigma,\tau\in\mathcal{O}$ we say $\tau$ specialises $\sigma$, written $\sigma\sqsubseteq \tau$ 
-	iff $\sigma$ has the form $\forall \alpha, \beta, ... .\sigma'$ and $\tau$ is the result of subsituting 
+	If $\sigma,\tau\in\mathcal{O}$ we say $\tau$ specialises $\sigma$, written $\sigma\sqsubseteq \tau$
+	iff $\sigma$ has the form $\forall \alpha, \beta, ... .\sigma'$ and $\tau$ is the result of subsituting
 	types for some of the $\alpha,\beta, ...$ in $\sigma'$, and removing them from the bound variable list.
 
-	The typing rule for \textbf{let} expressions is 
+	The typing rule for \textbf{let} expressions is
 	\begin{align*}
 		\infer{\Gamma\vdash \textbf{let $x=t$ in $t':\tau$}}{\Gamma\vdash t:\sigma\hs \Gamma,x:\bar\Gamma(\sigma)\vdash t':\tau}
 	\end{align*}
-	and the typing rule for variables and assumptions is modified to be 
+	and the typing rule for variables and assumptions is modified to be
 	\begin{align*}
 		\infer{\Gamma \vdash x:\tau}{x:\sigma \in \Gamma\hs \sigma\sqsubseteq \tau}.
 	\end{align*}
