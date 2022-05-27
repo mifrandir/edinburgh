@@ -60,8 +60,8 @@
 \end{theorem*}
 
 \begin{definition*}[Quotient]
-	Let $L_1,L_2$ be languages over $\Sigma$. Then the quotient $L_1/L_2$ is the language 
-	given by 
+	Let $L_1,L_2$ be languages over $\Sigma$. Then the quotient $L_1/L_2$ is the language
+	given by
 	\begin{align*}
 		L_1/L_2 := \{w \in \Sigma^* : \exists x\in L_2. wx \in L_1\}.
 	\end{align*}
@@ -71,9 +71,9 @@
 	Let $L_1,L_2$ be languages over $\Sigma$. If $L_1$ is regular then $L_1/L_2$ is regular.
 	\begin{proof}
 		Let $M=(Q, \Sigma, \delta, q_0, F)$ be a DFA accepting $L_1$. Then construct $M'=(Q,\Sigma,\delta,q_0,F')$
-		which is identical to $M$ except $q\in F'$ iff there exists $y\in L_2$ such that 
+		which is identical to $M$ except $q\in F'$ iff there exists $y\in L_2$ such that
 		$\delta^*(q, y)\in F$.
-		Then $\delta^*(q_0, x)$, i.e. $M'$ accepts $x$, iff $\delta(q_0,xy)\in F$, i.e. 
+		Then $\delta^*(q_0, x)$, i.e. $M'$ accepts $x$, iff $\delta(q_0,xy)\in F$, i.e.
 		$y\in L_2$. Thus $M'$ recognises $R/L$.
 	\end{proof}
 \end{theorem*}
