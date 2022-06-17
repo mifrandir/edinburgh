@@ -73,8 +73,8 @@
 		Let $M=(Q, \Sigma, \delta, q_0, F)$ be a DFA accepting $L_1$. Then construct $M'=(Q,\Sigma,\delta,q_0,F')$
 		which is identical to $M$ except $q\in F'$ iff there exists $y\in L_2$ such that
 		$\delta^*(q, y)\in F$.
-		Then $\delta^*(q_0, x)$, i.e. $M'$ accepts $x$, iff $\delta(q_0,xy)\in F$, i.e.
-		$y\in L_2$. Thus $M'$ recognises $R/L$.
+		Then $\delta^*(q_0, x)\in F'$, i.e. $M'$ accepts $x$, iff there exists $y\in L_2$
+		such that $\delta(q_0,xy)\in F$. Thus $M'$ recognises $R/L$.
 	\end{proof}
 \end{theorem*}
 
