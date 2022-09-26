@@ -1,0 +1,163 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Linear Analysis: Homework 1}
+\author{Franz Miltz (UUN: S1971811)}
+\date{27 September 2022}
+\maketitle
+
+Let $C^0=C^0 \rr{ \bb{ 0,1 }, \R }$.
+
+\begin{claim*}[2d]
+  The set $S$ of all $\F$-valued sequences with limit $0$ is a vector space.
+  \begin{proof}
+    Let $(x_n)_{n\in\N},(y_n)_{n\in\N}\in S$. Let $\lambda\in\F$. Using limit laws we have
+    \begin{align*}
+      \lim_{n\to\infty}(\lambda x_n) = \lambda \lim_{n\to\infty} x_n = 0
+    \end{align*}
+    and
+    \begin{align*}
+      \lim_{n\to \infty}(x_n + y_n) = \lim_{n\to\infty} x_n + \lim_{n\to\infty} y_n = 0.
+    \end{align*}
+    Thus $(\lambda x_n)_{n\in\N},(x_n + y_n)_{n\in\N}\in S$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[5]
+  Let $f,g\in C^0$ be given by
+  \begin{align*}
+    f(x)=\cos\rr{2\pi x}, \hs g \rr{ x } = \cos \rr{ 4\pi x }.
+  \end{align*}
+  Then $f$ and $g$ are linearly independent.
+  \begin{proof}
+    Firstly we note that $f,g$ are indeed continuous on $[0,1]$ so they are elements of $C^0$.
+    Consider $\lambda,\mu\in\R$ such that
+    \begin{align*}
+      \lambda f + \mu g = 0.
+    \end{align*}
+    I.e., for all $x\in[0,1]$, \begin{align*}
+      \lambda f \rr{ x } + \mu g \rr{ x } = 0.
+    \end{align*}
+    We choose $x=1/4$ to find $\lambda = 0$. Using this and choosing $x=1/8$ we obtain $\mu=0$.
+    Thus $f$ and $g$ are linearly independent.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[6]
+  Let $\vabs{-}_{C^0}:C^0\to \R$ be given by
+  \begin{align*}
+    \vabs{f}_{C^0}=\max_{x\in \bb{ 0,1 }}\abs{f \rr{ x }}.
+  \end{align*}
+  $\vabs{-}_{C^0}$ defines a norm.
+  \begin{proof}
+    To begin we note that all $f\in C^0$ are continuous on a closed and bounded interval
+    and thus attain a maximum and minimum values.
+
+    Let $f\in C^0$ and let $\lambda\in\R$. Then
+    \begin{align*}
+      \vabs{\lambda f}_{C^0} &= \max_{x\in \bb{ 0,1 }}\abs{\lambda f \rr{ x }} \\
+                             &= \abs{\lambda} \max_{x\in \bb{ 0,1 }}\abs{f \rr{ x }} \\
+                             &= \abs\lambda \vabs{f}_{C^0}.
+    \end{align*}
+    Let $f,g\in C^0$. Let $x_0,y_0\in \bb{ 0,1 }$ such that
+    \begin{align*}
+      \vabs{f}_{C^0} = \abs{f \rr{ x_0 }}, \hs \vabs{g}_{C^0} = \abs{g \rr{ y_0 }}.
+    \end{align*}
+    Then
+    \begin{align*}
+      \vabs{f + g}_{C^0} &= \max_{x\in \bb{ 0,1 }} \abs{ f \rr{ x } + g \rr{ x } } \\
+                         &\leq \max_{x\in \bb{ 0,1 }} \rr{ \abs{f \rr{ x }} + \abs{g \rr{ x } }} \\
+                         &= \max_{x\in \bb{ 0,1 }} \abs{ f \rr{ x } } + \max_{x\in \bb{ 0,1 }} \abs{ g \rr{ x } } \\
+                         &= \vabs{f}_{C^0} + \vabs{g}_{C^0}.
+    \end{align*}
+    Finally, assume $f\in C^0$ such that $\vabs{f}_{C^0}=0$. Then, for all $x\in \bb{ 0,1 }$,
+    \begin{align*}
+      \abs{f \rr{ x }} \leq 0.
+    \end{align*}
+    Immediately, $f \rr{ x }=0$ everywhere, i.e. $f=0$.
+  \end{proof}
+\end{claim*}
+
+\begin{lemma} \label{uniform-iff-pointwise}
+  Let $ \rr{u_n}_{n\in\N}$ a sequence of functions in $C^0$. Then $ \rr{u_n}_{n\in\N}$ converges
+  uniformly iff there exists a function $u\in C^0$ such that
+  \begin{align*}
+    \lim_{n\to\infty} \vabs{u_n-u}_{C^0}=0.
+  \end{align*}
+  \begin{proof}
+    Assume $ \rr{u_n}_{n\in\N}$ converges uniformly to some $u\in C^0$. Then, for all $\e > 0$,
+    there exists an $N\in\N$ such that, for all $x\in \bb{ 0,1 }$ and for all $n>N$,
+    \begin{align*}
+      \abs{u_n \rr{ x } - u \rr{ x }} < \e.
+    \end{align*}
+    Now fix $\e>0$ and choose $N$ accordingly. Then, for $n>N$,
+    \begin{align*}
+      \vabs{u_n-u}_{C^0} = \max_{x\in \bb{ 0,1 }} \abs{u_n \rr{ x } - u \rr{ x } } < \max_{x\in \bb{0,1}} \rr{\e} < \e.
+    \end{align*}
+    Thus \begin{align*}
+      \lim_{n\to\infty} \vabs{u_n-u}_{C^0} = 0.
+    \end{align*}
+    Conversely, assume for some $u\in C^0$,
+    \begin{align*}
+      \lim_{n\to\infty} \vabs{u_n-u}_{C^0} = 0.
+    \end{align*}
+    Now fix $\e>0$ and choose $N$ such that, for all $n>N$,
+    \begin{align*}
+      \vabs{u_n-u}_{C^0}<\e.
+    \end{align*}
+    Then, for all $x\in \bb{ 0,1 }$ and for all $n>N$,
+    \begin{align*}
+      \abs{u_n \rr{ x } - u \rr{ x }} \leq \max_{x\in \bb{ 0,1 }} \abs{u_n \rr{ x } - u \rr{ x }} = \vabs{u_n-u}_{C^0} < \e.
+    \end{align*}
+    Thus $ \rr{u_n}_{n\in\N}$ converges uniformly to $u$.
+  \end{proof}
+\end{lemma}
+
+\begin{lemma} \label{cauchy-implies-uniform}
+  Let $ \rr{u_n}_{n\in\N}$ such that, for all $\e>0$, there exists $N\in\N$ such that, for all $n,m\geq N$ and for all
+  $x\in \bb{ 0,1 }$, $\abs{u_m \rr{ x } - u_n \rr{ x }} < \e$. Then $u_n\to u$ uniformly for some $u\in C^0$.
+  \begin{proof}
+    Assume the condition above holds. In $\R$, every Cauchy sequence converges. Thus $u_n\to u$
+    pointwise for some $u: \bb{ 0,1 }\to \R$. We claim that this convergence is uniform.
+    To see this, fix $\e > 0$ and choose $N\in\N$ such that, for all $m,n>N$ and all $x\in \bb{ 0,1 }$,
+    \begin{align*}
+      \abs{u_m \rr{ x } - u_n \rr{ x }} < \e/2.
+    \end{align*}
+    In particular, fix $n>N$ and calculate
+    \begin{align*}
+      \lim_{m\to\infty} \abs{ u_m \rr{ x } - u_n \rr{ x }} = \abs{ u \rr{ x } - u_n \rr{ x } }.
+    \end{align*}
+    Now
+    \begin{align*}
+      \lim_{m\to\infty} \abs{ u_m \rr{ x } - u_n \rr{ x }} \leq \e / 2
+    \end{align*}
+    so finally
+    \begin{align*}
+      \abs{u \rr{ x } - u_n \rr{ x }} < \e.
+    \end{align*}
+
+  \end{proof}
+\end{lemma}
+
+\begin{claim*}[7]
+  $ \rr{ C^0, \vabs{-}_{C^0} }$ is a Banach space.
+  \begin{proof}
+    We have shown above that $\vabs{-}_{C^0}$ is a norm.
+
+    Let $ \rr{u_n}_{n\in\N}$ be a Cauchy sequence. Now fix $\e>0$ and choose $N\in\N$
+    such that, for all $m,n>N$,
+    \begin{align*}
+      \vabs{u_m - u_n}_{C^0}<\e.
+    \end{align*}
+    Then, in particular, for all $x\in \bb{ 0,1 }$, $\abs{u_m \rr{ x } - u_n \rr{ x }}<\e$.
+    By~\ref{cauchy-implies-uniform}, $ \rr{u_n}_{n\in\N}$ converges uniformly to some $u\in C^0$.
+    We can now apply~\ref{uniform-iff-pointwise} to find that
+    \begin{align*}
+      \lim_{n\to\infty} \vabs{u_n-u}_{C^0} = 0.
+    \end{align*}
+    Thus $u_n\to u$.
+  \end{proof}
+\end{claim*}
+
+\end{document}
