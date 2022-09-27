@@ -9,5 +9,131 @@
 \tableofcontents
 \pagebreak
 
-\section{Revision}
+\section{Definitions}
+\label{sec:definitions}
+
+Let $\F\in \cc{ \R,\C }$.
+
+\begin{definition}[Normed linear space]
+  \label{def:nls}
+  Let $X$ be an $\F$-vector space.
+  A function $ \vabs{ - } : X \to \R$ is defined to be a norm on $X$ iff the following hold
+  \begin{enumerate}
+    \item $\forall x\in X.\: \vabs{ x }\geq 0$ and $ \vabs{ x } = 0$ iff $x = 0$.
+    \item $\forall \lambda\in\F.\:\forall x \in X.\: \vabs{ \lambda x } = \abs{ \lambda } \vabs{ x }$.
+    \item $\forall x,y\in X.\: \vabs{ x + y } \leq \vabs{ x } + \vabs{ y }$
+  \end{enumerate}
+  A pair $ \rr{ X, \vabs{ - } }$ is a normed linear space iff $X$ is a vector space and $ \vabs{ - } $
+  is a norm on $X$.
+\end{definition}
+
+
+\begin{theorem}
+  \label{thm:symmetry}
+  Let $X$ be a normed linear space. For $x,y\in X$, $ \vabs{ x - y } = \vabs{ y - x } $.
+\end{theorem}
+
+
+\begin{definition}
+  \label{def:convergence}
+  Let $X$ be a normed linear space. A sequence is defined to be a function $\N\to X$. A
+  sequence $ \rr{x_n}_{n\in\N}$ is defined to converge to $x\in X$ iff, for all $\e > 0$,
+  there exists $N\in\N$ such that, for all $n>N$, $ \vabs{ x_n - x } < \e$.
+\end{definition}
+
+
+\begin{theorem}
+  \label{thm:uniquenes-of-the-limit}
+  Let $X$ be a normed linear space. A sequence $ \rr{x_n}_{n\in\N}$ converges to at most one point.
+\end{theorem}
+
+
+\begin{definition}
+  \label{def:cauchy}
+  Let $X$ be a normed linear space. A sequence $ \rr{x_n}_{n\in\N}$ is defined to be Cauchy iff,
+  for all $\e>0$, there exists $N\in\N$ such that, for all $m,n>\N$, $ \vabs{ x_m - x_n } < \e$.
+\end{definition}
+
+
+\begin{theorem}
+  \label{thm:convergent-implies-cauchy}
+  Let $X$ be a normed linear space. If a sequence is convergent then it is Cauchy.
+\end{theorem}
+
+
+\begin{definition}
+  \label{def:complete}
+  Let $X$ be a normed linear space. A set $E\subseteq X$ is defined to be complete iff every Cauchy
+  sequence in $E$ is convergent.
+\end{definition}
+
+
+\begin{definition}
+  \label{def:banach}
+  A pair $ \rr{ X, \vabs{ - } } $ is defined to be a Banach space iff it is a complete normed linear space.
+\end{definition}
+
+
+\section{Inequalities}
+\label{sec:ineqaulities}
+
+
+\begin{theorem}
+  \label{thm:gagm}
+  If $A,B\geq 0$ and $0\leq\theta\leq 1$ then
+  \begin{align*}
+    A^\theta B^{1-\theta} \leq \theta A + \rr{ 1-\theta }B.
+  \end{align*}
+\end{theorem}
+
+\begin{definition}
+  \label{def:holder-conjugate-exponent}
+  For $p\in \rr{ 1,\infty }$ the H\"older conjuate exponent of $p$ is defined to be $p/ \rr{ p-1 }$.
+  For $p=1$, the H\"older conjugate exponent is defined to be $\infty$. For $p=\infty$, the
+  H\"older conjugate exponent is defined to be $1$.
+\end{definition}
+
+\begin{theorem}
+  \label{thm:hce-equals-one}
+  If $p\in \rr{ 1,\infty }$, and $q$ is the H\"older conjugate exponent of $p$ then
+  \begin{align*}
+    1 = \frac{1}{p} + \frac{1}{q}.
+  \end{align*}
+\end{theorem}
+
+
+\begin{theorem}
+  \label{thm:holder-inequality-finite}
+  Let $p\in \br{ 0,\infty }$, and let $q$ be the H\"older conjugate exponent of $p$.
+
+  For any two finite $\F$-values sequences $ \rr{ a_1, ..., a_n }$ and $ \rr{ b_1, ..., b_n }$,
+  \begin{align*}
+    \abs{\sum_{i=1}^n a_i b_i}
+    \leq \rr{ \sum_{i=1}^n \abs{a_j}^p }^{1/p} \rr{ \sum_{i=1}^n \abs{b_j}^p }^{1/p}
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  \label{thm:minkowski-for-p-infinite}
+  For any two $\F$-values sequences $ \rr{a_n}_{n\in\N}$ and $ \rr{b_n}_{n\in\N}$,
+  \begin{align*}
+    \max_i \abs{ a_i + b_i } \leq \max_i \abs{ a_i } + \max_i \abs{ b_i }.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  \label{thm:dl-norms}
+  Let $p\in \bb{ 1,\infty }$.
+  \begin{enumerate}
+    \item Let $ \vabs{ - }_{ \ell^p } : \ell^p \to \R$ be defined by \begin{align*}
+        \vabs{ x }_{ \ell^p } = \rr{ \sum_{ n }^{  } \abs{ x_n }^p }^{1/p}.
+      \end{align*}
+      Then $ \rr{ \ell^p, \vabs{ - }_{ \ell^p } }$ is a normed linear space.
+    \item Let $ \vabs{ - }_{ d_p } : \F^n \to \R$ be defined by \begin{align*}
+        \vabs{ x }_{ d_p } = \rr{ \sum_{ i=1 }^{ n } \abs{ x_i }^p }^{1/p}.
+      \end{align*}
+      Then $ \rr{ \F^n, \vabs{ - }_{ d_p } } $ is a normed linear space.
+  \end{enumerate}
+\end{theorem}
+
 \end{document}
