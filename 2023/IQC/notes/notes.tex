@@ -9,11 +9,81 @@
 \begin{document}
 \maketitle
 
-\section{State of quantum computing}
 
-\begin{itemize}
-  \item \texttt{GraphIsomorphism} is in $NP$ but may not be in $BQP$
-  \item quantum computers are not yet practical due to two qubit gate errors
-\end{itemize}
+\section{Quantum States}
+\label{sec:quantum-states}
+
+
+\begin{definition}
+  \label{def:hilbert-space}
+  A Hilbert space is a complex inner product space which is complete with respect to the induced metric.
+\end{definition}
+
+\begin{definition}
+  \label{def:quantum-state}
+  A quantum state is a vector
+  \begin{align*}
+    \va{ \psi } = \begin{bmatrix}
+      \psi_1 \\
+      \vdots \\
+      \psi_d
+    \end{bmatrix} \in \C^d
+  \end{align*}
+  where $\psi_1,...,\psi_d$ are the probability amplitudes of the $d$ outcomes.
+  In particular, the probability of the outcome $1\leq i\leq d$, is $P \rr{ i } = \abs{ \psi_i }^2$.
+  For $n$ bits there are $d=2^n$ outcomes.
+\end{definition}
+
+\begin{definition}
+  \label{def:qubit}
+  A qubit is a quantum state $ \av{ \psi } \in \C^2$. We define
+  \begin{align*}
+    \va{ 0 } = \rr{ 1, 0 }^\top\\
+    \va{ 1 } = \rr{ 0, 1 }^\top
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  \label{def:superposition}
+  \begin{align*}
+    \va{ + } = \frac{1}{\sqrt{2}} \rr{ \va{ 0 } + \va{ 1 } } \\
+    \va{ - } = \frac{1}{\sqrt{2}} \rr{ \va{ 0 } - \va{ 1 } }
+  \end{align*}
+\end{definition}
+
+\section{Quantum operations}
+\label{sec:quantum-operations}
+
+\begin{definition}
+  \label{def:quantum-operation}
+  An operation on a quantum state $ \va{ \psi } \in \mathcal H = \C^d$ is given by
+  a unitary transformation $U:\mathcal H \to \mathcal H$, i.e.
+  \begin{align*}
+    UU^\dagger = U^\dagger U = I_d.
+  \end{align*}
+\end{definition}
+
+
+\begin{definition}
+  \label{def:phase-flip}
+  The phase flip gate $Z$ is given by
+  \begin{align*}
+    Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
+  \end{align*}
+  It transforms as follows:
+  \begin{align*}
+    Z \rr{ \alpha \va{ 0 } + \beta \va{ 1 } } = \alpha \va{ 0 } - \beta \va{ 1 }.
+  \end{align*}
+\end{definition}
+
+
+\begin{definition}
+  \label{def:hadamard}
+  The Hadamard gate $H$ is given by
+  \begin{align*}
+    H = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.
+  \end{align*}
+  It acts as a change of basis from $ \cc{ \va{ 0 }, \va{ 1 } } $ to $ \cc{ \va{ + }, \va{ - } }$.
+\end{definition}
 
 \end{document}
