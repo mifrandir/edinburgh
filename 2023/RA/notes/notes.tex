@@ -8,4 +8,82 @@
 \begin{document}
 \maketitle
 
+
+\section{Testing polynomial equalities}
+
+\begin{algorithm}
+  \label{alg:stan-ulam}
+  Consider polynomials
+  \begin{align*}
+    F \rr{ x } = \prod_{i=1}^n \rr{ x - a_i }, \hs G \rr{ x } = \sum_{ i=0 }^{ n } b_i x^i.
+  \end{align*}
+  We randomly check for equality as follows:
+  \begin{enumerate}
+    \item Choose an integer $x\in \cc{ 1, 100n }$.
+    \item Calculate $F \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
+    \item Calculate $G \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
+    \item Compare the result, return $\bot$ or $\top$ accordingly.
+  \end{enumerate}
+\end{algorithm}
+
+
+\begin{theorem}
+  \label{thm:stan-ulman-probabilities}
+  The algorithm~\ref{alg:stan-ulman} has the following probabilities of success:
+  \begin{itemize}
+    \item $P \rr{ \top | F\equiv G } = 1$
+    \item $P \rr{ \bot | F\not\equiv G } \geq 99/100$
+  \end{itemize}
+  One can improve these by using
+  \begin{itemize}
+    \item repeated sampling, or
+    \item sampling from a larger set.
+  \end{itemize}
+\end{theorem}
+
+
+\begin{definition}
+  \label{def:independence}
+  Events $A_1,...,A_k$ are mutually independent iff
+  \begin{align*}
+    P \rr{ \bigcap_{i=1}^k A_i } = \prod_{i=1}^n A_i.
+  \end{align*}
+\end{definition}
+
+
+\begin{definition}
+  \label{def:conditiona-probability}
+  Let $A,B$ be two events with $P \rr{ B } > 0$. The conditional probability
+  of event $A$ given event $B$ is
+  \begin{align*}
+    P \rr{ A | B } = \frac{P \rr{ A \cap B }}{ P \rr{ B } }
+  \end{align*}
+\end{definition}
+
+
+\section{Verifying matrix multiplication}
+
+\begin{algorithm}\label{alg:mmverify}
+  Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
+  $\texttt{MMVerify} \rr{ n, A, B, C, k }$ is the following algorithm:
+  \begin{enumerate}
+    \item For $j=1,...,k$ \begin{enumerate}
+      \item Generate a vector $x\in \cc{ 0,1 }^n$ u.a.r.
+      \item Calculate $y_B = Bx$ in $O(n^2)$ time.
+      \item Calculate $y_{AB} = Ay^B$ in $O(n^2)$ time.
+      \item Calculate $y_C = Cx$ in $O(n^2)$ time.
+      \item Compare $y_{AB}$ with $y_C$ in $O(n)$ time and return $\bot$ or $\top$ accordingly.
+    \end{enumerate}
+\end{enumerate}
+\end{algorithm}
+
+\begin{theorem}
+  \label{thm:mmverify-proabilities}
+  The algorithm~\ref{alg:mmverify} has the following probabilities of success:
+  \begin{itemize}
+    \item $P \rr{ \top | A = B } = 1$
+    \item $P \rr{ \top | A \not= B } = 2^{-k}$
+  \end{itemize}
+\end{theorem}
+
 \end{document}
