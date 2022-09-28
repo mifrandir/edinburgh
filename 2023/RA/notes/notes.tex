@@ -9,7 +9,9 @@
 \maketitle
 
 
-\section{Testing polynomial equalities}
+\section{Introduction}
+
+\subsection{Testing polynomial equalities}
 
 \begin{algorithm}
   \label{alg:stan-ulam}
@@ -61,7 +63,7 @@
 \end{definition}
 
 
-\section{Verifying matrix multiplication}
+\subsection{Verifying matrix multiplication}
 
 \begin{algorithm}\label{alg:mmverify}
   Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
@@ -84,6 +86,33 @@
     \item $P \rr{ \top | A = B } = 1$
     \item $P \rr{ \top | A \not= B } = 2^{-k}$
   \end{itemize}
+\end{theorem}
+
+
+\subsection{Minimum cut}
+
+\begin{algorithm}
+  \label{alg:krager}
+  Let $G= \rr{ V,E }$ a graph and let $n= \abs{ V }$ and $m= \abs{ E }$. Then let
+  $\texttt{KragerOneTrial} \rr{ G }$ be the following algorithm: Repeatedly choose an edge
+  uniformly at random (from the not-yet contracted edges) and contract its endpoints.
+  When there are just two “vertices” left, return that cut.
+
+  Let $ \texttt{Krager} \rr{ G, k }$ be $k$ repetition of the above, taking the minimum
+  result.
+\end{algorithm}
+
+\begin{theorem}
+  \label{thm:krager-probabilities}
+  The probability of finding a minimum cut in one iteration of $ \texttt{KragerOneTrial} \rr{ G }$
+  is
+  \begin{align*}
+    p \geq \frac{2}{n \rr{ n-1 }}.
+  \end{align*}
+  The probability of finding a minimum cut using $ \texttt{Krager} \rr{ G,k }$ is
+  \begin{align*}
+    1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
+  \end{align*}
 \end{theorem}
 
 \end{document}
