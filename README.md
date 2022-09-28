@@ -42,24 +42,40 @@ Weighted average: 88.64
 Span     | School | Short     | Title                                               | Organiser                          | Mark | Grade | ECTS
 ---------|--------|-----------|-----------------------------------------------------|------------------------------------|------|-------|------
 SEM1     | MATH   | HANA      | Honours Analysis                                    | Martin Dindos                      | 94   | A1    | 10
-SEM1     | MATH   | GEO       | Geometry                                            | Johan Martens                      | 70   | A3    | 5
+SEM1     | MATH   | GEO       | Geometry                                            | Johan Martens                      | 70   | A3    |  5
 SEM1     | INF    | ILP       | Informatics Large Practical                         | Stephen Gilmore                    | 87   | A2    | 10
-SEM1     | INF    | AR        | Automated Reasoning                                 | Jacques Fleuriot                   |      |       | 5
+SEM1     | INF    | AR        | Automated Reasoning                                 | Jacques Fleuriot                   | 89   | A2    |  5
 SEM2     | MATH   | HALG      | Honours Algebra                                     | Harry Braden                       | 80   | A2    | 10
-SEM2     | MATH   | INT       | Introduction to Number Theory                       | Agata Smoktunowicz                 |      |       | 5
-SEM2     | MATH   | MS        | Metric Spaces                                       | Nikolaos Bournaveas                | 95   | A1    | 5
-SEM2     | INF    | ITCS      | Introduction to Theoretical Computer Science        | Julian Bradfield                   |      |       | 5
+SEM2     | MATH   | INT       | Introduction to Number Theory                       | Agata Smoktunowicz                 | 95   | A1    |  5
+SEM2     | MATH   | MS        | Metric Spaces                                       | Nikolaos Bournaveas                | 95   | A1    |  5
+SEM2     | INF    | ITCS      | Introduction to Theoretical Computer Science        | Julian Bradfield                   | 86   | A2    |  5
 SEM2     | INF    | CT        | Compiling Techniques                                | Tobias Grosser                     | 77   | A3    | 10
 
 Total credits sought: 120 + 10
 
+Weighted average: 84.67
+
+### Year 4 (2022/23)
+
+Span     | School | Short     | Title                                               | Organiser                          | Mark | Grade | ECTS
+---------|--------|-----------|-----------------------------------------------------|------------------------------------|------|-------|------
+FULL     | INF    | PRJ       | Honours Project                                     | Ohad Kammar                        |      |       | 20
+SEM1     | INF    | RA        | Randomised Algorithms                               | Raul Garcia-Patron Sanchez         |      |       |  5
+SEM1     | INF    | IQC       | Introduction to Quantum Computation                 | Petros Wallden                     |      |       |  5
+SEM1     | MATH   | GTP       | General Topology                                    | Clarke Barwick                     |      |       |  5
+SEM1     | MATH   | LINA      | Linear Analysis                                     | Pieter Blue                        |      |       |  5
+SEM1     | MATH   | GRP       | Group Theory                                        | Agata Smoktunowicz                 | -    | -     |  0
+SEM2     | INF    | MC        | Introduction to Modern Cryptography                 | Michele Ciampi                     |      |       |  5
+
+Total credits sought: 120
+
 ## Building
 
-A utility to build all LaTeX files has been provided. Some notable dependencies are 
+A utility to build all LaTeX files has been provided. Some notable dependencies are
 
 - Python3,
-- Pygments,
-- Matplotlib,
-- TeX Live,
-- latexmk
+  - Pygments,
+  - Matplotlib,
+  - TeX Live,
+  - latexmk
 
