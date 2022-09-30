@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \usepackage{enumitem}
+\usepackage{tikz-cd}
 \begin{document}
 \mkthmstwounified
 \title{Group Theory (SEM7)}
@@ -8,4 +9,84 @@
 \maketitle
 \tableofcontents
 \pagebreak
+
+\section{Isomorphism theorems}
+\label{sec:isomorphism-theorems}
+
+\begin{definition}
+  \label{def:normal-subgroup}
+  A subgroup $H\leq G$ is normal iff, for all $g\in G$, $gH=Hg$. We write $H\trianglelefteq G$.
+\end{definition}
+
+\begin{theorem}
+  Let $G$ be a group and let $N\leq G$. Then $N\trianglelefteq G$ iff $N$ is the kernel
+  of a group homorphism $G\to H$ for some group $H$.
+\end{theorem}
+
+\begin{theorem}[First Isomorphism Theorem]
+  \label{thm:first-iso-theorem}
+  Let $\phi:G\to H$ be a group homorphism. Then $N=\ker\phi$ is a normal subgroup of
+  $G$, $\im\phi$ is a subgroup of $H$ and there is an isomorphism
+  \begin{align*}
+    \psi : G/\ker\phi \to \im\phi
+  \end{align*}
+  defined by $\psi\rr{gN}=\phi\rr{g}$.
+\end{theorem}
+
+\begin{theorem}
+  \label{thm:up-factor-groups}
+  Let $G$ be a group and let $N\trianglelefteq G$. Then for any homorphism $\psi:G\to H$
+  with $N\subseteq\ker\psi$, there is a unique homorphism $\overline\psi:G/N\to H$ such
+  that $\overline\psi\circ\text{can}=\psi$. I.e. the following commutes
+  \begin{equation}
+    \begin{tikzcd}[row sep=huge, column sep=huge]
+      G \arrow{r}{\text{can}} \arrow{dr}{\psi} & G/N \arrow{d}{\overline\psi} \\
+                                               & H
+    \end{tikzcd}
+  \end{equation}
+\end{theorem}
+
+\begin{proposition}
+  Let $G$be a group and let $N\trianglelefteq G$. Let $\text{can}:G\to G/N$ be the canonical
+  map. Let $K\leq G/N$. Then
+  \begin{enumerate}
+    \item $\inv{\text{can}}\rr{K}\leq G$, with $N\subseteq\inv{\text{can}}\rr{K}$;
+    \item $\inv{\text{can}}\rr{K}\trianglelefteq G$ iff $K\trianglelefteq G/N$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+  Let $N\trianglelefteq G$ and let $\text{can}:G\to G/N$ be the canonical map. If $N\leq H\leq G$,
+  then $H=\inv{\text{can}\rr{\text{can}\rr{H}}}$.
+\end{proposition}
+
+\begin{theorem}[Correspondence]
+  \label{thm:correspondence}
+  Let $G$ be a group, $N\trianglelefteq G$, and let $\text{can}:G\to G/N$ be the canonical map.
+  The map $H\mapsto\text{can}\rr{H}$ is a bijection between subgroups of $G$ containing $N$ and
+  subgroups of $G/N$. Under this bijection, normal subgroups match with normal subgroups; further,
+  if $N\subseteq A,B$ are subgroups of $G$, then $\text{can}\rr{A}\subseteq\text{can}\rr{B}$
+  iff $A\subseteq B$.
+\end{theorem}
+
+\begin{theorem}[Second Isomorphism Theorem for Groups]
+  \label{thm:second-iso-theorem}
+  Let $N\trianglelefteq G$ be a normal subgroup. Let $H$ be a subgroup of $G$. Then
+  \begin{enumerate}
+    \item $HN\leq G$,
+    \item $N\trianglelefteq HN$,
+    \item $H\cap N\trianglelefteq H$, and
+    \item there is an isomorphism \begin{align*}
+        HN/N \cong H/\rr{H\cap N}.
+      \end{align*}
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Third Isomorphism Theorem]
+  \label{thm:third-iso-theorem}
+  If $N\leq H\leq G$ with $N,H\trianglelefteq G$, then \begin{align*}
+    \rr{G/N}/\rr{H/N}\cong G/H.
+  \end{align*}
+\end{theorem}
+
 \end{document}
