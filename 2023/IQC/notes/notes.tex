@@ -8,11 +8,15 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
+\pagebreak
 
 
-\section{Quantum States}
+\section{Postulates}
+\label{sec:postulates}
+
+\subsection{Quantum States}
 \label{sec:quantum-states}
-
 
 \begin{definition}
   \label{def:hilbert-space}
@@ -51,7 +55,7 @@
   \end{align*}
 \end{definition}
 
-\section{Quantum operations}
+\subsection{Quantum operations}
 \label{sec:quantum-operations}
 
 \begin{definition}
@@ -84,6 +88,20 @@
     H = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.
   \end{align*}
   It acts as a change of basis from $ \cc{ \va{ 0 }, \va{ 1 } } $ to $ \cc{ \va{ + }, \va{ - } }$.
+\end{definition}
+
+
+\subsection{Measurement}
+\label{sec:measurement}
+
+\begin{definition}
+  \label{def:probability-of-outcome}
+  Let $\cc{\va{v_i}}$ be a basis of a Hilbert space $\mathcal{H}$ and an associated measurement $\psi$.
+  Then the probability of outcome $i$ is
+  \begin{align*}
+    P\rr{i} = \abs{\ava{v_i}{\psi}}^2.
+  \end{align*}
+  The quantum state is updated to $\va{v_i}$.
 \end{definition}
 
 \end{document}
