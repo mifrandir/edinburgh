@@ -9,7 +9,7 @@
 \tableofcontents
 \pagebreak
 
-\section{Definitions}
+\section{Normed linear spaces, Banach spaces}
 \label{sec:definitions}
 
 Let $\F\in \cc{ \R,\C }$.
@@ -134,6 +134,221 @@ Let $\F\in \cc{ \R,\C }$.
       \end{align*}
       Then $ \rr{ \F^n, \vabs{ - }_{ d_p } } $ is a normed linear space.
   \end{enumerate}
+\end{theorem}
+
+\section{Topology} \label{sec:topology}
+
+\begin{definition}
+  \label{def:open}
+  Let $X$ be a normed linear space. Given $x\in X$ and $r>0$, the open ball with radius
+  $r$ and centre $x$ is defined to be
+  \begin{align*}
+    B\rr{x,r}=\cc{y\in X:\vabs{y-x}<r}.
+  \end{align*}
+  The nunit ball is $B\rr{0,1}$.
+
+  A subset $G\subseteq X$ is open iff for all $x\in X$ there is an $r>0$ such that
+  $B\rr{x,r}\subseteq G$. A subset $F\subseteq X$ is closed iff $F^C$ is open.
+\end{definition}
+
+\begin{theorem}
+  Let $X$ be a normed linear space.
+  \begin{enumerate}
+    \item $\emptyset$ and $X$ are open.
+    \item The union of any collection of open sets is open.
+    \item The intersection of a finite number of open sets is open.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a normed linear space. Let $x\in X$ and $r>0$.
+  \begin{enumerate}
+    \item $B\rr{x,r}$ is open.
+    \item $x\in B\rr{x,r}$.
+    \item $\cc{y\in X : \vabs{y-x}\leq r}$ is closed.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a normed linear space. Let $F\subseteq X$. $F$ is closed iff every sequence of
+  elements in $F$, convergent in $X$, has its limit in $F$.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a Banach space. Let $F\subseteq X$. $F$ is clossed iff every Cauchy sequence in
+  $F$ has a limit in $F$.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a Banach space. Let $W$ be a subspace of $X$. $W$ is a Banach space iff it is
+  closed.
+\end{theorem}
+
+\begin{definition}
+  \label{def:closure}
+  Let $X$ be a normed linear space. Let $W\subseteq X$. The closure of $W$ is
+  \begin{align*}
+    \overline W = \bigcap \cc{F\subseteq X : W\subseteq F, \text{$F$ closed}}
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  Let $\rr{X, \vabs{-}_{X}}$ and $\rr{Y, \vabs{-}_{Y}}$ be normed linear spaces. Let $E,F\subseteq X$.
+
+  A set $E\subseteq F$ is defined to be dense in $F$ iff, for all $f\in F$ and for all
+  $\e > 0$, there exists an $e\in E$ such that $\vabs{e-f}_{X}<\e$. A set $E$ is defined
+  to be dense if it is dense in $X$.
+
+  A linear map $T:X\to Y$ is defined to be an isometry iff, for all $x\in X$,
+  $\vabs{Tx}_{Y}=\vabs{x}_{X}$. $X$ and $Y$ are defined to be isometrically isomorphic iff
+  there exists an onto isometry $T:X\to Y$.
+
+  A Banach space completion of $\rr{X,\vabs{-}_{X}}$ is a pair $\rr{\rr{Y,\vabs{-}_{Y}}}$
+  such that $\rr{Y,\vabs{-}_{Y}}$ is a Banach space, $T:X\to Y$ is an isometry, and $T\rr{X}$
+  is dense in $Y$.
+\end{definition}
+
+\begin{theorem}[Existence of unique completion]
+  Let $X$ be a normed linear space.
+
+  There exists a Banach space completion of $X$.
+
+  If $\rr{\rr{Y,\vabs{-}_{Y}}, T_Y}$ and $\rr{\rr{Z,\vabs{-}_{Z}}, T_Z}$ are Banach space
+  completion of $X$, then $\rr{Y,\vabs{-}_{Y}}$ and $\rr{Z,\vabs{-}_{Z}}$ are isometrically
+  isomorphic.
+\end{theorem}
+
+\section{Compactness}
+\label{sec:compactness}
+
+\begin{definition}
+  Let $X$ be a normed linear space. Let $E\subseteq X$. A cover $E$ is defined to be a
+  collection of sets $\cc{U_\alpha}_{\alpha\in A}$ such that
+  $E\subseteq\bigcup_{\alpha\in A}U_\alpha$. Given a cover $\cc{U_\alpha}_{\alpha\in A}$
+  is defined to be a subset $A'\subseteq A$ such that $\cc{U_\alpha}_{\alpha\in A'}$ is also
+  a cover of $E$. An open cover is a cover $\cc{U_\alpha}_{\alpha\in A}$ such that each
+  $U_\alpha$ is open.
+
+  The set $E$ is compact iff every open cover of $E$ has a finite subcover.
+\end{definition}
+
+\begin{theorem}[Heine-Borel in $\R$]
+  Every closed and bounded interval is compact in $\R$.
+\end{theorem}
+
+\begin{theorem}
+  Let $\rr{X,\vabs{-}_{X}}$ and $\rr{Y,\vabs{-}_{Y}}$ be normed linear spaces. A function
+  $f:X\to Y$ is continuous at $x_0\in X$ iff, for lal $\e > 0$, there exists a $\delta > 0$,
+  such that, for all $x\in X$, $\vabs{x-x_0}_{X}<\delta$ implies
+  $\vabs{f\rr{x}-f\rr{x_0}}_{Y}<\e$.
+\end{theorem}
+
+\begin{theorem}[Extreme value theorem]
+  Let $X$ be a normed linear space and $f:X\to\R$ be a function. If $K\subseteq X$ is compact
+  and $f$ is continuous, then $f$ has a maximum and a minimum on $K$.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a normed linear space. Any closed subset of a compact set is compact.
+\end{theorem}
+
+\begin{definition}
+  \label{def:bounded-set}
+  Let $X$ be a normed linear space. Let $E\subseteq X$. $E$ is a bounded set iff there is an
+  $r>0$ such that $E\subseteq B\rr{0,r}$.
+\end{definition}
+
+\begin{lemma}
+  Let $X$ be a normed linear space.
+  \begin{enumerate}
+    \item If a Cauchy sequence has a subsequential limit, then it converges.
+    \item Any subsequence of a convergent sequence converges to the same point.
+  \end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ be a normed linear space. Let $E\subseteq X$. If $E$ is compact then it is closed and bounded.
+\end{theorem}
+
+\begin{definition}
+  Let $X$ be a finite-dimensional vector space. Let $\mathcal B=\rr{e_1,...,e_n}$ be
+  an ordered basis for $X$.
+
+  The $\vabs{-}_{d_\infty,\mathcal B}$ norm is given by
+  \begin{align*}
+    \vabs{x}_{d_\infty,\mathcal B}=\max_i \abs{x_i},
+  \end{align*}
+  where the $\rr{x_i}_{i=1}^n$ are the coefficients such that
+  \begin{align*}
+    x = \sum_{i=1}^{n} x_i e_i.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}[Heine-Borel in $\rr{X,\vabs{-}_{d_\infty,\mathcal B}}$]
+  Let $X$ be a finite-dimensional vector space with an ordered basis $\mathcal B = \rr{e_1, ..., e_n}$.
+
+  In $\rr{X,\vabs{-}_{d_\infty,\mathcal B}}$ there is the following equivalence: $E\subseteq X$
+  is compact iff $E$ is closed and bounded.
+\end{lemma}
+
+\section{Equivalence}
+\label{sec:equivalence}
+
+\begin{definition}
+  \label{def:equivalence}
+  Let $X$ be an $F$-vector space. Let $\vabs{-}_{1}$ andd $\vabs{-}_{2}$ be norms on $X$.
+
+  Then $\vabs{-}_{1}$ and $\vabs{-}_{2}$ are equivalent iff there is a constant $A>0$ such
+  that, for all $x\in X$,
+  \begin{align*}
+    \vabs{x}_{1}\leq A\vabs{x}_{2}, \hs
+    \vabs{x}_{2}\leq A\vabs{x}_{1}.
+  \end{align*}
+  A is called an equivalence constant.
+\end{definition}
+
+\begin{lemma}
+  Let $X$ be an $F$-vector space. Let $\vabs{-}_{1}$ and $\vabs{-}_{2}$ be equivalent norms
+  and $A>0$ an equivalence constant.
+
+  For all $x\in X$ and $r>0$,
+  \begin{align*}
+    B^1\rr{x,r}\subseteq B^2\rr{x,Ar}, \hs
+    B^2\rr{x,r}\subseteq B^1\rr{x,Ar}.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  Let $X$ be an $F$-vector space and let $\vabs{-}_{1},\vabs{-}_{2}$ be equivalent norms
+  on $X$. Then the each of the following statements is true with respect to $\vabs{-}_{1}$ iff it is true with respect to $\vabs{-}_{2}$.
+  \begin{enumerate}
+    \item $\rr{n}_{n\in\N}$ converges to $x$.
+    \item $\rr{n}_{n\in\N}$ is Cauchy.
+    \item $X$ is Banach.
+    \item $G\subseteq X$ is open.
+    \item $F\subseteq X$ is closed.
+    \item $K\subseteq X$ is compact.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  Let $X$ be a vector space. Equivalence of norms is an equivalence relation on the set of
+  norms on $X$.
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ be a finite-dimensional $F$-vector space. All norms over $X$ are equivalent.
+\end{theorem}
+
+\begin{theorem}[Heine-Borel in finite-dimensional spaces]
+  Let $\rr{X, \vabs{-}}$ be a normed linear space.
+
+  If $X$ is finite dimensional then there is the following equivalence: $K\subseteq X$
+  is compact iff it is closed and bounded.
+\end{theorem}
+
+\begin{theorem}
+Let $X$ be a normed linear space. The unit sphere is compact iff $X$ is finite dimensional.
 \end{theorem}
 
 \end{document}
