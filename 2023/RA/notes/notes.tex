@@ -7,9 +7,73 @@
 \author{Franz Miltz}
 \begin{document}
 \maketitle
+\tableofcontents
+\pagebreak
 
+\section{Probability}
 
-\section{Introduction}
+\begin{definition}
+  \label{def:expectation}
+  Let $X$ be a random variable. Then $X$ has finite expectation iff
+  \begin{align*}
+    \sum_{x} \abs{x} \pr{X=x} < \infty
+  \end{align*}
+  and we write
+  \begin{align*}
+    \ex{X} = \sum_{x} x \pr{X=x}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  \label{def:convex}
+  A function $f:\R\to\R$ is said to be convex if, for any $x_1,x_2\in\R$
+  and $\lambda\in\bb{0,1}$,
+  \begin{align*}
+    f\rr{\lambda x_1 + \rr{1-\lambda}x_2} \leq \lambda f\rr{x_1} + \rr{1-\lambda}f \rr{x_2}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}[Jensen's inequality]
+  \label{thm:jensens}
+  Let $X$ be a random variable and let $f:\R\to\R$ be a convex function. Then
+  \begin{align*}
+    \ex{f\rr{X}} \geq f\rr{\ex{X}}.
+  \end{align*}
+\end{theorem}
+
+\begin{definition}
+  \label{def:binomial}
+  A random variable $X$ is binomial with parameters $n$ and $p$ iff,
+  for all $0\leq j\leq n$,
+  \begin{align*}
+    \pr{X=j}=\binom{n}{j}p^j \rr{1-p}^{n-j}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  \label{def:geometric}
+  A random variable $X$ is geometric with parameter $P$ iff, for all $n\in\N$,
+  \begin{align*}
+    \pr{X=n}=\rr{1-p}^{n-1} p
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  For a geometric random variable $X$ with parameter $p$ and for $n>0$,
+  \begin{align*}
+    \pr{X=n+k}{X>k} = \pr{X=n}.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then
+  \begin{align*}
+    \ex{X} = \sum_{i=1}^{\infty} \pr{X\geq i}
+  \end{align*}
+\end{lemma}
+
+\section{Algorithms}
+\label{sec:algorithms}
 
 \subsection{Testing polynomial equalities}
 
@@ -43,26 +107,6 @@
   \end{itemize}
 \end{theorem}
 
-
-\begin{definition}
-  \label{def:independence}
-  Events $A_1,...,A_k$ are mutually independent iff
-  \begin{align*}
-    P \rr{ \bigcap_{i=1}^k A_i } = \prod_{i=1}^n A_i.
-  \end{align*}
-\end{definition}
-
-
-\begin{definition}
-  \label{def:conditiona-probability}
-  Let $A,B$ be two events with $P \rr{ B } > 0$. The conditional probability
-  of event $A$ given event $B$ is
-  \begin{align*}
-    P \rr{ A | B } = \frac{P \rr{ A \cap B }}{ P \rr{ B } }
-  \end{align*}
-\end{definition}
-
-
 \subsection{Verifying matrix multiplication}
 
 \begin{algorithm}\label{alg:mmverify}
@@ -83,8 +127,8 @@
   \label{thm:mmverify-proabilities}
   The algorithm~\ref{alg:mmverify} has the following probabilities of success:
   \begin{itemize}
-    \item $P \rr{ \top | A = B } = 1$
-    \item $P \rr{ \top | A \not= B } = 2^{-k}$
+    \item $\prc{ \top}{A = B } = 1$
+    \item $\prc{ \top}{A \not= B } = 2^{-k}$
   \end{itemize}
 \end{theorem}
 
@@ -114,5 +158,6 @@
     1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
   \end{align*}
 \end{theorem}
+
 
 \end{document}
