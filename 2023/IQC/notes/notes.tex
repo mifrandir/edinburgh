@@ -11,6 +11,54 @@
 \tableofcontents
 \pagebreak
 
+\section{Mathematical prerequisites}
+\label{sec:mathetmatical-prerequisites}
+
+\begin{definition}
+  \label{def:hilbert-space}
+  A Hilbert space is a complex inner product space which is complete with respect to the induced metric.
+\end{definition}
+
+\begin{definition}
+  \label{def:unitary-matrix}
+  Let $U\in\Mat\rr{n; \C}$. Then define $U^\dagger = \overline{U}^T$. Further, $U$ is unitary iff
+  $U^\dagger U =UU^\dagger = I$.
+\end{definition}
+
+\begin{definition}[Tensor product]
+  \label{def:tensor-product}
+  Let $\mathcal H_A, \mathcal H_B$ be Hilbert spaces with bases $\mathcal B_A$ and
+  $\mathcal B_B$, respectively. Then $\mathcal H_A\otimes\mathcal H_B$ is the Hilbert
+  space with basis
+  \begin{align*}
+    B_{A\otimes B} = \cc{a \otimes b : a \in \mathcal B_A, b\in\mathcal B_B}.
+  \end{align*}
+
+  Let
+  \begin{align*}
+    x = \sum_{a\in\mathcal B_A} x_a a\in\mathcal H_A, \hs
+    y = \sum_{b\in\mathcal B_B} y_b b\in\mathcal H_B
+  \end{align*}
+  be vectors. Then define
+  \begin{align*}
+    x \otimes y = \sum_{a\in\mathcal B_A}\sum_{b\in\mathcal B_B} x_a y_b a \otimes b.
+  \end{align*}
+
+  Let $A\in\mathcal L\rr{\mathcal H_A}$ and $B\in\mathcal L\rr{\mathcal H_B}$ be linear
+  operators. Then $A\otimes B\in\mathcal L\rr{\mathcal H_A\otimes\mathcal H_B}$ is the
+  unique linear operator such that, for all $a\in\mathcal H_A$, $b\in\mathcal H_B$,
+  \begin{align*}
+    \rr{A\otimes B}\rr{a \otimes b} = A a \otimes B b.
+  \end{align*}
+  Explicitly,
+  \begin{align*}
+    A \otimes B = \begin{pmatrix}
+      A_{11} B & \cdots & A_{1n}B \\
+      \vdots & \ddots & \vdots \\
+      A_{n1} B & \cdots & A_{nn}B
+    \end{pmatrix}.
+  \end{align*}
+\end{definition}
 
 \section{Postulates}
 \label{sec:postulates}
@@ -19,28 +67,21 @@
 \label{sec:quantum-states}
 
 \begin{definition}
-  \label{def:hilbert-space}
-  A Hilbert space is a complex inner product space which is complete with respect to the induced metric.
-\end{definition}
-
-\begin{definition}
   \label{def:quantum-state}
-  A quantum state is a vector
+  Let $\mathcal H$ be a Hilbert space with an finite ordered orthonormal basis
+  $\rr{v^1, ..., v^d}$. A quantum state is a vector $\va{\psi}\in\mathcal H$.
+  We write
   \begin{align*}
-    \va{ \psi } = \begin{bmatrix}
-      \psi_1 \\
-      \vdots \\
-      \psi_d
-    \end{bmatrix} \in \C^d
+    \va{\psi} = \sum_{i\in I} \psi_i v^i
   \end{align*}
-  where $\psi_1,...,\psi_d$ are the probability amplitudes of the $d$ outcomes.
+  where $\psi_1,...,\psi_d\in\C$ are the probability amplitudes of the $d$ outcomes.
   In particular, the probability of the outcome $1\leq i\leq d$, is $P \rr{ i } = \abs{ \psi_i }^2$.
   For $n$ bits there are $d=2^n$ outcomes.
 \end{definition}
 
 \begin{definition}
   \label{def:qubit}
-  A qubit is a quantum state $ \av{ \psi } \in \C^2$. We define
+  A qubit is a quantum state $ \va{\psi}\in\C^2$. We define
   \begin{align*}
     \va{ 0 } = \rr{ 1, 0 }^\top\\
     \va{ 1 } = \rr{ 0, 1 }^\top
@@ -67,6 +108,56 @@
   \end{align*}
 \end{definition}
 
+\subsection{Measurement}
+\label{sec:measurement}
+
+\begin{definition}
+  \label{def:probability-of-outcome}
+  Let $\cc{\va{v_i}}$ be a basis of a Hilbert space $\mathcal{H}$ and an associated measurement $\psi$.
+  Then the probability of outcome $i$ is
+  \begin{align*}
+    P\rr{i} = \abs{\ava{v_i}{\psi}}^2.
+  \end{align*}
+  The quantum state is updated to $\va{v_i}$.
+\end{definition}
+
+\section{Quantum circuits}
+\label{sec:circuits}
+
+\subsection{Gates}
+\label{sec:gates}
+
+\begin{definition}
+  \label{def:single-qubit-gates}
+  An $n$ qubit gate is a unitary matrix $U\in\Mat\rr{2^n;\C}$.
+\end{definition}
+
+\begin{corollary}
+  Every quantum gate is invertible.
+\end{corollary}
+
+\subsubsection{Single qubit gates}
+\label{sec:single-qubit-gates}
+
+\begin{definition}
+  \label{def:identity}
+  The identity gate $I$ is the matrix
+  \begin{align*}
+    I = \begin{pmatrix}
+      1 & 0 \\ 0 & 1
+    \end{pmatrix}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  \label{def:not}
+  The not gate $X$ is given by
+  \begin{align*}
+    X = \begin{pmatrix}
+      0 & 1 \\ 1 & 0
+    \end{pmatrix}
+  \end{align*}
+\end{definition}
 
 \begin{definition}
   \label{def:phase-flip}
@@ -76,7 +167,7 @@
   \end{align*}
   It transforms as follows:
   \begin{align*}
-    Z \rr{ \alpha \va{ 0 } + \beta \va{ 1 } } = \alpha \va{ 0 } - \beta \va{ 1 }.
+    Z \rr{\alpha\va{0} + \beta\va{1}} = \alpha\va{0} - \beta\va{1}.
   \end{align*}
 \end{definition}
 
@@ -90,18 +181,30 @@
   It acts as a change of basis from $ \cc{ \va{ 0 }, \va{ 1 } } $ to $ \cc{ \va{ + }, \va{ - } }$.
 \end{definition}
 
+\begin{theorem}
+  \label{thm:infinite-gates}
+  There are infinitely many single-qubit quantum gates.
+\end{theorem}
 
-\subsection{Measurement}
-\label{sec:measurement}
+\subsubsection{Multiple qubit gates}
+\label{sec:multiple-qubit-gates}
 
 \begin{definition}
-  \label{def:probability-of-outcome}
-  Let $\cc{\va{v_i}}$ be a basis of a Hilbert space $\mathcal{H}$ and an associated measurement $\psi$.
-  Then the probability of outcome $i$ is
+  \label{def:cnot}
+  The \text{CNOT} gate $U_{CN}$ is a two qubit quantum gate defined by
   \begin{align*}
-    P\rr{i} = \abs{\ava{v_i}{\psi}}^2.
+    U_{CN} = \begin{pmatrix}
+      1 & 0 & 0 & 0 \\
+      0 & 1 & 0 & 0 \\
+      0 & 0 & 0 & 1 \\
+      0 & 0 & 1 & 0
+    \end{pmatrix}
   \end{align*}
-  The quantum state is updated to $\va{v_i}$.
+\end{definition}
+
+\begin{definition}
+  \label{def:controlled-u}
+  Let $U$ be a quantum gate. Then the controlled-$U$ gate
 \end{definition}
 
 \end{document}
