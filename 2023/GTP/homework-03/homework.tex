@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{General Topology: Assignment 3}
+\author{Franz Miltz (UUN: S1971811)}
+\date{13 October 2022}
+\maketitle
+
+Fix $n\in\N$. Let $\rr{\R^n}^+=\R^n\cup\cc{\infty}$ where $\infty\not\in\R^n$ and define the following map:
+\begin{align*}
+	\tau:\P\rr{\rr{\R^n}^+} & \to\P\rr{\rr{\R^n}^+}                                                                                                      \\
+	S                       & \mapsto \begin{cases}
+		                                  \tau_{\R^n}\rr{S\setminus\cc{\infty}}\cup \cc{\infty} & \text{if $\infty\in S$}                          \\
+		                                  \tau_{\R^n}\rr{S}\cup\cc{\infty}                      & \text{if $\infty\not\in S$ and $S$ is unbounded} \\
+		                                  \tau_{\R^n}\rr{S}                                     & \text{if $\infty\not\in S$ and $S$ is bounded}
+	                                  \end{cases}
+\end{align*}
+
+\begin{claim*}
+	The map $\tau$ defines a topology on $\rr{\R^n}^+$.
+	\begin{proof}
+		We verify all the axioms.
+
+		Firstly, let $S\subseteq \rr{\R^n}^+$. As $\tau_{\R^n}$ is a topology and $\infty\in S$ implies $\infty\in\tau\rr{S}$,
+		we must have $S\subseteq \tau\rr{S}$.
+
+		Secondly, let $\Sigma\subseteq \P\rr{\R^n}^+$. Clearly, if, for all $S\in\Sigma$, $\infty\not\in\tau\rr{S}$ then
+		\begin{align*}
+			\tau\rr{\bigcup_{S\in\Sigma}S}=\tau_{\R^n}\rr{\bigcup_{S\in\Sigma} S}=\bigcup_{S\in\Sigma}\tau_{\R^n}\rr{S} = \bigcup_{S\in\Sigma}\tau\rr{S}.
+		\end{align*}
+		Further, if $\infty\in\tau\rr{S}$ for some $S\in\Sigma$, then
+		\begin{align*}
+			\tau\rr{\bigcup_{S\in\Sigma}} = \tau_{\R^n}\rr{\bigcup_{S\in\Sigma}\rr{S\setminus \cc{\infty}}} \cup \cc{\infty} = \bigcup_{S\in\Sigma}\tau\rr{S}.
+		\end{align*}
+
+		Finally, let $S\subseteq\rr{\R^n}^+$. It follows from the above that $\tau\rr{S}\subseteq\tau^2\rr{S}$. Now consider $x\in\tau^2\rr{S}$.
+		If $x\in\R^n$ then immediately $x\in\tau\rr{S}$. Consider the case $x=\infty$. Assume $\infty\not\in\tau\rr{S}$. Then
+		$\tau_{\R^n}\rr{S}\subseteq\R^n$ must be unbounded while $S\subseteq\R^n$ is bounded. It is straightforward to show analytically that this is
+		a contradiction. Thus $\infty\in\tau\rr{S}$, i.e. $\tau\rr{S}\supseteq \tau^2\rr{S}$ and thereby $\tau\rr{S}=\tau^2\rr{S}$.
+	\end{proof}
+\end{claim*}
+
+Define the following map:
+\begin{align*}
+	\phi : S^n          & \to \rr{\R^n}^+                                                    \\
+	\rr{x_0,\ldots,x_n} & \mapsto \begin{cases}
+		                              \frac{1}{1-x_0}\rr{x_1,\ldots,x_n} & \text{if $x_0\neq 1$} \\
+		                              \infty                             & \text{if $x_0=1$}
+	                              \end{cases}
+\end{align*}
+
+\begin{claim*}
+	The map $\phi$ is a homeomorphism relative to the topology $\tau$.
+	\begin{proof}
+		Let $p=\rr{1,0,\ldots,0}$. We construct the inverse:
+		\begin{align*}
+			\inv\phi : \rr{\R^n}^+ & \to S^n                                                                                            \\
+			x                      & \mapsto \begin{cases}
+				                                 \rr{1, 0, \ldots, 0}                      & \text{if $x=\infty$}                        \\
+				                                 \frac{1}{s+1}\rr{s-1, 2x_1, \ldots, 2x_n} & \text{if $x=\rr{x_1,\ldots,x_n}\neq\infty$}
+			                                 \end{cases}
+		\end{align*}
+		where $s=\sum_{i=1}^n x_i^2$. It is straightforward to verify that $\inv\phi$ is indeed
+		the inverse of $\phi$.
+		We use the fact that the restrictions
+		\begin{align*}
+			\phi: S^n\setminus\cc{p}\to\R^n, \\
+			\inv\phi:\R^n\to S^n\setminus\cc{p}
+		\end{align*}
+		are continuous with respect to the usual topologies.
+
+		Let $F\subseteq S^n$ be closed. If $p\not\in F$ then $\inv\phi\rr{F}$ is
+		closed as the restriction
+		is continuous. Now consider the case where $p\in F$. Then
+		$\infty\in \inv\phi\rr{F}$. In particular we note
+		\begin{align*}
+			\tau\rr{\inv\phi\rr{F}} & = \tau\rr{\inv\phi\rr{F\setminus\cc{p}}\cup\cc{\infty}}          \\
+			                        & = \tau\rr{\inv\phi\rr{F\setminus\cc{p}}}\cup\tau\rr{\cc{\infty}} \\
+			                        & = \tau_{\R^n}\rr{\inv\phi\rr{F\setminus\cc{p}}}\cup\cc{\infty}
+		\end{align*}
+		As $F\setminus\cc{p} = F\cap \rr{S^n\setminus\cc{p}}$, its inverse image
+		must be closed in $\R^n$. Thus
+		\begin{align*}
+			\tau\rr{\inv\phi\rr{F}} & = \inv\phi\rr{F\setminus\cc{p}}\cup\cc{\infty} = \inv\phi\rr{F}.
+		\end{align*}
+		Therefore $\phi$ is continuous.
+
+		Now let $F\subseteq \rr{\R^n}^+$ be closed. Once more we have
+		$F\setminus\cc{\infty}=F\cap\R^n$. Thus if $\infty\not\in F$ then
+		the inverse image of $F$ under $\inv\phi$, $\phi\rr{F}$, is closed in $S^n$.
+		Consider the case $\infty\in F$. Then $p\in\phi\rr{F}$. Thus
+		\begin{align*}
+			\tau_{S^n}\rr{\phi\rr{F}} & = \tau_{S^n}\rr{\phi\rr{F\setminus\cc{\infty}}\cup\cc{p}}                \\
+			                          & = \tau_{S^n}\rr{\phi\rr{F\setminus\cc{\infty}}}\cup\tau_{S^n}\rr{\cc{p}} \\
+			                          & = \phi\rr{F\setminus\cc{\infty}}\cup\cc{p}                               \\
+			                          & = \phi\rr{F}.
+		\end{align*}
+		Thus $\inv\phi$ is continuous, making $\phi$ a homeomorphism.
+	\end{proof}
+\end{claim*}
+
+Define the following map:
+\begin{align*}
+	f : \R & \to S^1                  \\
+	t      & \mapsto \exp\rr{2\pi it}
+\end{align*}
+
+Let $\tau:S^1\to S^1$ denote the usual topology on $S^1\subseteq\C$, i.e.
+the subspace topology induced by $\tau_\C$.
+
+\begin{claim*}
+	$\tau$ is the finest topology such that $f$ is continuous.
+	\begin{proof}
+		From complex analysis we know that $f$ is continuous with respect to the usual topologies.
+
+		Consider the action of $f$ on open intervals. It is straightforward to verify that,
+		for any open interval $(a,b)\in\R$, $f(a,b)$ is open in $S^1$ with respect to the
+		usual topology. Since any open set in $\R$ is a union of open intervals, the direct
+		image $f\rr{E}$ of any open set $E\subseteq\R$ is open.
+
+		Now suppose, for a contradiction, $\tau':\P S^1 \to \P S^1$ is a topology, finer than
+		$\tau$, such that
+		$f$ is continuous. Then there exists $E\subseteq S^1$ that is open with respect to
+		$\tau'$ but not with repsect to $\tau$. Consider the inverse image $\inv f\rr{E}$.
+		We have
+		\begin{align*}
+			\inv f\rr{E} = \bigcup\mathcal I
+		\end{align*}
+		for some family of disjoint open intervals $\mathcal I$. Thus
+		\begin{align*}
+			f\rr{\inv f\rr{E}}=\bigcup_{I\in\mathcal I} f\rr{I}
+		\end{align*}
+		is open in $S^1$ with respect to $\tau$.
+
+		Consider $y\in f\rr{\inv f\rr{E}}$.
+		Then there is an $x\in \inv f\rr{E}$ such that $f\rr{x}=y$. Since $x\in\inv f\rr{E}$
+		there is a $y'\in E$ such that $f\rr{x}=y'$. Thus $y=y'\in E$, i.e. $f\rr{\inv f\rr{E}}\subseteq E$.
+
+		Finally, consider $y\in E$. There exists a set $X=\inv f\rr{\cc{y}}\subseteq\R$ such that,
+		for all $x\in X$, $f\rr{x}=y$. Immediately $f\rr{X}=\cc{y}$, i.e. $y\in f\rr{\inv f\rr{E}}$.
+		Thus $f\rr{\inv f\rr{E}}\supseteq E$.
+
+		Thus $E=f\rr{\inv f\rr{E}}$ is open with respect to $\tau$. Contradiction.
+	\end{proof}
+\end{claim*}
+
+\begin{claim*}
+	$f$ is a local homeomorphism.
+	\begin{proof}
+		Let $0<r<\pi$ be a constant and let $x\in\R$. Then let $U=B\rr{x,r}$. Clearly
+		$U$ is open in $\R$ and thus $f\rr{U}$ is open in $S^1$. As $f$ is continuous, so
+		is the restriction $\eval{f}{U}:U\to f\rr{U}$.
+
+		We note that $f\rr{U}\subset S^1$, i.e. a strict subset. Thus we may choose a branch
+		$\log:f\rr{U}\to\C$ that is continuous. Dividing by $2\pi i$ and using the original value
+		of $x$ it is then possible to construct a continuous inverse $\inv{\rr{\eval{f}{U}}}$, e.g.:
+		\begin{align*}
+			\inv{\rr{\eval{f}{U}}}:f\rr{U} & \to U                                                  \\
+			y                              & \mapsto x+\frac{1}{2\pi i}\rr{\log y-\log\rr{f\rr{x}}}
+		\end{align*}
+		Thus $\eval{f}{U}$ is a local homeomorphism.
+	\end{proof}
+\end{claim*}
+
+\end{document}
