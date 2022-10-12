@@ -13,63 +13,63 @@
 \section{Probability}
 
 \begin{definition}
-  \label{def:expectation}
-  Let $X$ be a random variable. Then $X$ has finite expectation iff
-  \begin{align*}
-    \sum_{x} \abs{x} \pr{X=x} < \infty
-  \end{align*}
-  and we write
-  \begin{align*}
-    \ex{X} = \sum_{x} x \pr{X=x}.
-  \end{align*}
+	\label{def:expectation}
+	Let $X$ be a random variable. Then $X$ has finite expectation iff
+	\begin{align*}
+		\sum_{x} \abs{x} \pr{X=x} < \infty
+	\end{align*}
+	and we write
+	\begin{align*}
+		\ex{X} = \sum_{x} x \pr{X=x}.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-  \label{def:convex}
-  A function $f:\R\to\R$ is said to be convex if, for any $x_1,x_2\in\R$
-  and $\lambda\in\bb{0,1}$,
-  \begin{align*}
-    f\rr{\lambda x_1 + \rr{1-\lambda}x_2} \leq \lambda f\rr{x_1} + \rr{1-\lambda}f \rr{x_2}.
-  \end{align*}
+	\label{def:convex}
+	A function $f:\R\to\R$ is said to be convex if, for any $x_1,x_2\in\R$
+	and $\lambda\in\bb{0,1}$,
+	\begin{align*}
+		f\rr{\lambda x_1 + \rr{1-\lambda}x_2} \leq \lambda f\rr{x_1} + \rr{1-\lambda}f \rr{x_2}.
+	\end{align*}
 \end{definition}
 
 \begin{theorem}[Jensen's inequality]
-  \label{thm:jensens}
-  Let $X$ be a random variable and let $f:\R\to\R$ be a convex function. Then
-  \begin{align*}
-    \ex{f\rr{X}} \geq f\rr{\ex{X}}.
-  \end{align*}
+	\label{thm:jensens}
+	Let $X$ be a random variable and let $f:\R\to\R$ be a convex function. Then
+	\begin{align*}
+		\ex{f\rr{X}} \geq f\rr{\ex{X}}.
+	\end{align*}
 \end{theorem}
 
 \begin{definition}
-  \label{def:binomial}
-  A random variable $X$ is binomial with parameters $n$ and $p$ iff,
-  for all $0\leq j\leq n$,
-  \begin{align*}
-    \pr{X=j}=\binom{n}{j}p^j \rr{1-p}^{n-j}.
-  \end{align*}
+	\label{def:binomial}
+	A random variable $X$ is binomial with parameters $n$ and $p$ iff,
+	for all $0\leq j\leq n$,
+	\begin{align*}
+		\pr{X=j}=\binom{n}{j}p^j \rr{1-p}^{n-j}.
+	\end{align*}
 \end{definition}
 
 \begin{definition}
-  \label{def:geometric}
-  A random variable $X$ is geometric with parameter $P$ iff, for all $n\in\N$,
-  \begin{align*}
-    \pr{X=n}=\rr{1-p}^{n-1} p
-  \end{align*}
+	\label{def:geometric}
+	A random variable $X$ is geometric with parameter $P$ iff, for all $n\in\N$,
+	\begin{align*}
+		\pr{X=n}=\rr{1-p}^{n-1} p
+	\end{align*}
 \end{definition}
 
 \begin{lemma}
-  For a geometric random variable $X$ with parameter $p$ and for $n>0$,
-  \begin{align*}
-    \pr{X=n+k}{X>k} = \pr{X=n}.
-  \end{align*}
+	For a geometric random variable $X$ with parameter $p$ and for $n>0$,
+	\begin{align*}
+		\pr{X=n+k}{X>k} = \pr{X=n}.
+	\end{align*}
 \end{lemma}
 
 \begin{lemma}
-  Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then
-  \begin{align*}
-    \ex{X} = \sum_{i=1}^{\infty} \pr{X\geq i}
-  \end{align*}
+	Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then
+	\begin{align*}
+		\ex{X} = \sum_{i=1}^{\infty} \pr{X\geq i}
+	\end{align*}
 \end{lemma}
 
 \section{Algorithms}
@@ -78,85 +78,85 @@
 \subsection{Testing polynomial equalities}
 
 \begin{algorithm}
-  \label{alg:stan-ulam}
-  Consider polynomials
-  \begin{align*}
-    F \rr{ x } = \prod_{i=1}^n \rr{ x - a_i }, \hs G \rr{ x } = \sum_{ i=0 }^{ n } b_i x^i.
-  \end{align*}
-  We randomly check for equality as follows:
-  \begin{enumerate}
-    \item Choose an integer $x\in \cc{ 1, 100n }$.
-    \item Calculate $F \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
-    \item Calculate $G \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
-    \item Compare the result, return $\bot$ or $\top$ accordingly.
-  \end{enumerate}
+	\label{alg:stan-ulam}
+	Consider polynomials
+	\begin{align*}
+		F \rr{ x } = \prod_{i=1}^n \rr{ x - a_i }, \hs G \rr{ x } = \sum_{ i=0 }^{ n } b_i x^i.
+	\end{align*}
+	We randomly check for equality as follows:
+	\begin{enumerate}
+		\item Choose an integer $x\in \cc{ 1, 100n }$.
+		\item Calculate $F \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
+		\item Calculate $G \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
+		\item Compare the result, return $\bot$ or $\top$ accordingly.
+	\end{enumerate}
 \end{algorithm}
 
 
 \begin{theorem}
-  \label{thm:stan-ulman-probabilities}
-  The algorithm~\ref{alg:stan-ulman} has the following probabilities of success:
-  \begin{itemize}
-    \item $P \rr{ \top | F\equiv G } = 1$
-    \item $P \rr{ \bot | F\not\equiv G } \geq 99/100$
-  \end{itemize}
-  One can improve these by using
-  \begin{itemize}
-    \item repeated sampling, or
-    \item sampling from a larger set.
-  \end{itemize}
+	\label{thm:stan-ulman-probabilities}
+	The algorithm~\ref{alg:stan-ulman} has the following probabilities of success:
+	\begin{itemize}
+		\item $P \rr{ \top | F\equiv G } = 1$
+		\item $P \rr{ \bot | F\not\equiv G } \geq 99/100$
+	\end{itemize}
+	One can improve these by using
+	\begin{itemize}
+		\item repeated sampling, or
+		\item sampling from a larger set.
+	\end{itemize}
 \end{theorem}
 
 \subsection{Verifying matrix multiplication}
 
 \begin{algorithm}\label{alg:mmverify}
-  Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
-  $\texttt{MMVerify} \rr{ n, A, B, C, k }$ is the following algorithm:
-  \begin{enumerate}
-    \item For $j=1,...,k$ \begin{enumerate}
-      \item Generate a vector $x\in \cc{ 0,1 }^n$ u.a.r.
-      \item Calculate $y_B = Bx$ in $O(n^2)$ time.
-      \item Calculate $y_{AB} = Ay^B$ in $O(n^2)$ time.
-      \item Calculate $y_C = Cx$ in $O(n^2)$ time.
-      \item Compare $y_{AB}$ with $y_C$ in $O(n)$ time and return $\bot$ or $\top$ accordingly.
-    \end{enumerate}
-\end{enumerate}
+	Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
+	$\texttt{MMVerify} \rr{ n, A, B, C, k }$ is the following algorithm:
+	\begin{enumerate}
+		\item For $j=1,...,k$ \begin{enumerate}
+			      \item Generate a vector $x\in \cc{ 0,1 }^n$ u.a.r.
+			      \item Calculate $y_B = Bx$ in $O(n^2)$ time.
+			      \item Calculate $y_{AB} = Ay^B$ in $O(n^2)$ time.
+			      \item Calculate $y_C = Cx$ in $O(n^2)$ time.
+			      \item Compare $y_{AB}$ with $y_C$ in $O(n)$ time and return $\bot$ or $\top$ accordingly.
+		      \end{enumerate}
+	\end{enumerate}
 \end{algorithm}
 
 \begin{theorem}
-  \label{thm:mmverify-proabilities}
-  The algorithm~\ref{alg:mmverify} has the following probabilities of success:
-  \begin{itemize}
-    \item $\prc{ \top}{A = B } = 1$
-    \item $\prc{ \top}{A \not= B } = 2^{-k}$
-  \end{itemize}
+	\label{thm:mmverify-proabilities}
+	The algorithm~\ref{alg:mmverify} has the following probabilities of success:
+	\begin{itemize}
+		\item $\prc{ \top}{A = B } = 1$
+		\item $\prc{ \top}{A \not= B } = 2^{-k}$
+	\end{itemize}
 \end{theorem}
 
 
 \subsection{Minimum cut}
 
 \begin{algorithm}
-  \label{alg:krager}
-  Let $G= \rr{ V,E }$ a graph and let $n= \abs{ V }$ and $m= \abs{ E }$. Then let
-  $\texttt{KragerOneTrial} \rr{ G }$ be the following algorithm: Repeatedly choose an edge
-  uniformly at random (from the not-yet contracted edges) and contract its endpoints.
-  When there are just two “vertices” left, return that cut.
+	\label{alg:krager}
+	Let $G= \rr{ V,E }$ a graph and let $n= \abs{ V }$ and $m= \abs{ E }$. Then let
+	$\texttt{KragerOneTrial} \rr{ G }$ be the following algorithm: Repeatedly choose an edge
+	uniformly at random (from the not-yet contracted edges) and contract its endpoints.
+	When there are just two “vertices” left, return that cut.
 
-  Let $ \texttt{Krager} \rr{ G, k }$ be $k$ repetition of the above, taking the minimum
-  result.
+	Let $ \texttt{Krager} \rr{ G, k }$ be $k$ repetition of the above, taking the minimum
+	result.
 \end{algorithm}
 
 \begin{theorem}
-  \label{thm:krager-probabilities}
-  The probability of finding a minimum cut in one iteration of $ \texttt{KragerOneTrial} \rr{ G }$
-  is
-  \begin{align*}
-    p \geq \frac{2}{n \rr{ n-1 }}.
-  \end{align*}
-  The probability of finding a minimum cut using $ \texttt{Krager} \rr{ G,k }$ is
-  \begin{align*}
-    1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
-  \end{align*}
+	\label{thm:krager-probabilities}
+	The probability of finding a minimum cut in one iteration of $ \texttt{KragerOneTrial} \rr{ G }$
+	is
+	\begin{align*}
+		p \geq \frac{2}{n \rr{ n-1 }}.
+	\end{align*}
+	The probability of finding a minimum cut using $ \texttt{Krager} \rr{ G,k }$ is
+	\begin{align*}
+		1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
+	\end{align*}
 \end{theorem}
 
 

@@ -8,138 +8,138 @@
 \maketitle
 
 \begin{claim*}[2a]
-  Let $f,g\in C\rr{\bb{0,1}, \R}$ and let $p>1$. Let $q$ be the H\"older conjugate exponent
-  to $p$. then
-  \begin{align}
-    \label{holder}
-    \int_0^1 \abs{f\rr{x}g\rr{x}}dx \leq \rr{\int_0^1 \abs{f\rr{x}}^p dx}^{1/p}\rr{\int_0^1 \abs{g\rr{x}}^q dx}^{1/q}.
-  \end{align}
-  \begin{proof}
-    Similar to the proof given in the notes for the finite sum version of this inequality, we may assume without
-    loss of generality that $\vabs{f}_{L^p}=\vabs{g}_{L^q}=1$ and for all $x\in\bb{0,1}$, $f\rr{x},g\rr{x}\geq 0$.
-    Thus we intend to show
-    \begin{align*}
-      \int_0^1 f\rr{x}g\rr{x} dx \leq 1.
-    \end{align*}
-    Let $x\in\bb{0,1}$. We may apply the generalised geometric-arithmetic mean inequality with
-    $\theta=1/p$ and $1-\theta=1/q$ to find
-    \begin{align*}
-      f\rr{x}g\rr{x}=\rr{\rr{f\rr{x}}^p}^{1/p} \rr{\rr{g\rr{x}}^q}^{1/q} \leq \frac{\rr{f\rr{x}}^p}{p} + \frac{\rr{g\rr{x}}^q}{q}.
-    \end{align*}
-    Finally, we may integrate the above over $\bb{0,1}$ to obtain
-    \begin{align*}
-      \int_0^1 f\rr{x}g\rr{x} dx & \leq \frac{1}{p}\int_0^1 \rr{f\rr{x}}^p dx + \frac{1}{q}\int_0^1 \rr{g\rr{x}}^q dx
-      = \frac{1}{p} \vabs{f}_{L^p} + \frac{1}{q} \vabs{g}_{L^p} = 1.
-    \end{align*}
-  \end{proof}
+	Let $f,g\in C\rr{\bb{0,1}, \R}$ and let $p>1$. Let $q$ be the H\"older conjugate exponent
+	to $p$. then
+	\begin{align}
+		\label{holder}
+		\int_0^1 \abs{f\rr{x}g\rr{x}}dx \leq \rr{\int_0^1 \abs{f\rr{x}}^p dx}^{1/p}\rr{\int_0^1 \abs{g\rr{x}}^q dx}^{1/q}.
+	\end{align}
+	\begin{proof}
+		Similar to the proof given in the notes for the finite sum version of this inequality, we may assume without
+		loss of generality that $\vabs{f}_{L^p}=\vabs{g}_{L^q}=1$ and for all $x\in\bb{0,1}$, $f\rr{x},g\rr{x}\geq 0$.
+		Thus we intend to show
+		\begin{align*}
+			\int_0^1 f\rr{x}g\rr{x} dx \leq 1.
+		\end{align*}
+		Let $x\in\bb{0,1}$. We may apply the generalised geometric-arithmetic mean inequality with
+		$\theta=1/p$ and $1-\theta=1/q$ to find
+		\begin{align*}
+			f\rr{x}g\rr{x}=\rr{\rr{f\rr{x}}^p}^{1/p} \rr{\rr{g\rr{x}}^q}^{1/q} \leq \frac{\rr{f\rr{x}}^p}{p} + \frac{\rr{g\rr{x}}^q}{q}.
+		\end{align*}
+		Finally, we may integrate the above over $\bb{0,1}$ to obtain
+		\begin{align*}
+			\int_0^1 f\rr{x}g\rr{x} dx & \leq \frac{1}{p}\int_0^1 \rr{f\rr{x}}^p dx + \frac{1}{q}\int_0^1 \rr{g\rr{x}}^q dx
+			= \frac{1}{p} \vabs{f}_{L^p} + \frac{1}{q} \vabs{g}_{L^p} = 1.
+		\end{align*}
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2b]
-  Let $f,g\in C\rr{\bb{0,1},\R}$ and let $p>1$. Then
-  \begin{align*}
-    \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^p dx}^{1/p} \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p}
-  \end{align*}
-  \begin{proof}
-    Since the terms on the right side are nonnegative, the inequality is trivially true if the term on the left is zero.
-    Thus we may assume
-    \begin{align*}
-      \int_{0}^{1} \abs{f\rr{x}+g\rr{x}} dx > 0.
-    \end{align*}
-    By factorisation and the triangle inequality in $\R$, we find for all $x\in\bb{0,1}$,
-    \begin{align*}
-      \abs{f\rr{x}+g\rr{x}}^p\leq \abs{f\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1} + \abs{g\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1}.
-    \end{align*}
-    Integrating over $\bb{0,1}$ and applying (\ref{holder}), we find
-    \begin{align*}
-      \int_{0}^{1} \abs{f\rr{x}+g\rr{x}} dx & \leq \int_0^1 \abs{f\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1} dx + \int_0^1 \abs{g\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1} dx \\
-                                            & \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{q\rr{q-1}} dx}^{1/q} \\
-                                            & + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{q\rr{q-1}} dx}^{1/q}
-    \end{align*}
-    Rewriting the exponents as $q\rr{p-1}=\frac{p}{p-1}\rr{p-1} = p$  and $\frac{1}{q}=1-\frac{1}{p}$, we have
-    \begin{align*}
-      \int_{0}^{1} \abs{f\rr{x}+g\rr{x}} dx & \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{p} dx}^{1-\frac{1}{p}} \\
-                                            & + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{p} dx}^{1-\frac{1}{p}}.
-    \end{align*}
-    We then divide by
-    \begin{align*}
-      \rr{\int_{0}^{1} \abs{f\rr{x} + g\rr{x}}^{q\rr{p-1}} dx}^{1-\frac{1}{p}},
-    \end{align*}
-    to find
-    \begin{align*}
-      \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^p dx}^{1/p} \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p}.
-    \end{align*}
-  \end{proof}
+	Let $f,g\in C\rr{\bb{0,1},\R}$ and let $p>1$. Then
+	\begin{align*}
+		\rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^p dx}^{1/p} \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p}
+	\end{align*}
+	\begin{proof}
+		Since the terms on the right side are nonnegative, the inequality is trivially true if the term on the left is zero.
+		Thus we may assume
+		\begin{align*}
+			\int_{0}^{1} \abs{f\rr{x}+g\rr{x}} dx > 0.
+		\end{align*}
+		By factorisation and the triangle inequality in $\R$, we find for all $x\in\bb{0,1}$,
+		\begin{align*}
+			\abs{f\rr{x}+g\rr{x}}^p\leq \abs{f\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1} + \abs{g\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1}.
+		\end{align*}
+		Integrating over $\bb{0,1}$ and applying (\ref{holder}), we find
+		\begin{align*}
+			\int_{0}^{1} \abs{f\rr{x}+g\rr{x}} dx & \leq \int_0^1 \abs{f\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1} dx + \int_0^1 \abs{g\rr{x}}\abs{f\rr{x}+g\rr{x}}^{p-1} dx \\
+			                                      & \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{q\rr{q-1}} dx}^{1/q}     \\
+			                                      & + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{q\rr{q-1}} dx}^{1/q}
+		\end{align*}
+		Rewriting the exponents as $q\rr{p-1}=\frac{p}{p-1}\rr{p-1} = p$  and $\frac{1}{q}=1-\frac{1}{p}$, we have
+		\begin{align*}
+			\int_{0}^{1} \abs{f\rr{x}+g\rr{x}} dx & \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{p} dx}^{1-\frac{1}{p}} \\
+			                                      & + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p} \rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^{p} dx}^{1-\frac{1}{p}}.
+		\end{align*}
+		We then divide by
+		\begin{align*}
+			\rr{\int_{0}^{1} \abs{f\rr{x} + g\rr{x}}^{q\rr{p-1}} dx}^{1-\frac{1}{p}},
+		\end{align*}
+		to find
+		\begin{align*}
+			\rr{\int_{0}^{1} \abs{f\rr{x}+g\rr{x}}^p dx}^{1/p} \leq \rr{\int_{0}^{1} \abs{f\rr{x}}^p dx}^{1/p} + \rr{\int_{0}^{1} \abs{g\rr{x}}^p dx}^{1/p}.
+		\end{align*}
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[4]
-  For all $1\leq p<\infty$, $\ell^p$ is a Banach space.
-  \begin{proof}
-    Fix $1\leq p<\infty$. It remains to show that $\ell^p$ is complete. Let $\rr{u^{\rr{n}}}_{n\in\N}$ be a sequence
-    of elements $u^{\rr{n}}=\rr{u^{\rr{n}}_k}_{k\in\N}\in\ell^p$, Cauchy with respect to $\vabs{-}_{\ell^p}$.
-    Fix $k\in\N$ and note that, for all $n\in\N$,
-    \begin{align*}
-      \vabs{u_k^{\rr{n}}}_{\R}=\abs{u_k^{\rr{n}}} \leq \rr{\sum_{k=1}^{\infty} \abs{u_k^{\rr{n}}}^p}^{1/p}=\vabs{u^{\rr{n}}}_{\ell^p}.
-    \end{align*}
-    Thus, as $\rr{u^{\rr{n}}}_{n\in\N}$ is Cauchy in $\ell^p$, each $\rr{u^{\rr{n}}_k}_{n\in\N}$ must be
-    Cauchy in $\R$. Further, $\R$ is complete so there exists a $u_k\in\R$ such that $u^{\rr{n}}_k\to u_k$ as
-    $n\to\infty$. Denote $u=\rr{u_k}_{k\in\N}$. We claim $u^{\rr{n}}\to u$ in $\ell^p$.
+	For all $1\leq p<\infty$, $\ell^p$ is a Banach space.
+	\begin{proof}
+		Fix $1\leq p<\infty$. It remains to show that $\ell^p$ is complete. Let $\rr{u^{\rr{n}}}_{n\in\N}$ be a sequence
+		of elements $u^{\rr{n}}=\rr{u^{\rr{n}}_k}_{k\in\N}\in\ell^p$, Cauchy with respect to $\vabs{-}_{\ell^p}$.
+		Fix $k\in\N$ and note that, for all $n\in\N$,
+		\begin{align*}
+			\vabs{u_k^{\rr{n}}}_{\R}=\abs{u_k^{\rr{n}}} \leq \rr{\sum_{k=1}^{\infty} \abs{u_k^{\rr{n}}}^p}^{1/p}=\vabs{u^{\rr{n}}}_{\ell^p}.
+		\end{align*}
+		Thus, as $\rr{u^{\rr{n}}}_{n\in\N}$ is Cauchy in $\ell^p$, each $\rr{u^{\rr{n}}_k}_{n\in\N}$ must be
+		Cauchy in $\R$. Further, $\R$ is complete so there exists a $u_k\in\R$ such that $u^{\rr{n}}_k\to u_k$ as
+		$n\to\infty$. Denote $u=\rr{u_k}_{k\in\N}$. We claim $u^{\rr{n}}\to u$ in $\ell^p$.
 
-    Let $\e>0$. Then choose $N\in\N$ such that, for all $m,n>N$,
-    \begin{align*}
-      \vabs{u^{\rr{m}} - u^{\rr{n}}}_{\ell^p} = \rr{\sum_{k=1}^{\infty} \abs{u^{\rr{m}}_k-u^{\rr{n}}_k}^p}^{1/p} < \e.
-    \end{align*}
-    Now fix $K\in\N$. Clearly, for all $m,n>N$,
-    \begin{align*}
-      \rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k-u^{\rr{n}}_k}^p}^{1/p} < \e.
-    \end{align*}
-    By taking  the limit as $n\to\infty$, we obtain, for all $m>N$,
-    \begin{align}
-      \label{eq1}
-      \rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k-u_k}^p}^{1/p} < \e.
-    \end{align}
-    We now use Minkowski's inequality and (\ref{eq1}) to find, for all $m>N$,
-    \begin{align*}
-      \rr{\sum_{k=1}^{K} \abs{u_k}^p}^{1/p} \leq \rr{\sum_{k=1}^{K} \abs{u_k-u^{\rr{m}}_k}^p}^{1/p} + \rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k}^p}^{1/p}
-      < \e + \rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k}^p}^{1/p}.
-    \end{align*}
-    Taking the limit as $K\to\infty$, we find $\vabs{u}_{\ell^p} < \vabs{u^{\rr{m}}}_{\ell^p} + \e$. Thus $u\in\ell^p$.
+		Let $\e>0$. Then choose $N\in\N$ such that, for all $m,n>N$,
+		\begin{align*}
+			\vabs{u^{\rr{m}} - u^{\rr{n}}}_{\ell^p} = \rr{\sum_{k=1}^{\infty} \abs{u^{\rr{m}}_k-u^{\rr{n}}_k}^p}^{1/p} < \e.
+		\end{align*}
+		Now fix $K\in\N$. Clearly, for all $m,n>N$,
+		\begin{align*}
+			\rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k-u^{\rr{n}}_k}^p}^{1/p} < \e.
+		\end{align*}
+		By taking  the limit as $n\to\infty$, we obtain, for all $m>N$,
+		\begin{align}
+			\label{eq1}
+			\rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k-u_k}^p}^{1/p} < \e.
+		\end{align}
+		We now use Minkowski's inequality and (\ref{eq1}) to find, for all $m>N$,
+		\begin{align*}
+			\rr{\sum_{k=1}^{K} \abs{u_k}^p}^{1/p} \leq \rr{\sum_{k=1}^{K} \abs{u_k-u^{\rr{m}}_k}^p}^{1/p} + \rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k}^p}^{1/p}
+			< \e + \rr{\sum_{k=1}^{K} \abs{u^{\rr{m}}_k}^p}^{1/p}.
+		\end{align*}
+		Taking the limit as $K\to\infty$, we find $\vabs{u}_{\ell^p} < \vabs{u^{\rr{m}}}_{\ell^p} + \e$. Thus $u\in\ell^p$.
 
-    Finally, let $K\to\infty$ in (\ref{eq1}) to find
-    \begin{align*}
-      \rr{\sum_{k=1}^{\infty} \abs{u^{\rr{m}}_k-u_k}^p}^{1/p} = \vabs{u^{\rr{m}}-u}_{\ell^p}< \e.
-    \end{align*}
-    Thus $u^{\rr{m}}\to u$ as $m\to\infty$ in $\ell^p$.
-  \end{proof}
+		Finally, let $K\to\infty$ in (\ref{eq1}) to find
+		\begin{align*}
+			\rr{\sum_{k=1}^{\infty} \abs{u^{\rr{m}}_k-u_k}^p}^{1/p} = \vabs{u^{\rr{m}}-u}_{\ell^p}< \e.
+		\end{align*}
+		Thus $u^{\rr{m}}\to u$ as $m\to\infty$ in $\ell^p$.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[8]
-  For all $i\in\N$, let $e^{\rr{i}}=\rr{e^{\rr{i}}_n}_{n\in\N}$ be the sequence such that
-  for all $n\in\N$, $e_n^{\rr{i}}=\delta_{i,n}$. Then $\rr{e^{i}}_{i\in\N}$ is an analytic basis
-  of $\ell^1$ which is not a Hamel basis.
-  \begin{proof}
-    Clearly, for all $i\in\N$,
-    \begin{align*}
-      \vabs{e^{\rr{i}}}_{\ell^1} = \sum_{n=1}^{\infty} \abs{e^{\rr{i}}_n} = 1.
-    \end{align*}
-    Thus $e^{\rr{i}}\in \ell^1$.
+	For all $i\in\N$, let $e^{\rr{i}}=\rr{e^{\rr{i}}_n}_{n\in\N}$ be the sequence such that
+	for all $n\in\N$, $e_n^{\rr{i}}=\delta_{i,n}$. Then $\rr{e^{i}}_{i\in\N}$ is an analytic basis
+	of $\ell^1$ which is not a Hamel basis.
+	\begin{proof}
+		Clearly, for all $i\in\N$,
+		\begin{align*}
+			\vabs{e^{\rr{i}}}_{\ell^1} = \sum_{n=1}^{\infty} \abs{e^{\rr{i}}_n} = 1.
+		\end{align*}
+		Thus $e^{\rr{i}}\in \ell^1$.
 
-    Linear independence of the $e^{\rr{i}}$ is immediate. Let $x=\rr{x_n}_{n\in\N}\in\ell^1$ and let
-    $\e>0$. Then there exists an $N\in\N$ such that
-    \begin{align*}
-      \abs{\rr{\sum_{n=1}^{N} \abs{x_n}} - \vabs{x}_{\ell^1}} < \e.
-    \end{align*}
-    In particular, we may define the sequence
-    \begin{align*}
-      y= \sum_{n=1}^{N} x_n e^{\rr{n}} \in\text{span}\rr{\cc{e^{\rr{i}}}_{i\in\N}}.
-    \end{align*}
-    Thus $x$ is in the closure of the span of $\cc{e^{\rr{i}}_{i\in N}}$, making $\cc{e^{\rr{i}}_{i\in\N}}$
-    an analytic basis for $\ell^1$.
+		Linear independence of the $e^{\rr{i}}$ is immediate. Let $x=\rr{x_n}_{n\in\N}\in\ell^1$ and let
+		$\e>0$. Then there exists an $N\in\N$ such that
+		\begin{align*}
+			\abs{\rr{\sum_{n=1}^{N} \abs{x_n}} - \vabs{x}_{\ell^1}} < \e.
+		\end{align*}
+		In particular, we may define the sequence
+		\begin{align*}
+			y= \sum_{n=1}^{N} x_n e^{\rr{n}} \in\text{span}\rr{\cc{e^{\rr{i}}}_{i\in\N}}.
+		\end{align*}
+		Thus $x$ is in the closure of the span of $\cc{e^{\rr{i}}_{i\in N}}$, making $\cc{e^{\rr{i}}_{i\in\N}}$
+		an analytic basis for $\ell^1$.
 
-    Let $x=\rr{x_n}_{n\in\N}\in\ell^1$ be the sequence such that, for all $n\in\N$, $x_n=1/2^n$.
-    We then note that $x$ has infinitely many nonzero terms. As each $e^{\rr{i}}$ only has
-    one nonzero term, $x$ must not be a finite linear combination of the $e^{\rr{i}}$. Thus
-    $\cc{e^{\rr{i}}}_{i\in\N}$ does not span $\ell^1$ so it is not a Hamel basis.
-  \end{proof}
+		Let $x=\rr{x_n}_{n\in\N}\in\ell^1$ be the sequence such that, for all $n\in\N$, $x_n=1/2^n$.
+		We then note that $x$ has infinitely many nonzero terms. As each $e^{\rr{i}}$ only has
+		one nonzero term, $x$ must not be a finite linear combination of the $e^{\rr{i}}$. Thus
+		$\cc{e^{\rr{i}}}_{i\in\N}$ does not span $\ell^1$ so it is not a Hamel basis.
+	\end{proof}
 \end{claim*}
 
 \end{document}

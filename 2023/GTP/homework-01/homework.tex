@@ -8,59 +8,59 @@
 \maketitle
 
 \begin{claim*}[1]
-  Let $f:S\to T$ be a map. Then there exists a bijection
-  \begin{align*}
-    \phi : S \to \coprod_{t\in T} \inv f \{t\}.
-  \end{align*}
-  \begin{proof}
-    We construct
-    \begin{align*}
-      \phi' : S & \to S \times T \\
-      s & \mapsto (s, f(s))
-    \end{align*}
-    Now let $s\in S$. We note $s\in \inv f\{f(s)\}$. Thus
-    \begin{align*}
-      \phi'(s)=(s,f(s))\in \inv f\{f(s)\}\times \{f(s)\}
-    \end{align*}
-    and, in particular $f(s)\in T$, so
-    \begin{align*}
-      (s,f(s))\in \bigcup_{t\in T} \inv f \{t\}\times \{t\} = \coprod_{t\in T} \inv f \{t\}.
-    \end{align*}
-    Now define
-    \begin{align*}
-      \phi : S & \to \coprod_{t\in T} \inv f \{t\} \\
-      s & \mapsto \phi'(s)
-    \end{align*}
-    Now let $s,s'\in S$ such that $\phi(s)=\phi(s')$. Immediately,
-    $(s,f(s))=(s',f(s'))$ so $s=s'$. Thus $\phi$ is injective.
+	Let $f:S\to T$ be a map. Then there exists a bijection
+	\begin{align*}
+		\phi : S \to \coprod_{t\in T} \inv f \{t\}.
+	\end{align*}
+	\begin{proof}
+		We construct
+		\begin{align*}
+			\phi' : S & \to S \times T    \\
+			s         & \mapsto (s, f(s))
+		\end{align*}
+		Now let $s\in S$. We note $s\in \inv f\{f(s)\}$. Thus
+		\begin{align*}
+			\phi'(s)=(s,f(s))\in \inv f\{f(s)\}\times \{f(s)\}
+		\end{align*}
+		and, in particular $f(s)\in T$, so
+		\begin{align*}
+			(s,f(s))\in \bigcup_{t\in T} \inv f \{t\}\times \{t\} = \coprod_{t\in T} \inv f \{t\}.
+		\end{align*}
+		Now define
+		\begin{align*}
+			\phi : S & \to \coprod_{t\in T} \inv f \{t\} \\
+			s        & \mapsto \phi'(s)
+		\end{align*}
+		Now let $s,s'\in S$ such that $\phi(s)=\phi(s')$. Immediately,
+		$(s,f(s))=(s',f(s'))$ so $s=s'$. Thus $\phi$ is injective.
 
-    Further, let $x\in \coprod_{t\in T} \inv f\{t\}$. Then
-    \begin{align*}
-      x \in \bigcup_{t\in T} \inv f \{t\} \times \{t\}.
-    \end{align*}
-    In particular, for some $t\in T$,
-    \begin{align*}
-      x\in \inv f\{t\} \times \{t\}.
-    \end{align*}
-    Thus for some $s\in \inv f\{t\}$, $x=(s,t)$. By definition of $\inv f\{t\}$,
-    $f(s)=t$ so $x=\phi(s)$. Therefore $\phi$ is surjective and thereby bijective.
-  \end{proof}
+		Further, let $x\in \coprod_{t\in T} \inv f\{t\}$. Then
+		\begin{align*}
+			x \in \bigcup_{t\in T} \inv f \{t\} \times \{t\}.
+		\end{align*}
+		In particular, for some $t\in T$,
+		\begin{align*}
+			x\in \inv f\{t\} \times \{t\}.
+		\end{align*}
+		Thus for some $s\in \inv f\{t\}$, $x=(s,t)$. By definition of $\inv f\{t\}$,
+		$f(s)=t$ so $x=\phi(s)$. Therefore $\phi$ is surjective and thereby bijective.
+	\end{proof}
 \end{claim*}
 
 \begin{claim*}[2]
-  Let $S$ be a set. There is no surjection
-  \begin{align*}
-    \phi : S \to \P S.
-  \end{align*}
-  \begin{proof}
-    Assume $\phi:S\to \P S$ is surjective and consider the set
-    \begin{align*}
-      X = \{ s\in S : s \not\in \phi(s)\}.
-    \end{align*}
-    Then there exists $x\in S$ such that $\phi(x) = X$. However, if $x\in X$ then
-    $x\not\in X$, but if $x\not\in X$ then $x\in X$. Either way, we obtain a contradiction
-    so $\phi$ cannot exist.
-  \end{proof}
+	Let $S$ be a set. There is no surjection
+	\begin{align*}
+		\phi : S \to \P S.
+	\end{align*}
+	\begin{proof}
+		Assume $\phi:S\to \P S$ is surjective and consider the set
+		\begin{align*}
+			X = \{ s\in S : s \not\in \phi(s)\}.
+		\end{align*}
+		Then there exists $x\in S$ such that $\phi(x) = X$. However, if $x\in X$ then
+		$x\not\in X$, but if $x\not\in X$ then $x\in X$. Either way, we obtain a contradiction
+		so $\phi$ cannot exist.
+	\end{proof}
 \end{claim*}
 
 \end{document}
