@@ -13,116 +13,244 @@
 \section{Isomorphism theorems}
 \label{sec:isomorphism-theorems}
 
+\begin{theorem}[Lagrange]
+  \label{thm}
+  Let $H$ be a subgroup of a finite group $G$. Then
+  \begin{align*}
+    \abs{G}=\abs{G/H}\abs{H}.
+  \end{align*}
+\end{theorem}
+
 \begin{definition}
-	\label{def:normal-subgroup}
-	A subgroup $H\leq G$ is normal iff, for all $g\in G$, $gH=Hg$. We write $H\trianglelefteq G$.
+  \label{def:normal-subgroup}
+  A subgroup $H\leq G$ is normal iff, for all $g\in G$, $gH=Hg$. We write $H\trianglelefteq G$.
 \end{definition}
 
 \begin{theorem}
-	Let $G$ be a group and let $N\leq G$. Then $N\trianglelefteq G$ iff $N$ is the kernel
-	of a group homorphism $G\to H$ for some group $H$.
+  Let $G$ be a group and let $N\leq G$. Then $N\trianglelefteq G$ iff $N$ is the kernel
+  of a group homorphism $G\to H$ for some group $H$.
 \end{theorem}
 
 \begin{theorem}[First Isomorphism Theorem]
-	\label{thm:first-iso-theorem}
-	Let $\phi:G\to H$ be a group homorphism. Then $N=\ker\phi$ is a normal subgroup of
-	$G$, $\im\phi$ is a subgroup of $H$ and there is an isomorphism
-	\begin{align*}
-		\psi : G/\ker\phi \to \im\phi
-	\end{align*}
-	defined by $\psi\rr{gN}=\phi\rr{g}$.
+  \label{thm:first-iso-theorem}
+  Let $\phi:G\to H$ be a group homorphism. Then $N=\ker\phi$ is a normal subgroup of
+  $G$, $\im\phi$ is a subgroup of $H$ and there is an isomorphism
+  \begin{align*}
+    \psi : G/\ker\phi \to \im\phi
+  \end{align*}
+  defined by $\psi\rr{gN}=\phi\rr{g}$.
 \end{theorem}
 
 \begin{theorem}
-	\label{thm:up-factor-groups}
-	Let $G$ be a group and let $N\trianglelefteq G$. Then for any homorphism $\psi:G\to H$
-	with $N\subseteq\ker\psi$, there is a unique homorphism $\overline\psi:G/N\to H$ such
-	that $\overline\psi\circ\text{can}=\psi$. I.e. the following commutes
-	\begin{equation}
-		\begin{tikzcd}[row sep=huge, column sep=huge]
-			G \arrow{r}{\text{can}} \arrow{dr}{\psi} & G/N \arrow{d}{\overline\psi} \\
-			& H
-		\end{tikzcd}
-	\end{equation}
+  \label{thm:up-factor-groups}
+  Let $G$ be a group and let $N\trianglelefteq G$. Then for any homorphism $\psi:G\to H$
+  with $N\subseteq\ker\psi$, there is a unique homorphism $\overline\psi:G/N\to H$ such
+  that $\overline\psi\circ\text{can}=\psi$. I.e. the following commutes
+  \begin{equation}
+    \begin{tikzcd}[row sep=huge, column sep=huge]
+      G \arrow{r}{\text{can}} \arrow{dr}{\psi} & G/N \arrow{d}{\overline\psi} \\
+                                               & H
+    \end{tikzcd}
+  \end{equation}
 \end{theorem}
 
 \begin{proposition}
-	Let $G$be a group and let $N\trianglelefteq G$. Let $\text{can}:G\to G/N$ be the canonical
-	map. Let $K\leq G/N$. Then
-	\begin{enumerate}
-		\item $\inv{\text{can}}\rr{K}\leq G$, with $N\subseteq\inv{\text{can}}\rr{K}$;
-		\item $\inv{\text{can}}\rr{K}\trianglelefteq G$ iff $K\trianglelefteq G/N$.
-	\end{enumerate}
+  Let $G$be a group and let $N\trianglelefteq G$. Let $\text{can}:G\to G/N$ be the canonical
+  map. Let $K\leq G/N$. Then
+  \begin{enumerate}
+    \item $\inv{\text{can}}\rr{K}\leq G$, with $N\subseteq\inv{\text{can}}\rr{K}$;
+    \item $\inv{\text{can}}\rr{K}\trianglelefteq G$ iff $K\trianglelefteq G/N$.
+  \end{enumerate}
 \end{proposition}
 
 \begin{proposition}
-	Let $N\trianglelefteq G$ and let $\text{can}:G\to G/N$ be the canonical map. If $N\leq H\leq G$,
-	then $H=\inv{\text{can}\rr{\text{can}\rr{H}}}$.
+  Let $N\trianglelefteq G$ and let $\text{can}:G\to G/N$ be the canonical map. If $N\leq H\leq G$,
+  then $H=\inv{\text{can}\rr{\text{can}\rr{H}}}$.
 \end{proposition}
 
 \begin{theorem}[Correspondence]
-	\label{thm:correspondence}
-	Let $G$ be a group, $N\trianglelefteq G$, and let $\text{can}:G\to G/N$ be the canonical map.
-	The map $H\mapsto\text{can}\rr{H}$ is a bijection between subgroups of $G$ containing $N$ and
-	subgroups of $G/N$. Under this bijection, normal subgroups match with normal subgroups; further,
-	if $N\subseteq A,B$ are subgroups of $G$, then $\text{can}\rr{A}\subseteq\text{can}\rr{B}$
-	iff $A\subseteq B$.
+  \label{thm:correspondence}
+  Let $G$ be a group, $N\trianglelefteq G$, and let $\text{can}:G\to G/N$ be the canonical map.
+  The map $H\mapsto\text{can}\rr{H}$ is a bijection between subgroups of $G$ containing $N$ and
+  subgroups of $G/N$. Under this bijection, normal subgroups match with normal subgroups; further,
+  if $N\subseteq A,B$ are subgroups of $G$, then $\text{can}\rr{A}\subseteq\text{can}\rr{B}$
+  iff $A\subseteq B$.
 \end{theorem}
 
 \begin{theorem}[Second Isomorphism Theorem for Groups]
-	\label{thm:second-iso-theorem}
-	Let $N\trianglelefteq G$ be a normal subgroup. Let $H$ be a subgroup of $G$. Then
-	\begin{enumerate}
-		\item $HN\leq G$,
-		\item $N\trianglelefteq HN$,
-		\item $H\cap N\trianglelefteq H$, and
-		\item there is an isomorphism \begin{align*}
-			      HN/N \cong H/\rr{H\cap N}.
-		      \end{align*}
-	\end{enumerate}
+  \label{thm:second-iso-theorem}
+  Let $N\trianglelefteq G$ be a normal subgroup. Let $H$ be a subgroup of $G$. Then
+  \begin{enumerate}
+    \item $HN\leq G$,
+    \item $N\trianglelefteq HN$,
+    \item $H\cap N\trianglelefteq H$, and
+    \item there is an isomorphism \begin{align*}
+        HN/N \cong H/\rr{H\cap N}.
+      \end{align*}
+  \end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Third Isomorphism Theorem]
-	\label{thm:third-iso-theorem}
-	If $N\leq H\leq G$ with $N,H\trianglelefteq G$, then \begin{align*}
-		\rr{G/N}/\rr{H/N}\cong G/H.
-	\end{align*}
+  \label{thm:third-iso-theorem}
+  If $N\leq H\leq G$ with $N,H\trianglelefteq G$, then \begin{align*}
+    \rr{G/N}/\rr{H/N}\cong G/H.
+  \end{align*}
 \end{theorem}
 
 \section{Representation}
 \label{sec:representation}
 
 \begin{definition}
-	\label{def:free-group}
-	The free group on generators $x_1,...,x_m$ is the group whose elements are words in the
-	symbols $x_1,...,x_m,\inv x_1, ...,\inv x_m$, subject to the group axioms and all logical
-	consequences. The group operation is concatenation.
+  \label{def:free-group}
+  The free group on generators $x_1,...,x_m$ is the group whose elements are words in the
+  symbols $x_1,...,x_m,\inv x_1, ...,\inv x_m$, subject to the group axioms and all logical
+  consequences. The group operation is concatenation.
 
-	This group is written $\aa{x_1,...,x_m}$.
+  This group is written $\aa{x_1,...,x_m}$.
 \end{definition}
 
 \begin{definition}
-	Let $r_1,...,r_n\in\aa{x_1,...,x_m}$. The group generated by $x_1,...,x_m$ subject
-	to the relations $r_1,...,r_n$ is the group with generators $x_1,...,x_m$ subject to the
-	group axioms, the rules that $r_1=r_2=\cdots=r_n=e$, and all logical consequences.
+  Let $r_1,...,r_n\in\aa{x_1,...,x_m}$. The group generated by $x_1,...,x_m$ subject
+  to the relations $r_1,...,r_n$ is the group with generators $x_1,...,x_m$ subject to the
+  group axioms, the rules that $r_1=r_2=\cdots=r_n=e$, and all logical consequences.
 
-	We write
-	\begin{align*}
-		\aa{x_1,...,x_m : r_1,...,r_m}.
-	\end{align*}
+  We write
+  \begin{align*}
+    \aa{x_1,...,x_m : r_1,...,r_m}.
+  \end{align*}
 \end{definition}
 
 \begin{theorem}[Novikov]
-	There is no algorithm for deciding whether or not
-	\begin{align*}
-		\ava{x_1,...,x_m}{r_1,...,r_m}=\cc{e}.
-	\end{align*}
+  There is no algorithm for deciding whether or not
+  \begin{align*}
+    \ava{x_1,...,x_m}{r_1,...,r_m}=\cc{e}.
+  \end{align*}
 \end{theorem}
 
 \begin{proposition}
-	Let $G$ be a group generated by a set $\cc{s_1,...,s_n}$. Let $F=\aa{S_1,...,S_n}$
-	be the free group generated on the letters $\cc{S_1,...,S_n}$. Then there is a unique
-	surjective homorphism $\pi:F\to G$ so that $\pi\rr{S_i}=s_i$ for all $i$.
+  Let $G$ be a group generated by a set $\cc{s_1,...,s_n}$. Let $F=\aa{S_1,...,S_n}$
+  be the free group generated on the letters $\cc{S_1,...,S_n}$. Then there is a unique
+  surjective homorphism $\pi:F\to G$ so that $\pi\rr{S_i}=s_i$ for all $i$.
 \end{proposition}
+
+\section{Sylow theorems}
+\label{sec:sylow-theorems}
+
+\begin{theorem}[Cauchy]
+  If $p$ is a prime that divides $\abs{G}$ then $G$ has a subgroup of order $p$.
+\end{theorem}
+
+\begin{definition}
+  \label{def:p-subgroup}
+  Let $G$ be a finite group and let $p$ be a prime.
+  A $p$-subgroup of $G$ is a subgroup $H\leq G$ such that $\abs{H}=p^n$ for some $n$.
+  A Sylow $p$-subgroup of $G$ is a $p$-subgroup $H$ such that $\abs{H}$ is the highest
+  power of $p$ that divides $\abs{G}$.
+\end{definition}
+
+\begin{theorem}[Sylow I]
+  Let $\abs{G}=n$ and suppose that $p$ is a prime that divides $n$. Write $n=p^mr$ with
+  $p$ not dividing $r$.
+
+  Then there exists at least one subgroup $H\leq G$ of order $p^m$; that is, there is at
+  least one Sylow $p$-subgroup.
+\end{theorem}
+
+\begin{theorem}[Sylow II]
+  Let $\abs{G}=n$ and suppose that $p$ is a prime that divides $n$. Write $n=p^mr$ with
+  $p$ not dividing $r$.
+
+  Suppose that $p$ is a Sylow $p$-subgroup and that $H\leq G$ is any $p$-subgroup of $G$.
+  Then there exists $x\in G$ with $H\subseteq x\inv Px$. In particular, any two Sylow
+  $p$-subgroups are conjugate in $G$.
+\end{theorem}
+
+\begin{theorem}[Sylow III]
+  Let $\abs{G}=n$ and suppose that $p$ is a prime that divides $n$. Write $n=p^mr$ with
+  $p$ not dividing $r$.
+
+  Let $n_p$ be the number of distinct Sylow $p$-subgroups of $G$. Then $n_p\vert r$ and
+  $n_p\equiv 1\mod p$.
+\end{theorem}
+
+\begin{definition} \label{def:simple-group}
+  A simple group is a group $G$ that has no nontrivial normal subgroups.
+\end{definition}
+
+\begin{lemma}
+  If a group $G$ has a unique Sylow $p$-subgroup $P$ then $P\trianglelefteq G$.
+\end{lemma}
+
+\section{Group actions}
+\label{sec:group-actions}
+
+\begin{lemma}
+  Let $G$ act on $X$.
+  \begin{enumerate}
+    \item The action induces an equivalence relation $\sim$ on $X$ defined by: $x\sim y$ iff
+      there exists $g\in G$ with $g\cdot x= y$.
+    \item The equivalence classes of this equivalence are the orbits.
+    \item The distinct orbits in $X$ form a partition of $X$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  Let $G$ be a group that acts on a set $X$. For all $x\in X$, $\stab_G\rr{x}\leq G$.
+\end{lemma}
+
+\begin{theorem}[Orbit-Stabiliser]
+  Let $G$ be a finite group acting on a set $X$, and let $x\in X$. Then
+  \begin{align*}
+    \abs{G}=\abs{\stab_G\rr{x}}\abs{G\cdot x}.
+  \end{align*}
+\end{theorem}
+
+\begin{lemma}
+  Let $G$ be a finite group. For any $g\in G$ we have
+  \begin{align*}
+    \abs{G}=\abs{c_G\rr{g}}\abs{\cl\rr{g}}
+  \end{align*}
+\end{lemma}
+
+\begin{definition}
+  \label{def:p-group}
+  Let $p$ be prime. A $p$-group is a group $G$ such that each element has order a power of $p$.
+  If $\abs{G}$ is finite, then $G$ is a $p$-group iff $\abs{G}$ is a power of $p$.
+\end{definition}
+
+\begin{theorem}[Class equation]
+  Let $G$ be a finite group then there are elements $g_1,...,g_n\in G$ such that
+  \begin{align*}
+    G = \cl\rr{g_1}\sqcup\cdots\sqcup\cl\rr{g_n}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Let $G$ be a nontrivial finite $p$-group. Then the centre $Z\rr{G}\neq \cc{e}$.
+\end{theorem}
+
+\begin{lemma}
+  Let $p$ be a prime and let $G$ be a finite $p$-gropu acting on a finite set $X$. Then the
+  number of fixed points in $X$ is congruent to $\abs{X}$ modulo $p$.
+\end{lemma}
+
+\begin{definition}
+  \label{def:normaliser}
+  Let $G$ be a group and $H\leq G$. The normaliser of $H$ is
+  \begin{align*}
+    n_G\rr{H}=\cc{g\in G : gH\inv g = H}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Let $G$ be a finite group.
+  \begin{enumerate}
+    \item For any subgroup $H\leq G$, we have
+      \begin{align*}
+        \abs{G/n_G\rr{H}}=\text{the number of distinct conjugates of $H$}.
+      \end{align*}
+    \item Let $p\vert \abs{G}$ and let $P$ be a Sylow $p$-subgroup of $G$. Then $n_p=\abs{G/n_G\rr{P}}$.
+  \end{enumerate}
+\end{lemma}
 
 \end{document}
