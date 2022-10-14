@@ -12,152 +12,357 @@
 
 \section{Probability}
 
+
+\subsection{Moments}
+
 \begin{definition}
-	\label{def:expectation}
-	Let $X$ be a random variable. Then $X$ has finite expectation iff
-	\begin{align*}
-		\sum_{x} \abs{x} \pr{X=x} < \infty
-	\end{align*}
-	and we write
-	\begin{align*}
-		\ex{X} = \sum_{x} x \pr{X=x}.
-	\end{align*}
+  \label{def:expectation}
+  Let $X$ be a random variable. Then $X$ has finite expectation iff
+  \begin{align*}
+    \sum_{x} \abs{x} \pr{X=x} < \infty
+  \end{align*}
+  and we write
+  \begin{align*}
+    \ex{X} = \sum_{x} x \pr{X=x}.
+  \end{align*}
 \end{definition}
 
 \begin{definition}
-	\label{def:convex}
-	A function $f:\R\to\R$ is said to be convex if, for any $x_1,x_2\in\R$
-	and $\lambda\in\bb{0,1}$,
-	\begin{align*}
-		f\rr{\lambda x_1 + \rr{1-\lambda}x_2} \leq \lambda f\rr{x_1} + \rr{1-\lambda}f \rr{x_2}.
-	\end{align*}
+  \label{def:moment}
+  The $k$-th moment of a random variable $X$ is $\ex{X^k}$.
+\end{definition}
+
+\begin{definition}
+  \label{def:variance}
+  Let $X$ be a random variable. Then the variance is given by
+  \begin{align*}
+    \var{X}=\ex{\rr{X-\ex{X}}^2} = \ex{X^2}-\rr{\ex{X}}^2
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  \label{def:covariance}
+  The covariance of two random variables $X$ and $Y$ is
+  \begin{align*}
+    \cov{X,Y}=\ex{\rr{X-\ex{X}}\rr{Y-\ex{Y}}}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  For any two random variables $X,Y$,
+  \begin{align*}
+    \var{X+Y}=\var{X}+\var{Y}+2\cov{X,Y}
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  If $X,Y$ are independent random variables, then
+  \begin{align*}
+    \ex{XY}=\ex{X}\ex{Y}.
+  \end{align*}
+\end{theorem}
+
+\begin{corollary}
+  If $X,Y$ are independent random variables, then
+  \begin{align*}
+    \cov{X,Y}=0
+  \end{align*}
+  and
+  \begin{align*}
+    \var{X+Y}=\var{X}+\var{Y}.
+  \end{align*}
+\end{corollary}
+
+\begin{theorem}
+  Let $X_1,...,X_n$ be mutually independent random variables. Then
+  \begin{align*}
+    \var{\sum_{i=1}^{n} X_i}=\sum_{i=1}^{n} \var{X_i}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a random variable with finite expectation and finite median $m$. Then
+  \begin{enumerate}
+    \item the expectation is the value of $c$ that minimises the expression $\ex{\rr{X-c}^2}$;
+    \item the median is the value of $c$ that minimises the expression $\ex{\abs{X-c}}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  If $X$ is a random variable with finite standard deviation $\sigma$, expectation $\mu$ and
+  median $m$, then
+  \begin{align*}
+    \abs{\mu-m}\leq\sigma.
+  \end{align*}
+\end{theorem}
+
+\subsection{Moment generating function}\label{sec:moment-generating-function}
+
+\begin{definition}\label{def:moment-generating-function}
+  The moment generating function of a random variable $X$ is
+  \begin{align*}
+    M_X\rr{t}=\ex{\exp\rr{tX}}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Let $X$ be a random variable and $n>1$. Then
+  \begin{align*}
+    \ex{X^n}=\frac{d^n}{dt^n}\rr{M_X\rr{t}}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Let $X,Y$ be random variables. If there exists $\delta>0$ such that, for all $t\in\rr{-\delta,\delta}$,
+  $M_X\rr{t}=M_Y\rr{t}$, then $X$ and $Y$ have the same distribution.
+\end{theorem}
+
+\begin{theorem}
+  Let $X,Y$ be independent random variables. Then
+  \begin{align*}
+    M_{X+Y}\rr{t}=M_X\rr{t}M_Y\rr{t}.
+  \end{align*}
+\end{theorem}
+
+\subsection{Special random variables}
+
+\begin{definition}
+  \label{def:binomial}
+  A random variable $X$ is binomial with parameters $n$ and $p$ iff,
+  for all $0\leq j\leq n$,
+  \begin{align*}
+    \pr{X=j}=\binom{n}{j}p^j \rr{1-p}^{n-j}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  The variance of a geometric random variable with parameter $p$ is $\rr{1-p}/p^2$.
+\end{lemma}
+
+\begin{definition}
+  \label{def:geometric}
+  A random variable $X$ is geometric with parameter $P$ iff, for all $n\in\N$,
+  \begin{align*}
+    \pr{X=n}=\rr{1-p}^{n-1} p
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  For a geometric random variable $X$ with parameter $p$ and for $n>0$,
+  \begin{align*}
+    \pr{X=n+k}{X>k} = \pr{X=n}.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then
+  \begin{align*}
+    \ex{X} = \sum_{i=1}^{\infty} \pr{X\geq i}
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  The harmonic number $H\rr{n}=\sum_{i=1}^{n} 1/i$ staisfies $H\rr{n}=\ln n+\Theta\rr{1}$.
+\end{lemma}
+
+\subsection{Inequalities}
+
+\begin{definition}
+  \label{def:convex}
+  A function $f:\R\to\R$ is said to be convex if, for any $x_1,x_2\in\R$
+  and $\lambda\in\bb{0,1}$,
+  \begin{align*}
+    f\rr{\lambda x_1 + \rr{1-\lambda}x_2} \leq \lambda f\rr{x_1} + \rr{1-\lambda}f \rr{x_2}.
+  \end{align*}
 \end{definition}
 
 \begin{theorem}[Jensen's inequality]
-	\label{thm:jensens}
-	Let $X$ be a random variable and let $f:\R\to\R$ be a convex function. Then
-	\begin{align*}
-		\ex{f\rr{X}} \geq f\rr{\ex{X}}.
-	\end{align*}
+  \label{thm:jensens}
+  Let $X$ be a random variable and let $f:\R\to\R$ be a convex function. Then
+  \begin{align*}
+    \ex{f\rr{X}} \geq f\rr{\ex{X}}.
+  \end{align*}
 \end{theorem}
 
-\begin{definition}
-	\label{def:binomial}
-	A random variable $X$ is binomial with parameters $n$ and $p$ iff,
-	for all $0\leq j\leq n$,
-	\begin{align*}
-		\pr{X=j}=\binom{n}{j}p^j \rr{1-p}^{n-j}.
-	\end{align*}
-\end{definition}
+\begin{theorem}[Chebyshev's inequality]
+  Let $X$ be a random variable and $a>0$. Then
+  \begin{align*}
+    \pr{\abs{X-\ex{X}}\geq a}\leq \frac{\var{X}}{a^2}.
+  \end{align*}
+\end{theorem}
 
-\begin{definition}
-	\label{def:geometric}
-	A random variable $X$ is geometric with parameter $P$ iff, for all $n\in\N$,
-	\begin{align*}
-		\pr{X=n}=\rr{1-p}^{n-1} p
-	\end{align*}
-\end{definition}
+\begin{corollary}
+  For any $t>1$,
+  \begin{align*}
+    \pr{\abs{X-\ex{X}}\geq t\sqrt{\var{X}}}\leq \frac{1}{t^2}, \hs
+    \pr{\abs{X-\ex{X}}\geq t\ex{X}}\leq \frac{\var{X}}{t^2\rr{\ex{X}}^2}.
+  \end{align*}
+\end{corollary}
 
-\begin{lemma}
-	For a geometric random variable $X$ with parameter $p$ and for $n>0$,
-	\begin{align*}
-		\pr{X=n+k}{X>k} = \pr{X=n}.
-	\end{align*}
-\end{lemma}
+\begin{theorem}[Chernoff bounds]
+  Let $X_1,...,X_n$ be independent Poisson trials such that $\pr{X_i=1}=p_i$.
+  Let $X=\sum_{i=1}^{n} X_i$ and $\mu=\ex{X}$. Then the following hold:
+  \begin{enumerate}
+    \item For any $\delta>0$, \begin{align*}
+        \pr{X\geq \rr{1+\delta}\mu} \leq \rr{\frac{\exp\rr{\delta}}{\rr{1+\delta}^{1+\delta}}}^\mu
+      \end{align*}
+    \item For any $\delta\in\rr{0,1}$, \begin{align*}
+        \pr{X\leq \rr{1-\delta}\mu} \leq \rr{\frac{\exp\rr{-\delta}}{\rr{1-\delta}^{1-\delta}}}^\mu
+      \end{align*}
+    \item For any $\delta\in\rb{0,1}$, \begin{align*}
+        \pr{X\geq \rr{1+\delta}\mu}\leq \exp\rr{-\mu\delta^2/3}.
+      \end{align*}
+    \item For any $\delta\in\rr{0,1}$, \begin{align*}
+        \pr{X\leq \rr{1-\delta}\mu}\leq \exp\rr{-\mu\delta^2/2}.
+      \end{align*}
+    \item For any $\delta\in\rr{0,1}$, \begin{align*}
+        \pr{\abs{X-\mu}\geq \delta\mu}\leq 2\exp\rr{-\mu\delta^2/3}.
+      \end{align*}
+    \item For any $R\geq 6\mu$, \begin{align*}
+        \pr{X\geq R}\leq 2^{-R}.
+      \end{align*}
+  \end{enumerate}
+\end{theorem}
 
-\begin{lemma}
-	Let $X$ be a discrete random variable that takes on only nonnegative integer values. Then
-	\begin{align*}
-		\ex{X} = \sum_{i=1}^{\infty} \pr{X\geq i}
-	\end{align*}
-\end{lemma}
+\begin{theorem}[Chernoff bounds]
+  Let $X_1,...,X_n$ be independent random variables with
+  \begin{align*}
+    \pr{X_i=1}=\pr{X_i=-1}=1/2.
+  \end{align*}
+  Let $X=\sum_{i=1}^{n} X_i$. For any $a>0$,
+  \begin{align*}
+    \pr{X\geq a}\leq \exp\rr{-a^2/2n},
+  \end{align*}
+  and
+  \begin{align*}
+    \pr{\abs X\geq a}\leq \exp\rr{-a^2/2n}
+  \end{align*}
+\end{theorem}
+
+\begin{corollary}
+  Let $Y_1,...,Y_n$ be independent random variables with
+  \begin{align*}
+    \pr{Y_i=1}=\pr{Y_i=0}=1/2.
+  \end{align*}
+  Let $Y=\sum_{i=1}^{n} Y_i$ and $\mu=\ex{Y}=n/2$.
+  \begin{enumerate}
+    \item For any $a>0$, \begin{align*}
+        \pr{Y\geq \mu+a}\leq \exp\rr{-2a^2/n}.
+      \end{align*}
+    \item For any $a\in\rr{0,\mu}$, \begin{align*}
+        \pr{Y\leq \mu-a}\leq \exp\rr{-2a^2/n}.
+      \end{align*}
+    \item For any $\delta>0$, \begin{align*}
+        \pr{Y\geq \rr{1+\delta}\mu}\leq \exp\rr{-\delta^2\mu}.
+      \end{align*}
+    \item For any $\delta\in\rr{0,1}$, \begin{align*}
+        \pr{Y\leq \rr{1-\delta}\mu}\leq \exp\rr{-\delta^2\mu}.
+      \end{align*}
+  \end{enumerate}
+\end{corollary}
+
+\begin{theorem}[Hoeffding bound]
+  Let $X_1,...,X_n$ be independent random variables such that for all $1\leq i\leq n$,
+  $\ex{X_i}=\mu$ and $\pr{a\leq X_i\leq b}=1$. Then
+  \begin{align*}
+    \pr{\abs{\frac{1}{n}\sum_{i=1}^{n} X_i-\mu}\geq \e}\leq 2\exp\rr{-\frac{2n\e^2}{\rr{b-a}^2}}
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Let $X_1,...,X_n$ be independent random variables with $\ex{X_i}=\mu_i$ and $\pr{a_i\leq X_i\leq b_i}=1$ for
+  constants $a_i,b_i$. Then
+  \begin{align*}
+    \pr{\abs{\sum_{i=1}^{n} X_i - \sum_{i=1}^{n} \mu_i}\geq\e} \leq 2\exp\rr{-\frac{2\e^2}{\sum_{i=1}^{n} \rr{b_i-a_i}^2}}.
+  \end{align*}
+\end{theorem}
 
 \section{Algorithms}
 \label{sec:algorithms}
 
 \subsection{Testing polynomial equalities}
 
-\begin{algorithm}
-	\label{alg:stan-ulam}
-	Consider polynomials
-	\begin{align*}
-		F \rr{ x } = \prod_{i=1}^n \rr{ x - a_i }, \hs G \rr{ x } = \sum_{ i=0 }^{ n } b_i x^i.
-	\end{align*}
-	We randomly check for equality as follows:
-	\begin{enumerate}
-		\item Choose an integer $x\in \cc{ 1, 100n }$.
-		\item Calculate $F \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
-		\item Calculate $G \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
-		\item Compare the result, return $\bot$ or $\top$ accordingly.
-	\end{enumerate}
+\begin{algorithm}\label{alg:stan-ulman}
+  Consider polynomials
+  \begin{align*}
+    F \rr{ x } = \prod_{i=1}^n \rr{ x - a_i }, \hs G \rr{ x } = \sum_{ i=0 }^{ n } b_i x^i.
+  \end{align*}
+  We randomly check for equality as follows:
+  \begin{enumerate}
+    \item Choose an integer $x\in \cc{ 1, 100n }$.
+    \item Calculate $F \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
+    \item Calculate $G \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
+    \item Compare the result, return $\bot$ or $\top$ accordingly.
+  \end{enumerate}
 \end{algorithm}
 
 
 \begin{theorem}
-	\label{thm:stan-ulman-probabilities}
-	The algorithm~\ref{alg:stan-ulman} has the following probabilities of success:
-	\begin{itemize}
-		\item $P \rr{ \top | F\equiv G } = 1$
-		\item $P \rr{ \bot | F\not\equiv G } \geq 99/100$
-	\end{itemize}
-	One can improve these by using
-	\begin{itemize}
-		\item repeated sampling, or
-		\item sampling from a larger set.
-	\end{itemize}
+  \label{thm:stan-ulman-probabilities}
+  The algorithm~\ref{alg:stan-ulman} has the following probabilities of success:
+  \begin{itemize}
+    \item $P \rr{ \top | F\equiv G } = 1$
+    \item $P \rr{ \bot | F\not\equiv G } \geq 99/100$
+  \end{itemize}
+  One can improve these by using
+  \begin{itemize}
+    \item repeated sampling, or
+    \item sampling from a larger set.
+  \end{itemize}
 \end{theorem}
 
 \subsection{Verifying matrix multiplication}
 
 \begin{algorithm}\label{alg:mmverify}
-	Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
-	$\texttt{MMVerify} \rr{ n, A, B, C, k }$ is the following algorithm:
-	\begin{enumerate}
-		\item For $j=1,...,k$ \begin{enumerate}
-			      \item Generate a vector $x\in \cc{ 0,1 }^n$ u.a.r.
-			      \item Calculate $y_B = Bx$ in $O(n^2)$ time.
-			      \item Calculate $y_{AB} = Ay^B$ in $O(n^2)$ time.
-			      \item Calculate $y_C = Cx$ in $O(n^2)$ time.
-			      \item Compare $y_{AB}$ with $y_C$ in $O(n)$ time and return $\bot$ or $\top$ accordingly.
-		      \end{enumerate}
-	\end{enumerate}
+  Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
+  $\texttt{MMVerify} \rr{ n, A, B, C, k }$ is the following algorithm:
+  \begin{enumerate}
+    \item For $j=1,...,k$ \begin{enumerate}
+      \item Generate a vector $x\in \cc{ 0,1 }^n$ u.a.r.
+      \item Calculate $y_B = Bx$ in $O(n^2)$ time.
+      \item Calculate $y_{AB} = Ay^B$ in $O(n^2)$ time.
+      \item Calculate $y_C = Cx$ in $O(n^2)$ time.
+      \item Compare $y_{AB}$ with $y_C$ in $O(n)$ time and return $\bot$ or $\top$ accordingly.
+    \end{enumerate}
+\end{enumerate}
 \end{algorithm}
 
 \begin{theorem}
-	\label{thm:mmverify-proabilities}
-	The algorithm~\ref{alg:mmverify} has the following probabilities of success:
-	\begin{itemize}
-		\item $\prc{ \top}{A = B } = 1$
-		\item $\prc{ \top}{A \not= B } = 2^{-k}$
-	\end{itemize}
+  \label{thm:mmverify-proabilities}
+  The algorithm~\ref{alg:mmverify} has the following probabilities of success:
+  \begin{itemize}
+    \item $\prc{ \top}{A = B } = 1$
+    \item $\prc{ \top}{A \not= B } = 2^{-k}$
+  \end{itemize}
 \end{theorem}
 
 
 \subsection{Minimum cut}
 
 \begin{algorithm}
-	\label{alg:krager}
-	Let $G= \rr{ V,E }$ a graph and let $n= \abs{ V }$ and $m= \abs{ E }$. Then let
-	$\texttt{KragerOneTrial} \rr{ G }$ be the following algorithm: Repeatedly choose an edge
-	uniformly at random (from the not-yet contracted edges) and contract its endpoints.
-	When there are just two “vertices” left, return that cut.
+  \label{alg:krager}
+  Let $G= \rr{ V,E }$ a graph and let $n= \abs{ V }$ and $m= \abs{ E }$. Then let
+  $\texttt{KragerOneTrial} \rr{ G }$ be the following algorithm: Repeatedly choose an edge
+  uniformly at random (from the not-yet contracted edges) and contract its endpoints.
+  When there are just two “vertices” left, return that cut.
 
-	Let $ \texttt{Krager} \rr{ G, k }$ be $k$ repetition of the above, taking the minimum
-	result.
+  Let $ \texttt{Krager} \rr{ G, k }$ be $k$ repetition of the above, taking the minimum
+  result.
 \end{algorithm}
 
 \begin{theorem}
-	\label{thm:krager-probabilities}
-	The probability of finding a minimum cut in one iteration of $ \texttt{KragerOneTrial} \rr{ G }$
-	is
-	\begin{align*}
-		p \geq \frac{2}{n \rr{ n-1 }}.
-	\end{align*}
-	The probability of finding a minimum cut using $ \texttt{Krager} \rr{ G,k }$ is
-	\begin{align*}
-		1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
-	\end{align*}
+  \label{thm:krager-probabilities}
+  The probability of finding a minimum cut in one iteration of $ \texttt{KragerOneTrial} \rr{ G }$
+  is
+  \begin{align*}
+    p \geq \frac{2}{n \rr{ n-1 }}.
+  \end{align*}
+  The probability of finding a minimum cut using $ \texttt{Krager} \rr{ G,k }$ is
+  \begin{align*}
+    1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
+  \end{align*}
 \end{theorem}
+
 
 
 \end{document}
