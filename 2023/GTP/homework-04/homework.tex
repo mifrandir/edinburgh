@@ -1,0 +1,132 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{General Topology: Assignment 4}
+\author{Franz Miltz (UUN: S1971811)}
+\date{20 October 2022}
+\maketitle
+
+\begin{claim}
+  Let $P$ be a preorder. There is a topology $\tau_\leq$ on $P$ in which the open subsets
+  are exactly the sieves.
+  \begin{proof}
+    We construct the map
+    \begin{align*}
+      \tau_\leq : \P\rr{P}&\to\P\rr{P} \\
+      S&\mapsto \cc{x\in X:\exists s\in S.\:x\leq s}.
+    \end{align*}
+    Firstly, note that, for all $S\subseteq X$, $S\subseteq \tau_\leq\rr{S}$ immediately due to
+    reflexivity of $\leq$.
+
+    Secondly, let $\cc{S_i}_{i\in I}$ be a finite family over $\P\rr{S}$. Then consider
+    $x\in\tau_\leq\rr{\bigcup_{i\in I} S_i}$. We have $x\leq s$ for some $s\in\bigcup_{i\in I} S_i$.
+    Thus there is an $i\in I$ such that $s\in S_i$. Now $x\in\tau_\leq\rr{S_i}$ so
+    $x\in\bigcup_{i\in I}\tau_\leq\rr{S_i}$. Similarly, if $x\in\bigcup_{i\in I} S_i$ then
+    $x\in\tau_\leq\rr{S_i}$ for some $i\in I$. Thus there is some $s\in S_i$ such that $x\leq s$.
+    As $s\in\bigcup_{i\in I}S_i$, we have $x\in\tau_\leq\rr{\bigcup_{i\in I} S_i}$. I.e.
+    $\tau_\leq\rr{\bigcup_{i\in I} S_i} = \bigcup_{i\in I} \tau_\leq\rr{S_i}$.
+
+    The third condition, $\tau_\leq^2=\tau_\leq$, follows due to transitivity of $\leq$.
+    Thus $\tau_\leq$ is a topology.
+
+    It remains to show that the opens in $\tau_\leq$ are exactly the sieves in $P$.
+    Let $U\subseteq P$ be a sieve. Then consider $x\in\tau_\leq\rr{P\setminus U}$.
+    There is an $s\in P\setminus U$ such that $x\leq s$. As $U$ is a sieve, this means
+    that $x\not\in U$, i.e. $x\in P\setminus U$. Thus $\tau_\leq\rr{P\setminus U}=P\setminus U$,
+    showing that $U$ is open.
+
+    Finally, let $U\subseteq P$ open. Consider $x\in U$ and $y\in P$ such that $x\leq y$.
+    Assume $y\not\in U$. Then $y\in P\setminus U$. As $x\leq y$ we must have
+    $x\in\tau_\leq\rr{P\setminus U}$. Thus $\tau_\leq\rr{P\setminus U}\neq P\setminus U$,
+    contradicting that $U$ is open. We conclude that $y\in U$.
+
+    Thus $\tau_\leq$ is a topology in which the opens are exactly the sieves.
+  \end{proof}
+\end{claim}
+
+\begin{claim}
+  The following are equivalent for a topological space $\rr{X,\tau}$:
+  \begin{enumerate}
+    \item There exists a unique preorder relation $\leq$ on $X$ such that $\tau=\tau_\leq$.
+    \item All intersections of open subsets of $X$ are open.
+  \end{enumerate}
+  \begin{proof}
+    Assume 1. Let $\cc{U_i}_{i\in I}$ be a family of opens. Consider $x\in\bigcap_{i\in I} U_i$.
+    Then, for all $i\in I$, $x\in U_i$. Now consider $y\in P$ such that $x\leq y$.
+    As all $U_i$ are sieves, $y\in U_i$ for all $i\in I$. So $\bigcap_{i\in I} U_i$ is a sieve
+    and thus open.
+
+    Assume 2. We construct the relation $\leq$ as follows: Let $x,y\in X$. Then $x\leq y$
+    iff, for all opens $U\subseteq X$ such that $x\in U$, we have $y\in U$.
+
+    We verify that
+    $\rr{X,\leq}$ is a preorder. Immediately, $x\leq x$ for all $x\in X$. Now let $x,y,z\in X$
+    such that $x\leq y$ and $y\leq z$. Consider an open $U\subseteq X$ such that $x\in U$. Since
+    $x\leq y$ we have $y\in U$. Similarly, since $y\leq z$ we find $z\in U$ so $x\leq z$.
+
+    Now consider an open set $U\subseteq X$ with respect to $\tau$. Let $x\in U$ and $y\in X$
+    such that $x\leq y$. By definition, $y\in U$. Thus $U$ is a sieve, i.e. an open with respect
+    to $\tau_\leq$.
+
+    Next, consider a sieve $U\subseteq X$. If $U$ is empty then the proof is trivial.
+    Thus fix $x\in U$. Consider the family of open sets $\cc{U_i}_{i\in I}$ such that $x\in U_i$
+    for all $i\in I$. Consider $y\in\bigcap_{i\in I} U_i$. By construction we have $x\leq y$.
+    Similarly, if $x\leq y$ then $y\in U_i$ for all $i\in I$ so $y\in\bigcap_{i\in I} U_i$.
+    I.e. $U=\bigcap_{i\in I} U_i$. By assumption, as $U$ is an intersection of open sets, $U$ is open.
+    Thus $\tau = \tau_\leq$.
+
+    Finally, we show uniqueness. Assume $\leq'$ is a preorder relation on $X$ such that $\tau=\tau_{\leq'}$.
+    Let $x\leq' y$ and consider an open set $U\subseteq X$ such that $x\in U$. Then, as $U$ is a
+    sieve, $y\in U$. Similarly, let $x,y\in X$ such that whenever $U\subseteq X$ is open and $x\in U$ we
+    also have $y\in U$. Consider the set $U$ of exactly those $z\in X$ for which $x\leq' z$.
+    Due to transitivity, this is a sieve and thus an open set. So $y\in U$ by assumption, i.e. $x\leq' y$.
+    Thus $\leq = \leq'$.
+  \end{proof}
+\end{claim}
+
+\begin{claim}
+  The topological space $\mathbb P^0_{\R}$ is a point and is not homeomorphic to $\mathbb P^0_{\R}$.
+  \begin{proof}
+    There is exactly one 1-dimensional $\R$-linear subspace of $\R$,
+    namely $\bb{1}=\R$. Thus $\mathbb P^0_{\R}$ is a singleton, i.e.
+    a point.
+
+    Note that there are two distinct $\R$-linear subspaces of $\R^3$ given by $\bb{e_1}$ and
+    $\bb{e_2}$. Thus $\mathbb P^2_{\R}$ is not a point so it cannot be in bijection with $\mathbb P^0_{\R}$.
+  \end{proof}
+\end{claim}
+
+\begin{claim}
+  The topological space $\mathbb P^2_{\R}$ is not homeomorphic to $\mathbb P^1_{\R}$.
+  \begin{proof}
+    We being by establishing that there is an open subset of $\mathbb P^2_{\R}$ that is
+    homeomorphic to $\R^2$. One such subset is
+    \begin{align*}
+      S=\cc{[x,y,z] : x,y,z\in\R, y\neq 0, z\neq 0},
+    \end{align*}
+    i.e. all lines in $\R^3$ that are not in the $xy$ or $xz$-planes. A corresponding
+    homeomorphism is
+    \begin{align*}
+      f:S &\to \R^2 \\
+      \bb{x,y,z} &\mapsto \rr{x/y,x/z}.
+    \end{align*}
+
+    Secondly, we establish that there is no such open subset of $\mathbb P^1_{\R}$ that
+    is homeomorphic to $\R^2$. Suppose there was and denote it $U\subseteq \mathbb P^1_{\R}$.
+    Now, as proven in example 28.3 of the lecture notes, $\mathbb P^1_{\R}$ is homeomorphic 
+    to $S^1$. We note that removing any two points from $S^1$ disconnects it.
+    The same must hold for $U$ (even though removing zero or one point may suffice).
+    However, it is impossible
+    to remove two points from $\R^2$ in order to disconnect it. Thus any homeomorphism
+    $g:U\to\R^2$ would map a disconnected set $U\setminus\cc{x,y}$ to a connected set
+    $\R^2\setminus\cc{g\rr{x},g\rr{y}}$, contradiction.
+
+    Finally, suppose there exists a homeomorphism $h:\mathbb P^1_{\R}\to\mathbb P^2_{\R}$.
+    Then $\inv h\rr{S}$ is an open subset of $\mathbb P^1_{\R}$ that, moreover, is homoemorphic
+    to $\R^2$ via $f\circ \inv h:\mathbb P^1_{\R}\to \R^2$. This contradicts the previous
+    considerations.
+  \end{proof}
+\end{claim}
+
+\end{document}
