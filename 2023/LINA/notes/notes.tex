@@ -12,25 +12,25 @@
 \section{Normed linear spaces, Banach spaces}
 \label{sec:definitions}
 
-Let $\F\in \cc{ \R,\C }$.
+Let $\F\in \cc{\R,\C}$.
 
 \begin{definition}[Normed linear space]
   \label{def:nls}
   Let $X$ be an $\F$-vector space.
-  A function $ \vabs{ - } : X \to \R$ is defined to be a norm on $X$ iff the following hold
+  A function $ \vabs{-} : X \to \R$ is defined to be a norm on $X$ iff the following hold
   \begin{enumerate}
-    \item $\forall x\in X.\: \vabs{ x }\geq 0$ and $ \vabs{ x } = 0$ iff $x = 0$.
-    \item $\forall \lambda\in\F.\:\forall x \in X.\: \vabs{ \lambda x } = \abs{ \lambda } \vabs{ x }$.
-    \item $\forall x,y\in X.\: \vabs{ x + y } \leq \vabs{ x } + \vabs{ y }$
+    \item $\forall x\in X.\: \vabs{x}\geq 0$ and $ \vabs{x} = 0$ iff $x = 0$.
+    \item $\forall \lambda\in\F.\:\forall x \in X.\: \vabs{\lambda x} = \abs{\lambda} \vabs{x}$.
+    \item $\forall x,y\in X.\: \vabs{x + y} \leq \vabs{x} + \vabs{y}$
   \end{enumerate}
-  A pair $ \rr{ X, \vabs{ - } }$ is a normed linear space iff $X$ is a vector space and $ \vabs{ - } $
+  A pair $ \rr{X, \vabs{-}}$ is a normed linear space iff $X$ is a vector space and $ \vabs{-} $
   is a norm on $X$.
 \end{definition}
 
 
 \begin{theorem}
   \label{thm:symmetry}
-  Let $X$ be a normed linear space. For $x,y\in X$, $ \vabs{ x - y } = \vabs{ y - x } $.
+  Let $X$ be a normed linear space. For $x,y\in X$, $ \vabs{x - y} = \vabs{y - x} $.
 \end{theorem}
 
 
@@ -38,7 +38,7 @@ Let $\F\in \cc{ \R,\C }$.
   \label{def:convergence}
   Let $X$ be a normed linear space. A sequence is defined to be a function $\N\to X$. A
   sequence $ \rr{x_n}_{n\in\N}$ is defined to converge to $x\in X$ iff, for all $\e > 0$,
-  there exists $N\in\N$ such that, for all $n>N$, $ \vabs{ x_n - x } < \e$.
+  there exists $N\in\N$ such that, for all $n>N$, $ \vabs{x_n - x} < \e$.
 \end{definition}
 
 
@@ -51,7 +51,7 @@ Let $\F\in \cc{ \R,\C }$.
 \begin{definition}
   \label{def:cauchy}
   Let $X$ be a normed linear space. A sequence $ \rr{x_n}_{n\in\N}$ is defined to be Cauchy iff,
-  for all $\e>0$, there exists $N\in\N$ such that, for all $m,n>\N$, $ \vabs{ x_m - x_n } < \e$.
+  for all $\e>0$, there exists $N\in\N$ such that, for all $m,n>\N$, $ \vabs{x_m - x_n} < \e$.
 \end{definition}
 
 
@@ -70,7 +70,7 @@ Let $\F\in \cc{ \R,\C }$.
 
 \begin{definition}
   \label{def:banach}
-  A pair $ \rr{ X, \vabs{ - } } $ is defined to be a Banach space iff it is a complete normed linear space.
+  A pair $ \rr{X, \vabs{-}} $ is defined to be a Banach space iff it is a complete normed linear space.
 \end{definition}
 
 
@@ -82,20 +82,20 @@ Let $\F\in \cc{ \R,\C }$.
   \label{thm:gagm}
   If $A,B\geq 0$ and $0\leq\theta\leq 1$ then
   \begin{align*}
-    A^\theta B^{1-\theta} \leq \theta A + \rr{ 1-\theta }B.
+    A^\theta B^{1-\theta} \leq \theta A + \rr{1-\theta}B.
   \end{align*}
 \end{theorem}
 
 \begin{definition}
   \label{def:holder-conjugate-exponent}
-  For $p\in \rr{ 1,\infty }$ the H\"older conjuate exponent of $p$ is defined to be $p/ \rr{ p-1 }$.
+  For $p\in \rr{1,\infty}$ the H\"older conjuate exponent of $p$ is defined to be $p/ \rr{p-1}$.
   For $p=1$, the H\"older conjugate exponent is defined to be $\infty$. For $p=\infty$, the
   H\"older conjugate exponent is defined to be $1$.
 \end{definition}
 
 \begin{theorem}
   \label{thm:hce-equals-one}
-  If $p\in \rr{ 1,\infty }$, and $q$ is the H\"older conjugate exponent of $p$ then
+  If $p\in \rr{1,\infty}$, and $q$ is the H\"older conjugate exponent of $p$ then
   \begin{align*}
     1 = \frac{1}{p} + \frac{1}{q}.
   \end{align*}
@@ -104,12 +104,12 @@ Let $\F\in \cc{ \R,\C }$.
 
 \begin{theorem}
   \label{thm:holder-inequality-finite}
-  Let $p\in \br{ 0,\infty }$, and let $q$ be the H\"older conjugate exponent of $p$.
+  Let $p\in \br{0,\infty}$, and let $q$ be the H\"older conjugate exponent of $p$.
 
-  For any two finite $\F$-values sequences $ \rr{ a_1, ..., a_n }$ and $ \rr{ b_1, ..., b_n }$,
+  For any two finite $\F$-values sequences $ \rr{a_1, ..., a_n}$ and $ \rr{b_1, ..., b_n}$,
   \begin{align*}
     \abs{\sum_{i=1}^n a_i b_i}
-    \leq \rr{ \sum_{i=1}^n \abs{a_j}^p }^{1/p} \rr{ \sum_{i=1}^n \abs{b_j}^p }^{1/p}
+    \leq \rr{\sum_{i=1}^n \abs{a_j}^p}^{1/p} \rr{\sum_{i=1}^n \abs{b_j}^p}^{1/p}
   \end{align*}
 \end{theorem}
 
@@ -117,22 +117,22 @@ Let $\F\in \cc{ \R,\C }$.
   \label{thm:minkowski-for-p-infinite}
   For any two $\F$-values sequences $ \rr{a_n}_{n\in\N}$ and $ \rr{b_n}_{n\in\N}$,
   \begin{align*}
-    \max_i \abs{ a_i + b_i } \leq \max_i \abs{ a_i } + \max_i \abs{ b_i }.
+    \max_i \abs{a_i + b_i} \leq \max_i \abs{a_i} + \max_i \abs{b_i}.
   \end{align*}
 \end{theorem}
 
 \begin{theorem}
   \label{thm:dl-norms}
-  Let $p\in \bb{ 1,\infty }$.
+  Let $p\in \bb{1,\infty}$.
   \begin{enumerate}
-    \item Let $ \vabs{ - }_{ \ell^p } : \ell^p \to \R$ be defined by \begin{align*}
-        \vabs{ x }_{ \ell^p } = \rr{ \sum_{ n }^{  } \abs{ x_n }^p }^{1/p}.
+    \item Let $ \vabs{-}_{\ell^p} : \ell^p \to \R$ be defined by \begin{align*}
+        \vabs{x}_{\ell^p} = \rr{\sum_{n}^{} \abs{x_n}^p}^{1/p}.
       \end{align*}
-      Then $ \rr{ \ell^p, \vabs{ - }_{ \ell^p } }$ is a normed linear space.
-    \item Let $ \vabs{ - }_{ d_p } : \F^n \to \R$ be defined by \begin{align*}
-        \vabs{ x }_{ d_p } = \rr{ \sum_{ i=1 }^{ n } \abs{ x_i }^p }^{1/p}.
+      Then $ \rr{\ell^p, \vabs{-}_{\ell^p}}$ is a normed linear space.
+    \item Let $ \vabs{-}_{d_p} : \F^n \to \R$ be defined by \begin{align*}
+        \vabs{x}_{d_p} = \rr{\sum_{i=1}^{n} \abs{x_i}^p}^{1/p}.
       \end{align*}
-      Then $ \rr{ \F^n, \vabs{ - }_{ d_p } } $ is a normed linear space.
+      Then $ \rr{\F^n, \vabs{-}_{d_p}} $ is a normed linear space.
   \end{enumerate}
 \end{theorem}
 
@@ -401,5 +401,160 @@ Let $\F\in \cc{ \R,\C }$.
     \item If $F=\C$ then $r\aa{x,y}=\sum_{k=1}^4 i^k \vabs{x+i^ky}^2$.
   \end{enumerate}
 \end{theorem}
+
+\section{Orthogonality}\label{sec:orthogonality}
+
+\begin{lemma}
+  Let $X,Y,Z$ be normed linear spaces.
+  \begin{enumerate}
+    \item If $f:X\to Y$ is continuous and $\rr{n}_{n\in\N}$ converges to $x\in X$ then $\rr{f\rr{x_n}}_{n\in\N}$
+      converges to $f\rr{x}\in Y$.
+    \item If $f:X\to Y$ and $g:Y\to Z$ are continuous then $g\circ f:X\to Z$ is continuous.
+    \item The set of continuous functions from $X$ to $Y$ is a vector space with pointwise
+      addition and scalar multiplication.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  Let $X$ be an inner-product space. Let $z\in X$. The maps $x\mapsto\aa{x,z}$ and
+  $x\mapsto\aa{z,x}$ are continuous.
+\end{lemma}
+
+\begin{definition}\label{def:convex-set}
+  Let $X$ be a normed linear space. A set $S\subseteq X$ is defined to be convex if, for all
+  $s,t\in S$ and all $\lambda\in\bb{0,1}$, $\lambda s + \rr{1-\lambda}t\in S$.
+\end{definition}
+
+\begin{definition}\label{def:orthogonality}
+  Let $X$ be an inner product space. Let $x\in X$ and let $S\subseteq X$. A vector $y\in X$
+  is orthogonal to $x$ iff $\aa{x,y}=0$.
+
+  The orthogonal complement to $S$ is
+  \begin{align*}
+    S^\bot = \cc{x\in X : \forall s\in S. \aa{s,x}=0}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Let $X$ be an inner-product space.
+  \begin{enumerate}
+    \item $x$ is orthogonal to $y$ iff $y$ is orthognal to $x$.
+    \item If $S\subseteq X$ then $S^\bot=\cc{x\in X : \forall s\in S. \aa{x,s}=0 }$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  Let $X$ be an inner-product space. Let $M\subseteq X$.
+  \begin{enumerate}
+    \item $M^\bot$ is a closed subspace.
+    \item $M\subseteq M^{\bot\bot}$.
+    \item $\rr{\overline{M}}^\bot=M^\bot$.
+    \item If $M$ is a subspace, $M\cap M^\bot = \cc{0}$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ be an inner-product space. Let $W$ be a closed convex subset of $X$. Let
+  $x\in X$. If $W$ is nonempty then there exists $w\in W$ such that
+  \begin{align*}
+    \vabs{w-x}=\inf_{w'\in W}\vabs{w'-x}.
+  \end{align*}
+\end{theorem}
+
+\begin{definition}\label{def:orthogonal-projection}
+  Let $X$ be an inner-product space. Let $W$ be a closed subspace. The orthognal projection
+  $P_W$ is defined to be the map $P_W:X\to W$ such that, for all $x\in X$, $P_W\rr{x}$
+  is the unique closest point in $W$.
+\end{definition}
+
+\begin{theorem}
+  Let $X$ be an inner-product space. Let $W$ be a closed subspace.
+  \begin{enumerate}
+    \item For all $x\in X$, there is a unique $y\in W$ and $z\in W^\bot$ such that
+      $x=y+z$; furthermore, $y=P_W\rr{x}$ and $z=P_{W^\bot}\rr{x}$.
+    \item For all $x\in X$, $P_{W^\bot}\rr{x}=x-P_{W^\bot}\rr{x}$.
+    \item $W^{\bot\bot}=W$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be an inner-product space and let $W\subseteq X$ be a subspace. $\overline W = W^{\bot\bot}$.
+\end{theorem}
+
+\section{Orthonormal sets}\label{sec:orthonormal-sets}
+
+\begin{definition}
+  Let $X$ be an inner-product space. A set $S$ is defined to be orthonormal if, for all
+  $x,y\in S$, $\aa{x,y}=1$ if $x=y$ and $0$ otherwise.
+\end{definition}
+
+\begin{lemma}
+  Let $X$ be an inner-product space. If $S$ is an orthonormal set then it is linearly
+  independent.
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ be an inner-product space. Let $N\in\Z_{>0}\cup \cc{\infty}$. If $\rr{v_i}_{i=1}^N$
+  is an ordered set of linearly independent vectors in $X$ then there exists an ordered set
+  $\rr{w_i}_{i=1}^N$ with the properties that
+  \begin{enumerate}
+    \item $w_1=\frac{q}{\vabs{v_1}}v_1$.
+    \item For $i>1$, \begin{align*}
+        w_i = \frac{q}{v_i-P_{\text{span}\cc{v_1,...,v_{i-1}}}\rr{x}}\rr{v_i-P_{\text{span}\cc{v_1,...,v_{i-1}}}\rr{v_i}}.
+      \end{align*}
+    \item For all $i\leq N$, $\text{span}\cc{w_1,...,w_i}=\text{span}\cc{v_1,...,v_i}$.
+    \item $\cc{w_i}_{i=1}^N$ is an orthonormal set.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Let $X$ be a normed linear space. Let $\rr{n}_{n\in\N}$ be a sequence in $X$. The
+  series $\sum_{i=1}^{\infty} x_i$ is defined to mean $\lim_{n\to\infty}\sum_{i=1}^{n} x_i$.
+\end{definition}
+
+\begin{lemma}
+  Let $X$ be an inner-product space. Let $y\in X$. Let $\rr{x_n}_{n\in\N}$ be a sequence
+  in $X$. If $\sum_{n=1}^{\infty} x_n$ converges then
+  \begin{align*}
+    \aa{\sum_{n=1}^{\infty} x_n,y}=\sum_{n=1}^{\infty} \aa{x_n,y}, \hs
+    \aa{\sum_{n=1}^{\infty} y,x_n}=\sum_{n=1}^{\infty} \aa{y,x_n}.
+  \end{align*}
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ be an inner-product space. Let $N\in\Z_{>0}\cup\cc{\infty}$. Let $\rr{e_n}_{n=1}^N$
+  be an ordered orthonormal set.
+  \begin{enumerate}
+    \item If $x=\sum_{n=1}^{N} \alpha_n e_n$ then $\aa{x,e_n}=\alpha_n$.
+    \item For all $x\in X$, \begin{align*}
+        P_{\overline{\text{span}\cc{e_n}_{n=1}^N}}\rr{x}=\sum_{n=1}^{N} \aa{x,e_n}e_n.
+      \end{align*}
+  \end{enumerate}
+\end{theorem}
+
+\section{Orthonormal bases}\label{sec:orthonormal-bases}
+
+\begin{definition}\label{def:orthonormal-basis}
+  Let $X$ be an inner-product space. An orthonormal basis is defined to be an orthonormal
+  set $S$ such that $X=\overline{\text{span}S}$. The inner-product space $X$ is separable
+  iff there is a countable orthonormal basis.
+\end{definition}
+
+\begin{theorem}
+  Let $X$ be an inner-product space. Let $\rr{e_n}_{n\in\N}$ be an orthonormal set.
+  The following are equivalent:
+  \begin{enumerate}
+    \item $X=\overline{\text{span}\cc{e_n}_{n\in\N}}$.
+    \item For all $x\in X$, $x=\sum_{n=1}^{\infty} \aa{x,e_n}e_n$.
+    \item For all $x,y\in X$, $\aa{x,y}=\sum_{n=1}^{\infty} \aa{x,e_n}\overline{\aa{y,e_n}}$.
+    \item For all $x\in X$, \begin{align*}
+      \vabs{x}^2 = \sum_{n=1}^{\infty} \abs{\aa{x,e_n}}^2.
+    \end{align*}
+  \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+  Any infinite-dimensional, separable Hilbert space is isometrically isomorphic to $\ell^2$.
+\end{corollary}
 
 \end{document}
