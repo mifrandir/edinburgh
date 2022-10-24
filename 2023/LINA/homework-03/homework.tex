@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Linear Analysis: Homework 2}
+\author{Franz Miltz (UUN: S1971811)}
+\date{25 October 2022}
+
+\maketitle
+
+\begin{claim*}[2a]
+  Let $\rr{X,\aa{-,-}}$ be a complex inner product space, let $n\geq 3$ and let
+  $\omega=e^{2\pi i/n}$. Then
+  \begin{align*}
+    n\aa{x,y}=\sum_{k=0}^{n-1} \omega^k\vabs{x + \omega^ky}^2.
+  \end{align*}
+  \begin{proof}
+    Firstly, note
+    \begin{align}
+      \label{eq:roots-sum-to-zero}
+      \sum_{k=0}^{n-1} \omega^k = 0,\hs
+      \sum_{k=0}^{n-1} \omega^{2k} = 0.
+    \end{align}
+    Thus we may rewrite
+    \begin{align*}
+      n\aa{x,y} &= n\aa{x,y} + \rr{\vabs{x}^2 + \vabs{y}^2} \sum_{k=0}^{n-1} \omega^k + \aa{y,x}\sum_{k=0}^{n-1} \omega^{2k} &\text{insert (\ref{eq:roots-sum-to-zero})}\\
+                &= \sum_{k=0}^{n-1}\rr{\aa{x,y} + \omega^k \rr{\vabs{x}^2 + \abs{\omega^k}^2\vabs{y}^2 + \omega^k\aa{y,x}}} &\text{combine sums}\\
+                & = \sum_{k=0}^{n-1}\omega^k \rr{\omega^{-k} \aa{x,y} + \vabs{x}^2 + \abs{\omega^k}^2\vabs{y}^2 + \omega^k\aa{y,x}} &\text{factor $\omega^k$}\\
+                & = \sum_{k=0}^{n-1}\omega^k \rr{\overline{\omega^{k}} \aa{x,y} + \vabs{x}^2 + \abs{\omega^k}^2\vabs{y}^2 + \omega^k\aa{y,x}} &\text{$\omega^{-k}=\overline{\omega^k}$}\\
+                & = \sum_{k=0}^{n-1}\omega^k \rr{\aa{x,\omega^k y}+\aa{x,x}+\aa{\omega^ky,\omega^ky}+\aa{\omega^k y, x}} &\text{sesquilinearity of $\aa{-,-}$}\\
+                & = \sum_{k=0}^{n-1}\omega^k \aa{x+\omega^ky,x+\omega^ky} &\text{sesquilinearity of $\aa{-,-}$}\\
+                & = \sum_{k=0}^{n-1} \omega^k \vabs{x+\omega^k y}^2 &\text{definition of $\vabs{-}$}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3]
+  Let $\rr{X,\vabs{-}}$ be a normed linear space. If $W\subseteq X$ is a finite dimensional
+  subspace then $W$ is closed in $X$.
+  \begin{proof}
+    Let $\mathcal B$ be a finite algebraic basis of $W$.
+    Consider a sequence $\rr{x_n}_{n\in\N}$ in $W$ with $x_n\to x$ in $X$. Then, for all $n\in\N$,
+    \begin{align*}
+      x_n = \sum_{b\in\mathcal B} a^{\rr{b}}_n b, \hs a^{\rr{b}}_n \in \mathbb F.
+    \end{align*}
+    Now assume $x\not\in W$. Then there exists an $r\in X\setminus W$ such that
+    \begin{align*}
+      x = r + \sum_{b\in\mathcal B} a^{\rr{b}} b, \hs a^{\rr{b}} \in \mathbb F.
+    \end{align*}
+    However, for all $n\in\N$,
+    \begin{align*}
+      \vabs{x-x_n}=\vabs{r + \sum_{b\in\mathcal B} a^{\rr{b}} b - \sum_{b\in\mathcal B} a^{\rr{b}}_n b}
+      = \vabs{r + \sum_{b\in\mathcal B} \rr{a^{\rr{b}}-a^{\rr{b}}_n} b}
+    \end{align*}
+    Due to linear independence, this implies $\vabs{r}=0$, i.e. $r=0\in W$.
+    Contradiction. Thus $x\in W$ so $W$ is closed in $X$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[6c]
+  If $W\subseteq\R^2$ is a subspace of $\rr{\R^2,\vabs{-}_{d_1}}$ and $x\in X$ then there
+  may not exist a unique element $w\in W$ such that $\vabs{w-x}_{d_1}=\inf_{w'\in W}\vabs{w'-x}_{d_1}$.
+  \begin{proof}
+    We give a counterexample. Let
+    \begin{align*}
+      W=\cc{\rr{x,y}\in\R^2:x=y}.
+    \end{align*}
+    Then consider $x=\rr{1,-1}$. Clearly $\inf_{w\in W}\vabs{x-w}_{d^1}=2$. However,
+    with $w_1=(-1,-1)$ and $w_2=(1,1)$,
+    \begin{align*}
+      \vabs{x-w_1}_{d_1}=\vabs{x-w_2}_{d_1}=2.
+    \end{align*}
+    Thus the infimum is not attained by a unique $w\in W$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[8]
+  Let $\rr{X,\aa{-,-}}$ be an inner product space and let $M\subseteq X$ be nonempty. Then
+  \begin{align*}
+    M^{\bot\bot}=\overline{\text{span}\rr{M}}.
+  \end{align*}
+  \begin{proof}
+    We start by noting $\rr{\text{span}\rr M}^\bot = M^\bot$. The inclusion $\rr{\text{span}\rr M}^\bot\subseteq M^\bot$
+    is immediate. Now consider $x\in M^{\bot}$. Then, for all $y\in M$, $\aa{x,y}=0$. Further, for all
+    $y\in\text{span}\rr M$ we have $y_1,...,y_n\in M$ and $c_1,...,c_n\in\mathbb F$ such that
+    \begin{align*}
+      y=\sum_{k=1}^{n} c_ky_k.
+    \end{align*}
+    By sesquilinearity of the inner product, we have
+    \begin{align*}
+      \aa{x,\sum_{k=1}^{n} c_ky_k} = \sum_{k=1}^n \overline{c_k}\aa{x,y_k} = 0.
+    \end{align*}
+    Now we note that $\text{span}\rr{M}$ is a subspace so, by \emph{Theorem 9.10},
+    $\overline{\text{span}\rr{M}}=\rr{\text{span}\rr{M}}^{\bot\bot}$.
+    Thus
+    \begin{align*}
+      M^{\bot\bot}=\rr{M^\bot}^\bot=\rr{\rr{\text{span}\rr M}^\bot}^\bot = \rr{\text{span}\rr M}^{\bot\bot}=\overline{\text{span}\rr M}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\end{document}
