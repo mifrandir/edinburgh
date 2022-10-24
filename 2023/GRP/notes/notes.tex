@@ -253,4 +253,91 @@
   \end{enumerate}
 \end{lemma}
 
+\section{Finitely generated abelian groups}\label{sec:finitely-generated-abelian-groups}
+
+\subsection{Finite abelian groups}\label{sec:finite-abelian-groups}
+
+\begin{theorem}
+  Suppose that $A$ is a finite abelian group of order $n$ and that $n=p_1^{s_1}\cdots p_t^{s_t}$.
+  Let $A_{p_i}$ be the unique Sylow $p_i$-subgroup of $A$. Then
+  \begin{align*}
+    A\cong A_{p_1}\times \cdots\times A_{p_t};
+  \end{align*}
+  that is, $A$ is isomorphic to the direct product of its Sylow subgroups.
+\end{theorem}
+
+\begin{theorem}
+  Let $A$ be an abelian group with $\abs{A}=p^n$ for some prime $p$. Then $A$ is isomorphic
+  to the direct product of cyclic subgroups of order $p^{e_1},...,p^{e_s}$ where
+  $e_1\geq e_2\geq \cdots \geq 1$ and $e_1+\cdots+e_s=n$. This product is unique up to
+  reordering the factors.
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Finite Abelian Groups, I]
+  Let $A$ be a finite abelian group. Then $A$ is a direct product of cyclic groups of prime
+  power order. This product is unique up to reordering the factors.
+\end{theorem}
+
+\begin{theorem}[Chinese Remainder Theorem]
+  Let $m,n$ be nonzero coprime integers. Then $C_{mn}\cong C_m\times C_n$.
+\end{theorem}
+
+\begin{theorem}[Fundamental Theorem of Finite Abelian Groups, II]
+  Any finite abelian group of order $n$ can be written as a direct product of cyclic groups
+  \begin{align*}
+    C_{n_1}\times\cdots\times C_{n_s}
+  \end{align*}
+  where $n_i$ divides $n_{i+1}$ for each $i=1,...,s-1$ and $n_1\cdots n_s=n$. This product is
+  unique up to reordering of the factors.
+\end{theorem}
+
+\begin{definition}
+  The exponent $e\rr{G}$ of a finite group is the least common multiple of the orders of the
+  elements of $G$.
+\end{definition}
+
+\begin{lemma}
+  Let $A$ be a finite abelian group. Then $A$ contains an element of order $e\rr{A}$.
+\end{lemma}
+
+\begin{corollary}
+  If $A$ is a finite abelian group with $e\rr{A}=\abs{A}$ then $A$ is cyclic.
+\end{corollary}
+
+\begin{theorem}
+  Let $A$ be a finite subgroup of the multiplicative group $K^\times = K\setminus\cc{0}$
+  of a field $K$. Then $A$ is cyclic.
+\end{theorem}
+
+\begin{corollary}
+  The multiplicative group of nonzero elements of a finite field is cyclic.
+\end{corollary}
+
+\subsection{Linear algebra over $\Z$}\label{sec:linear-algebra-over-z}
+
+\begin{definition}\label{def:module}
+  Let $R$ be a ring. An $R$-module is an abelian group $\rr{M,+}$ together with a mapping
+  \begin{align*}
+    R\times M&\to M
+    \rr{r,a} &\mapsto ra
+  \end{align*}
+  that is distributive, associative, and unital.
+\end{definition}
+
+\begin{definition}\label{def:free-module}
+  Let $R$ be a ring and let $n\in\N$. The free $R$-module of rank $n$ is the $n$-fold
+  cartesian product $R^n$. It is given a module structure by
+  \begin{align*}
+    r\rr{a_1,\ldots,a_k}=\rr{ra_1,\ldots,ra_k}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem of Finitely Generated Abelian Groups]
+  Let $A$ be a finitely generated abelian group. Then 
+  \begin{align*}
+    A\cong \Z/r_1\Z\times\cdots\times \Z/r_k\Z\times \Z^\ell,
+  \end{align*}
+  for some $k,\ell\in\N$ and $r_1,...,r_k$ nonzero elements of $\Z$ with $r_1\vert r_2\vert\ldots\vert r_k$.
+\end{theorem}
+
 \end{document}
