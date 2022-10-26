@@ -1,0 +1,355 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\title{Randomised Algorithms: Coursework 1}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+
+\section*{Question 1}
+
+Let $Z_1,...,Z_{2\sqrt{n}}$ be independent Bernoilli trials with $\pr{Z_i=1}=1/2$
+for all $i$. Let $P=\cc{\rr{i,j} : 1\leq i<j\leq n}$ and, for all $p=\rr{i,j}\in P$, define
+$Y_p=Z_i\oplus Z_j$ where $\oplus:\cc{0,1}\times\cc{0,1}\to\cc{0,1}$ is the exclusive-or
+operator. Finally, let $Y=\sum_{p\in P} Y_p$.
+
+\begin{claim*}[a]
+  Let $p\in P$. Then $\pr{Y_p=1}=\pr{Y_p=0}=1/2$.
+  \begin{proof}
+    We have $p=\rr{i,j}$ for some $i,j$. We have
+    \begin{align*}
+      \pr{Y_p=1}=\prc{Z_i=0}{Z_j=1}+\prc{Z_i=1}{Z_j=0}=\rr{\frac{1}{2}}\rr{\frac{1}{2}}+\rr{\frac{1}{2}}\rr{\frac{1}{2}}=\frac{1}{2}.
+    \end{align*}
+    In other words, after flipping one of the coins there is a $1/2$ probability of success
+    either way.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+  \begin{align*}
+    \abs{P}>n.
+  \end{align*}
+  \begin{proof}
+    We note that, by definition of $P$,
+    \begin{align*}
+      \abs{P}=\sum_{i=1}^{n-1} \rr{n-i} = \sum_{i=1}^{n-1} i = \frac{n\rr{n-1}}{2}.
+    \end{align*}
+    Observe for $n=4$ we have
+    \begin{align*}
+      \frac{n\rr{n-1}}{2}=\frac{4\times 3}{2}=6>4.
+    \end{align*}
+    Fix $n$ and assume
+    \begin{align*}
+      \frac{\rr{n-1}\rr{n-2}}{2} > n-1.
+    \end{align*}
+    Then
+    \begin{align*}
+      \frac{n\rr{n-1}}{2}
+      = \sum_{i=1}^{n-1} i
+      = n-1 + \sum_{i=1}^{n-2} i
+      = n-1 + \frac{\rr{n-1}\rr{n-2}}{2} > n.
+    \end{align*}
+    By mathematical induction, the claim holds for all integers $n\geq 4$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[c]
+  Let $p,q\in P$ such that $p\neq q$. Then $Y_p$ and $Y_q$ are independent.
+  \begin{proof}
+    We have $p=\rr{i,j}$, $q=\rr{k,m}$ for some $i,j,k,m$. Now, if $i\neq k$
+    and $j\neq m$ the result is immediate as $Z_i,Z_j,Z_k,Z_m$ are mutually independent.
+    Assume wlog $j=m$. Then we calculate
+    \begin{align*}
+      \pr{Y_p=1 \cap Y_q=1}&=\pr{Y_q=1}\prc{Y_p=1}{Y_q=1} \\
+                           & = \frac{1}{2}\rr{\prc{Z_i=0\cap Z_j=1}{Y_q=1} + \prc{Z_i=1\cap Z_j=0}{Y_q=1}} \\
+                           & = \frac{1}{2}\prc{Z_i=0}{Z_j=1\cap Y_q=1}\prc{Z_j=1}{Y_q=1} \\
+                           & + \frac{1}{2}\prc{Z_i=1}{Z_j=0\cap Y_q=1}\prc{Z_j=0}{Y_q=1}. \\
+    \end{align*}
+    Now we note that
+    \begin{align*}
+      \prc{Z_k=0\cap Z_j=1}=\pr{Z_k=1\cap Z_j=0} = \frac{1}{4}
+    \end{align*}
+    so
+    \begin{align*}
+      \prc{Z_j=1}{Y_q=1}=\prc{Z_j=0}{Y_q=1} = \frac{1}{2}.
+    \end{align*}
+    Thus we find
+    \begin{align*}
+      \pr{Y_p=1\cap Y_q=1}=\frac{1}{2}\rr{\frac{1}{2}\times \frac{1}{2} + \frac{1}{2}\times\frac{1}{2}} = \frac{1}{4}.
+    \end{align*}
+    Similar reasoning shows
+    \begin{align*}
+      \pr{Y_p=1\cap Y_q=1}
+      =\pr{Y_p=1\cap Y_q=0}
+      =\pr{Y_p=0\cap Y_q=1}
+      =\pr{Y_p=0\cap Y_q=0}
+      =\frac{1}{4}.
+    \end{align*}
+    Therefore $Y_p,Y_q$ are independent.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[d]
+  The family of random variables $\cc{Y_p}_{p\in P}$ is not mutually independent.
+  \begin{proof}
+    Let $n=3$. Then $P=\cc{\rr{1,2},\rr{1,3},\rr{2,3}}$. Now consider the probability
+    \begin{align*}
+      \pr{Y_{1,2}=1\cap Y_{1,3}=1\cap Y_{2,3}=1} = \pr{Y_{1,3}=1\cap Y_{2,3}=1}\prc{Y_{1,2}=1}{Y_{1,3}=1\cap Y_{2,3}=1}.
+    \end{align*}
+    Due to pairwise independence we have
+    \begin{align*}
+      \pr{Y_{1,2}=1\cap Y_{1,3}=1\cap Y_{2,3}=1} = \frac{1}{4}\prc{Y_{1,2}=1}{Y_{1,3}=1\cap Y_{2,3}=1}.
+    \end{align*}
+    However, $Y_{1,3}=1\cap Y_{2,3}=1$ implies $Z_1\neq Z_3$ and $Z_2\neq Z_3$. Thus $Z_1=Z_2$ and
+    $Y_{1,2}=0$. I.e.
+    \begin{align*}
+      \pr{Y_{1,2}=1\cap Y_{1,3}=1\cap Y_{2,3}=1} = 0 \neq \rr{\frac{1}{2}}^3.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[e]
+  \begin{align*}
+    \ex{Y}=\frac{n\rr{n-1}}{4}.
+  \end{align*}
+  \begin{proof}
+    By linearity of expectation we calculate
+    \begin{align*}
+      \ex{Y}=\ex{\sum_{p\in P} Y_p}=\sum_{p\in P} \ex{Y_p} = \sum_{p\in P} \frac{1}{2} = \frac{\abs{P}}{2} = \frac{n\rr{n-1}}{4}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[f]
+  \begin{align*}
+    \var{Y}=\frac{n\rr{n-1}}{8}.
+  \end{align*}
+  \begin{proof}
+    For all $p\in P$, we have $Y_p=Y_p^2$ so
+    \begin{align*}
+      \ex{Y_p^2} = \ex{Y_p}.
+    \end{align*}
+    Thus
+    \begin{align*}
+      \var{Y_p}=\ex{Y_p^2}-\rr{\ex{Y_p}}^2 = \frac{1}{2}-\frac{1}{4} = \frac{1}{4}.
+    \end{align*}
+    Now, due to pairwise independence of $\cc{Y_p}_{p\in P}$,
+    \begin{align*}
+      \var{Y}=\var{\sum_{p\in P} Y_p} = \sum_{p\in P} \var{Y_p} = \frac{\abs{P}}{4} = \frac{n\rr{n-1}}{8}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[g]
+  \begin{align*}
+    \pr{\abs{Y-\ex{Y}}\leq n} < 1/8
+  \end{align*}
+  \begin{proof}
+    We apply Chebychev's inequality:
+    \begin{align*}
+      \pr{\abs{Y-\ex{Y}}\leq n} \leq \frac{\var{Y}}{n^2} = \frac{n\rr{n-1}}{8n^2} < \frac{1}{8}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\section*{Question 2}
+
+Let $k\in\N$ and $n=2k$. Analogously to the original coupon collector problem on the slides, we have the following
+random variables:
+\begin{enumerate}
+  \item for $i=1,...,k$, $X_i$, the number of boxes bought while having exactly $i-1$ cards;
+  \item $X=\sum_{i=1}^{k} X_i$, the number of boxes bought to get all $k$ cards.
+\end{enumerate}
+
+\begin{claim*}
+  \begin{align*}
+    \ex{X}=\Theta\rr{n}
+  \end{align*}
+  \begin{proof}
+    We still have
+    \begin{align*}
+      \ex{X_i}=\frac{n}{n-i+1}.
+    \end{align*}
+    Thus, by linearity of expectation,
+    \begin{align*}
+      \ex{X}=\sum_{i=1}^{k} \ex{X_i} = \sum_{i=1}^{k} \frac{n}{n-i+1}.
+    \end{align*}
+    Observing that $n-k+1\leq k\leq n$, we write
+    \begin{align*}
+      \ex{X}=n\rr{\rr{\sum_{i=1}^{n} \frac{1}{i}} - \rr{\sum_{i=1}^{k-2} \frac{1}{i}}} = n\rr{H\rr{n}-H\rr{k-2}}.
+    \end{align*}
+    Now we obtain the bounds
+    \begin{align*}
+      \ex{X} \geq n\rr{\ln n + \frac{1}{2} - \ln\rr{k-2} - 1} = n\rr{\ln\rr{\frac{n}{k-2}}-\frac{1}{2}}
+    \end{align*}
+    and, similarly,
+    \begin{align*}
+      \ex{X} \leq n\rr{\ln n + 1 - \ln\rr{k-2}+\frac{1}{2}} = n\rr{\ln\rr{\frac{n}{k-2}}+\frac{3}{2}}.
+    \end{align*}
+    We note that $n/\rr{k-2}=\Theta\rr{1}$ and thus $\ln\rr{n/\rr{k-2}}=\Theta\rr{1}$.
+    Finally, we have the tight asymptotic bound
+    \begin{align*}
+      \ex{X}=\Theta\rr{n}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\section*{Question 3}
+
+Let $D$ be a distribution with mean $\mu$ and support only in $\bb{0,1}$. Fix $\e,\delta>0$.
+
+We sample repeatedly and take the average of all the obtained values.
+
+\begin{claim*}
+  Let
+  \begin{align*}
+    m = \ceil{\frac{\ln\rr{\delta/2}}{-2\e^2}}.
+  \end{align*}
+  and let $X_1,...,X_m$ be random variables, independently sampled from the same distribution $D$.
+
+  Then
+  \begin{align*}
+    \pr{\abs{\frac{1}{m}\sum_{i=1}^{m} X_i - \mu}\geq\e}\leq\delta.
+  \end{align*}
+
+  \begin{proof}
+    We have $m$ independent random variables with mean $\mu$ taking values in $[0,1]$.
+    Therefore we apply the Hoeffding bound (\emph{Theorem 4.12}) to obtain
+    \begin{align*}
+      \pr{\abs{\frac{1}{m}\sum_{i=1}^{m} X_i - \mu}\geq\e}&\leq 2\exp\rr{-2m\e^2} \\
+                                                          &= 2\exp\rr{-2\e^2\ceil{\frac{\ln\rr{\delta/2}}{-2\e^2}}}\\
+                                                          &\leq 2\exp\rr{{\ln\rr{\delta/2}}} \\ &
+                                                          = \delta.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+The following reduces the number of samples in some cases but relies on the fact that
+$\var{X}\leq 1/4$ for any random variable $X$ taking values in $[0,1]$. This was not
+given in the lectures. However, this is an improvement only if $\delta>1/5$.
+
+\begin{claim*}
+  Let
+  \begin{align*}
+    m = \ceil{\min\cc{\frac{\ln\rr{\delta/2}}{-2\e^2},\frac{1}{4}\times \rr{\frac{1}{\e}}^2\times \frac{1}{\delta}}}
+  \end{align*}
+  and let $X_1,...,X_m$ be random variables, independently sampled from the same distribution $D$.
+
+  Then
+  \begin{align*}
+    \pr{\abs{\frac{1}{m}\sum_{i=1}^{m} X_i - \mu}\geq\e}\leq\delta.
+  \end{align*}
+  \begin{proof}
+    It remains to show that
+    \begin{align*}
+      m\leq \frac{\ln\rr{\delta/2}}{-2\e^2}
+    \end{align*}
+    is a sufficient condition. We use independence of the $X_i$ to find
+    \begin{align*}
+      \var{\frac{1}{m}\sum_{i=1}^{m} X_i} = \frac{1}{m^2}\var{\sum_{i=1}^{m} X_i}
+      = \frac{1}{m^2}\sum_{i=1}^{m} \var{X_i}
+      = \frac{\var{X_1}}{m}.
+    \end{align*}
+    While we have no further information about $D$, we know that $\var{X_1}\leq 1/4$. This may be
+    shown using calculus. We thus have
+    \begin{align*}
+      \var{\frac{1}{m}\sum_{i=1}^{m} X_i - \mu} \leq \frac{1}{4m}.
+    \end{align*}
+    Now we may apply Chebychev's inequality to find
+    \begin{align*}
+      \pr{\abs{\frac{1}{m}\sum_{i=1}^{m} X_i}\leq \e}
+      \leq \frac{\var{\frac{1}{m}\sum_{i=1}^{m} X_k-\mu}}{\e^2} \leq \frac{1}{4m\e}\leq \delta.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\section*{Question 4}
+
+\begin{claim*}
+  Let
+  \begin{align*}
+    f\rr{x}= 1-\rr{\frac{1}{x+1}}^{\frac{1}{x}}+\rr{\frac{1}{x+1}}^{\frac{x+1}{x}}-\frac{\ln\rr{x+1}+1}{x+1}.
+  \end{align*}
+  Then $f(x)<0$ for all $x\geq 1$.
+  \begin{proof}
+    Note that $f$ is continuous and differentiable. We have
+    \begin{align*}
+      \frac{df}{dx} = \frac{\rr{\frac{1}{x+1}}^{1/x-1}\ln\rr{\frac{1}{x+1}}+x\ln{x+1}}{x\rr{x+1}^2}
+    \end{align*}
+    so $df/dx \geq 0$ for $x\geq 1$. Further, $f\rr{1}\approx 0.75-0.84<0$ and
+    \begin{align*}
+      \lim_{x\to\infty}\rr{f\rr{x}} =
+      \lim_{x\to\infty}\rr{1-\rr{\frac{1}{x+1}}^{\frac{1}{x}}+\rr{\frac{1}{x+1}}^{\frac{x+1}{x}}-\frac{\ln\rr{x+1}+1}{x+1}} = 0.
+    \end{align*}
+    The claim follows due to continuity on the interval $\br{1,\infty}$ and the fact the function is increasing.
+  \end{proof}
+\end{claim*}
+
+Let $G=\rr{V,E}$ with $n=\abs{V}$ such that, for all $v\in V$, $\abs{N\rr{v}}\geq d$.
+We use the following algorithm to construct a good set:
+\begin{enumerate}
+  \item Sample a set $S_0\subseteq V$ such that, for all $v\in V$,
+    \begin{align*}
+      \pr{v\in S_0}=p=1-\rr{\frac{1}{1+d}}^{1/d}.
+    \end{align*}
+  \item Return $S=S_0\cup S_1$ where, for all $v\in V$, $v\in S_1$ iff $v\not\in S_0$
+    and $N\rr{v}\cap S_0=\emptyset$.
+\end{enumerate}
+
+
+
+\begin{claim*}
+  Let $X$ be the cardinality of $S$ after running the algorithm above.
+  Then, for all $d\geq 1$,
+  \begin{align*}
+    \ex{X}\leq n\cdot\frac{\ln\rr{d+1}+1}{d+1}
+  \end{align*}
+  \begin{proof}
+    For $v\in V$,  let $X_v$ be the indicator variables of the event $v\in S$. Then
+    \begin{align*}
+      X=\sum_{v\in V} X_v
+    \end{align*}
+    so, by linearity of expectation,
+    \begin{align*}
+      \ex{X}=\sum_{v\in V} \ex{X_v}.
+    \end{align*}
+    Fix $v\in V$. Then
+    \begin{align*}
+      \ex{X_v}=\pr{x\in S}=\pr{x\in S_0} + \pr{x\in S_1} \leq p + \rr{1-p}^{d+1}
+    \end{align*}
+    where we used $\abs{N\rr{v}}\geq d$. Thus
+    \begin{align*}
+      \ex{X} \leq \sum_{v\in V} \rr{p+\rr{1-p}^{d+1}} = n\rr{p+\rr{1-p}^{d+1}}.
+    \end{align*}
+    By the previous claim we have
+    \begin{align*}
+      p+\rr{1-d}^{d+1}\leq \frac{\ln\rr{d+1}+1}{d+1}
+    \end{align*}
+    so
+    \begin{align*}
+      \ex{X}\leq n\cdot\frac{\ln\rr{d+1}+1}{d+1}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  In any undirected graph with minimum degree at least $d$, there exists
+  a good set of size at most
+  \begin{align*}
+    \floor{n\cdot\frac{\ln\rr{d+1}+1}{d+1}}.
+  \end{align*}
+  \begin{proof}
+    If $d=0$ then $V$ is a good set satisfying the constraint. Thus we assume $d\geq 1$.
+    The algorithm described above generates a good set of expected size
+    \begin{align*}
+      \ex{X}\leq n\cdot \frac{\ln\rr{d+1}+1}{d+1}.
+    \end{align*}
+    In general, $\pr{X\leq \ex{X}} > 0$. We apply the probabilistic method to assert that
+    there must exist a good set of size less than or equal to $\ex{X}$, i.e.
+    \begin{align*}
+      \floor{n\cdot\frac{\ln\rr{d+1}+1}{d+1}}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\end{document}
