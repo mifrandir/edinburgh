@@ -548,13 +548,104 @@ Let $\F\in \cc{\R,\C}$.
     \item For all $x\in X$, $x=\sum_{n=1}^{\infty} \aa{x,e_n}e_n$.
     \item For all $x,y\in X$, $\aa{x,y}=\sum_{n=1}^{\infty} \aa{x,e_n}\overline{\aa{y,e_n}}$.
     \item For all $x\in X$, \begin{align*}
-      \vabs{x}^2 = \sum_{n=1}^{\infty} \abs{\aa{x,e_n}}^2.
-    \end{align*}
+        \vabs{x}^2 = \sum_{n=1}^{\infty} \abs{\aa{x,e_n}}^2.
+      \end{align*}
   \end{enumerate}
 \end{theorem}
 
 \begin{corollary}
   Any infinite-dimensional, separable Hilbert space is isometrically isomorphic to $\ell^2$.
 \end{corollary}
+
+\section{Bounded linear operators}\label{sec:bounded-linear-operators}
+
+\begin{definition}
+  Let $X$ and $Y$ be normed linear spaces. A linear function $T:X\to Y$ is bounded
+  if there is an $M\geq 0$ such that, for all $x\in X$,
+  \begin{align*}
+    \vabs{Tx}\leq M\vabs{x}.
+  \end{align*}
+  A bounded linear operator is a bounded linear function.
+\end{definition}
+
+\begin{lemma}
+  Let $X$ and $Y$ be a normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+  Then
+  \begin{align*}
+    \sup_{\vabs{x}\leq 1}\vabs{Tx}
+  \end{align*}
+  is finite and nonnegative.
+\end{lemma}
+
+\begin{definition}
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+  The norm of $T$ is defined to be
+  \begin{align*}
+    \vabs{T}=\sup_{\vabs{x}\leq 1}\vabs{T x}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Let $X$ and $Y$ be a normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+  For all $x\in X$,
+  \begin{align*}
+    \vabs{Tx}\leq \vabs{T}\vabs{x}.
+  \end{align*}
+  Furthermore, if $X\neq\cc{0}$,
+  \begin{align*}
+    \vabs{T}=\sup_{\vabs{x}=1}\vabs{Tx}=\sup_{x\neq 0}\frac{\vabs{Tx}}{\vabs{x}}.
+  \end{align*}
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a linear function
+  \begin{align*}
+    \vabs{T}=\inf\cc{M\geq 0 : \forall x \in X. \vabs{Tx}\leq M\vabs{x}}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a linear function.
+
+  The following are equivalent:
+  \begin{enumerate}
+    \item $T$ is bounded.
+    \item $T$ is continuous at every $x\in X$.
+    \item $T$ is continuous at $0$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed linear spaces. Let $T\in\mathcal L\rr{X,Y}$.
+  If $X$ is finite-dimensional then $T$ is continuous.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed linear spaces. The operator norm is a norm on
+  $\mathcal L\rr{X,Y}$.
+\end{theorem}
+
+\begin{lemma}
+  Let $X$ be a normed linear space. The norm is continuous.
+\end{lemma}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed linear spaces. If $Y$ is a Banach space, then
+  $\mathcal L\rr{X,Y}$ with the operator is a Banach space.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ be a normed linear space. Let $Y$ be a Banach space. Let $W$ be a dense
+  subset of $X$.
+
+  If $T\in\mathcal L\rr{W,Y}$ then there is a unique $\bar T\in\mathcal L\rr{X,Y}$
+  such that $\forall w\in W.\: \bar T w = T w$. Furthermore, if $T$ is an isometry then so
+  is $\bar T$.
+\end{theorem}
+
+\begin{theorem}
+  Let $X$ and $Y$ be normed linear spaces. Let $T\in\mathcal L\rr{X,Y}$. The kernel of
+  $T$, $\ker T$, is a closed subspace.
+\end{theorem}
 
 \end{document}
