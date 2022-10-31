@@ -277,6 +277,62 @@
   \end{align*}
 \end{theorem}
 
+\subsection{Balls into bins}
+
+\begin{lemma}
+  Let $n$ balls be thrown independently and uniformly at random into $n$ bins. Then, for sufficiently
+  large $n$, the maximum load is bounded above by
+  \begin{align*}
+    \frac{3\ln{n}}{\ln^2{n}}
+  \end{align*}
+  with probability at least $1-1/n$.
+\end{lemma}
+
+\begin{lemma}
+  Let $n$ balls be thrown sequentially into $n$ bins. For each ball, generate two choices of bins
+  and assign it to the bin with the lower load. Then the maximum load is
+  \begin{align*}
+    \frac{\ln^2 n}{\ln 2}+O\rr{1}
+  \end{align*}
+  with probability $1-o\rr{1/n}$.
+\end{lemma}
+
+\subsection{Probabilistic method}
+
+\begin{theorem}[Ramsay]
+  For any positive integer $k$, there is a positive integer $n$ such that any undirected
+  graph with at least $n$ vertices has a $k$-clique or a $k$-independent-set.
+\end{theorem}
+
+\begin{definition}
+  A random graph $G=\rr{V,E}$ sampled from $G_{n,p}$ is obtained as follows:
+  \begin{itemize}
+    \item $G$ has $n=\abs{V}$ nodes.
+    \item For each of the $\binom{n}{2}$ possible pairs, $\cc{u,v}$ with $u,v\in V$ and
+      $u\neq v$, assign $\cc{u,v}\in E$ with independent probability $p$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}
+  A dependency graph for a set of events $E_1,...,E_n$ is a directed graph $G=\rr{V,E}$
+  such that $V=\cc{1,...,n}$ and for each $i=1,...,n$ the event $E_i$ is mutually
+  independent of all events $E\setminus N\rr{i}$.
+\end{definition}
+
+\begin{theorem}[Locasz Local Lemma]
+  Let $E_1,..,E_n$ be a set of events. Suppose that for some $p\in \rr{0,1}$ and some
+  $d\in\N$ the following hold:
+  \begin{enumerate}
+    \item For all $1\leq i\leq n$, $\pr{E_i}\leq p$.
+    \item A dependency graph on $\cc{E_1,...,E_n}$ has degree $\leq d$.
+    \item $4dp\leq 1$.
+  \end{enumerate}
+  Then
+  \begin{align*}
+    \pr{\bigcup_{i=1}^N \overline{E_i}} > 0.
+  \end{align*}
+\end{theorem}
+
 \section{Algorithms}
 \label{sec:algorithms}
 
@@ -336,7 +392,6 @@
   \end{itemize}
 \end{theorem}
 
-
 \subsection{Minimum cut}
 
 \begin{algorithm}
@@ -363,6 +418,70 @@
   \end{align*}
 \end{theorem}
 
+\subsection{Cliques and independent sets}
 
+\begin{theorem}
+  If $p\rr{n}=o\rr{n^{-2/3}}$ then
+  \begin{align*}
+    \lim_{n\to\infty} \pr{\text{$G\to G_{n,p\rr{n}}$ has a 4-clique}}=0.
+  \end{align*}
+  If $p\rr{n}=\omega\rr{n^{-2/3}}$ then
+  \begin{align*}
+    \lim_{n\to\infty} \pr{\text{$G\to G_{n,p\rr{n}}$ has a 4-clique}}=1.
+  \end{align*}
+\end{theorem}
+
+\subsection{MAXSAT}\label{sec:maxsat}
+
+\begin{theorem}
+  Given a CNF boolean formula with $m$ clauses, where each clause contains at least $k$ literals,
+  there exists a truth assignment to the variables that satisfies at least $m(1-2^{-k})$ clauses.
+\end{theorem}
+
+\begin{lemma}
+  There exists a polynomial-time $7/8$-approximation algorithm for MAX-E-3SAT.
+\end{lemma}
+
+\begin{theorem}[Hastad]
+  If for any $\e>0$ there exists a polynomial-time $(7/8+\e)$-approximation algorithm for
+  MAX-E-3SAT then $P=NP$.
+\end{theorem}
+
+\begin{theorem}[Moser]
+  If no variable in a $k$-CNF formula $\phi$ appears in more than $2^k/4k$ clauses then
+  $\phi$ is satisfiable.
+
+  Moreover, there exists a Las Vegas randomised algorithm that given such a $\phi$ runs in
+  expected polynomial time and outputs a satisfying assignment to $\phi$.
+\end{theorem}
+
+\begin{algorithm}
+  The following algorithm takes as input a list of clauses $C_1,...,C_m$ of a $k$-CNF
+  formula $\phi$ over $n$ variables $x_1,\ldots,x_n$ and outputs a satisfying truth
+  assignment for $\phi$.
+
+  \begin{enumerate}
+    \item Sample a truth assignment $\alpha$ to the variables u.a.r
+    \item While some $C_i$ is not satisfied by $\alpha$
+      \begin{enumerate}
+        \item choose the first unsatisfied $C_i$
+        \item call the routine below with input $\alpha$ and $i$
+        \item overwrite $\alpha$ with the output of the routine below
+      \end{enumerate}
+  \end{enumerate}
+  The algorithm uses the following helper routine with input $\alpha$, a truth assignment
+  to the variables, and an $1\leq i\leq m$.
+  \begin{enumerate}
+    \item Resample a truth assignment $\alpha'$ which differs from $\alpha$ only in the variables
+      in $C_i$ which are sampled u.a.r
+    \item While some $C_j$ that shares a variable with $C_i$ is not satisfied by $\alpha'$
+      \begin{enumerate}
+        \item choose the first such unsatisfied $C_j$
+        \item call this routine with input $\alpha'$ and $j$
+        \item overwrite $\alpha'$ with the ouptut of the routine
+      \end{enumerate}
+    \item return $\alpha'$
+  \end{enumerate}
+\end{algorithm}
 
 \end{document}
