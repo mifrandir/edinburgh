@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{General Topology: Assignment 6}
+\author{Franz Miltz (UUN: S1971811)}
+\date{3 November 2022}
+\maketitle
+
+\section*{Exercise 1}
+
+For each $n\in\N$, consider the finite cyclic group $\Z/n\Z=\cc{0,\ldots,n-1}$ with
+its discrete topology. Consider the topological space
+\begin{align*}
+  X=\prod_{n\in\N} \Z/n\Z.
+\end{align*}
+Define the subset
+\begin{align*}
+  \hat\Z = \cc{\rr{a_n}_{n\in\N} : \text{if $m|n$ then $a_m\equiv a_n\mod m$}} \subseteq X.
+\end{align*}
+We note that, for each $n\in\N$, the choice of $a_n$ is only restricted by choice of
+$a_1,\ldots,a_{n-1}$. Thus we may consider the set of choices that remain at each step.
+Let $a=\rr{a_n}_{n\in\N}\in\hat\Z$ and $N\in\N$. Define the set
+\begin{align*}
+  C_N\rr{a} = \cc{x \in \Z/N\Z : \forall m<N. \: \text{if $m|n$ then }a_m\equiv x \mod m }\subseteq \Z/N\Z.
+\end{align*}
+In order to show that $\hat\Z$ is open we may show that its complement is closed. We thus define the
+set of sequences that have the same prefix as $a\in\hat\Z$ but violate the condition above
+at some $N\in\N$:
+\begin{align*}
+  D_N\rr{a}=\prod_{n=1}^{N-1}\cc{a_n}\times\rr{X\setminus C_N\rr{a}}\times \prod_{n=N+1}^{\infty} \Z/N\Z \subseteq X.
+\end{align*}
+This allows us to consider all the sequences that are constructed in such manner:
+\begin{align*}
+  D = \bigcup_{N\in\N}\bigcup_{a\in\hat\Z} Z_N\rr{a} \subseteq X.
+\end{align*}
+
+\begin{claim*}
+  $D\subseteq X$ is closed.
+  \begin{proof}
+    For all $a\in\hat\Z$ and $N\in\N$, the set $X\setminus C_N\rr{a}\subseteq \Z/N\Z$ is closed with
+    respect to the discrete topology. Thus the set $D_N\rr{a}\subseteq X$ must be closed
+    with respect to the product topology on $X$. Finally, $D$ is a union of closed sets and
+    thus closed.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  $X\setminus\hat\Z\subseteq D$
+  \begin{proof}
+    Fix $a=\rr{a_n}_{n\in\N}\in X\setminus\hat\Z$ and
+    \begin{align*}
+      N=\min\cc{n : \text{$m|n$ and $a_m\not\equiv a_n\mod m$}},
+    \end{align*}
+    i.e. $a_N$ is the first element of the sequence that violates the condition that defines $\hat\Z$.
+    In particular, there exists a sequence $b=\rr{b_n}_{n\in\N}\in\hat\Z$ such that,
+    for $n<N$, $a_n=b_n$ and $a_N\in X\setminus C_N\rr{b}$. Thus
+    \begin{align*}
+      a\in \prod_{n=1}^{N-1} \cc{b_n} \times \rr{X\setminus C_N\rr{b}} \times \prod_{n=N+1}^\infty \Z/n\Z= D_N\rr{b}\subseteq D
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+Now, $Z\subseteq X\setminus\hat\Z$ by construction. Thus $X\setminus\hat\Z=Z$ is closed
+in $X$.
+
+Consider the map
+\begin{align*}
+  i:\Z&\to\hat\Z \\
+  b&\mapsto  \rr{b \mod n}_{n\in\N}.
+\end{align*}
+
+\begin{claim*}
+  $i\rr{\Z}$ is dense in $\hat\Z$.
+  \begin{proof}
+    Consider a non-empty open set $U\subseteq\hat\Z$. For some $N\in\N$ and some collection of
+    of opens $U_1,\ldots,U_N$ with $U_n\subseteq \Z/n\Z$ we may write
+    \begin{align*}
+      U = \prod_{n=1}^{N}U_n \times \prod_{n=N+1}^\infty \Z/n\Z.
+    \end{align*}
+    Fix some $u=\rr{u_n}_{n\in\N}\in U$. By the Chinese Remainder Theorem there exists a
+    solution $b\in\Z$ to the system of $N$ equations of the form
+    \begin{align*}
+      b \equiv u_n \mod n.
+    \end{align*}
+    Clearly, $\rr{i\rr{b}}_{n}\in U_n$ for all $n\leq N$. Further, for $n>N$, $\rr{i\rr{b}}_n\in\Z/n\Z$
+    trivially. Thus $i\rr{b}\in U$, i.e. $U\cap i\rr{\Z}\neq\emptyset$. Now $i\rr{\Z}$ intersects
+    every non-empty open subset of $\hat\Z$ so it is dense in $\hat\Z$.
+  \end{proof}
+\end{claim*}
+
+\section*{Exercise 2}
+
+
+Define the diagonal map
+\begin{align*}
+  \Delta:\R&\to\R^\omega \\
+  x &\mapsto \rr{x}_{\omega}
+\end{align*}
+
+\begin{claim*}
+  The diagonal map is continuous in the product topology but not in the box topology.
+  \begin{proof}
+    For the product topology, this is immediate by considering the projections $\pi_i\circ \Delta:\R\to\R$
+    for each $i\in\N$ which are just the identity maps, thus continuous by definition.
+
+    Consider the set
+    \begin{align*}
+      U=\prod_{n\in\N} \rr{-1/n, 1/n}.
+    \end{align*}
+    Clearly, for all $n\in\N$, the open interval $\rr{-1/n,1/n}$ is open in $\R$. Thus $U$
+    is open in $\R^\omega$ under the box topology. However,
+    \begin{align*}
+      \inv\Delta\rr{U} = \cc{x : \rr{x}_{\omega} \in U} = \cc{0}.
+    \end{align*}
+    This is a closed interval and thereby not open in $\R$, meaning $\Delta$ is not continuous
+    with respect to the box topology.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  The box topology is finer than the product topology.
+  \begin{proof}
+    It remains to prove that every open in the product topology is open in the box topology.
+    Let $U\subseteq\R^\omega$ be an open in the product topology. Then by definition, for all $i\in\N$,
+    $\pi_i\rr{U}\subseteq\R$ is open and there exists an $N\in\N$ such that whenever $i\geq N$,
+    $\pi_i\rr{U}=\R$. In particular,
+    \begin{align*}
+      U=\prod_{i\in\N} \pi_i\rr{U},
+    \end{align*}
+    a product of opens. Thus $U$ is open in $\R^\omega$ with respect to the box topology.
+  \end{proof}
+\end{claim*}
+
+\end{document}
