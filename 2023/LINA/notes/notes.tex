@@ -620,6 +620,8 @@ Let $\F\in \cc{\R,\C}$.
   If $X$ is finite-dimensional then $T$ is continuous.
 \end{theorem}
 
+\section{The space of bounded linear operators}
+
 \begin{theorem}
   Let $X$ and $Y$ be normed linear spaces. The operator norm is a norm on
   $\mathcal L\rr{X,Y}$.
@@ -646,6 +648,50 @@ Let $\F\in \cc{\R,\C}$.
 \begin{theorem}
   Let $X$ and $Y$ be normed linear spaces. Let $T\in\mathcal L\rr{X,Y}$. The kernel of
   $T$, $\ker T$, is a closed subspace.
+\end{theorem}
+
+\section{Examples of bounded linear operators}
+
+\begin{theorem}[Finite-dimensional norm bounds]
+  Let $n\in\N$. Let $\vabs{-}$ be a norm on $\mathbb F^n$ and let $A$ be a matrix. Then
+  \begin{enumerate}
+    \item If $\lambda$ is an eigenvalue of $A$, then $\vabs{A}\geq \abs{\lambda}$.
+    \item $\vabs{A}\geq \rho\rr{A}$.
+    \item If $A$ is a self-adjoint matrix then $\vabs{A}_{d_2}=\rho\rr{A}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Let $H$ and $K$ be separable Hilbert spaces. Let $\rr{e_n}_{n\in\N}$ be an orthonormal
+  basis for $H$.
+
+  A linear function $T:H\to K$ is defined to be a Hilbert-Schmidt operator iff
+  \begin{align*}
+    \sum_{i=1}^{\infty} \vabs{Te_i}^2<\infty.
+  \end{align*}
+  For a Hilbert-Schmidt operator $T$, the Hilbert-Schmidt norm is defined to be
+  \begin{align*}
+    \vabs{T}_{HS}=\rr{\sum_{i=1}^{\infty} \vabs{Te_i}^2}^{1/2}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator. $T$
+  is defined to be a finite-rank operator if the image $TX$ is finite dimensional.
+\end{definition}
+
+\begin{theorem}
+  Let $H$ and $K$ be seperable Hilbert spaces.
+  \begin{enumerate}
+    \item Given two orthonormal bases for $H$, the Hilbert-Schmidt norm is equal when calculated in either basis.
+    \item The Hilbert-Schmidt norm is a norm.
+    \item If $T:H\to K$ is a Hilbert-Schmidt operator the it is a bounded linear operator and
+      \begin{align*}
+        \vabs{T}\leq \vabs{T}_{HS}.
+      \end{align*}
+    \item If $T:H\to K$ is a Hilbert-Schmidt operator, then there is a sequence of finite rank
+      operators $\rr{T_n}_{n\in\N}$ such that $\vabs{T-T_n}\to 0$.
+  \end{enumerate}
 \end{theorem}
 
 \end{document}
