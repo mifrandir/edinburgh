@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Linear Analysis: Homework 4}
+\author{Franz Miltz (UUN: S1971811)}
+\date{8 November 2022}
+\maketitle
+
+For every $n\geq 1$, define
+\begin{align*}
+  T_n:\ell^2 &\to\ell^2 \\
+  \rr{x_1,x_2,\ldots,x_n,\ldots} &\mapsto \rr{x_1,x_2,\ldots,x_n,0,0,\ldots}.
+\end{align*}
+
+\begin{claim*}[3a]
+  For all $n\geq 1$, $\vabs{T_n}=1$.
+  \begin{proof}
+    Fix $n\geq 1$. We have
+    \begin{align*}
+      \vabs{T_n} = \sup_{\vabs{x}=1} \vabs{T_n{x}}_{\ell^2} = \sup_{\vabs{x}_{\ell^2}=1} \rr{\sum_{i=1}^{n} \abs{x_i}^2 }^{1/2} \leq \sup_{\vabs{x}_{\ell^2}=1} \vabs{x}_{\ell^2} = 1.
+    \end{align*}
+    This bound is achieved by $x=\rr{1,0,0,\ldots,0,\ldots}\in\ell^2$ for all $n\geq 1$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3b]
+  For every $x\in\ell^2$, $T_nx\to x$ in $\ell^2$.
+  \begin{proof}
+    Fix $x=\rr{x_i}_{i\in\N}\in\ell^2$. We note that
+    \begin{align*}
+      \vabs{x}=\rr{\sum_{i=1}^{\infty} \abs{x_i}}^{1/2} < \infty
+    \end{align*}
+    and thus
+    \begin{align*}
+      \sum_{i=1}^{\infty} \abs{x_i} < \infty.
+    \end{align*}
+    Thus, for all $\e > 0$, there exists $N\in\N$ such that, for all $n>N$,
+    \begin{align*}
+      \sum_{i=n}^{\infty} \abs{x_i} < \e.
+    \end{align*}
+    Now let $\e > 0$. Choose $N\in\N$ such that, for all $n>N$,
+    \begin{align*}
+      \sum_{i=n}^{\infty} \abs{x_i} < \e^2.
+    \end{align*}
+    Then, for all $n>N$,
+    \begin{align*}
+      \vabs{T_n x - x}_{\ell^2}= \rr{\sum_{i=n}^{\infty} \abs{x_i}^2}^{1/2} < e
+    \end{align*}
+    as required. Thus $T_nx\to x$ in $\ell^2$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3c]
+  $\rr{T_n}_{n\in\N}$ does not converge in $\mathcal L\rr{\ell^2}$.
+  \begin{proof}
+    Assume $\rr{T_n}_{n\in\N}$ converges in $\mathcal L\rr{\ell^2}$. Then $\rr{T_n}_{n\in\N}$
+    is Cauchy. Let $\e=1/2$ and choose $N\in\N$ such that whenever $m,n>N$,
+    \begin{align*}
+      \vabs{T_m-T_n}<\e.
+    \end{align*}
+    In particular, note, for all $m,n>N$,
+    \begin{align}
+      \label{eq:sup-leq-e}
+      \vabs{T_m-T_n} = \sup_{\vabs{x}_{\ell^2}=1} \vabs{T_m x-T_n x}_{\ell^2} < \e.
+    \end{align}
+    Let $m=N+1$ and $n=N+2$. Then let $x=\rr{x_i}_{i\in\N}\in\ell^2$ such that $x_i=1$ if
+    $i=n$ and $x_i=0$ otherwise. Then note $\vabs{x}_{\ell^2}=1$ but
+    \begin{align*}
+      \vabs{T_m x-T_n x}_{\ell^2} = \abs{x_n} = 1 > \e.
+    \end{align*}
+    This contradicts (\ref{eq:sup-leq-e}) so $\rr{T_n}_{n\in\N}$ must not converge in $\mathcal L\rr{\ell^2}$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[6]
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear
+  operator. Then
+  \begin{align*}
+    \vabs{T}=\inf\cc{M\geq 0 : \forall x\in X.\: \vabs{Tx}\leq M\vabs{x}}.
+  \end{align*}
+  \begin{proof}
+    Define
+    \begin{align*}
+      M_0=\inf\cc{M\geq 0 : \forall x\in X.\: \vabs{Tx}\leq M\vabs{x}}.
+    \end{align*}
+    Now, note that, for all $x\in X$,
+    \begin{align*}
+      \vabs{Tx}\leq \vabs{T}\vabs{x}
+    \end{align*}
+    so
+    \begin{align*}
+      \vabs{T}\in \cc{M\geq 0 : \forall x\in X.\: \vabs{Tx}\leq M\vabs{x}}.
+    \end{align*}
+    Thus
+    \begin{align*}
+      \vabs{T}\geq M_0.
+    \end{align*}
+    Further, assume
+    \begin{align*}
+      \vabs{T}>\inf\cc{M\geq 0 : \forall x\in X.\: \vabs{Tx}\leq M\vabs{x}}.
+    \end{align*}
+    Then there exists $M\geq 0$ such that $M<\vabs{T}$ and, for all $x\in X$,
+    \begin{align*}
+      \vabs{Tx}\leq M\vabs{x}.
+    \end{align*}
+    In particular, for all $x\in X$ with $\vabs{x}=1$,
+    \begin{align*}
+      \vabs{Tx}\leq M < \vabs{T}.
+    \end{align*}
+    This contradicts the fact that
+    \begin{align*}
+      \vabs{T}=\sup_{\vabs{x}=1} \vabs{Tx}.
+    \end{align*}
+    Thus
+    \begin{align*}
+      \vabs{T}=\inf\cc{M\geq 0 : \forall x\in X.\: \vabs{Tx}\leq M\vabs{x}}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\end{document}
