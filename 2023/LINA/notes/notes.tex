@@ -534,7 +534,7 @@ Let $\F\in \cc{\R,\C}$.
 
 \section{Orthonormal bases}\label{sec:orthonormal-bases}
 
-\begin{definition}\label{def:orthonormal-basis}
+\begin{definition}[Orthonormal basis, separable]\label{def:orthonormal-basis}
   Let $X$ be an inner-product space. An orthonormal basis is defined to be an orthonormal
   set $S$ such that $X=\overline{\text{span}S}$. The inner-product space $X$ is separable
   iff there is a countable orthonormal basis.
@@ -559,7 +559,7 @@ Let $\F\in \cc{\R,\C}$.
 
 \section{Bounded linear operators}\label{sec:bounded-linear-operators}
 
-\begin{definition}
+\begin{definition}[Bounded linear operator]
   Let $X$ and $Y$ be normed linear spaces. A linear function $T:X\to Y$ is bounded
   if there is an $M\geq 0$ such that, for all $x\in X$,
   \begin{align*}
@@ -577,7 +577,7 @@ Let $\F\in \cc{\R,\C}$.
   is finite and nonnegative.
 \end{lemma}
 
-\begin{definition}
+\begin{definition}[Operator norm]
   Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
   The norm of $T$ is defined to be
   \begin{align*}
@@ -661,11 +661,19 @@ Let $\F\in \cc{\R,\C}$.
   \end{enumerate}
 \end{theorem}
 
+\begin{definition}[Integral kernel]
+  Let $K\in C^0\rr{\bb{0,1}\times \bb{0,1}}$ and let $T$ be an operator on $X=C^0\rr{\bb{0,1}}$.
+  $K$ is an integral kernel of $T$ if, for all $f\in C^0\rr{\bb{0,1}}$,
+  \begin{align*}
+    \rr{Tf}\rr{x}=\int_0^1 dy K\rr{x,y}f\rr{y}.
+  \end{align*}
+\end{definition}
+
 \begin{definition}
   Let $H$ and $K$ be separable Hilbert spaces. Let $\rr{e_n}_{n\in\N}$ be an orthonormal
   basis for $H$.
 
-  A linear function $T:H\to K$ is defined to be a Hilbert-Schmidt operator iff
+  A bounded linear function $T:H\to K$ is defined to be a Hilbert-Schmidt operator iff
   \begin{align*}
     \sum_{i=1}^{\infty} \vabs{Te_i}^2<\infty.
   \end{align*}
@@ -675,7 +683,7 @@ Let $\F\in \cc{\R,\C}$.
   \end{align*}
 \end{definition}
 
-\begin{definition}
+\begin{definition}[Finite-rank operator]
   Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator. $T$
   is defined to be a finite-rank operator if the image $TX$ is finite dimensional.
 \end{definition}
@@ -685,7 +693,7 @@ Let $\F\in \cc{\R,\C}$.
   \begin{enumerate}
     \item Given two orthonormal bases for $H$, the Hilbert-Schmidt norm is equal when calculated in either basis.
     \item The Hilbert-Schmidt norm is a norm.
-    \item If $T:H\to K$ is a Hilbert-Schmidt operator the it is a bounded linear operator and
+    \item If $T:H\to K$ is a Hilbert-Schmidt operator then
       \begin{align*}
         \vabs{T}\leq \vabs{T}_{HS}.
       \end{align*}
@@ -693,5 +701,101 @@ Let $\F\in \cc{\R,\C}$.
       operators $\rr{T_n}_{n\in\N}$ such that $\vabs{T-T_n}\to 0$.
   \end{enumerate}
 \end{theorem}
+
+\section{Dual spaces}
+
+\begin{definition}[Dual space, bounded linear functional]
+  Let $X$ be a normed linear space over $\mathbb F$. The dual space of $X$, denoted $X^*$, is defined
+  to be $\mathcal L\rr{X,\mathbb F}$. A bounded linear functional is defined to be an element
+  of the dual space.
+\end{definition}
+
+\begin{theorem}
+  Let $1<p<\infty$ and let $q$ be the H\"older conjugate exponent of $p$. Let $I$ be a closed
+  and bounded interval in $\R$.
+
+  There is an isometric isomorphism $i:L^q\to \rr{L^p}^*$ given by
+  \begin{align*}
+    \rr{ig}\rr{f} = \int_I dx f\rr{x}g \rr{x}
+  \end{align*}
+  for all $f\in L^p$ and $g\in L^q$.
+
+  In particular, the dual of $L^p\rr{I}$ is $L^q\rr{I}$.
+\end{theorem}
+
+\begin{theorem}[Riesz representation theorem]
+  Let $H$ be a Hilbert space. There is a conjugate-linear isometric isomorphism $T:H\to H^*$
+  given by
+  \begin{align*}
+    \rr{Ty}{x}=\aa{x,y}
+  \end{align*}
+  for all $x,y\in H$.
+\end{theorem}
+
+\section{Duals, adjoints, and transposes}
+
+\begin{definition}
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+
+  A transpose of $T$, denoted $T'$, is defined to be a map $T':Y^*\to X^*$ such that
+  for $x\in X$ and $g\in Y^*$,
+  \begin{align*}
+    \rr{T'g}\rr{x}=g\rr{Tx}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Let $X$ and $Y$ be normed  linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+  \begin{enumerate}
+    \item For each $g\in Y^*$ there is a unique $T'g\in X^*$ such that, for all $x\in X$,
+      \begin{align*}
+        \rr{T'g}\rr{x}=g\rr{Tx}.
+      \end{align*}
+    \item The map $T':Y^*\to X^*$ is a bounded linear operator.
+    \item There is a unique transpose $T'$, and it is a bounded linear operator satisfying
+      $\vabs{T'}\leq \vabs{T}$.
+    \item If, for all $y\in Y$, $\vabs{y}_Y=\sup_{\vabs{g}_{X^*}\leq 1}\abs{g\rr{y}}$, then $\vabs{T'}=\vabs{T}$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}[Characterisation of the norm on inner-product spaces]
+  Let $X$ be an inner-product space. For all $x\in X$, $\vabs{x}=\sup_{x\in X,\vabs{y}\leq 1} \abs{\aa{x,y}}$.
+\end{lemma}
+
+\begin{lemma}[Characterisation of the norm on reflexive spaces]
+  Let $1<p<\infty$ with H\"older conjugate exponent $q$. For all $\rr{x_n}_{n\in\N}\in\ell^p$,
+  $\vabs{\rr{x_n}_{n\in\N}}_{\ell^p}=\sup_{\vabs{\rr{y_n}_{n\in\N}}_{\ell^p}\leq 1}\sum_{n=1}^{\infty} x_n y_n$.
+\end{lemma}
+
+\begin{theorem}[Characterisation of the norm via duals]
+  Let $X$ be a normed linear space.
+
+  The map $i_x:X\to X^**$ where $i_x\rr{f}=f\rr{x}$ is an isometric embedding. In particular,
+  for all $x\in X$, $\vabs{x}_{X}=\sup_{\vabs{f}_{X^*}\leq 1}\abs{f\rr{x}}$.
+\end{theorem}
+
+\begin{corollary}
+  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+  There is a unique transpose $T':Y^*\to X^*$ and $\vabs{T'}=\vabs{T}$.
+\end{corollary}
+
+\begin{definition}[Adjoints]
+  Let $H$ and $K$ be Hilbert spaces. Let $T:H\to K$ be a bounded linear operator. An
+  adjoint of $T$ is a map $T^*:K\to H$ such that for all $x\in H$ and $y\in K$,
+  \begin{align*}
+    \aa{Tx,y}=\aa{x,T^*y}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Let $H$ and $K$ be Hilbert spaces. Let $T:H\to K$ be a bounded linear operator. There is
+  a unique adjoint $T^*$. It is a bounded linear operator satisfying $\vabs{T^*}=\vabs{T}$.
+\end{theorem}
+
+\begin{definition}[Reflexive space]
+  Let $X$ be a normed linear space. $X$ is defined to be reflexive iff $X$ and $X^{**}$ are
+  isometrically isomorphic via the map $i:X\to X^{**}$ such that, for all $x\in X$ and $f\in X^*$,
+  $\rr{ix}\rr{f}=f\rr{x}$.
+\end{definition}
 
 \end{document}
