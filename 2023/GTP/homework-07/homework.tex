@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{General Topology: Assignment 7}
+\author{Franz Miltz (UUN: S1971811)}
+\date{10 November 2022}
+\maketitle
+
+\begin{claim*}
+  Let $X$ be a metric space with induced topology $\tau$. Then $\rr{X,\tau}$ is Hausdorff.
+  \begin{proof}
+    Let $x,y\in X$ such that $x\neq y$. Then $d\rr{x,y}>0$. Clearly,
+    \begin{align*}
+      B\rr{x,d\rr{x,y}/2}\cap B\rr{y,d\rr{x,y}/2} = \emptyset.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  Let $X$ be a set with $\abs{X}>1$ and let $\tau$ be the chaotic topology on $X$. Then
+  $\rr{X,\tau}$ is not Hausdorff.
+  \begin{proof}
+    Let $x,y\in X$ such that $x\neq y$. Let $V\subseteq X$ be an open such that $x\in V$. Then
+    $V=X$ so $y\in V$. Thus $X$ must not be Hausdorff.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  Let $X$ be a Hausdorff space. If $Y\subseteq X$ is a subspace then $Y$ is Hausdorff.
+  \begin{proof}
+    Let $x,y\in Y$ such that $x\neq y$. As $X$ is Hausdorff, there exist open subset
+    $U,V\subseteq X$ such that $x\in U$, $y\in V$ and $U\cap V=\emptyset$. We note that
+    $U\cap Y$ and $V\cap Y$ are open in $Y$. Further, $x\in U\cap Y$, $y\in V\cap Y$, and
+    $\rr{U\cap Y}\cap \rr{V\cap Y}=\rr{U\cap V}\cap Y=\emptyset$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  Let $X$ be a Hausdorff space and let $\sim$ be an equivalence relation. Then $X/\sim$
+  need not be Hausdorff under the quotient topology.
+  \begin{proof}
+    Let $X=\R$ with the usual topology. Let $\sim$ be such that, for all $x,y\in\R$,
+    $x\sim y$ iff there exists a $q\in\Q$ such that $x=y+q$. It is easy to verify that this
+    forms an equivalence relation. Let $V\subseteq\R/\sim$ be non-empty and closed.
+    Clearly, the preimage $\inv q\rr V$ is dense in $X$ so it must be $X$ itself, i.e. $V=X/\sim$.
+    Thus $X/\sim$ has the chaotic topology and thereby is not Hausdorff.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  Let $\rr{X,\tau}$ be a Hausdorff space. Let $\tau'$ be a topology on $X$, finer than $\tau$.
+  Then $\rr{X,\tau'}$ is a Hausdorff space.
+  \begin{proof}
+    Let $x,y\in X$ such that $x\neq y$. Then there exist open sets $U,V\subseteq X$ with respect
+    to $\tau$ such that $x\in U$, $y\in V$, and $U\cap V=\emptyset$. Since $\tau'$ is finer than
+    $\tau$, $U$ and $V$ are open with respect to $\tau'$. Thus $\rr{X,\tau'}$ is Hausdorff.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  A topological space $X$ is Hausdorff iff, for every topological space $T$ and every continuous
+  map $p:T\to X$, the graph
+  \begin{align*}
+    \Gamma\rr{p}=\cc{\rr{t,x}\in T\times X:x=p\rr{t}}
+  \end{align*}
+  is a closed subset of $T\times X$.
+  \begin{proof}
+    Assume $X$ is Hausdorff. Let $T$ be a topological space and let $p:T\to X$ a continuous map.
+    Then consider the graph $\Gamma\rr{p}$. We have the complement
+    \begin{align*}
+      \rr{\Gamma\rr{p}}^c=\cc{\rr{t,x}\in T\times X : x \neq p\rr{t}}.
+    \end{align*}
+    For $\rr{t,x}\in \rr{\Gamma\rr{p}}^c$, choose open sets $U_{t,x},V_{t,x}\subseteq X$
+    such that $p\rr{t}\in U_{t,x}$, $x\in V_{t,x}$, and $U_{t,x}\cap V_{t,x}=\emptyset$.
+    As $U_{t,x}$ and $V_{t,x}$ are disjoint, we have $p\rr{t'}\neq x'$, for all
+    $\rr{t',x'}\in \inv p\rr{U_{t,x}}\times V_{t,x}$.
+    Therefore we may write
+    \begin{align*}
+      \rr{\Gamma\rr{p}}^c=\bigcup \cc{\inv p\rr{U_{t,x}}\times V_{t,x} : t\in T, x\in X, x\neq p\rr{t}},
+    \end{align*}
+    a union of open sets. We conclude that $\Gamma\rr{p}$ is closed.
+
+    Conversely, assume $X$ is such that, for every topological space $T$ and every continuous map
+    $p:T\to X$, the graph $\Gamma\rr{p}$ is closed in $T\times X$. Then, in particular, we have
+    that the graph $\Gamma\rr{i}$ of the identity $i:X\to X$ is closed in $X\times X$. Fix $x,y\in X$ such that
+    $x\neq y$. Then $\rr{x,y}\in \rr{\Gamma\rr{i}}$. As $\rr{\Gamma\rr{i}}^c$ is open, there exist
+    open sets $U,V\subseteq X$ such that $x\in U$, $y\in V$ and $U\times V\subseteq \rr{\Gamma\rr{i}}^c$.
+    Thus, for all $\rr{x',y'}\in U\times V$, $x'\neq y'$, i.e. $U\cap V=\emptyset$. Therefore $X$ is Hausdorff.
+  \end{proof}
+\end{claim*}
+
+\end{document}
