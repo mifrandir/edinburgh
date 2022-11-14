@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\title{Randomised Algorithms: Coursework 2}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+
+Let $G=\rr{V,E}$ be an undirected finite graph.
+For an independent set $X\subset V$ define the 
+
+
+Let $\pi$ be the probability distribution such that
+\begin{align*}
+  \pi\rr{x}=
+  \begin{cases}
+    \frac{\lambda^{\abs{x}}}{Z\rr{\lambda}} &\text{if }\forall \cc{v,w}\in E.\:x\rr{v}x\rr{w}=0 \\
+    0 &\text{otherwise}
+  \end{cases}
+\end{align*}
+where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
+
+Let $\rr{X_t}_{t\geq 0}$ be the stochastic process associated with the Glauber dynamic
+update.
+
+\begin{claim*}[1]
+
+\end{claim*}
+
+\begin{claim*}[2]
+  $\pi$ satisfies the detailed balance condition of the Markov chain $P$ associated
+  with the stochastic process $\rr{X_t}_{t\geq 0}$.
+  \begin{proof}
+
+  \end{proof}
+\end{claim*}
+
+Let $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ be coupled Markov chains that transition
+based on the Glauber dynamics update where the same vertex is chosen for both chains.
+
+Moroever, for independent sets $X,Y\subseteq V$, define their distance by
+\begin{align*}
+  d\rr{X,Y} = \sum_{v\in V} \abs{x\rr{v}-y\rr{v}}.
+\end{align*}
+
+\begin{claim*}[3]
+\end{claim*}
+
+\end{document}
