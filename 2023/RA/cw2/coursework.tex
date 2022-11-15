@@ -11,15 +11,6 @@ be the set of independent sets on $G$, and let $\e:\P\rr{V}\to \cc{0,1}^V$ be th
 between subsets of $V$ and corresponding binary encodings, i.e. $\e\rr{x}\rr{v}=1$ iff $v\in x$.
 We abuse notation and write $x\rr{v}=\e\rr{x}\rr{v}$.
 
-Let $\pi:\mathcal P\rr{V}\to\bb{0,1}$ be the probability distribution defined by
-\begin{align*}
-  \pi\rr{x}=
-  \begin{cases}
-    \frac{\lambda^{\abs{x}}}{Z\rr{\lambda}} &\text{if }\forall \cc{v,w}\in E.\:x\rr{v}x\rr{w}=0 \\
-    0 &\text{otherwise}
-  \end{cases}
-\end{align*}
-where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
 
 Let $\rr{X_t}_{t\geq 0}$ be the discrete time stochastic process associated with the Glauber dynamics
 update. That is, for all $t\geq 0$, $X_t$ takes values in $\Omega$ and an update is
@@ -107,7 +98,7 @@ Here $\Omega\rr{x,v}=\cc{y\in\Omega : \forall w\neq v.\: x\rr{w}=y\rr{w}}$.
     is an independent set so $x\cap N\rr{x}=\emptyset$) the condition in the third step will
     always hold, leading to a guaranteed success. Finally, if $v\not\in x$ and $v\not\in N\rr{x}$
     then we require $y\rr{v}=0$ so the probability is $1/\rr{\lambda + 1}$.
-    
+
     Now (\ref{eq:equal-case}) is equivalent to
     \begin{align}
       \label{eq:explicit-equal-case}
@@ -129,11 +120,41 @@ Here $\Omega\rr{x,v}=\cc{y\in\Omega : \forall w\neq v.\: x\rr{w}=y\rr{w}}$.
   \end{proof}
 \end{claim*}
 
-\begin{claim*}[2]
-  $\pi$ satisfies the detailed balance condition of the Markov chain $P$ associated
-  with the stochastic process $\rr{X_t}_{t\geq 0}$.
-  \begin{proof}
+Let $\pi:\mathcal P\rr{V}\to\bb{0,1}$ be the probability distribution defined by
+\begin{align*}
+  \pi\rr{x}=
+  \begin{cases}
+    \frac{\lambda^{\abs{x}}}{Z\rr{\lambda}} &\text{if }\forall \cc{v,w}\in E.\:x\rr{v}x\rr{w}=0 \\
+    0 &\text{otherwise}
+  \end{cases}
+\end{align*}
+where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
 
+Let $P$ be the Markov chain associated with the stochastic process $\rr{X_t}$. I.e.
+for all $t$ and $x,y\in\Omega$,
+\begin{align*}
+  P\rr{x,y}=\prc{X_{t+1}=y}{X_t=x}.
+\end{align*}
+
+
+\begin{claim*}[2]
+  $\pi$ satisfies the detailed balance condition for $P$.
+  I.e. for all $x,y\in\Omega$,
+  \begin{align*}
+    \pi\rr{x}P\rr{x,y}=\pi\rr{y}P\rr{y,x}.
+  \end{align*}
+  \begin{proof}
+    Let $x,y\in\Omega$. 
+    If $x=y$ then the claim is immediate. If $\abs{x\ominus y}>1$ then
+    \begin{align*}
+      P\rr{x,y}=P\rr{y,x}=0.
+    \end{align*}
+    Finally, consider the case $\abs{x\ominus y}=1$. Note $\lambda=1$. Thus
+    \begin{align*}
+      \pi\rr{x}P\rr{x,y}=\rr{\frac{1^{\abs{x}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
+                        =\rr{\frac{1^{\abs{y}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
+                        =\pi\rr{y}P\rr{y,x}.
+    \end{align*}
   \end{proof}
 \end{claim*}
 
