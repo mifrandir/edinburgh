@@ -1,0 +1,353 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\title{Introduction to Quantum Computing: Coursework}
+\author{Franz Miltz}
+\begin{document}
+\maketitle
+
+\section*{Question 1}
+
+Consider the 4-qubit QFT circuit $U_{QFT}$ given in the assignment.
+
+\begin{claim*}[a]
+  Let $y_1,\ldots,y_4$ be the four output qubits of the QFT circtuit:
+  \begin{align*}
+    \va{y_1}\otimes \va{y_2}\otimes \va{y_3}\otimes\va{y_4}=U_{QFT}\va{1101}.
+  \end{align*}
+  Then
+  \begin{align*}
+    y_1 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.1101}\va{1}},\hs
+    y_2 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.101}\va{1}},\\
+    y_3 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.01}\va{1}},\hs
+    y_4 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.1}\va{1}}.
+  \end{align*}
+  \begin{proof}
+    We consider the states $\va{\psi_1},\ldots,\va{\psi_{10}}$ after applying each
+    of the ten gates.
+    We find
+    \begin{align*}
+      \va{\psi_1}&=H\va{1}\otimes \va{101} = \rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}}\otimes\va{101},
+    \end{align*}
+    and then
+    \begin{align*}
+      \va{\psi_2}
+      &=R_2\rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}}\otimes\va{101}
+      =\rr{\frac{\va{0}+e^{2\pi i 0.11}\va{1}}{\sqrt{2}}}\otimes\va{101}
+    \end{align*}
+    Now $x_3=0$ so $\va{\psi_3}=\va{\psi_2}$. Then
+    \begin{align*}
+      \va{\psi_4}
+      &=R_4\rr{\frac{\va{0}+e^{2\pi i 0.11}\va{1}}{\sqrt{2}}}\otimes\va{101}
+    \end{align*}
+    Similarly,
+    \begin{align*}
+      \va{\psi_5}
+      &=\rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes H\va{1}
+      \otimes \va{01}
+      =\rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}}
+      \otimes \va{01}.
+    \end{align*}
+    Now, $\va{\psi_6}=\va{\psi_5}$ as $x_2=0$. Then
+    \begin{align*}
+      \va{\psi_7}
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes R_3\rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}}
+      \otimes \va{01} \\
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}}
+      \otimes \va{01}.
+    \end{align*}
+    Further,
+    \begin{align*}
+      \va{\psi_8}
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}\otimes
+      \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}} \otimes H\va{0} \otimes \va{1}\\
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.0}}{\sqrt{2}}}
+      \otimes \va{1},
+    \end{align*}
+    and
+    \begin{align*}
+      \va{\psi_9}
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}}
+      \otimes R_2\rr{\frac{\va{0}+e^{2\pi i 0.0}}{\sqrt{2}}}
+      \otimes \va{1} \\
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.01}}{\sqrt{2}}}
+      \otimes \va{1}.
+    \end{align*}
+    Finally,
+    \begin{align*}
+      \va{\psi_{10}}
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.01}}{\sqrt{2}}}
+      \otimes H\va{1}\\
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.1101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.101}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.01}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}},
+    \end{align*}
+    as required.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+  Let $\mathcal H$ be a two dimensional Hilbert space and let $x\in\mathcal H$.
+  Then $R_k\va{x}\to\va{x}$ as $k\to\infty$.
+  \begin{proof}
+    Let $\va{x}=x_1\va{0}+x_2\va{1}$. Then
+    \begin{align*}
+      \lim_{k\to\infty} \rr{R_k\va{x}}
+      = \lim_{k\to\infty} \rr{x_1\va{0} + e^{2\pi i/2^k}x_2\va{1}}.
+    \end{align*}
+    It remains to show that $e^{2\pi i / 2^k} \to 1$ as $k\to\infty$. We note that
+    $2^k\to\infty$ as $k\to\infty$ so $2\pi i / 2^k\to 0$. By continuity of
+    $x\mapsto e^x$ we have
+    \begin{align*}
+      \lim_{k\to\infty} \rr{R_k\va{x}} = x_1\va{0} + \lim_{k\to\infty} \rr{e^{2\pi i/2^k} x_2\va{1}} = x_1\va{0}+x_2\va{1} = \va{x}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[b']
+  Let $\mathcal H$ be a two dimensional Hilbert space and let $x\in\mathcal H$
+  with $\vabs{\va{x}}_{\mathcal H}=1$
+  where $\vabs{v}_{\mathcal H}=\ava{v}{v}$ is the induced norm on $\mathcal H$.
+  Then, for all $k>2$,
+  \begin{align*}
+    \vabs{R_k \va{x}-\va{x}}_{\mathcal H} < \tan\rr{\frac{2\pi}{2^k}}.
+  \end{align*}
+  \begin{proof}
+    Let $\va{x}=x_1\va{0}+x_2\va{1}$. Then
+    \begin{align*}
+      \vabs{R_k\va{x}-\va{x}}_{\mathcal H}
+      = \vabs{\rr{e^{2\pi i / 2^k}-1}x_2\va{1}}_{\mathcal H}
+      = \abs{\rr{e^{2\pi i / 2^k}-1}x_2}
+    \end{align*}
+    As $\vabs{x}_{\mathcal H}=1$ we have $x_2\leq 1$ so
+    \begin{align*}
+      \vabs{R_k\va{x}-\va{x}}_{\mathcal H}
+      \leq \abs{e^{2\pi i / 2^k}-1}.
+    \end{align*}
+    The inequality $e^{\theta i}-1<\tan\theta$, for $0<\theta < \pi/2$, holds due to
+    basic trigonometry. Thus the claim follows.
+  \end{proof}
+\end{claim*}
+
+Consider the 4-qubit lazy QFT circuit $U_{LQFT}^{\rr{k_0}}$ which differs from $U_{QFT}$
+only by replacing $R_k$ with $I$ whenever $k\geq k_0$.
+
+\begin{claim*}[c]
+  Let $k_0=3$ and let $y_1,\ldots,y_4$ be the four output qubits of the lazy QFT circuit:
+  \begin{align*}
+    \va{y_1}\otimes \va{y_2}\otimes \va{y_3}\otimes\va{y_4}=U^{\rr{3}}_{LQFT}\va{1101}.
+  \end{align*}
+  Then
+  \begin{align*}
+    y_1 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.11}\va{1}},\hs
+    y_2 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.10}\va{1}},\\
+    y_3 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.01}\va{1}},\hs
+    y_4 = \frac{1}{\sqrt{2}} \rr{\va{0}+e^{2\pi i 0.1}\va{1}}.
+  \end{align*}
+  \begin{proof}
+    We consider the states $\va{\psi'_1},\ldots,\va{\psi'_{10}}$ after applying each of the
+    ten gates (including identities for consistency).
+    The proof is analogous to the normal QFT case except that we omit all
+    steps involving $R_3$ or $R_4$ (as they are replaced by $I$). Thus
+    \begin{align*}
+      \va{\psi'_4} = \va{\psi'_3} &=\rr{\frac{\va{0}+e^{2\pi i 0.11}\va{1}}{\sqrt{2}}}\otimes\va{101},
+    \end{align*}
+    and
+    \begin{align*}
+      \va{\psi'_7} = \va{\psi'_6} = \rr{\frac{\va{0}+e^{2\pi i 0.11}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}}
+      \otimes \va{01}.
+    \end{align*}
+    Following the previous derivation we then obtain
+    \begin{align*}
+      \va{\psi'_{10}}
+      &= \rr{\frac{\va{0}+e^{2\pi i 0.11}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.10}\va{1}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.01}}{\sqrt{2}}}
+      \otimes \rr{\frac{\va{0}+e^{2\pi i 0.1}\va{1}}{\sqrt{2}}},
+    \end{align*}
+    as claimed.
+  \end{proof}
+\end{claim*}
+
+We note that only the first two qubits were affected, and only insignificant bits
+with values $1$ in the input are faulty.
+
+\begin{claim*}
+  The lazy QFT circuit with parameter $k_0$ for $n$ qubits requires $O(k_0 n)$ gates.
+  \begin{proof}
+    We note that each qubit only gets transformed by each $R_k$ gate at most once.
+    There are less than $k_0$ gates of the form $R_k$ by construction, so
+    we require less than $k_0 n$ gates in total. The claimed asymptotic bound follows.
+  \end{proof}
+\end{claim*}
+
+\section*{Question 2}
+
+\paragraph{a.} Given that $x\cdot y=0$ in $3/4$ of the cases, Alice and Bob may simply
+agree to choose $a=b=0$ all the time.
+
+\paragraph{b.} We choose $a = x$ and $b = \overline{y}$. Then the only case where $x \oplus\overline{y} \neq x \cdot y$ is when $x=0$ and $y=0$.
+
+\paragraph{c.} Given that $x\cdot y=1$ in $1/4$ of the cases, Alice and Bob may simply
+agree to choose $a=b=1$ all the time.
+
+\paragraph{d.} We claim that any deterministic strategy achieves a winning probability
+of either $1/4$ or $3/4$. We note that there are only four functions $\cc{0,1}\to\cc{0,1}$.
+Namely, the constants $x\mapsto 0$ and $x \mapsto 1$, the identity $x\mapsto x$, and the
+bit flip $x\mapsto\overline x$.
+
+Let $X,Y$ be uniform random variables over $\cc{0,1}$. We then check
+\begin{align*}
+  \pr{0 = X \cdot Y} &= 3/4, \\
+  \pr{1 = X \cdot Y} &= 1/4, \\
+  \pr{X = X \cdot Y} &= 3/4, \\
+  \pr{Y = X \cdot Y} &= 3/4, \\
+  \pr{X \oplus Y = X \cdot Y} &= 1/4,\\
+  \pr{X \oplus \overline Y = X \cdot Y} &= 3/4 \\
+  \pr{\overline X \oplus Y = X \cdot Y} &= 3/4,\\
+  \pr{\overline X \oplus \overline Y = X \cdot Y} &= 1/4.
+\end{align*}
+
+\paragraph{e.} Let $F,G$ be random variables over the set of functions $\cc{0,1}\to\cc{0,1}$.
+Alice's and Bob's randomness simply amounts to changing the distributions of $F$ and $G$
+depending on $X$ and $Y$ respectivel. I.e. choosing values for
+\begin{align*}
+  \prc{F=f}{X=x}, \hs \prc{G=g}{Y=y}.
+\end{align*}
+Note that $F$ does not depend on the value of $Y$ and $G$ does not depend on the value of
+$X$ (as Alice does not know $y$ and Bob does not know $x$).
+Thus, regardless of what Alice and Bob agree on, we have the winning probability
+\begin{align*}
+  \pr{F\rr{X}\oplus G\rr{Y}=X\cdot Y} = \sum_{f,g}\pr{F=f\cap G=g}\pr{f\rr{X}\oplus g\rr{Y}=X\cdot Y}.
+\end{align*}
+We note that, for all $f,g:\cc{0,1}\to\cc{0,1}$,
+\begin{align*}
+  \pr{f\rr{X}\oplus g\rr{Y}=X\cdot Y}\leq 3/4
+\end{align*}
+so, by the law of total probability,
+\begin{align*}
+  \pr{F\rr{X}\oplus G\rr{Y}=X\cdot Y} \leq 3/4.
+\end{align*}
+
+\paragraph{f.} We note
+\begin{align*}
+  \av{0}\otimes \av{v_0} = \cos\rr{\pi/8} \av{00} + \sin\rr{\pi/8}\av{01} , \hs
+  \av{1}\otimes \av{v_1} = - \sin\rr{\pi/8}\av{10} + \cos\rr{\pi/8} \av{11}.
+\end{align*}
+Thus
+\begin{align*}
+  \abs{\rr{\av{0}\otimes\av{v_0}}\va{\psi}}^2
+  &= \abs{\rr{\cos\rr{\pi/8} \av{00} + \sin\rr{\pi/8}\av{01}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+  &=\frac{1}{2}\abs{\rr{\cos\rr{\pi/8} \av{00} + \sin\rr{\pi/8}\av{01}}\rr{\va{00}+\va{11}}}^2 \\
+  &=\frac{1}{2}\cos^2\rr{\pi/8}.
+\end{align*}
+Similarly,
+\begin{align*}
+  \abs{\rr{\av{1}\otimes\av{v_1}}\va{\psi}}^2
+  &= \abs{\rr{-\sin\rr{\pi/8} \av{10} + \cos\rr{\pi/8}\av{11}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+  &=\frac{1}{2}\abs{\rr{-\sin\rr{\pi/8} \av{10} + \cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+  &=\frac{1}{2}\cos^2\rr{\pi/8}.
+\end{align*}
+Thus we have
+\begin{align*}
+  \prc{\text{Win}}{X=0\cap Y=0} = \cos^2\rr{\pi/8}.
+\end{align*}
+
+\paragraph{g.} We note
+\begin{align*}
+  \av{0}\otimes \av{w_0} = \cos\rr{\pi/8} \av{00} - \sin\rr{\pi/8}\av{01} , \hs
+  \av{1}\otimes \av{w_1} = \sin\rr{\pi/8}\av{10} + \cos\rr{\pi/8} \av{11}.
+\end{align*}
+Once again, we calculate
+\begin{align*}
+  \abs{\rr{\av{0}\otimes\av{w_0}}\va{\psi}}^2
+  = \abs{\rr{\cos\rr{\pi/8} \av{00} - \sin\rr{\pi/8}\av{01}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2
+  =\frac{1}{2}\cos^2\rr{\pi/8}.
+\end{align*}
+Finally,
+\begin{align*}
+  \abs{\rr{\av{1}\otimes\av{w_1}}\va{\psi}}^2
+  = \abs{\rr{\sin\rr{\pi/8}\av{10} + \cos\rr{\pi/8} \av{11}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2
+  =\frac{1}{2}\cos^2\rr{\pi/8}.
+\end{align*}
+Thus we have
+\begin{align*}
+  \prc{\text{Win}}{X=0\cap Y=1} = \cos^2\rr{\pi/8}.
+\end{align*}
+
+\paragraph{h.}
+
+We calculate
+\begin{align*}
+  \va{\psi}
+  &= \frac{\va{00} + \va{11}}{\sqrt{2}} \\
+  &= \frac{2\rr{\va{00} + \va{11}}}{\sqrt{2^3}} \\
+  &= \frac{\rr{\va{00}-\va{01}-\va{10}+\va{11}} + \rr{\va{00}+\va{01}+\va{10}+\va{11}}}{\sqrt{2^3}} \\
+  &= \frac{\rr{\va{0}-\va{1}}\otimes \rr{\va{0}-\va{1}} + \rr{\va{0}+\va{1}}\otimes \rr{\va{0}+\va{1}}}{\sqrt{2^3}} \\
+  &= \frac{\rr{\frac{\va{0}-\va{1}}{\sqrt{2}}}\otimes \rr{\frac{\va{0}-\va{1}}{\sqrt{2}}} + \rr{\frac{\va{0}+\va{1}}{\sqrt{2}}}\otimes \rr{\frac{\va{0}+\va{1}}{\sqrt{2}}}}{\sqrt{2}} \\
+  &= \frac{\va{--} + \va{++}}{\sqrt{2}}
+\end{align*}
+
+\paragraph{i.}
+
+We find
+\begin{align*}
+  \abs{\rr{\av{+}\otimes \av{v_0}}\va{\psi}}^2
+  &= \abs{\rr{\rr{\frac{\av{0}+\av{1}}{\sqrt{2}}}\otimes\rr{\cos\rr{\pi/8}\av{0}+\sin\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+  &= \frac{1}{4}\abs{\rr{\cos\rr{\pi/8}\av{00} + \sin\rr{\pi/8}\av{10} + \cos\rr{\pi/8}\av{10}+\sin\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+  &= \frac{1}{4}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2 \\
+\end{align*}
+Analogously,
+\begin{align*}
+  \abs{\rr{\av{-}\otimes \av{v_1}}\va{\psi}}
+  &= \abs{\rr{\rr{\frac{\av{0}-\av{1}}{\sqrt{2}}}\otimes\rr{-\sin\rr{\pi/8}\av{0}+\cos\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+  &= \frac{1}{4}\abs{\rr{-\sin\rr{\pi/8}\av{00} + \cos\rr{\pi/8}\av{10} + \sin\rr{\pi/8}\av{10}-\cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+  &= \frac{1}{4}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2
+\end{align*}
+Thus we have
+\begin{align*}
+  \prc{\text{Win}}{X=1\cap Y=0} = \frac{1}{2}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2.
+\end{align*}
+
+\paragraph{j.}
+
+We find
+\begin{align*}
+  \abs{\rr{\av{+}\otimes\av{w_0}}} &= \abs{\rr{\rr{\frac{\av{0}+\av{1}}{\sqrt{2}}}\otimes\rr{\cos\rr{\pi/8}\av{0}-\sin\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+                                   &= \frac{1}{4} \abs{\rr{\cos\rr{\pi/8}\av{00}-\sin\rr{\pi/8}\av{01}+\cos\rr{\pi/8}\av{10}-\sin\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+                                   &= \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
+\end{align*}
+Analogously,
+\begin{align*}
+  \abs{\rr{\av{-}\otimes\av{w_1}}} &= \abs{\rr{\rr{\frac{\av{0}-\av{1}}{\sqrt{2}}}\otimes\rr{\sin\rr{\pi/8}\av{0}+\cos\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+                                   &= \frac{1}{4} \abs{\rr{\sin\rr{\pi/8}\av{00}+\cos\rr{\pi/8}\av{01}-\sin\rr{\pi/8}\av{10}-\cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+                                   &= \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
+\end{align*}
+Thus we have
+\begin{align*}
+  \prc{\text{Win}}{X=1\cap Y=1} = \frac{1}{2} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2.
+\end{align*}
+
+\paragraph{k.}
+
+The cases discussed above all occur with equal probability. Moreover, we have
+\begin{align*}
+  \pr{\text{Win}} &= \frac{1}{4}\prc{\text{Win}}{X=0\cap Y=0} +\frac{1}{4}\prc{\text{Win}}{X=0\cap Y=1}\\
+                  &+\frac{1}{4}\prc{\text{Win}}{X=1\cap Y=0} +\frac{1}{4}\prc{\text{Win}}{X=1\cap Y=1}\\
+                  &=\frac{1}{2}\cos^2\rr{\pi/8}+\frac{1}{8}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2+\frac{1}{8}\abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
+\end{align*}
+
+\end{document}
