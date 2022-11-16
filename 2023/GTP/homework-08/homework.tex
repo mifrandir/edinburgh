@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{General Topology: Assignment 8}
+\author{Franz Miltz (UUN: S1971811)}
+\date{17 November 2022}
+\maketitle
+
+\begin{claim*}
+  The topological space $\cc{0,1}^\omega$ where $\cc{0,1}$ is endowed with the discrete
+  topology is compact and Hausdorff.
+  \begin{proof}
+    Compact due to Tikhonov. Hausdorff because any two distinct elements differ in at 
+    least one place which we may separate locally which is sufficient to make
+    sets in the product disjoint.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  The powerset $\mathcal P\N$ with the chaotic topology is compact but not Hausdorff.
+  \begin{proof}
+    Compact because the only open cover is $\cc{\mathcal P\N}$. Not Hausdorff because there
+    are more than two elements in $\mathcal P\N$ and the topology is chaotic.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  $(\N, \leq)$ with the Alexandrov topology is compact but not Hausdorff.
+  \begin{proof}
+    Both follow because the only open set containing $1\in\N$ is $\N$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  $S^5\subseteq\R^6$ with the subspace topology is compact and Hausdorff.
+  \begin{proof}
+    Compact because $S^5$ is a closed and bounded subset of Euclidean space. Hausdorff
+    because it is a metric subspace.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  $\mathbb P^5_\R$ is compact and Hausdorff.
+  \begin{proof}
+    Compact because $\mathbb P^5_\R$ is homemorphic to a quotient of the compact space $S^5$.
+    Hausdorff because because $\mathbb P^5_\R$ is a quotient of the Hausdorff space $\R^6\setminus\cc{0}$
+    by a closed equivalence relation.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  $\hat\Z$ is compact and Hausdorff.
+  \begin{proof}
+    See $\cc{0,1}^\omega$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  $GL\rr{5,\R}\subseteq\R^{25}$ is Hausdorff but not compact.
+  \begin{proof}
+    Both because it is an unbounded subset of Euclidean space.
+  \end{proof}
+\end{claim*}
+
+\end{document}
