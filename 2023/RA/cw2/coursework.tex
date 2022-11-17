@@ -130,43 +130,121 @@ Let $\pi:\mathcal P\rr{V}\to\bb{0,1}$ be the probability distribution defined by
 \end{align*}
 where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
 
-Let $P$ be the Markov chain associated with the stochastic process $\rr{X_t}$. I.e.
-for all $t$ and $x,y\in\Omega$,
-\begin{align*}
-  P\rr{x,y}=\prc{X_{t+1}=y}{X_t=x}.
-\end{align*}
 
 
 \begin{claim*}[2]
-  $\pi$ satisfies the detailed balance condition for $P$.
+  $\pi$ satisfies the detailed balance condition for $\rr{X_t}$.
   I.e. for all $x,y\in\Omega$,
   \begin{align*}
     \pi\rr{x}P\rr{x,y}=\pi\rr{y}P\rr{y,x}.
   \end{align*}
   \begin{proof}
-    Let $x,y\in\Omega$. 
-    If $x=y$ then the claim is immediate. If $\abs{x\ominus y}>1$ then
+    For all $t$ and $x,y\in\Omega$, write
+    \begin{align*}
+      P\rr{x,y}=\prc{X_{t+1}=y}{X_t=x}.
+    \end{align*}
+
+    Let $x,y\in\Omega$. If $x=y$ then the claim is immediate. If $\abs{x\ominus y}>1$ then
     \begin{align*}
       P\rr{x,y}=P\rr{y,x}=0.
     \end{align*}
     Finally, consider the case $\abs{x\ominus y}=1$. Note $\lambda=1$. Thus
     \begin{align*}
       \pi\rr{x}P\rr{x,y}=\rr{\frac{1^{\abs{x}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
-                        =\rr{\frac{1^{\abs{y}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
-                        =\pi\rr{y}P\rr{y,x}.
+      =\rr{\frac{1^{\abs{y}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
+      =\pi\rr{y}P\rr{y,x}.
     \end{align*}
   \end{proof}
 \end{claim*}
 
-Let $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ be coupled Markov chains that transition
-based on the Glauber dynamics update where the same vertex is chosen for both chains.
+Let $\rr{Z_t}=\rr{X_t,Y_t}$ be coupled Markov chains that transition
+based on the Glauber dynamics. In particular, define the update rule for $\rr{X_t,Y_t}$
+from a state $\rr{x,y}$ to a state $\rr{x',y'}$:
+\begin{enumerate}
+  \item An element $v\in V$ is chosen uniformly at random.
+  \item For all $w\neq v$, $x'\rr{w}=x\rr{w}$ and $y'\rr{w}=y\rr{w}$.
+  \item A bit $c\in\cc{0,1}$ is chosen uniformly at random.
+  \item If there is a $w\in N\rr{v}$ such that $x\rr{w}=1$ then $x'\rr{v}=0$.
+  \item Else, assign $x'\rr{v}=c$.
+  \item If there is a $w\in N\rr{v}$ such that $y\rr{w}=1$ then $y'\rr{v}=0$.
+  \item Else, assign $y'\rr{v}=c$.
+\end{enumerate}
+It is straightforward to see that this is a valid coupling, i.e. $\rr{X_t}$ and $\rr{Y_t}$
+follow the correct distribution locally. For each $t$, let $W_t$ be the random variable
+corresponding to the vertex selected in the transition from $Z_t$ to $Z_{t+1}$ and let
+$C_t$ be random variable corresponding to the value of $c$ in that transition.
 
-Moreover, for independent sets $X,Y\subseteq V$, define their distance by
+Moreover, for independent sets $x,y\in\Omega$, define their distance by
 \begin{align*}
-  d\rr{X,Y} = \sum_{v\in V} \abs{x\rr{v}-y\rr{v}}.
+  \rho\rr{x,y} = \sum_{v\in V} \abs{x\rr{v}-y\rr{v}}.
 \end{align*}
+We immediately note $\rho\rr{x,y}=\abs{x\ominus y}$.
 
-\begin{claim*}[3]
+\begin{claim*}[3a]
+  \begin{align*}
+    \prc{\rho\rr{X_{t+1},Y_{t+1}}=0}{X_t\ominus Y_t=\cc{W_t}}=1.
+  \end{align*}
+  \begin{proof}
+    Let $v\in V$ and let $x,x',y,y'\in\Omega$ such that $x\ominus y=\cc{v}$ and such that
+    \begin{align*}
+      \prc{Z_{t+1}=\rr{x',y'}}{Z_t=\rr{x,y},W_t=v}>0.
+    \end{align*}
+    Note that, for all $w\neq v$, $x\rr{w}=y\rr{w}$. Thus we have $x'\rr{w}=y'\rr{w}$.
+    Now consider $x'\rr{v}$ and $y'\rr{v}$. Observe that the checks in steps 4 and 6 will
+    both fail as both $x$ and $y$ are independent sets. Thus, for some $c\in\cc{0,1}$,
+    $x'\rr{v}=c=y'\rr{v}$. Now, for all $w\in V$, $x'\rr{w}=y'\rr{v}$, i.e. $\rho\rr{x',y'}=0$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3b]
+  For all $v\in V$,
+  \begin{align*}
+    \prc{\rho\rr{X_{t+1},Y_{t+1}}=1}{X_t\ominus Y_t=\cc{v},W_t\not\in N\rr{v}\cup\cc{v}}=1.
+  \end{align*}
+  \begin{proof}
+    Let $v,w\in V$ and let $x,x',y,y'\in\Omega$ such that $x\ominus y=\cc{v}$, $w\not\in N\rr{v}\cup\cc{v}$, and
+    \begin{align*}
+      \prc{Z_{t+1}=\rr{x',y'}}{Z_t=\rr{x,y},W_t=w}>0.
+    \end{align*}
+    Again, we need only consider $x'\rr{w}$ and $y'\rr{w}$. Clearly $x\rr{w}=y\rr{w}$, so
+    we require $x'\rr{w}=y'\rr{w}$. For a contradiction, assume $x'\rr{w}\neq y'\rr{w}$. Without loss of generality
+    assume $x'\rr{w}=0$. Then it must be the case that there is some $u\in N\rr{w}$ such that
+    $x\rr{u}=1$. Fix this $u$. We note that in order to achieve $x\rr{w}\neq y\rr{w}$ we must
+    have sampled $c=1$ and the check in 6 must have failed. I.e., for all $u'\in N\rr{w}$,
+    $y\rr{u'}=0$. In particular, $x\rr{u}=1$ and $y\rr{u}=0$. This implies $x\rr{u}\neq y\rr{u}$
+    and thus $u=v$. However, $u\in N\rr{w}$, so $v\in N\rr{w}$, and then $w\in N\rr{v}$.
+    This contradicts the premise. We conclude $x'\rr{w}=y'\rr{w}$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3c]
+  For all $v\in V$,
+  \begin{align*}
+    \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\ominus Y_t=\cc{v},W_t\in N\rr{v}}<1/2.
+  \end{align*}
+  \begin{proof}
+    Let $v,w\in V$ and let $x,x',y,y'\in\Omega$ such that $x\ominus y=\cc{v}$,
+    $w\in N\rr{v}$, and
+    \begin{align*}
+      \prc{Z_{t+1}=\rr{x',y'}}{Z_t=\rr{x,y},W_t=w}>0.
+    \end{align*}
+    Once more we consider $x'\rr{w}$ and $y'\rr{w}$ and note $\rho\rr{x', y'}=2$
+    iff $x'\rr{w}\neq y'\rr{w}$.
+
+    Consider the case $v\in x$ and $v\not\in y$. Then the check in step 4 of the update
+    will succeed so $x'\rr{w}=0$. The case $y'\rr{w}=1$ occurs only if the check in step
+    6 fails and we sample $c=1$. I.e., for all $v\in V$,
+    \begin{align*}
+      &\prc{Y_{t+1}=1}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
+      &= \prc{C_t=1\cap\rr{\exists w\in N\rr{v}. \: y\rr{w}=1}}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}
+    \end{align*}
+    We note independence of the events on the left so, for all $v\in V$,
+    \begin{align*}
+      &\prc{Y_{t+1}=1}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
+      &=\pr{C_t=1}\prc{\exists w\in N\rr{v}. \: y\rr{w}=1}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
+      &\leq\pr{C_t=1} = 1/2.
+    \end{align*}
+  \end{proof}
 \end{claim*}
 
 \end{document}
