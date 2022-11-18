@@ -11,15 +11,27 @@ be the set of independent sets on $G$, and let $\e:\P\rr{V}\to \cc{0,1}^V$ be th
 between subsets of $V$ and corresponding binary encodings, i.e. $\e\rr{x}\rr{v}=1$ iff $v\in x$.
 We abuse notation and write $x\rr{v}=\e\rr{x}\rr{v}$.
 
+Now fix $\lambda\in\rr{0,\infty}$ and let $\pi:\mathcal P\rr{V}\to\bb{0,1}$ be the probability distribution defined by
+\begin{align*}
+  \pi\cc{x}=
+  \begin{cases}
+    \frac{\lambda^{\abs{x}}}{Z\rr{\lambda}} &\text{if }\forall \cc{v,w}\in E.\:x\rr{v}x\rr{w}=0 \\
+    0 &\text{otherwise}
+  \end{cases}
+\end{align*}
+where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
 
 Let $\rr{X_t}_{t\geq 0}$ be the discrete time stochastic process associated with the Glauber dynamics
-update. That is, for all $t\geq 0$, $X_t$ takes values in $\Omega$ and an update is
-performed in two steps from a state $X_t=x$:
-\begin{enumerate}
-  \item An element $v\in V$ is chosen uniformly at random.
-  \item A new state $y\in\Omega\rr{x,v}$ is chosen uniformly at random.
-\end{enumerate}
-Here $\Omega\rr{x,v}=\cc{y\in\Omega : \forall w\neq v.\: x\rr{w}=y\rr{w}}$.
+for $\pi$ and, for each $t\in T$, let $V_t$ be the random variable denoting the choice of
+vertex $v\in V$ in the transition from $X_t$ to $X_{t+1}$. That is, for all $t\geq 0$, all $x,y\in\Omega$,
+and each choice $v\in V$, we have the transition probability
+\begin{align*}
+  \prc{X_{t+1}=y}{X_t=x, V_t=v} =
+  \begin{cases}
+    \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}} &\text{if }y\in\Omega\rr{x,v} \\
+    0 &\text{otherwise}
+  \end{cases}
+\end{align*}
 
 \begin{claim*}[1]
   Let $\rr{Y_t}_{t\geq 0}$ be a discrete time stochastic process over $\Omega$ with the
@@ -31,128 +43,129 @@ Here $\Omega\rr{x,v}=\cc{y\in\Omega : \forall w\neq v.\: x\rr{w}=y\rr{w}}$.
     \item Else, assign $y\rr{v}=1$ with probability $\lambda/\rr{1+\lambda}$ and $y\rr{v}=0$
       with probability $1/\rr{1+\lambda}$.
   \end{enumerate}
-  There exists a $\lambda>0$ such that
-  the processes $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ are equivalent.
+  For all $\lambda\in\rr{0,\infty}$, the processes $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ are equivalent.
   \begin{proof}
-    Let $x,y\in\Omega$ and $t\geq 0$. Let $x\ominus y= \rr{x\setminus y}\cup \rr{y\setminus x}$.
-    Thus we calculate
-    \begin{align*}
-      \prc{X_{t+1}=y}{X_{t}=x} =
-      \begin{cases}
-        \sum_{v\in V} \frac{1}{\abs{V}\abs{\Omega\rr{x,v}}} &\text{if }\abs{x\ominus y}=0 \\
-        \frac{1}{2\abs{V}} &\text{if } \abs{x\ominus y}=1 \\
-        0 &\text{if } \abs{x\ominus y} > 1 \\
-      \end{cases}
-    \end{align*}
-    The $\abs{x\ominus y}=0$ case follows as, for each $v\in V$, there are $\abs{\Omega\rr{x,v}}$
-    possible states to transition to but only one of them leads to the desired case.
-    In the $\abs{x\ominus y}=1$ the transition requires precisely one vertex $v\in V$ to be selected,
-    such that $y\in\Omega\rr{x,v}$. After this has occurred, we note that there are
-    $\abs{\Omega\rr{x,v}}=2$ further choices of which precisely one leads to success.
-    Finally, if $\abs{x\ominus y} > 1$ then $y\not\in\Omega\rr{x,v}$ for any $v\in V$
-    so the transition is impossible.
+    For all $t$, let $V'_t$ be the random variable denoting the choice of vertex $v\in V$ in the
+    transition from $Y_t$ to $Y_{t+1}$.
+    Let $t\in T$, $x,y\in\Omega$ and $x\ominus y=\rr{x\setminus y}\cup\rr{y\setminus x}$
+    denote the symmetric difference.
 
-    We clearly have
+    Consider the case $\abs{x\ominus y}>1$. We clearly have
     \begin{align*}
       \prc{Y_{t+1}=y}{Y_t=x, \abs{x\ominus y}>1} = \prc{X_{t+1}=y}{X_t=x, \abs{x\ominus y}>1} = 0
     \end{align*}
-    as each update only affects at most one vertex. This is independent of the choice of $\lambda$.
+    as each update only affects at most one vertex.
 
-    Further, we break the case $\abs{x\ominus y}=1$
-    into $x\subset y$ and $x\supset y$. We then find
+    Consider the case $\vv{x\ominus y}=1$. We have to differentiate between the cases
+    $x\subset y$ and $x\supset y$. Let $v\in V$ and assume $x\cup\cc{v}=y$. We find the probabilities
     \begin{align*}
-      \prc{Y_{t+1}=y}{Y_t=x, x\subset y} = \frac{1}{\abs{V}} \frac{\lambda}{1+\lambda}
+      \prc{Y_{t+1}=y}{Y_t=x, V_t=v} = \frac{\lambda}{1+\lambda}.
+    \end{align*}
+    Moreover,
+    \begin{align*}
+      \prc{X_{t+1}=y}{X_t=x, V_t=v}
+      = \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}}
+      = \frac{\lambda^{\vv{y}}}{\lambda^{\vv{x}}+\lambda^{\vv{y}}}
+      = \frac{\lambda\lambda^{\vv{x}}}{\lambda^{\vv{x}}\rr{1+\lambda}}
+      = \frac{\lambda}{1+\lambda}
     \end{align*}
     and
     \begin{align*}
-      \prc{Y_{t+1}=y}{Y_t=x, x\supset y} = \frac{1}{\abs{V}} \frac{1}{1+\lambda}.
+      \prc{X_{t+1}=y}{X_t=x, V_t\neq v} = 0
     \end{align*}
-    For equivalence of $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ we now require
+    Thus
     \begin{align*}
-      \prc{Y_{t+1}=y}{Y_t=x, x\subset y} = \prc{Y_{t+1}=y}{Y_t=x, x\supset y},
+      \prc{X_{t+1}=y}{X_t=x} &= \sum_{v\in V} \pr{V_t=v}\prc{X_{t+1}=y}{X_t=x, V_t= v} \\
+                             &= \frac{1}{\vv{V}} \frac{\lambda}{1+\lambda} \\
+                             &= \sum_{v\in V} \pr{V'_t=v}\prc{Y_{t+1}=y}{Y_t=x, V'_t= v} \\
+                             &=\prc{Y_{t+1}=y}{Y_t=x}
     \end{align*}
-    i.e.
+    Analogously, we assume $x=y\cup\cc{v}$. Then
     \begin{align*}
-      \frac{1}{\abs{V}} \frac{\lambda}{1+\lambda} = \frac{1}{\abs{V}} \frac{1}{1+\lambda}.
+      \prc{Y_{t+1}=y}{Y_t=x, V_t=v} = \frac{1}{1+\lambda},
     \end{align*}
-    Thus we choose $\lambda = 1$. Note that this leads to
+    and
     \begin{align*}
-      \prc{Y_{t+1}=y}{Y_t=x, x\subset y} = \prc{Y_{t+1}=y}{Y_t=x, x\supset y}=\prc{X_{t+1}=y}{X_t=x, \abs{x\ominus y}=1}.
+      \prc{X_{t+1}=y}{X_t=x, V_t=v}
+      = \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}}
+      = \frac{\lambda^{\vv{y}}}{\lambda^{\vv{x}}+\lambda^{\vv{y}}}
+      = \frac{\lambda^{\vv{y}}}{\lambda^{\vv{y}}\rr{\lambda+1}}
+      = \frac{1}{1+\lambda}.
+    \end{align*}
+    Thus
+    \begin{align*}
+      \prc{X_{t+1}=y}{X_t=x} &= \sum_{v\in V} \pr{V_t=v}\prc{X_{t+1}=y}{X_t=x, V_t= v} \\
+                             &= \frac{1}{\vv{V}} \frac{1}{1+\lambda} \\
+                             &= \sum_{v\in V} \pr{V'_t=v}\prc{Y_{t+1}=y}{Y_t=x, V'_t= v} \\
+                             &=\prc{Y_{t+1}=y}{Y_t=x}
     \end{align*}
 
-    It remains to show
-    \begin{align}
-      \label{eq:equal-case}
-      \prc{X_{t+1}=y}{X_t=x, x=y}= \prc{Y_{t+1}=y}{Y_t=x, x=y}.
-    \end{align}
-    We obtain
+    We consider the remaining case $x=y$. We do this by differentiating three cases.
+    Consider the case where the vertex selected already is in the independent set:
     \begin{align*}
-      \prc{Y_{t+1}=y}{Y_t=x, x=y}
-      &= \frac{1}{\abs{V}} \rr{\sum_{v\in x} \frac{\lambda}{\rr{\lambda + 1}} + \sum_{v\in N\rr{x}} 1 + \sum_{v\in V\setminus\rr{x\cup N\rr{v}}} \frac{1}{\lambda+1}} \\
-      &= \frac{1}{\abs{V}} \rr{\frac{\abs{x}\lambda}{\lambda + 1} + \abs{N\rr{x}} + \frac{\abs{V}-\abs{x}-\abs{N\rr{x}}}{\lambda + 1}} \\
-      &= \frac{1}{\abs{V}} \rr{\abs{N\rr{x}} + \frac{\abs{V}-\abs{N\rr{x}}}{2}}
+      \prc{X_{t+1}=y}{X_t=x, V_t\in X_t}
+      = \sum_{v\in x} \pr{V_t=v} \prc{X_{t+1}=y}{X_t=x, V_t=v}
+      = \frac{1}{\vv{x}}\sum_{v\in x} \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}}.
     \end{align*}
-    where $N\rr{x}=\cc{v \in V : \exists u\in x. \: v\in N\rr{u}}$. This may be derived as follows:
-    In the case where $v\in x$ the condition in (3.) fails and we require $y\rr{v}=1$ so we have
-    a probability of success $\lambda/\rr{1+\lambda}$. In the case where $v\in N\rr{x}$ (note $x$
-    is an independent set so $x\cap N\rr{x}=\emptyset$) the condition in the third step will
-    always hold, leading to a guaranteed success. Finally, if $v\not\in x$ and $v\not\in N\rr{x}$
-    then we require $y\rr{v}=0$ so the probability is $1/\rr{\lambda + 1}$.
+    We then observe, for $v\in x$, $\Omega\rr{x,v}=\cc{x,x\setminus\cc{v}}$. Thus
+    \begin{align*}
+      \prc{X_{t+1}=y}{X_t=x, V_t\in X_t} &= \frac{1}{\vv{x}}\sum_{v\in x} \frac{\lambda^{\vv{x}}}{\lambda^{\vv{x}}+\lambda^{\vv{x}-1}} \\
+                                         &= \frac{1}{\vv{x}}\sum_{v\in x} \frac{\lambda}{\lambda+1} \\
+                                         &= \frac{\lambda}{1+\lambda}  \\
+                                         &= \prc{Y_{t+1}=y}{Y_t=x, V'_t\in Y_t}
+    \end{align*}
+    where the probability for $Y_{t+1}$ follows as the condition in step 3 always fails and we require $y\rr{v}=1$.
 
-    Now (\ref{eq:equal-case}) is equivalent to
-    \begin{align}
-      \label{eq:explicit-equal-case}
-      \sum_{v\in V} \frac{1}{\abs{V}\abs{\Omega\rr{x,v}}} = \frac{1}{\abs{V}} \rr{\abs{N\rr{x}} + \frac{\abs{V}-\abs{N\rr{x}}}{2}}.
-    \end{align}
-    We now observe
+    Next, we consider the case where the vertex selected is a neighbour of the independent set.
+    We find
     \begin{align*}
-      \abs{\Omega\rr{x,v}} =
-      \begin{cases}
-        1 & \text{if } v\in N\rr{x} \\
-        2 & \text{otherwise}
-      \end{cases}
+      \prc{X_{t+1}=y}{X_t=x, V_t\in N\rr{X_t}} = 0 = \prc{Y_{t+1}=y}{Y_t=x, V'_t\in N\rr{Y_t}}.
     \end{align*}
-    I.e.
+
+    Finally, we have the case where the vertex selected is neither in the independent set
+    nor a neighbour. Then
     \begin{align*}
-      \sum_{v\in V} \frac{1}{\abs{\Omega\rr{x,v}}} = \sum_{v\in N\rr{x}} 1 + \sum_{v\in V\setminus N\rr{x}} \frac{1}{2} =  \abs{N\rr{x}} + \frac{\abs{V}-\abs{N\rr{x}}}{2}
+      \prc{X_{t+1}=y}{X_t=x, V_t\not\in N\rr{X_t}\cup \cc{X_t}}
+      &= \frac{1}{\vv{V}-\vv{N\rr{v}}-1}\sum_{v\in V\setminus N\rr{x}\setminus\cc{x}} \prc{X_{t+1}=y}{X_t=x, V_t=v} \\
+      &= \frac{1}{\vv{V}-\vv{N\rr{v}}-1}\sum_{v\in V\setminus N\rr{x}\setminus\cc{x}} \frac{\pi\cc{x}}{\pi\rr{\Omega\rr{x,v}}}.
     \end{align*}
-    which proves (\ref{eq:explicit-equal-case}) and thus (\ref{eq:equal-case}).
+    We again note that $x\cup\cc{v}$ is an independent set so $\Omega\rr{x,v}=\cc{x,x\cup\cc{v}}$. So
+    \begin{align*}
+      \prc{X_{t+1}=y}{X_t=x, V_t\not\in N\rr{X_t}\cup \cc{X_t}}
+      &= \frac{1}{\vv{V}-\vv{N\rr{v}}-1}\sum_{v\in V\setminus N\rr{x}\setminus\cc{x}} \frac{\lambda^{\vv{x}}}{\lambda^{\vv{x}}+\lambda^{\vv{x}+1}} \\
+      &= \frac{\lambda}{1+\lambda} \\
+      &= \prc{Y_{t+1}=y}{Y_t=x, V'_t\not\in N\rr{Y_t}\cup \cc{Y_t}}
+    \end{align*}
+    where the probability for $Y_{t+1}$ follows as the condition in step 3 always fails and we require $y\rr{v}=0$.
+
+    We have shown equality of probabilities exhaustively for all cases. Thus $X_t$ and $Y_t$ are
+    equivalent.
   \end{proof}
 \end{claim*}
-
-Let $\pi:\mathcal P\rr{V}\to\bb{0,1}$ be the probability distribution defined by
-\begin{align*}
-  \pi\rr{x}=
-  \begin{cases}
-    \frac{\lambda^{\abs{x}}}{Z\rr{\lambda}} &\text{if }\forall \cc{v,w}\in E.\:x\rr{v}x\rr{w}=0 \\
-    0 &\text{otherwise}
-  \end{cases}
-\end{align*}
-where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
-
 
 
 \begin{claim*}[2]
   $\pi$ satisfies the detailed balance condition for $\rr{X_t}$.
-  I.e. for all $x,y\in\Omega$,
+  I.e. for all $x,y\in\Omega$ and $t\geq 0$,
   \begin{align*}
-    \pi\rr{x}P\rr{x,y}=\pi\rr{y}P\rr{y,x}.
+    \pi\cc{x}\prc{X_{t+1}=y}{X_t=x}=\pi\cc{y}\prc{X_{t+1}=x}{X_t=y}.
   \end{align*}
   \begin{proof}
-    For all $t$ and $x,y\in\Omega$, write
+    For all $t\geq 0$ and $x,y\in\Omega$, write
     \begin{align*}
       P\rr{x,y}=\prc{X_{t+1}=y}{X_t=x}.
     \end{align*}
-
     Let $x,y\in\Omega$. If $x=y$ then the claim is immediate. If $\abs{x\ominus y}>1$ then
     \begin{align*}
       P\rr{x,y}=P\rr{y,x}=0.
     \end{align*}
-    Finally, consider the case $\abs{x\ominus y}=1$. Note $\lambda=1$. Thus
+    Finally, consider the remaining case $\abs{x\ominus y}=1$. Without loss of generality, assume $x=y\cup\cc{v}$. Then
     \begin{align*}
-      \pi\rr{x}P\rr{x,y}=\rr{\frac{1^{\abs{x}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
-      =\rr{\frac{1^{\abs{y}}}{\sum_{z\in\Omega} 1^{\abs{z}}}}\rr{\frac{1}{2\abs{V}}}
-      =\pi\rr{y}P\rr{y,x}.
+      \pi\cc{x}P\rr{x,y}
+      &={\frac{\lambda^{\abs{x}}}{Z\rr{\lambda}}}{\frac{1}{\abs{V}\rr{1+\lambda}}} \\
+      &={\frac{\lambda^{\abs{x}-1}}{Z\rr{\lambda}}}{\frac{\lambda}{\abs{V}\rr{1+\lambda}}} \\
+      &={\frac{\lambda^{\abs{y}}}{Z\rr{\lambda}}}{\frac{\lambda}{\abs{V}\rr{1+\lambda}}} \\
+      &=\pi\cc{y}P\rr{y,x}.
     \end{align*}
   \end{proof}
 \end{claim*}
@@ -163,7 +176,7 @@ from a state $\rr{x,y}$ to a state $\rr{x',y'}$:
 \begin{enumerate}
   \item An element $v\in V$ is chosen uniformly at random.
   \item For all $w\neq v$, $x'\rr{w}=x\rr{w}$ and $y'\rr{w}=y\rr{w}$.
-  \item A bit $c\in\cc{0,1}$ is chosen uniformly at random.
+  \item Let $c=1$ with probability $\lambda/\rr{\lambda+1}$ and $c=0$ otherwise.
   \item If there is a $w\in N\rr{v}$ such that $x\rr{w}=1$ then $x'\rr{v}=0$.
   \item Else, assign $x'\rr{v}=c$.
   \item If there is a $w\in N\rr{v}$ such that $y\rr{w}=1$ then $y'\rr{v}=0$.
@@ -171,8 +184,7 @@ from a state $\rr{x,y}$ to a state $\rr{x',y'}$:
 \end{enumerate}
 It is straightforward to see that this is a valid coupling, i.e. $\rr{X_t}$ and $\rr{Y_t}$
 follow the correct distribution locally. For each $t$, let $W_t$ be the random variable
-corresponding to the vertex selected in the transition from $Z_t$ to $Z_{t+1}$ and let
-$C_t$ be random variable corresponding to the value of $c$ in that transition.
+corresponding to the vertex selected in the transition from $Z_t$ to $Z_{t+1}$.
 
 Moreover, for independent sets $x,y\in\Omega$, define their distance by
 \begin{align*}
@@ -233,16 +245,29 @@ We immediately note $\rho\rr{x,y}=\abs{x\ominus y}$.
 
     Consider the case $v\in x$ and $v\not\in y$. Then the check in step 4 of the update
     will succeed so $x'\rr{w}=0$. The case $y'\rr{w}=1$ occurs only if the check in step
-    6 fails and we sample $c=1$. I.e., for all $v\in V$,
+    6 fails and we sample $c=1$. Noting that $c$ is sampled independently we have, for all $v\in V$,
     \begin{align*}
-      &\prc{Y_{t+1}=1}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
-      &= \prc{C_t=1\cap\rr{\exists w\in N\rr{v}. \: y\rr{w}=1}}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}
+      &\prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
+      &= \frac{\lambda}{1+\lambda}\prc{\rr{\exists w\in N\rr{W_t}. \: Y_t\rr{w}=1}}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}} \\
+      &\leq \frac{\lambda}{1+\lambda}.
     \end{align*}
-    We note independence of the events on the left so, for all $v\in V$,
+    In order to achieve the strict bound we argue that, for all $v\in V$, there exist values
+    of $x,y\in\Omega$ and $w\in N\rr{v}$ with $x\neq y$ and $x=y\cup\cc{v}$ such that
     \begin{align*}
-      &\prc{Y_{t+1}=1}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
-      &=\pr{C_t=1}\prc{\exists w\in N\rr{v}. \: y\rr{w}=1}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
-      &\leq\pr{C_t=1} = 1/2.
+      \prc{\rr{\exists w\in N\rr{W_t}. \: Y_t\rr{w}=2}}{X_t=x,Y_t=y,W_t=w} = 0.
+    \end{align*}
+    Let $y=\emptyset$, $x=\cc{v}$, and $w\in N\rr{v}$. (Note if $N\rr{v}$ is non-empty by assumption.)
+    Now
+    \begin{align*}
+      \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
+    \end{align*}
+    By symmetry, we obtain the same result for the case $v\not\in x$ and $v\in y$:
+    \begin{align*}
+      \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t\cup\cc{v}=Y_t,W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
+    \end{align*}
+    Thus, in general,
+    \begin{align*}
+      \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t,W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
     \end{align*}
   \end{proof}
 \end{claim*}
