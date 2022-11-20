@@ -11,27 +11,15 @@ be the set of independent sets on $G$, and let $\e:\P\rr{V}\to \cc{0,1}^V$ be th
 between subsets of $V$ and corresponding binary encodings, i.e. $\e\rr{x}\rr{v}=1$ iff $v\in x$.
 We abuse notation and write $x\rr{v}=\e\rr{x}\rr{v}$.
 
-Now fix $\lambda\in\rr{0,\infty}$ and let $\pi:\mathcal P\rr{V}\to\bb{0,1}$ be the probability distribution defined by
-\begin{align*}
-  \pi\cc{x}=
-  \begin{cases}
-    \frac{\lambda^{\abs{x}}}{Z\rr{\lambda}} &\text{if }\forall \cc{v,w}\in E.\:x\rr{v}x\rr{w}=0 \\
-    0 &\text{otherwise}
-  \end{cases}
-\end{align*}
-where $Z\rr{\lambda}=\sum_{x\in\cc{0,1}^V} \lambda^{\abs{x}}$.
 
 Let $\rr{X_t}_{t\geq 0}$ be the discrete time stochastic process associated with the Glauber dynamics
-for $\pi$ and, for each $t\in T$, let $V_t$ be the random variable denoting the choice of
-vertex $v\in V$ in the transition from $X_t$ to $X_{t+1}$. That is, for all $t\geq 0$, all $x,y\in\Omega$,
-and each choice $v\in V$, we have the transition probability
-\begin{align*}
-  \prc{X_{t+1}=y}{X_t=x, V_t=v} =
-  \begin{cases}
-    \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}} &\text{if }y\in\Omega\rr{x,v} \\
-    0 &\text{otherwise}
-  \end{cases}
-\end{align*}
+update. That is, for all $t\geq 0$, $X_t$ takes values in $\Omega$ and an update is
+performed in two steps from a state $X_t=x$:
+\begin{enumerate}
+  \item An element $v\in V$ is chosen uniformly at random.
+  \item A new state $y\in\Omega\rr{x,v}$ is chosen uniformly at random.
+\end{enumerate}
+Here $\Omega\rr{x,v}=\cc{y\in\Omega : \forall w\neq v.\: x\rr{w}=y\rr{w}}$.
 
 \begin{claim*}[1]
   Let $\rr{Y_t}_{t\geq 0}$ be a discrete time stochastic process over $\Omega$ with the
@@ -43,40 +31,52 @@ and each choice $v\in V$, we have the transition probability
     \item Else, assign $y\rr{v}=1$ with probability $\lambda/\rr{1+\lambda}$ and $y\rr{v}=0$
       with probability $1/\rr{1+\lambda}$.
   \end{enumerate}
-  For all $\lambda\in\rr{0,\infty}$, the processes $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ are equivalent.
+  There exists a $\lambda>0$ such that
+  the processes $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ are equivalent.
   \begin{proof}
-    For all $t$, let $V'_t$ be the random variable denoting the choice of vertex $v\in V$ in the
-    transition from $Y_t$ to $Y_{t+1}$.
-    Let $t\in T$, $x,y\in\Omega$ and $x\ominus y=\rr{x\setminus y}\cup\rr{y\setminus x}$
-    denote the symmetric difference.
+    Let $x,y\in\Omega$ and $t\geq 0$. Let $x\ominus y= \rr{x\setminus y}\cup \rr{y\setminus x}$.
+    Thus we calculate
+    \begin{align*}
+      \prc{X_{t+1}=y}{X_{t}=x} =
+      \begin{cases}
+        \sum_{v\in V} \frac{1}{\abs{V}\abs{\Omega\rr{x,v}}} &\text{if }\abs{x\ominus y}=0 \\
+        \frac{1}{2\abs{V}} &\text{if } \abs{x\ominus y}=1 \\
+        0 &\text{if } \abs{x\ominus y} > 1 \\
+      \end{cases}
+    \end{align*}
+    The $\abs{x\ominus y}=0$ case follows as, for each $v\in V$, there are $\abs{\Omega\rr{x,v}}$
+    possible states to transition to but only one of them leads to the desired case.
+    In the $\abs{x\ominus y}=1$ the transition requires precisely one vertex $v\in V$ to be selected,
+    such that $y\in\Omega\rr{x,v}$. After this has occurred, we note that there are
+    $\abs{\Omega\rr{x,v}}=2$ further choices of which precisely one leads to success.
+    Finally, if $\abs{x\ominus y} > 1$ then $y\not\in\Omega\rr{x,v}$ for any $v\in V$
+    so the transition is impossible.
 
-    Consider the case $\abs{x\ominus y}>1$. We clearly have
+    We clearly have
     \begin{align*}
       \prc{Y_{t+1}=y}{Y_t=x, \abs{x\ominus y}>1} = \prc{X_{t+1}=y}{X_t=x, \abs{x\ominus y}>1} = 0
     \end{align*}
-    as each update only affects at most one vertex.
+    as each update only affects at most one vertex. This is independent of the choice of $\lambda$.
 
-    Consider the case $\vv{x\ominus y}=1$. We have to differentiate between the cases
-    $x\subset y$ and $x\supset y$. Let $v\in V$ and assume $x\cup\cc{v}=y$. We find the probabilities
+    Further, we break the case $\abs{x\ominus y}=1$
+    into $x\subset y$ and $x\supset y$. We then find
     \begin{align*}
-      \prc{Y_{t+1}=y}{Y_t=x, V_t=v} = \frac{\lambda}{1+\lambda}.
-    \end{align*}
-    Moreover,
-    \begin{align*}
-      \prc{X_{t+1}=y}{X_t=x, V_t=v}
-      = \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}}
-      = \frac{\lambda^{\vv{y}}}{\lambda^{\vv{x}}+\lambda^{\vv{y}}}
-      = \frac{\lambda\lambda^{\vv{x}}}{\lambda^{\vv{x}}\rr{1+\lambda}}
-      = \frac{\lambda}{1+\lambda}
+      \prc{Y_{t+1}=y}{Y_t=x, x\subset y} = \frac{1}{\abs{V}} \frac{\lambda}{1+\lambda}
     \end{align*}
     and
     \begin{align*}
-      \prc{X_{t+1}=y}{X_t=x, V_t\neq v} = 0
+      \prc{Y_{t+1}=y}{Y_t=x, x\supset y} = \frac{1}{\abs{V}} \frac{1}{1+\lambda}.
     \end{align*}
-    Thus
+    For equivalence of $\rr{X_t}_{t\geq 0}$ and $\rr{Y_t}_{t\geq 0}$ we now require
     \begin{align*}
-      \prc{X_{t+1}=y}{X_t=x} &= \sum_{v\in V} \pr{V_t=v}\prc{X_{t+1}=y}{X_t=x, V_t= v} \\
-                             &= \frac{1}{\vv{V}} \frac{\lambda}{1+\lambda} \\
+      \prc{Y_{t+1}=y}{Y_t=x, x\subset y} = \prc{Y_{t+1}=y}{Y_t=x, x\supset y},
+    \end{align*}
+    i.e.
+    \begin{align*}
+      \frac{1}{\abs{V}} \frac{\lambda}{1+\lambda} = \frac{1}{\abs{V}} \frac{1}{1+\lambda}.
+    \end{align*}
+    Thus we choose $\lambda = 1$. Note that this leads to
+    \begin{align*}
                              &= \sum_{v\in V} \pr{V'_t=v}\prc{Y_{t+1}=y}{Y_t=x, V'_t= v} \\
                              &=\prc{Y_{t+1}=y}{Y_t=x}
     \end{align*}
@@ -232,7 +232,7 @@ We immediately note $\rho\rr{x,y}=\abs{x\ominus y}$.
 \begin{claim*}[3c]
   For all $v\in V$,
   \begin{align*}
-    \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\ominus Y_t=\cc{v},W_t\in N\rr{v}}<1/2.
+    \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\ominus Y_t=\cc{v},W_t\in N\rr{v}}<\lambda/\rr{1+\lambda}.
   \end{align*}
   \begin{proof}
     Let $v,w\in V$ and let $x,x',y,y'\in\Omega$ such that $x\ominus y=\cc{v}$,
@@ -247,16 +247,16 @@ We immediately note $\rho\rr{x,y}=\abs{x\ominus y}$.
     will succeed so $x'\rr{w}=0$. The case $y'\rr{w}=1$ occurs only if the check in step
     6 fails and we sample $c=1$. Noting that $c$ is sampled independently we have, for all $v\in V$,
     \begin{align*}
-      &\prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
-      &= \frac{\lambda}{1+\lambda}\prc{\rr{\exists w\in N\rr{W_t}. \: Y_t\rr{w}=1}}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}} \\
-      &\leq \frac{\lambda}{1+\lambda}.
+       &\prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}}\\
+       &= \frac{\lambda}{1+\lambda}\prc{\rr{\exists w\in N\rr{W_t}. \: Y_t\rr{w}=1}}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}} \\
+       &\leq \frac{\lambda}{1+\lambda}.
     \end{align*}
     In order to achieve the strict bound we argue that, for all $v\in V$, there exist values
     of $x,y\in\Omega$ and $w\in N\rr{v}$ with $x\neq y$ and $x=y\cup\cc{v}$ such that
     \begin{align*}
       \prc{\rr{\exists w\in N\rr{W_t}. \: Y_t\rr{w}=2}}{X_t=x,Y_t=y,W_t=w} = 0.
     \end{align*}
-    Let $y=\emptyset$, $x=\cc{v}$, and $w\in N\rr{v}$. (Note if $N\rr{v}$ is non-empty by assumption.)
+    Let $y=\emptyset$, $x=\cc{v}$, and $w\in N\rr{v}$. (Note $N\rr{v}$ is non-empty by assumption.)
     Now
     \begin{align*}
       \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t=Y_t\cup\cc{v},W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
@@ -265,10 +265,46 @@ We immediately note $\rho\rr{x,y}=\abs{x\ominus y}$.
     \begin{align*}
       \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t, X_t\cup\cc{v}=Y_t,W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
     \end{align*}
-    Thus, in general,
+    Thus, for all $v\in V$,
     \begin{align*}
-      \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\neq Y_t,W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
+      \prc{\rho\rr{X_{t+1},Y_{t+1}}=2}{X_t\ominus Y_t=\cc{v},W_t\in N\rr{v}} < \frac{\lambda}{1+\lambda}.
     \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[4]
+  Let $0<r<1$ and assume $\Delta \leq r\rr{1+\lambda}/\lambda$. Then
+  \begin{align*}
+    \exc{\rho\rr{X_{t+1},Y_{t+1}}}{\rho\rr{X_t,Y_t}=1} < 1 - \frac{1-r}{\vv{V}}
+  \end{align*}
+  \begin{proof}
+    By definition,
+    \begin{align*}
+      \exc{\rho\rr{X_{t+1},Y_{t+1}}}{\rho\rr{X_t,Y_t}=1} = \sum_{d=1}^{2} d\prc{\rho\rr{X_{t+1},Y_{t+1}}=d}{\rho\rr{X_t,Y_t}=1}.
+    \end{align*}
+    By previous considerations we have, for all $v\in V$,
+    \begin{align*}
+      \exc{\rho\rr{X_{t+1},Y_{t+1}}}{X_t\ominus Y_t=\cc{v}}
+      &< \frac{\vv{V}-\vv{N\rr{v}}-1}{\vv{V}}
+      + \frac{\vv{N\rr{v}}}{\vv{V}}\frac{1}{1+\lambda}
+      + 2\times\frac{\vv{N\rr{v}}}{\vv{V}} \frac{\lambda}{1+\lambda}.
+    \end{align*}
+    Here the first summand is the case $W_t\not\in N\rr{v}\cup \cc{v}$ and the second and third summand are
+    due to the case $W_t\in N\rr{v}$. We simplify:
+    \begin{align*}
+      \exc{\rho\rr{X_{t+1},Y_{t+1}}}{X_t\ominus Y_t=\cc{v}}
+      &< 1 - \frac{\rr{1+\lambda}\vv{N\rr{v}}+\lambda + 1 - \vv{N\rr{v}}-2\lambda \vv{N\rr{v}}}{\vv{V}\rr{1+\lambda}}\\
+      &= 1 - \frac{1+\lambda -\lambda \vv{N\rr{v}}}{\vv{V}\rr{1+\lambda}}.
+    \end{align*}
+    Now, by definition of $\Delta$,
+    \begin{align*}
+      \exc{\rho\rr{X_{t+1},Y_{t+1}}}{\rho\rr{X_t,Y_t}=1} < 1 - \frac{1+\lambda - \lambda\Delta}{\vv{V}\rr{1+\lambda}}.
+    \end{align*}
+    Assume $\Delta\leq r\rr{1+\lambda}/\lambda$. Then
+    \begin{align*}
+      \exc{\rho\rr{X_{t+1},Y_{t+1}}}{\rho\rr{X_t,Y_t}=1} < 1 - \frac{1-r}{\vv{V}},
+    \end{align*}
+    as required.
   \end{proof}
 \end{claim*}
 
