@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+\mkanonthms
+\begin{document}
+\title{General Topology: Assignment 8}
+\author{Franz Miltz (UUN: S1971811)}
+\date{24 November 2022}
+\maketitle
+
+\begin{claim*}[1]
+  Let $f:T^\omega\to\R$ be a continuous map. Then there exist points $x,y\in T^\omega$ such that
+  \begin{enumerate}
+    \item for every $z\in T^\omega$, one has $f\rr{x}\leq z\leq f\rr{y}$, and
+    \item for every $t\in\R$ with $f\rr{x}\leq t \leq f\rr{y}$, there eixsts $z\in T^\omega$ such that
+      $t=f\rr{z}$.
+  \end{enumerate}
+  \begin{proof}
+    We note that each $S^1$ is compact so $T^\omega$ is compact. As $f$ is continuous, $f\rr{T^\omega}$
+    must be compact. In particular, $f\rr{T^\omega}$ is a subset of Euclidean space so it must be closed and bounded.
+
+    For a contradiction, assume $T^\omega$ is not connected. Then $T^\omega$ is the disjoint union
+    of non-empty opens $U,V\subseteq T^\omega$. Consider $x=\rr{x_i}_{i\in\N}\in U$ and fix $n\in\N$.
+    We note that the inclusion
+    \begin{align*}
+      i:S^1 &\to T^\omega \\
+      y     &\mapsto \rr{x_1,\ldots,x_{n-1},y,x_n,\ldots}
+    \end{align*}
+    is continuous.
+    Moreover, $S^1$ is connected so the image $i\rr{S^1}$ is connected. Thus
+    $i\rr{S^1}\subseteq U$. We have shown that any element of $T^\omega$ differing from $x$ in exactly
+    one coordinate is in $U$. It may then be shown by induction that the same holds for any
+    element of $T^\omega$ differing from $x$ in finitely many coordinates. We note that there
+    are opens $U_1,\ldots,U_n\subseteq S^1$ such that
+    \begin{align*}
+      U_1\times\cdots\times U_n\times T^\omega\subseteq U.
+    \end{align*}
+    In particular, for any $x\in V$, it is possible to find a $u\in U_1\times\cdots\times U_n\times T^\omega$
+    that differs from $x$ in only finitely many coordinates. Thus $x\in U$. Contradiction.
+    We conclude that $T^\omega$ is connected.
+
+    Continuous maps preserve connectedness so $f\rr{T^\omega}$ is connected. Thus $f\rr{T^\omega}$
+    is a closed and bounded interval and the claim follows.
+  \end{proof}
+\end{claim*}
+
+\end{document}
