@@ -46,8 +46,48 @@
 \begin{claim*}
   The solenoid $\hat S$ is compact and Hausdorff.
   \begin{proof}
+    We show that $\hat S\subseteq T^\omega$ is closed. The procedure is analogous to showing
+    that $\hat Z$ is closed.
+
+    We note that, for each $n\in\N$, the choice of $s_n$ in any $\rr{s_n}_{n\in\N}\in\hat S$
+    is only restricted by choice of $s_1,\ldots,s_{n-1}$. Thus we may consider the set of
+    choices that remain at each step.
+    Let $s=\rr{s_n}_{n\in\N}\in\hat\Z$ and $N\in\N$. Define the set
+    \begin{align*}
+      C_N\rr{s} = \cc{x \in S^1 : \forall m<N. \: \text{if $m|n$ then }s_m= x^{n/m} }\subseteq S^1.
+    \end{align*}
+    If $N$ is prime then $C_N\rr{s}=S^1$. Otherwise $C_N\rr{s}$ is finite and thus. In either
+    case $C_N\rr{s}$ is closed.
+
+    In order to show that $\hat S$ is closed we may show that its complement is open. We thus define the
+    set of sequences that have the same prefix as $s\in\hat S$ but violate the condition above
+    at some $N\in\N$:
+    \begin{align*}
+      D_N\rr{s}=\prod_{n=1}^{N-1}\cc{s_n}\times\rr{S^1\setminus C_N\rr{s}}\times T^\omega \subseteq T^\omega.
+    \end{align*}
+    This allows us to consider all the sequences that are constructed in such manner:
+    \begin{align*}
+      D = \bigcup_{N\in\N}\bigcup_{s\in\hat S} D_N\rr{s} \subseteq T^\omega.
+    \end{align*}
+    We note that $D\subseteq T^\omega$ is open. This follows as, for any $N\in\N$ and
+    $s\in\hat S$, the set $C_N\rr{s}\subseteq S^1$ is open. Now
+    $S^1\setminus C_N\rr{s}$ is open and so is $D_N\rr{s}$. Thus $D$ is a union of opens.
+
+    Now fix $s=\rr{s_n}_{n\in\N}\in T^\omega\setminus\hat S$ and
+    \begin{align*}
+      N=\min\cc{n : \text{$m|n$ and $s_m\neq s_n^{n/m}$}},
+    \end{align*}
+    i.e. $s_N$ is the first element of the sequence that violates the condition that defines $\hat S$.
+    In particular, there exists a sequence $t=\rr{t_n}_{n\in\N}\in\hat S$ such that,
+    for $n<N$, $s_n=t_n$ and $s_N\in S^1\setminus C_N\rr{t}$. Thus
+    \begin{align*}
+      s\in \prod_{n=1}^{N-1} \cc{t_n} \times \rr{T^\omega\setminus C_N\rr{t}} \times T^\omega= D_N\rr{t}\subseteq D
+    \end{align*}
+    We have shown $T^\omega\setminus\hat S\subseteq D$ so $D=T^\omega\setminus\hat S$. Now
+    $D$ is open so $\hat S$ is closed.
+
     The product of compact Hausdorff spaces $T^\omega$ is compact and Hausdorff.
-    Thus the subspace $\hat S\subseteq T^\omega$ is compact and Hausdorff.
+    Thus the closed subspace $\hat S\subseteq T^\omega$ is compact and Hausdorff.
   \end{proof}
 \end{claim*}
 
