@@ -307,38 +307,48 @@ We find
 \begin{align*}
   \abs{\rr{\av{+}\otimes \av{v_0}}\va{\psi}}^2
   &= \abs{\rr{\rr{\frac{\av{0}+\av{1}}{\sqrt{2}}}\otimes\rr{\cos\rr{\pi/8}\av{0}+\sin\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
-  &= \frac{1}{4}\abs{\rr{\cos\rr{\pi/8}\av{00} + \sin\rr{\pi/8}\av{10} + \cos\rr{\pi/8}\av{10}+\sin\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
-  &= \frac{1}{4}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2 \\
+  &= \frac{1}{4}\abs{\rr{\cos\rr{\pi/8}\av{00} + \sin\rr{\pi/8}\av{01} + \cos\rr{\pi/8}\av{10}+\sin\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+  &= \frac{1}{4}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2
 \end{align*}
-Analogously,
+Now, by evaluating $\sin\rr{\pi/8}$ and $\cos\rr{\pi/8}$ analytically, one can show that
+\begin{align*}
+  \frac{1}{4} \abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2 = 1 + \sqrt{2}/{2} = \frac{1}{2}\cos^2\rr{\pi/8},
+\end{align*}
+as required. Analogously,
 \begin{align*}
   \abs{\rr{\av{-}\otimes \av{v_1}}\va{\psi}}
   &= \abs{\rr{\rr{\frac{\av{0}-\av{1}}{\sqrt{2}}}\otimes\rr{-\sin\rr{\pi/8}\av{0}+\cos\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
-  &= \frac{1}{4}\abs{\rr{-\sin\rr{\pi/8}\av{00} + \cos\rr{\pi/8}\av{10} + \sin\rr{\pi/8}\av{10}-\cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
-  &= \frac{1}{4}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2
+  &= \frac{1}{4}\abs{\rr{-\sin\rr{\pi/8}\av{00} + \cos\rr{\pi/8}\av{01} + \sin\rr{\pi/8}\av{10}-\cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+  &= \frac{1}{4}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2 \\
+  &= \frac{1}{2}\cos^2\rr{\pi/8}.
 \end{align*}
 Thus we have
 \begin{align*}
-  \prc{\text{Win}}{X=1\cap Y=0} = \frac{1}{2}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2.
+  \prc{\text{Win}}{X=1\cap Y=0} = \cos^2\rr{\pi/8}.
 \end{align*}
 
 \paragraph{j.}
 
 We find
 \begin{align*}
-  \abs{\rr{\av{+}\otimes\av{w_0}}} &= \abs{\rr{\rr{\frac{\av{0}+\av{1}}{\sqrt{2}}}\otimes\rr{\cos\rr{\pi/8}\av{0}-\sin\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
-                                   &= \frac{1}{4} \abs{\rr{\cos\rr{\pi/8}\av{00}-\sin\rr{\pi/8}\av{01}+\cos\rr{\pi/8}\av{10}-\sin\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
-                                   &= \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
+  \abs{\rr{\av{+}\otimes\av{w_0}}\va{\psi}}^2 &= \abs{\rr{\rr{\frac{\av{0}+\av{1}}{\sqrt{2}}}\otimes\rr{\cos\rr{\pi/8}\av{0}-\sin\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+                                              &= \frac{1}{4} \abs{\rr{\cos\rr{\pi/8}\av{00}-\sin\rr{\pi/8}\av{01}+\cos\rr{\pi/8}\av{10}-\sin\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+                                              &= \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
 \end{align*}
-Analogously,
+Now, by evaluating $\sin\rr{\pi/8}$ and $\cos\rr{\pi/8}$ analytically, one can show that
 \begin{align*}
-  \abs{\rr{\av{-}\otimes\av{w_1}}} &= \abs{\rr{\rr{\frac{\av{0}-\av{1}}{\sqrt{2}}}\otimes\rr{\sin\rr{\pi/8}\av{0}+\cos\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
-                                   &= \frac{1}{4} \abs{\rr{\sin\rr{\pi/8}\av{00}+\cos\rr{\pi/8}\av{01}-\sin\rr{\pi/8}\av{10}-\cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
-                                   &= \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
+  \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2 = 1 - \sqrt{2}/{2} = \frac{1}{2}\sin^2\rr{\pi/8},
+\end{align*}
+as required. Analogously,
+\begin{align*}
+  \abs{\rr{\av{-}\otimes\av{w_1}}\va{\psi}}^2 &= \abs{\rr{\rr{\frac{\av{0}-\av{1}}{\sqrt{2}}}\otimes\rr{\sin\rr{\pi/8}\av{0}+\cos\rr{\pi/8}\av{1}}}\rr{\frac{\va{00}+\va{11}}{\sqrt{2}}}}^2 \\
+                                              &= \frac{1}{4} \abs{\rr{\sin\rr{\pi/8}\av{00}+\cos\rr{\pi/8}\av{01}-\sin\rr{\pi/8}\av{10}-\cos\rr{\pi/8}\av{11}}\rr{\va{00}+\va{11}}}^2 \\
+                                              &= \frac{1}{4} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2\\
+                                              &=\frac{1}{2}\sin^2\rr{\pi/8}.
 \end{align*}
 Thus we have
 \begin{align*}
-  \prc{\text{Win}}{X=1\cap Y=1} = \frac{1}{2} \abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2.
+  \prc{\text{Win}}{X=1\cap Y=1} = \sin^2\rr{\pi/8}.
 \end{align*}
 
 \paragraph{k.}
@@ -347,7 +357,13 @@ The cases discussed above all occur with equal probability. Moreover, we have
 \begin{align*}
   \pr{\text{Win}} &= \frac{1}{4}\prc{\text{Win}}{X=0\cap Y=0} +\frac{1}{4}\prc{\text{Win}}{X=0\cap Y=1}\\
                   &+\frac{1}{4}\prc{\text{Win}}{X=1\cap Y=0} +\frac{1}{4}\prc{\text{Win}}{X=1\cap Y=1}\\
-                  &=\frac{1}{2}\cos^2\rr{\pi/8}+\frac{1}{8}\abs{\cos\rr{\pi/8}+\sin\rr{\pi/8}}^2+\frac{1}{8}\abs{\cos\rr{\pi/8}-\sin\rr{\pi/8}}^2
+                  &=\frac{1}{4}\rr{3\cos^2\rr{\pi/8}+\sin^2\rr{\pi/8}} \\
+                  &\approx 0.677 < 0.75.
 \end{align*}
+
+Therefore, the strategy that Alice and Bob have chosen with entanglement does not perform
+better than the best deterministic strategy. However, it is worth noting that the probability
+of success is neither $1/4$ nor $3/4$. This means that the strategy using entanglement
+is not equivalent to any of the classical strategies.
 
 \end{document}
