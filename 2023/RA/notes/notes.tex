@@ -10,14 +10,58 @@
 \tableofcontents
 \pagebreak
 
-\section{Probability}
+\section{Fundamentals}
 
+\begin{lemma}
+  For all $n\geq 1$,
+  \begin{align*}
+    \rr{1-1/n}^n \leq 1/e.
+  \end{align*}
+\end{lemma}
 
-\subsection{Moments}
+\subsection{Probabilities and events}
+
+\begin{definition}
+  A probability space is a measure space $(\Omega,\Sigma,\text{Pr})$ where
+  \begin{enumerate}
+    \item for $E\in\Sigma$, $0\leq\pr{E}\leq 1$; and
+    \item $\pr{\Omega} = 1$.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  Events $\cc{E_i}_{i\in I}$ are mutually independent iff, for any subset
+  $J\subseteq I$,
+  \begin{align*}
+    \pr{\bigcap_{j\in J}E_j} = \prod_{j\in J} \pr{E_j}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  Let $E,F$ be events such that $\pr{F}>0$. The conditional probability of $E$ given $F$ is
+  \begin{align*}
+    \prc{E}{F} = \frac{\pr{E\cap F}}{\pr{F}}.
+  \end{align*}
+\end{definition}
+
+\subsection{Random variables}
+
+\begin{definition}
+  A random variable is a real-valued measurable function $X:\Omega\to\R$.
+\end{definition}
+
+\begin{definition}
+  Random variables $\cc{X_i}_{i\in I}$ are mutually independent iff, for any subset
+  $J\subseteq I$,
+  \begin{align*}
+    \pr{\bigcap_{j\in J}(X_j = x_j)} = \prod_{j\in J} \pr{X_j = x_j}
+  \end{align*}
+  for all choices of the $x_j$.
+\end{definition}
 
 \begin{definition}
   \label{def:expectation}
-  Let $X$ be a random variable. Then $X$ has finite expectation iff
+  Let $X$ be a discrete random variable. Then $X$ has finite expectation iff
   \begin{align*}
     \sum_{x} \abs{x} \pr{X=x} < \infty
   \end{align*}
@@ -26,6 +70,18 @@
     \ex{X} = \sum_{x} x \pr{X=x}.
   \end{align*}
 \end{definition}
+
+\begin{theorem}
+  For any finite collection of discrete random variables $X_1,...,X_k$
+  with finite expectation
+  \begin{align*}
+    \ex{\sum_{i=1}^{n} X_i}=\sum_{i=1}^{n} \ex{X_i}.
+  \end{align*}
+  Further, for any discrete random variable $X$ and any constant $\lambda\in\R$,
+  \begin{align*}
+    \ex{\lambda X}=\lambda\ex{X}.
+  \end{align*}
+\end{theorem}
 
 \begin{definition}
   \label{def:moment}
@@ -165,7 +221,16 @@
   The harmonic number $H\rr{n}=\sum_{i=1}^{n} 1/i$ staisfies $H\rr{n}=\ln n+\Theta\rr{1}$.
 \end{lemma}
 
-\subsection{Inequalities}
+\section{Inequalities}
+
+\subsection{Basics}
+
+\begin{lemma}[Union bound]
+  For any countable family of events $\cc{E_i}_{i\in I}$,
+  \begin{align*}
+    \pr{\bigcup_{i\in I} E_i} \leq \sum_{i\in I} \pr{E_i}.
+  \end{align*}
+\end{lemma}
 
 \begin{definition}
   \label{def:convex}
@@ -198,6 +263,15 @@
     \pr{\abs{X-\ex{X}}\geq t\ex{X}}\leq \frac{\var{X}}{t^2\rr{\ex{X}}^2}.
   \end{align*}
 \end{corollary}
+
+\begin{lemma}[Stirling]
+  For $m>0$,
+  \begin{align*}
+    \sqrt{2\pi m}\rr{\frac{m}{e}}^m \leq m! \leq 2\sqrt{2\pi m}\rr{\frac{m}{e}}^m.
+  \end{align*}
+\end{lemma}
+
+\subsection{Chernoff and Hoeffding}
 
 \begin{theorem}[Chernoff bounds]
   Let $X_1,...,X_n$ be independent Poisson trials such that $\pr{X_i=1}=p_i$.
@@ -277,33 +351,6 @@
   \end{align*}
 \end{theorem}
 
-\subsection{Balls into bins}
-
-\begin{lemma}
-  Let $n$ balls be thrown independently and uniformly at random into $n$ bins. Then, for sufficiently
-  large $n$, the maximum load is bounded above by
-  \begin{align*}
-    \frac{3\ln{n}}{\ln^2{n}}
-  \end{align*}
-  with probability at least $1-1/n$.
-\end{lemma}
-
-\begin{lemma}
-  Let $n$ balls be thrown sequentially into $n$ bins. For each ball, generate two choices of bins
-  and assign it to the bin with the lower load. Then the maximum load is
-  \begin{align*}
-    \frac{\ln^2 n}{\ln 2}+O\rr{1}
-  \end{align*}
-  with probability $1-o\rr{1/n}$.
-\end{lemma}
-
-\subsection{Probabilistic method}
-
-\begin{theorem}[Ramsay]
-  For any positive integer $k$, there is a positive integer $n$ such that any undirected
-  graph with at least $n$ vertices has a $k$-clique or a $k$-independent-set.
-\end{theorem}
-
 \begin{definition}
   A random graph $G=\rr{V,E}$ sampled from $G_{n,p}$ is obtained as follows:
   \begin{itemize}
@@ -313,13 +360,15 @@
   \end{itemize}
 \end{definition}
 
+\subsection{Lovasz local lemma}
+
 \begin{definition}
   A dependency graph for a set of events $E_1,...,E_n$ is a directed graph $G=\rr{V,E}$
   such that $V=\cc{1,...,n}$ and for each $i=1,...,n$ the event $E_i$ is mutually
   independent of all events $E\setminus N\rr{i}$.
 \end{definition}
 
-\begin{theorem}[Locasz Local Lemma]
+\begin{theorem}[Lovasz Local Lemma]
   Let $E_1,..,E_n$ be a set of events. Suppose that for some $p\in \rr{0,1}$ and some
   $d\in\N$ the following hold:
   \begin{enumerate}
@@ -333,16 +382,264 @@
   \end{align*}
 \end{theorem}
 
-\subsection{Markov chains}
+\section{Markov chains}
+
+\subsection{Chains and states}
 
 \begin{definition}
-  A discrete time stochastic process $X_0,X_1,X_2,...$ is a Markov chain when
+  A discrete time stochastic process $\rr{X_t}_{t\geq 0}$ is a Markov chain when
   \begin{align*}
     \prc{X_t=a_t}{X_{t-1}=a_{t-1},X_{t-2}=a_{t-2},\ldots,X_0=a_0}.
   \end{align*}
 \end{definition}
 
-\subsection{Coupling Markov chains}
+\begin{definition}
+  Let $\rr{X_t}_{t\geq 0}$ be a Markov chain and let $i,j\in\im\rr{X_t}$ be states.
+  Then $j$ is accessible from state $i$ if, for some $n\geq 0$,
+  \begin{align*}
+    \prc{X_{t+n}=j}{X_t=i} > 0.
+  \end{align*}
+  If two states are accessible from each other, we say that they communicate and write
+  $i\leftrightarrow j$.
+\end{definition}
+
+\begin{lemma}
+  The relation $\leftrightarrow$ on the set of states of a Markov chain is an equivalence
+  relation.
+\end{lemma}
+
+\begin{definition}[Irreducible]
+  Let $\rr{X_t}_{t\geq 0}$ be a Markov chain with states $S$. Then it is
+  irreducible iff $\vv{S/\leftrightarrow}=1$.
+\end{definition}
+
+\begin{lemma}
+  A finite Markov chain is irreducible iff its graph representation is a strongly
+  connected graph.
+\end{lemma}
+
+\begin{definition}
+  Let $\rr{X_t}_{t\geq 0}$ be a Markov chain with states $S$. For $i,j\in S$ and $t\geq 0$,
+  denote the probability of reaching $j$ when starting in $i$ at time $t$ by
+  \begin{align*}
+    r_t\rr{i,j}=\prc{(X_t = j)\cap\rr{\bigcap_{0\leq s<t} X_s \neq j}}{X_0 = i}.
+  \end{align*}
+  A state $i\in S$ is called recurrent if
+  \begin{align*}
+    \sum_{t\geq 1} r^t\rr{i,i} = 1
+  \end{align*}
+  and it is transient if
+  \begin{align*}
+    \sum_{t\geq 1} r^t\rr{i,i} < 1.
+  \end{align*}
+  A chain is recurrent if every state is recurrent.
+\end{definition}
+
+\begin{definition}
+  Let $\rr{X_t}_{t\geq 0}$ be a Markov chain with states $S$. For $i\in S$, denote
+  the expected time to return to state $j$ when starting at $i$ by
+  \begin{align*}
+    h\rr{i,j}=\sum_{t\geq 1} tr^t\rr{i,j}.
+  \end{align*}
+  A recurrent state $i$ is positive recurrent if $h\rr{i}<\infty$. Otherwise, it is
+  null recurrent.
+\end{definition}
+
+\begin{lemma}
+  In a finite Markov chain
+  \begin{enumerate}
+    \item at least one state is recurrent; and
+    \item all recurrent states are positive recurrent.
+  \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+  A state $i$ in a discrete time Markov chain is periodic if there exists an integer
+  $\Delta>1$ such that, for all $\Delta\nmid s$, $\prc{X{t+s}=i}{X_t = i}=0$ .
+
+  A discrete time Markov chain is periodic if any state is periodic.
+\end{definition}
+
+\begin{definition}
+  An aperiodic, positive recurrent state is an ergodic state. A Markov chain is ergodic
+  if all its states are ergodic.
+\end{definition}
+
+\begin{lemma}
+  Any finite, irreducible, and aperiodic Markov chain is an ergodic chain.
+\end{lemma}
+
+\subsection{Stationary distributions}
+
+\begin{definition}
+  A stationary distribution of a Markov chain with transition matrix $P$ is
+  a probability distribution $\pi$ such that
+  \begin{align*}
+    \pi = \pi P.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Any finite, irreducible, and ergodic Markov chain has the following properties:
+  \begin{enumerate}
+    \item the chain has a unique stationary distribution $\pi$;
+    \item for all $i,j$, the limit $\lim_{t\to\infty} \prc{X_t=j}{X_0=i}$
+      exists and is independent of $i$;
+    \item $\pi\cc{i}=\lim_{t\to\infty} \prc{X_t=j}{X_0=i}=1/h\rr{i}$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}
+  Let $S$ be a set of states of a finite, irreducible, aperiodic Markov chain.
+  Then
+  \begin{align*}
+    \prc{X_{t+1}\in S}{X_t\not\in S} = \prc{X_{t+1}\not\in S}{X_t\in S}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Consider a finite, irreducible, and ergodic Markov chain with transition matrix
+  $P$ and states ${1,...,n}$. If there is a state distribution $\pi$ such that, for all
+  $1\leq i,j\leq n$,
+  \begin{align*}
+    \pi\cc{i}P_{ij} = \pi\cc{j}P_{ji}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Any irreducible aperiodic Markov chain belongs to one of the following two classes:
+  \begin{enumerate}
+    \item the chain is ergodic;
+    \item no state is positive recurrent.
+  \end{enumerate}
+\end{theorem}
+
+\subsection{Random walks}
+
+Let $G=(V,E)$ be a finite, undirected, and connected graph.
+
+\begin{definition}
+  A random walk on $G$ is a Markov chain $\rr{X_t}_{t\geq 0}$ with states $V$
+  such that, for all $u,v\in V$ and $t\geq 0$,
+  \begin{align*}
+    \prc{X_{t+1}=v}{X_t=u} =
+    \begin{cases}
+      1/N\rr{u} & \text{if } v\in N\rr{u}, \\
+      0         & \text{if }v\not\in N\rr{u}.
+    \end{cases}
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  A random walk on an undirected graph $G$ is aperiodic if and only if $G$ is not bipartite.
+\end{lemma}
+
+\begin{theorem}A random walk on $G$ converges to a stationary distribution $\pi$ where
+  \begin{align*}
+    \pi\cc{v}=\frac{\vv{N\rr{v}}}{2\vv{E}}.
+  \end{align*}
+\end{theorem}
+
+\begin{definition}
+  The cover time $C\rr{G}$ of a graph $G=\rr{V,E}$ is defined to be the maximu over all
+  vertices of $v\in V$ of the expected time to visit all of the nodes in the graph by a
+  random walk starting from $v$.
+\end{definition}
+
+\begin{lemma}
+  If $\rr{u,v}\in E$,
+  \begin{align*}
+    h\rr{u,v}+h\rr{v,u}\leq 2\vv{E}.
+  \end{align*}
+\end{lemma}
+
+\begin{lemma}
+  For all undirected graphs $G=(V,E)$,
+  \begin{align*}
+    C\rr{G}\leq 2\vv{E}\rr{\vv{V}-1}.
+  \end{align*}
+\end{lemma}
+
+\subsection{Markov Chain Monte Carlo}
+
+\begin{definition}
+  A randomised algorithm gives an $(\e,\delta)$-approximation for the value $V$
+  if the output $X$ of the algorithm satisfies
+  \begin{align*}
+    \pr{\vv{X-V}\leq\e V} \geq 1-\delta.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  A fully polynomial randomised approximation scheme (FPRAS) for a problem
+  is a randomised algorithm for which, given an input $x$, $\e>0$, and $\delta < 1$,
+  the algorithm outputs an $(\e,\delta)$-approximation to $V\rr{x}$ in time
+  that is polynomial in $1/\e$, $\ln\rr{1/\delta}$, and the size of the input $x$.
+\end{definition}
+
+\begin{definition}
+  Let $W$ be the random variable representing the output of a smapling algorithm for a
+  finite sample space $\Omega$. The sampling algorithm is said to generate an $\e$-uniform
+  sample of $\Omega$ if, for any $S\subseteq\Omega$,
+  \begin{align*}
+    \vv{\pr{W\in S}-\frac{\vv{S}}{\vv{\Omega}}}\leq\e.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  A sampling algorithm is a fully polynomial almost uniform sampler (FPAUS) for a
+  problem if, given an input $x$ and a parameter $\e>0$, it generates an $\e$-uniform
+  sample of $\Omega\rr{x}$ and runs in time that is polynomial in $\ln\rr{1/\e}$ and the
+  size of the input $x$.
+\end{definition}
+
+\begin{lemma}
+  For a finite state space $\Omega$ and neighbourhood structure $\cc{N\rr{x} : x\in\Omega}$,
+  let $M\geq\max_{x\in\Omega}\vv{N\rr{x}}$. Consider a Markov chain $\rr{X_t}_{t\geq 0}$
+  where, for all $x,y\in\Omega$,
+  \begin{align*}
+    \prc{X_{t+1}=y}{X_t=x} =
+    \begin{cases}
+      1/M &\text{if $x\neq y$ and $y\in N\rr{x}$}, \\
+      0 &\text{if $x\neq y$ and $y\not\in N\rr{x}$}, \\
+      1-N\rr{x}/M &\text{if $x=y$}.
+    \end{cases}
+  \end{align*}
+  If this chain is irreducible and aperiodic, then the stationary distribution is
+  the uniform distribution.
+\end{lemma}
+
+\begin{lemma}[Metropolis]
+  For a finite state space $\Omega$ and neighbourhood structure $\cc{N\rr{x} : x\in\Omega}$,
+  let $M\geq\max_{x\in\Omega}\vv{N\rr{x}}$, and let $\pi$ be a state distribution.
+  Consider a Markov chain $\rr{X_t}_{t\geq 0}$ where, for all $x,y\in\Omega$,
+  \begin{align*}
+    \prc{X_{t+1}=y}{X_t=x} =
+    \begin{cases}
+      \rr{1/M}\min\rr{1,\pi\cc{y}/\pi\cc{x}} &\text{if $x\neq y$ and $y\in N\rr{x}$}, \\
+      0                                      &\text{if $x\neq y$ and $y\not\in N\rr{x}$}, \\
+      1-\sum_{x\neq y}\prc{X_{t+1}=y}{X_t=x} &\text{if $x=y$}.
+    \end{cases}
+  \end{align*}
+  If this chain is irreducible and aperiodic, then the stationary distribution is $\pi$.
+\end{lemma}
+
+\begin{lemma}[Glauber dynamics]
+  Let $S,V$ be finite sets, let $\Omega\subseteq S^V$ be a finite state space,
+  let $\cc{N\rr{x} : x\in\Omega}$ be a neighbourhood structure, and let $\pi$ be a
+  state distribution. Let $\rr{V_t}_{t\geq 0}$ be uniformly sampled from $V$.
+
+  Consider a Markov chain $\rr{X_t}_{t\geq 0}$ where, for all $x,y\in\Omega$ and $v\in V$,
+  \begin{align*}
+    \prc{X_{t+1}=y}{X_t=x, V_t=v} =
+    \begin{cases}
+      \frac{\pi\cc{y}}{\pi\rr{\Omega\rr{x,v}}} &\text{if $y\in\Omega\rr{x,v}$}, \\
+      0 &\text{otherwise}.
+    \end{cases}
+  \end{align*}
+\end{lemma}
+
+\subsection{Variation distance}
 
 \begin{definition}
   The variation distance between two distributions $P$ and $Q$ on a countable
@@ -352,155 +649,50 @@
   \end{align*}
 \end{definition}
 
-\section{Algorithms}
-\label{sec:algorithms}
-
-\subsection{Testing polynomial equalities}
-
-\begin{algorithm}\label{alg:stan-ulman}
-  Consider polynomials
+\begin{definition}
+  Let $\pi$ be the stationary distribution of an ergodic Markov chain with state space $S$.
+  Define the distribution $p_t^x$ such that, for all $y\in S$,
   \begin{align*}
-    F \rr{ x } = \prod_{i=1}^n \rr{ x - a_i }, \hs G \rr{ x } = \sum_{ i=0 }^{ n } b_i x^i.
+    p^t_x\cc{y} = \prc{X_t=y}{X_0=x}.
   \end{align*}
-  We randomly check for equality as follows:
-  \begin{enumerate}
-    \item Choose an integer $x\in \cc{ 1, 100n }$.
-    \item Calculate $F \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
-    \item Calculate $G \rr{ x }$. Overall at most $n$ additions and $2n$ multiplications.
-    \item Compare the result, return $\bot$ or $\top$ accordingly.
-  \end{enumerate}
-\end{algorithm}
-
-
-\begin{theorem}
-  \label{thm:stan-ulman-probabilities}
-  The algorithm~\ref{alg:stan-ulman} has the following probabilities of success:
-  \begin{itemize}
-    \item $P \rr{ \top | F\equiv G } = 1$
-    \item $P \rr{ \bot | F\not\equiv G } \geq 99/100$
-  \end{itemize}
-  One can improve these by using
-  \begin{itemize}
-    \item repeated sampling, or
-    \item sampling from a larger set.
-  \end{itemize}
-\end{theorem}
-
-\subsection{Verifying matrix multiplication}
-
-\begin{algorithm}\label{alg:mmverify}
-  Let $R$ be a ring, $n,k\in\N$, and $A,B,C\in\Mat \rr{ n; R }$. Then
-  $\texttt{MMVerify} \rr{ n, A, B, C, k }$ is the following algorithm:
-  \begin{enumerate}
-    \item For $j=1,...,k$ \begin{enumerate}
-      \item Generate a vector $x\in \cc{ 0,1 }^n$ u.a.r.
-      \item Calculate $y_B = Bx$ in $O(n^2)$ time.
-      \item Calculate $y_{AB} = Ay^B$ in $O(n^2)$ time.
-      \item Calculate $y_C = Cx$ in $O(n^2)$ time.
-      \item Compare $y_{AB}$ with $y_C$ in $O(n)$ time and return $\bot$ or $\top$ accordingly.
-    \end{enumerate}
-\end{enumerate}
-\end{algorithm}
-
-\begin{theorem}
-  \label{thm:mmverify-proabilities}
-  The algorithm~\ref{alg:mmverify} has the following probabilities of success:
-  \begin{itemize}
-    \item $\prc{ \top}{A = B } = 1$
-    \item $\prc{ \top}{A \not= B } = 2^{-k}$
-  \end{itemize}
-\end{theorem}
-
-\subsection{Minimum cut}
-
-\begin{algorithm}
-  \label{alg:krager}
-  Let $G= \rr{ V,E }$ a graph and let $n= \abs{ V }$ and $m= \abs{ E }$. Then let
-  $\texttt{KragerOneTrial} \rr{ G }$ be the following algorithm: Repeatedly choose an edge
-  uniformly at random (from the not-yet contracted edges) and contract its endpoints.
-  When there are just two “vertices” left, return that cut.
-
-  Let $ \texttt{Krager} \rr{ G, k }$ be $k$ repetition of the above, taking the minimum
-  result.
-\end{algorithm}
-
-\begin{theorem}
-  \label{thm:krager-probabilities}
-  The probability of finding a minimum cut in one iteration of $ \texttt{KragerOneTrial} \rr{ G }$
-  is
+  Further, for all $x\in S$ and $t\geq 0$, define
   \begin{align*}
-    p \geq \frac{2}{n \rr{ n-1 }}.
+    \Delta_x \rr{t} = \vabs{p_x^t - \pi};\hs
+    \Delta\rr{t} = \max_{x\in S}\Delta_x\rr{t}.
   \end{align*}
-  The probability of finding a minimum cut using $ \texttt{Krager} \rr{ G,k }$ is
+  Finally, for all $x\in S$ and $\e>0$, define
   \begin{align*}
-    1-\rr{ 1-p }^k \geq \frac{1}{n^c} \hs \text{where} \hs c = \frac{2k}{n(n-1)\ln n}.
+    \tau_x\rr{\e}=\min\cc{t : \Delta_x\rr{t}\leq\e}; \hs
+    \tau\rr{\e} = \max_{x\in S}\tau_x\rr{\e}.
   \end{align*}
-\end{theorem}
-
-\subsection{Cliques and independent sets}
-
-\begin{theorem}
-  If $p\rr{n}=o\rr{n^{-2/3}}$ then
-  \begin{align*}
-    \lim_{n\to\infty} \pr{\text{$G\to G_{n,p\rr{n}}$ has a 4-clique}}=0.
-  \end{align*}
-  If $p\rr{n}=\omega\rr{n^{-2/3}}$ then
-  \begin{align*}
-    \lim_{n\to\infty} \pr{\text{$G\to G_{n,p\rr{n}}$ has a 4-clique}}=1.
-  \end{align*}
-\end{theorem}
-
-\subsection{MAXSAT}\label{sec:maxsat}
-
-\begin{theorem}
-  Given a CNF boolean formula with $m$ clauses, where each clause contains at least $k$ literals,
-  there exists a truth assignment to the variables that satisfies at least $m(1-2^{-k})$ clauses.
-\end{theorem}
+\end{definition}
 
 \begin{lemma}
-  There exists a polynomial-time $7/8$-approximation algorithm for MAX-E-3SAT.
+  For any ergodic Markov chain and for all $t\geq 0$, $\Delta\rr{t+1}\leq\Delta\rr{t}$.
 \end{lemma}
 
-\begin{theorem}[Hastad]
-  If for any $\e>0$ there exists a polynomial-time $(7/8+\e)$-approximation algorithm for
-  MAX-E-3SAT then $P=NP$.
-\end{theorem}
+\subsection{Coupling}
 
-\begin{theorem}[Moser]
-  If no variable in a $k$-CNF formula $\phi$ appears in more than $2^k/4k$ clauses then
-  $\phi$ is satisfiable.
+\begin{definition}
+  A coupling of a Markov chain $\rr{M_t}_{t\geq 0}$ with state space $S$ is a Markov
+  chain $\rr{Z_t}_{t\geq 0}=\rr{\rr{X_t,Y_t}}_{t\geq 0}$ on the state space $S\times S$
+  such that
+  \begin{align*}
+    \prc{X_{t+1}-x'}{Z_t=\rr{x,y}} = \prc{M_{t+1}=x'}{M_t=x}; \\
+    \prc{Y_{t+1}-y'}{Y_t=\rr{x,y}} = \prc{M_{t+1}=y'}{M_t=y}.
+  \end{align*}
+\end{definition}
 
-  Moreover, there exists a Las Vegas randomised algorithm that given such a $\phi$ runs in
-  expected polynomial time and outputs a satisfying assignment to $\phi$.
-\end{theorem}
-
-\begin{algorithm}
-  The following algorithm takes as input a list of clauses $C_1,...,C_m$ of a $k$-CNF
-  formula $\phi$ over $n$ variables $x_1,\ldots,x_n$ and outputs a satisfying truth
-  assignment for $\phi$.
-
-  \begin{enumerate}
-    \item Sample a truth assignment $\alpha$ to the variables u.a.r
-    \item While some $C_i$ is not satisfied by $\alpha$
-      \begin{enumerate}
-        \item choose the first unsatisfied $C_i$
-        \item call the routine below with input $\alpha$ and $i$
-        \item overwrite $\alpha$ with the output of the routine below
-      \end{enumerate}
-  \end{enumerate}
-  The algorithm uses the following helper routine with input $\alpha$, a truth assignment
-  to the variables, and an $1\leq i\leq m$.
-  \begin{enumerate}
-    \item Resample a truth assignment $\alpha'$ which differs from $\alpha$ only in the variables
-      in $C_i$ which are sampled u.a.r
-    \item While some $C_j$ that shares a variable with $C_i$ is not satisfied by $\alpha'$
-      \begin{enumerate}
-        \item choose the first such unsatisfied $C_j$
-        \item call this routine with input $\alpha'$ and $j$
-        \item overwrite $\alpha'$ with the ouptut of the routine
-      \end{enumerate}
-    \item return $\alpha'$
-  \end{enumerate}
-\end{algorithm}
+\begin{lemma}[Coupling lemma]
+  Let $Z_t=\rr{X_t,Y_t}$ be a coupling for a Markov chain $M$ on a state space $S$.
+  Suppose that there exists a $T$ such that, for every $x,y\in S$,
+  \begin{align*}
+    \prc{X_T\neq Y_T}{X_0=x,Y_0=y}\leq \e.
+  \end{align*}
+  Then
+  \begin{align*}
+    \tau\rr{\e}\leq T.
+  \end{align*}
+\end{lemma}
 
 \end{document}
