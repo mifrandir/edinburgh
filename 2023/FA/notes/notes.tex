@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\begin{document}
+\mkthmstwounified
+\title{Fourier Analysis (SEM8)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Fourier series}
+
+\begin{definition}[Fourier coefficients]
+  The Fourier coefficients of $f\in\mathcal L^1\rr{\mathbb T}$ are given by
+  \begin{align*}
+    a_k = 2\int_{\mathbb T} f\rr{x}\cos\rr{2\pi kx}dx,\hs
+    b_k = 2\int_{\mathbb T} f\rr{x}\sin\rr{2\pi kx}dx.
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Fourier series]
+  For $f\in\mathcal L^1\rr{\mathbb T}$, the Fourier series of $f$ at $x\in\R$ is
+  given by the formal series
+  \begin{align*}
+    \sum_{k=0}^\infty \rr{a_k\cos\rr{2\pi kx}+b_k\sin\rr{2\pi kx}}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Partial sums]
+  For $f\in\mathcal L^1\rr{\mathbb T}$, the $n$th partial sum of the Fourier series
+  of $f$ at $x\in\R$ is given by
+  \begin{align*}
+    S_N f\rr{x} = \sum_{k=0}^N \rr{a_k\cos\rr{2\pi k x} + b_k\sin\rr{2\pi k x}}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}[Katznelson]
+  For any set of measure zero $E\subseteq\br{0,1}$, there exists an $f\in C\rr{\mathbb T}$
+  whose Fourier series diverges at every point in $E$.
+\end{theorem}
+
+\begin{theorem}[Carleson]
+  For $f\in C\rr{\mathbb T}$, there exists a set $E\subseteq\br{0,1}$ of measure zero
+  such that, for all $x\in \br{0,1}\setminus E$,
+  \begin{align*}
+    \sum_{k=0}^\infty \rr{a_k\cos\rr{2\pi k x} + b_k\sin\rr{2\pi k x}} = f\rr{x}.
+  \end{align*}
+\end{theorem}
+
+\begin{definition}[Cesaro means]
+  For $f\in\mathcal C\rr{\mathbb T}$, the $n$th Cesaro mean of $f$ at $x$ is
+  given by
+  \begin{align*}
+    \sigma_n f\rr{x} = \frac{1}{n+1} \sum_{k=0}^n S_n f\rr{x}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  For $f\in C\rr{\mathbb T}$, the sequence of Cesaro means $\rr{\sigma_n f}_{n\geq 1}$
+  converges uniformly to $f$ on $\br{0,1}$.
+\end{theorem}
+
+\end{document}
