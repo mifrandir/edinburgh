@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\begin{document}
+\mkthmstwounified
+\title{Algebraic Geometry (SEM8)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Plane curves}
+
+Let $k$ be a field.
+
+\subsection{Affine space}\label{sec:affine_space}
+
+\begin{definition}[Affine space]
+  The $n$-dimensional affine space is the set
+  \begin{align*}
+    \mathbf A^n = \cc{\rr{x_1,\ldots,x_n}:x_1,\ldots,x_n\in k}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Curves, Lines, Conics]
+  A curve in $\mathbf A^n$ is a subset $C\subseteq \mathbf A^n$ given by the
+  set of roots of a nonconstant polynomial $p\in k\bb{x_1,\ldots,x_n}$.
+  In particular
+  \begin{enumerate}
+    \item if $\deg p = 1$ then $C$ is a line;
+    \item if $\deg p = 2$ then $C$ is a conic;
+    \item if $\deg p = 3$ then $C$ is a cubic;
+    \item if $\deg p = 4$ then $C$ is a quartic.
+  \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+  Suppose
+  \begin{align*}
+    L_1 : a_1 x + b_1 y + c = 0, \hs
+    L_2 : a_2 x + b_2 y + c = 0
+  \end{align*}
+  are two equal lines. Then there is a nonzero $d\in k$ such that
+  \begin{align*}
+    a_1 = d a_2, \hs b_1 = d b_2, \hs c_1 = d c_2.
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}
+  Suppose $\rr{x_1,y_1}$ and $\rr{x_2,y_2}$ are distinct points in $\mathbf A^2$. Then
+  there is a unique line passing through both of them which is moreover given by the
+  equation
+  \begin{align*}
+    \det\begin{pmatrix}
+      x   & y   & 1 \\
+      x_1 & y_1 & 1 \\
+      x_2 & y_2 & 1
+    \end{pmatrix}
+    = 0.
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}
+  Suppose $L_1,L_2$ are lines in $\mathbf A^2$. Then exactly one of the following is true:
+  \begin{enumerate}
+    \item $L_1=L_2$;
+    \item $\vv{L_1\cap L_2}=1$;
+    \item $\vv{L_1\cap L_2}=0$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+  Let $L\subseteq\mathbf A^2$ a line and $C\subseteq\mathbf A^n$ a conic. Then
+  exactly one of the following is true:
+  \begin{enumerate}
+    \item there is a line $L'\subseteq\mathbf A^2$ such that $C=L\cup L'$;
+    \item $\vv{C\cap L}=2$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{definition}[Affine transformation]
+  An affine transformation is a map $\mathbf A^n\to\mathbf A^n$ given by a combination of
+  translations
+  \begin{align*}
+    \rr{x_1,\ldots,x_n} \mapsto \rr{x_1 + c_1,\ldots,x_n+c_n}
+  \end{align*}
+  for some $c_1,\ldots,c_n\in k$ and linear transformations given by matrices $A\in GL_n\rr{k}$.
+\end{definition}
+
+\begin{definition}[Semi-direct product]
+  Let $G,H$ be groups and $\phi:G\to\Aut\rr{H}$ a homomorphism.
+  Then the semidirect product $G\ltimes H$ is given by the set $G\times H$ and
+  the multiplication
+  \begin{align*}
+    \rr{g_1,h_1}\rr{g_2,h_2} = \rr{g_1g_2,\phi\rr{\inv g_2}\rr{h_1}h_2}.
+  \end{align*}
+\end{definition}
+
+\begin{proposition}
+  The group of affine transformations of $\mathbf A^2$ is the semidirect procut
+  $GL_2\rr{k}\ltimes k^2$, where $k^2$ acts by translations, $GL_2\rr{k}$ acts by
+  linear change of coordinates, and $GL_2\rr{k}$ acts on $k^2$ in the obvious way.
+\end{proposition}
+
+\subsection{Projective space}\label{sec:projective_space}
+
+\begin{definition}[Projective space]
+  Let $V$ be a $k$-vector space. The projective space is the set
+  \begin{align*}
+    \mathbf P\rr{V} = \rr{V\setminus 0} / \sim
+  \end{align*}
+  where, for $x,y\in V$, $x\sim y$ iff $x=\lambda y$ for some $\lambda\in k$.
+  
+  We denote $\mathbf P^n = \mathbf P\rr{k^{n+1}}$.
+  Points in $\mathbf P^n$ are defined by homogeneous coordinates
+  $\bb{x_1 : \cdots : x_n}$.
+\end{definition}
+
+\begin{proposition}
+  Consider the point $P=\bb{1:0}\in\mathbf P^1$ and its complement
+  $U=\mathbf P^1\setminus P$. Then the map $U\to k$ given by $\bb{x:y}\mapsto x/y$
+  is a bijection.
+\end{proposition}
+
+\begin{theorem}
+  The topological space $\mathbf P^1_{\R}$ is homeomorphic to $S^1$. The topological space
+  $\mathbf P^1_{\C}$ is homeomorphic to $S^2$.
+\end{theorem}
+
+\begin{proposition}
+  Consider the subset $U\subseteq\mathbf P^2$ given by the points $\bb{x:y:z}$ with
+  $z\neq 0$. Then $\mathbf P^2\setminus U$ is isomorphic to $\mathbf P^1$.
+\end{proposition}
+
+\end{document}
