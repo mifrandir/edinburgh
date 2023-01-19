@@ -11,19 +11,25 @@
 
 \section{Fourier series}
 
+\begin{definition}
+  The complex exponential function $\exp : \C\to\C$ is defined by
+  \begin{align*}
+    \exp x = \sum_{k=0}^{ \infty } \frac{z^k}{k!}.
+  \end{align*}
+\end{definition}
+
 \begin{definition}[Fourier coefficients]
   The Fourier coefficients of $f\in\mathcal L^1\rr{\mathbb T}$ are given by
-  \begin{align*}
-    a_k = 2\int_{\mathbb T} f\rr{x}\cos\rr{2\pi kx}dx,\hs
-    b_k = 2\int_{\mathbb T} f\rr{x}\sin\rr{2\pi kx}dx.
-  \end{align*}
+  \begin{align}\label{eq:fourier_coefficients}
+    \hat f\rr{k} = \int_{\mathbb T} f\rr{x} e^{-2\pi i k x} dx.
+  \end{align}
 \end{definition}
 
 \begin{definition}[Fourier series]
   For $f\in\mathcal L^1\rr{\mathbb T}$, the Fourier series of $f$ at $x\in\R$ is
-  given by the formal series
+  given by the formal expression
   \begin{align*}
-    \sum_{k=0}^\infty \rr{a_k\cos\rr{2\pi kx}+b_k\sin\rr{2\pi kx}}.
+    \sum_{k=0}^\infty \hat f\rr{k} e^{2\pi i k x}.
   \end{align*}
 \end{definition}
 
@@ -31,7 +37,7 @@
   For $f\in\mathcal L^1\rr{\mathbb T}$, the $n$th partial sum of the Fourier series
   of $f$ at $x\in\R$ is given by
   \begin{align*}
-    S_N f\rr{x} = \sum_{k=0}^N \rr{a_k\cos\rr{2\pi k x} + b_k\sin\rr{2\pi k x}}.
+    S_N f\rr{x} = \sum_{k=0}^N \hat f\rr{k}e^{2\pi i k x}.
   \end{align*}
 \end{definition}
 
@@ -44,7 +50,7 @@
   For $f\in C\rr{\mathbb T}$, there exists a set $E\subseteq\br{0,1}$ of measure zero
   such that, for all $x\in \br{0,1}\setminus E$,
   \begin{align*}
-    \sum_{k=0}^\infty \rr{a_k\cos\rr{2\pi k x} + b_k\sin\rr{2\pi k x}} = f\rr{x}.
+    \sum_{k=0}^\infty \hat f\rr{k}e^{2\pi i k x} = f\rr{x}.
   \end{align*}
 \end{theorem}
 
@@ -60,5 +66,76 @@
   For $f\in C\rr{\mathbb T}$, the sequence of Cesaro means $\rr{\sigma_n f}_{n\geq 1}$
   converges uniformly to $f$ on $\br{0,1}$.
 \end{theorem}
+
+\section{$L^p$ space}\label{sec:lp_space}
+
+\begin{definition}[Trigonometric polynomials]
+  A trigonometric polynomial is a function $p:\R\to\C$ of the form
+  \begin{align*}
+    p\rr{x} = \sum_{k=-N}^N c_k e^{-2\pi i k x}
+  \end{align*}
+  for some $c_{-N},\ldots,c_N\in\C$.
+
+  Let $\mathcal P\rr{\mathbb T}\subseteq\mathcal L^1\rr{\mathbb T}$ denote the vector space
+  of all trigonometric polynomials.
+\end{definition}
+
+\begin{lemma}
+  Let $p\rr{x}=\sum_{k=-N}^{ N } c_k e^{2\pi i k x}$ be a trigonometric polynomial.
+  Then
+  \begin{enumerate}
+    \item the Fourier coeffiicents of $p$ satisfy
+      \begin{align*}
+        \hat p\rr{j}=\begin{cases}
+          c_j &\text{if }\vv{j}\leq N,\\
+          0 & \text{otherwise;}
+        \end{cases}
+      \end{align*}
+    \item \begin{align*}
+        \sum_{k\in\Z}\vv{\hat p\rr{k}}^2 = \int_{\mathbb T}\vv{p\rr{x}}^2 dx.
+      \end{align*}
+  \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+  Let $\mathcal L^p\rr{\mathbb T}$ denote the space of functions
+  $f:\mathbb T\to\mathbb C$ such that $x\mapsto\vv{f\rr{x}}^p$ is integrable.
+\end{definition}
+
+\begin{lemma}
+  $\mathcal P\rr{\mathbb T}\subset C\rr{\mathbb T}\subset \mathcal L^2\rr{\mathbb T}\subset\mathcal L^1\rr{\mathbb T}$.
+\end{lemma}
+
+\begin{definition}
+  The $L^p$-norm $\vabs{-}_{\mathcal L^p}:\mathcal L^p\to\R$ is given by
+  \begin{align*}
+    f \mapsto \rr{\int_{\mathbb T} \vv{f\rr{x}}^p dx}^{1/p}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  The $L^2$-norm is a norm for $\mathcal P\rr{\mathbb T}$.
+\end{theorem}
+
+\begin{theorem}
+  The $L^2$-norm is not a norm for $\mathcal L^2\rr{\mathbb T}$.
+\end{theorem}
+
+\begin{definition}
+  Define the space
+  \begin{align*}
+    L^p = \mathcal L^p / \cc{f\in\mathcal L^p : \vabs{f}_{\mathcal L^p} = 0}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  The $L^p$-norm defines a norm for $L^p\rr{\mathbb T}$.
+\end{theorem}
+
+\begin{definition}
+  A function $f:\mathbb T\to\mathbb C$ is essentially bounded if there exists a constant
+  $M>0$ and a set of measure zero $E\subseteq\mathbb T$ such that, for all
+  $x\in\mathbb T\setminus E$, $\vv{f\rr{x}}\leq M$.
+\end{definition}
 
 \end{document}
