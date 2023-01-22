@@ -48,7 +48,7 @@
 \end{definition}
 
 \begin{theorem}
-  Let $G$ be aq group and let $N\triangleleft G$. Then $G/N$ is abelian iff $G'\subseteq N$.
+  Let $G$ be a group and let $N\triangleleft G$. Then $G/N$ is abelian iff $G'\subseteq N$.
   In particular, $G/G'$ is abelian.
 \end{theorem}
 
@@ -97,5 +97,91 @@
     \item $\Gal{f}$ is a solvable group.
   \end{enumerate}
 \end{theorem}
+
+\section{Group actions, rings, and fields}
+
+\subsection{Group actions}\label{sec:group_actions}
+
+\begin{definition}
+  Let $G$ be a group and $X$ a set. An action of $G$ on $X$ is a function
+  $G\times X\to X$, written as $\rr{g,x}\mapsto gx$, such that
+  \begin{align*}
+    \rr{gh}x=g\rr{hx}
+  \end{align*}
+  for all $g,h\in G$ and $x\in X$, and $ex=x$, for all $x\in X$.
+\end{definition}
+
+\begin{definition}
+  An action of $G$ on $X$ is faithful if, for $g,h\in G$,
+  $g=h$ whenever $gx = hx$ for all $x\in X$.
+\end{definition}
+
+\begin{lemma}
+  For an action of a group $G$ on $X$, t.f.a.e.
+  \begin{enumerate}
+    \item the action is faithful;
+    \item for $g\in G$, if $gx=x$ for all $x\in X$ then $g=e$;
+    \item the homorphism $\Sigma:G\to\text{Sym}\rr{X}$ is injective;
+    \item $\ker\Sigma$ is trivial.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  Let $G$ act faithfully on $X$. Then $G$ is isomorphic to the subgroup
+  \begin{align*}
+    \im\Sigma = \cc{\bar g : g\in G}
+  \end{align*}
+  of $\text{Sym}\rr{X}$.
+\end{lemma}
+
+\begin{definition}
+  Let $G$ act on $X$. Let $S\subseteq G$. The fixed set of $S$ is
+  \begin{align*}
+    \text{Fix}\rr{S}=\cc{x\in X : sx = x \text{ for all }s\in S}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Let $G$ act on $X$, let $S\subseteq G$, and let $g\in G$. Then
+  $\text{Fix}\rr{gS\inv g}=g\text{Fix}\rr{S}$.
+\end{lemma}
+
+\subsection{Rings}\label{sec:rings}
+
+\begin{lemma}
+  Let $R$ be a ring and let $S$ be a set of subrings of $R$. Then their intersection
+  $\bigcap S$ is also a subring of $R$.
+\end{lemma}
+
+\begin{definition}
+  An integral domain is a ring $R$ such that $0\neq 1$ and $r=0$ or $r'=0$ whenever $rr'=0$.
+\end{definition}
+
+\begin{lemma}
+  Let $R$ be a ring and let $Y=\cc{r_1,\ldots, r_n}$ be a finite subset. Then
+  \begin{align*}
+    \aa{Y}=\cc{\sum_{j=1}^{ n } a_jr_j : a_1,\ldots,a_n\in\R }.
+  \end{align*}
+\end{lemma}
+
+\begin{definition}
+  An ideal $I\trianglelefteq R$ is principal if, for some $r\in R$, $I=\aa{r}$.
+  A principal ideal domain is a ring where every ideal is principal.
+\end{definition}
+
+\begin{definition}
+  Let $R$ a ring. We say $r | s$ if, for some $a\in R$, $s=ar$. Equivalently, $s\subseteq\aa{r}$
+  and $\aa{s}\subseteq\aa{r}$.
+
+  An element $u\in R$ is a unit if it has a multiplicative inverse, or equivalently $\aa{u}=R$.
+\end{definition}
+
+\begin{proposition}
+  Let $R$ be a principal ideal domain and $r,s\in R$. Then t.f.a.e.
+  \begin{enumerate}
+    \item $r$ and $s$ are coprime;
+    \item $ar+bs = 1$ for some $a,b\in R$.
+  \end{enumerate}
+\end{proposition}
 
 \end{document}
