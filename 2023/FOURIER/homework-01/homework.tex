@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Fourier Analysis: Homework 1}
+\author{Franz Miltz (UUN: S1971811)}
+\date{27 January 2022}
+\maketitle
+
+\begin{claim*}[4c]
+  For every $x\in\bb{0,1}$,
+  \begin{align*}
+    \rr{x-\frac{1}{2}}^2 = \frac{1}{12}+\frac{1}{\pi^2}\sum_{k=1}^{ \infty } \frac{\cos\rr{2\pi kx}}{k^2}.
+  \end{align*}
+  \begin{proof}
+    Let $f:\br{0,1}\to\C$ be defined by $f\rr{x}=\rr{x-1/2}^2$ for $x\in\br{0,1}$.
+    By definition of $\hat f\rr{k}$ we have
+    \begin{align*}
+      \hat f \rr{k} = \int_0^1 \rr{x-\frac{1}{2}}^2 e^{-2\pi ikx}dx.
+    \end{align*}
+    Thus immediately
+    \begin{align*}
+      \hat f\rr{0}=\frac{1}{12}.
+    \end{align*}
+    For $k\neq 0$, repeated integration by parts yields
+    \begin{align*}
+      \hat f\rr{k}=\bb{\rr{x-\frac{1}{2}}^2\frac{\sin\rr{2\pi kx}}{2\pi k}+\rr{x-\frac{1}{2}}\frac{\cos\rr{2\pi kx}}{2\pi^2 k^2}-\frac{\sin\rr{2\pi kx}}{4\pi^3k^3}}_{-1/2}^{1/2}
+      = \frac{1}{2\pi^2k^2}
+    \end{align*}
+    Now the Fourier series of $f$ at $x\in\br{0,1}$ is the formal expression
+    \begin{align*}
+      \frac{1}{12}+\sum_{k\in\Z\setminus\cc{0}} \frac{1}{2\pi^2k^2}e^{2\pi ikx}
+      =\frac{1}{12}+\sum_{k=1}^{\infty}\frac{\cos\rr{2\pi kx}}{\pi^2 k^2}.
+    \end{align*}
+    Due to symmetry, we note that the extension of $f$ to a function $\mathbb T\to\mathbb C$
+    is continuous. We apply Proposition 3.21 to obtain
+    \begin{align*}
+      f\rr{x}=\frac{1}{12}+\frac{1}{\pi^2}\sum_{k=1}^{\infty} \frac{\cos\rr{2\pi kx}}{k^2}
+    \end{align*}
+    for $x\in\mathbb{T}$.
+  \end{proof}
+\end{claim*}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{graph.png}
+  \caption{Graph of the continuous extension of $x\mapsto(x-1/2)^2$ on $\br{0,1}$
+  to a 1-periodic function $\R\to\R$}
+\end{figure}
+
+\begin{claim*}[4d]
+  \begin{align*}
+    \sum_{k=1}^\infty \frac{1}{k^2}=\frac{\pi}{6}
+  \end{align*}
+  \begin{proof}
+    Using the previous result at $x=0$ we have
+    \begin{align*}
+      \frac{1}{4}=\frac{1}{12}+\frac{1}{\pi^2}\sum_{k=1}^\infty\frac{1}{k^2}.
+    \end{align*}
+    Simple algebraic manipulation yields the desired result.
+  \end{proof}
+\end{claim*}
+
+\end{document}
