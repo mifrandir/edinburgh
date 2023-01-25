@@ -110,10 +110,16 @@ Let $k$ be a field.
     \mathbf P\rr{V} = \rr{V\setminus 0} / \sim
   \end{align*}
   where, for $x,y\in V$, $x\sim y$ iff $x=\lambda y$ for some $\lambda\in k$.
-  
+
   We denote $\mathbf P^n = \mathbf P\rr{k^{n+1}}$.
   Points in $\mathbf P^n$ are defined by homogeneous coordinates
   $\bb{x_1 : \cdots : x_n}$.
+\end{definition}
+
+\begin{definition}
+  A curve in $\mathbf P^n$ is a subset $C\subseteq\mathbf P^n$ such that, for some
+  nonconstant $p\in k\bb{x_1,\ldots,x_{n+1}}$, each $\bb{x_1:\ldots:x_{n+1}}\in C$
+  yields $p\rr{x_1,\ldots,x_{n+1}}=0$.
 \end{definition}
 
 \begin{proposition}
@@ -130,6 +136,240 @@ Let $k$ be a field.
 \begin{proposition}
   Consider the subset $U\subseteq\mathbf P^2$ given by the points $\bb{x:y:z}$ with
   $z\neq 0$. Then $\mathbf P^2\setminus U$ is isomorphic to $\mathbf P^1$.
+\end{proposition}
+
+\begin{definition}
+  The homogenisation of a curve $C\subseteq\mathbf A^n:p\rr{x_1,\ldots,x_n}=0$, where
+  $p$ is a polynomial of degree $d$, is the curve
+  $\bar C\subseteq\mathbf P^n:x_{n+1}^d p\rr{x_1/x_{n+1},\ldots,x_n/x_{n+1}}=0$.
+
+  Conversely, the dehomogenisation of a curve $C\subseteq\mathbf P^n:p\rr{x_1,\ldots,x_{n+1}}=0$,
+  where $p$ is a homogeneous polynomial, is the curve $\bar C:p\rr{\bar x_1,\ldots,\bar x_n,1}=0$
+  with respect to the affine coordinates $\rr{\bar x_j = x_j / x_{n+1}}_{1\leq j\leq n}$.
+\end{definition}
+
+\begin{definition}[Projective transformation]
+  A projective transformation is a map $\phi : \mathbf P\rr{V}\to\mathbf P\rr{V}$
+  obtaines as
+  \begin{align*}
+    \phi\rr{\bb{v}}=\bb{f\rr{v}}
+  \end{align*}
+  for some linear map $f:V\to V$.
+\end{definition}
+
+\begin{proposition}
+  The group of projective transformations is the quotient group
+  \begin{align*}
+    \text{PGL}\rr{V}=\text{GL}\rr{V}/k^*.
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}
+  Suppose $L\subseteq\mathbf P^2$ is a line. Then there is a projective transformation that
+  sends it to the line $L':x=0$.
+\end{proposition}
+
+\begin{theorem}
+  Let $P_1,\ldots,P_4\in\mathbf P^2$ be points such that no three of them are colinear. Then
+  there exists a projective transformation $\phi:\mathbf P^2\to\mathbf P^2$ such that
+  \begin{align*}
+    \phi\rr{P_1}=\bb{1:0:0},\hs \phi\rr{P_2}=\bb{0:1:0}, \hs\phi\rr{P_3}=\bb{0:0:1},\hs
+    \phi\rr{P_4}=\bb{1:1:1}.
+  \end{align*}
+\end{theorem}
+
+\begin{corollary}
+  Let $L\subseteq\mathbf P^2$ be a line and $C\subseteq\mathbf P^2$ a conic. Then
+  either $C$ is the union of $L$ with another line or $L\cap C$ at most two points.
+  If $k$ is algebraically closed then $L\cap C$ is nonempty.
+\end{corollary}
+
+\begin{corollary}
+  Let $P_1,\ldots,P_5\in\mathbf P^2$ be points such that no three of them are colinear.
+  Then there exists a unique conic passing through them.
+\end{corollary}
+
+\subsection{Conics}\label{sec:conics}
+
+\begin{theorem}
+  Let $C\subseteq\mathbf P^2_{\C}$ be a conic. Then there exists a projective transformation
+  $\phi:\mathbf P^2_{\C}\to\mathbf P^2_{\C}$ such that $\phi\rr{C}$ has one of the following
+  forms:
+  \begin{enumerate}
+    \item $x^2+y^2+z^2=0$ (an irreducible conic);
+    \item $x^2+y^2=0$ (a union of two lines);
+    \item $x^2=0$ (a double line).
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  The symmetric matrix induced by a conic $C:ax^2 + bxy + cy^2 + dxz + eyz + fz^2 =0$ is the
+  matrix
+  \begin{align*}
+    B =
+    \begin{pmatrix}
+      a & b/2 & d/2\\
+      b/2 & c & e/2\\
+      d/2 & e/2 & f
+    \end{pmatrix}.
+  \end{align*}
+\end{definition}
+
+\begin{corollary}
+  A conic $C\subseteq\mathbf P^2$ is irreducible iff $\det\rr{B}\neq 0$ where $B$ is its
+  induced symmetric matrix.
+\end{corollary}
+
+\begin{theorem}
+  Suppose $C,C'\subseteq\mathbf P^2$ are two irreducible unequal conics. Then
+  $1\leq\vv{C\cap C'}\leq 4$.
+\end{theorem}
+
+\subsection{Smooth curves}\label{sec:smooth_curves}
+
+\begin{definition}
+  Suppose $C\subseteq\mathbf P^2:f\rr{x,y,z}=0$ is an irreducible curve. A point
+  $P=\bb{x:y:z}$ is smooth iff
+  \begin{align*}
+    \eval{\rr{\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}}{P}\neq 0.
+  \end{align*}
+  We say $C$ is smooth if every point on $C$ is smooth.
+\end{definition}
+
+\begin{definition}
+  Let $P=\bb{0:0:1}$ and let $C\subseteq\mathbf P^2$ be a projective curve given
+  by the homogeneous polynomial
+  \begin{align*}
+    f\rr{x,y,z}=z^d h_0\rr{x,y} + \cdots + zh_{d-1}\rr{x,y} + h_{d}
+  \end{align*}
+  where each $h_n\rr{x,y}$ is homogeneous and of degree $n$. The multiplicity
+  $\text{mult}_P\rr{C}$ of $P$ on $C$ is the smallest $n\geq 0$ such that $h_n\rr{x,y}\neq 0$.
+\end{definition}
+
+\begin{proposition}
+  Suppose $C\subseteq\mathbf P^2$ is a curve and $P\in\mathbf P^2$. Then
+  \begin{enumerate}
+    \item $P$ lies on $C$ iff $\text{mult}_P\rr{C}\geq 1$;
+    \item $P$ is a singular point iff $\text{mult}_P\rr{C}\geq 2$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{lemma}
+  A line $L\subseteq\mathbf P^2$ is smooth.
+\end{lemma}
+
+\begin{lemma}
+  An irreducible conic $C\subseteq\mathbf P^2_{\C}$ is smooth.
+\end{lemma}
+
+\begin{definition}
+  Let $C:f\rr{x,y,z}=0$ be an irreducible curve in $\mathbf P^2$ and $P=\bb{\alpha:\beta:\gamma}$
+  a smooth point. Then
+  \begin{align*}
+    \frac{\partial f}{\partial x}\rr{\alpha,\beta,\gamma}
+    +\frac{\partial f}{\partial y}\rr{\alpha,\beta,\gamma}
+    +\frac{\partial f}{\partial z}\rr{\alpha,\beta,\gamma}
+    =0
+  \end{align*}
+  is the tangent line at $P$.
+\end{definition}
+
+\begin{definition}
+  Suppose $C_1$ and $C_2$ are two curves in $\mathbf P^2$ intersecting at $P$. We say this
+  intersection is transverse if
+  \begin{enumerate}
+    \item $P$ is a smooth point of $C_1$ and $C_2$;
+    \item the tangent lines at $P$ to $C_1$ and $C_2$ are different.
+  \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+  Let $k$ be an algebraically closed field. Suppose $L\subseteq\mathbf P^2_k$ is a line and
+  $C\subseteq\mathbf P^2_k$ an irreducible conic. Then either $L$ is tangent to $C$ at some point
+  or $L$ intersects $C$ transversely at two points.
+\end{proposition}
+
+\begin{proposition}
+  Suppose $C_1,C_2\subseteq\mathbf P^2_{\mathbb C}$ are two distinct irreducible concis. Then they
+  intersect transversally at all points iff there are four intersection points.
+\end{proposition}
+
+\subsection{Bezout's theorem}\label{sec:bezouts_theorem}
+
+Let $k$ be algebraically closed.
+
+\begin{theorem}
+  Suppose $f\rr{x,y}$ is a nonzero homogeneous polyonomial of degree $d$. Then the equation
+  $f\rr{x,y}=0$ in $\mathbf P^1$ consists of $d$ points counted with multiplicity.
+\end{theorem}
+
+\begin{definition}
+  Let $f,g\in k\bb{x,y}$ be nonconstant without common factors. Let
+  $I=\rr{f,g}\subseteq k\bb{x,y}$ be the ideal generated by $f$ and $g$. The intersection
+  multiplicity of $f$ and $g$ is $\dim_k\rr{R/I}$.
+
+  More generally, for nonzero homogeneus $f,g\in k\bb{x,y,z}$ with no common factors
+  defining curves $C_1,C_2\subseteq\mathbf P^2$ and $P\in C_1\cap C_2$, we define the
+  intersection multiplicity $I_P\rr{C_1,C_2}$ to be the intersection multiplicity of
+  $\rr{f\circ\phi}\rr{x,y,1}$ and $\rr{g\circ\phi}\rr{x,y,1}$ where $\phi$ is a projective
+  transformation with $\phi[0:0:1]=P$.
+\end{definition}
+
+\begin{proposition}
+  Suppose $C_1$ and $C_2$ are distinct irreducible curves in $\mathbf P^2$ and $P\in C_1\cap C_2$.
+  Then
+  \begin{align*}
+    I_P\rr{C_1,C_2}\geq\mult_P\rr{C_1}\mult_P\rr{C_2}.
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}
+  Suppose $f,g\in k\bb{x,y,z}$ are nonzero, homogeneous, and without common factors such that
+  $f\rr{P}=g\rr{P}=0$ for some $P\in\mathbf P^2$. Then
+  \begin{enumerate}
+    \item $I_P\rr{f,g}\geq 1$;
+    \item Suppose $h\in k\bb{x,y,z}$ is homogeneous with $h\rr{P}=0$ then
+      \begin{align*}
+        I_P\rr{f,gh}=I_P\rr{f,g}+I_P\rr{f,h};
+      \end{align*}
+    \item Suppose $h\in k\bb{x,y,z}$ is homogeneous with $h\rr{P}\neq 0$ then
+      \begin{align*}
+        I_P\rr{f,gh}=I_P\rr{f,g}.
+      \end{align*}
+    \item The intersection of $f\rr{x,y,z}=0$ and $g\rr{x,y,z}=0$ is transverse at $P$ iff
+      $I_P\rr{f,g}=1$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}[Bezout]
+  Suppose $f,g\in k\bb{x,y,z}$ are homogeneous and without common factors. Then the solutions
+  of
+  \begin{align*}
+    f\rr{x,y,z}&=0\\
+    g\rr{x,y,z}&=0
+  \end{align*}
+  in $\mathbf P^2$ are given by $\rr{\deg f}\rr{\deg g}$ points counted with multiplicity.
+\end{theorem}
+
+\begin{proposition}
+  Let $f\in k\bb{x,y,z}$ be homogeneous. If the system
+  \begin{align*}
+    \frac{\partial f}{\partial x}=\frac{\partial f}{\partial y}=\frac{\partial f}{\partial z}=0
+  \end{align*}
+  as no solutions in $\mathbf P^2$ then $f$ is irreducible.
+\end{proposition}
+
+\begin{proposition}
+  Suppose $C$ is an irreducible curve of degree $d\geq 2$ and $P,Q\in C$ are distinct points.
+  Then
+  \begin{align*}
+    \mult_P\rr{C}+\mult_Q\rr{C} \leq d.
+  \end{align*}
+\end{proposition}
+
+\begin{proposition}
+  Let $C\subseteq\mathbf P^2$ be an irreducible curve of degree 4. Then it has at most three
+  singular points.
 \end{proposition}
 
 \end{document}
