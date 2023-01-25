@@ -1,0 +1,269 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\begin{document}
+\mkthmstwounified
+\title{Fourier Analysis (SEM8)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Fourier series}
+
+\begin{definition}
+  The complex exponential function $\exp : \C\to\C$ is defined by
+  \begin{align*}
+    \exp x = \sum_{k=0}^{ \infty } \frac{z^k}{k!}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Fourier coefficients]
+  The Fourier coefficients of $f\in\mathcal L^1\rr{\mathbb T}$ are given by
+  \begin{align}\label{eq:fourier_coefficients}
+    \hat f\rr{k} = \int_{\mathbb T} f\rr{x} e^{-2\pi i k x} dx.
+  \end{align}
+\end{definition}
+
+\begin{definition}[Fourier series]
+  For $f\in\mathcal L^1\rr{\mathbb T}$, the Fourier series of $f$ at $x\in\R$ is
+  given by the formal expression
+  \begin{align*}
+    \sum_{k=0}^\infty \hat f\rr{k} e^{2\pi i k x}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}[Partial sums]
+  For $f\in\mathcal L^1\rr{\mathbb T}$, the $n$th partial sum of the Fourier series
+  of $f$ at $x\in\R$ is given by
+  \begin{align*}
+    S_N f\rr{x} = \sum_{k=0}^N \hat f\rr{k}e^{2\pi i k x}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}[Katznelson]
+  For any set of measure zero $E\subseteq\br{0,1}$, there exists an $f\in C\rr{\mathbb T}$
+  whose Fourier series diverges at every point in $E$.
+\end{theorem}
+
+\begin{theorem}[Carleson]
+  For $f\in C\rr{\mathbb T}$, there exists a set $E\subseteq\br{0,1}$ of measure zero
+  such that, for all $x\in \br{0,1}\setminus E$,
+  \begin{align*}
+    \sum_{k=0}^\infty \hat f\rr{k}e^{2\pi i k x} = f\rr{x}.
+  \end{align*}
+\end{theorem}
+
+\begin{definition}[Cesaro means]
+  For $f\in\mathcal C\rr{\mathbb T}$, the $n$th Cesaro mean of $f$ at $x$ is
+  given by
+  \begin{align*}
+    \sigma_n f\rr{x} = \frac{1}{n+1} \sum_{k=0}^n S_n f\rr{x}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  For $f\in C\rr{\mathbb T}$, the sequence of Cesaro means $\rr{\sigma_n f}_{n\geq 1}$
+  converges uniformly to $f$ on $\br{0,1}$.
+\end{theorem}
+
+\section{$L^p$ space}\label{sec:lp_space}
+
+\begin{definition}[Trigonometric polynomials]
+  A trigonometric polynomial is a function $p:\R\to\C$ of the form
+  \begin{align*}
+    p\rr{x} = \sum_{k=-N}^N c_k e^{-2\pi i k x}
+  \end{align*}
+  for some $c_{-N},\ldots,c_N\in\C$.
+
+  Let $\mathcal P\rr{\mathbb T}\subseteq\mathcal L^1\rr{\mathbb T}$ denote the vector space
+  of all trigonometric polynomials.
+\end{definition}
+
+\begin{lemma}
+  Let $p\rr{x}=\sum_{k=-N}^{ N } c_k e^{2\pi i k x}$ be a trigonometric polynomial.
+  Then
+  \begin{enumerate}
+    \item the Fourier coeffiicents of $p$ satisfy
+      \begin{align*}
+        \hat p\rr{j}=\begin{cases}
+          c_j &\text{if }\vv{j}\leq N,\\
+          0 & \text{otherwise;}
+        \end{cases}
+      \end{align*}
+    \item \begin{align*}
+        \sum_{k\in\Z}\vv{\hat p\rr{k}}^2 = \int_{\mathbb T}\vv{p\rr{x}}^2 dx.
+      \end{align*}
+  \end{enumerate}
+\end{lemma}
+
+\begin{definition}
+  Let $\mathcal L^p\rr{\mathbb T}$ denote the space of functions
+  $f:\mathbb T\to\mathbb C$ such that $x\mapsto\vv{f\rr{x}}^p$ is integrable.
+\end{definition}
+
+\begin{lemma}
+  $\mathcal P\rr{\mathbb T}\subset C\rr{\mathbb T}\subset \mathcal L^2\rr{\mathbb T}\subset\mathcal L^1\rr{\mathbb T}$.
+\end{lemma}
+
+\begin{definition}
+  The $L^p$-norm $\vabs{-}_{\mathcal L^p}:\mathcal L^p\to\R$ is given by
+  \begin{align*}
+    f \mapsto \rr{\int_{\mathbb T} \vv{f\rr{x}}^p dx}^{1/p}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  The $L^2$-norm is a norm for $\mathcal P\rr{\mathbb T}$.
+\end{theorem}
+
+\begin{theorem}
+  The $L^2$-norm is not a norm for $\mathcal L^2\rr{\mathbb T}$.
+\end{theorem}
+
+\begin{definition}
+  Define the space
+  \begin{align*}
+    L^p = \mathcal L^p / \cc{f\in\mathcal L^p : \vabs{f}_{L^p} = 0}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  The $L^p$-norm defines a norm for $L^p\rr{\mathbb T}$.
+\end{theorem}
+
+\begin{definition}
+  A function $f:\mathbb T\to\mathbb C$ is essentially bounded if there exists a constant
+  $M>0$ and a set of measure zero $E\subseteq\mathbb T$ such that, for all
+  $x\in\mathbb T\setminus E$, $\vv{f\rr{x}}\leq M$.
+\end{definition}
+
+\section{Basic properties of Fourier coefficients}
+
+\begin{lemma}[Riemann-Lebesgue]
+  Let $f\in\mathcal L^1\rr{\mathbb T}$. Then $\hat f\rr{k}\to 0$ as $k\to \pm\infty$.
+\end{lemma}
+
+\begin{proposition}[Weierstrass M-test]\label{prop:weierstrass_m_test}
+  Suppose $A\subseteq\br{0,1}$ and $F_N\rr{x}=\sum_{k=1}^{ N } f_k\rr{x}$
+  where the $f_k:A\to\C$ satisfy
+  \begin{align*}
+    \sup_{x\in A}\vv{f_k\rr{x}} \leq M_k,\hs \sum_{k=1}^{ \infty } M_k < \infty.
+  \end{align*}
+  Then
+  \begin{enumerate}
+    \item $F_N$ converges uniformly on $A$ to some $F:A\to\C$;
+    \item if each $f_k$ is continuous at some point $x_0\in A$,
+      then $F$ is continuous at $x_0\in A$.
+  \end{enumerate}
+\end{proposition}
+
+\begin{theorem}
+  Suppose $f\in\mathcal L^1\rr{\mathbb T}$ has an absolutely convergent Fourier series. Then the
+  Fourier series $\sum_{k\in\Z} \hat f\rr{k}e^{2\pi i k x}$ of $f$ converges uniformly on
+  $\br{0,1}$ to a continuous function $g\in C\rr{\mathbb T}$ such that $\hat g\rr{k}=\hat f\rr{k}$,
+  for all $k\in\Z$.
+  \begin{proof}
+    We apply \ref{prop:weierstrass_m_test} to the sequence of functions
+    $f_k\rr{x}=\hat f\rr{k}e^{2\pi ikx}$, noting that $\vv{f_k\rr{x}}=\vv{\hat f\rr{k}}$
+    for all $x\in\mathbb T$, and hence
+    \begin{align*}
+      \sup_{x\in\br{0,1}}\vv{f_k\rr{x}}=\vv{\hat f\rr{k}}.
+    \end{align*}
+    Thus the Fourier series of $f$ converges to some continuous function $g$.
+
+    We now consider the Fourier coefficients $\hat g\rr{k}$ of $g$, given by
+    \begin{align*}
+      \hat g\rr{k}=\int_{\mathbb T} g\rr{x}e^{-2\pi ikx} dx
+      = \int_{\mathbb T} \rr{\sum_{n\in\Z} \hat f\rr{n}e^{2\pi inx}}e^{-2\pi ikx}dx.
+    \end{align*}
+    Since the series $g(x)$ converges uniformly, it follows that
+    \begin{align*}
+      \hat g\rr{k}=\sum_{n\in\Z}\hat f\rr{n}\int_{\mathbb T}e^{2\pi i\rr{n-k}x}dx.
+    \end{align*}
+    Applying the orthogonality relations, we obtain $\hat g\rr{k}=\hat f\rr{k}$.
+  \end{proof}
+\end{theorem}
+
+\begin{theorem}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ be two functions such that, for all $k\in\Z$,
+  \begin{align*}
+    \hat f\rr{k}=\hat g\rr{k}.
+  \end{align*}
+  Then at all points of continuity of $f-g$ we have $f\rr{x}=g\rr{x}$.
+\end{theorem}
+
+\begin{theorem}
+  Suppose $f\in\mathcal L^1\rr{\mathbb T}$ has an absolutely convergent Fourier series.
+  Then the Fourier series $\sum_{k\in\Z} \hat f\rr{k}e^{2\pi ikx}$ of $f$ converges uniformly
+  on $\br{0,1}$ to a continuous function $g\in C\rr{\mathbb T}$. Furthermore, $g\rr{x}=f\rr{x}$
+  whenever $f$ is continuous at $x\in\br{0,1}$.
+\end{theorem}
+
+\begin{proposition}
+  If $f\in C^n\rr{\mathbb T}$ for some $n\geq 0$, then, for all $k\in\Z$,
+  \begin{align*}
+    \hat{f^{\rr{n}}}\rr{k}=\rr{2\pi ik}^n \hat f\rr{k}
+  \end{align*}
+  \begin{proof}
+    By induction. Note the base case $n=0$ is vacuous. Assume the result holds for some
+    $n\geq 0$ and $f\in C^{n+1}\rr{\mathbb T}$. Letting $g=f^{\rr{n}}$, it follows that
+    $g\in C\rr{\mathbb T}$ and, using integration by parts,
+    \begin{align*}
+      \hat{\rr{g'}} = \int_0^1 g'\rr{x}e^{-2\pi ikx}dx
+      = \left. g\rr{x}e^{-2\pi ikx}\right\rvert_0^1 - \int_0^1 g\rr{x}\frac{d}{dx}\rr{e^{-2\pi ikx}}dx.
+    \end{align*}
+    Due to periodicity,
+    \begin{align*}
+      \hat{\rr{g'}}\rr{k}= g\rr{1}-g\rr{0}+\rr{2\pi ikx}\int_0^1 g\rr{x}e^{-2\pi ikx}dx=\rr{2\pi ikx}\hat g\rr{k}.
+    \end{align*}
+    Thus
+    \begin{align*}
+      \hat{\rr{f^{\rr{n}}}}\rr{k}=\rr{2\pi ik}^n\hat f\rr{k}.
+    \end{align*}
+  \end{proof}
+\end{proposition}
+
+\begin{corollary}
+  If $f\in C^n\rr{\mathbb T}$ for some $n\geq 0$, then, for all $k\in\Z\setminus\cc{0}$,
+  \begin{align*}
+    \vv{\hat f\rr{k}}\leq \vabs{f^{\rr{n}}}_{L^1\rr{\mathbb T}} \frac{1}{\rr{2\pi\vv{k}}^n}.
+  \end{align*}
+\end{corollary}
+
+\begin{proposition}
+  Suppose $\rr{a_k}_{k\in\Z}$ is a sequence of complex numbers satisfying
+  \begin{align*}
+    \vv{a_k}\leq C\rr{1+\vv{k}}^{-n}
+  \end{align*}
+  for some $n\geq 3$. Then the series
+  \begin{align*}
+    g\rr{x}=\sum_{k\in\Z} a_k e^{2\pi ikx}
+  \end{align*}
+  defines a 1-periodic function which s of the class $C^{\rr{n-2}}\rr{\mathbb T}$. If,
+  in addition, $a_k=\hat f\rr{k}$ for some $f\in C\rr{\mathbb T}$, then
+  $f\in C^{\rr{n-2}}\rr{\mathbb T}$.
+\end{proposition}
+
+\begin{proposition}
+  For any $f\in\mathcal L^1\rr{\mathbb T}$ we have
+  \begin{align*}
+    \min_{p\in\mathcal P_N\rr{\mathbb T}} \int_{\mathbb T}\vv{f\rr{x}-p\rr{x}}^2 dx
+    = \int_{\mathbb T}\vv{f\rr{x}-S_Nf\rr{x}}^2dx
+    = \int_{\mathbb T}\vv{f\rr{x}}^2dx - \sum_{k=-N}^{ N } \vv{\hat f\rr{k}}^2.
+  \end{align*}
+\end{proposition}
+
+\begin{corollary}[Bessel]
+  For any $f\in\mathcal L^1\rr{\mathbb T}$, we have
+  \begin{align*}
+    \sum_{k\in\Z}\vv{\hat f\rr{k}}^2 \leq \int_{\mathbb T}\vv{f\rr{x}}^2dx.
+  \end{align*}
+\end{corollary}
+
+\begin{proposition}
+  If $f\in C^1\rr{\mathbb T}$ then the Fourier series of $f$ converges absolutely and hence
+  uniformly to $f$.
+\end{proposition}
+
+\end{document}
