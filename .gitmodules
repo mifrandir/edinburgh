@@ -58,3 +58,6 @@
 [submodule "2022/CT/cw3"]
 	path = 2022/CT/cw3
 	url = git@github.com:compiling-techniques/cw-3---code-generation-MiltFra.git
+[submodule "2023/IAGT/notes"]
+	path = 2023/IAGT/notes
+	url = git@github.com:mifrandir/sheaves.git
