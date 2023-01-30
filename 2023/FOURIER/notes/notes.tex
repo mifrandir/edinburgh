@@ -266,4 +266,66 @@
   uniformly to $f$.
 \end{proposition}
 
+\section{Pointwise convergence}\label{sec:pointwise_convergence}
+
+\begin{definition}
+  Let $N\geq 1$ and $x\in\R$. Then the $N$-th Dirichlet kernel at $x$ is
+  \begin{align*}
+    D_N\rr{x}=\sum_{k=-N}^N e^{2\pi ikx}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ such that at least one of them is bounded. The
+  convolution $f * g$ of $f$ and $g$ is
+  \begin{align*}
+    f*g\rr{x}=\int_{\mathbb T} f\rr{x-t}g\rr{t}dt.
+  \end{align*}
+\end{definition}
+
+\begin{proposition}
+  If $f\in\mathcal L^1\rr{\mathbb T}$ and $g\in\mathcal P\rr{\mathbb T}$ then
+  $f*g\in\mathcal P\rr{\mathbb T}$ and, for all $k\in\Z$,
+  \begin{align*}
+    \hat{f*g}\rr{k}=\hat f\rr{k}\hat g\rr{k}
+  \end{align*}
+  In particular,
+  \begin{align*}
+    \int_{\mathbb T} f * g = \rr{\int_{\mathbb T} f}\rr{\int_{\mathbb T} g}.
+  \end{align*}
+\end{proposition}
+
+\begin{lemma}
+  For all $N\geq 1$ and $x\in\R$,
+  \begin{align*}
+    D_N\rr{x} =
+    \begin{cases}
+      \frac{\sin\rr{\rr{@N+1}\pi x}}{\sin\rr{\pi x}} & \text{if }x\not\in\Z,\\
+      2N+1 &\text{if }x\in\Z.
+    \end{cases}
+  \end{align*}
+\end{lemma}
+
+\begin{definition}
+  Let $f:\R\to\C$ and $x\in\R$. Then $f$ is \emph{Lipschitz at $x$} if there is a
+  constant $C>0$ such that, for all $t\in\R$,
+  \begin{align*}
+    \vv{f\rr{x-t}-f\rr{t}}\leq C\vv{t}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Suppose that $f\in\mathcal L^1\rr{\mathbb T}$ and that $f$ is Lipschitz at $x\in\br{0,1}$.
+  Then $s_N f\rr{x}\to f\rr{x}$ as $N\to\infty$.
+\end{theorem}
+
+\begin{theorem}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ and $I\subseteq\R$ an open interval.
+  If $f\rr{x}=g\rr{x}$ for all $x\in I$, then
+  \begin{align*}
+    S_N f\rr{x}=S_N g\rr{x}\to 0 \text{ as } N\to\infty
+  \end{align*}
+  for all $x\in I$.
+\end{theorem}
+
 \end{document}
