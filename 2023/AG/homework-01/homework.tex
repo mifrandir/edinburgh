@@ -1,0 +1,204 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Algebraic Geometry: Homework 1}
+\author{Franz Miltz (UUN: S1971811)}
+\date{1 February 2023}
+\maketitle
+
+\section*{Exercise 1}
+
+\begin{claim*}
+  Let $\Sigma$ be a set of 8 distinct points in $\mathbf P^2$. Let $n$ be the largest number
+  of points in $\Sigma$ that lie on a line. If $n\in\cc{5,6,7}$ then there is a line
+  $L\subseteq\mathbf P^2$ that contains exactly two points in $\Sigma$.
+  \begin{proof}
+    Let $\Sigma=\cc{x_1,\ldots,x_8}$ and assume without loss of generality that
+    $x_1,\ldots,x_n$ are collinear and let $L_0\subseteq\mathbf P^2$ be the line such
+    that $x_1,\ldots,x_n\in L_0$. This line is uniquely determined by $x_1,x_2\in L_0$.
+    Similarly, for $j<8$, let $L_j$ be the unique line passing through $x_j$ and $x_8$.
+
+    Assume $n=7$. If, for any $1<j<8$, $x_j\in L_1$ then $L_1=L_0$ and $x_8\in L_0$.
+    This contradicts $n=7$. Thus $L_1$ contains exactly two elements of $\Sigma$.
+
+    Assume $n=6$. If $x_7\not\in L_1$ then we are done. If $x_7\in L_1$ then consider
+    $L_2$. We have $x_7\not\in L_2$ as otherwise $L_1=L_2$, thus $x_1,x_2\in L_1$, and finally
+    $L_1=L_2=L_0$, once again contradicting $n=6$. Thus $x_j\in L_2$ if and only if
+    $j=1$ or $j=8$.
+
+    Assume $n=5$. If $x_6,x_7\not\in L_1$ then we are done. Otherwise, assume without loss
+    of generality $x_7\in L_1$. By the same argument as above, $x_7\not\in L_j$ for $j\neq 1$.
+    If $x_6\not\in L_2$ then we are done. Otherwise we have $x_6,x_7\not\in L_3$
+    so $L_3$ is the required line.
+  \end{proof}
+\end{claim*}
+
+\section*{Exercise 2}
+
+Let $f\rr{x,y,z}=xy^3+yz^3+x^3z$ and consider the quartic
+$C\subseteq\mathbf P^2_{\C}$ given by $f\rr{x,y,z}=0$.
+
+\begin{claim*}[1]
+  The gradient vanishes at no point on $C$ and, moreover, $f$ is irreducible.
+  \begin{proof}
+    We have the system of equations
+    \begin{align*}
+      y^3 + 3x^2z &= 0\\
+      z^3 + 3xy^2 &= 0\\
+      x^3 + 3yz^2 &= 0\\
+      xy^3 + yz^3 + x^3z &= 0
+    \end{align*}
+    Assume there is a solution $\bb{x_0:y_0:z_0}$. As this system is symmetric in all variables
+    and all equations are homogeneous, we assume without loss of generality $z_0=1$.
+    Thus we obtain the equations
+    \begin{align*}
+      y_0^3 + 3x_0^2 &= 0\\
+      1 + 3x_0y_0^2 &= 0\\
+      x_0^3 + 3y_0 &= 0\\
+      x_0y_0^3 + y_0 + x_0^3 &= 0
+    \end{align*}
+    Using the first and third equation, we perform the substitutions $y_0=-x_0^3/3$
+    and $y_0^3=-3x^2$ to obtain the equation
+    \begin{align*}
+      x_0(-3x_0^2) - \frac{1}{3}x_0^3 + x^3 = 0
+    \end{align*}
+    which implies $x_0=0$. However, this contradicts the second equation
+    $1 + 3x_0y_0^2 = 0$. Thus there is no solution for the system.
+
+    Now assume there are homogeneous polynomials $g,h\in\C\bb{x,y,z}$ with
+    $\deg g,\deg h\geq 1$ such that $f\rr{x,y,z}=g\rr{x,y,z}h\rr{x,y,z}$.
+    By Bezout's theorem, the system
+    \begin{align*}
+      g\rr{x,y,z}=h\rr{x,y,z}=0
+    \end{align*}
+    has at least one solution $P$. Note that $f\rr{P}=0$ so $P\in C$. Moreoever,
+    \begin{align*}
+      \eval{\frac{\partial f}{\partial x}}{P}
+      =\frac{\partial g}{\partial x}\rr{P}h\rr{P}
+      +\frac{\partial h}{\partial x}\rr{P}g\rr{P}
+      = 0
+    \end{align*}
+    so the gradient of $f$ must vanish at $P$. This contradicts the developments above
+    so $f$ must be irreducible.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+  The conic $C$ intersects its tangent at $P=\bb{0:0:1}$ in $P$ with multiplicity $3$
+  and in $Q=\bb{1:0:0}$ with multiplicity $1$.
+  \begin{proof}
+    The tangent line at $\bb{0:0:1}$ is given by the equation
+    \begin{align*}
+      g\rr{x,y,z}=
+      \frac{\partial f}{\partial x}\rr{0,0,1}x
+      +\frac{\partial f}{\partial y}\rr{0,0,1}y
+      +\frac{\partial f}{\partial z}\rr{0,0,1}z
+      = y
+      =0.
+    \end{align*}
+    Thus the intersection points are given by the solutions to the system $x^3z=y=0$.
+    This leaves us with two solutions $\bb{1:0:0}$ and $\bb{0:0:1}$.
+
+    Let $f'\rr{x,y}=f\rr{x,y,1}$ and $g'\rr{x,y}=g\rr{x,y,1}$. The intersection multiplicity
+    of $C$ and $L$ at $P=\bb{0:0:1}$ is
+    \begin{align*}
+      I_P\rr{C,L}
+      &=\dim\rr{\frac{\C\bb{\bb{x,y}}}{\aa{f',g'}}}\\
+      &=\dim\rr{\frac{\C\bb{\bb{x,y}}}{\aa{xy^3+y+x^3,y}}}\\
+      &=\dim\rr{\frac{\C\bb{\bb{x,y}}/\aa{y}}{\aa{xy^3+y+x^3,y}/\aa{y}}}\\
+      &=\dim\rr{\frac{\C\bb{\bb{x}}}{\aa{x^3}}}\\
+      &= 3.
+    \end{align*}
+    To compute the intersection multiplicity at $Q=\bb{1:0:0}$ we apply the
+    linear change of coordinates $\rr{x,y,z}\mapsto\rr{z,y,x}$. We then obtain
+    the polynomials $f'\rr{x,y}=f\rr{1,y,x}$ and $g'\rr{x,y}=g\rr{1,y,x}$.
+    Now
+    \begin{align*}
+      I_Q\rr{C,L}
+    &=\dim\rr{\frac{\C\bb{\bb{x,y}}}{\aa{y^3+yx^3+x,y}}} \\
+    &=\dim\rr{\frac{\C\bb{\bb{x,y}}/\aa{y}}{\aa{y^3+yx^3+x,y}/\aa{y}}} \\
+    &=\dim\rr{\frac{\C\bb{\bb{x}}}{\aa{x}}} \\
+    &= 1
+    \end{align*}
+    Thus $I_P\rr{C,L}+I_Q\rr{C,L}=4$, as predicted by Bezout's theorem.
+  \end{proof}
+\end{claim*}
+
+\section*{Exercise 3}
+
+Let $f\rr{x,y,z}=x^2+4xy-6xz+14y^2-28yz+35z^2$ and consider the conic
+$C\subseteq \mathbf P^2_{\C}$ given by $f\rr{x,y,z}=0$.
+
+\begin{claim*}[1]
+  Let $B$ be the matrix of the symmetric bilinear form associated with $f$.
+  Then $\det B = 196$.
+  \begin{proof}
+    We find
+    \begin{align*}
+      B=
+      \begin{pmatrix}
+        1 & 2 & -3 \\
+        2 & 14 & -14 \\
+        -3 & -14 & 35
+      \end{pmatrix}.
+    \end{align*}
+    Direct computation then yields
+    \begin{align*}
+      \det B = 14 \times 35-14^2
+      - 2\times\rr{2\times 35-3\times 14}
+      - 3\times\rr{-2\times 14+3\times 14}
+      =196.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+  The linear change of coordinates
+  \begin{align*}
+    \begin{pmatrix}
+      x \\ y \\ z
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      1 & 1/\sqrt{20} & 21/\sqrt{980}\\
+      0 & 1/\sqrt{20} & -9/\sqrt{980}\\
+      0 & 1/\sqrt{20} & 1/\sqrt{980}
+    \end{pmatrix}
+    \begin{pmatrix}
+      x' \\ y' \\ z'
+    \end{pmatrix}
+  \end{align*}
+  gives a projective transformation that takes $C$ to $\rr{x'}^2+\rr{y'}^2+\rr{z'}^2=0$.
+  \begin{proof}
+    We include the full derivation analogously to Example 1.48 in the notes.
+    Consider the symmetric bilinear form $\aa{-,-}$ associated with $f$.
+    We choose $v_1=\rr{1,0,0}$ and note
+    \begin{align*}
+      \aa{v_1,v_1}=\begin{pmatrix}
+        1 & 0 & 0
+        \end{pmatrix}B\begin{pmatrix}
+        1 & 0 & 0
+      \end{pmatrix}^\top = 1.
+    \end{align*}
+    A vector $\rr{x,y,z}$ is orthogonal to $v_1$ if $x+2y-3z=0$.
+    We choose $v_2=1/\sqrt{20}\rr{1,1,1}$ to obtain $\aa{v_2,v_2}=1$.
+    Finally, a vector $\rr{x,y,z}$ is orthogonal to $v_1$ and $v_2$ if
+    \begin{align*}
+      x+2y-3z  &= 0,\\
+      2y+18z &= 0.
+    \end{align*}
+    A solution is $\rr{21,-9,1}$. We normalise and choose $v_3=1/\sqrt{980}\rr{21,-9,1}$.
+    We thus obtain the matrix
+    \begin{align*}
+      A=
+      \begin{pmatrix}
+        1 & 1/\sqrt{20} & 21/\sqrt{980}\\
+        0 & 1/\sqrt{20} & -9/\sqrt{980}\\
+        0 & 1/\sqrt{20} & 1/\sqrt{980}
+      \end{pmatrix}.
+    \end{align*}
+  We verify by direct computation that $A^\top BA = I$.   \end{proof}
+\end{claim*}
+
+\end{document}
