@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Galois Theory: Homework 1}
+\author{Franz Miltz (UUN: S1971811)}
+\date{2 February 2023}
+\maketitle
+
+Let $k\geq 0$. For $\sigma\in S_k$ and $p\in\Q\bb{t_1,\ldots,t_k}$, define
+$\sigma p\in\Q\bb{t_1,\ldots,t_k}$ by
+\begin{align*}
+  \rr{\sigma p}\rr{t_1,\ldots,t_k}=p\rr{t_{\sigma\rr{1}},\ldots,t_{\sigma\rr{k}}}.
+\end{align*}
+
+\begin{claim*}[i]
+  The map
+  \begin{align*}
+    S_k \times\Q\bb{t_1,\ldots,t_k}&\to\Q\bb{t_1,\ldots,t_k}\\
+    \rr{\sigma,p}&\mapsto\sigma p
+  \end{align*}
+  defines a left action.
+  \begin{proof}
+    Firstly, consider the identity perumtation $e\in S^k$. For all $p\in\Q\bb{t_1,\ldots,t_k}$,
+    \begin{align*}
+      \rr{ep}\rr{t_1,\ldots,t_k}=p\rr{t_1,\ldots,t_k}.
+    \end{align*}
+    Further, let $\sigma,\tau\in S^k$ and let $p\in\Q\bb{t_1,\ldots,t_k}$. Then
+    \begin{align*}
+      \rr{\sigma\rr{\tau p}}\rr{t_1,\ldots,t_k}
+      &= \sigma p\rr{t_{\tau\rr{1}},\ldots,t_{\tau\rr{k}}}\\
+      &= p\rr{t_{\sigma\rr{\tau\rr{1}}},\ldots,t_{\sigma\rr{\tau\rr{k}}}}\\
+      &= p\rr{t_{\rr{\sigma\tau}\rr{1}},\ldots,t_{\rr{\sigma\tau}\rr{k}}}\\
+      &= \rr{\rr{\sigma\tau}p}\rr{t_1,\ldots,t_k},
+    \end{align*}
+    i.e. $\sigma\rr{\tau p}=\rr{\sigma \tau}p$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[ii]
+  Let $f\in\Q\bb{t}$ with $k$ distinct roots in $\C$. Then $\Gal{f}$ is a subgroup of $S_k$.
+  \begin{proof}
+    Let $\alpha_1,\ldots,\alpha_k\in\C$ be the roots. Consider $\sigma,\tau\in\Gal{f}$.
+    By definition of conjugacy we have, for all polynomials $p\in\Q\bb{t_1,\ldots,t_k}$,
+    \begin{align}
+      \label{eq:sigma_conjugacy}
+      p\rr{\alpha_1,\ldots,\alpha_k} = 0 \text{ iff }
+      p\rr{\alpha_{\sigma\rr{1}},\ldots,\alpha_{\sigma\rr{k}}} = 0
+    \end{align}
+    and
+    \begin{align}
+      \label{eq:tau_conjugacy}
+      p\rr{\alpha_1,\ldots,\alpha_k} = 0 \text{ iff }
+      p\rr{\alpha_{\tau\rr{1}},\ldots,\alpha_{\tau\rr{k}}} = 0.
+    \end{align}
+    In particular, fix $p\in\Q\bb{t_1,\ldots,t_k}$. Then (\ref{eq:tau_conjugacy}) yields
+    \begin{align*}
+      \rr{\sigma p}\rr{\alpha_1,\ldots,\alpha_k} = 0 \text{ iff }
+      \rr{\sigma p}\rr{\alpha_{\tau\rr{1}},\ldots,\alpha_{\tau\rr{k}}} = 0
+    \end{align*}
+    and thus, unpacking the definition of $\sigma p$,
+    \begin{align*}
+      p\rr{\alpha_{\sigma\rr{1}},\ldots,\alpha_{\sigma\rr{k}}} = 0 \text{ iff }
+      p\rr{\alpha_{\rr{\sigma\tau}\rr{1}},\ldots,\alpha_{\rr{\sigma\tau}\rr{k}}} = 0
+    \end{align*}
+    Combining this with (\ref{eq:sigma_conjugacy}), we find $\sigma\tau\in\Gal{f}$.
+    Further, (\ref{eq:sigma_conjugacy}) implies
+    \begin{align*}
+      \rr{\inv\sigma p}\rr{\alpha_1,\ldots,\alpha_k} = 0 \text{ iff }
+      \rr{\inv\sigma p}\rr{\alpha_{\sigma\rr{1}},\ldots,\alpha_{\sigma\rr{k}}} = 0
+    \end{align*}
+    i.e.
+    \begin{align*}
+      p\rr{\alpha_{\inv\sigma\rr{1}},\ldots,\alpha_{\inv\sigma\rr{k}}} = 0 \text{ iff }
+      p\rr{\alpha_1,\ldots,\alpha_k} = 0
+    \end{align*}
+    This shows $\inv\sigma\in\Gal f$. Now $\Gal f$ is a subset of $S_k$ that is closed
+    under the group operation and taking inverses, completing the proof.
+  \end{proof}
+\end{claim*}
+
+\end{document}
