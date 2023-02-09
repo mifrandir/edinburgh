@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Fourier Analysis: Homework 2}
+\author{Franz Miltz (UUN: S1971811)}
+\date{10 February 2023}
+\maketitle
+
+For this assignment, we assume that, for any $f\in\mathcal L^1\rr{\mathbb T}$,
+\begin{equation}\label{eq:bessels_equality}
+  \sum_{k\in\Z}\vv{\hat f\rr{k}}^2 = \int_{\mathbb T}\vv{f}^2.
+\end{equation}
+
+\begin{claim*}[2a]
+  Let $f\in C^1\rr{\bb{0,1}}$ be such that $\int_{\mathbb T} f = 0$ and $f\rr{0}=f\rr{1}$.
+  Then
+  \begin{align}\label{eq:inequality}
+    \int_{\mathbb T} \vv{f}^2 \leq \frac{1}{4\pi^2}\int_{\mathbb T} \vv{f'}^2.
+  \end{align}
+  Moreover, this bound is tight.
+  \begin{proof}
+    Let $f$ be as above. We first note
+    \begin{equation}\label{eq:kinequality}
+      \sum_{k\in\Z} \vv{\hat f\rr{k}}^2
+      = \sum_{k\in\Z\setminus\cc{0}} \vv{\hat f\rr{k}}^2
+      \leq \sum_{k\in\Z\setminus\cc{0}} \vv{k\hat f\rr{k}}^2
+      = \sum_{k\in\Z} \vv{k\hat f\rr{k}}^2.
+    \end{equation}
+    We calculate
+    \begin{align*}
+      \int_{\mathbb T} \vv{f}^2
+      &= \sum_{k\in\Z}\vv{\hat f\rr{k}}^2 &\text{(Bessel's equality)}\\
+      &\leq \sum_{k\in\Z} \vv{k\hat f\rr{k}}^2 &\text{(by~(\ref{eq:kinequality}))}\\
+      &= \frac{1}{4\pi^2} \sum_{k\in\Z} \vv{2\pi ik\hat f\rr{k}}^2 \\
+      &\leq \frac{1}{4\pi^2}\sum_{k\in\Z}\vv{\hat{f'}\rr{k}}^2 &\text{(Corollary 3.9)}\\
+      &= \frac{1}{4\pi^2}\int_{\mathbb T} \vv{f'}^2. &\text{(Bessel's equality)}
+    \end{align*}
+    Now we take $f\rr{x}=e^{2\pi ix}$. It is straightforward to verify that the
+    necessary conditions on $f$ hold. Then
+    \begin{align*}
+      \int_{\mathbb T}\vv{f}^2
+      = 1
+      = \frac{1}{4\pi^2}4\pi^2
+      = \frac{1}{4\pi^2}\int_{\mathbb T}\vv{2\pi ie^{2\pi ix}}^2
+      = \frac{1}{4\pi^2}\int_{\mathbb T}\vv{f'}^2.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[2b]
+  Let $f\in C^1\rr{\bb{0,1}}$ be such that $f\rr{0}=f\rr{1}=0$. Then
+  \begin{align*}
+    \int_{\mathbb T} \vv{f}^2 \leq \frac{1}{\pi^2}\int_{\mathbb T}\vv{f'}^2.
+  \end{align*}
+  \begin{proof}
+    We define $g : \bb{-1/2,1/2}\to\C$ by
+    \begin{align*}
+      g\rr{x}=
+      \begin{cases}
+        f\rr{2x}   & \text{if }x\geq 0, \\
+        -f\rr{-2x} & \text{if }x<0.
+      \end{cases}
+    \end{align*}
+    We have $g\in C^1\rr{\bb{-1/2,1/2}}$ by construction with
+    \begin{align*}
+      g'\rr{x}=
+      \begin{cases}
+        2f'\rr{2x} &\text{if }x\geq 0, \\
+        2f'\rr{-2x} &\text{if }x<0.
+      \end{cases}
+    \end{align*}
+    We further verify $g\rr{0}=2f\rr{0}=0$ and $g$ is odd, i.e., for all $x\geq 0$,
+    \begin{align*}
+      -g\rr{x}=-f\rr{2x}=g\rr{-x}.
+    \end{align*}
+    Similarly for $x\leq 0$. Thus $g$ is odd, i.e. $\int_{\mathbb T} g = 0$. We now
+    apply (\ref{eq:inequality}) to obtain
+    \begin{align*}
+      \int_{\mathbb T}\vv{g}^2 \leq \frac{1}{4\pi^2}\int_{\mathbb T}\vv{g'}^2.
+    \end{align*}
+    Substituting $f$ back in now yields
+    \begin{align*}
+      \int_{-1/2}^0\vv{-f\rr{-2x}}^2 dx+ \int_0^{1/2}\vv{f\rr{2x}}^2 dx
+      \leq \frac{1}{4\pi^2}\rr{\int_{-1/2}^0\vv{2f'\rr{-2x}}^2 dx
+      + \int_0^{1/2}\vv{2f'\rr{2x}}^2dx}.
+    \end{align*}
+    Rearranging the integration limits and using 1-peridicity of $f$ yields
+    \begin{align*}
+      \int_{\mathbb T}\vv{f\rr{x}}^2 dx
+      \leq \frac{1}{4\pi^2}\rr{4\int_{\mathbb T}\vv{f'\rr{x}}^2 dx},
+    \end{align*}
+    as required.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[2c]
+  There is no constant $K\geq 0$ such that, for all $f\in C^1\bb{0,1}$ with $f\rr{0}=f\rr{1}$,
+  \begin{align*}
+    \int_{\mathbb T}\vv{f}^2 \leq K\int_{\mathbb T}\vv{f'}^2.
+  \end{align*}
+  \begin{proof}
+    Assume there exists such a $K$ and let $f\rr{x}=1$. Then we obtain the contradiction
+    \begin{align*}
+      \int_{\mathbb T} \vv{f}^2 = 1 > 0 = K\int_{\mathbb T}\vv{f'}^2.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\end{document}
