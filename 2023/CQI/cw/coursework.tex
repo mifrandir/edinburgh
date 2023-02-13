@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\title{Categories for Quantum Informatics: Coursework}
+\author{Franz Miltz}
+
+\begin{document}
+\maketitle
+
+\section*{Question 1}
+
+\begin{claim*}[a]
+  An arrow in $\textbf{Set}$ is an isomorphism if and only if it is a bijection.
+  \begin{proof}
+    Let $f:X\to Y$ be a bijection. By surjectivity, for all $y\in Y$, there is an $x\in X$
+    such that $f(x)=y$. Moreover, this $x$ is unique by injectivity. We thus have a function
+    $\inv f : Y\to X$. We verify
+    \begin{itemize}
+      \item $ff^{-1}=\text{id}_Y$ as $f(\inv f(y)) = y$ by definition of $\inv f$;
+      \item $\inv ff=\text{id}_X$ as $\inv f(f(x)) = x$ as $x=x'$ is the unique
+        solution to $f(x)=f(x')$.
+    \end{itemize}
+    Thus $f$ is an isomorphism in $\textbf{Set}$.
+
+    Conversely, assume $f:X\to Y$ is an isomorphism in \textbf{Set}. Then there is an
+    inverse $\inv f:Y\to X$. Since $f\inv f=\text{id}_Y$, $f$ must be surjective.
+    Similarly, it follows from $\inv ff=\text{id}_X$ that $f$ must be injective, too.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+  An arrow in \textbf{Mon} is an isomorphism if and only if it is a bijection.
+  \begin{proof}
+    Note that we have a forgetful functor $U:\textbf{Mon}\to\textbf{Set}$. For any
+    isomorphism $f$ in \textbf{Mon} we have an isomorphism $Uf$ in \textbf{Set}. As
+    shown above, $Uf$ must be a bijection so $f$ is, too. Conversely, if $f$ is a
+    bijective monoid homomorphism then it must be an isomorphism due to reasoning
+    analogous to the above.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[c]
+  There exists a monotone bijection $f:X\to Y$ of posets that is not an isomorphism in the corresponding
+  category.
+  \begin{proof}
+    Consider the two element posets $X=\cc{x_1,x_2}$ with $x_i\leq x_j$ if and only if $i=j$
+    and $Y=\cc{y_1,y_2}$ with $y_1\leq y_2$. Now there is a monotone bijection
+    $f:X\to Y$ given by $x_i\mapsto y_i$. If $f$ is to be an isomorphism then it must have
+    an inverse which, moreover, agrees with its underlying function in \textbf{Set}.
+    However, its inverse function is not monotone as $y_1\leq y_2$
+    but $x_1\not\leq x_2$. Thus $f$ is not an isomorphism in the category of posets and
+    monotone functions.
+  \end{proof}
+\end{claim*}
+
+\section*{Question 2}
+
+The following states in $\C^2\otimes\C^2$ in \textbf{Hilb} are entagled:
+\begin{itemize}
+  \item $\frac{1}{2}(\va{00}+\va{01}+\va{10}-\va{11})$
+  \item $\frac{1}{2}(\va{00}+\va{01}-\va{10}+\va{11})$
+\end{itemize}
+The following states in $\cc{0,1}\otimes\cc{0,1}$ in \textbf{Rel} are entangled:
+\begin{itemize}
+  \item $\cc{\rr{0,0},\rr{0,1},\rr{1,0}}$
+  \item $\cc{\rr{0,1},\rr{1,0}}$
+\end{itemize}
+
+\section*{Question 3}
+
+We say that two joint states $a,b:I\to A\otimes B$ are locally equivalent and write $a\sim b$
+if and only if there exist invertible arrows $f:A\to A$ and $g:B\to B$ such that
+$(f\otimes g)a = b$.
+
+\begin{claim*}[a]
+  The relation $\sim$ is an equivalence relation.
+  \begin{proof}
+    We verify the axioms:
+    \begin{itemize}
+      \item reflexivity: $(\text{id}\otimes\text{id})a=a$;
+      \item symmetry: if $(f\otimes g)a=b$ then $\rr{\inv f\otimes\inv g}b=\inv{\rr{f\otimes g}}b=a$;
+      \item transitivity: if $(f\otimes g)a=b$ and $(f'\otimes g')b=c$ then $\rr{f'f\otimes g'g}a=\rr{f'\otimes g'}\rr{f\otimes g}a=c$.
+    \end{itemize}
+  \end{proof}
+\end{claim*}
+
+\begin{answer*}[b]
+  There are two automorphisms of $\cc{0,1}$ in \textbf{Rel}:
+  \begin{enumerate}
+    \item $\cc{\rr{0,0},\rr{1,1}}$;
+    \item $\cc{\rr{0,1},\rr{1,0}}$.
+  \end{enumerate}
+  Both are their own inverse.
+\end{answer*}
+
+\begin{answer*}[c]
+  In \textbf{Rel} we identify states with subsets. Thus the states of $\cc{0,1}\times\cc{0,1}$
+  are
+  \begin{enumerate}
+    \item $\emptyset$;
+    \item $\cc{(0,0)}$;
+    \item $\cc{(0,1)}$;
+    \item $\cc{\rr{1,0}}$;
+    \item $\cc{\rr{1,1}}$;
+    \item $\cc{\rr{0,0},\rr{0,1}}$;
+    \item $\cc{\rr{0,0},\rr{1,0}}$;
+    \item $\cc{\rr{0,0},\rr{1,1}}$;
+    \item $\cc{\rr{0,1},\rr{1,1}}$;
+    \item $\cc{\rr{0,1},\rr{1,0}}$;
+    \item $\cc{\rr{1,0},\rr{1,1}}$;
+    \item $\cc{\rr{0,0},\rr{0,1},\rr{1,0}}$;
+    \item $\cc{\rr{0,0},\rr{0,1},\rr{1,1}}$;
+    \item $\cc{\rr{0,0},\rr{1,0},\rr{1,1}}$;
+    \item $\cc{\rr{0,1},\rr{1,0},\rr{1,1}}$;
+    \item $\cc{\rr{0,0},\rr{0,1},\rr{1,0},\rr{1,1}}$.
+  \end{enumerate}
+\end{answer*}
+
+\begin{answer*}
+  We have the following equivalence classes:
+  \begin{enumerate}
+    \item $\cc{\emptyset}$;
+    \item $\cc{\cc{\rr{0,0}},\cc{\rr{0,1}},\cc{\rr{1,0}},\cc{\rr{1,1}}}$;
+    \item $\cc{\cc{\rr{0,0},\rr{0,1}},\cc{\rr{1,0},\rr{1,1}}}$;
+    \item $\cc{\cc{\rr{0,0},\rr{1,0}},\cc{\rr{0,1},\rr{1,1}}}$;
+    \item $\cc{\cc{\rr{0,0},\rr{1,1}},\cc{\rr{0,1},\rr{1,0}}}$;
+    \item $\cc{\cc{\rr{0,0},\rr{0,1},\rr{1,0}},
+        \cc{\rr{0,0},\rr{0,1},\rr{1,1}},
+        \cc{\rr{0,0},\rr{1,0},\rr{1,1}},
+      \cc{\rr{0,1},\rr{1,0},\rr{1,1}}}$;
+    \item $\cc{\cc{\rr{0,0},\rr{0,1},\rr{1,0},\rr{1,1}}}$.
+  \end{enumerate}
+  Of these, only 5 and 6 are entangled.
+\end{answer*}
+
+\end{document}
