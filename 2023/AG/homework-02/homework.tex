@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Algebraic Geometry: Homework 2}
+\author{Franz Miltz (UUN: S1971811)}
+\date{15 February 2023}
+\maketitle
+
+\section*{Exercise 1}
+
+Consider the irreducible polynomial $f(x,y,z)=x^3-y^2z-yz^2$ over $\F_2$ and
+the cubic $C:f(x,y,z)=0$.
+
+\begin{claim*}[1]
+  There are exactly three points on the cubic: $\bb{0:0:1}$, $\bb{0:1:0}$, and $\bb{0:1:1}$.
+  \begin{proof}
+    We check all the seven elements of $\mathbb P^2$ over $\F_2$:
+    \begin{enumerate}
+      \item $\bb{0:0:1}$: $0-0\times 1-0\times 1\equiv 0 \mod 2$;
+      \item $\bb{0:1:0}$: $0-1\times 0-1\times 0\equiv 0 \mod 2$;
+      \item $\bb{0:1:1}$: $0-1\times 1-1\times 1\equiv 0 \mod 2$;
+      \item $\bb{1:0:0}$: $1-0\times 0-0\times 0\not\equiv 0 \mod 2$;
+      \item $\bb{1:1:0}$: $1-1\times 0-1\times 0\not\equiv 0 \mod 2$;
+      \item $\bb{1:0:1}$: $1-0\times 1-0\times 1\not\equiv 0 \mod 2$;
+      \item $\bb{1:1:1}$: $1-1\times 1-1\times 1\not\equiv 0 \mod 2$.
+    \end{enumerate}
+  \end{proof}
+\end{claim*}
+
+We denote the points on the cubic as follows:
+\begin{align*}
+  O=\bb{0:1:0}, \hs P=\bb{0:0:1}, \hs Q=\bb{0:1:1}.
+\end{align*}
+
+\begin{claim*}[2]
+  The cubic $C$ is smooth.
+  \begin{proof}
+    We have the gradient
+    \begin{align*}
+      \nabla C = (3x^2, -2yz - z^2, -y^2 -2yz).
+    \end{align*}
+    We calculate
+    \begin{align*}
+      \nabla C\rr{O} = (0,0,1), \hs
+      \nabla C\rr{P} = (0,1,0), \hs
+      \nabla C\rr{Q} = (0,1,1).
+    \end{align*}
+    Thus the gradient does not vanish at any point on the cubic.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3]
+  The group operation acts as follows on non-identity elements:
+  \begin{align}\label{eq:group_law}
+    P+P=Q, \hs P+Q=O, \hs Q+Q=P.
+  \end{align}
+  \begin{proof}
+    We note that the group of $C$ must be isomorphic to $C_3=\Z/3\Z$. In particular,
+    we have $1+1=2$, $2+2=1$, and $1+2=0$ in $C_3$. Thus there are two possible
+    isomorphisms the group law could be determined by, but both of them agree.
+    We conclude that the group law must behave as in (\ref{eq:group_law}).
+  \end{proof}
+\end{claim*}
+
+\section*{Exercise 2}
+
+\section*{Exercise 3}
+
+
+\end{document}
