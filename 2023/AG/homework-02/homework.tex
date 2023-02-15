@@ -65,7 +65,145 @@ We denote the points on the cubic as follows:
 
 \section*{Exercise 2}
 
+Consider the polynomial $f(x,y,z)=x^3-y^2z$ and the cubic $C:f(x,y,z)=0$ over the
+complex numbers $\mathbb C$. Denote the set of smooth points on $C$ by $C^{sm}$.
+
+\begin{claim*}[1]
+  The map $\phi:\mathbb C\to C$ given by $t\mapsto\bb{t:1:t^3}$ is injective and its image is
+  $C^{sm}$.
+  \begin{proof}
+    Let $s,t\in\mathbb C$ and assume $\phi(s)=\phi(t)$. Then there exists a $\lambda\in\mathbb C$
+    such that $(t,1,t^3)=(\lambda s,\lambda,\lambda s^3)$. In particular, this implies
+    $\lambda=1$, i.e. $s=t$. We have thus proven injectivity.
+
+    Further, we calculate
+    \begin{align*}
+      \nabla C(x,y,z)=(3x^2, -2yz, -y^2).
+    \end{align*}
+    We note that, on $C$, $y=0$ implies $x=0$ and thus $\nabla C=(0,0,0)$. Thus every smooth
+    point has $y\neq 0$. Further, every point with $y\neq 0$ is smooth as the gradient
+    does not vanish. This shows $\im\phi\subseteq C^{sm}$.
+
+    Finally, consider a point $\bb{x:y:z}\in C^{sm}$ and assume without loss of generality
+    $y=1$. Now $f(x,1,z)=x^3-z$ so $z=x^3$. Therefore $\phi(x)=\bb{x:y:z}$. We have shown
+    $C^{sm}\subseteq\im\phi$, as required.
+  \end{proof}
+\end{claim*}
+
+For $P,Q\in C^{sm}$, define $L(P,Q)$ to be the tangent at $P$ if $P=Q$ or the unique line
+passing through $P$ and $Q$ otherwise.
+
+\begin{claim*}[2]
+  For all $P,Q\in C^{sm}$, $L(P,Q)\cap C \subseteq C^{sm}$.
+  \begin{proof}
+    Let $P=\phi(s)$ and $Q=\phi(t)$, for some $s,t\in\mathbb C$.
+
+    Assume $s\neq t$. By \emph{Proposition 1.33}, the line $L(P,Q)$ is given by the equation
+    \begin{align*}
+      (t^3-s^3)x + (s^3t-st^3)y + (s-t)z = 0.
+    \end{align*}
+    It is straightforward to verify that $L(P,Q)$ intersects $C$ at $[-(s+t) : 1 : -\rr{s+t}^3]$,
+    which is clearly smooth.
+
+    Now assme $s=t$. Then the tangent line $L(P,Q)$ is given by
+    \begin{align*}
+      3t^2 x - 2t^3 y - z.
+    \end{align*}
+    Once again, we have the intersection point $[-2t:1:\rr{-2t}^3]$, which is also smooth.
+  \end{proof}
+\end{claim*}
+
+Let $O=[0:1:0]$ and define the group law on $C^{sm}$ as follows: For $P,Q\in C^{sm}$,
+\begin{itemize}
+  \item denote the intersection points of $L(P,Q)$ with $C^{sm}$ by $P,Q,R$, counted with multiplicity;
+  \item denote the intersection points of $L(R,O)$ with $C^{sm}$ by $R,O,P+Q$, counted with multiplicity.
+\end{itemize}
+
+\begin{claim*}[3]
+  The map $\phi:\mathbb C\to C^{sm}$ is an isomorphism of groups.
+  \begin{proof}
+    Let $P=\phi(s)$ and $Q=\phi(t)$, for some $s,t\in\C$. Once again, we differentiate
+    between cases.
+
+    Assume $s\neq t$. Then we previously determined $R=[-(s+t) : 1 : -\rr{s+t}^3]$. Further,
+    $C$ is a Weierstrass cubic and it was shown in a lecture that the intersection of $L(R,O)$
+    with $C$ amounts to mirroring along the y-axis. Thus $P+Q=[s+t : 1 : \rr{s+t}^3]$,
+    as required.
+
+    Now assume $s=t$. Then $R=[-2t:1:\rr{-2t}^3]$ so once again,
+    \begin{align*}
+      P+Q=[2t:1:\rr{2t}^3]=[s+t : 1 : \rr{s+t}^3].
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
 \section*{Exercise 3}
 
+Let $f(x,y,z)=x^3 + y^3 + z^3 - 5xyz$ and the cubic $C:f(x,y,z)=0$ over $\mathbb C$.
+
+\begin{claim*}[1]
+  The cubic $C$ is smooth.
+  \begin{proof}
+    We have the gradient
+    \begin{align*}
+      \nabla C(x,y,z) = (3x^2-5yz,3y^2-5xz,3z^2-5xy).
+    \end{align*}
+    Note that if any one of $x,y,z$ is zero and the gradient vanishes, then
+    $x=y=z=0$. We may thus assume that all of $x,y,z$ are non-zero. Moreover,
+    we assume witout loss of generality that $z=1$. From $\nabla C(x,y,1)=0$ we
+    obtain the equations
+    \begin{align}
+      \label{eq:1}
+      3x^2 - 5y &= 0\\
+      3y^2 - 5x &= 0\\
+      \label{eq:3}
+      3 - 5xy &= 0
+    \end{align}
+    From (\ref{eq:3}) we have $y=3/(5x)$. Subsituting into (\ref{eq:1}) we find
+    $3x^2-3x=0$. This has solutions $x=0$ and $x=\frac{-1\pm i\sqrt{3}}{2}$. It is
+    straightforward to verify that none of these yield a solution to the whole system.
+    Thus the gradient never vanishes and $C$ is smooth.
+  \end{proof}
+\end{claim*}
+
+Let $O=[0:1:-1]$, $P=[1:2:1]$, and $Q=[-1:0:1]$.
+
+\begin{claim*}[2]
+  By the group law on $C$ with identity $O$, we have $-P=[1:1:2]$, $-Q=[1:-1:0]$,
+  and $P+Q=[1:1:2]$.
+  \begin{proof}
+    We begin by showing that $O$ is an inflection point. This follows because
+    \begin{align*}
+      \text{Hess}(f) = -150x^3 - 150y^3 - 150z^3 - 34xyz.
+    \end{align*}
+    In particular, $\text{Hess}(f)(O)=0$. Noting that $C$ is smooth, we conclude that $O$
+    is an inflection point by the \emph{Hessian criterion}. Thus $L(O,O)\cap C={O}$.
+    We use this to compute $-P$ and $-Q$ as it implies $R=O$ in the computation of the
+    group law.
+
+    Consider $-P$. By definition, $P+(-P)=O$. In particular, $L(P,-P)\cap C=\cc{P,-P, O}$.
+    We have the line $L(P,O):3x-y-z=0$ which intersects $C$ in $-P=[1:1:2]$.
+
+    Consider $-Q$. Once again, we must have $L(Q,-Q)=\cc{Q,-Q,O}$. We have the line
+    $L(Q,O):x+y+z=0$ which intersects $C$ in $-Q=[1:-1:0]$.
+
+    Finally, consider $P+Q$. We have the line $L(P,Q):x-y+z=0$ which intersects
+    $C$ only in $P$ and $Q$. However, calculating the tangent $L(P,P):x-y+z=0$
+    we find that $P$ has intersection multiplicity 2 and thus $R=P$.
+    We have considered $L(P,O)$ before and conclude that $P+Q=-P$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[3]
+  Let $n_P$ and $n_Q$ be the order of $P$ and $Q$. Then $n_P=6$ and $n_Q=3$.
+  \begin{proof}
+    We calculate $Q+Q$. We have the line $L(Q,Q):3x+5y+3z=0$ which intersects $C$
+    only in $Q$ itself. Thus $Q+Q=-Q$. Immediately $3Q=O$ and $n_Q=3$.
+
+    Now we consider $P+P$. We have the line $L(P,P):x-y+z=0$ which intersects $C$ at
+    $Q$. By previous considerations, we must have $P+P=-Q$. By basic group theory,
+    $Q$ and $-Q$ must have the same order. As $2P\neq O$ and $6P=3(-Q)=O$ we must have $n_P=6$.
+  \end{proof}
+\end{claim*}
 
 \end{document}
