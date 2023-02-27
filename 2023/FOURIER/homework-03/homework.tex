@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Fourier Analysis: Homework 3}
+\author{Franz Miltz (UUN: S1971811)}
+\date{3 March 2023}
+\maketitle
+
+\begin{claim*}[1]
+  For all $n\in\N$, let $x_n = \langle\sqrt{5}^n\rangle$. The sequence
+  $(x_n)_{n\in\N}$ is not equidistributed.
+  \begin{proof}
+    Consider the interval $I=\br{0,1/3}$. We note that, for all $n\in\N$,
+    $x_{2n}=0$, i.e. $\chi_I(x_{2n}) = 1$. Thus
+    \begin{align*}
+      \lim_{N\to\infty} \rr{\frac{1}{N}\sum_{n=1}^N \chi_I(x_n)}
+      \geq 1/2 > 1/3 = \int_0^1 \chi_I(x) dx.
+    \end{align*}
+    Therefore the condition fails for $I$ and the claim follows.
+  \end{proof}
+\end{claim*}
+
+Fix $\alpha\in\R$ and consider the sequence $\rr{x_n}_{n\in\N}$ given by
+$x_n = \aa{n\alpha}$.
+
+\begin{claim*}[4a]
+  If $\alpha\in\Q$ then the sequence $\rr{x_n}_{n\in\N}$ is not equidistributed.
+  \begin{proof}
+    Let $\alpha = p/q$ for $p\in\Z$ and $q\in\N$ and consider $I=\br{0,1/2q}$.
+    We note that, for all $n\in\N$, $x_{qn}=0$, i.e. $\chi_I(x_{qn})=1$. Thus
+    \begin{align*}
+      \lim_{N\to\infty} \rr{\frac{1}{N}\sum_{n=1}^N \chi_I(x_n)} \geq 1/q > 1/2q
+      =\int_0^1 \chi_I(x)dx.
+    \end{align*}
+    Therefore the condition fails for $I$ and the claim follows.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[4b]
+  If $\alpha\not\in\Q$ then the sequence $\rr{x_n}_{n\in\N}$ is equidistributed.
+  \begin{proof}
+    Fix a nonzero integer $k$. We note
+    \begin{align*}
+      \exp\rr{2\pi ikx_n}
+      = \exp\rr{2\pi ik\langle n\alpha\rangle}
+      = \exp\rr{2\pi ikn\alpha}.
+    \end{align*}
+    Further, for all $N\geq 1$,
+    \begin{align*}
+      \sum_{n=1}^{N} \exp\rr{2\pi i kn\alpha}
+      = \frac{\exp\rr{2\pi ik\alpha-\exp\rr{2\pi ik(N+1)\alpha}}}{1-\exp\rr{2\pi i k\alpha}}
+    \end{align*}
+    where we make use of the fact that $\alpha$ is irrational so the denominator is
+    nonzero. Thus
+    \begin{align*}
+      \vv{\frac{1}{N}\sum_{n=1}^{N} \exp\rr{2\pi i kn\alpha}}
+      &= \vv{\frac{1}{N}\frac{\exp\rr{2\pi ik\alpha-\exp\rr{2\pi ik(N+1)\alpha}}}{1-\exp\rr{2\pi i k\alpha}}}\\
+      &\leq \frac{1}{N}\frac{2}{\vv{1-\exp\rr{2\pi ik\alpha}}}
+    \end{align*}
+    We now have
+    \begin{align*}
+      \lim_{N\to\infty}\vv{\frac{1}{N}\sum_{n=1}^{N} \exp\rr{2\pi i kn\alpha}} = 0
+    \end{align*}
+    and apply \emph{Theorem 0.2} from the workshop to conclude that the sequence
+    is equidistributed.
+  \end{proof}
+\end{claim*}
+
+\end{document}
