@@ -266,10 +266,10 @@
   uniformly to $f$.
 \end{proposition}
 
-\section{Pointwise convergence}\label{sec:pointwise_convergence}
+\section{Dirchlet}\label{sec:pointwise_convergence}
 
 \begin{definition}
-  Let $N\geq 1$ and $x\in\R$. Then the $N$-th Dirichlet kernel at $x$ is
+  Let $N\geq 1$ and $x\in\R$. Then the \emph{$N$th Dirichlet kernel at $x$} is
   \begin{align*}
     D_N\rr{x}=\sum_{k=-N}^N e^{2\pi ikx}.
   \end{align*}
@@ -300,7 +300,7 @@
   \begin{align*}
     D_N\rr{x} =
     \begin{cases}
-      \frac{\sin\rr{\rr{@N+1}\pi x}}{\sin\rr{\pi x}} & \text{if }x\not\in\Z,\\
+      \frac{\sin\rr{\rr{N+1}\pi x}}{\sin\rr{\pi x}} & \text{if }x\not\in\Z,\\
       2N+1 &\text{if }x\in\Z.
     \end{cases}
   \end{align*}
@@ -323,9 +323,183 @@
   Let $f,g\in\mathcal L^1\rr{\mathbb T}$ and $I\subseteq\R$ an open interval.
   If $f\rr{x}=g\rr{x}$ for all $x\in I$, then
   \begin{align*}
-    S_N f\rr{x}=S_N g\rr{x}\to 0 \text{ as } N\to\infty
+    S_N f\rr{x}-S_N g\rr{x}\to 0 \text{ as } N\to\infty
   \end{align*}
   for all $x\in I$.
+\end{theorem}
+
+\section{Fej\'er}
+
+\begin{definition}
+  We say that a sequence $\rr{K_N}_{N\in\N}$ with each $K_N\in\mathcal L^1\rr{\mathbb T}$
+  is an \emph{approximate identity} if
+  \begin{enumerate}
+    \item for all $N\in\N$, $\int_{\mathbb T} K_N = 1$;
+    \item there exists $B\geq 1$ such that, for all $N\in\N$, $\int_{\mathbb T}\vv{K_N}\leq B$;
+    \item for all $\delta>0$,
+      \begin{align*}
+        \lim_{N\to\infty}\int_{\delta\leq\vv{x}\leq 1/2}\vv{K_N\rr{x}} dx = 0.
+      \end{align*}
+  \end{enumerate}
+  The sequence $\rr{K_N}_{N\in\N}$ is a \emph{strong approximate identity} if, additionally,
+  for every $\delta>0$,
+  \begin{align*}
+    \lim_{N\to\infty} \sup_{\delta\leq\vv{x}\leq 1/2}\vv{K_N\rr{x}}=0.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Let $\rr{K_N}_{N\in\N}$ be an approximate identity.
+  \begin{enumerate}
+    \item If $f\in\mathcal L^\infty\rr{\mathbb T}$ is continuous at $x\in\R$ then
+      $K_N * f(x) \to f(x)$ as $N\to\infty$;
+    \item If $f\in C(\mathbb T)$ then $K_N*f$ converges uniformly to $f$;
+    \item For $1\leq p<\infty$, if $f\in\mathcal L^p\rr{\mathbb T}$ then
+      \begin{align*}
+        \lim_{N\to\infty}\vabs{K_N*f-f}_{L^p\rr{\mathbb T}}=0.
+      \end{align*}
+  \end{enumerate}
+\end{theorem}
+
+\begin{definition}
+  Let $\rr{a_n}_{n\in\N}$ be a sequence of complex numbers. Its \emph{$N$th Ces\`aro mean}
+  is
+  \begin{align*}
+    \sigma_N = \frac{1}{N}\sum_{n=1}^N a_n.
+  \end{align*}
+\end{definition}
+
+\begin{proposition}
+  Let $\rr{a_n}_{n\in\N}$ be a sequence of complex numbers. If $a_n\to a$ as $n\to\infty$
+  then $\sigma_N\to a$ as $N\to \infty$.
+\end{proposition}
+
+\begin{definition}
+  Let $N\geq 1$ and $x\in\R$. Then the \emph{$N$th Fej\'er kernel at $x$} is
+  \begin{align*}
+    F_N\rr{x}=\frac{1}{N+1}\sum_{n=0}^{N} D_n\rr{x}.
+  \end{align*}
+\end{definition}
+
+\begin{proposition}
+  The sequence of Fej\'er kernels $\rr{F_N}_{N\in\N}$ is a strong approximate identity.
+\end{proposition}
+
+\begin{corollary}
+  If $f\in\mathcal L^\infty\rr{\mathbb T}$ is continuous at $x\in\R$ then
+  $\sigma_N f(x)\to f(x)$. Moreover, if $f\in C(\mathbb T)$ then $\sigma_Nf\to f$
+  uniformly.
+\end{corollary}
+
+\begin{corollary}
+  The class of trigonometric polynomials $\mathcal P\rr{\mathbb T}$ is dense in the spaces
+  \begin{enumerate}
+    \item $C(\mathbb T)$ wrt $\vabs{-}_{\infty}$;
+    \item for $p=1,2$, $\mathcal L^p(\mathbb T)$ wrt $\vabs{-}_{p}$.
+  \end{enumerate}
+\end{corollary}
+
+\begin{corollary}[Weierstrass approximation theorem]
+  The class of polynomials is dense in $C\rr{[0,1]}$ wrt $\vabs{-}_{\infty}$.
+\end{corollary}
+
+\begin{theorem}
+  Let $f\in\mathcal L^2(\mathbb T)$. Then
+  \begin{align*}
+    \lim_{N\to\infty}\int_{\mathbb T}\vv{S_N f(x)-f(x)}^2 dx = 0.
+  \end{align*}
+  Further we have the \emph{Riesz-Fischer identity},
+  \begin{align*}
+    \sum_{k\in\Z} \vv{\hat f(k)}^2 = \int_{\mathbb T} \vv{f(x)}^2dx.
+  \end{align*}
+\end{theorem}
+
+\begin{corollary}[Parseval]
+  Let $f,g\in\mathcal L^2\rr{\mathbb T}$. Then
+  \begin{align*}
+    \int_{\mathbb T}f\bar g = \sum_{k\in\Z} \hat f(k)\overline{\hat g(k)}.
+  \end{align*}
+\end{corollary}
+
+\section{Convolution}
+
+\begin{lemma}
+  Let $f\in\mathcal L^1\rr{\mathbb T}$. Then, for $1\leq p<\infty$,
+  \begin{align*}
+    \lim_{h\to 0}\rr{\int_{\mathbb T} \vv{f\rr{x+h}-f\rr{x}}^p dx}^{1/p} = 0.
+  \end{align*}
+\end{lemma}
+
+\begin{proposition}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$. If $f$ is bounded then $f*g$
+  is uniformly continuous on $\R$.
+\end{proposition}
+
+\begin{theorem}[Young's inequality]
+  Let $f\in\mathcal L^1\rr{\mathbb T}$ and $g\in\mathcal L^p\rr{\mathbb T}$ for $1\leq p<\infty$.
+  Then $f*g\in L^p\rr{\mathbb T}$ and
+  \begin{align*}
+    \vabs{f*g}_{L^p\rr{\mathbb T}} \leq \vabs{f}_{L^1\rr{\mathbb T}}\vabs{g}_{L^p\rr{\mathbb T}}.
+  \end{align*}
+\end{theorem}
+
+\begin{proposition}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$. Then, for all $k\in\Z$,
+  \begin{align*}
+    \widehat{f*g}(k) = \hat f(k)\hat g(k).
+  \end{align*}
+  In particular,
+  \begin{align*}
+    \int_{\mathbb T}f*g = \rr{\int_{\mathbb T} f}\rr{\int_{\mathbb T}g}.
+  \end{align*}
+\end{proposition}
+
+\begin{definition}
+  Let $f\in\mathcal L^1\rr{\mathbb T}$ and $0<r<1$. Then the \emph{Abel mean at $x$}
+  is
+  \begin{align*}
+    A_r f(x) = \sum_{k\in\Z} \hat f(k)\exp\rr{2\pi ikx}r^{\vv{k}}.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  Let $0<r<1$ and $x\in\R$. Then the \emph{Poisson kernel at $x$} is
+  \begin{align*}
+    P_r\rr{x}= \sum_{k\in\Z} r^{\vv{k}}\exp\rr{2\pi ikx}.
+  \end{align*}
+\end{definition}
+
+\begin{proposition}
+  For all $0<r<1$, $A_r f = f * P_r$.
+\end{proposition}
+
+\begin{theorem}
+  If $f\in\mathcal L^1\rr{\mathbb T}$ is continuous at $x\in\br{0,1}$ then $A_r f(x)\to f(x)$
+  as $r\to 1^-$. Moreoever, if $f\in C\rr{\mathbb T}$ then $A_r f\to f$ uniformly as
+  $r\to 1^-$.
+\end{theorem}
+
+\begin{definition}
+  Consider $\rr{x_n}_{n\in\N}$ with each $x_n\in\br{0,1}$. The sequence is \emph{equidistributed
+  in $\br{0,1}$} if, for all intervals $I\subseteq \br{0,1}$,
+  \begin{align*}
+    \lim_{N\to\infty} \frac{1}{N}\sum_{n=1}^N \chi_I\rr{x_n} = \int_{\mathbb T}\chi_I.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Let $\rr{x_n}_{n\in\N}\subseteq\br{0,1}$. Then tfae
+  \begin{enumerate}
+    \item $\rr{x_n}_{n\in\N}$ is equidistributed;
+    \item for all $f\in\mathcal R\rr{\mathbb T}$,
+      \begin{align*}
+        \lim_{N\to\infty}\frac{1}{N}\sum_{n=1}^N f(x_n) = \int_{\mathbb T} f;
+      \end{align*}
+    \item for all $k\in\Z\setminus\cc{0}$,
+      \begin{align*}
+        \lim_{N\to\infty} \frac{1}{N}\sum_{n=1}^{N} \exp\rr{2\pi ikx_n}=0.
+      \end{align*}
+  \end{enumerate}
 \end{theorem}
 
 \end{document}
