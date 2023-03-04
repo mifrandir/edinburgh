@@ -16,15 +16,15 @@
     such that $f(x)=y$. Moreover, this $x$ is unique by injectivity. We thus have a function
     $\inv f : Y\to X$. We verify
     \begin{itemize}
-      \item $ff^{-1}=\text{id}_Y$ as $f(\inv f(y)) = y$ by definition of $\inv f$;
-      \item $\inv ff=\text{id}_X$ as $\inv f(f(x)) = x$ as $x=x'$ is the unique
+      \item $f\circ f^{-1}=\text{id}_Y$ as $f(\inv f(y)) = y$ by definition of $\inv f$;
+      \item $\inv f\circ f=\text{id}_X$ as $\inv f(f(x)) = x$ as $x=x'$ is the unique
         solution to $f(x)=f(x')$.
     \end{itemize}
     Thus $f$ is an isomorphism in $\textbf{Set}$.
 
     Conversely, assume $f:X\to Y$ is an isomorphism in \textbf{Set}. Then there is an
-    inverse $\inv f:Y\to X$. Since $f\inv f=\text{id}_Y$, $f$ must be surjective.
-    Similarly, it follows from $\inv ff=\text{id}_X$ that $f$ must be injective, too.
+    inverse $\inv f:Y\to X$. Since $f\circ \inv f=\text{id}_Y$, $f$ must be surjective.
+    Similarly, it follows from $\inv f\circ f=\text{id}_X$ that $f$ must be injective, too.
   \end{proof}
 \end{claim*}
 
@@ -55,16 +55,67 @@
 
 \section*{Question 2}
 
-The following states in $\C^2\otimes\C^2$ in \textbf{Hilb} are entagled:
-\begin{itemize}
-  \item $\frac{1}{2}(\va{00}+\va{01}+\va{10}-\va{11})$
-  \item $\frac{1}{2}(\va{00}+\va{01}-\va{10}+\va{11})$
-\end{itemize}
-The following states in $\cc{0,1}\otimes\cc{0,1}$ in \textbf{Rel} are entangled:
-\begin{itemize}
-  \item $\cc{\rr{0,0},\rr{0,1},\rr{1,0}}$
-  \item $\cc{\rr{0,1},\rr{1,0}}$
-\end{itemize}
+Consider the state space $\mathbb C^2\otimes\mathbb C^2$ in \textbf{Hilb}.
+
+\begin{claim*}
+  The states
+  \begin{align*}
+    \va{\phi}=\frac{1}{2}(\va{00}+\va{01}+\va{10}+\va{11}),\hs
+    \va{\psi}=\frac{1}{2}(\va{00}-\va{01}-\va{10}+\va{11})
+  \end{align*}
+  are not entangled.
+  \begin{proof}
+    We note $\va{\phi}=(\va{0}+\va{1})\otimes(\va{0}+\va{1})$ and likewise
+    $\va{\psi}=(\va{0}-\va{1})\otimes(\va{0}-\va{1})$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  The state $\va{\phi}=\frac{1}{2}(\va{00}+\va{01}+\va{10}-\va{11})$ is entangled
+  \begin{proof}
+    Assume there exist $\alpha,\beta\in\mathbb C^2$ such that
+    $\va{\alpha}\otimes\va{\beta}=\va{\phi}$. Then, in particular, there are
+    $a,b,c,d\in\mathbb C$ such that $(a\va{0}+b\va{1})\otimes(c\va{0}+d\va{1})=\va{\phi}$.
+    We must have $ac>0$, $ad>0$, and $bc>0$. Thus either $a,b,c,d>0$ or $a,b,c,d<0$.
+    This contradicts $bd<0$, which is also required.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  The state $\va{\phi}=\frac{1}{2}(\va{00}+\va{01}-\va{10}+\va{11})$ is entangled.
+  \begin{proof}
+    Similar to the above assume $(a\va{0}+b\va{1})\otimes(c\va{0}+d\va{1})=\va{\phi}$,
+    we obtain $ac>0$, $ad>0$, and $bd>0$. Thus either $a,b,c,d>0$ or $a,b,c,d<0$,
+    contradicting $bc<0$.
+  \end{proof}
+\end{claim*}
+
+Now consider the state space $\cc{0,1}\otimes\cc{0,1}$ in \textbf{Rel}.
+
+\begin{claim*}
+  The states $S=\cc{(0,0),(0,1)}$ and $R=\cc{(0,0),(0,1),(1,0),(1,1)}$ are not entangled.
+  \begin{proof}
+    We note $S=\cc{0}\times\cc{0,1}$ and $R=\cc{0,1}\times\cc{0,1}$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  The state $S=\cc{\rr{0,0},\rr{0,1},\rr{1,0}}$ is entangled.
+  \begin{proof}
+    Assume there are states $A,B$ of $\cc{0,1}$ such that $A\otimes B=S$.
+    Then we have $(0,0)\in S$ and $(1,0)\in S$ so $0,1\in A$. Further,
+    $(0,1)\in S$ so $1\in B$. However, $(1,1)\not\in S$. Contradiction.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}
+  The state $S=\cc{\rr{0,1},\rr{1,0}}$ is entangled.
+  \begin{proof}
+    Assume $S=A\otimes B$ for some $A$ and $B$. We must have $(0,1)\in S$ so
+    $0\in A$. Similarly, $(1,0)\in S$ so $0\in B$. However, $(0,0)\not\in S$.
+    Contradiction.
+  \end{proof}
+\end{claim*}
 
 \section*{Question 3}
 
@@ -90,7 +141,8 @@ $(f\otimes g)a = b$.
     \item $\cc{\rr{0,0},\rr{1,1}}$;
     \item $\cc{\rr{0,1},\rr{1,0}}$.
   \end{enumerate}
-  Both are their own inverse.
+  Both are their own inverse. We note that all isomorphisms in \textbf{Rel} must correspond to
+  bijective functions so so these are in fact the only automorphisms.
 \end{answer*}
 
 \begin{answer*}[c]
@@ -116,7 +168,7 @@ $(f\otimes g)a = b$.
   \end{enumerate}
 \end{answer*}
 
-\begin{answer*}
+\begin{answer*}[d]
   We have the following equivalence classes:
   \begin{enumerate}
     \item $\cc{\emptyset}$;
@@ -130,7 +182,120 @@ $(f\otimes g)a = b$.
       \cc{\rr{0,1},\rr{1,0},\rr{1,1}}}$;
     \item $\cc{\cc{\rr{0,0},\rr{0,1},\rr{1,0},\rr{1,1}}}$.
   \end{enumerate}
-  Of these, only 5 and 6 are entangled.
+  Of these, only 5 and 6 are entangled. This can be seen as follows: if
+  we have locally equivalent states $p\sim q$ such that $p=a\otimes b$
+  then $fa\otimes gb$ for some $f,g$. Thus $\sim$ preserves entanglement.
+  We now note $\emptyset=\emptyset\otimes\emptyset$,
+  $\cc{(0,0)}=\cc{0}\otimes\cc{0}$, $\cc{(0,0),(0,1)}=\cc{0}\otimes\cc{0,1}$,
+  $\cc{(0,0),(1,0)}=\cc{0,1}\otimes\cc{0}$, and
+  $\cc{(0,0),(0,1),(1,0),(1,1)}=\cc{0,1}\otimes\cc{0,1}$.
+  The first listed states in 5 and 6 were previously proven to be entangled.
 \end{answer*}
+
+\section*{Question 4}
+
+Consider the $\mathcal H=\mathbb C^2\otimes\mathbb C^2$ in \textbf{Hilb}.
+
+\begin{claim*}[a]
+  A state $\phi : \mathbb C\to \mathcal H$ is entangled if and only if its corresponding
+  matrix $M_\phi$ is invertible.
+  \begin{proof}
+    Fix $\phi$. Assume $M_\phi$ is not invertible. Then there exists $\lambda\in\mathbb C$
+    such that $a=\lambda c$ and $b=\lambda d$. In particular,
+    \begin{align*}
+      \phi
+      = a\va{00}+b\va{10}+\lambda a\va{01}+\lambda b\va{11}
+      = (a\va{0}+b\va{1})\otimes(\va{0}+\lambda\va{1})
+    \end{align*}
+    Conversely, if $\phi$ is not entangled then
+    $\phi = (a\va{0}+b\va{1})\otimes(c\va{0}+d\va{1})$. Thus
+    \begin{align*}
+      M_\phi =
+      \begin{pmatrix}
+        ac & bc \\
+        ad & bd
+      \end{pmatrix}
+    \end{align*}
+    Clearly, $ac\va{0}+bc\va{1}=(c/d)(ad\va{0}+bd\va{1})$. Thus
+    $\text{rank}(M_\phi) < 2$, i.e. $M_\phi$ is not invertible.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[b]
+  Let $\phi$ be a state of $\mathbb C^2\otimes\mathbb C^2$ and let
+  $f:\mathbb C^2\to\mathbb C^2$ be a linear map.
+  Then $M_{(\mathbb C^2\otimes f)\circ\phi} =M_\phi\circ f^\top$.
+  \begin{proof}
+    Denote by $M_f$ the matrix corresponding to $f$ and let
+    \begin{align*}
+      M_\phi =
+      \begin{pmatrix}
+        a & b \\
+        c & d
+      \end{pmatrix},\hs
+      M_f =
+      \begin{pmatrix}
+        e & f \\
+        g & h
+      \end{pmatrix}.
+    \end{align*}
+    Then we compute
+    \begin{align*}
+      (\text{id}\otimes f)\circ\phi
+      &= (\text{id}\otimes f)(a\va{00}+b\va{01}+c\va{10}+d\va{11})\\
+      &= \va{0}\otimes M_f(a\va{0}+b\va{1})+\va{1}\otimes M_f(c\va{0}+d\va{1})\\
+      &= \va{0}\otimes((ae+bf)\va{0}+(ag+bh)\va{1})+
+      \va{1}\otimes((ce+df)\va{0}+(cg+dh)\va{1}).
+    \end{align*}
+    Equivalently
+    \begin{align*}
+      M_{(\text{id} \otimes f)\circ\phi} =
+      \begin{pmatrix}
+        ae+bf & ag+bh \\
+        ce+df & cg+dh
+      \end{pmatrix}.
+    \end{align*}
+    We then notice
+    \begin{align*}
+      M_\phi M_f^\top =
+      \begin{pmatrix}
+        a & b \\
+        c & d
+      \end{pmatrix}
+      \begin{pmatrix}
+        e & g \\
+        f & h
+      \end{pmatrix}
+      =
+      \begin{pmatrix}
+        ae+bf & ag+bh \\
+        ce+df & cg+dh
+      \end{pmatrix}
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[c]
+  There are three families of locally equivalent states of $\mathcal H$.
+  \begin{proof}
+    The first family contains only the zero state $0\in\mathbb C^2\otimes\mathbb C^2$.
+    We note that, for any isomorphism $f:\mathcal H\to\mathcal H$,
+    $f(0)=0$. Thus $0$ cannot be locally equivalent to any state but itself.
+
+    The second family is given by all the non-zero product states. Any two
+    non-zero product states are
+    clearly isomorphic as, for all non-zero states $\va{\phi},\va{\psi}\in\mathbb C^2$, there is
+    an isomorphism $f:\mathbb C^2\to\mathbb C^2$ such that $f(\phi)=\psi$. Thus,
+    for all product states $\va{\phi}\otimes\va{\phi'}$ and $\va{\psi}\otimes\va{\psi'}$,
+    there are isomorphisms $f,f':\mathbb C^2\to\mathbb C^2$ such that
+    $(f\otimes f')(\va{\phi}\otimes\va{\phi'}) = \va{\psi}\otimes\va{\psi'}$.
+
+    Thirdly, all entangled states are locally equivalent: Let $\va{\phi},\va{\psi}\in\mathcal H$
+    be entangled. Then $M_\phi$ and $M_\psi$ are invertible so
+    $M_\phi (\inv M_\phi M_\psi) = M_\psi$. In particular, let $f:\mathbb C^2\to\mathbb C^2$
+    be the isomorphism corresponding to the invertible matrix $(\inv M_\phi M_\psi)^\top$. Then
+    $(\text{id}\otimes f)\circ \phi = \psi$, i.e. $\phi\sim\psi$.
+  \end{proof}
+\end{claim*}
 
 \end{document}
