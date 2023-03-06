@@ -559,13 +559,96 @@ Let $k$ be an algebraically closed field.
 
 \begin{theorem}
   Let $k$ be an algebraically closed field. There is a $1:1$ correspondence
-  between affine algebraic subsets and equivalence classes of isomorphic reduced
-  finitely generated $k$-algebras given by $X\mapsto k\bb{X}$.
+  between
+  \begin{enumerate}
+    \item affine algebraic subsets and
+    \item reduced finitely generated $k$-algebras (up to isomorphism)
+  \end{enumerate}
+  given by $X\mapsto k\bb{X}$.
 \end{theorem}
 
 \begin{proposition}
   Suppose $f:X\to Y$ is a morphism of affine algebraic sets which is surjective. Then
   the induced map of coordinate rings $f^*$ is injective.
 \end{proposition}
+
+\subsection{Affine varieties}
+
+\begin{definition}
+  An \emph{affine variety} is an irreducible affine algebraic set.
+\end{definition}
+
+\begin{theorem}
+  Let $k$ be an algebraically closed field. There is a $1:1$ correspondence
+  between
+  \begin{enumerate}
+    \item affine varieties and
+    \item finitely generated $k$-algebras that are integral domains (up to isomorphism)
+  \end{enumerate}
+  given by $X\mapsto k\bb{X}$.
+\end{theorem}
+
+\begin{proposition}
+  Let $k$ be algebraically closed. A prime ideal $I\subseteq k\bb{x,y}$ is one of the
+  following:
+  \begin{itemize}
+    \item $I=0$;
+    \item $I=\aa{f}$ fo ran irreducible $f\in k\bb{x,y}$;
+    \item $I=\aa{x-a,y-b}$ for $a,b\in k$.
+  \end{itemize}
+\end{proposition}
+
+\begin{definition}
+  Let $R$ be an integral domain and $K$ its field of fractions.
+  \begin{itemize}
+    \item An element $\alpha\in K$ is \emph{integral over $R$} if there are elements
+      $a_1,\ldots,a_d\in R$ such that $\alpha^d + a_1\alpha^{d-1} +\cdots + a_d = 0$.
+    \item The \emph{integral closure} $\overline R\subseteq K$ is the set of elements integral over $R$.
+    \item $R$ is \emph{integrally closed} if $\overline R=R$.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}
+  An affine variety $X$ is \emph{normal} if $k\bb{X}$ is integrally closed.
+\end{definition}
+
+\begin{definition}
+  Let $X$ be an affine variety. The \emph{normalisation $\overline X$} is the unique
+  affine variety corresponding to the integral closure $\overline{k\bb{X}}$.
+\end{definition}
+
+\begin{definition}
+  Let $X$ be an affine variety. The \emph{function field $k(X)$} is the field of fractions of $k\bb{X}$.
+\end{definition}
+
+\begin{proposition}
+  Every unique factorisation domain is integrally closed.
+\end{proposition}
+
+\begin{theorem}[Zariski]
+  A curve in $\affine{2}$ is smooth iff it is normal.
+\end{theorem}
+
+\subsection{Zarisiki topology}
+
+\begin{definition}
+  The \emph{Zariski topology} on $\affine{n}$ has as closed subsets exactly the algebraic
+  subsets.
+
+  Using the subset topology, we obtain topologies on all algebraic subsets $X\subseteq \affine{n}$.
+\end{definition}
+
+\begin{proposition}
+  If $f:X\to Y$ is a polynomial function then it is continuous in the Zariski topology.
+\end{proposition}
+
+\subsection{Rational maps}
+
+\begin{definition}
+  Let $X$ be an affine variety and let $P\in X$. A rational function $\phi\in k(X)$ is
+  \emph{regular at $P$} if there are $f,g\in k\bb{X}$ such that $\phi = f/g$ and $g\rr{P}\neq 0$.
+  The \emph{domain of definition} $\dom\phi\subseteq X$ is the subset where the function
+  is regular.
+\end{definition}
 
 \end{document}
