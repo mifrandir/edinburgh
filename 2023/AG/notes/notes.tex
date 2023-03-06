@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{notes-preamble}
 \usepackage{enumitem}
+
 \begin{document}
 \mkthmstwounified
 \title{Algebraic Geometry (SEM8)}
@@ -18,12 +19,12 @@ Let $k$ be a field.
 \begin{definition}[Affine space]
   The $n$-dimensional affine space is the set
   \begin{align*}
-    \mathbf A^n = \cc{\rr{x_1,\ldots,x_n}:x_1,\ldots,x_n\in k}.
+    \affine n = \cc{\rr{x_1,\ldots,x_n}:x_1,\ldots,x_n\in k}.
   \end{align*}
 \end{definition}
 
 \begin{definition}[Curves, Lines, Conics]
-  A curve in $\mathbf A^n$ is a subset $C\subseteq \mathbf A^n$ given by the
+  A curve in $\affine n$ is a subset $C\subseteq \affine n$ given by the
   set of roots of a nonconstant polynomial $p\in k\bb{x_1,\ldots,x_n}$.
   In particular
   \begin{enumerate}
@@ -47,7 +48,7 @@ Let $k$ be a field.
 \end{proposition}
 
 \begin{proposition}
-  Suppose $\rr{x_1,y_1}$ and $\rr{x_2,y_2}$ are distinct points in $\mathbf A^2$. Then
+  Suppose $\rr{x_1,y_1}$ and $\rr{x_2,y_2}$ are distinct points in $\affine 2$. Then
   there is a unique line passing through both of them which is moreover given by the
   equation
   \begin{align*}
@@ -61,7 +62,7 @@ Let $k$ be a field.
 \end{proposition}
 
 \begin{proposition}
-  Suppose $L_1,L_2$ are lines in $\mathbf A^2$. Then exactly one of the following is true:
+  Suppose $L_1,L_2$ are lines in $\affine 2$. Then exactly one of the following is true:
   \begin{enumerate}
     \item $L_1=L_2$;
     \item $\vv{L_1\cap L_2}=1$;
@@ -70,16 +71,16 @@ Let $k$ be a field.
 \end{proposition}
 
 \begin{proposition}
-  Let $L\subseteq\mathbf A^2$ a line and $C\subseteq\mathbf A^n$ a conic. Then
+  Let $L\subseteq\affine 2$ a line and $C\subseteq\affine n$ a conic. Then
   exactly one of the following is true:
   \begin{enumerate}
-    \item there is a line $L'\subseteq\mathbf A^2$ such that $C=L\cup L'$;
+    \item there is a line $L'\subseteq\affine 2$ such that $C=L\cup L'$;
     \item $\vv{C\cap L}=2$.
   \end{enumerate}
 \end{proposition}
 
 \begin{definition}[Affine transformation]
-  An affine transformation is a map $\mathbf A^n\to\mathbf A^n$ given by a combination of
+  An affine transformation is a map $\affine n\to\affine n$ given by a combination of
   translations
   \begin{align*}
     \rr{x_1,\ldots,x_n} \mapsto \rr{x_1 + c_1,\ldots,x_n+c_n}
@@ -97,7 +98,7 @@ Let $k$ be a field.
 \end{definition}
 
 \begin{proposition}
-  The group of affine transformations of $\mathbf A^2$ is the semidirect procut
+  The group of affine transformations of $\affine 2$ is the semidirect procut
   $GL_2\rr{k}\ltimes k^2$, where $k^2$ acts by translations, $GL_2\rr{k}$ acts by
   linear change of coordinates, and $GL_2\rr{k}$ acts on $k^2$ in the obvious way.
 \end{proposition}
@@ -111,39 +112,39 @@ Let $k$ be a field.
   \end{align*}
   where, for $x,y\in V$, $x\sim y$ iff $x=\lambda y$ for some $\lambda\in k$.
 
-  We denote $\mathbf P^n = \mathbf P\rr{k^{n+1}}$.
-  Points in $\mathbf P^n$ are defined by homogeneous coordinates
+  We denote $\proj n = \mathbf P\rr{k^{n+1}}$.
+  Points in $\proj n$ are defined by homogeneous coordinates
   $\bb{x_1 : \cdots : x_n}$.
 \end{definition}
 
 \begin{definition}
-  A curve in $\mathbf P^n$ is a subset $C\subseteq\mathbf P^n$ such that, for some
+  A curve in $\proj n$ is a subset $C\subseteq\proj n$ such that, for some
   nonconstant $p\in k\bb{x_1,\ldots,x_{n+1}}$, each $\bb{x_1:\ldots:x_{n+1}}\in C$
   yields $p\rr{x_1,\ldots,x_{n+1}}=0$.
 \end{definition}
 
 \begin{proposition}
-  Consider the point $P=\bb{1:0}\in\mathbf P^1$ and its complement
-  $U=\mathbf P^1\setminus P$. Then the map $U\to k$ given by $\bb{x:y}\mapsto x/y$
+  Consider the point $P=\bb{1:0}\in\proj 1$ and its complement
+  $U=\proj 1\setminus P$. Then the map $U\to k$ given by $\bb{x:y}\mapsto x/y$
   is a bijection.
 \end{proposition}
 
 \begin{theorem}
-  The topological space $\mathbf P^1_{\R}$ is homeomorphic to $S^1$. The topological space
-  $\mathbf P^1_{\C}$ is homeomorphic to $S^2$.
+  The topological space $\proj 1_{\R}$ is homeomorphic to $S^1$. The topological space
+  $\proj 1_{\C}$ is homeomorphic to $S^2$.
 \end{theorem}
 
 \begin{proposition}
-  Consider the subset $U\subseteq\mathbf P^2$ given by the points $\bb{x:y:z}$ with
-  $z\neq 0$. Then $\mathbf P^2\setminus U$ is isomorphic to $\mathbf P^1$.
+  Consider the subset $U\subseteq\proj 2$ given by the points $\bb{x:y:z}$ with
+  $z\neq 0$. Then $\proj 2\setminus U$ is isomorphic to $\proj 1$.
 \end{proposition}
 
 \begin{definition}
-  The homogenisation of a curve $C\subseteq\mathbf A^n:p\rr{x_1,\ldots,x_n}=0$, where
+  The homogenisation of a curve $C\subseteq\affine n:p\rr{x_1,\ldots,x_n}=0$, where
   $p$ is a polynomial of degree $d$, is the curve
-  $\bar C\subseteq\mathbf P^n:x_{n+1}^d p\rr{x_1/x_{n+1},\ldots,x_n/x_{n+1}}=0$.
+  $\bar C\subseteq\proj n:x_{n+1}^d p\rr{x_1/x_{n+1},\ldots,x_n/x_{n+1}}=0$.
 
-  Conversely, the dehomogenisation of a curve $C\subseteq\mathbf P^n:p\rr{x_1,\ldots,x_{n+1}}=0$,
+  Conversely, the dehomogenisation of a curve $C\subseteq\proj n:p\rr{x_1,\ldots,x_{n+1}}=0$,
   where $p$ is a homogeneous polynomial, is the curve $\bar C:p\rr{\bar x_1,\ldots,\bar x_n,1}=0$
   with respect to the affine coordinates $\rr{\bar x_j = x_j / x_{n+1}}_{1\leq j\leq n}$.
 \end{definition}
@@ -165,13 +166,13 @@ Let $k$ be a field.
 \end{proposition}
 
 \begin{proposition}
-  Suppose $L\subseteq\mathbf P^2$ is a line. Then there is a projective transformation that
+  Suppose $L\subseteq\proj 2$ is a line. Then there is a projective transformation that
   sends it to the line $L':x=0$.
 \end{proposition}
 
 \begin{theorem}
-  Let $P_1,\ldots,P_4\in\mathbf P^2$ be points such that no three of them are colinear. Then
-  there exists a projective transformation $\phi:\mathbf P^2\to\mathbf P^2$ such that
+  Let $P_1,\ldots,P_4\in\proj 2$ be points such that no three of them are colinear. Then
+  there exists a projective transformation $\phi:\proj 2\to\proj 2$ such that
   \begin{align*}
     \phi\rr{P_1}=\bb{1:0:0},\hs \phi\rr{P_2}=\bb{0:1:0}, \hs\phi\rr{P_3}=\bb{0:0:1},\hs
     \phi\rr{P_4}=\bb{1:1:1}.
@@ -179,21 +180,21 @@ Let $k$ be a field.
 \end{theorem}
 
 \begin{corollary}
-  Let $L\subseteq\mathbf P^2$ be a line and $C\subseteq\mathbf P^2$ a conic. Then
+  Let $L\subseteq\proj 2$ be a line and $C\subseteq\proj 2$ a conic. Then
   either $C$ is the union of $L$ with another line or $L\cap C$ at most two points.
   If $k$ is algebraically closed then $L\cap C$ is nonempty.
 \end{corollary}
 
 \begin{corollary}
-  Let $P_1,\ldots,P_5\in\mathbf P^2$ be points such that no three of them are colinear.
+  Let $P_1,\ldots,P_5\in\proj 2$ be points such that no three of them are colinear.
   Then there exists a unique conic passing through them.
 \end{corollary}
 
 \subsection{Conics}\label{sec:conics}
 
 \begin{theorem}
-  Let $C\subseteq\mathbf P^2_{\C}$ be a conic. Then there exists a projective transformation
-  $\phi:\mathbf P^2_{\C}\to\mathbf P^2_{\C}$ such that $\phi\rr{C}$ has one of the following
+  Let $C\subseteq\proj 2_{\C}$ be a conic. Then there exists a projective transformation
+  $\phi:\proj 2_{\C}\to\proj 2_{\C}$ such that $\phi\rr{C}$ has one of the following
   forms:
   \begin{enumerate}
     \item $x^2+y^2+z^2=0$ (an irreducible conic);
@@ -216,19 +217,19 @@ Let $k$ be a field.
 \end{definition}
 
 \begin{corollary}
-  A conic $C\subseteq\mathbf P^2$ is irreducible iff $\det\rr{B}\neq 0$ where $B$ is its
+  A conic $C\subseteq\proj 2$ is irreducible iff $\det\rr{B}\neq 0$ where $B$ is its
   induced symmetric matrix.
 \end{corollary}
 
 \begin{theorem}
-  Suppose $C,C'\subseteq\mathbf P^2$ are two irreducible unequal conics. Then
+  Suppose $C,C'\subseteq\proj 2$ are two irreducible unequal conics. Then
   $1\leq\vv{C\cap C'}\leq 4$.
 \end{theorem}
 
 \subsection{Smooth curves}\label{sec:smooth_curves}
 
 \begin{definition}
-  Suppose $C\subseteq\mathbf P^2:f\rr{x,y,z}=0$ is an irreducible curve. A point
+  Suppose $C\subseteq\proj 2:f\rr{x,y,z}=0$ is an irreducible curve. A point
   $P=\bb{x:y:z}$ is smooth iff
   \begin{align*}
     \eval{\rr{\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}, \frac{\partial f}{\partial z}}}{P}\neq 0.
@@ -237,7 +238,7 @@ Let $k$ be a field.
 \end{definition}
 
 \begin{definition}
-  Let $P=\bb{0:0:1}$ and let $C\subseteq\mathbf P^2$ be a projective curve given
+  Let $P=\bb{0:0:1}$ and let $C\subseteq\proj 2$ be a projective curve given
   by the homogeneous polynomial
   \begin{align*}
     f\rr{x,y,z}=z^d h_0\rr{x,y} + \cdots + zh_{d-1}\rr{x,y} + h_{d}
@@ -247,7 +248,7 @@ Let $k$ be a field.
 \end{definition}
 
 \begin{proposition}
-  Suppose $C\subseteq\mathbf P^2$ is a curve and $P\in\mathbf P^2$. Then
+  Suppose $C\subseteq\proj 2$ is a curve and $P\in\proj 2$. Then
   \begin{enumerate}
     \item $P$ lies on $C$ iff $\text{mult}_P\rr{C}\geq 1$;
     \item $P$ is a singular point iff $\text{mult}_P\rr{C}\geq 2$.
@@ -255,15 +256,15 @@ Let $k$ be a field.
 \end{proposition}
 
 \begin{lemma}
-  A line $L\subseteq\mathbf P^2$ is smooth.
+  A line $L\subseteq\proj 2$ is smooth.
 \end{lemma}
 
 \begin{lemma}
-  An irreducible conic $C\subseteq\mathbf P^2_{\C}$ is smooth.
+  An irreducible conic $C\subseteq\proj 2_{\C}$ is smooth.
 \end{lemma}
 
 \begin{definition}
-  Let $C:f\rr{x,y,z}=0$ be an irreducible curve in $\mathbf P^2$ and $P=\bb{\alpha:\beta:\gamma}$
+  Let $C:f\rr{x,y,z}=0$ be an irreducible curve in $\proj 2$ and $P=\bb{\alpha:\beta:\gamma}$
   a smooth point. Then
   \begin{align*}
     \frac{\partial f}{\partial x}\rr{\alpha,\beta,\gamma}
@@ -275,7 +276,7 @@ Let $k$ be a field.
 \end{definition}
 
 \begin{definition}
-  Suppose $C_1$ and $C_2$ are two curves in $\mathbf P^2$ intersecting at $P$. We say this
+  Suppose $C_1$ and $C_2$ are two curves in $\proj 2$ intersecting at $P$. We say this
   intersection is transverse if
   \begin{enumerate}
     \item $P$ is a smooth point of $C_1$ and $C_2$;
@@ -284,13 +285,13 @@ Let $k$ be a field.
 \end{definition}
 
 \begin{proposition}
-  Let $k$ be an algebraically closed field. Suppose $L\subseteq\mathbf P^2_k$ is a line and
-  $C\subseteq\mathbf P^2_k$ an irreducible conic. Then either $L$ is tangent to $C$ at some point
+  Let $k$ be an algebraically closed field. Suppose $L\subseteq\proj 2_k$ is a line and
+  $C\subseteq\proj 2_k$ an irreducible conic. Then either $L$ is tangent to $C$ at some point
   or $L$ intersects $C$ transversely at two points.
 \end{proposition}
 
 \begin{proposition}
-  Suppose $C_1,C_2\subseteq\mathbf P^2_{\mathbb C}$ are two distinct irreducible concis. Then they
+  Suppose $C_1,C_2\subseteq\proj 2_{\mathbb C}$ are two distinct irreducible concis. Then they
   intersect transversally at all points iff there are four intersection points.
 \end{proposition}
 
@@ -300,7 +301,7 @@ Let $k$ be algebraically closed.
 
 \begin{theorem}
   Suppose $f\rr{x,y}$ is a nonzero homogeneous polyonomial of degree $d$. Then the equation
-  $f\rr{x,y}=0$ in $\mathbf P^1$ consists of $d$ points counted with multiplicity.
+  $f\rr{x,y}=0$ in $\proj 1$ consists of $d$ points counted with multiplicity.
 \end{theorem}
 
 \begin{definition}
@@ -309,14 +310,14 @@ Let $k$ be algebraically closed.
   multiplicity of $f$ and $g$ is $\dim_k\rr{R/I}$.
 
   More generally, for nonzero homogeneus $f,g\in k\bb{x,y,z}$ with no common factors
-  defining curves $C_1,C_2\subseteq\mathbf P^2$ and $P\in C_1\cap C_2$, we define the
+  defining curves $C_1,C_2\subseteq\proj 2$ and $P\in C_1\cap C_2$, we define the
   intersection multiplicity $I_P\rr{C_1,C_2}$ to be the intersection multiplicity of
   $\rr{f\circ\phi}\rr{x,y,1}$ and $\rr{g\circ\phi}\rr{x,y,1}$ where $\phi$ is a projective
   transformation with $\phi[0:0:1]=P$.
 \end{definition}
 
 \begin{proposition}
-  Suppose $C_1$ and $C_2$ are distinct irreducible curves in $\mathbf P^2$ and $P\in C_1\cap C_2$.
+  Suppose $C_1$ and $C_2$ are distinct irreducible curves in $\proj 2$ and $P\in C_1\cap C_2$.
   Then
   \begin{align*}
     I_P\rr{C_1,C_2}\geq\mult_P\rr{C_1}\mult_P\rr{C_2}.
@@ -325,7 +326,7 @@ Let $k$ be algebraically closed.
 
 \begin{proposition}
   Suppose $f,g\in k\bb{x,y,z}$ are nonzero, homogeneous, and without common factors such that
-  $f\rr{P}=g\rr{P}=0$ for some $P\in\mathbf P^2$. Then
+  $f\rr{P}=g\rr{P}=0$ for some $P\in\proj 2$. Then
   \begin{enumerate}
     \item $I_P\rr{f,g}\geq 1$;
     \item Suppose $h\in k\bb{x,y,z}$ is homogeneous with $h\rr{P}=0$ then
@@ -348,7 +349,7 @@ Let $k$ be algebraically closed.
     f\rr{x,y,z}&=0\\
     g\rr{x,y,z}&=0
   \end{align*}
-  in $\mathbf P^2$ are given by $\rr{\deg f}\rr{\deg g}$ points counted with multiplicity.
+  in $\proj 2$ are given by $\rr{\deg f}\rr{\deg g}$ points counted with multiplicity.
 \end{theorem}
 
 \begin{proposition}
@@ -356,7 +357,7 @@ Let $k$ be algebraically closed.
   \begin{align*}
     \frac{\partial f}{\partial x}=\frac{\partial f}{\partial y}=\frac{\partial f}{\partial z}=0
   \end{align*}
-  as no solutions in $\mathbf P^2$ then $f$ is irreducible.
+  as no solutions in $\proj 2$ then $f$ is irreducible.
 \end{proposition}
 
 \begin{proposition}
@@ -368,8 +369,203 @@ Let $k$ be algebraically closed.
 \end{proposition}
 
 \begin{proposition}
-  Let $C\subseteq\mathbf P^2$ be an irreducible curve of degree 4. Then it has at most three
+  Let $C\subseteq\proj 2$ be an irreducible curve of degree 4. Then it has at most three
   singular points.
+\end{proposition}
+
+\begin{definition}
+  Let $\Sigma\subset\proj 2$ be a finite set of points. Define the space
+  \begin{align*}
+    S_d(\Sigma) = \cc{f \in S_d : \forall P\in\Sigma.\: f(P)=0}
+  \end{align*}
+  where $S_d$ is the space of all homogeneous degree $d$ polynomials. Then $\Sigma$
+  \emph{imposes independent conditions on $S_d$} if
+  $\dim S_d\rr{\Sigma} = \dim S_d - \vv{\Sigma}$.
+\end{definition}
+
+\todo{missing content}
+
+\section{Cubic curves}
+
+\begin{definition}
+  Let $C\subseteq\proj 2$ be a projective curve. A point $P\in C$ is an
+  \emph{inflcetion point} if it is smooth and $I_P(L,C)\geq 3$ where $L$ is
+  the tangent line at $P$.
+\end{definition}
+
+\begin{definition}
+  Let $f\in k\bb{x,y,z}$ be homogeneous. Its \emph{Hessian} is
+  \begin{align*}
+    \Hess f = \det
+    \begin{pmatrix}
+      \frac{\partial^2 f}{\partial x^2} &
+      \frac{\partial^2 f}{\partial x\partial y} &
+      \frac{\partial^2 f}{\partial x\partial z} \\
+      \frac{\partial^2 f}{\partial x\partial y} &
+      \frac{\partial^2 f}{\partial y^2} &
+      \frac{\partial^2 f}{\partial y\partial z} \\
+      \frac{\partial^2 f}{\partial x\partial z} &
+      \frac{\partial^2 f}{\partial y\partial z} &
+      \frac{\partial^2 f}{\partial z^2}
+    \end{pmatrix}
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Let $f$ be a homogeneous polynomial of degree $d\geq 3$ with coefficients in a field
+  $k$ of characteristic zero or greater than $d$
+\end{theorem}
+
+\section{Commutative algebra}
+
+\subsection{Noetherian rings}
+
+\begin{definition}
+  An ideal $I$ of a commutative ring $R$ is \emph{finitely generated} if, for some
+  $f_1,\ldots,f_n\in R$, $I=\aa{f_1,\ldots,f_n}$.
+\end{definition}
+
+\begin{definition}
+  A commutative ring $R$ is \emph{Noetherian} if all its ideals are finitely generated.
+\end{definition}
+
+\begin{proposition}
+  Let $R$ be a Noetherian ring and $I\subseteq R$ an ideal. Then $R/I$ is Noetherian.
+\end{proposition}
+
+\begin{theorem}
+  Let $R$ be a commutative ring. Then tfae
+  \begin{enumerate}
+    \item $R$ is Noetherian.
+    \item Every ascending chain of ideals stabilises.
+    \item Every nonempty set of ideals in $R$ has a maximal element.
+  \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Hilbert]
+  If $R$ is a Noetherian ring then $R\bb{x}$ is Noetherian.
+\end{theorem}
+
+\begin{corollary}
+  Let $R$ be Noetherian. For all $n$ and all ideals $I\subseteq R\bb{x_1,\ldots,x_n}$,
+  the quotient $R\bb{x_1,\ldots,x_n}/I$ is Noetherian.
+\end{corollary}
+
+\begin{proposition}
+  Suppose $k$ is a field. Then the commutative ring $R=k\bb{x_1,x_2,\ldots}$ of polynomials
+  in countably many variables is not Noetherian.
+\end{proposition}
+
+\subsection{Nullstellensatz}
+
+Let $k$ be an algebraically closed field.
+
+\begin{definition}
+  Let $\Sigma\subseteq\affine n$ be a subset. The \emph{vanishing ideal}
+  $I(\Sigma)\subseteq k\bb{x_1,\ldots,x_n}$ consists of polynomials
+  $f\in k\bb{x_1,\ldots,x_n}$ such that $f\rr{P}=0$ for every $P\in\Sigma$.
+\end{definition}
+
+\begin{definition}
+  Let $I\subseteq k\bb{x_1,\ldots,x_n}$ be an ideal. Then $V(I)\subseteq\affine n$
+  consists of points $P\in\affine n$ such that $f(P)=0$ for every $f\in I$. Any such
+
+  A subset $X\subseteq\affine n$ is \emph{algebraic} if there is an ideal $I$ such that
+  $X=V(I)$.
+\end{definition}
+
+\begin{lemma}
+  Let $\Sigma\subseteq\affine n$ be a subset. Then $\Sigma\subseteq V(I(\Sigma))$.
+\end{lemma}
+
+\begin{lemma}
+  Let $I\subseteq k\bb{x_1,\ldots,x_n}$ be an ideal. Then $I\subseteq I(V(I))$.
+\end{lemma}
+
+\begin{definition}
+  Let $R$ be a commutative ring and $I\subseteq R$ an ideal. Its \emph{radical}
+  $\sqrt{I}\subseteq R$ is the set of $f\in R$ such that $f^m \in I$ for some
+  $m$. The ideal $I$ is \emph{radical} if $\sqrt{I}=I$.
+\end{definition}
+
+\begin{theorem}[Nullstellensatz]
+  Let $I\subseteq k\bb{x_1,\ldots,x_n}$ be an ideal. Then $\sqrt{I}=I(V(I))$.
+\end{theorem}
+
+\begin{corollary}
+  There is a $1:1$ correspondence
+  \begin{align*}
+    V:\cc{\text{radical ideals of $k\bb{x_1,\ldots,x_n}$}}
+    \cong \cc{\text{algebraic subsets of $\affine n$}}:I.
+  \end{align*}
+\end{corollary}
+
+\begin{definition}
+  An algebraic subset $\affine n$ is \emph{irreducible} if it is not a union of
+  two distinct algebraic subsets.
+\end{definition}
+
+\begin{corollary}
+  There is a $1:1$ correspondence
+  \begin{align*}
+    V:\cc{\text{prime ideals of $k\bb{x_1,\ldots,x_n}$}}
+    \cong \cc{\text{irreducible algebraic subsets of $\affine n$}}:I.
+  \end{align*}
+\end{corollary}
+
+\subsection{Polynomial maps}
+
+\begin{definition}
+  A \emph{polynomial function} $\affine n\to \affine 1$ is a function of the form
+  $P\mapsto f(P)$ for some $f\in k\bb{x_1,\ldots,x_n}$.
+\end{definition}
+
+\begin{definition}
+  Let $X\subseteq\affine{n}$ be an algebraic subset. The \emph{coordinate ring} is
+  $k\bb{X}=k\bb{x_1,\ldots,x_n}/I(X)$.
+\end{definition}
+
+\begin{definition}
+  Let $X\subseteq\affine{n}$ and $Y\subseteq\affine{m}$ be algebraic subsets. A
+  \emph{polynomial map} $f:X\to Y$ is a map given by $P\mapsto (f_1(P),\ldots,f_m(P))$
+  for some $f_1,\ldots,f_m\in k\bb{x_1,\ldots,x_n}$.
+
+  The \emph{induced homomorphism of $k$-algebras} of a polynomial map $f:X\to Y$
+  is
+  \begin{align*}
+    f^* = - \circ f : k\bb{Y}\to k\bb{X}.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Let $X,Y$ be algebraic subsets. Suppose $\Phi : k\bb{Y}\to k\bb{X}$ is a homomorphism
+  of $k$-algebras. Then $\Phi=f^*$ for a unique polynomial map $f:X\to Y$.
+\end{lemma}
+
+\subsection{Affine algebraic sets}
+
+\begin{definition}
+  An \emph{affine algebraic set} is an algebraic subset $X\subseteq\affine{n}$ considered
+  up to isomorphism.
+\end{definition}
+
+\begin{definition}
+  A commutative ring $R$ is \emph{reduced} if $f^N=0$ for $f\in R$ implies that $f=0$.
+\end{definition}
+
+\begin{lemma}
+  The commutative ring $k\bb{x_1,\ldots,x_n}$ is reduced iff $I$ is radical.
+\end{lemma}
+
+\begin{theorem}
+  Let $k$ be an algebraically closed field. There is a $1:1$ correspondence
+  between affine algebraic subsets and equivalence classes of isomorphic reduced
+  finitely generated $k$-algebras given by $X\mapsto k\bb{X}$.
+\end{theorem}
+
+\begin{proposition}
+  Suppose $f:X\to Y$ is a morphism of affine algebraic sets which is surjective. Then
+  the induced map of coordinate rings $f^*$ is injective.
 \end{proposition}
 
 \end{document}
