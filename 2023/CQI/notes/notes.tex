@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{quiver}
+
+\begin{document}
+\mkthmstwounified
+\title{Categories and Quantum Informatics (SEM8)}
+\author{Franz Miltz}
+
+\maketitle
+
+\tableofcontents
+
+\pagebreak
+
+\section{Linear structure}
+
+Let $(\cat{C}, \otimes, I)$ be a monoidal category.
+
+\subsection{Scalars}
+
+\begin{definition}
+  A \emph{scalar} in $\cat{C}$ is a morphism $I\to I$.
+\end{definition}
+
+\begin{lemma}
+  Scalars in $\cat{C}$ commute. That is, for scalars $s,t:I\to I$, $s\circ t = t\circ s$.
+\end{lemma}
+
+\begin{definition}
+  Let $s:I\to I$ be a scalar and let $f:X\to Y$ be a morphism. Then the \emph{left scalar
+  multiplication of $f$ by $s$} is the composite
+  \begin{equation}
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJYIl0sWzIsMCwiWSJdLFswLDEsIklcXG90aW1lcyBYIl0sWzIsMSwiSVxcb3RpbWVzIFkiXSxbMiwzLCJzXFxvdGltZXMgZiIsMl0sWzAsMiwiXFxsYW1iZGFeey0xfSIsMl0sWzMsMSwiXFxyaG9eey0xfSIsMl0sWzAsMSwic1xcYnVsbGV0IGYiXV0=
+    \begin{tikzcd}
+      X && Y \\
+      {I\otimes X} && {I\otimes Y}
+      \arrow["{s\otimes f}"', from=2-1, to=2-3]
+      \arrow["{\lambda^{-1}}"', from=1-1, to=2-1]
+      \arrow["{\rho^{-1}}"', from=2-3, to=1-3]
+      \arrow["{s\bullet f}", from=1-1, to=1-3]
+    \end{tikzcd}
+  \end{equation}
+\end{definition}
+
+\begin{lemma}
+  Let $s,t:I\to I$ be scalars and $f:X\to Y$ and $g:Y\to Z$ be morphisms. Then
+  \begin{enumerate}
+    \item $\identity_Y\bullet f = f$;
+    \item $s\bullet t = s\circ t$;
+    \item $(s\bullet t)\bullet f = s\bullet (t\bullet f)$;
+    \item $(t\bullet g)\circ(s\bullet f) = (t\circ s)\bullet (g\circ f)$.
+  \end{enumerate}
+\end{lemma}
+
+\subsection{Superposition}
+
+\begin{definition}
+  A \emph{superposition rule} for $\cat{C}$ consists of
+  \begin{enumerate}
+    \item for all $f,g:X\to Y$, an arrow $f+g:X\to Y$;
+    \item for all $X,Y\in\cat{C}$, an arrow $u_{X,Y}:X\to Y$
+  \end{enumerate}
+  such that, for suitable morphisms,
+  \begin{enumerate}
+    \item $f+g=g+f$;
+    \item $f+(g+h)=(f+g)+h$;
+    \item $f+u = f$;
+    \item $(g'\circ g)+f=(g'\circ f)+(g\circ f)$;
+    \item $g+(f'\circ f) = (g\circ f')+(g\circ f)$;
+    \item $u\circ f = u$ and $f\circ u = u$.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  In a category with a zero object and a superposition rule, $u_{X,Y}=0_{X,Y}$ for
+  all $X,Y\in\cat{C}$.
+\end{lemma}
+
+\begin{lemma}
+  If a monoidal category has a zero object and a superposition rule then its scalars
+  form a commutative semiring with absorbing zero.
+\end{lemma}
+
+\subsection{Biproducts}
+
+\begin{definition}
+  In a category with a superposition rule and a zero bject, the biproduct
+  of objects $X_1,X_2$ is an object $X_1\oplus X_2$ together with projections
+  $\pi_j : X_1\oplus X_2\to X_j$ and injections $\iota_j :X_j\to X_1\oplus X_2$
+  such that
+  \begin{enumerate}
+    \item $\pi_j\circ\iota_j = \identity_{X_j}$;
+    \item $\pi_j\circ\iota_{k} = 0_{A_k,A_j}$ for $j\neq k$;
+    \item $\pi_1\circ\iota_1 + \pi_2\circ\iota_1 = \identity_{X_1\oplus X_2}$.
+  \end{enumerate}
+\end{definition}
+
+\begin{lemma}
+  Biproducts are products and coproducts.
+\end{lemma}
+
+\begin{lemma}
+  If a category has biproducts then it has a unique superposition rule.
+\end{lemma}
+
+\begin{lemma}
+  Let $\cat{C}$ be a category with biproducts and a zero object. If $F:\cat{C}\to\cat{D}$
+  preserves zero objects then it preserves biproducts iff it is linear.
+\end{lemma}
+
+\subsection{Matrices}
+
+\begin{definition}
+  Let $X_1,\ldots,X_M$ and $Y_1,\ldots,Y_N$ be objects and $f_{m,n}:X_m\to Y_n$
+  be arrows. Then we have the \emph{matrix}
+  \begin{align*}
+    (f_{j,k}) =
+    \begin{pmatrix}
+      f_{1,1} &\cdots & f_{M,1} \\
+      \vdots &\ddots & \vdots \\
+      f_{1,N} & \cdots & f_{M,N}
+    \end{pmatrix}
+    = \sum_{m,n} \iota_n \circ f_{m,n} \circ \pi_m.
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  In a category with biproducts, every morphism $\oplus_{m=1}^M X_m \to \oplus_{n=1}^N Y_n$
+  has a matrix representation.
+\end{lemma}
+
+\begin{corollary}
+  Morphisms between biproducts are equal iff their matrix entries are equal.
+\end{corollary}
+
+\subsection{Daggers}
+
+\begin{definition}
+  A \emph{dagger} on a category $\cat{C}$ is an involutive contravariant functor
+  $\dagger : \catop{C}\to\cat{C}$ that is the identity on objects. A \emph{dagger category}
+  is a category equipped with a dagger.
+\end{definition}
+
+\begin{example}
+  We have the following dagger structures:
+  \begin{itemize}
+    \item In $\Hilb$, the dagger is given by taking adjoints.
+    \item In $\Rel$, the dagger is given by $t R^\dagger s$ iff $s R t$.
+  \end{itemize}
+\end{example}
+
+\begin{definition}
+  A \emph{monoidal dagger category} is a monoidal category $(C,\otimes)$ equipped with
+  a dagger such that $(f\otimes g)^\dagger = f^\dagger \otimes g^\dagger$.
+\end{definition}
+
+\begin{definition}
+  In a dagger category, a \emph{dagger biproduct} of objects $X_1$ and $X_2$ is a biproduct
+  such that $\iota_j^\dagger = \pi_j$.
+\end{definition}
+
+\begin{lemma}
+  In a dagger category with dagger biproducts, the dagger of a matrix is its conjugate transpose.
+\end{lemma}
+
+\begin{definition}
+  A morphism $f:X\to Y$ in a dagger category is
+  \begin{itemize}
+    \item \emph{idempotent} when $f=f^\dagger$;
+    \item a \emph{projection} when it is idempotent and self-adjoint;
+    \item \emph{unitary} when $f^\dagger \circ f = \identity$ and $f\circ f^\dagger=\identity$;
+    \item an \emph{isometry} when $f^\dagger \circ f=\identity$;
+    \item a \emph{partial isometry} when $f^\dagger\circ f$ is a projection;
+    \item \emph{positive} when $f=g^\dagger\circ g$ for some $g$.
+  \end{itemize}
+\end{definition}
+
+\subsection{Measurement}
+
+\begin{definition}
+  Consider a state $a : I\to X$ and an effect $x : X\to I$ in a monoidal dagger category.
+  Define
+  \begin{align*}
+    \Pr(x,a) = a^\dagger \circ x^\dagger \circ a\circ x.
+  \end{align*}
+\end{definition}
+
+\begin{definition}
+  In a dagger category with a zero object, an isometry $k:K\to X$ is \emph{a dagger kernel}
+  of $f:X\to Y$ when $f\circ k=0$ and $k$ is universal with this property.
+\end{definition}
+
+\begin{lemma}
+  In a dagger category with a zero object, isometries always have a dagger kernel given
+  by the zero morphism.
+\end{lemma}
+
+\begin{lemma}
+  In a dagger category with a zero object and dagger kernels of arbitrary morphisms,
+  for all $f:X\to Y$, $f^\dagger \circ f = 0$ implies $f=0$.
+\end{lemma}
+
+\begin{definition}
+  A set of effects $\cc{x_j}$ with $x_j : X\to I$ is
+  \begin{enumerate}
+    \item \emph{complete} if, for all non-zero $f:W\to X$, there is some $j$
+      such that $x_j \circ f \neq 0$;
+    \item \emph{disjoint} if, for all $i\neq j$, $x_i\circ x_i^\dagger = \identity$
+      and $x_i\circ x_j^\dagger = 0$.
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  We have the following complete disjoint sets of effects:
+  \begin{itemize}
+    \item In \Hilb, complete disjoint sets of effects correspond to unitaries $H\simeq\C^n$,
+      i.e. choices of orthonormal bases.
+    \item In \Rel, a complete disjoint set of effects for a set corresponds to a partition.
+  \end{itemize}
+\end{example}
+
+\begin{lemma}
+  Finite complete disjoint sets of effects $x_j:X\to I$ correspond exactly to morphisms
+  $x:X\to\bigoplus_j I$ for which $x^\dagger$ is an isometry and that have zero kernel.
+\end{lemma}
+
+\begin{proposition}[Born rule]
+  Let $x_j:X\to I$ be a finite complete set of effects in a monoidal dagger category with
+  dagger biproducts, and let $a:I\to X$ be an isometric state. Then
+  $\sum_j \Pr{x_j,a}=1$.
+\end{proposition}
+
+
+\end{document}
