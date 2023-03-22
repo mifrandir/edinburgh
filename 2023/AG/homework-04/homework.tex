@@ -1,0 +1,146 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+
+\title{Algebraic Geometry: Homework 4}
+\author{Franz Miltz (UUN: S1971811)}
+\date{22 March 2023}
+\maketitle
+
+\section*{Exercise 1}
+
+Consider an irreducible curve $C\subseteq\proj{2}$ given by a homogeneous polynomial
+$f\in k[x,y,z]$. Moreover, consider the cone $\widehat C\subseteq\proj{3}$,
+given by $f\in k[x,y,z,w]$.
+
+\begin{claim*}[1]
+  The cone $\widehat C$ is birational to $C\times\proj{1}$.
+  \begin{proof}
+    Consider the rational maps
+    \begin{align*}
+      f: C\times\proj{1} &\dashto \widehat C, &
+      g : \widehat C &\dashto C\times\proj{1} \\
+      [x : y : z], [p:q] &\mapsto \bb{x:y:z:p/q}, &
+      [x:y:z:w] &\mapsto [x:y:z], [w : 1].
+    \end{align*}
+    We note $\dom(f) = \cc{[x:y:z],[p:q] : q\neq 0}$ and $\dom(g) = \widehat C$.
+    Moreover $f(\dom(f)) = \widehat C$ so $f$ is dominant.
+
+    Now let $[x:y:z]\in C$ and $[p:q]\in\proj{1}$ such that $q\neq 0$. Then
+    \begin{align*}
+      (g\circ f)([x:y:z],[p:q]) &= g([x:y:z:p/q]) \\
+                                &= [x:y:z],[p/q:1]\\
+                                &= [x:y:z],[p:q]
+    \end{align*}
+    where the last step follows because $[p:q] = \lambda[p:q]$ for all $\lambda\neq 0$.
+    Similarly, let $[x:y:z:w]\in\widehat C$
+    \begin{align*}
+      (f\circ g)([x:y:z:w]) = f([x:y:z],[w:1]) = [x:y:z:w].
+    \end{align*}
+    We have shown $f\circ g = \identity$ and $g\circ f=\identity$ as rational maps.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+  Any irreducible singular quadric surface in $\proj{3}_{\C}$ is rational.
+  \begin{proof}
+    Let $S$ be such a surface. By \emph{Theorem 4.8}, $S$ is projectively equivalent
+    to the cone $\widehat C$ of a smooth conic $C\subseteq\proj{2}$. Now $C$ is isomorphic
+    to $\proj{1}_{\C}$ so we may use the previous claim to find that $S$ is birational
+    to $\proj{1}_{\C}\times\proj{1}_{\C}$.
+
+    Now consider the rational maps
+    \begin{align*}
+      f : \proj{1}_{\C}\times\proj{1}_{\C} &\dashto \proj{2}_{\C} &
+      g : \proj{2}_{\C} &\dashto \proj{1}_{\C}\times\proj{1}_{\C} \\
+      [x:y],[z:w] &\mapsto [x:y:z/w] &
+      [x:y:z] &\mapsto [x:y:z:1]
+    \end{align*}
+    We observe $\dom(f)=\cc{([x:y],[z:w])\in\proj{1}_{\C}\times\proj{1}_{\C} : w \neq 0}$
+    and $\dom(g) = \proj{2}_{\C}$. Moreover, $f(\dom(f))=\proj{2}_{\C}$ so $f$ is dominant.
+
+    Now let $[x:y],[z:w]\in\proj{1}_{\C}$ with $w\neq 0$. Then
+    \begin{align*}
+      (g\circ f)([x:y],[z:w]) = [x:y],[z/w : 1] = [x:y],[z:w].
+    \end{align*}
+    and
+    \begin{align*}
+      (f\circ g)([x:y:z]) = f([x:y],[z:1]) = [x:y:z].
+    \end{align*}
+    We have shown $f\circ g = \identity$ and $g\circ f=\identity$ as rational maps,
+    proving that $\proj{1}_{\C}\times\proj{1}_{\C}$ is birational to $\proj{2}_{\C}$.
+
+    Birationality is transitive so $S$ is birational to $\proj{2}_{\C}$.
+  \end{proof}
+\end{claim*}
+
+\section*{Exercise 2}
+
+Consider the polynomial $f(x,y,z,w)=wx^2 + xyz + y^3$ and the cubic surface
+$S:f(x,y,z,w) = 0$ in $\proj{3}_{\C}$.
+
+\begin{claim*}[1a]
+  $S$ is irreducible.
+  \begin{proof}
+    Let $g,h\in\C[x,y,z,w]$ be such that $f=gh$. Considering $f$ as a polynomial in $w$,
+    we obtain that there are unique polynomials $p,q\in\C[x,y,z]$ such that
+    $f=p w + q$. Clearly, $p=x^2$ and $q = xyz + y^3$. Without loss of generality, we
+    have $g = (p/h) w + q/h$. However, there is no nonconstant polynomial $h$ such that
+    $h | x^2$ and $h | (xyz + y^3)$. Thus $h$ is constant and $f$ is irreducible.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[1b]
+  A point $[x:y:z:w]\in\proj{3}_{\C}$ is a singular point on $S$ if, and only if, $x=y=0$.
+  \begin{proof}
+    We have the partial derivate $\partial f/\partial w = x^2$. Thus, for all singular
+    points $[x:y:z:w]\in S$, $x=0$. Now we have the partial derivative
+    $\partial f/\partial y=xz+3y^2$. Thus we must have $y=0$.
+
+    We note that any point $[x:y:z:w]\in\proj{3}_{\C}$ with $x=y=0$ satisfies $f(x,y,z,w)=0$ and,
+    moreover, the gradient equations
+    \begin{align*}
+      2 xw + yz = 0,\hs
+      xz + 3y^2 = 0,\hs
+      xy = 0,\hs
+      x^2 = 0.
+    \end{align*}
+    Thus a point $P\in\proj{3}_{\C}$ is a singular point of $S$ if, and only if,
+    it is of the form $[0 : 0 : z : w]$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[2]
+  A line in $\proj{3}_{\C}$ is on $S$ if, and only if, it is given by one of the following
+  \begin{align*}
+    \lambda,\mu \mapsto [ 0 : 0 : \lambda : \mu ],\hs
+    \lambda,\mu \mapsto [ \lambda : 0 : \mu : 0 ],\hs
+    \lambda,\mu \mapsto [ \lambda : -\alpha\lambda : \alpha^3 \mu - \alpha^2\lambda :\alpha^4\mu]
+  \end{align*}
+  where $\alpha\in\C$.
+  \begin{proof}
+    We follow the algorithm from the notes:
+    \begin{enumerate}
+      \item Note that the line $L:x=y=0$ is contained in $S$. Moreover, it is given by the
+        intersection $\Pi\cap S$ with the plane $\Pi:x = 0$.
+      \item Suppose $L'\subseteq S$ is any other line. Then it intersects $\Pi$ in a point
+        on $L$.
+      \item Since they intersect, $L$ and $L'$ must lie on a plane. The planes containing
+        $L$ are $\Pi_{[\alpha:\beta]}:\alpha x + \beta y = 0$ for some $[\alpha:\beta]\in\proj{1}_{\C}$.
+      \item $\beta=0$ corresponds to $\Pi$. Suppose without loss of generality $\beta=1$. Then
+        $\Pi_{[\alpha:1]}\cap S$ is given by
+        \begin{align*}
+          \alpha x + y = 0, \hs wx^2 = \alpha x^2 z + \alpha^3 x^3.
+        \end{align*}
+        If $\alpha\neq 0$, this intersection is $L$ union with the line
+        $w = \alpha z + \alpha^3 x$ in $\proj{2}_{\C}$. The corresponding line in $\proj{3}_{\C}$ is explicitly
+        given by $\lambda,\mu \mapsto [\lambda : -\alpha\lambda : \alpha^3\mu - \alpha^2\lambda : \alpha^4\mu]$.
+
+        If $\alpha=0$, then this intersection is given by the cubic $wx^2 = y = 0$ in $\proj{2}_{\C}$.
+        This is the union of the line $L$ and the line $w=y=0$.
+    \end{enumerate}
+  \end{proof}
+\end{claim*}
+
+\end{document}

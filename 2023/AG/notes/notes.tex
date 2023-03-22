@@ -808,4 +808,62 @@ Let $k$ be an algebraically closed field.
   Using the subset topology, we obtain topologies on all algebraic subsets $X\subseteq \proj{n}$.
 \end{definition}
 
+\section{Surfaces}
+
+\subsection{Projective surfaces}
+
+\begin{definition}
+  A \emph{surface $S\subseteq\proj{3}$ of degree $d$} is the zero set of a homogeneous
+  polynomial $f(x,y,z,w)$.
+\end{definition}
+
+\begin{definition}
+  A surface $S:f(x,y,z,w)=0$ in $\proj{3}$ is smooth if the gradient $\nabla f$ does not
+  vanish at any point in $S$.
+\end{definition}
+
+\begin{proposition}
+  Suppose $S:f(x,y,z,w)=0$ is a surface in $\proj{3}$ and $P\in S$ is a smooth point. If
+  $\ell\subseteq S$ is a line passing through $P$ then $\ell$ is contained in the tangent plane
+  at $P$.
+\end{proposition}
+
+\subsection{Quadric surface}
+
+The matrix representation of a quadric surface
+\begin{align*}
+  Ax^2 + Bxy + Cy^2 + Dxz + Eyz + Fz^2 + Gxw + Hyw + Izw + Jw^2 = 0
+\end{align*}
+is
+\begin{align*}
+  \begin{pmatrix}
+    A & B/2 & D/2 & G/2\\
+    B/2 & C & E/2 & H/2\\
+    D/2 & E/2 & F & I/2\\
+    G/2 & H/2 & I/2 & J
+  \end{pmatrix}.
+\end{align*}
+
+\begin{theorem}
+  Every quadric surface in $\proj{3}_{\C}$ is projectively equivalent to one of the following:
+  \begin{enumerate}
+    \item $x^2 + y^2 + z^2 + w^2 = 0$;
+    \item $x^2 + y^2 + z^2 = 0$;
+    \item $x^2 + y^2  = 0$;
+    \item $x^2  = 0$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+  A quadric surface is smooth only if its matrix representation has nonzero determinant.
+\end{corollary}
+
+\subsection{Segre embedding}
+
+\begin{definition}
+  Let $V,W$ be vector spaces. The \emph{Segre embedding} is the map
+  $\phi:\projv{V}\times\projv{W} \to \projv{V\otimes W}$ given by
+  $[v],[w]\mapsto [v\otimes w]$.
+\end{definition}
+
 \end{document}
