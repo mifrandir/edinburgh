@@ -866,4 +866,77 @@ is
   $[v],[w]\mapsto [v\otimes w]$.
 \end{definition}
 
+\begin{proposition}
+  The Segre embedding is injective.
+\end{proposition}
+
+\begin{corollary}
+  The product of projective varieties is a projective variety.
+\end{corollary}
+
+\begin{proposition}
+  A smooth quadric surface $S\subseteq\proj{3}_{\C}$ is isomorphic to $\proj{1}_{\C}\times\proj{1}_{C}$
+  as a projective variety.
+\end{proposition}
+
+\subsection{Lines on surfaces}
+
+\begin{theorem}
+  A smooth cubic surface in $\proj{3}_{\C}$ contains exactly 27 lines.
+\end{theorem}
+
+\begin{theorem}
+  Suppose $S\subseteq\proj{3}$ is an irreducible singular cubic surface. Then one of
+  the following holds:
+  \begin{itemize}
+    \item $S$ has infinitely many singular points;
+    \item $S$ is isomorphic to the cone on an irreducible cubic in $\proj{2}$;
+    \item $S$ contains fewer than 27 lines.
+  \end{itemize}
+\end{theorem}
+
+\begin{proposition}
+  Suppose $S\subseteq\proj{3}$ is an irreducible cubic surface and $P\in S$ is singular. Then
+  there is a line $L\subseteq S$ passing through $P$.
+\end{proposition}
+
+We have the following algorithm to find lines on a surface $S\subseteq\proj{3}$.
+\begin{enumerate}
+  \item Find a plane $\Pi\subseteq\proj{3}$ intersecting $S$ along a union of lines
+    $L_1\cup\cdots\cup L_k$.
+  \item For each $L_i$, find the family of planes $\Pi^i_{[\alpha:\beta]}$ containing
+    $L_i$.
+  \item Find all lines in the intersection $\Pi^i_{[\alpha:\beta]}\cap S$ for some $i$.
+\end{enumerate}
+
+\subsection{Rationality of cubic surfaces}
+
+\begin{definition}
+  A projective variety $X$ of dimension $n$ is \emph{unirational} if there is a dominant
+  rational map $\proj{n}\dashto X$.
+\end{definition}
+
+\begin{theorem}[L\"uroth]
+  A unirational curve is rational.
+\end{theorem}
+
+\begin{theorem}
+  A smooth cubic surface $S\subseteq\proj{3}$ is rational.
+\end{theorem}
+
+\subsection{Blowups}
+
+\begin{definition}
+  Parametrise $\affine{2}\times\proj{1}$ by $(x,y),[\alpha:\beta]$. The \emph{blowup
+  of $\affine{2}$ at the origin} is the subset $\Bl_{(0,0)}\affine{2}\subseteq\affine{2}\times\proj{1}$
+  define by $x\beta = \alpha y$.
+  Let $\Bl_{(0,0)}\to\affine{2}$ and $E=\inv\pi(0,0)$ the \emph{exceptional curve}.
+\end{definition}
+
+\begin{definition}
+  Parametrise $\proj{2}\times\proj{1}$ by $[x:y:z],[\alpha:\beta]$. The \emph{blowup of $\proj{2}$ at
+  $[0:0:1]$} is the subset $\Bl_{[0:0:1]}\proj{2}$ define by $x\beta = \alpha y$
+  Let $\pi:\Bl_{[0:0:1]}\to\proj{2}$ and $E=\inv\pi([0:0:1])$ the \emph{exceptional curve}.
+\end{definition}
+
 \end{document}
