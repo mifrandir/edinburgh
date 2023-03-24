@@ -233,5 +233,169 @@ Let $(\cat{C}, \otimes, I)$ be a monoidal category.
   $\sum_j \Pr{x_j,a}=1$.
 \end{proposition}
 
+\section{Duals}\label{sec:duals}
+
+\subsection{Dual objects}\label{sec:dual_objects}
+
+\begin{definition}
+  In a monoidal category, an object is \emph{left-dual} to an object $R$, written $L\dashv R$,
+  when there exists a unit $\eta:I\to R\otimes L$ and a counit $\varepsilon : L\otimes R\to I$
+  such that
+  \begin{equation}
+    % https://q.uiver.app/?q=WzAsNixbMCwwLCJMIl0sWzIsMSwiSVxcb3RpbWVzIEwiXSxbMiwwLCJMXFxvdGltZXMgSSJdLFs0LDEsIihMXFxvdGltZXMgUilcXG90aW1lcyBMIl0sWzAsMSwiTCJdLFs0LDAsIkxcXG90aW1lcyhSXFxvdGltZXMgTCkiXSxbMCwyLCJcXGNvbmciLDFdLFs1LDMsIlxcY29uZyIsMV0sWzEsNCwiXFxjb25nIiwxXSxbMiw1LCJMXFxvdGltZXNcXGV0YSIsMV0sWzMsMSwiXFx2YXJlcHNpbG9uXFxvdGltZXMgTCIsMV0sWzAsNCwiIiwxLHsibGV2ZWwiOjIsInN0eWxlIjp7ImhlYWQiOnsibmFtZSI6Im5vbmUifX19XV0=
+    \begin{tikzcd}
+      L && {L\otimes I} && {L\otimes(R\otimes L)} \\
+      L && {I\otimes L} && {(L\otimes R)\otimes L}
+      \arrow["\cong"{description}, from=1-1, to=1-3]
+      \arrow["\cong"{description}, from=1-5, to=2-5]
+      \arrow["\cong"{description}, from=2-3, to=2-1]
+      \arrow["L\otimes\eta"{description}, from=1-3, to=1-5]
+      \arrow["{\varepsilon\otimes L}"{description}, from=2-5, to=2-3]
+      \arrow[Rightarrow, no head, from=1-1, to=2-1]
+    \end{tikzcd}
+  \end{equation}
+\end{definition}
+
+\begin{example}
+  We have the following duals:
+  \begin{itemize}
+    \item In \FHilb, duals are dual spaces and the corresponding maps are
+      \begin{align*}
+        \eta : 1 \mapsto \sum_i \av{i}\otimes\va{i},\hs
+        \e : \va{\phi}\otimes\va{\psi}\mapsto\ava{\phi}{\psi}
+      \end{align*}
+      where $\va{i}$ is an orthonormal basis.
+    \item In \Hilb, infinite dimensional spaces do not have duals.
+    \item In \Rel, every object is its own dual and the corresponding relations
+      are
+      \begin{align*}
+        \eta : * \sim (x,x),\hs
+        \e : (x,x)\sim *.
+      \end{align*}
+    \item In $\Mat_{\C}$, every object $n$ is its own dual with linear maps
+      \begin{align*}
+        \eta : 1 \mapsto \sum_i \va{i}\otimes\va{i}, \hs
+        \e : \va{i}\otimes\va{j}\to \delta_{ij}.
+      \end{align*}
+  \end{itemize}
+\end{example}
+
+\begin{definition}
+  In a monoidal category with dualities $A\dashv X^*$ and $B\dashv Y^*$,
+  the name and coname of a morphism $f:X\to Y$ are
+  the morphisms $\overline f : I \to A^* \otimes B$ and
+  $\underline f : A\otimes B^* \to I$ given by
+  \begin{align*}
+    \overline f = (\identity\otimes f)\circ\eta,\hs
+    \underline f = \e \circ (f\otimes\identity).
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  Duals are unique up to canonical isomorphism.
+\end{lemma}
+
+\begin{lemma}
+  For a duality $X\dashv X^*$, choosing a unit fixes the counit and vice versa.
+\end{lemma}
+
+\begin{lemma}
+  $I\dashv I$.
+\end{lemma}
+
+\subsection{Right duals functor}
+
+\begin{definition}
+  In a monoidal category with dualitities $X\dashv X^*$ and $Y\dashv Y^*$ and a morphism
+  $f:X\to Y$, the \emph{transpose} is the morphism
+  \begin{equation}
+    % https://q.uiver.app/?q=WzAsNixbMCwwLCJCXioiXSxbMiwwLCJBXioiXSxbMCwxLCJJXFxvdGltZXMgQl4qIl0sWzAsMiwiKEFeKlxcb3RpbWVzIEIpXFxvdGltZXMgQl4qIl0sWzIsMiwiQV4qXFxvdGltZXMgKEJcXG90aW1lcyBCXiopIl0sWzIsMSwiQV4qXFxvdGltZXMgSSJdLFswLDEsImZeKiIsMV0sWzUsMSwiXFxjb25nIiwxXSxbMyw0LCJcXGNvbmciLDFdLFswLDIsIlxcY29uZyIsMV0sWzIsMywiXFxldGFcXG90aW1lcyBCXioiLDJdLFs0LDUsIkFeKlxcb3RpbWVzXFx2YXJlcHNpbG9uIiwyXV0=
+    \begin{tikzcd}
+      {B^*} && {A^*} \\
+      {I\otimes B^*} && {A^*\otimes I} \\
+      {(A^*\otimes B)\otimes B^*} && {A^*\otimes (B\otimes B^*)}
+      \arrow["{f^*}"{description}, from=1-1, to=1-3]
+      \arrow["\cong"{description}, from=2-3, to=1-3]
+      \arrow["\cong"{description}, from=3-1, to=3-3]
+      \arrow["\cong"{description}, from=1-1, to=2-1]
+      \arrow["{\eta\otimes B^*}"', from=2-1, to=3-1]
+      \arrow["{A^*\otimes\varepsilon}"', from=3-3, to=2-3]
+    \end{tikzcd}
+  \end{equation}
+\end{definition}
+
+\begin{definition}
+  In a monoidal category $\cat{C}$ with a choice of duals, the right duals functor
+  $(-)^* : \cat{C}\to\catop{C}$ takes objects to right duals and morphisms to transposes.
+\end{definition}
+
+\section{Compact categories}
+
+\begin{definition}
+  A monoidal category with right duals is pivotal when it is equipped with a monoidal
+  natural transformation $\pi_X : X\to X^{**}$.
+\end{definition}
+
+\begin{definition}
+  A braided monoidal category is \emph{balanced} when it is equipped with a natural
+  isomorphism $\theta_X:X\to X$, such that $\theta_I = \identity$ and
+  \begin{equation}
+    % https://q.uiver.app/?q=WzAsNCxbMCwwLCJYXFxvdGltZXMgWSJdLFsyLDAsIlhcXG90aW1lcyBZIl0sWzAsMSwiWVxcb3RpbWVzIFgiXSxbMiwxLCJZXFxvdGltZXMgWCJdLFswLDIsIlxcZ2FtbWEiLDJdLFszLDEsIlxcZ2FtbWEiLDJdLFsyLDMsIlxcdGhldGFcXG90aW1lc1xcdGhldGEiLDJdLFswLDEsIlxcdGhldGEiXV0=
+    \begin{tikzcd}
+      {X\otimes Y} && {X\otimes Y} \\
+      {Y\otimes X} && {Y\otimes X}
+      \arrow["\gamma"', from=1-1, to=2-1]
+      \arrow["\gamma"', from=2-3, to=1-3]
+      \arrow["\theta\otimes\theta"', from=2-1, to=2-3]
+      \arrow["\theta", from=1-1, to=1-3]
+    \end{tikzcd}
+  \end{equation}
+\end{definition}
+
+\begin{theorem}
+  In a braided monoidal category with right duals, a pivotal structure induces a twist and
+  vice versa.
+\end{theorem}
+
+The structure induce each other as follows:
+\begin{itemize}
+  \item Given a pivotal structure $\pi_X : X\to X^{**}$, define the induced twist by
+    \begin{equation}\label{eq:canonical_twist}
+      % https://q.uiver.app/?q=WzAsNyxbMCwwLCJYIl0sWzQsMCwiWCJdLFs0LDEsIlheeyoqfSJdLFswLDEsIlhcXG90aW1lcyBJIl0sWzAsMiwiWFxcb3RpbWVzIChYXnsqKn1cXG90aW1lcyBYXiopIl0sWzIsMiwiWF57Kip9XFxvdGltZXMgKFhcXG90aW1lcyBYXiopIl0sWzQsMiwiWF57Kip9XFxvdGltZXMgSSJdLFswLDEsIlxcdGhldGEiXSxbMiwxLCJcXHBpXnstMX0iLDJdLFszLDQsIlhcXG90aW1lcyBcXGV0YSIsMl0sWzAsMywiXFxjb25nIiwyXSxbNiwyLCJcXGNvbmciLDJdLFs0LDUsIlxcY29uZyIsMl0sWzUsNiwiWF57Kip9XFxvdGltZXNcXHZhcmVwc2lsb24iLDJdXQ==
+      \begin{tikzcd}
+        X &&&& X \\
+        {X\otimes I} &&&& {X^{**}} \\
+        {X\otimes (X^{**}\otimes X^*)} && {X^{**}\otimes (X\otimes X^*)} && {X^{**}\otimes I}
+        \arrow["\theta", from=1-1, to=1-5]
+        \arrow["{\pi^{-1}}"', from=2-5, to=1-5]
+        \arrow["{X\otimes \eta}"', from=2-1, to=3-1]
+        \arrow["\cong"', from=1-1, to=2-1]
+        \arrow["\cong"', from=3-5, to=2-5]
+        \arrow["\cong"', from=3-1, to=3-3]
+        \arrow["{X^{**}\otimes\varepsilon}"', from=3-3, to=3-5]
+      \end{tikzcd}
+    \end{equation}
+  \item Given a twist $\theta_X : X\to X$, define the induced pivotal structure by
+    \begin{equation}
+      % https://q.uiver.app/?q=WzAsNyxbMCwwLCJYIl0sWzQsMCwiWF57Kip9Il0sWzAsMSwiWCJdLFswLDIsIlhcXG90aW1lcyBJIl0sWzIsMiwiWFxcb3RpbWVzKFheeyoqfVxcb3RpbWVzIFheKikiXSxbNCwyLCJYXnsqKn1cXG90aW1lcyhYXFxvdGltZXMgWF4qKSJdLFs0LDEsIlheeyoqfVxcb3RpbWVzIEkiXSxbMCwxLCJcXHBpIl0sWzAsMiwiXFx0aGV0YV57LTF9IiwyXSxbNiwxLCJcXGNvbmciLDJdLFs1LDYsIlheeyoqfVxcb3RpbWVzXFx2YXJlcHNpbG9uIiwyXSxbNCw1LCJcXGNvbmciLDJdLFszLDQsIlhcXG90aW1lcyBcXGV0YSIsMl0sWzIsMywiXFxjb25nIiwyXV0=
+      \begin{tikzcd}
+        X &&&& {X^{**}} \\
+        X &&&& {X^{**}\otimes I} \\
+        {X\otimes I} && {X\otimes(X^{**}\otimes X^*)} && {X^{**}\otimes(X\otimes X^*)}
+        \arrow["\pi", from=1-1, to=1-5]
+        \arrow["{\theta^{-1}}"', from=1-1, to=2-1]
+        \arrow["\cong"', from=2-5, to=1-5]
+        \arrow["{X^{**}\otimes\varepsilon}"', from=3-5, to=2-5]
+        \arrow["\cong"', from=3-3, to=3-5]
+        \arrow["{X\otimes \eta}"', from=3-1, to=3-3]
+        \arrow["\cong"', from=2-1, to=3-1]
+      \end{tikzcd}
+    \end{equation}
+\end{itemize}
+
+\begin{definition}
+  A \emph{compact category} is a pivotal symmetric monoidal category where the
+  canonical twist (\ref{eq:canonical_twist}) is the identity.
+\end{definition}
 
 \end{document}
