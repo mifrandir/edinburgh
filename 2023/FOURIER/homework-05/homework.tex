@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{homework-preamble}
+
+\begin{document}
+\title{Fourier Analysis: Homework 5}
+\author{Franz Miltz (UUN: S1971811)}
+\date{31 March 2023}
+\maketitle
+
+Let $N$ be a positive integer.
+For $k\in\N$, define $\chi_k(j) = \exp\rr{2\pi ijk/N}$.
+
+\begin{claim*}[4]
+  Let $k\in\N$. Then $\chi_k : \Z/N\Z \to S^1$ is a character.
+  \begin{proof}
+    We notice that $\Z/N\Z$ has the discrete topology, thus any
+    continuous function $\Z/N\Z\to S^1$ is continuous.
+
+    Let $j,j'\in\Z/N\Z$. We have
+    \begin{align*}
+      \chi_k(j)\chi_k(j')
+      = \exp\rr{2\pi ijk/Z}\exp\rr{2\pi ij'k/Z}
+      = \exp\rr{2\pi i(j+j')k/Z}
+      = \chi_k(j+j').
+    \end{align*}
+    Thus $\chi_k$ is a continuous group homomorphism
+    $\Z/N\Z \to S^1$, as required.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[4']
+  Let $N$ be a postive integer and let $\chi: \Z/N\Z \to S^1$ be
+  a character. Then there exists a $k\in\Z/N\Z$ such that
+  $\chi = \chi_k$.
+  \begin{proof}
+    Let $\omega=\chi(1)$. Since $\chi$ is a group homomorphism,
+    $\omega^N = 1$, i.e. $\omega^N$ is an $N$th rooth of unity.
+    Thus $\omega = \exp\rr{2\pi i k/N}$ for some $k\in\N$.
+
+    As $\chi$ is a group homomorphism, we now have, for all $j\in\Z/N\Z$,
+    \begin{align*}
+      \chi(j) = \chi(1 +\cdots + 1) = \omega^j = \exp\rr{2\pi ijk/N}.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[4'']
+  The dual group of $\Z/N\Z$ is $\Z/N\Z$.
+  \begin{proof}
+    Let $\Sigma$ be the dual group of $\Z/N\Z$. Its elements are all the $\chi_k$.
+    The group operation is given by multiplication. Now we have, for all
+    $j\in\Z/N\Z$,
+    \begin{align*}
+      \chi_k(j) \chi_{k'}(j) = \exp\rr{2\pi ij(k+k')/N} = \chi_{k+k'}(j).
+    \end{align*}
+    Clearly, $\chi_{kN}=\chi_0$ so we have an isomorphism of groups
+    $k \mapsto \chi_k$.
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[5]
+  For all $k,k'\in\Z$,
+  \begin{align*}
+    \sum_{j=1}^N \chi_k(j)\overline{\chi_{k'}(j)} = \delta_{k,k'}N.
+  \end{align*}
+  \begin{proof}
+    By direct calculation we have
+    \begin{align*}
+      \sum_{j=1}^N \chi_k(j)\overline{\chi_{k'}(j)} =
+      \sum_{j=1}^N \exp\rr{2\pi ij(k-k')} =
+      \sum_{j=1}^{N} \delta_{k,k'} =
+      \delta_{k,k'}N.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+For $f:\Z/N\Z\to\C$ and $k\in\Z/N\Z$, define
+\begin{align*}
+  \widehat f(k) = \frac{1}{N}\sum_{j=1}^{N} f(j)\exp\rr{-2\pi ijk}.
+\end{align*}
+
+\begin{claim*}[6a]
+  Let $f:\Z/N\Z\to\C$ and $j\in\Z/N\Z$. Then
+  \begin{align*}
+    f(j) = \sum_{k=1}^N \widehat f(k)\exp\rr{2\pi ijk/N}.
+  \end{align*}
+  \begin{proof}
+    We calculate directly:
+    \begin{align*}
+      \sum_{k=1}^N \widehat f(k)\exp\rr{2\pi ijk/N}
+      &= \sum_{k=1}^N \frac{1}{N}\sum_{j'=1}^{N} f(j')\exp\rr{2\pi i(j-j')k/N}
+      &\text{(Definition of $\widehat f(k)$)}\\
+      &= \frac{1}{N}\sum_{j'=1}^{N}f(j')\sum_{k=1}^N\exp\rr{2\pi i(j-j')k/N}
+      &\text{(Changing order of finite sum)}\\
+      &= \frac{1}{N}\sum_{j'=1}^{N}f(j')\delta_{j,j'}N
+      &\text{(Orthogonality)}\\
+      &= f(j)
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\begin{claim*}[6b]
+  Let $f:\Z/N\Z\to\C$. Then
+  \begin{align*}
+    \sum_{k=1}^{N} \vv{\widehat f(k)}^2 = \frac{1}{N}\sum_{j=1}^{N} \vv{f(j)}^2.
+  \end{align*}
+  \begin{proof}
+    Expanding out definitions, we have
+    \begin{align*}
+      \sum_{k=1}^{N} \vv{\widehat f(k)}^2
+      &= \sum_{k=1}^N \vv{\frac{1}{N}\sum_{j=1}^{N} f(j)\exp\rr{-2\pi ijk}}^2\\
+      &= \frac{1}{N^2}\sum_{k=1}^N \vv{\sum_{j=1}^{N} f(j)\exp\rr{-2\pi ijk}}^2.
+    \end{align*}
+    We now use $\vv{x}^2 = x\overline x$ to find
+    \begin{align*}
+      \sum_{k=1}^{N} \vv{\widehat f(k)}^2
+      &= \frac{1}{N^2}\sum_{k=1}^N \sum_{j=1}^{N}\sum_{j'=1}^{N} \vv{f(j)}^2\exp\rr{2\pi i(j'-j)k}\\
+    \end{align*}
+    By orthogonality, we then have
+    \begin{align*}
+      \sum_{k=1}^{N} \vv{\widehat f(k)}^2
+      &= \frac{1}{N^2}\sum_{j=1}^{N}\sum_{j'=1}^{N} \vv{f(j)}^2\sum_{k=1}^N \exp\rr{2\pi i(j'-j)k}\\
+      &= \frac{1}{N^2}\sum_{j=1}^{N}\sum_{j'=1}^{N} \vv{f(j)}^2\delta_{j,j'}N\\
+      &= \frac{1}{N}\sum_{j=1}^{N} \vv{f(j)}^2.
+    \end{align*}
+  \end{proof}
+\end{claim*}
+
+\end{document}
