@@ -55,16 +55,17 @@ given by $f\in k[x,y,z,w]$.
       f : \proj{1}_{\C}\times\proj{1}_{\C} &\dashto \proj{2}_{\C} &
       g : \proj{2}_{\C} &\dashto \proj{1}_{\C}\times\proj{1}_{\C} \\
       [x:y],[z:w] &\mapsto [x:y:z/w] &
-      [x:y:z] &\mapsto [x:y:z:1]
+      [x:y:z] &\mapsto [x:y],[z:1]
     \end{align*}
     We observe $\dom(f)=\cc{([x:y],[z:w])\in\proj{1}_{\C}\times\proj{1}_{\C} : w \neq 0}$
-    and $\dom(g) = \proj{2}_{\C}$. Moreover, $f(\dom(f))=\proj{2}_{\C}$ so $f$ is dominant.
+    and $\dom(g) = \cc{[x:y:z] \in\proj{3}_{\C} : x \neq 0 \text{ or }y\neq 0}$. Moreover,
+    $f(\dom(f))=\proj{2}_{\C}$ so $f$ is dominant.
 
     Now let $[x:y],[z:w]\in\proj{1}_{\C}$ with $w\neq 0$. Then
     \begin{align*}
       (g\circ f)([x:y],[z:w]) = [x:y],[z/w : 1] = [x:y],[z:w].
     \end{align*}
-    and
+    and, for $[x:y:z]\in\proj{3}_{\C}$ with $x\neq 0$ or $y\neq 0$,
     \begin{align*}
       (f\circ g)([x:y:z]) = f([x:y],[z:1]) = [x:y:z].
     \end{align*}
