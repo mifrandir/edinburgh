@@ -11,70 +11,11 @@
 \tableofcontents
 \pagebreak
 
-\section{Mathematical prerequisites}
-\label{sec:mathetmatical-prerequisites}
-
-\begin{definition}
-  \label{def:hilbert-space}
-  A Hilbert space is a complex inner product space which is complete with respect to the induced metric.
-\end{definition}
-
-\begin{definition}
-  \label{def:unitary-matrix}
-  Let $U\in\Mat\rr{n; \C}$. Then define $U^\dagger = \overline{U}^T$. Further, $U$ is normal iff
-  $U^\dagger U =UU^\dagger$ and unitary iff $U^\dagger U =UU^\dagger = I$.
-\end{definition}
-
-\begin{theorem}[Spectral decomposition]
-  Any normal operator $M$ on a vector space $V$ is diagonal with respect to some orthonormal
-  basis for $V$.
-
-  Conversely, any diagonalisable operator is normal.
-\end{theorem}
-
-\begin{definition}[Tensor product]
-  \label{def:tensor-product}
-  Let $\mathcal H_A, \mathcal H_B$ be Hilbert spaces with bases $\mathcal B_A$ and
-  $\mathcal B_B$, respectively. Then $\mathcal H_A\otimes\mathcal H_B$ is the Hilbert
-  space with basis
-  \begin{align*}
-    B_{A\otimes B} = \cc{a \otimes b : a \in \mathcal B_A, b\in\mathcal B_B}.
-  \end{align*}
-
-  Let
-  \begin{align*}
-    x = \sum_{a\in\mathcal B_A} x_a a\in\mathcal H_A, \hs
-    y = \sum_{b\in\mathcal B_B} y_b b\in\mathcal H_B
-  \end{align*}
-  be vectors. Then define
-  \begin{align*}
-    x \otimes y = \sum_{a\in\mathcal B_A}\sum_{b\in\mathcal B_B} x_a y_b a \otimes b.
-  \end{align*}
-
-  Let $A\in\mathcal L\rr{\mathcal H_A}$ and $B\in\mathcal L\rr{\mathcal H_B}$ be linear
-  operators. Then $A\otimes B\in\mathcal L\rr{\mathcal H_A\otimes\mathcal H_B}$ is the
-  unique linear operator such that, for all $a\in\mathcal H_A$, $b\in\mathcal H_B$,
-  \begin{align*}
-    \rr{A\otimes B}\rr{a \otimes b} = A a \otimes B b.
-  \end{align*}
-  Explicitly,
-  \begin{align*}
-    A \otimes B = \begin{pmatrix}
-      A_{11} B & \cdots & A_{1n}B \\
-      \vdots   & \ddots & \vdots  \\
-      A_{n1} B & \cdots & A_{nn}B
-    \end{pmatrix}.
-  \end{align*}
-\end{definition}
-
 \section{Postulates}
-\label{sec:postulates}
 
 \subsection{State space}
-\label{sec:quantum-states}
 
 \begin{definition}
-  \label{def:quantum-state}
   Let $\mathcal H$ be a Hilbert space with an finite ordered orthonormal basis
   $\rr{v^1, ..., v^d}$. A quantum state is a unit vector $\va{\psi}\in\mathcal H$.
   We write
@@ -172,92 +113,126 @@
 \label{sec:single-qubit-gates}
 
 \begin{definition}
-  \label{def:identity}
-  The identity gate $I$ is the matrix
+  We have the Pauli gates $X,Y,Z$:
   \begin{align*}
-    I = \begin{pmatrix}
-      1 & 0 \\ 0 & 1
-    \end{pmatrix}.
-  \end{align*}
-\end{definition}
-
-\begin{definition}
-  \label{def:not}
-  The not gate $X$ is given by
-  \begin{align*}
-    X = \begin{pmatrix}
+    X &=
+    \begin{pmatrix}
       0 & 1 \\ 1 & 0
-    \end{pmatrix}
+    \end{pmatrix},
+      &X\va{0} &= \va{1},
+      &X\va{1}&=\va{0},
+      &X\va{+}&=\va{+},
+      &X\va{-}&=-\va{-};\\
+    Y &=
+    \begin{pmatrix}
+      0 & i \\
+      -i & 0
+    \end{pmatrix},
+      &Y\va{0} &= -i\va{1},
+      &Y\va{1} &= i\va{0},
+      &Y\va{+} &= i\va{-},
+      &Y\va{-} &=-i\va{+};\\
+    Z &= \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+      &Z\va{0} &= \va{0},
+      &Z\va{1} &= -\va{1},
+      &Z\va{+} &= \va{-},
+      &Z\va{-} &= \va{+}.
   \end{align*}
 \end{definition}
 
-\begin{definition}
-  \label{def:phase-flip}
-  The phase flip gate $Z$ is given by
-  \begin{align*}
-    Z = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
-  \end{align*}
-  It transforms as follows:
-  \begin{align*}
-    Z \rr{\alpha\va{0} + \beta\va{1}} = \alpha\va{0} - \beta\va{1}.
-  \end{align*}
-\end{definition}
-
+\begin{lemma}
+  $Y = iXZ$
+\end{lemma}
 
 \begin{definition}
   \label{def:hadamard}
   The Hadamard gate $H$ is given by
   \begin{align*}
-    H = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}.
+    H &= \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix},
+      & H\va{0} &=\va{1},
+      & H\va{1} &=\va{0},
+      & H\va{+} &=\va{-},
+      & H\va{-} &=\va{+}.
   \end{align*}
-  It acts as a change of basis from $ \cc{ \va{ 0 }, \va{ 1 } } $ to $ \cc{ \va{ + }, \va{ - } }$.
 \end{definition}
 
-\begin{theorem}
-  \label{thm:infinite-gates}
-  There are infinitely many single-qubit quantum gates.
-\end{theorem}
+\begin{definition}
+  Let $\theta\in\br{0,2\pi}$. Then
+  \begin{align*}
+    \va{\pm_\theta} = \frac{1}{\sqrt 2} \rr{\va{0}\pm e^{i\theta}\va{1}}.
+  \end{align*}
+\end{definition}
+
+
+\begin{definition}
+  For $\theta\in\br{0,2\pi}$, the rotation gate $R(\theta)$ is
+  \begin{align*}
+    R(\theta) &= \frac{1}{\sqrt{2}}
+    \begin{pmatrix}
+      1 & 0 \\
+      0 & e^{i\theta}
+    \end{pmatrix},&
+    R(\theta)\va{0} &=\va{0},&
+    R(\theta)\va{1} &=e^{i\theta}\va{1},&
+    R(\theta)\va{+_\phi} &=\va{+_{\theta+\phi}},&
+    R(\theta)\va{-_\phi} &=\va{-_{\theta+\phi}}.
+  \end{align*}
+
+\end{definition}
 
 \subsection{Multiple qubit gates}
 \label{sec:multiple-qubit-gates}
 
 \begin{definition}
-  \label{def:cnot}
-  The \text{CNOT} gate $U_{CN}$ is a two qubit quantum gate defined by
+  \label{def:controlled-u}
+  Let $j,k$ be distinct qubits and let $U$ be a single qubit quantum gate.
+  Then the controlled-$U$ gate on qubit $k$ with control $j$ is
+  given by
   \begin{align*}
-    U_{CN} = \begin{pmatrix}
-      1 & 0 & 0 & 0 \\
-      0 & 1 & 0 & 0 \\
-      0 & 0 & 0 & 1 \\
-      0 & 0 & 1 & 0
-    \end{pmatrix}
+    \wedge U_{jk}\va{0}_j\va{\phi}_k &= \va{0}_j\va{\phi}_k,&
+    \wedge U_{jk}\va{1}_j\va{\phi}_k &= \va{1}_j U_k\va{\phi}_k.
   \end{align*}
 \end{definition}
 
-\begin{definition}
-  \label{def:controlled-u}
-  Let $U=\rr{u_{ij}}$ be a single qubit quantum gate. Then the controlled-$U$ gate is a two qubit
-  quantum gate defined by
+\begin{lemma}
+  We have the following actions:
   \begin{align*}
-    U_C = \begin{pmatrix}
-      1 & 0 & 0 & 0 \\
-      0 & 1 & 0 & 0 \\
-      0 & 0 & u_{00} & u_{01} \\
-      0 & 0 & u_{10} & u_{11}
-    \end{pmatrix}
+    \wedge X_{12}\va{00} &= \va{00},
+     &\wedge X_{12}\va{01} &= \va{01},\hs
+     &\wedge X_{12}\va{10} &= \va{11},
+     &\wedge X_{12}\va{11} &= \va{10}\\
+     \wedge X_{12}\va{++} &= \va{++},
+     &\wedge X_{12}\va{+-} &= \va{--},
+     &\wedge X_{12}\va{-+} &= \va{-+},
+     &\wedge X_{12}\va{--} &= \va{-+}\\
+    \wedge Z_{12}\va{00} &= \va{00},
+     \wedge Z_{12}\va{01} &= \va{01},\hs
+     \wedge Z_{12}\va{10} &= \va{10},
+     \wedge Z_{12}\va{11} &= -\va{11}
+   \end{align*}
+   \begin{align*}
+     \wedge Z_{12}\va{++} = \frac{1}{2}\rr{\va{00}+\va{01}+\va{10}-\va{11}}\\
+     \wedge Z_{12}\va{+-} = \frac{1}{2}\rr{\va{00}+\va{01}-\va{10}+\va{11}}\\
+     \wedge Z_{12}\va{-+} = \frac{1}{2}\rr{\va{00}-\va{01}+\va{10}+\va{11}}\\
+     \wedge Z_{12}\va{--} = \frac{1}{2}\rr{-\va{00}+\va{01}+\va{10}+\va{11}}
   \end{align*}
-\end{definition}
+\end{lemma}
 
 \begin{definition}
   Let $n\in\N$. Then the Walsh-Hadamard transform is given by the unitary
   \begin{align*}
-    H^{\otimes n} = H\otimes \cdots \otimes H
+    H^{\otimes n} = H\otimes \cdots \otimes H.
   \end{align*}
-  and, for all $\va{x}\in\cc{0,1}^n$,
+\end{definition}
+
+\begin{lemma}
+  For all $\va{x}\in\cc{0,1}^n$,
   \begin{align*}
     H^{\otimes n} \va{x} = \frac{1}{\sqrt{2^n}} \sum_{y\in\cc{0,1}^n} \rr{-1}^{x\cdot y}\va{y}.
   \end{align*}
-\end{definition}
+\end{lemma}
+
+\section{Algorithms}
 
 \begin{definition}
   Let $f:\cc{0,1}^n\to \cc{0,1}$ be a function. Then the phase-kickback unitary
@@ -267,26 +242,120 @@
   \end{align*}
 \end{definition}
 
-\section{Algorithms}
+\begin{definition}
+  Let $f:\cc{0,1}^n\to\cc{0,1}^n$. The quantum oracle $O_f$ is the unitary
+  such that, for all $x,y\in\cc{0,1}^n$,
+  \begin{align*}
+    O_f \va{xy} = \va{x}\va{y \oplus f(x)}.
+  \end{align*}
+\end{definition}
 
-\begin{algorithm}[Deutsch-Jozsa]\label{alg:deutsch-jozsa}
-  Given a function $f:\cc{0,1}^n\to\cc{0,1}$ that is either constant or balanced,
-  we decide with certainty which is the casae.
-
-  The circuit is given by
-  \begin{align}
-    \label{eq:deutsch-jozsa}
-    H^{\otimes n} U_f H^{\otimes n}
-  \end{align}
-  and on input $\va{0}^{\otimes n}$ the output is $0^n$ iff $f$ is constant.
+\begin{algorithm}
+  Deutsch-Jozsa algorithm:
+  \begin{itemize}
+    \item input: $f:\cc{0,1}^n\to\cc{0,1}$;
+    \item promise: $f$ is either constant or balanced;
+    \item circuit: $H^{\otimes n} U_f H^{\otimes n}$;
+    \item output: $\va{0^n}$ if, and only if, $f$ is constant.
+  \end{itemize}
 \end{algorithm}
 
-\begin{algorithm}[Bernstein-Vazirani]\label{alg:bernstein-vazirani}
-  Given a function $f:\cc{0,1}^n\to\cc{0,1}$ that is given by $x\mapsto a\cdot x$ for some
-  $a\in\cc{0,1}^n$ we find $a$ with certainty. The circuit is identical to the one in
-  (\ref{eq:deutsch-jozsa}).
-
-  On input $\va{0}^{\otimes n}$ the output is $a$.
+\begin{algorithm}
+  Bernstein-Vazirani algorithm:
+  \begin{itemize}
+    \item input: $f:\cc{0,1}^n\to\cc{0,1}$;
+    \item promise: for some $a\in\cc{0,1}^n$, $f(x) = a\cdot x$;
+    \item circuit: $H^{\otimes n} U_f H^{\otimes n}$;
+    \item output: $a$
+  \end{itemize}
 \end{algorithm}
+
+\begin{algorithm}
+  Grover search:
+  \begin{itemize}
+    \item input: $f:\cc{0,1}^n\to\cc{0,1}$;
+    \item promise: for some $s\in\cc{0,1}^n$, $f(x)=1$ if, and only if,
+      $x=s$;
+    \item circuit: $H^{\otimes n} U_0 H^{\otimes n} U_f$.
+    \item output: after approximately $\pi/4 \sqrt{2^n}$ iterations,
+      $\va{s}$.
+  \end{itemize}
+\end{algorithm}
+
+\begin{algorithm}
+  Simon's algorithm:
+  \begin{itemize}
+    \item input: $f:\cc{0,1}^n\to\cc{0,1}$;
+    \item promise: for some $a\in\cc{0,1}^n$, if $f(x) = f(x')$ then
+      either $x=x'$ or $x = x' \oplus a$;
+    \item circuit:
+      $(H^{\otimes n}\otimes I^{\otimes n}) O_f (H^{\otimes n}\otimes I^{\otimes n})$
+    \item output: after measuring qubits $n+1$ to $2n$, measuring qubits
+      $1$ to $n$ yields a sample $z$ with $az=0$; $n$ queries yield
+      independent equations with $p>1/4$; $O(n)$ queries yield solution.
+  \end{itemize}
+\end{algorithm}
+
+\section{Measurement-based quantum computing}
+
+\subsection{The $J(\theta)$ gate}
+
+\begin{definition}
+  Let $\theta\in\br{0,2\pi}$ and let $j\geq 1$. Then the
+  \emph{measurement of qubit $j$ at angle $\theta$} is the measurement
+  of qubit $j$ in the basis
+  \begin{align*}
+    M_j^\theta = \cc{\va{\pm_\theta}},\hs
+    M_j^Z = \cc{\va{0},\va{1}}
+  \end{align*}
+  The outcome is denoted by $s_j$.
+\end{definition}
+
+\begin{definition}
+  Let $\theta\in\br{0,2\pi}$. Define the \emph{Hadamard rotated
+  phase gate} $J(\theta)$ by
+  \begin{align*}
+    J(\theta) = HR(\theta) = \frac{1}{\sqrt{2}}\begin{pmatrix}
+      1 & e^{i\theta} \\
+      1 & -e^{i\theta}
+    \end{pmatrix}
+  \end{align*}
+\end{definition}
+
+\begin{lemma}
+  \begin{align*}
+    J(0) = H, \hs J(-\pi) = HZ.
+  \end{align*}
+\end{lemma}
+
+\begin{theorem}
+  The set of gates $\cc{\wedge Z}\cap\cc{J(\theta) : \theta\in\br{0,2\pi}}$
+  is universal.
+  \begin{proof}
+    Any single qubit unitary $U$ may be written as
+    $U=J(0)J(\theta_1)J(\theta_2)J(\theta_3)$ for some
+    $\theta_1,\theta_2,\theta_3$.
+    Universality is achieved with the two qubit gate $\wedge Z$.
+  \end{proof}
+\end{theorem}
+
+
+\subsection{Corrections}
+
+\begin{theorem}
+  Consider a graph $(G,I,O)$, a flow function $f:O^C\to I^C$, measurement
+  outcomes $s_1,\ldots,s_n$, and measurement angles $\phi_1,\ldots,\phi_n$.
+  Consider the set $S_Z(i) = \cc{1\leq j\leq n : i\in N_G(f(j)), i\neq j}$.
+  Define
+  \begin{align*}
+    s_X(i) = s_{\inv f(i)}, \hs s_Z(i) = \sum_{j\in S_Z(i)} s_j.
+  \end{align*}
+  For $i\in O^C$, the corrected measurement angles are given by
+  \begin{align*}
+    \phi_i' = (-1)^{s_X}\phi_i + \pi s_Z
+  \end{align*}
+  and output qubits $i\in O$ may be corrected by applying
+  $X^{s_X(i)}Z^{s_Z(i)}$.
+\end{theorem}
 
 \end{document}
