@@ -1,0 +1,393 @@
+\documentclass[8pt]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{geometry}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{example}[definition]{Example}
+\setlength\parindent{0pt}
+\geometry{a4paper,left=0.1cm,right=0.1cm,top=0.1cm,bottom=0.1cm}
+
+\begin{document}
+Definition 1.4 A line in $\mathbb{A}^2$ is the subset $L\subset \mathbb{A}^2$ given by solutions of the equation $ax+by+c=0,\,(x,y)\in k^2$ for some $a,b,c\in k,$ where $(a,b)$ are not simultaneously zero.\\
+Remark 1.5 If $a = b = 0,$ then the equation $c = 0$ either has no solutions (if
+$c\neq 0$) or has solutions given by all of $\mathbb{A}^2$ (if $c = 0$), so it does not deserve to be called a line.\\
+Remark 1.6 We will use the notation $L : ax + by + c = 0$ for the line L given by the equation $ax + by + c = 0$.\\
+Remark 1.7 A line in $A^2_\mathbb{C}$ is a two-dimensional real object sometimes referred to as a complex plane. We
+will not use this terminology in these notes and refer to it as the complex line.\\
+Proposition 1.8 Suppose $L_1 :a_1x+b_1y+c_1 =0, L_2 :a_2x+b_2y+c_2 =0$ are two equal lines. Then there is a nonzero number $d\in k$ such that
+$a_1 =da_2, b_1 =db_2, c_1 =dc_2.$ Conversely, if the coefficients are related in this way, then the lines $L_1,L_2$ are equal.\\
+\textbf{Proposition 1.9} Suppose $P_1 = (x_1,y_1),P_2 = (x_2,y_2)$ are two distinct points on $\mathbb{A}^2.$ Then there is a unique line passing through them with the equation $det\begin{pmatrix}
+x & y & 1\\
+x_1 & y_1 & 1\\
+x_2 & y_2 & 1
+\end{pmatrix}=0.$\\
+\textbf{Proposition 1.10} Suppose $L_1,L_2$ are two lines in $\mathbb{A}^2.$ Then we have the following three cases: (1) $L_1 = L_2.$ (2) $L_1$ and $L_2$ intersect at one point. (3) $L_1$ and $L_2$ do not intersect (they are parallel).\\
+Definition 1.11 A conic in $\mathbb{A}^2$ is a subset $C\subset \mathbb{A}^2$ given by solutions of the equation
+$ax^2 +bxy+cy^2 +dx+ey+f =0, (x,y)\in k^2$
+for some $a, b, c, d, e, f \in k,$ where $(a, b, c)$ are not simultaneously zero. It is irreducible if the polynomial is irreducible; otherwise, it is reducible.\\
+Remark 1.12 A reducible conic is one where
+$ax^2 +bxy+cy^2 +dx+ey+f =(\alpha_1x+\beta_1y+\gamma_1)(\alpha_2x+\beta_2y+\gamma_2),$ i.e. it is a union of two lines.\\
+Proposition 1.14 Let $L$ be a line in $\mathbb{A}^2$ and $C$ a conic. Then either $C$ is a union of $L$ with another line (in particular, $C$ is reducible) or $L \cap C$ has at most $2$ points.\\
+\textbf{Definition 1.15} A curve in $\mathbb{A}^2$ (a plane curve) is a subset $C \subset \mathbb{A}^2$ given by solutions of the equation $p(x, y) = 0,$ where $p(x, y)$ is a non-constant polynomial.\\
+Depending on the degree of the polynomial, we use different names: ($deg(p) = 1$): a line, ($deg(p) = 2$): a conic (a quadric), ($deg(p) = 3$): a cubic, ($deg(p) = 4$): a quartic.\\
+Definition 1.16. An affine transformation (affine map) $\mathbb{A}^2 \rightarrow \mathbb{A}^2$ is a function given by a combination of translations $(x, y) \mapsto (x + x_0, y + y_0)$ and linear changes of coordinates $\begin{pmatrix}
+x\\
+y
+\end{pmatrix} \mapsto
+\begin{pmatrix}
+A_{11} & A_{12}\\
+A_{21} & A_{22}
+\end{pmatrix}
+\begin{pmatrix}
+x\\
+y
+\end{pmatrix}$
+given by invertible $2\times 2$ matrices with entries in the ground field $k.$\\
+Proposition 1.18 The group of affine transformations of $\mathbb{A}^2$ is the semidirect product $GL_2(k)\ltimes k^2,$ where $k^2$ acts by translations, $GL_2(k)$ acts by linear changes of coordinates and $GL_2(k)$ acts on $k^2$ in the obvious way.\\
+Proposition 1.24 The topological space $\mathbb{P}^1_\mathbb{R}$ is homeomorphic to $\mathbb{S}^1.$ The topological space $\mathbb{P}^1_\mathbb{C}$ is homeomorphic to $\mathbb{S}^2.$\\
+\textbf{Proposition 1.28} Consider the subset $U \subset \mathbb{P}^2$ given by points $[x : y : z]$ with $z\neq 0.$ Then: The map $U\rightarrow k^2$ given by $[x:y:z]\mapsto(x/z,y/z)$ is a bijection; The complement $\mathbb{P}^2 \backslash U$ is isomorphic to $\mathbb{P}^1.$\\
+Definition 1.30 A projective curve is the subset $C \subset \mathbb{P}^2$ given by solutions of the equation $p(x, y, z) = 0,$ where $p(x, y, z)$ is a nonzero homogeneous polynomial. A projective curve is irreducible if $p(x, y, z)$ is irreducible.\\
+\textbf{Definition 1.32} A line in $\mathbb{P}^2$ is the subset $L \subset \mathbb{P}^2$ given by solutions of the equation $ax + by + cz = 0, [x : y : z] \in \mathbb{P}^2,$
+where $a, b, c \in k,$ not zero simultaneously.\\
+\textbf{Proposition 1.33} Let $P = [x_1 : y_1 : z_1], Q = [x_2 : y_2 : z_2] \in \mathbb{P}^2$ be two distinct points on $\mathbb{P}^2.$ Then there is a unique line passing through them with the equation $det\begin{pmatrix}
+x & y & z\\
+x_1 & y_1 & z_1\\
+x_2 & y_2 & z_2
+\end{pmatrix}=0.$ Bilinear form associated to a conic: $ax^2 +bxy+cy^2 +dx+ey+f \rightsquigarrow \begin{pmatrix}
+a & b/2 & d/2\\
+b/2 & c & e/2\\
+d/2 & e/2 & f
+\end{pmatrix} =: B .$\\
+\textbf{Proposition 1.34} Let $L_1, L_2$ be two lines in $\mathbb{P}^2.$ Then either $L_1 = L_2$ or $L_1$ and $L_2$ intersect at one point.\\
+Definition 1.35 A conic in $\mathbb{P}^2$ is the subset $C\in \mathbb{P}^2$ given by solutions of the equation
+$ax^2 +bxy+cy^2 +dxz+eyz+fz^2 =0, [x:y:z]\in\mathbb{P}^2,$ where $a, b, c, d, e, f \in k$ are not simultaneously zero.\\
+Definition 1.36 A projective transformation is a map $\phi : P(V ) \rightarrow P(V )$ obtained as
+$\phi([v]) = [f(v)]$ for some invertible linear map $f : V \rightarrow V.$\\
+Proposition 1.37 The group of projective transformations is the quotient group $PGL(V ) = GL(V )/k^*.$\\
+\textbf{Proposition 1.38} Suppose $L \subset \mathbb{P}^2$ is a line. Then there is a projective transformation which sends it to the line $x = 0.$\\
+Theorem 1.39 Let $P_1,P_2,P_3,P_4 \in \mathbb{P}^2$ be $4$ points, such that no $3$ are collinear (do not lie on a single line). Then there is a projective transformation $\phi: \mathbb{P}^2 \rightarrow \mathbb{P}^2$ such that
+$\phi(P_1)=[1:0:0], \phi(P_2)=[0:1:0], \phi(P_3)=[0:0:1], \phi(P_4)=[1:1:1].$\\
+Corollary 1.40 Let $L \subset \mathbb{P}^2$ be a line and $C \subset \mathbb{P}^2$ a conic. Then either $C$ is a union of $L$ with another line or $L \cap C$ has at most $2$ points. If $k$ is an algebraically closed field, then in the second case $L \cap C$ has $1$ or $2$ points.\\
+Corollary 1.42 Let $P_1, P_2, P_3, P_4, P_5 \in \mathbb{P}^2$ be distinct $5$ points, no $3$ of which are collinear. Then there is a unique conic passing through them.\\
+\textbf{Theorem 1.43} Let $C\subset \mathbb{P}^2_\mathbb{C}$ be a conic. Then there is a projective transformation $\phi: \mathbb{P}^2_\mathbb{C} \rightarrow \mathbb{P}^2_\mathbb{C}$ such that $\phi(C)$ has one of the following forms: $x^2 + y^2 + z^2 = 0$ (an irreducible conic), $x^2 + y^2 = 0$ (a union of two lines), $x^2 = 0$ (a line with multiplicity $2$).\\
+Corollary 1.46 A complex conic $C \subset \mathbb{P}^2_\mathbb{C}$ is irreducible if, and only if, $det(B) \neq 0.$\\
+Theorem 1.49 Suppose $C, C' \subset \mathbb{P}^2_\mathbb{C}$ are two unequal irreducible conics. Then $1 \leq |C \cap C'| \leq 4.$\\
+\textbf{Theorem 1.50} Let $C \subset \mathbb{P}^2_\mathbb{R}$ be a conic. Then there is a projective transformation $\phi: \mathbb{P}^2_\mathbb{R} \rightarrow \mathbb{P}^2_\mathbb{R}$ such that $\phi(C)$ has one of the following forms: $x^2 + y^2 + z^2 = 0$ (empty), $x^2 + y^2 - z^2 = 0$ (a circle), $x^2 - y^2 = 0$ (the union of two lines), $x^2 + y^2 = 0$ (a single point), $x^2 = 0$ (a double line).\\
+\textbf{Theorem 1.53} Let $C \subset \mathbb{A}^2_\mathbb{R}$ be a conic. Then there is an affine transformation $\phi: \mathbb{A}^2_\mathbb{R} \rightarrow \mathbb{A}^2_\mathbb{R}$ such that $\phi(C)$ has one of the following forms: $y = x^2$ (a parabola), $y^2 - x^2 = 1$ (a hyperbola), $x^2 + y^2 = 1$ (a circle), $x^2 = 1$ (a pair of parallel lines), $x^2 - y^2 = 0$ (a pair of intersecting lines), $x^2 = 0$ (a double line), $x^2 + y^2 = 0$ (a point), $x^2 = -1$ (empty), $x^2 + y^2 = -1$ (empty).\\
+Definition 1.55 Suppose $C \subset \mathbb{P}^2$ is an irreducible curve. A point $P = [x : y : z]$ on $C$ is smooth if the gradient $(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z})|_P$ is nonzero. We say $C$ is a smooth curve if it is smooth at every point. Denote by $Sing(C)$ the set of singular points of $C.$\\
+The measure of singularity of a curve at a point is given by the multiplicity of a point. Given a curve $C \subset \mathbb{P}^2$ of degree $d$ and a point $P \subset \mathbb{P}^2$ we may assume applying a projective transformation that $P = [0 : 0 : 1].$ Suppose the equation of the curve is $C :f(x,y,z)=z^dh_0(x,y)+z^{d-1}h_1(x,y)+\cdots+h_d(x,y)=0,$ where $h_n(x,y)$ is homogeneous of degree $n.$\\
+Definition 1.59 Let $P = [0 : 0 : 1]$ and $C \subset \mathbb{P}^2$ is a projective curve. The multiplicity $mult_P (C)$ of $P$
+on $C$ is the smallest $n$ such that $h_n(x,y)$ is nonzero.\\
+\textbf{Proposition 1.60.} Suppose $C \subset \mathbb{P}^2$ is a curve and $P \subset \mathbb{P}^2.$ Then: (1) $P$ lies on $C$ if, and only if, $mult_P(C)\ge 1.$ (2) $P$ is a singular point if, and only if, $mult_P (C) \ge 2.$\\
+Lemma 1.62. A line $L \subset \mathbb{P}^2$ is smooth.\\
+Lemma 1.63. An (irreducible) complex conic $C\subset \mathbb{P}^2_\mathbb{C}$ is smooth.\\
+Definition 1.65 Let $f(x,y,z) = 0$ be an irreducible curve in $\mathbb{P}^2$ and $P = [\alpha : \beta : \gamma]$ a smooth point. Then $\frac{\partial f}{\partial x}(\alpha,\beta,\gamma)x+\frac{\partial f}{\partial y}(\alpha,\beta,\gamma)y+\frac{\partial f}{\partial z}(\alpha,\beta,\gamma)z=0$ is the tangent line at $P.$\\
+\textbf{Definition 1.67} Suppose $C_1$ and $C_2$ are two curves in $P^2$ intersecting at $P.$ We say this intersection is transverse if: (1) $P$ is a smooth point of both $C_1$ and $C_2$ and (2) the tangent lines at $P$ to $C_1$ and $C_2$ are different.\\
+Proposition 1.70 Let $k$ be an algebraically closed field. Suppose $L \subset \mathbb{P}^2_k$ is a line and $C \subset \mathbb{P}^2_k$ an irreducible conic. Then either $L$ is tangent to $C$ at some point $(|L \cap C| = 1)$ or $L$ intersects $C$ transversely at two points.\\
+Proposition 1.72 Suppose $C_1, C_2 \subset \mathbb{P}^2_\mathbb{C}$ are two distinct irreducible conics. Then they intersect transversally at all points if, and only if, there are 4 intersection points.\\
+Theorem 1.74 Suppose $f(x,y)$ is a nonzero homogeneous polynomial of degree $d.$ Then the equation $f(x, y) = 0$ in $\mathbb{P}^1$ consists of d points counted with multiplicity.\\
+Definition 1.76 Let $f(x,y),g(x,y)$ be nonconstant polynomials without common factors. Let $I =(f,g)\subset k[x, y]$ be the ideal generated by $f$ and $g.$ The intersection multiplicity of f and g is $dim_k(k[x, y]/I),$ i.e. the dimension of the $k$-vector space $R/I.$ More generally, suppose $f(x,y,z)$ and $g(x,y,z)$ are two nonzero homogeneous polynomials with no common factors defining curves $C_1, C_2 \subset \mathbb{P}^2$ and $P \in C_1 \cap C_2$ a point. Applying a projective transformation we may assume $P = [0 : 0 : 1].$ Then we define the intersection multiplicity $I_P (C_1, C_2)$ to be the intersection multiplicity of the polynomials $f(x,y,1)$ and $g(x,y,1).$ The definition of intersection multiplicity for affine curves is similar.\\
+Proposition 1.77 Suppose $C_1$ and $C_2$ are two distinct irreducible curves in $\mathbb{P}^2$ and $P \in C_1\,\cap\,C_2.$ Then $I_P (C_1, C_2) \ge mult_P(C_1) \times mult_P (C_2).$\\
+Proposition 1.79 Suppose $f(x,y,z)$ and $g(x,y,z)$ are two nonzero homogeneous polynomials without common factors with $f(P) = g(P) = 0$ for some $P \in \mathbb{P}^2.$ Then: (1) $I_P(f,g)\ge 1.$ (2) Suppose $h$ is a homogeneous polynomial with $h(P ) = 0.$ Then
+$I_P (f, gh) = I_P (f, g) + I_P (f, h).$ (3) Suppose $h$ is a homogeneous polynomial with $h(P ) \ne 0.$ Then
+$I_P (f, gh) = I_P (f, g).$ (4) The intersection of $f(x,y,z)=0$ and $g(x,y,z)=0$ is transverse at $P$ if, and only if, $I_P(f,g)=1.$\\
+Theorem 1.81 (B\'ezout). Suppose $f(x,y,z),g(x,y,z)$ are two homogeneous polynomials of degrees $deg(f)$
+and $deg(g)$ without common factors. Then the solutions $f(x,y,z) = 0, g(x,y,z) = 0$
+in $\mathbb{P}^2$ are given by $deg(f)deg(g)$ points counted with multiplicity.\\
+\textbf{Theorem 1.82} (B\'ezout, reformulation). Suppose $C_1, C_2$ are two distinct irreducible curves of degrees $d_1, d_2$ in $\mathbb{P}^2.$ Then there are $d_1d_2$ intersection points counted with multiplicity.\\
+Proposition 1.84 Let $f(x,y,z)$ be a homogeneous polynomial. If the system $\frac{\partial f}{\partial
+ x}=\frac{\partial f}{\partial
+ y}=\frac{\partial f}{\partial
+ z}=0$ has no solutions in $\mathbb{P}^2,$ then $f(x,y,z)$ is irreducible.\\
+ Proposition 1.85 Suppose $C$ is an irreducible curve of degree $d \ge 2$ and $P,Q \in C$ are distinct points.
+Then $mult_P(C)+mult_Q(C)\leq d.$\\
+Corollary 1.86 Suppose $P \in C$ is a point on an irreducible curve of degree $d \ge 2.$ Then $mult_P (C) < d.$\\
+Corollary 1.87 Suppose $C$ is an irreducible cubic. Then it has at most 1 singular point.\\
+Proposition 1.88 Let $C \subset \mathbb{P}^2$ be an irreducible curve of degree 4. Then it has at most 3 singular points.\\
+Curves in $\mathbb{P}^2$ of degree $d$ are specified by a homogeneous degree $d$ polynomial. The space of such, $S_d$, has
+dimension $dim\,S_d=\frac{(d+1)(d+2)}{2}$ So, one needs $(d+1)(d+2)-1$ parameters to specify such a curve.\\
+Definition 1.90 Let $\Sigma \subset \mathbb{P}^2$ be a finite set of points. Define the space $S_d(\Sigma)=\{f\in S_d |f(P)=0\,\,\forall P\in\Sigma\}.\,Sigma$ imposes independent conditions on $S_d$ if $dim\,S_d(\Sigma) = dim\,S_d-|\Sigma|.$\\
+Theorem 1.92 5 points impose independent conditions on $S_2$ (i.e. there is a unique conic passing through them) if, and only if, no 4 are collinear.\\
+Proposition 1.93 Fix a set of points $\Sigma \subset \mathbb{P}^2.$ (1) Suppose $a>d$ points lie on a line $L$ given by $f(x,y,z)=0.$ Then $S_d(\Sigma)=f\cdot S_{d-1}(\Sigma \backslash L).$ (2) Suppose $a>2d$ points lie on an irreducible conic C given by $f(x,y,z) = 0.$ Then $S_{d-1}(\Sigma) = f\cdot S_{d-2}(\Sigma\backslash C).$\\
+Theorem 1.94 Consider 8 distinct points $P_1,...,P_8\in\mathbb{P}^2.$ Suppose at most 3 points lie on a line and at most 6 points lie on an irreducible conic. Then they impose independent conditions on $S_3.$\\
+Theorem 1.95 (Chasles) Let $C_1, C_2$ be two cubics intersecting at 9 distinct points $P_1,...,P_9.$ Then any cubic passing through $P_1,...,P_8$ passes through $P_9.$\\
+Theorem 1.96 (Pascal) Let $C$ be an irreducible conic and $P_1, P_2, P_3, Q_1, Q_2, Q_3$ are 6 distinct points on $C.$ Then the intersection points $R_1 = P_1Q_1 \cap P_3Q_3,\,R_2 = P_2Q_1 \cap P_3Q_2$ and $R_3 = P_2Q_3 \cap P_1Q_2$ lie on a line.\\
+\textbf{Definition 2.1} Let $C \subset\mathbb{P}^2$ be a projective curve. A point $P \in C$ is an inflection point if it is smooth and $I_P (L, C ) \ge 3,$ where $L$ is the tangent line at $P.$\\
+Definition 2.2 Suppose $f(x,y,z)$ is a homogeneous polynomial. Its Hessian is $Hess(f)=det
+\begin{pmatrix}
+\frac{\partial^2 f}{\partial x^2} & \frac{\partial^2 f}{\partial x\partial y} & \frac{\partial^2 f}{\partial x\partial z}\\
+\frac{\partial^2 f}{\partial x\partial y} & \frac{\partial^2 f}{\partial y^2} & \frac{\partial^2 f}{\partial y\partial z}\\
+\frac{\partial^2 f}{\partial x\partial z} & \frac{\partial^2 f}{\partial y\partial z} & \frac{\partial^2 f}{\partial z^2}\\
+\end{pmatrix}.$
+If $f$ has degree $d,$ the Hessian is a homogeneous polynomial of degree $3(d-2).$\\
+\textbf{Theorem 2.3} (Hessian criterion) Let $f$ be a homogeneous polynomial of degree $d \ge 3$ with coefficients in
+an field $k$ of characteristic zero or greater than $d$ defining a curve $C \subset \mathbb{P}^2_k.$ Then:\\
+$Hess(f)$ is a multiple of $f$ if, and only if, $f$ factors into a product of linear polynomials.\\
+If $Hess(f)$ is not a multiple of $f,$ then the points $P \in \mathbb{P}^2$ satisfying $f(P) = Hess(f)(P) = 0$ are
+either singular or inflection points.\\
+For $P \in C$ whose tangent $L$ is not a component of $C$ we have $I_P (C, L) = I_P (C, Hess(f))+2.$\\
+Conversely, if $P \in C$ is a singular point or an inflection point, then $Hess(f)(P)=0.$\\
+Proposition 2.4 Suppose a homogeneous polynomial $f(x,y,z)$ has no linear factors. Then the curve $f(x,y,z) = 0$ has finitely many inflection points and $Hess(f)$ and $f$ have no common factors.\\
+Proposition 2.6 Suppose $k$ is an algebraically closed field of characteristic not equal to 2 and $C \subset \mathbb{P}^2_k$ is a smooth curve of degree $d \ge 3.$ Then it has at least one inflection point.\\
+Proposition 2.7 Suppose $k$ is an algebraically closed field of characteristic not 2 and $C \subset \mathbb{P}^2_k$ a smooth cubic. Then it has 9 distinct inflection points.\\
+\textbf{Theorem 2.8} Suppose $C \subset \mathbb{P}^2$ is a smooth cubic. Then there is a projective transformation which takes it to
+$y^2z = x^3 + axz^2 + bz^3.$\\
+Definition 2.9 A Weierstrass cubic $C \subset \mathbb{P}^2$ is a cubic of the form $y^2z = x^3 + axz^2 + bz^3$ for some $a,b \in k.$\\
+\textbf{Definition 2.10} Suppose $y^2z = x^3 + axz^2 + bz^3$ is a Weierstrass cubic.\\
+Its discriminant is $\Delta = 4a^3 + 27b^2.$\\
+Suppose $\Delta\neq 0.$ Then its $j$-invariant is $j = 1728\frac{4a^3}{4a^3 + 27b^2}.$\\
+Theorem 2.11. A Weierstrass cubic $y^2z = x^3 +axz^2 +bz^3$ is smooth if, and only if, the following statements are true:\\
+The characteristic of the ground field is 2 and either $a$ or $b$ is not a square.\\
+The characteristic of the ground field is not 2 and the discriminant $\Delta$ is nonzero.\\
+\textbf{Theorem 2.13} Two smooth cubics in the Weierstrass form are projectively equivalent if, and only if, they have the same $j$-invariant.\\
+Proposition 2.14 Let $C \subset \mathbb{P}^2$ be a smooth cubic. There is a projective transformation which takes it to the Legendre form $y^2=x(x-z)(x-\lambda z)$ for $\lambda \ne 0,1.$\\
+\textbf{Theorem 2.15} Suppose $C \subset \mathbb{P}^2$ is a singular irreducible cubic. There is a projective transformation which takes it to one of the following forms: (1) ( nodal cubic) $zy^2=x^2(x+z).$ (2) (cuspidal cubic) $zy^2 = x^3.$\\
+\textbf{Theorem 2.16} Let $C \subset \mathbb{P}^2$ be a reducible cubic. There is a projective transformation which takes it to one of the following forms: (1) $x(zy+x^2)=0.$ (2) $x(zx+y^2)=0.$ (3) $xyz = 0.$ (4) $xy(x+y)=0.$ (5) $x^2y=0.$ (6) $x^3=0.$\\
+Definition 2.17 An elliptic curve is a smooth cubic $E \subset \mathbb{P}^2$ with a chosen point $O \in E.$\\
+Proposition 2.18 Suppose $L \subset \mathbb{P}^2$ is a line and $E \subset \mathbb{P}^2$ an elliptic curve. Then $L \cap E$ consists of 0, 1 or 3 points, counted with multiplicity.\\
+\textbf{Definition 2.20} Let $E \subset \mathbb{P}^2$ be an elliptic curve and $A,B \in E.$ Their sum $A+B \in E$ is defined as
+follows:\\
+Consider the line $L_1$ passing through $A, B.$ If $A = B$ we consider the tangent line.\\
+By proposition 2.18 $L_1 \cap E$ consists of 3 points $A, B, P$ counted with multiplicity. The degenerate
+cases are:\\
+$A=B$ is distinct from $P.$ Then $L_1$ is tangent to $A$ and intersects $P$ transversely.\\
+$A$ is distinct from $B=P$ or $B$ is distinct from $A=P.$ Then $L_1$ is tangent to $P$ and intersects the other point transversely.\\
+$A=B=P$. Then $L_1$ is tangent to $A$ and $A$ is an inflection point.\\
+Consider the line $L_2$ passing through $P,O.$ The third intersection point is $A+B.$\\
+Theorem 2.21 The law $A, B \mapsto A + B$ is commutative, associative, unital (with O being the unit), has inverses.\\
+\textbf{Proposition 2.22} Suppose $A, B, C$ are three points on an elliptic curve $E,$ such that $O \in E$ is an inflection point. Then $A,B,C$ lie on a line if, and only if, $A+B+C =O.$\\
+\textbf{Proposition 2.23} Suppose $O \in E$ is an inflection point and $P \in E$ is another point. Then the inverse $-P \in E$ is the third point on the line passing through $P$ and $O.$\\
+Proposition 2.24 Suppose $O \in E$ is an inflection point. A $3$-torsion point on $E,$ i.e. a point $A \in E$ with
+$3A = 0,$ is the same as an inflection point.\\
+\textbf{Proposition 2.25} Consider a smooth Weierstrass cubic $y^2z = x^3 + axz^2 + bz^3$ with $O = [0 : 1 : 0].$ For $P =[x_1 :y_1 :1]$ and $Q=[x_2 :y_2 :1]$ define $\lambda=\frac{y_2-y_1}{x_2-x_1}$ if $P\neq Q$ and $\lambda=\frac{3x^2_1+a}{2y_1}$ if $P=Q.$ Set $x_3 =\lambda^2-x_1-x_2.$ Then $P+Q=[x_3 :\lambda(x_1-x_3)-y_1 :1].$\\
+Definition 2.26 An irreducible curve $C \subset \mathbb{P}^2$ is \textbf{rational} if there is a non-constant map $\phi: \mathbb{P}^1 \rightarrow \mathbb{P}^2$ given by $[a : b] \mapsto [p(a, b) : q(a, b) : r(a, b)]$ for some homogeneous polynomials $p(a, b), q(a, b), r(a, b)$ of the same degree $\ge 1$ whose image is contained in $C.$ In this case we say we have a regular map $\phi: \mathbb{P}^1 \rightarrow C.$\\
+Let $k(t)$ be the field of rational functions, i.e. expressions $p(t)/q(t),$ where $p(t), q(t)$ are polynomials with $q \neq 0.$\\
+Proposition 2.27 A curve $C$ is rational if, and only if, there is a point in $C(k(t))$ with non-constant coordinates.\\
+Proposition 2.28 Suppose $C \subset \mathbb{P}^2$ is a rational curve with the corresponding regular map $\phi: \mathbb{P}^1 \rightarrow C.$
+Then $\phi$ is surjective.\\
+Theorem 2.31 Let $k = C.$ Suppose $C \subset \mathbb{P}^2$ is an irreducible conic. Then there is an isomorphism $\mathbb{P}^1 \rightarrow C.$ In particular, $C$ is rational.\\
+Proposition 2.32 Let $k$ be an algebraically closed field of characteristic different from $2$ and $3.$ Let $C \subset \mathbb{P}^2$ be an irreducible singular cubic. Then $C$ is rational.\\
+Lemma 2.33 Let $k$ be an algebraically closed field. Let $p,q \in k[t]$ be two polynomials and $[\lambda_1 : \mu_1], ..., [\lambda_4 : \mu_4]$ four distinct points on $\mathbb{P}^1.$ Suppose $\lambda_ip(t) + \mu_iq(t)$ is a square for every $i = 1...4.$ Then $p(t)$ and $q(t)$ are constant polynomials.\\
+Proposition 2.35 Let $k$ be an algebraically closed field. The Legendre cubic $y^2z = x(x-z)(x-\lambda z)$ for $\lambda\neq 0,1$ is not rational.\\
+\textbf{Theorem 2.36} (Mordell) Let $E$ be an elliptic curve over $\mathbb{Q}$ Then $E(\mathbb{Q})$ is a finitely generated abelian group. Using the structure theorem of finitely generated abelian groups we can write: $E(\mathbb{Q})\cong \mathbb{Z}^r\times \prod_{i=1}^k \mathbb{Z}/n_i \mathbb{Z}$ for some integers $n_i.$ The number $r$ is called the rank of the elliptic curve.\\
+\textbf{Theorem 2.38} (Nagell–Lutz theorem) Consider an elliptic curve $E: y^2z = x^3 + axz^2 + bz^3$
+with $a,b\in \mathbb{Z}$ and $O = [0 : 1 : 0].$ If $P \in E(\mathbb{Q})$ is a point of finite order, then either $P = O$ or $P = [x : y : 1]$ with $x,y \in \mathbb{Z}.$ Moreover, in the latter case either $y = 0$ (in which case $P$ has order 2) or $y^2$ divides the discriminant $\Delta.$\\
+This gives the following algorithm to find all rational torsion points:\\
+(1) The only point at infinity is $O=[0:1:0],$ so we may set $z=1.$\\
+(2) Find all integers y such that either $y = 0$ or $y^2$ divides the discriminant. For all such $y$ find possible integer solutions $(x,y).$ This gives a set of all possible torsion points (together with $O$).\\
+(3) For each point $P$ you have found, compute $2P, 3P, 5P,...\,.$ If the resulting point is $O$, such a $P$ is a torsion point. If the resulting point is not in the set of all possible torsion points, such a P is not a torsion point.\\
+Proposition 2.40 $|\mathbb{P}^n(\mathbb{F}_p)|=\frac{p^{n+1}-1}{p-1}.$\\
+Proposition 2.41 Let $E$ be an elliptic curve over $\mathbb{F}_p.$ Then $|E(\mathbb{F}_p)|\leq 2p + 1.$\\
+Consider a cubic equation with integer coefficients defining a curve $E$ together with a point $O \in E(\mathbb{Z}).$ Then we may consider its rational points $E(\mathbb{Q})$ or points over the finite field $E(\mathbb{F}_p).$ We say that $E$ has a good reduction at $p$ if $E(\mathbb{F}_p)$ is smooth in which case it is an elliptic curve. In this case let $N_p =|E(\mathbb{F}_p)|,\,a_p =p+1-N_p.$\\
+\textbf{Theorem 2.45} (Fermat’s last theorem) There are no positive integers $a, b, c$ satisfying $a^n + b^n = c^n$ for $n \ge 3.$\\
+\textbf{Proposition 2.50} Every real elliptic curve $E \subset \mathbb{P}^2_\mathbb{R}$ is projectively equivalent to a Weierstrass cubic $y^2z = x^3 + axz^2 + bz^3.$ If $\Delta<0,$ then $E\cong S^1$ and if $\Delta>0,$ then $E\cong S^1\coprod S^1.$\\
+Theorem 2.52 Every real $2$-dimensional connected compact oriented manifold is homeomorphic to a compact oriented surface of genus $g \ge 0.$\\
+Theorem 2.53 (Genus-degree formula) Suppose $C \subset \mathbb{P}^2_\mathbb{C}$ is a smooth complex curve of degree $d.$ Then it is homeomorphic to a connected compact oriented surface of genus $g = \frac{(d-1)(d-2)}{2}.$ $d=1:$ lines are spheres ($g=0$); $d=2:$ smooth conics are spheres ($g=0$); $d=3:$ smooth cubics are tori ($g=1$); $d=4:$ smooth quartic curves have genus $g=3.$\\
+Definition 3.1 An ideal $I \subset R$ is finitely generated if $I = (f_1,...,f_n)$ for some $f_1,...,f_n \in R.$\\
+Definition 3.2 $R$ is Noetherian if all its ideals are finitely generated.\\
+\textbf{Proposition 3.5} Let $R$ be a Noetherian ring and $I \subset R$ an ideal. Then $R/I$ is Noetherian.\\
+Theorem 3.6 The following conditions are equivalent:\\
+(1) $R$ is Noetherian.\\
+(2) Every ascending chain of ideals $I_1 \subset I_2 \subset...$ stabilizes. In this case we say that $R$ satisfies ACC (ascending chain condition).\\
+(3) Every nonempty set of ideals in $R$ has a maximal element.\\
+\textbf{Theorem 3.7} (Hilbert’s basis theorem) Suppose $R$ is a Noetherian ring. Then $R[x]$ is Noetherian.\\
+Corollary 3.8 Let $R$ be a Noetherian ring. Then the commutative ring $R[x_1,..., x_n]$ is Noetherian. In
+particular, $k[x_1,..., x_n]$ is Noetherian, where $k$ is a field.\\
+Corollary 3.9 Let $R$ be a Noetherian ring and $I\subset R[x_1,...,x_n]$ an ideal. Then $R[x_1,...,x_n]/I$ is Noetherian. In other words, finitely generated $R$-algebras are Noetherian. In particular, finitely generated algebras over a field are Noetherian.\\
+Proposition 3.10 Suppose $k$ is a field. Then the commutative ring $R = k[x_1,x_2,...]$ of polynomials in countably many variables is not Noetherian.\\
+\textbf{Definition 3.11} Let $\Sigma \subset \mathbb{A}^n$ be a subset. The vanishing ideal $I(\Sigma) \subset k[x_1,..., x_n]$ consists of polynomials $f \in k[x_1,...,x_n]$ such that $f(P) = 0$ for every $P \in \Sigma.$\\
+An inclusion $\Sigma_1 \subset \Sigma_2$ gives rise to an inclusion $I(\Sigma_2) \subset I(\Sigma_1).$\\
+$I(\Sigma) = k[x_1,...,x_n]$ if, and only if, $\Sigma = \emptyset.$\\
+\textbf{Definition 3.13} Let $I \subset k[x_1,..., x_n]$ be an ideal. Then $V(I) \subset \mathbb{A}^n$ consists of points $P \in \mathbb{A}^n$ such that $f(P) = 0$ for every $f \in I.$ Any such subset of $\mathbb{A}^n$ is an algebraic subset.\\
+Lemma 3.17 Let $\Sigma \subset \mathbb{A}^n$ be a subset. Then $\Sigma\subset V(I(\Sigma)).$\\
+Lemma 3.19 Let $I\subset k[x_1,...,k_n]$ be an ideal. Then $I\subset I(V(I)).$\\
+\textbf{Definition 3.21} Let $R$ be a commutative ring and $I\subset R$ an ideal. Its radical $I\subset R$ is the set of $f\in R$ such that $f^m\in I$ for some $m.$ The ideal $I$ is radical if $\sqrt{I}=I.$\\
+$V(\sqrt{I})=V(I).$ Indeed, $f^m(P)=0$ if, and only if, $f(P)=0.$\\
+$\sqrt{I}\subset I(V(I)).$\\
+\textbf{Theorem 3.24} (Nullstellensatz). Let $I \subset k[x_1,..., x_n]$ be an ideal. Then $\sqrt{I}=I(V(I)).$\\
+Corollary 3.26 There is a $1:1$ correspondence $V: \{\text{radical ideals of} \,\,k[x_1,...,x_n]\}\leftrightarrows \{\text{algebraic subsets of}\,\,\mathbb{A}^n\} :I.$\\
+\textbf{Definition 3.27} An algebraic subset of $\mathbb{A}^n$ is irreducible if it is not a union of two distinct algebraic subsets.\\
+Corollary 3.28 There is a $1:1$ correspondence $V: \{\text{prime ideals of} k[x_1,...,x_n]\} \leftrightarrows \{\text{irreducible algebraic subsets of} A_n\} :I.$\\
+Proposition 3.29 (Weak Nullstellensatz 1) Suppose $m \subset k[x_1,..., x_n]$ is a maximal ideal. Then $m = (x_1-a_1,...\,, x_n-a_n)$ for some $(a_1,...\,,a_n)\in \mathbb{A}^n.$\\
+Proposition 3.30 (Weak Nullstellensatz 2) Suppose $V(I) = \emptyset$ for some ideal $I.$ Then $I = k[x_1,..., x_n].$\\
+Proposition 3.31 (Rabinowitsch’s trick) The weak Nullstellensatz 2 implies the full Nullstellensatz.\\
+Proposition 3.32 Suppose $k$ is an uncountable algebraically closed field. Then the weak Nullstellensatz 1 holds.\\
+Lemma 3.33 $k(x_i)$ has an uncountable $k$-basis.\\
+\textbf{Definition 3.34} A polynomial function $\mathbb{A}^n \rightarrow \mathbb{A}^1$ is a function of the form $(x_1, . . . , x_n)\mapsto f(x_1, ..., x_n)$
+for $f \in k[x_1,...,x_n].$\\
+Definition 3.35 Let $X \subset \mathbb{A}^n$ be an algebraic subset. A polynomial function $X \rightarrow \mathbb{A}^1$ is a function obtained as the composite $X \subset \mathbb{A}^n \rightarrow \mathbb{A}^1,$ where $\mathbb{A}^n \rightarrow \mathbb{A}^1$ is a polynomial function.\\
+\textbf{Definition 3.36} Let $X \subset \mathbb{A}^n$ be an algebraic subset. The coordinate ring is $k[X] = k[x_1,..., x_n]/I(X).$ It is naturally a $k$-algebra.\\
+Proposition 3.37 The evaluation map $k[X]\rightarrow Fun(X)$ from the coordinate ring to the space of all functions from the set $X$ to $k$ is injective.\\
+Definition 3.39 Let $X \subset \mathbb{A}^n$ and $Y \subset \mathbb{A}^m$ be algebraic subsets. A polynomial map $f : X \rightarrow Y$ is a map given by $P\mapsto(f_1(P),...,f_m(P))$ for some $f_1,...,f_m \in k[x_1,...,x_n].$\\
+Lemma 3.41 Let $X, Y$ be algebraic subsets. Suppose $F : k[Y] \rightarrow k[X]$ is a homomorphism of $k$-algebras. Then $F=f^*$ for a unique  polynomial map $f:X\rightarrow Y.$\\
+Definition 3.42 A polynomial map $f: X \rightarrow Y$ is an isomorphism if there is a polynomial map $g: Y \rightarrow X$
+such that $g\circ f=id_X$ and $f\circ g=id_Y.$\\
+\textbf{Definition 3.43} An affine algebraic set is an algebraic subset $X \subset \mathbb{A}^n$ considered up to isomorphism.\\
+Lemma 3.44 Consider a line $L$ in $\mathbb{A}^2.$ Then $L \cong \mathbb{A}^1.$\\
+Lemma 3.45 Consider the curve $C : x = y^2$ in $\mathbb{A}^2.$ Then $C \cong \mathbb{A}^1.$\\
+Lemma 3.46 Consider the curve $C : xy = 1$ in $\mathbb{A}^2.$ Then $C \not\cong \mathbb{A}^1.$\\
+Definition 3.47 A commutative ring $R$ is reduced if $f^N = 0$ for $f \in R$ implies that $f = 0.$\\
+Lemma 3.50 The commutative ring $R = k[x_1,..., x_n]/I$ is reduced if, and only if, $I$ is radical.\\
+Theorem 3.51 Let $k$ be an algebraically closed field. There is a $1:1$ correspondence: \\$\{\text{affine algebraic sets}\}/\{\text{isomorphism}\}\leftrightarrow \{\text{reduced finitely generated $k$-algebras}\}/\{\text{isomorphism}\}$ given by sending an affine algebraic set $X$ to $k[X].$\\
+\textbf{Proposition 3.53} Suppose $f:X\rightarrow Y$ is a morphism of affine algebraic sets which is surjective as a map of sets. Then the induced map of coordinate ring $f^*:k[Y]\rightarrow k[X]$ is injective.\\
+\textbf{Definition 3.54} An affine variety is an irreducible affine algebraic set.\\
+Theorem 3.55 Let $k$ be an algebraically closed field. There is a $1:1$ correspondence: \\
+$\{\text{affine varieties}\}/\{\text{isomorphism}\}\leftrightarrow \{\text{finitely generated $k$-algebras which are integral domains}\}/\{\text{isomorphism}\}$ given by sending an affine algebraic set $X$ to $k[X].$\\
+Proposition 3.56 Let $k$ be an algebraically closed field. A prime ideal $I \subset k[x, y]$ is one of the following:\\
+(1) $I = 0$; (2) $I = (f)$ for an irreducible polynomial $f\in k[x, y]$; (3) $I =(x-a,y-b)$ for $a,b\in k.$\\
+\textbf{Lemma 3.57} Consider the cuspidal cubic $C : y^2 = x^3$ in $\mathbb{A}^2.$ Then it is irreducible.\\
+Proposition 3.58 The cuspidal cubic is not isomorphic to $\mathbb{A}^1$ as an affine variety.\\
+\textbf{Definition 3.60} Let $R$ be an integral domain and $K$ its field of fractions. An element $\alpha\in K$ is integral over $R$ if there are $a_0,...,a_{d-1}\in R$ such that $\alpha^d+a_{d-1}\alpha^{d-1}+\cdots+a_0=0.$  The integral closure $\overline{R} \subset K$ is the set of elements integral over $R.$ $R$ is integrally closed if $\overline{R}=R.$\\
+Definition 3.61 An affine variety $X$ is \textbf{normal} if $k[X]$ is integrally closed.\\
+Definition 3.62 If $X$ is an affine variety, we denote by $k(X)$ the field of fractions of $k[X].$ This is the field of rational functions on $X.$\\
+\textbf{Proposition 3.63.} Suppose $R$ is a UFD. Then it is integrally closed. Note $k[x]$ is a PID$\implies$UFD$\implies$Integrally closed.\\
+Theorem 3.65 (Zariski) A curve $C \subset \mathbb{A}$ is smooth if, and only if, it is normal.\\
+\textbf{Proposition 3.67} The integral closure of $k[x, y]/(y^2 - x^3)$ is $k[t].$\\
+Proposition 3.69 $Aut(\mathbb{A}^1)$ is isomorphic to the group $k^* \ltimes k$ of affine transformations $x\mapsto ax + b$ with $a,b\in k$ with $a\neq 0.$\\
+Theorem 3.70 (Jung). $Aut(\mathbb{A}^2)$ is generated by $(x,y) \mapsto (x,y + f(x))$ for some $f \in k[x]$ and affine
+transformations $(x,y)\mapsto(ax+by+\alpha,cx+dy+\beta)$ with $ad-bc\neq 0.$\\
+Proposition 3.67 Define: $G_m: xy = 0 \subset \mathbb{A}^2$, then $Aut(G_m)$ is isomorphic to the semidirect product $\mathbb{Z}/2\mathbb{Z}\ltimes k^*$ where $\mathbb{Z}/2\mathbb{Z}$ acts on $k^*$ by
+$x \mapsto x^{-1}.$\\
+Let $\phi: \mathbb{A}^2 \rightarrow \mathbb{A}^2$ be a polynomial map. It sends $x \mapsto f(x,y)$ and $y\mapsto g(x,y).$ Its Jacobian is the determinant $J(\phi)=\begin{vmatrix}
+\frac{\partial f}{\partial x} & \frac{\partial f}{\partial y}\\
+\frac{\partial g}{\partial x} & \frac{\partial g}{\partial y}
+\end{vmatrix}.$\\
+If $\psi$ is $\phi$'s inverse, then $1=J(id)=J(\psi)J(\phi).$
+In particular, in this case $J(\phi) \in k^*$ is a nonzero constant.\\
+Proposition 3.71 $Aut(\mathbb{G}_m)$ is isomorphic to the semidirect product $\mathbb{Z}/2\mathbb{Z}\ltimes k^*,$ where $\mathbb{Z}/2\mathbb{Z}$ acts on $k^*$ by $x\mapsto x^{-1}.$\\
+Definition 3.73 A Zariski closed subset $Z \subset \mathbb{A}^n$ is an algebraic subset. A Zariski open subset is the complement of a Zariski closed subset.\\
+\textbf{Proposition 3.74} The collection of Zariski closed subsets defines a Zariski topology on $\mathbb{A}^n.$\\
+Definition 3.75 Let $X \subset \mathbb{A}^n$ be an algebraic subset. A Zariski closed subset $Z \subset X$ is an intersection of an algebraic subset of $\mathbb{A}^n$ with $X.$\\
+Proposition 3.76 This defines the Zariski topology on $X.$\\
+Definition 3.77 Let $X$ be a topological space. The closure $\overline{U}$ of a subset $U \subset X$ of a topological space $X$ is the smallest closed set containing $U.\,U$ is dense if $\overline{U} = X.$\\
+\textbf{Proposition 3.78} Let $X \subset \mathbb{A}^n,\,Y \subset \mathbb{A}^m$ be algebraic subsets. Suppose $f: X \rightarrow Y$ is a polynomial function. Then it is continuous in the Zariski topology.\\
+Definition 3.82 Let $X$ be an affine variety. The function field of $X$ is $k(X),$ the field of fractions of $k[X].$ Elements of $k(X)$ are rational functions. \textbf{A rational function} $\phi \in k(X)$ is regular at $P \in X$ if it can be written as $\frac{f}{g}$ with $g(P) \neq 0.$ The domain of definition $dom(\phi) \subset X$ is the subset where the function is regular.\\
+Definition 3.85 Let $X$ be an affine variety. A \textbf{rational map} $f: X \dashrightarrow \mathbb{A}^m$ is a collection of rational
+functions $f_1,...,f_m \in k(X).$ Its domain is $dom(f) = \cap_{i=1}^m dom(f_i).$\\
+Definition 3.86 Let $X$ be an affine variety and $Y \subset \mathbb{A}^m$ an algebraic subset. A rational map $f : X \dashrightarrow Y$
+is a rational function $f : X \dashrightarrow \mathbb{A}^m$ with $f(dom(f)) \subset Y.$\\
+Theorem 3.87 Let $\phi:X\dashrightarrow Y$ be a rational map of affine varieties. Then:
+(1) $dom(\phi) \subset X$ is open and dense in the Zariski topology;
+(2) $dom(\phi) = X$ if, and only if, $\phi$ is a polynomial map.\\
+\textbf{Definition 3.88} A map $\phi: X \dashrightarrow Y$ is dominant if $\phi(dom(\phi))$ is dense.\\
+Proposition 3.90 If $\phi: X \dashrightarrow Y$ is dominant and $\psi: Y \dashrightarrow Z$ is arbitrary, then $\psi \circ \phi:x\dashrightarrow Z$ is well-defined.\\
+Lemma 3.91 Suppose $\Psi: k(Y ) \rightarrow k(X)$ is a homomorphism of $k$-algebras. Then there is a unique dominant
+map $\phi:X\dashrightarrow Y$ such that $\Psi=\phi^*.$\\
+\textbf{Definition 3.92} A dominant rational map $\phi:X\dashrightarrow Y$ is birational if there is a dominant rational map $\psi:Y\rightarrow X$ such that $\psi\circ\phi=id_X$ and $\phi\circ\psi=id_Y.$ In this case $X$ and $Y$ are birational.\\
+\textbf{Corollary 3.93} $X$ and $Y$ are birational if, and only if, $k(X) \cong k(Y)$ as $k$-algebras.\\
+Definition 3.96 Let $X$ be an affine variety. The group of birational maps $X \dashrightarrow X$ is $Bir(X).\, Bir(\mathbb{A}^n)$ is the Cremona group.\\
+Theorem 3.97 (Noether) $Bir(\mathbb{A}^2)$ is generated by $(x,y) \mapsto (1/x, 1/y)$ and projective transformations\\
+$(x,y)\mapsto (\frac{a_{11}x+a_{12}y+a_{13}}{a_{31}x+a_{32}y+a_{33}},\frac{a_{21}x+a_{22}y+a_{23}}{a_{31}x+a_{32}y+a_{33}}),$ where the matrix $\{a_{ij}\}$ is invertible.\\
+A field extension $L/K$ is simply an embedding of fields $K \subset L.$ Given a field extension $L/K$ and a collection of elements $\alpha_1,..., \alpha_n \in L, K(\alpha1,..., \alpha_n)$ is the smallest subfield of $L$ that contains $K$ and the elements $\alpha_1,...,\alpha_n.$\\
+Definition 3.99 Consider an extension $L/K$ of fields. An element $\alpha \in L$ is algebraic over $K$ if it satisfies a polynomial equation $\alpha^d+a_{d-1}\alpha^{d-1}+\cdots+a_0=0$
+of degree $d \ge 1$ with coefficients $a_0,...,a_{d-1} \in K.$ Otherwise, $\alpha$ is transcendental.\\
+An extension $L/K$ is algebraic if every element of $L$ is algebraic over $K.$ Otherwise, $L/K$ is transcendental.\\
+Proposition 3.102 Suppose $L/K$ is a transcendental extension. Consider $L$ as a vector space over the field $K.$ Then its dimension is infinite.\\
+Definition 3.104 Consider an extension $L/K$ of fields.\\
+A set $S \subset L$ is algebraically independent over $K$ if elements in $S$ do not satisfy a nontrivial polynomial equation with coefficients in $K.$
+The \textbf{transcendence degree} of the extension $L/K$ is the largest cardinality of an algebraically independent subset of $L$ over $K.$\\
+Definition 3.107 Let $X$ be an affine variety. Its dimension $dim(X)$ is the transcendence degree of the field extension $k(X)/k.$\\
+Proposition 3.109 Consider field extensions $K \subset L \subset F.$ The transcendence degree of $F/K$ is the sum of the transcendence degree of $L/K$ and the transcendence degree of $F/L.$\\
+\textbf{Proposition 3.112} Consider the affine variety $X \subset \mathbb{A}^n$ given by solutions of a nontrivial polynomial equation $f(x_1,...,x_n)=0.$ Then $k(X)/k$ has transcendence degree $n-1.$ In other words, $dim(X)=n-1.$\\
+Definition 3.113 An ideal $I \subset k[x_0,..., x_n]$ is homogeneous if for every $f \in I$ its homogeneous components lie in $I.$\\
+\textbf{Lemma 3.114} An ideal $I \subset k[x_0,..., x_n]$ is homogeneous if, and only if, it can be generated by homogeneous polynomials.\\
+Definition 3.116 Let $I \subset k[x_0,..., x_n]$ be a homogeneous ideal. The vanishing set is $V(I) \subset \mathbb{P}^n$ consisting of points $P = [x_0 : \cdots : x_n] \in \mathbb{P}^n$ such that $h(P) = 0$ for every homogeneous $h \in I.$ Every such subset is algebraic.\\
+Definition 3.118 Let $X \subset \mathbb{P}^n$ be a subset. The ideal of vanishing $I(X) \subset k[x_0,...,x_n]$ consists of homogeneous $h \in k[x_0,...,x_n]$ such that $h(P) = 0.$\\
+\textbf{Theorem 3.119} (Projective Nullstellensatz) Let $I \subset k[x_0,..., x_n]$ be a homogeneous ideal. $V(I) = \emptyset$ if, and only if, $(x_0,...,x_n) \subset \sqrt{I}.$ If $V(I) \neq \emptyset,$ then $\sqrt{I}=I(V(I)).$\\
+Corollary 3.120 There is a $1:1$ correspondence $\{\text{homogeneous radical ideals of $k[x_0,..., x_n]$ not containing $(x_0,..., x_n)$}\} \leftrightarrow 
+\{\text{algebraic subsets of } \mathbb{P}^n\}.$\\
+\textbf{Definition 3.121} An algebraic subset $X \subset \mathbb{P}^n$ is irreducible if $X \neq X_1 \cup X_2$ for algebraic subsets $X1 \neq X2.$ An irreducible algebraic subset of $\mathbb{P}^n$ is a projective variety.\\
+Corollary 3.123 There is a $1:1$ correspondence
+$\{\text{homogeneous prime ideals of}\,\, k[x_0,..., x_n]\,\, \text{not containing}\,\, (x_0,..., x_n)\}\leftrightarrow \{\text{irreducible algebraic subsets of}\,\, \mathbb{P}^n\}.$\\
+Definition 3.124 A subset $X \subset \mathbb{P}^n$ is Zariski closed if it is algebraic.\\
+\textbf{Proposition 3.125} This defines a Zariski topology on $\mathbb{P}^n.$\\
+Definition 3.127 Let $X:f(x_1,...,x_n)=0$ be an irreducible hypersurface in $\mathbb{A}^n.$ For a smooth point $P=[a_0:\cdots:a_n]\in X,$ the tangent plane is the hyperplane defined by $\frac{\partial f}{\partial x_0}(P)x_0+\cdots+\frac{\partial f}{\partial x_n}(P)x_n=0.$\\
+Proposition 3.128 Let $X:f(x_1,...,x_n)=0$ be an irreducible hypersurface in $\mathbb{P}^n.$ The set of singular points is a proper algebraic subset of $X.$ In particular, the set of smooth points is dense.\\
+Definition 3.129 Let $X\subset \mathbb{A}^n$ be an algebraic subset defined by polynomial equations $f_1=\cdots=f_m=0$ and $P=[a_1:\cdots:a_n]\in X.$ The tangent space $T_PX$ to $X$ at $P$ is the affine subspace of $\mathbb{A}^n$ given by $\frac{\partial f_i}{\partial x_1}(P)(x_1-a_1)+\cdots+\frac{\partial f_i}{\partial x_n}(P)(x_n-a_n)=0.$ for every $i=1,...,m.$\\
+Definition 3.130 Let $X\subset \mathbb{A}^n$ be an algebraic subset. A point $P\in X$ is smooth if $dim\,T_PX=dim(X).$ If $dim\,T_PX>dim(X),$ it is singular. \\
+Theorem/Definition 3.133 Let $X\subset \mathbb{A}^n$ be an affine variety and $P\in X.$ Define the maximal ideal $m_P=\{f\in k[X]|f(P)=0\}.$ There is a natural isomorphism of $k$-vector spaces $(T_PX)^*\cong m_P/m^2_P.$\\
+Proposition 3.134 The set of singular points of $X$ is a proper algebraic subset.\\
+\textbf{Definition 3.136} Let $X \subset \mathbb{P}^n$ be an irreducible algebraic subset. A rational function $\phi: X \dashrightarrow C$ is a function of the form $\phi=\frac{f}{g}$ for $f,g \in k[x_0,...,x_n]$ homogeneous of the same degree with $g \not\in I(X).$ It is regular at $P \in X$ if we can arrange $g(P)\neq 0.$ The domain of definition $dom(\phi) \subset X$ is the subset of points where $\phi$ is regular. The function field $k(X)$ is the field of rational functions on $X.$ The dimension $dim(X)$ is the transcendence degree of $k(X)/k.$\\
+In $\mathbb{P}^n$ with coordinates $x_0, \dots x_n$ the \textbf{$i$th Affine Patch} denoted $U_i$ is the open subset given by $x_i \neq 0$. Hence $U_i \equiv \{p \in \mathbb{P}^n \vert \; x_i \neq 0\} \cong \mathbb{A}^n$. \\  
+\textbf{Lemma 3.138} If $X \cap U_i \neq \emptyset,$ then $k(X) \cong k(X \cap U_i).$\\
+Corollary 3.139 If $X \cap U_i \neq \emptyset$ and $X \cap U_j \neq \emptyset,$ then $X \cap U_i$ and $X \cap U_j$ are birational.\\
+Definition 3.142 Let $X, Y$ be projective varieties. A rational function $\phi: X \dashrightarrow Y$ is a morphism (polynomial map) if $dom(\phi) = X.$ We write $\phi: X \rightarrow Y.$ It is an isomorphism if there is a morphism $\psi:Y \rightarrow X$ such that $\psi\circ\phi=id_X$ and $\phi\circ\psi=id_Y.$\\
+Definition 3.144 Let $X,Y$ be projective varieties. A rational map $\phi: X \dashrightarrow Y$ is dominant if $\phi(dom(\phi))$ is dense.\\
+Definition 3.145 A rational map $\phi: X \dashrightarrow Y$ is birational if there is a dominant rational map $\psi: Y \dashrightarrow X$ such that $\psi\circ\phi=id_X$ and $\phi\circ\psi=id_Y.$\\
+Proposition 3.147 Let $X,Y$ be projective varieties. A dominant rational map $\phi:X \dashrightarrow Y$ induces a homomorphism of $k$-algebras $\phi^*: k(Y) \rightarrow k(X).$ Conversely, for any homomorphism of $k$-algebras $\Phi: k(Y) \rightarrow k(X)$ there is a dominant rational map $\phi: X \dashrightarrow Y$ such that $\Phi=\phi^*$\\
+\textbf{Corollary 3.148} Isomorphisms of $k$-algebras $k(X) \cong k(Y)$ are the same as birational maps $X \dashrightarrow Y.$\\
+Definition 3.149 A projective variety $X$ is \textbf{rational} if it is birational to $\mathbb{P}^n,$ i.e. $k(X) \cong k(x_1,..., x_n).$\\
+Definition 4.1 A surface $S\subset \mathbb{P}^3$ of degree $d$ is the zero set of a homogeneous polynomial $f(x,y,z,w).$\\
+Definition 4.2 A surface $S:f(x,y,z,w)=0$ in $\mathbb{P}^3$ is smooth if the gradient $(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z},\frac{\partial f}{\partial w},)$ does not vanish at any point of $S.$\\
+Definition 4.3 Suppose $S:f(x,y,z,w)=0$ is a surface with a smooth point $P \in S.$ The tangent plane at $P$ is $\frac{\partial f}{\partial x}(P)x+\frac{\partial f}{\partial y}(P)y+\frac{\partial f}{\partial z}(P)z+\frac{\partial f}{\partial w}(P)w=0.$\\
+Proposition 4.7 Suppose $S: f(x,y,z,w) = 0$ is a surface in $\mathbb{P}^3$ and $P \in S$ is a smooth point. Suppose $l \subset S$ is a line passing through $P.$ Then $l$ is contained in the tangent plane at $P.$\\
+A quadric surface in $\mathbb{P}^3$ is given by $S:Ax^2 + Bxy + Cy^2 + Dxz + Eyz + F z^2 + Gxw + Hyw + Izw + Jw^2 = 0 \rightsquigarrow 
+    A \; B/2 \; D/2 \; G/2, \; 
+    B/2 \; C \; E/2 \; H/2, \\
+    D/2 \; E/2 \; F \; I/2,\;  
+    G/2 \; H/2 \; I/2 \; H  =: Q$ as a matrix. \\
+\textbf{Theorem 4.8} Every quadric surface in $\mathbb{P}^3_\mathbb{C}$ is projectively equivalent to one of the following ones:\\
+(1) Smooth $x^2 + y^2 + z^2 + w^2 = 0.$ (2) Irreducible, Singular $x^2 + y^2 + z^2 = 0.$ (3) $x^2 + y^2 = 0.$ (4) $x^2 = 0.$\\
+\textbf{Corollary 4.9} A quadric surface $S \subset \mathbb{P}^3_\mathbb{C}$ is smooth if, and only if, $Q$ has a nonzero determinant.\\
+Definition 4.10 Let $C\subset\mathbb{P}^2$ be a curve defined by $f(x,y,z)=0.$ The cone on $C$ is a surface $\widehat{C}\subset\mathbb{P}^3$ defined by $f(x,y,z)=0.$\\
+\textbf{Definition 4.11} The Segre embedding is the map $\phi: \mathbb{P}^n \times \mathbb{P}^m\rightarrow \mathbb{P}^N$ with $N = (n + 1)(m + 1) - 1$. It is given by:\\
+$[x_0: \dots : x_n], [y_0: \dots : y_m] \mapsto [\{x_i y_j\}]$. Eg: $[x_0:x_1], [y_0:y_1] \mapsto [x_0 y_0: x_0 y_1: x_1 y_0: x_1 y_1]$.\\ 
+Proposition 4.12 The Segre embedding is injective. If $z_{ij}$ for $i = 0...n, j = 0...m$ are the coordinates on $\mathbb{P}^N,$ then the image of $\phi$ is the variety given by the vanishing of the $2 \times 2$ determinants of the matrix $z_{ij}.$\\
+Corollary 4.14 The product of projective varieties is a projective variety.\\
+\textbf{Proposition 4.16} A smooth quadric surface $S \subset \mathbb{P}^3_\mathbb{C}$ is isomorphic to $\mathbb{P}^1_\mathbb{C} \times \mathbb{P}^1_\mathbb{C}$ as a projective variety.\\
+Theorem 4.17 (Segre) If $d \ge 3,$ then $S$ contains at most $(d-2)(11d-6)$ lines. For $d = 4$ there are at most $64$ lines.\\
+Theorem 4.19 (Cayley, Salmon) A smooth cubic surface in $\mathbb{P}^3_\mathbb{C}$ contains exactly $27$ lines.\\
+Theorem 4.20 Suppose $S \subset \mathbb{P}^3$ is an irreducible singular cubic surface. Then one of the following holds:(1) $S$ has infinitely many singular points; (2) $S$ is isomorphic to the cone on an irreducible cubic in $\mathbb{P}^2$; (3) $S$ contains fewer than $27$ lines.\\
+Proposition 4.21 Suppose $S \subset \mathbb{P}^3$ is an irreducible cubic surface and $P \in S$ is a singular point. Then there is a line in $S$ passing through $P.$\\
+Lemma 4.22 Suppose $\Pi \subset \mathbb{P}^3$ is a plane. Then $\Pi \cap S$ is a cubic $C \subset \Pi$ and hence has the following form: (1) $C$ is an irreducible cubic; (2) $C$ is a union of an irreducible conic and a line; (3) $C$ is a union of three lines (possibly with multiplicity).\\
+Lemma 4.24 Suppose $L \subset S$ is a line. Then there is a plane $\Pi \subset \mathbb{P}^3$ containing $L$ such that $\Pi\cap S$ is a union of three lines.\\
+Proposition 4.25 Suppose $L_1, L_2 \subset \mathbb{P}^3$ are two lines. Then we have the following cases:\\
+(1) $L_1 = L_2.$
+(2) $L_1 \cap L_2$ at a single point. This happens if, and only if, $L_1 \neq L_2$ and $L_1$ and $L_2$ are contained in a
+plane $\Pi \subset S.$
+(3) $L_1 \cap L_2 = \emptyset.$ In this case we say the lines are skew. This happens if, and only if, $L_1$ and $L_2$ are
+not contained in a plane.\\
+\textbf{Line on a surface} We consider $S \subset \mathbb{P}^3$ be a surface. (1) Find a plane $\Pi \subset \mathbb{P}^3$ that intersects $S$ along a union of lines $L_i \cup \dots \cup L_n$. (2) Any line $L \subset \mathbb{P}^3$ intersects the plane $\Pi$ and thus a line $L \subset S$ intersects one of the $L_i$. (3) Given two line $L, L_i \subset \mathbb{P}^3$ there is a plane $\Pi^i \subset \mathbb{P}^3$ containing these two lines. (4) For each line $L_1, \dots, L_n$ find the $\mathbb{P}^1$ family of planes $\Pi_{[\alpha:\beta]}^i$, where $[\alpha, \beta] \in \mathbb{P}^1$ containing $L_i$. All lines on $S$ lie in the intersection $\Pi_{[\alpha:\beta]}^i \cap S$ for some $i$. \\  
+Definition 4.29 A double six is an array of lines $\begin{bmatrix}
+a_1 & a_2 & a_3 & a_4 & a_5 & a_6\\
+b_1 & b_2 & b_3 & b_4 & b_5 & b_6\end{bmatrix}$
+on $S$ with the property that two of these $12$ lines meet if, and only if, they are in different rows and columns.\\
+Theorem 4.30 (Schlafli) There are $36$ double sixes on a smooth cubic surface.\\
+Definition 4.33 The variety $X$ is unirational if there is a dominant rational map $\mathbb{P}^n \dashrightarrow X.$\\
+Proposition 4.34 Suppose $C \subset \mathbb{P}^2$ is a curve. A rational map $f: \mathbb{P}^1 \dashrightarrow C$ is regular. Thus it is unirational and hence rational.\\
+Theorem 4.36 (Luroth). A unirational curve is rational.\\
+Theorem 4.39 A smooth cubic surface $S \subset \mathbb{P}^3$ is rational.\\
+\textbf{Definition 4.41} Parametrize $\mathbb{A}^2 \times \mathbb{P}^1$ by $(x, y), [\alpha : \beta].$ The blowup of $\mathbb{A}^2$ at the origin $(0,0) \in \mathbb{A}^2$ is
+the subset $Bl_{(0,0)}\mathbb{A}^2 \subset \mathbb{A}^2 \times \mathbb{P}^1$ defined by $x\beta=\alpha y.$ Let $\pi: Bl_{(0,0)} \rightarrow \mathbb{A}^2$ and $E = \pi^{-1}(0,0)$ the exceptional curve.\\
+Definition 4.43 Parametrize $\mathbb{P}^2\times \mathbb{P}^1 $by $[x:y:z],[\alpha:\beta].$The blowup of $\mathbb{P}^2$ at $[0:0:1]$ is the subset $Bl[0:0:1]\mathbb{P}^2 \subset \mathbb{P}^2 \times \mathbb{P}^1$ defined by $x\beta = \alpha y.$ Let $\pi: Bl_{[0:0:1]} \rightarrow \mathbb{P}^2$ and $E = \pi^{-1}([0:0:1])$ the exceptional curve.\\
+Definition 4.44 Let $C \subset \mathbb{P}^2$ be a curve. Its strict transform $\tilde{C} \subset Bl_{[0:0:1]}\mathbb{P}^2$ is the closure of $\pi^{-1}(C \backslash [0:0:1]).$ If $[0:0:1] \in C,$ we call $\pi:\widehat{C}= Bl_{[0:0:1]}C \rightarrow C$ the blowup of $C$ at $[0:0:1].$\\
+Proposition 4.45 Suppose $C \subset \mathbb{P}^2$ is a curve and $P \in C$ a smooth point. Then the blowup $Bl_P C \rightarrow C$ is an isomorphism.\\
+Definition 4.49 The blowup of $\mathbb{A}^n$ with center at $Z$ is the subvariety $Bl_Z \mathbb{A}^n \subset \mathbb{A}^n \times \mathbb{P}^k$ defined by
+$u_ig_j(x)-u_jg_i(x)=0$ for $i \neq j$ and where $[u_0:\cdots:u_k] \in \mathbb{P}^k.$ Let $\pi: Bl_Z\mathbb{A}^n \rightarrow \mathbb{A}^n.$ Then $\pi{-1}(Z) \subset Bl_Z\mathbb{A}^n$ is the exceptional hypersurface.\\
+Proposition 4.52 Suppose $P_1,...,P_n$ are $n\ge 6$ points on $\mathbb{P}^2$ which are in general position. Then $i:S\rightarrow \mathbb{P}^{9-n}$ defines $S$ as a closed subset of $\mathbb{P}^{9-n}.$ The surface $S$ has lines constructed as follows:\\
+Exceptional curves associated to $P_1,...,P_n.$\\
+Strict transforms of lines between two points in $P_1,...,P_n.$\\
+Strict transforms of conics through five of the points in $P_1,...,P_n.$\\
+Theorem 4.55 The blowup of $\mathbb{P}^2$ at $6$ points, no $3$ of them collinear and not all lying on a conic, is a cubic surface. Any smooth cubic surface is obtained in this way.\\
+%Theorem 4.62 Suppose $f: X\dashrightarrow Y$ is a rational morphism of complex projective varieties. Then there is a blowup $\pi:\hat{X}\rightarrow X$ and a morphism $\hat{f}:\hat{X}\rightarrow Y$ such that $\hat{f}=f\circ \pi.$\\
+%Theorem 4.63 Suppose $X$ is a complex projective variety. Then there is a birational map $Y \dashrightarrow X$ from a smooth projective variety.\\
+%Theorem 4.65 A smooth complex projective curve has a discrete invariant called the genus $g \ge 0.$ For each $g$ there are finitely many parameters describing a curve of genus $g.$\\
+%Proposition 4.66 Suppose $f: C_1 \dashrightarrow C_1$ is a rational map of smooth projective curves. Then $f$ is a morphism. In particular, smooth birational curves are isomorphic.
+
+
+
+
+
+
+
+
+
+
+\end{document}

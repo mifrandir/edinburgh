@@ -1,0 +1,299 @@
+\documentclass{article}
+\usepackage{notes-preamble}
+\usepackage{enumitem}
+
+\begin{document}
+\mkthmstwounified
+\title{Algebraic Geometry (SEM8)}
+\author{Franz Miltz}
+\maketitle
+\tableofcontents
+\pagebreak
+
+\section{Examples}
+
+\begin{lemma}
+  Consider five points in $\proj{2}$, no three of them colinear.
+  Then there is a unique conic passing through them.
+\end{lemma}
+
+\begin{lemma}
+  A conic $C:ax^2+bxy+cy^2+dxz+eyz+fz^2=0$ in $\proj{2}$ is
+  irreducible if, and only if,
+  \begin{align*}
+    \begin{vmatrix}
+      a & b/2 & d/2 \\
+      b/2 & c & e/2 \\
+      d/2 & e/2 & f
+    \end{vmatrix}
+    = 0.
+  \end{align*}
+\end{lemma}
+
+\subsection{$\proj{2}$ and curves}
+
+\begin{itemize}
+  \item four points in $\proj{2}$, no three colinear:
+    $\bb{1:0:0},\bb{0:1:0},\bb{0:0:1},\bb{1:1:1}$;
+  \item $n$ points on an irreducible conic in $\proj{2}$:
+    $\bb{\pm j:j^2:1}$ for $1\leq j\leq n$;
+  \item $n$ points that do not lie on an irreducible cubic of
+    degree $d\geq 2$: $\bb{j:1:0}$ for $1\leq j\leq n$;
+  \item six points not on a conic in $\proj{2}$:
+    $\bb{1:1:0},\bb{1:1:1},\bb{2:4:1},\bb{-2:4:1},\bb{3:9:1},\bb{-3:9:1}$;
+  \item two irreducible conics with exactly one common point in $\affine{2}$:
+    $x^2 - y = 0$ and $x^2 + y = 0$
+  \item singular irreducible cubic in $\proj{2}$: $y^2z=x^3$;
+  \item curve with exactly two singular points
+    $x(yz+x^2)=0$; \note{check}
+  \item curve with exactly two singular points
+    $(x-y)(x-2y)(x-3y)=0$; \note{check}
+  \item two curves in $\proj{2}_{\C}$ that are birational but not
+    isomorphic: $y^2z = x^3$ and $y^2z = x^2(x-z)$;
+  \item two irreducible cubics with intersection at a point
+    with multiplicity at least 4: $y^2z = x^3 $ and $y^2z = -x^3$;
+  \item two curves that have intersection multiplicity $n$:
+    $yz^{n-1}=x^n$ and $y=0$;
+  \item two conics in $\affine{2}_\R$ intersecting in
+    4 distinct points: $y = x^2 - 1$ and $x = y^2 - 1$;
+  \item blowup of a plane curve that is isomorphic to the curve:
+    $y^2z = x^3$ at $[1:1:1]$;
+  \item blowup of a plane curve that is not isomorphic to the curve:
+    $y^2z=x^3$ at $[0:0:1]$;
+  \item cubic and conic intersecting in exactly six points:
+    $(x-z)(x+z) = 0$ and $y(y-z)(y+z)=0$; \note{check}
+  \item curve in $\proj{2}$ birational to $\proj{1}$:
+    $zy^2 = x^3$;
+  \item two irreducible conics intersecting in exactly two points:
+    $x^2 + y^2 = z^2$ and $x^2 - y^2 = z^2$;
+  \item a singular irreducible curve of degree 4: $x^3 y + z^4 = 0$;
+  \item two curves which have an intersection point with multiplicity 6:
+    $x^2 - yz = 0$ and $x^2 z - yz^2 + z^3 = 0$.
+\end{itemize}
+
+
+\subsection{$\proj{3}$ and surfaces}
+
+\begin{itemize}
+  \item five points in $\proj{3}$ such that no four lie in a plane:
+    \begin{align*}
+      \bb{1:0:0:0}, \bb{0:1:0:0}, \bb{0:0:1:0}, \bb{0:0:0:1}, \bb{1:1:1:1};
+    \end{align*}
+  \item projective transformation mapping $[1:2:3:4]$ to $[0:0:0:1]$:
+    \begin{align*}
+      [x:y:z:w]\mapsto [x-w/4:y-w/2:y-3w/4:w/4];
+    \end{align*}
+  \item irreducible, singular, quadric surface in $\proj{3}$:
+    $x^2 + y^2 + z^2 = 0$;
+  \item smooth cubic surface and three lines on it that intersect
+    in one point:
+    \begin{align*}
+      C:x^3 + y^3 + z^3 + zw^2 = 0\\
+      L_1 : x + \omega^2 y = z = 0\\
+      L_2 : x + \omega^2 y = iz + w = 0\\
+      L_3 : x +\omega^2 y = -iz + w = 0
+    \end{align*}
+    where $\omega = \exp\rr{2\pi i/3}$;
+  \item irreducible cubic surface with fewer than 27 lines:
+    $wxz + xy^2 + y^3 = 0$ has 5;
+  \item two lines that do not lie in a plane: $x=y=0$ and
+    $z=w=0$;
+  \item two lines that do not intersect: $x=y=0$ and
+    $z=w=0$;
+  \item a homogeneous equation $f(x,y,z,w)=0$ of degree $p$ that describes
+    a smooth surface in $\proj{3}_\C$ but a singular surface in
+    $\proj{3}_{\F_p}$: $x^p + y^p + z^p + w^p = 0$;
+  \item irrducible singular surface of degree 5: $x^5 + y^4z = 0$;
+  \item irreducible cubic surface containing infinitely many lines:
+    $tx^2 - ty^2 + xyz = 0$;
+  \item smooth surface of degree 7: $x^7 + y^7 + z^7 + w^7 = 0$;
+  \item two lines intersecting in exactly one point:
+    $x=y=0$ and $y=z=0$;
+  \item irreducible singular cubic surface that is singular
+    at infinitely many points: $xy^2 + z^3 = 0$;
+\end{itemize}
+
+\subsection{Ideals}
+
+\begin{itemize}
+  \item Prime, non-zero in $\C[x,y]$ that is not maximal: $I=(x)$;
+  \item radical in $\C[x,y]$ that is not prime: $I=(x^2-1)$;
+  \item non-radical $I\subseteq\C[x,y]$ such that
+    $\vv{V(I)}=1$: $I=(x^2,y)$;
+  \item a prime ideal in $k\bb{x}$ which is not maximal: $(0)$;
+  \item a maximal ideal in $\R[x]$ which is not equal to
+    $(x-a)$ for some $a\in\R$: $(x^2+1)$;
+  \item morphism of affine varieties that is a bijection but not
+    an isomorphism: let $C:y^2 = x^3$ and consider $\affine{1}\to C$
+    given by $t\mapsto (t^2,t^3)$;
+  \item non-zero, prime, non-maximal ideal: $(x-1)$;
+  \item two radical ideals whose sum is not radical:
+    $(y^2 - x) + (x) = (y^2,x)$;
+  \item non-radical ideal $I\subseteq\C[x]$ such that
+    $\vv{V(I)}=1$: $I=((x-5)^6)$;
+\end{itemize}
+
+\section{Elliptic curves}
+
+Let $C\subseteq\proj{2}_\C$ be a smooth cubic given by a homogeneous
+$f\in \C[x,y,z]$ and let $P,Q\in C$.
+
+\begin{definition}
+  Let $P=[x_1:y_1:z_1],Q=[x_2:y_2:z_2]$. Define the
+  line $L_{P,Q}$ as follows:
+  \begin{itemize}
+    \item if $P=Q$ then
+      \begin{align*}
+        L_{P,Q} : \eval{\frac{\partial f}{\partial x}}{P}x
+        + \eval{\frac{\partial f}{\partial y}}{P}y
+        + \eval{\frac{\partial f}{\partial z}}{P}z
+        = 0;
+      \end{align*}
+    \item if $P\neq Q$ then
+      \begin{align*}
+        L_{P,Q} :
+        \begin{vmatrix}
+          x & y & z \\
+          x_1 & y_1 & z_1 \\
+          x_2 & y_2 & z_2
+        \end{vmatrix}
+        = 0.
+      \end{align*}
+  \end{itemize}
+\end{definition}
+
+\begin{lemma}
+  The following are equivalent
+  \begin{itemize}
+    \item $P$ is either singular or an inflection point.
+    \item $\eval{\Hess(f)}{P} = 0$.
+  \end{itemize}
+\end{lemma}
+
+\begin{lemma}
+  Let $O\in C$ be an inflection point and consider the corresponding
+  group law.
+  \begin{itemize}
+    \item $L_{O,P} = \cc{O,P,-P}$.
+    \item $P$ is an inflection point if, and only if, $3P=O$.
+  \end{itemize}
+\end{lemma}
+
+\begin{lemma}
+  Assume $f(x,y,z) = -y^2z + x^3 + axz^2 + bz^3$ for some $a,b\in\C$
+  and let $O=\bb{0:1:0}$. If $P=\bb{x_1:y_1:1}$ and $Q=\bb{x_2:y_2:1}$
+  then
+  \begin{itemize}
+    \item if $x_1=x_2$ but $P\neq Q$ then $P+Q=O$;
+    \item if $x_1\neq x_2$ or $P=Q$ then, with
+      \begin{align*}
+        \lambda = \begin{cases}
+          (y_2-y_1)/(x_2-x_1) & \text{if $P\neq Q$} \\
+          (3x_1^2 + a)/2y_1 & \text{if $P=Q$}
+        \end{cases}
+      \end{align*}
+      and $x_3 = \lambda^2 - x_1 - x_2$,  we have
+      $P+Q = \bb{x_3 : \lambda(x_1 - x_3) - y_1 : 1}$.
+  \end{itemize}
+\end{lemma}
+
+\section{Lines on a surface}
+
+\begin{theorem}
+  Let $S\subseteq\proj{3}$. All lines on $S$ may be found using the
+  following algorithm:
+  \begin{enumerate}
+    \item Find a plane $\Pi\subseteq\proj{3}$ such that
+      $S\cap\Pi = L_1\cup\cdots\cup L_n$ for some lines $L_1,\ldots,L_n
+      \subseteq\proj{3}$.
+    \item For all $1\leq j\leq n$, find the family of planes
+      $\Pi^j_{\bb{\alpha:\beta}}\subseteq\proj{3}$ such that,
+      for all $\bb{\alpha:\beta}\in\proj{1}$,
+      $L_j\subseteq\Pi^j_{\bb{\alpha:\beta}}$.
+    \item The lines on $S$ are exactly the lines in
+      $\Pi^j_{\bb{\alpha:\beta}}\cap S$.
+  \end{enumerate}
+\end{theorem}
+
+\begin{lemma}
+  Let $L\subseteq\proj{3}$ be a line. Then
+  \begin{enumerate}
+    \item there is an embedding $j:\proj{1}\to\proj{3}$ with $\im(j)=L$;
+    \item there are planes $\Pi_1,\Pi_2\subseteq\proj{3}$ with
+      $\Pi_1\cap\Pi_2=L$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+  Let $L\subseteq\proj{3}$ be a line given by linear equations
+  $f(x,y,z,w)=g(x,y,z,w)=0$. Then all planes containing $L$ are given by
+  \begin{align*}
+    \alpha f(x,y,z,w) + \beta g(x,y,z,w) = 0
+  \end{align*}
+  for some $\bb{\alpha:\beta}\in\proj{1}$.
+\end{lemma}
+
+\section{Ideals}
+
+\begin{definition}
+  Let $R$ be a ring. A subset $I\subseteq R$ is an \emph{ideal} if
+  \begin{enumerate}
+    \item $(I,+)$ is a subgroup of $(R,+)$;
+    \item for all $r\in R$ and $x\in I$, $rx\in I$.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  An ideal $I$ is
+  \begin{itemize}
+    \item \emph{prime} if $xy\in I$ implies $x\in I$ or $y\in I$;
+    \item \emph{maximal} if it is contained in exactly two ideals,
+      namely $I$ and $R$;
+    \item \emph{principal} if there is an $x\in R$ such that
+      $I=(x)$;
+    \item \emph{radical} if $x^n\in I$ implies $x\in I$.
+  \end{itemize}
+\end{definition}
+
+\section{Blowups}
+
+\begin{definition}
+  Parametrise $\affine{2}\times\proj{1}$ by $(x,y),[\alpha:\beta]$. The \emph{blowup
+  of $\affine{2}$ at the origin} is the subset $\Bl_{(0,0)}\affine{2}\subseteq\affine{2}\times\proj{1}$
+  defined by $x\beta = \alpha y$.
+  Let $\pi:\Bl_{(0,0)}(\affine{2})\to\affine{2}$ and $E=\inv\pi(0,0)$ the \emph{exceptional curve}.
+\end{definition}
+
+\begin{definition}
+  Parametrise $\proj{2}\times\proj{1}$ by $[x:y:z],[\alpha:\beta]$. The
+  \emph{blowup of $\proj{2}$ at $[0:0:1]$} is the subset
+  $\Bl_{[0:0:1]}\proj{2}$ defined by $x\beta = \alpha y$. Let
+  $\pi:\Bl_{[0:0:1]}(\proj{2})\to\proj{2}$ and $E=\inv\pi([0:0:1])$ the \emph{exceptional
+  curve}.
+\end{definition}
+
+\begin{definition}
+  Let $C\subseteq\proj{2}$ be a curve. Its \emph{strict transform}
+  $\tilde C\subseteq\Bl_{[0:0:1]}(\proj{2})$ is the closure of
+  $\pi(C\setminus\bb{0:0:1})$. If $\bb{0:0:1}\in C$, we call
+  $\pi:\widehat C=\Bl_{\bb{0:0:1}}(C)\to C$ the blowup of $C$ at
+  $\bb{0:0:1}$.
+\end{definition}
+
+\begin{proposition}
+  Let $C\subseteq\proj{2}$ be a curve and let $P\in C$ be a smooth point.
+  Then the blowup $\pi:\Bl_P C\to C$ is an isomorphism.
+\end{proposition}
+
+\begin{definition}
+  Let $Z\subseteq\affine{n}$ be a subvariety of dimension $n-k-1$ with
+  $I(Z) = (g_1,\ldots,g_k)\subseteq k\bb{x_1,\ldots,x_n}$.
+  The \emph{blowup of $\affine{n}$ with center $Z$} is the subvariety
+  $\Bl_Z\affine{n}\subseteq\affine{n}\times\proj{k}$ defined by
+  \begin{align*}
+    u_i g_j(x) - u_j g_i(x) = 0
+  \end{align*}
+  for $i\neq j$ and $\bb{u_0:\cdots:u_k}\in\proj{k}$.
+\end{definition}
+
+\end{document}
