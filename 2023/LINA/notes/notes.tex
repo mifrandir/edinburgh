@@ -9,107 +9,46 @@
 \tableofcontents
 \pagebreak
 
-\section{Normed linear spaces, Banach spaces}
-\label{sec:definitions}
+\section{Norms}
 
-Let $\F\in \cc{\R,\C}$.
-
-\begin{definition}[Normed linear space]
-  \label{def:nls}
+\begin{definition}
   Let $X$ be an $\F$-vector space.
-  A function $ \vabs{-} : X \to \R$ is defined to be a norm on $X$ iff the following hold
+  A function $ \vabs{-} : X \to \R$ is defined to be a norm on $X$ if, and only if, the following hold
   \begin{enumerate}
-    \item $\forall x\in X.\: \vabs{x}\geq 0$ and $ \vabs{x} = 0$ iff $x = 0$.
+    \item $\forall x\in X.\: \vabs{x}\geq 0$ and $ \vabs{x} = 0$ if, and only if, $x = 0$.
     \item $\forall \lambda\in\F.\:\forall x \in X.\: \vabs{\lambda x} = \abs{\lambda} \vabs{x}$.
     \item $\forall x,y\in X.\: \vabs{x + y} \leq \vabs{x} + \vabs{y}$
   \end{enumerate}
-  A pair $ \rr{X, \vabs{-}}$ is a normed linear space iff $X$ is a vector space and $ \vabs{-} $
-  is a norm on $X$.
 \end{definition}
-
-
-\begin{theorem}
-  \label{thm:symmetry}
-  Let $X$ be a normed linear space. For $x,y\in X$, $ \vabs{x - y} = \vabs{y - x} $.
-\end{theorem}
-
 
 \begin{definition}
-  \label{def:convergence}
-  Let $X$ be a normed linear space. A sequence is defined to be a function $\N\to X$. A
-  sequence $ \rr{x_n}_{n\in\N}$ is defined to converge to $x\in X$ iff, for all $\e > 0$,
-  there exists $N\in\N$ such that, for all $n>N$, $ \vabs{x_n - x} < \e$.
+  Let $p\in\br{1,\infty}$ and $f:X\to\F$ measurable. Then
+  \begin{align*}
+    \vabs{f}_{p} = \rr{\int_X \vv{f}^p}^{1/p}.
+  \end{align*}
 \end{definition}
-
-
-\begin{theorem}
-  \label{thm:uniquenes-of-the-limit}
-  Let $X$ be a normed linear space. A sequence $ \rr{x_n}_{n\in\N}$ converges to at most one point.
-\end{theorem}
-
 
 \begin{definition}
-  \label{def:cauchy}
-  Let $X$ be a normed linear space. A sequence $ \rr{x_n}_{n\in\N}$ is defined to be Cauchy iff,
-  for all $\e>0$, there exists $N\in\N$ such that, for all $m,n>\N$, $ \vabs{x_m - x_n} < \e$.
+  Let $f:X\to\F$ be measurable. Then $\vabs{f}_{\infty}$ is the
+  essential supremum of $f$.
 \end{definition}
 
+\subsection{Inequalities}
+
+\begin{lemma}
+  For all $x,y\in X$, $\vv{\vabs{x}-\vabs{y}}\leq \vabs{x-y}$.
+\end{lemma}
 
 \begin{theorem}
-  \label{thm:convergent-implies-cauchy}
-  Let $X$ be a normed linear space. If a sequence is convergent then it is Cauchy.
-\end{theorem}
-
-
-\begin{definition}
-  \label{def:complete}
-  Let $X$ be a normed linear space. A set $E\subseteq X$ is defined to be complete iff every Cauchy
-  sequence in $E$ is convergent.
-\end{definition}
-
-
-\begin{definition}
-  \label{def:banach}
-  A pair $ \rr{X, \vabs{-}} $ is defined to be a Banach space iff it is a complete normed linear space.
-\end{definition}
-
-
-\section{Inequalities}
-\label{sec:ineqaulities}
-
-
-\begin{theorem}
-  \label{thm:gagm}
   If $A,B\geq 0$ and $0\leq\theta\leq 1$ then
-  \begin{align*}
-    A^\theta B^{1-\theta} \leq \theta A + \rr{1-\theta}B.
-  \end{align*}
+  $A^\theta B^{1-\theta} \leq \theta A + \rr{1-\theta}B$.
 \end{theorem}
 
-\begin{definition}
-  \label{def:holder-conjugate-exponent}
-  For $p\in \rr{1,\infty}$ the H\"older conjuate exponent of $p$ is defined to be $p/ \rr{p-1}$.
-  For $p=1$, the H\"older conjugate exponent is defined to be $\infty$. For $p=\infty$, the
-  H\"older conjugate exponent is defined to be $1$.
-\end{definition}
-
 \begin{theorem}
-  \label{thm:hce-equals-one}
-  If $p\in \rr{1,\infty}$, and $q$ is the H\"older conjugate exponent of $p$ then
+  Let $p,q\in \br{1,\infty}$ be such that $1/p+1/q=1$.
+  For measurable functions functions $f,g:X\to\F$,
   \begin{align*}
-    1 = \frac{1}{p} + \frac{1}{q}.
-  \end{align*}
-\end{theorem}
-
-
-\begin{theorem}
-  \label{thm:holder-inequality-finite}
-  Let $p\in \br{0,\infty}$, and let $q$ be the H\"older conjugate exponent of $p$.
-
-  For any two finite $\F$-values sequences $ \rr{a_1, ..., a_n}$ and $ \rr{b_1, ..., b_n}$,
-  \begin{align*}
-    \abs{\sum_{i=1}^n a_i b_i}
-    \leq \rr{\sum_{i=1}^n \abs{a_j}^p}^{1/p} \rr{\sum_{i=1}^n \abs{b_j}^p}^{1/p}
+    \vabs{fg}_{1} \leq \vabs{f}_{p}\vabs{g}_{q}.
   \end{align*}
 \end{theorem}
 
@@ -121,358 +60,164 @@ Let $\F\in \cc{\R,\C}$.
   \end{align*}
 \end{theorem}
 
-\begin{theorem}
-  \label{thm:dl-norms}
-  Let $p\in \bb{1,\infty}$.
-  \begin{enumerate}
-    \item Let $ \vabs{-}_{\ell^p} : \ell^p \to \R$ be defined by \begin{align*}
-        \vabs{x}_{\ell^p} = \rr{\sum_{n}^{} \abs{x_n}^p}^{1/p}.
-      \end{align*}
-      Then $ \rr{\ell^p, \vabs{-}_{\ell^p}}$ is a normed linear space.
-    \item Let $ \vabs{-}_{d_p} : \F^n \to \R$ be defined by \begin{align*}
-        \vabs{x}_{d_p} = \rr{\sum_{i=1}^{n} \abs{x_i}^p}^{1/p}.
-      \end{align*}
-      Then $ \rr{\F^n, \vabs{-}_{d_p}} $ is a normed linear space.
-  \end{enumerate}
-\end{theorem}
-
-\section{Topology} \label{sec:topology}
+\subsection{Isometries}
 
 \begin{definition}
-  \label{def:open}
-  Let $X$ be a normed linear space. Given $x\in X$ and $r>0$, the open ball with radius
-  $r$ and centre $x$ is defined to be
-  \begin{align*}
-    B\rr{x,r}=\cc{y\in X:\vabs{y-x}<r}.
-  \end{align*}
-  The nunit ball is $B\rr{0,1}$.
+  Consider normed linear spaces $X$ and $Y$.
+  \begin{itemize}
+    \item A linear map $T:X\to Y$ is an \emph{isometry} iff, for all $x\in X$,
+      $\vabs{Tx}_{Y}=\vabs{x}_{X}$.
+    \item The spaces $X$ and $Y$ are \emph{isometrically isomorphic} if
+      there is an onto isometry $X\to Y$.
+  \end{itemize}
+\end{definition}
 
-  A subset $G\subseteq X$ is open iff for all $x\in X$ there is an $r>0$ such that
-  $B\rr{x,r}\subseteq G$. A subset $F\subseteq X$ is closed iff $F^C$ is open.
+\subsection{Completeness}
+
+\begin{definition}
+  Consider normed linear spaces $X$ and $Y$.
+  \begin{itemize}
+    \item A set $E\subseteq X$ is \emph{complete}
+      iff every Cauchy sequence in $E$ is convergent.
+    \item The space $X$ is \emph{Banach} iff it is complete.
+    \item A set $U\subseteq X$ is \emph{dense} iff, for all $x\in X$ and $\e>0$,
+      there is a $u\in U$ such that $\vabs{x-u}_{X}<\e$.
+    \item A linear map $T:X\to Y$ is a \emph{Banach space completion}
+      if $Y$ is Banach, $T$ is an isometry, and $TX$ is dense in $Y$.
+    \item A set $U\subseteq X$ is \emph{compact} if every open cover
+      has a finite subcover or, equivalently, every bounded sequence has
+      a subsequential limit.
+  \end{itemize}
 \end{definition}
 
 \begin{theorem}
-  Let $X$ be a normed linear space.
-  \begin{enumerate}
-    \item $\emptyset$ and $X$ are open.
-    \item The union of any collection of open sets is open.
-    \item The intersection of a finite number of open sets is open.
-  \end{enumerate}
+  Let $X$ be Banach.
+  \begin{itemize}
+    \item A subset $U\subseteq X$ is closed iff every Cauchy sequence in $F$ has
+      a limit in $U$.
+    \item A subspace $W\subseteq X$ is Banach iff it is closed.
+  \end{itemize}
 \end{theorem}
 
-\begin{theorem}
-  Let $X$ be a normed linear space. Let $x\in X$ and $r>0$.
-  \begin{enumerate}
-    \item $B\rr{x,r}$ is open.
-    \item $x\in B\rr{x,r}$.
-    \item $\cc{y\in X : \vabs{y-x}\leq r}$ is closed.
-  \end{enumerate}
-\end{theorem}
-
-\begin{theorem}
-  Let $X$ be a normed linear space. Let $F\subseteq X$. $F$ is closed iff every sequence of
-  elements in $F$, convergent in $X$, has its limit in $F$.
-\end{theorem}
-
-\begin{theorem}
-  Let $X$ be a Banach space. Let $F\subseteq X$. $F$ is clossed iff every Cauchy sequence in
-  $F$ has a limit in $F$.
-\end{theorem}
-
-\begin{theorem}
-  Let $X$ be a Banach space. Let $W$ be a subspace of $X$. $W$ is a Banach space iff it is
-  closed.
-\end{theorem}
+\subsection{Compactness}
 
 \begin{definition}
-  \label{def:closure}
-  Let $X$ be a normed linear space. Let $W\subseteq X$. The closure of $W$ is
-  \begin{align*}
-    \overline W = \bigcap \cc{F\subseteq X : W\subseteq F, \text{$F$ closed}}
-  \end{align*}
+  Consider normed linear spaces $X$ and $Y$.
+  \begin{itemize}
+    \item A set $U\subseteq X$ is \emph{compact} if every open cover
+      has a finite subcover or, equivalently, every bounded sequence has
+      a subsequential limit.
+    \item An operator $T:X\to Y$ is \emph{compact} if
+      $\overline{T(B(0,1))}$ is compact.
+  \end{itemize}
 \end{definition}
 
-\begin{definition}
-  Let $\rr{X, \vabs{-}_{X}}$ and $\rr{Y, \vabs{-}_{Y}}$ be normed linear spaces. Let $E,F\subseteq X$.
-
-  A set $E\subseteq F$ is defined to be dense in $F$ iff, for all $f\in F$ and for all
-  $\e > 0$, there exists an $e\in E$ such that $\vabs{e-f}_{X}<\e$. A set $E$ is defined
-  to be dense if it is dense in $X$.
-
-  A linear map $T:X\to Y$ is defined to be an isometry iff, for all $x\in X$,
-  $\vabs{Tx}_{Y}=\vabs{x}_{X}$. $X$ and $Y$ are defined to be isometrically isomorphic iff
-  there exists an onto isometry $T:X\to Y$.
-
-  A Banach space completion of $\rr{X,\vabs{-}_{X}}$ is a pair $\rr{\rr{Y,\vabs{-}_{Y}}}$
-  such that $\rr{Y,\vabs{-}_{Y}}$ is a Banach space, $T:X\to Y$ is an isometry, and $T\rr{X}$
-  is dense in $Y$.
-\end{definition}
-
-\begin{theorem}[Existence of unique completion]
-  Let $X$ be a normed linear space.
-
-  There exists a Banach space completion of $X$.
-
-  If $\rr{\rr{Y,\vabs{-}_{Y}}, T_Y}$ and $\rr{\rr{Z,\vabs{-}_{Z}}, T_Z}$ are Banach space
-  completion of $X$, then $\rr{Y,\vabs{-}_{Y}}$ and $\rr{Z,\vabs{-}_{Z}}$ are isometrically
-  isomorphic.
-\end{theorem}
-
-\section{Compactness}
-\label{sec:compactness}
-
-\begin{definition}
-  Let $X$ be a normed linear space. Let $E\subseteq X$. A cover $E$ is defined to be a
-  collection of sets $\cc{U_\alpha}_{\alpha\in A}$ such that
-  $E\subseteq\bigcup_{\alpha\in A}U_\alpha$. Given a cover $\cc{U_\alpha}_{\alpha\in A}$
-  is defined to be a subset $A'\subseteq A$ such that $\cc{U_\alpha}_{\alpha\in A'}$ is also
-  a cover of $E$. An open cover is a cover $\cc{U_\alpha}_{\alpha\in A}$ such that each
-  $U_\alpha$ is open.
-
-  The set $E$ is compact iff every open cover of $E$ has a finite subcover.
-\end{definition}
-
-\begin{theorem}[Heine-Borel in $\R$]
-  Every closed and bounded interval is compact in $\R$.
-\end{theorem}
-
 \begin{theorem}
-  Let $\rr{X,\vabs{-}_{X}}$ and $\rr{Y,\vabs{-}_{Y}}$ be normed linear spaces. A function
-  $f:X\to Y$ is continuous at $x_0\in X$ iff, for lal $\e > 0$, there exists a $\delta > 0$,
-  such that, for all $x\in X$, $\vabs{x-x_0}_{X}<\delta$ implies
-  $\vabs{f\rr{x}-f\rr{x_0}}_{Y}<\e$.
+  Consider a normed linear space $X$.
+  \begin{itemize}
+    \item Any closed subset of a compact set is compact.
+    \item Every compact subset is closed and bounded.
+    \item The unit sphere is compact iff $X$ is finite dimensional.
+  \end{itemize}
 \end{theorem}
 
-\begin{theorem}[Extreme value theorem]
-  Let $X$ be a normed linear space and $f:X\to\R$ be a function. If $K\subseteq X$ is compact
-  and $f$ is continuous, then $f$ has a maximum and a minimum on $K$.
-\end{theorem}
-
-\begin{theorem}
-  Let $X$ be a normed linear space. Any closed subset of a compact set is compact.
-\end{theorem}
+\subsection{Equivalence}
 
 \begin{definition}
-  \label{def:bounded-set}
-  Let $X$ be a normed linear space. Let $E\subseteq X$. $E$ is a bounded set iff there is an
-  $r>0$ such that $E\subseteq B\rr{0,r}$.
+  Norms $\vabs{-}$ and $\vabs{-}'$ on $X$ are \emph{equivalent} iff
+  there is a $\lambda>0$ such that, for all $x\in X$,
+  $\vabs{x}\leq \lambda\vabs{x}'$ and $\vabs{x}'\leq \lambda\vabs{x}$.
 \end{definition}
 
 \begin{lemma}
-  Let $X$ be a normed linear space.
-  \begin{enumerate}
-    \item If a Cauchy sequence has a subsequential limit, then it converges.
-    \item Any subsequence of a convergent sequence converges to the same point.
-  \end{enumerate}
+  Equivalent norms agree on limit points, Cauchy sequences, completeness of
+  the space, open sets, closed sets, and compact sets.
 \end{lemma}
 
 \begin{theorem}
-  Let $X$ be a normed linear space. Let $E\subseteq X$. If $E$ is compact then it is closed and bounded.
-\end{theorem}
-
-\begin{definition}
-  Let $X$ be a finite-dimensional vector space. Let $\mathcal B=\rr{e_1,...,e_n}$ be
-  an ordered basis for $X$.
-
-  The $\vabs{-}_{d_\infty,\mathcal B}$ norm is given by
-  \begin{align*}
-    \vabs{x}_{d_\infty,\mathcal B}=\max_i \abs{x_i},
-  \end{align*}
-  where the $\rr{x_i}_{i=1}^n$ are the coefficients such that
-  \begin{align*}
-    x = \sum_{i=1}^{n} x_i e_i.
-  \end{align*}
-\end{definition}
-
-\begin{lemma}[Heine-Borel in $\rr{X,\vabs{-}_{d_\infty,\mathcal B}}$]
-  Let $X$ be a finite-dimensional vector space with an ordered basis $\mathcal B = \rr{e_1, ..., e_n}$.
-
-  In $\rr{X,\vabs{-}_{d_\infty,\mathcal B}}$ there is the following equivalence: $E\subseteq X$
-  is compact iff $E$ is closed and bounded.
-\end{lemma}
-
-\section{Equivalence}
-\label{sec:equivalence}
-
-\begin{definition}
-  \label{def:equivalence}
-  Let $X$ be an $F$-vector space. Let $\vabs{-}_{1}$ andd $\vabs{-}_{2}$ be norms on $X$.
-
-  Then $\vabs{-}_{1}$ and $\vabs{-}_{2}$ are equivalent iff there is a constant $A>0$ such
-  that, for all $x\in X$,
-  \begin{align*}
-    \vabs{x}_{1}\leq A\vabs{x}_{2}, \hs
-    \vabs{x}_{2}\leq A\vabs{x}_{1}.
-  \end{align*}
-  A is called an equivalence constant.
-\end{definition}
-
-\begin{lemma}
-  Let $X$ be an $F$-vector space. Let $\vabs{-}_{1}$ and $\vabs{-}_{2}$ be equivalent norms
-  and $A>0$ an equivalence constant.
-
-  For all $x\in X$ and $r>0$,
-  \begin{align*}
-    B^1\rr{x,r}\subseteq B^2\rr{x,Ar}, \hs
-    B^2\rr{x,r}\subseteq B^1\rr{x,Ar}.
-  \end{align*}
-\end{lemma}
-
-\begin{lemma}
-  Let $X$ be an $F$-vector space and let $\vabs{-}_{1},\vabs{-}_{2}$ be equivalent norms
-  on $X$. Then the each of the following statements is true with respect to $\vabs{-}_{1}$ iff it is true with respect to $\vabs{-}_{2}$.
-  \begin{enumerate}
-    \item $\rr{n}_{n\in\N}$ converges to $x$.
-    \item $\rr{n}_{n\in\N}$ is Cauchy.
-    \item $X$ is Banach.
-    \item $G\subseteq X$ is open.
-    \item $F\subseteq X$ is closed.
-    \item $K\subseteq X$ is compact.
-  \end{enumerate}
-\end{lemma}
-
-\begin{lemma}
-  Let $X$ be a vector space. Equivalence of norms is an equivalence relation on the set of
-  norms on $X$.
-\end{lemma}
-
-\begin{theorem}
-  Let $X$ be a finite-dimensional $F$-vector space. All norms over $X$ are equivalent.
-\end{theorem}
-
-\begin{theorem}[Heine-Borel in finite-dimensional spaces]
-  Let $\rr{X, \vabs{-}}$ be a normed linear space.
-
-  If $X$ is finite dimensional then there is the following equivalence: $K\subseteq X$
-  is compact iff it is closed and bounded.
+  All norms on a finite-dimensional vector space are equivalent.
 \end{theorem}
 
 \begin{theorem}
-  Let $X$ be a normed linear space. The unit sphere is compact iff $X$ is finite dimensional.
+  In a finite-dimensional normed linear space, a set is compact iff it is
+  closed and bounded.
 \end{theorem}
 
-\section{Hilbert spaces}
-\label{sec:hilbert-spaces}
+\section{Inner products}
 
 \begin{definition}
-  \label{def:inner-product}
-  Let $X$ be an $F$-vector space. A map $\aa{-,-}:X\times X\to F$ is an inner product iff
-  the following hold:
+  Let $X$ be an $\F$-vector space. A map $\aa{-,-}:X\times X\to\F$ is an inner
+  product iff the following hold:
   \begin{enumerate}
     \item For all $x\in X$, $\aa{x,x}\geq 0$ and $\aa{x,x}=0$ iff $x=0$.
     \item For all $x,y\in X$, $\aa{x,y}=\overline{\aa{y,x}}$.
     \item For all $\lambda,\mu\in F$ and for all $x,y,z\in X$, $\aa{\lambda x+\mu y,z}=\lambda\aa{x,z}+\mu\aa{y,z}$.
   \end{enumerate}
-  An inner-product space is a pair $\rr{X,\aa{-,-}}$ such that $X$ is a vector space and
-  $\aa{-,-}$ is an inner product on $X$.
 \end{definition}
-
-\begin{definition}
-  \label{def:linear}
-  Let $X$ be a vector space. A function $f:X\to F$ is
-  \begin{enumerate}
-    \item linear iff, for all $\lambda,\mu\in F$ and for all $x,y\in X$, $f\rr{\lambda x+\mu y}=\lambda f\rr{x}+\mu f\rr{y}$;
-    \item antilinear iff, for all $\lambda,\mu\in F$ and for all $x,y\in X$, $f\rr{\lambda x+\mu y}=\overline\lambda f\rr{x}+\overline\mu f\rr{y}$;
-  \end{enumerate}
-  A function $\aa{-,-}:X\times X\to F$ is
-  \begin{enumerate}
-    \item bilinear if it is linear in each argument;
-    \item sesquilinear if it is linear in its first argument and antilinear in its second argument.
-  \end{enumerate}
-\end{definition}
-
 
 \begin{theorem}
-  Let $\rr{X,\aa{-,-}}$ be an inner product space. The map $\vabs{-}:x\mapsto \aa{x,x}^{1/2}$ defines a norm.
+  Let $X$ be an inner product space and let $x,y\in X$.
+  \begin{itemize}
+    \item $\vabs{x+y}^2 + \vabs{x-y}^2 =
+      2\rr{\vabs{x}^2+\vabs{y}^2}$.
+    \item If $\F=\R$, then
+      \begin{align*}
+        \vabs{x+y}^2 - \vabs{x-y}^2 = 4\aa{x,y}.
+      \end{align*}
+    \item If $\F=\C$, then
+      \begin{align*}
+        \sum_{k=1}^4 i^k \vabs{x+i^k y}^2 = 4\aa{x,y}.
+      \end{align*}
+  \end{itemize}
 \end{theorem}
 
-\begin{theorem}[Cauchy-Schwarz]
+\subsection{Hilbert spaces}
+
+\begin{definition}
+  Consider an inner product space $X$.
+  \begin{itemize}
+    \item The \emph{induced norm} is given by $\vabs{x} = \sqrt{\aa{x,x}}$.
+    \item The space $X$ is \emph{Hilbert} iff it is complete with respect
+      to the induced norm.
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
   Let $X$ be an inner product space. For all $x,y\in X$,
   \begin{align*}
     \abs{\aa{x,y}}\leq \vabs{x}\vabs{y}
   \end{align*}
 \end{theorem}
 
-\begin{theorem}
-  Let $X$ be an inner product space. Let $x,y\in X$.
-  \begin{enumerate}
-    \item $\vabs{x+y}^2+\vabs{x-y}^2= 2\rr{\vabs{x}^2+\vabs{y}^2}$.
-    \item If $F=\R$ then $4\aa{x,y}=\vabs{x+y}^2 - \vabs{x-y}^2$.
-    \item If $F=\C$ then $r\aa{x,y}=\sum_{k=1}^4 i^k \vabs{x+i^ky}^2$.
-  \end{enumerate}
-\end{theorem}
-
-\section{Orthogonality}\label{sec:orthogonality}
-
-\begin{lemma}
-  Let $X,Y,Z$ be normed linear spaces.
-  \begin{enumerate}
-    \item If $f:X\to Y$ is continuous and $\rr{n}_{n\in\N}$ converges to $x\in X$ then $\rr{f\rr{x_n}}_{n\in\N}$
-      converges to $f\rr{x}\in Y$.
-    \item If $f:X\to Y$ and $g:Y\to Z$ are continuous then $g\circ f:X\to Z$ is continuous.
-    \item The set of continuous functions from $X$ to $Y$ is a vector space with pointwise
-      addition and scalar multiplication.
-  \end{enumerate}
-\end{lemma}
-
-\begin{lemma}
-  Let $X$ be an inner-product space. Let $z\in X$. The maps $x\mapsto\aa{x,z}$ and
-  $x\mapsto\aa{z,x}$ are continuous.
-\end{lemma}
-
-\begin{definition}\label{def:convex-set}
-  Let $X$ be a normed linear space. A set $S\subseteq X$ is defined to be convex if, for all
-  $s,t\in S$ and all $\lambda\in\bb{0,1}$, $\lambda s + \rr{1-\lambda}t\in S$.
-\end{definition}
+\subsection{Orthogonality}\label{sec:orthogonality}
 
 \begin{definition}\label{def:orthogonality}
-  Let $X$ be an inner product space. Let $x\in X$ and let $S\subseteq X$. A vector $y\in X$
-  is orthogonal to $x$ iff $\aa{x,y}=0$.
-
-  The orthogonal complement to $S$ is
-  \begin{align*}
-    S^\bot = \cc{x\in X : \forall s\in S. \aa{s,x}=0}.
-  \end{align*}
+  Let $X$ be an inner product space.
+  \begin{itemize}
+    \item Elements $x,y\in X$ are orthogonal to each other iff $\aa{x,y}=0$.
+    \item The \emph{orthogonal complement} to a subset $U\subseteq X$ is
+      $U^\bot = \cc{x \in X : \forall u\in U. \aa{u,x}=0}$.
+    \item The \emph{orthogonal projection} onto a subspace $W\subseteq X$
+      is the map $P_W : X \to W$ taking $x\in X$ to its unique closest
+      point $P_W(x)\in W$.
+  \end{itemize}
 \end{definition}
 
 \begin{lemma}
-  Let $X$ be an inner-product space.
+  Let $X$ be an inner-product space and $U\subseteq X$.
   \begin{enumerate}
-    \item $x$ is orthogonal to $y$ iff $y$ is orthognal to $x$.
-    \item If $S\subseteq X$ then $S^\bot=\cc{x\in X : \forall s\in S. \aa{x,s}=0 }$.
-  \end{enumerate}
-\end{lemma}
-
-\begin{lemma}
-  Let $X$ be an inner-product space. Let $M\subseteq X$.
-  \begin{enumerate}
-    \item $M^\bot$ is a closed subspace.
-    \item $M\subseteq M^{\bot\bot}$.
-    \item $\rr{\overline{M}}^\bot=M^\bot$.
-    \item If $M$ is a subspace, $M\cap M^\bot = \cc{0}$.
+    \item $U^\bot$ is a closed subspace.
+    \item $U\subseteq U^{\bot\bot}$.
+    \item $\rr{\overline{U}}^\bot=U^\bot$.
+    \item If $U$ is a subspace, then $U\cap M^\bot = \cc{0}$.
   \end{enumerate}
 \end{lemma}
 
 \begin{theorem}
-  Let $X$ be an inner-product space. Let $W$ be a closed convex subset of $X$. Let
-  $x\in X$. If $W$ is nonempty then there exists $w\in W$ such that
-  \begin{align*}
-    \vabs{w-x}=\inf_{w'\in W}\vabs{w'-x}.
-  \end{align*}
-\end{theorem}
-
-\begin{definition}\label{def:orthogonal-projection}
-  Let $X$ be an inner-product space. Let $W$ be a closed subspace. The orthognal projection
-  $P_W$ is defined to be the map $P_W:X\to W$ such that, for all $x\in X$, $P_W\rr{x}$
-  is the unique closest point in $W$.
-\end{definition}
-
-\begin{theorem}
-  Let $X$ be an inner-product space. Let $W$ be a closed subspace.
+  Let $X$ be an inner-product space and let $W\subseteq X$ be a closed subspace.
   \begin{enumerate}
-    \item For all $x\in X$, there is a unique $y\in W$ and $z\in W^\bot$ such that
-      $x=y+z$; furthermore, $y=P_W\rr{x}$ and $z=P_{W^\bot}\rr{x}$.
-    \item For all $x\in X$, $P_{W^\bot}\rr{x}=x-P_{W^\bot}\rr{x}$.
+    \item For all $x\in X$, $x=P_{W}\rr{x}+P_{W^\bot}\rr{x}$, and $P_W(x)\in W$
+      and $P_{W^\bot}(x)\in W^\bot$ are unique with this property.
     \item $W^{\bot\bot}=W$.
   \end{enumerate}
 \end{theorem}
@@ -481,19 +226,27 @@ Let $\F\in \cc{\R,\C}$.
   Let $X$ be an inner-product space and let $W\subseteq X$ be a subspace. $\overline W = W^{\bot\bot}$.
 \end{theorem}
 
-\section{Orthonormal sets}\label{sec:orthonormal-sets}
+\subsection{Orthonormal sets}
 
 \begin{definition}
-  Let $X$ be an inner-product space. A set $S$ is defined to be orthonormal if, for all
-  $x,y\in S$, $\aa{x,y}=1$ if $x=y$ and $0$ otherwise.
+  Consider a normed linear space $X$.
+  \begin{itemize}
+    \item A set $U\subseteq X$ is \emph{orthogonal} if, for all $u,v\in U$ with
+      $u\neq v$, $\aa{u,v}=0$.
+    \item A set $U\subseteq X$ is \emph{orthonormal} if it is orthogonal and,
+      for all $u\in U$, $\vabs{u}=1$. I.e. $\aa{u,v} = \delta_{u,v}$.
+    \item A set $U\subseteq X$ is an \emph{orthonormal basis} if it is
+      orthonormal and $X=\overline{\text{span}(U)}$.
+    \item The space $X$ is \emph{separable} iff there is a countable orthonormal
+      basis.
+  \end{itemize}
 \end{definition}
 
 \begin{lemma}
-  Let $X$ be an inner-product space. If $S$ is an orthonormal set then it is linearly
-  independent.
+  Every orthogonal set is linearly independent.
 \end{lemma}
 
-\begin{theorem}
+\begin{theorem}[Gram-Schmidt]
   Let $X$ be an inner-product space. Let $N\in\Z_{>0}\cup \cc{\infty}$. If $\rr{v_i}_{i=1}^N$
   is an ordered set of linearly independent vectors in $X$ then there exists an ordered set
   $\rr{w_i}_{i=1}^N$ with the properties that
@@ -507,11 +260,6 @@ Let $\F\in \cc{\R,\C}$.
   \end{enumerate}
 \end{theorem}
 
-\begin{definition}
-  Let $X$ be a normed linear space. Let $\rr{n}_{n\in\N}$ be a sequence in $X$. The
-  series $\sum_{i=1}^{\infty} x_i$ is defined to mean $\lim_{n\to\infty}\sum_{i=1}^{n} x_i$.
-\end{definition}
-
 \begin{lemma}
   Let $X$ be an inner-product space. Let $y\in X$. Let $\rr{x_n}_{n\in\N}$ be a sequence
   in $X$. If $\sum_{n=1}^{\infty} x_n$ converges then
@@ -522,135 +270,145 @@ Let $\F\in \cc{\R,\C}$.
 \end{lemma}
 
 \begin{theorem}
-  Let $X$ be an inner-product space. Let $N\in\Z_{>0}\cup\cc{\infty}$. Let $\rr{e_n}_{n=1}^N$
-  be an ordered orthonormal set.
+  Let $X$ be an inner-product space and let $\rr{e_n}$ be an orthonormal
+  family.
   \begin{enumerate}
     \item If $x=\sum_{n=1}^{N} \alpha_n e_n$ then $\aa{x,e_n}=\alpha_n$.
-    \item For all $x\in X$, \begin{align*}
-        P_{\overline{\text{span}\cc{e_n}_{n=1}^N}}\rr{x}=\sum_{n=1}^{N} \aa{x,e_n}e_n.
-      \end{align*}
+    \item Consider the subspace $W=\overline{\text{span}\cc{e_n}}$. For all
+      $x\in X$, $P_{W}\rr{x}=\sum_{n=1}^{N} \aa{x,e_n}e_n$.
   \end{enumerate}
 \end{theorem}
 
-\section{Orthonormal bases}\label{sec:orthonormal-bases}
-
-\begin{definition}[Orthonormal basis, separable]\label{def:orthonormal-basis}
-  Let $X$ be an inner-product space. An orthonormal basis is defined to be an orthonormal
-  set $S$ such that $X=\overline{\text{span}S}$. The inner-product space $X$ is separable
-  iff there is a countable orthonormal basis.
-\end{definition}
-
 \begin{theorem}
-  Let $X$ be an inner-product space. Let $\rr{e_n}_{n\in\N}$ be an orthonormal set.
-  The following are equivalent:
+  Let $X$ be an inner-product space. Let $\rr{e_n}_{n\in\N}$ be an orthonormal
+  set. Tfae:
   \begin{enumerate}
     \item $X=\overline{\text{span}\cc{e_n}_{n\in\N}}$.
     \item For all $x\in X$, $x=\sum_{n=1}^{\infty} \aa{x,e_n}e_n$.
     \item For all $x,y\in X$, $\aa{x,y}=\sum_{n=1}^{\infty} \aa{x,e_n}\overline{\aa{y,e_n}}$.
-    \item For all $x\in X$, \begin{align*}
-        \vabs{x}^2 = \sum_{n=1}^{\infty} \abs{\aa{x,e_n}}^2.
-      \end{align*}
+    \item For all $x\in X$, $\vabs{x}^2 = \sum_{n=1}^{\infty} \abs{\aa{x,e_n}}^2$.
   \end{enumerate}
 \end{theorem}
 
 \begin{corollary}
-  Any infinite-dimensional, separable Hilbert space is isometrically isomorphic to $\ell^2$.
+  Any infinite-dimensional, separable Hilbert space is isometrically isomorphic
+  to $\ell^2$.
 \end{corollary}
 
-\section{Bounded linear operators}\label{sec:bounded-linear-operators}
+\subsection{Duals}
 
-\begin{definition}[Bounded linear operator]
-  Let $X$ and $Y$ be normed linear spaces. A linear function $T:X\to Y$ is bounded
-  if there is an $M\geq 0$ such that, for all $x\in X$,
-  \begin{align*}
-    \vabs{Tx}\leq M\vabs{x}.
-  \end{align*}
-  A bounded linear operator is a bounded linear function.
+\begin{definition}
+  The \emph{dual space} of a normed $\mathbb F$-linear space $X$ is $X^* =
+  \mathcal L\rr{X,\mathbb F}$.
 \end{definition}
 
-\begin{lemma}
-  Let $X$ and $Y$ be a normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
-  Then
-  \begin{align*}
-    \sup_{\vabs{x}\leq 1}\vabs{Tx}
-  \end{align*}
-  is finite and nonnegative.
-\end{lemma}
+\begin{theorem}
+  Let $p,q\in\rr{1,\infty}$ such that $1/p+1/q = 1$ and let $I$ be a closed
+  and bounded interval in $\R$.
 
-\begin{definition}[Operator norm]
-  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
-  The norm of $T$ is defined to be
+  There is an isometric isomorphism $i:L^q\to \rr{L^p}^*$ given by
   \begin{align*}
-    \vabs{T}=\sup_{\vabs{x}\leq 1}\vabs{T x}.
+    \rr{ig}\rr{f} = \int_I f\rr{x}g \rr{x} dx
   \end{align*}
-\end{definition}
+  for all $f\in L^p$ and $g\in L^q$.
+
+  In particular, the dual of $L^p\rr{I}$ is $L^q\rr{I}$.
+\end{theorem}
 
 \begin{lemma}
-  Let $X$ and $Y$ be a normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
-  For all $x\in X$,
-  \begin{align*}
-    \vabs{Tx}\leq \vabs{T}\vabs{x}.
-  \end{align*}
-  Furthermore, if $X\neq\cc{0}$,
-  \begin{align*}
-    \vabs{T}=\sup_{\vabs{x}=1}\vabs{Tx}=\sup_{x\neq 0}\frac{\vabs{Tx}}{\vabs{x}}.
-  \end{align*}
+  Let $X$ be an inner-product space. For all $x\in X$, $\vabs{x}=\sup_{x\in X,\vabs{y}\leq 1} \abs{\aa{x,y}}$.
 \end{lemma}
 
 \begin{theorem}
-  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a linear function
-  \begin{align*}
-    \vabs{T}=\inf\cc{M\geq 0 : \forall x \in X. \vabs{Tx}\leq M\vabs{x}}.
-  \end{align*}
+  Let $X$ be a normed linear space. The map $i:X\to X^{**}$ given by
+  $i(x)(f) = f(x)$ is an isometric embedding. In particular, for all $x\in X$,
+  $\vabs{x}_{X}=\sup_{\vabs{f}_{X^*}\leq 1}\abs{f\rr{x}}$.
+\end{theorem}
+
+\begin{definition}
+  A normed linear space $X$ is \emph{reflexive} if the
+  map $i:X\to X^{**}$ is an isometric isomorphism.
+\end{definition}
+
+\begin{theorem}
+  Let $H$ be a Hilbert space.
+  \begin{itemize}
+    \item There is a conjugate-linear isometric
+      isomorphism $T:H\to H^*$ given by $T(y)(x) = \aa{x,y}$.
+    \item The map given by $\aa{f,g}_{H^*}=\aa{\inv Tf,\inv Tg}_H$ defines an
+      inner product on $H^*$.
+  \end{itemize}
+\end{theorem}
+
+
+\section{Bounded linear operators}
+
+\begin{definition}
+  Consider normed linear spaces $X$ and $Y$.
+  \begin{itemize}
+    \item An operator $T:X\to Y$ is \emph{bounded} if there is an $\lambda\geq 0$ such that, for all $x\in X$, $\vabs{Tx}\leq \lambda\vabs{x}$.
+    \item The norm of a bounded operator $T:X\to Y$ is given by
+      $\vabs{T}=\sup_{\vabs{x}\leq 1}\vabs{T x}$.
+    \item An operator $T:X\to Y$ is \emph{compact} if
+      $\overline{T(B(0,1))}$ is compact.
+    \item An operator $T:X\to Y$ is \emph{finite-rank} if $\im T$ is
+      finite dimensional.
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  Let $X$ and $Y$ be a normed linear spaces and let $T:X\to Y$ be a bounded linear operator.
+  \begin{itemize}
+    \item For all $x\in X$, $\vabs{Tx}\leq \vabs{T}\vabs{x}$.
+    \item If $X\neq\cc{0}$, $\vabs{T}=\sup_{\vabs{x}=1}\vabs{Tx}=\sup_{x\neq 0}\frac{\vabs{Tx}}{\vabs{x}}$.
+    \item $\vabs{T}=\inf\cc{M\geq 0 : \forall x \in X. \vabs{Tx}\leq M\vabs{x}}$.
+  \end{itemize}
 \end{theorem}
 
 \begin{theorem}
-  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a linear function.
-
-  The following are equivalent:
+  Let $T:X\to Y$ be a operator. The following are equivalent:
   \begin{enumerate}
     \item $T$ is bounded.
-    \item $T$ is continuous at every $x\in X$.
+    \item $T$ is continuous.
     \item $T$ is continuous at $0$.
   \end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-  Let $X$ and $Y$ be normed linear spaces. Let $T\in\mathcal L\rr{X,Y}$.
-  If $X$ is finite-dimensional then $T$ is continuous.
+  Consider a linear operator $T:X\to Y$ between normed linear spaces.
+  \begin{itemize}
+    \item $T$ is compact iff, for every bounded sequence $\rr{x_n}_{n\in\N}$,
+      the sequence $\rr{Tx_n}_{n\in\N}$ has a convergent subsequence.
+    \item If $Y$ is Banach and there is a sequence of compact operators
+      $\rr{T_n}_{n\in\N}$ such that $T_n\to T$, then $T$ is compact.
+    \item If $Y$ is Banach and $T$ has finite rank, then $T$ is compact.
+    \item If $X$ and $Y$ are separable Hilbert spaces and $T$ is
+      Hilbert-Schmidt, then $T$ is compact.
+  \end{itemize}
 \end{theorem}
 
-\section{The space of bounded linear operators}
+\subsection{The space of bounded linear operators}
 
 \begin{theorem}
-  Let $X$ and $Y$ be normed linear spaces. The operator norm is a norm on
-  $\mathcal L\rr{X,Y}$.
-\end{theorem}
-
-\begin{lemma}
-  Let $X$ be a normed linear space. The norm is continuous.
-\end{lemma}
-
-\begin{theorem}
-  Let $X$ and $Y$ be normed linear spaces. If $Y$ is a Banach space, then
-  $\mathcal L\rr{X,Y}$ with the operator is a Banach space.
-\end{theorem}
-
-\begin{theorem}
-  Let $X$ be a normed linear space. Let $Y$ be a Banach space. Let $W$ be a dense
-  subset of $X$.
-
-  If $T\in\mathcal L\rr{W,Y}$ then there is a unique $\bar T\in\mathcal L\rr{X,Y}$
-  such that $\forall w\in W.\: \bar T w = T w$. Furthermore, if $T$ is an isometry then so
-  is $\bar T$.
+  Let $X$ and $Y$ be normed linear spaces.
+  \begin{itemize}
+    \item If $X$ is finite-dimensional, then every $T\in\mathcal L\rr{X,Y}$ is
+      continuous.
+    \item If $T\in\mathcal L\rr{X,Y}$ then $\ker T\subseteq X$ is a
+      closed subspace.
+  \end{itemize}
 \end{theorem}
 
 \begin{theorem}
-  Let $X$ and $Y$ be normed linear spaces. Let $T\in\mathcal L\rr{X,Y}$. The kernel of
-  $T$, $\ker T$, is a closed subspace.
+  Let $X$ be a normed linear space and let $Y$ be Banach.
+  \begin{itemize}
+    \item $\mathcal L\rr{X,Y}$ is Banach.
+    \item If $W\subseteq X$ is dense then there is a bijection
+      $\overline{-}:\mathcal L\rr{W,Y}\to\mathcal L\rr{X,Y}$.
+    \item If $W\subseteq X$ is dense and $T:W\to Y$ is an isometry
+      then $\overline T:X\to Y$ is an isometry.
+  \end{itemize}
 \end{theorem}
-
-\section{Examples of bounded linear operators}
 
 \begin{theorem}[Finite-dimensional norm bounds]
   Let $n\in\N$. Let $\vabs{-}$ be a norm on $\mathbb F^n$ and let $A$ be a matrix. Then
@@ -669,133 +427,99 @@ Let $\F\in \cc{\R,\C}$.
   \end{align*}
 \end{definition}
 
+\subsection{Hilbert-Schmidt}
+
 \begin{definition}
   Let $H$ and $K$ be separable Hilbert spaces. Let $\rr{e_n}_{n\in\N}$ be an orthonormal
   basis for $H$.
-
-  A bounded linear function $T:H\to K$ is defined to be a Hilbert-Schmidt operator iff
-  \begin{align*}
-    \sum_{i=1}^{\infty} \vabs{Te_i}^2<\infty.
-  \end{align*}
-  For a Hilbert-Schmidt operator $T$, the Hilbert-Schmidt norm is defined to be
-  \begin{align*}
-    \vabs{T}_{HS}=\rr{\sum_{i=1}^{\infty} \vabs{Te_i}^2}^{1/2}.
-  \end{align*}
-\end{definition}
-
-\begin{definition}[Finite-rank operator]
-  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator. $T$
-  is defined to be a finite-rank operator if the image $TX$ is finite dimensional.
+  \begin{itemize}
+    \item A bounded linear operator $T:H\to K$ is \emph{Hilbert-Schmidt} iff
+      $\sum_{i=1}^{\infty} \vabs{Te_i}^2<\infty$.
+    \item The \emph{Hilbert-Schmidt} norm of a Hilbert-Schmidt operator $T:H\to
+      K$ is $\vabs{T}_{HS}=\sqrt{\sum_{i=1}^{\infty} \vabs{Te_i}^2}$.
+  \end{itemize}
 \end{definition}
 
 \begin{theorem}
   Let $H$ and $K$ be seperable Hilbert spaces.
   \begin{enumerate}
-    \item Given two orthonormal bases for $H$, the Hilbert-Schmidt norm is equal when calculated in either basis.
-    \item The Hilbert-Schmidt norm is a norm.
+    \item The Hilbert-Schmidt norm is basis-independent.
     \item If $T:H\to K$ is a Hilbert-Schmidt operator then
-      \begin{align*}
-        \vabs{T}\leq \vabs{T}_{HS}.
-      \end{align*}
-    \item If $T:H\to K$ is a Hilbert-Schmidt operator, then there is a sequence of finite rank
-      operators $\rr{T_n}_{n\in\N}$ such that $\vabs{T-T_n}\to 0$.
+      $\vabs{T}\leq \vabs{T}_{HS}$.
+    \item If $T:H\to K$ is a Hilbert-Schmidt operator, then there is a sequence
+      of finite-rank operators $\rr{T_n}_{n\in\N}$ such that $\vabs{T-T_n}\to
+      0$.
   \end{enumerate}
 \end{theorem}
 
-\section{Dual spaces}
+\begin{theorem}
+  Let $H,K$ be Hilbert spaces and let $\rr{e_n}_{n\in\N}$ be an orthonormal
+  basis. If $T:\cc{e_n}_{n\in\N}\to K$ is such that
+  $\sum_{n\in\N}\vabs{Te_n}^2 < \infty$ then
+  \begin{itemize}
+    \item $T$ extends uniquely to linear operator $\overline T:H\to K$;
+    \item $\overline T$ is Hilbert-Schmidt.
+  \end{itemize}
+\end{theorem}
 
-\begin{definition}[Dual space, bounded linear functional]
-  Let $X$ be a normed linear space over $\mathbb F$. The dual space of $X$, denoted $X^*$, is defined
-  to be $\mathcal L\rr{X,\mathbb F}$. A bounded linear functional is defined to be an element
-  of the dual space.
-\end{definition}
+\subsection{Classification}
 
 \begin{theorem}
-  Let $1<p<\infty$ and let $q$ be the H\"older conjugate exponent of $p$. Let $I$ be a closed
-  and bounded interval in $\R$.
-
-  There is an isometric isomorphism $i:L^q\to \rr{L^p}^*$ given by
+  Let $H$ be an infinite-dimensional, separable Hilbert space. Then
   \begin{align*}
-    \rr{ig}\rr{f} = \int_I dx f\rr{x}g \rr{x}
+    \cc{T \text{ finite-rank}}
+    \subset \cc{T\text{ Hilbert-Schmidt}}
+    \subset \cc{T\text{ compact}}
+    \subset \cc{T\text{ bounded}}.
   \end{align*}
-  for all $f\in L^p$ and $g\in L^q$.
-
-  In particular, the dual of $L^p\rr{I}$ is $L^q\rr{I}$.
 \end{theorem}
 
-\begin{theorem}[Riesz representation theorem]
-  Let $H$ be a Hilbert space. There is a conjugate-linear isometric isomorphism $T:H\to H^*$
-  given by
+\begin{theorem}
+  Let $H$ be an infinite-dimensional Banach space. Then
   \begin{align*}
-    \rr{Ty}{x}=\aa{x,y}
+    \cc{T \text{ finite-rank}}
+    \subset \cc{T\text{ compact}}
+    \subset \cc{T\text{ bounded}}.
   \end{align*}
-  for all $x,y\in H$.
 \end{theorem}
 
-\section{Duals, adjoints, and transposes}
 
-\begin{definition}
-  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
+\subsection{Transposes and adjoints}
 
-  A transpose of $T$, denoted $T'$, is defined to be a map $T':Y^*\to X^*$ such that
-  for $x\in X$ and $g\in Y^*$,
-  \begin{align*}
-    \rr{T'g}\rr{x}=g\rr{Tx}.
-  \end{align*}
-\end{definition}
-
-\begin{lemma}
+\begin{theorem}
   Let $X$ and $Y$ be normed  linear spaces. Let $T:X\to Y$ be a bounded linear operator.
   \begin{enumerate}
-    \item For each $g\in Y^*$ there is a unique $T'g\in X^*$ such that, for all $x\in X$,
-      \begin{align*}
-        \rr{T'g}\rr{x}=g\rr{Tx}.
-      \end{align*}
-    \item The map $T':Y^*\to X^*$ is a bounded linear operator.
-    \item There is a unique transpose $T'$, and it is a bounded linear operator satisfying
-      $\vabs{T'}\leq \vabs{T}$.
-    \item If, for all $y\in Y$, $\vabs{y}_Y=\sup_{\vabs{g}_{X^*}\leq 1}\abs{g\rr{y}}$, then $\vabs{T'}=\vabs{T}$.
+    \item There is a unique transpose $T':Y^*\to X^*$ satisfying
+      $\rr{T'g}\rr{x}=g\rr{Tx}$.
+    \item $T'$ is bounded.
+    \item $\vabs{T'}=\vabs{T}$.
   \end{enumerate}
-\end{lemma}
-
-\begin{lemma}[Characterisation of the norm on inner-product spaces]
-  Let $X$ be an inner-product space. For all $x\in X$, $\vabs{x}=\sup_{x\in X,\vabs{y}\leq 1} \abs{\aa{x,y}}$.
-\end{lemma}
-
-\begin{lemma}[Characterisation of the norm on reflexive spaces]
-  Let $1<p<\infty$ with H\"older conjugate exponent $q$. For all $\rr{x_n}_{n\in\N}\in\ell^p$,
-  $\vabs{\rr{x_n}_{n\in\N}}_{\ell^p}=\sup_{\vabs{\rr{y_n}_{n\in\N}}_{\ell^p}\leq 1}\sum_{n=1}^{\infty} x_n y_n$.
-\end{lemma}
-
-\begin{theorem}[Characterisation of the norm via duals]
-  Let $X$ be a normed linear space.
-
-  The map $i_x:X\to X^**$ where $i_x\rr{f}=f\rr{x}$ is an isometric embedding. In particular,
-  for all $x\in X$, $\vabs{x}_{X}=\sup_{\vabs{f}_{X^*}\leq 1}\abs{f\rr{x}}$.
 \end{theorem}
-
-\begin{corollary}
-  Let $X$ and $Y$ be normed linear spaces. Let $T:X\to Y$ be a bounded linear operator.
-  There is a unique transpose $T':Y^*\to X^*$ and $\vabs{T'}=\vabs{T}$.
-\end{corollary}
-
-\begin{definition}[Adjoints]
-  Let $H$ and $K$ be Hilbert spaces. Let $T:H\to K$ be a bounded linear operator. An
-  adjoint of $T$ is a map $T^*:K\to H$ such that for all $x\in H$ and $y\in K$,
-  \begin{align*}
-    \aa{Tx,y}=\aa{x,T^*y}.
-  \end{align*}
-\end{definition}
 
 \begin{theorem}
-  Let $H$ and $K$ be Hilbert spaces. Let $T:H\to K$ be a bounded linear operator. There is
-  a unique adjoint $T^*$. It is a bounded linear operator satisfying $\vabs{T^*}=\vabs{T}$.
+  Let $T:H\to K$ be a bounded linear operator between Hilbert spaces.
+  \begin{itemize}
+    \item There is a unique adjoint $T^*:K\to H$ satisfying
+      $\aa{Tx,y} = \aa{x,T^*y}$
+    \item $T^*$ is bounded.
+    \item $\vabs{T^*}=\vabs{T}$.
+  \end{itemize}
 \end{theorem}
 
-\begin{definition}[Reflexive space]
-  Let $X$ be a normed linear space. $X$ is defined to be reflexive iff $X$ and $X^{**}$ are
-  isometrically isomorphic via the map $i:X\to X^{**}$ such that, for all $x\in X$ and $f\in X^*$,
-  $\rr{ix}\rr{f}=f\rr{x}$.
-\end{definition}
+\begin{theorem}
+  Let $H$ be an infinite-dimensional, separable Hilbert space over $\C$.
+  If $T:H\to H$ is a self-adjoint operator, then
+  \begin{itemize}
+    \item there exists an orthonormal basis $\rr{e_n}_{n\in\N}$ of eigenvectors
+      of $T$ with corresponding eigenvalues $\rr{\lambda_n}_{n\in\N}$ such that
+      \begin{align*}
+        x = \sum_{n=1}^{\infty} \aa{x,e_n}e_n,\hs
+        Tx = \sum_{n=1}^{\infty} \lambda_n\aa{x,e_n}e_n;
+      \end{align*}
+    \item the eigenvalues $\lambda_n$ are real;
+    \item $\lim_{n\to\infty} \lambda_n=0$;
+    \item the eigenspace for each non-zero eigenvalue is finite dimensional.
+  \end{itemize}
+\end{theorem}
 
 \end{document}
