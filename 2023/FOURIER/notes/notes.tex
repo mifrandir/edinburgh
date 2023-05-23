@@ -9,7 +9,7 @@
 \tableofcontents
 \pagebreak
 
-\section{Fourier series}
+\section{Prerequisites}
 
 \begin{definition}
   The complex exponential function $\exp : \C\to\C$ is defined by
@@ -18,59 +18,11 @@
   \end{align*}
 \end{definition}
 
-\begin{definition}[Fourier coefficients]
-  The Fourier coefficients of $f\in\mathcal L^1\rr{\mathbb T}$ are given by
-  \begin{align}\label{eq:fourier_coefficients}
-    \hat f\rr{k} = \int_{\mathbb T} f\rr{x} e^{-2\pi i k x} dx.
-  \end{align}
-\end{definition}
+\subsection{Function spaces}
 
-\begin{definition}[Fourier series]
-  For $f\in\mathcal L^1\rr{\mathbb T}$, the Fourier series of $f$ at $x\in\R$ is
-  given by the formal expression
-  \begin{align*}
-    \sum_{k=0}^\infty \hat f\rr{k} e^{2\pi i k x}.
-  \end{align*}
-\end{definition}
 
-\begin{definition}[Partial sums]
-  For $f\in\mathcal L^1\rr{\mathbb T}$, the $n$th partial sum of the Fourier series
-  of $f$ at $x\in\R$ is given by
-  \begin{align*}
-    S_N f\rr{x} = \sum_{k=0}^N \hat f\rr{k}e^{2\pi i k x}.
-  \end{align*}
-\end{definition}
-
-\begin{theorem}[Katznelson]
-  For any set of measure zero $E\subseteq\br{0,1}$, there exists an $f\in C\rr{\mathbb T}$
-  whose Fourier series diverges at every point in $E$.
-\end{theorem}
-
-\begin{theorem}[Carleson]
-  For $f\in C\rr{\mathbb T}$, there exists a set $E\subseteq\br{0,1}$ of measure zero
-  such that, for all $x\in \br{0,1}\setminus E$,
-  \begin{align*}
-    \sum_{k=0}^\infty \hat f\rr{k}e^{2\pi i k x} = f\rr{x}.
-  \end{align*}
-\end{theorem}
-
-\begin{definition}[Cesaro means]
-  For $f\in\mathcal C\rr{\mathbb T}$, the $n$th Cesaro mean of $f$ at $x$ is
-  given by
-  \begin{align*}
-    \sigma_n f\rr{x} = \frac{1}{n+1} \sum_{k=0}^n S_n f\rr{x}.
-  \end{align*}
-\end{definition}
-
-\begin{theorem}
-  For $f\in C\rr{\mathbb T}$, the sequence of Cesaro means $\rr{\sigma_n f}_{n\geq 1}$
-  converges uniformly to $f$ on $\br{0,1}$.
-\end{theorem}
-
-\section{$L^p$ space}\label{sec:lp_space}
-
-\begin{definition}[Trigonometric polynomials]
-  A trigonometric polynomial is a function $p:\R\to\C$ of the form
+\begin{definition}
+  A \emph{trigonometric polynomial} is a function $p:\R\to\C$ of the form
   \begin{align*}
     p\rr{x} = \sum_{k=-N}^N c_k e^{-2\pi i k x}
   \end{align*}
@@ -79,23 +31,6 @@
   Let $\mathcal P\rr{\mathbb T}\subseteq\mathcal L^1\rr{\mathbb T}$ denote the vector space
   of all trigonometric polynomials.
 \end{definition}
-
-\begin{lemma}
-  Let $p\rr{x}=\sum_{k=-N}^{ N } c_k e^{2\pi i k x}$ be a trigonometric polynomial.
-  Then
-  \begin{enumerate}
-    \item the Fourier coeffiicents of $p$ satisfy
-      \begin{align*}
-        \hat p\rr{j}=\begin{cases}
-          c_j &\text{if }\vv{j}\leq N,\\
-          0 & \text{otherwise;}
-        \end{cases}
-      \end{align*}
-    \item \begin{align*}
-        \sum_{k\in\Z}\vv{\hat p\rr{k}}^2 = \int_{\mathbb T}\vv{p\rr{x}}^2 dx.
-      \end{align*}
-  \end{enumerate}
-\end{lemma}
 
 \begin{definition}
   Let $\mathcal L^p\rr{\mathbb T}$ denote the space of functions
@@ -106,39 +41,125 @@
   $\mathcal P\rr{\mathbb T}\subset C\rr{\mathbb T}\subset \mathcal L^2\rr{\mathbb T}\subset\mathcal L^1\rr{\mathbb T}$.
 \end{lemma}
 
-\begin{definition}
-  The $L^p$-norm $\vabs{-}_{\mathcal L^p}:\mathcal L^p\to\R$ is given by
-  \begin{align*}
-    f \mapsto \rr{\int_{\mathbb T} \vv{f\rr{x}}^p dx}^{1/p}.
-  \end{align*}
-\end{definition}
-
-\begin{theorem}
-  The $L^2$-norm is a norm for $\mathcal P\rr{\mathbb T}$.
-\end{theorem}
-
-\begin{theorem}
-  The $L^2$-norm is not a norm for $\mathcal L^2\rr{\mathbb T}$.
-\end{theorem}
+\begin{lemma}
+  The class of trigonometric polynomials $\mathcal P\rr{\mathbb T}$ is dense in the spaces
+  \begin{enumerate}
+    \item $C(\mathbb T)$ wrt $\vabs{-}_{\infty}$;
+    \item for $p=1,2$, $\mathcal L^p(\mathbb T)$ wrt $\vabs{-}_{p}$.
+  \end{enumerate}
+\end{lemma}
 
 \begin{definition}
-  Define the space
+  The normed linear space $L^p$ is defined by
   \begin{align*}
+    \vabs{f}_{L^p} = \rr{\int_{\mathbb T} \vv{f\rr{x}}^p dx}^{1/p},\hs
     L^p = \mathcal L^p / \cc{f\in\mathcal L^p : \vabs{f}_{L^p} = 0}.
   \end{align*}
 \end{definition}
 
 \begin{theorem}
-  The $L^p$-norm defines a norm for $L^p\rr{\mathbb T}$.
+  Let $f\in\mathcal L^1\rr{\R}$. Then
+  \begin{itemize}
+    \item $(x\mapsto f(-x))\in\mathcal L^1\rr{\R}$.
+    \item $\vv{f}\in\mathcal L^1\rr{\R}$.
+    \item For all $g\in\mathcal L^{\infty}\rr{\R}$, $fg\in\mathcal L^1\rr{\R}$.
+    \item For all $h\in\R$, $(x\mapsto f(x-h))\in\mathcal L^1\rr{\R}$.
+    \item For all $t>0$, $(x\mapsto \inv t f(\inv t x))\in\mathcal L^1\rr{\R}$.
+  \end{itemize}
 \end{theorem}
 
+\begin{theorem}
+  Let $f\in\mathcal L^1\rr{\R}$. Then
+  \begin{itemize}
+    \item For $g\in\mathcal L^{\infty}\rr{\R}$ and $a,b\in\C$,
+      \begin{align*}
+        \int_R af(x) + bg(x) = a\int_\R f(x)dx + b\int_\R g(x) dx.
+      \end{align*}
+    \item For all $h\in\R$,
+      \begin{align*}
+        \int_\R f(x-h)dx = \int_\R f(x)dx.
+      \end{align*}
+    \item For all $t>0$,
+      \begin{align*}
+        \int_\R \inv tf(\inv tx) dx = \int_\R f(x) dx.
+      \end{align*}
+    \item For all $g\in\mathcal L^{\infty}\rr{\R}$,
+      \begin{align*}
+        \int_\R \vv{f(x)g(x)} dx \leq \rr{\text{ess sup } g}
+        \int_\R \vv{f(x)} dx.
+      \end{align*}
+    \item \begin{align*}
+        \vv{\int_\R f(x) dx}\leq \int_\R \vv{f(x)} dx.
+      \end{align*}
+    \item \begin{align*}
+        \int_\R f(-x) dx = \int_\R f(x) dx.
+      \end{align*}
+  \end{itemize}
+\end{theorem}
+
+\subsection{Convolution}
+
 \begin{definition}
-  A function $f:\mathbb T\to\mathbb C$ is essentially bounded if there exists a constant
-  $M>0$ and a set of measure zero $E\subseteq\mathbb T$ such that, for all
-  $x\in\mathbb T\setminus E$, $\vv{f\rr{x}}\leq M$.
+  Consider an interval $I\subseteq\R$ and $f,g\in\mathcal L^1\rr{I}$.
+  The \emph{convolution $f*g\in L^1(I)$} is defined by
+  \begin{align*}
+    f*g(x) = \int_I f(x-t)g(t)dt.
+  \end{align*}
 \end{definition}
 
-\section{Basic properties of Fourier coefficients}
+\begin{lemma}
+  If $f,g\in\mathcal L^1\rr{\R}$, at least one of them bounded, then
+  $f*g$ is continuous.
+\end{lemma}
+
+\begin{lemma}
+  If $f,g\in\mathcal L^1\rr{\mathbb T}$, at least one of them bounded, then
+  $f*g$ is uniformly continuous.
+\end{lemma}
+
+\begin{theorem}[Young]
+  Let $f\in\mathcal L^1\rr{\R}$ and $g\in\mathcal L^{p}\rr{\R}$
+  for some $1\leq p\leq\infty$. Then $f*g\in L^p\rr{\R}$ and
+  \begin{align*}
+    \vabs{f*g}_{L^p(\R)} \leq \vabs{f}_{L^1\rr{\R}}\vabs{g}_{L^p(\R)}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  For all $f,g\in\mathcal L^1\rr{\R}$,
+  \begin{align*}
+    \int_\R f*g = \rr{\int_\R f}\rr{\int_\R g}.
+  \end{align*}
+\end{theorem}
+
+\section{Fourier series}
+
+\begin{definition}
+  The \emph{Fourier coefficients} of $f\in\mathcal L^1\rr{\mathbb T}$ are given by
+  \begin{align}\label{eq:fourier_coefficients}
+    \hat f\rr{k} = \int_{\mathbb T} f\rr{x} e^{-2\pi i k x} dx,
+  \end{align}
+  the \emph{Fourier series of $f$ at $x\in\R$} is given by the formal expression
+  \begin{align*}
+    \sum_{k=-\infty}^\infty \hat f\rr{k} e^{2\pi i k x},
+  \end{align*}
+  and the \emph{$n$th partial sum of the Fourier series of $f$ at $x\in\R$} is
+  given by
+  \begin{align*}
+    S_N f\rr{x} = \sum_{k=-N}^N \hat f\rr{k}e^{2\pi i k x}.
+  \end{align*}
+\end{definition}
+
+\subsection{Properties}
+
+\begin{lemma}
+  Let $p\rr{x}=\sum_{k=-N}^{ N } c_k e^{2\pi i k x}$ be a trigonometric polynomial.
+  \begin{enumerate}
+    \item The Fourier coefficients $\hat p(k)$ are precisely the $c_k$
+      for $k\leq\vv{N}$ and otherwise zero;
+    \item $\sum_{k\in\Z}\vv{\hat p\rr{k}}^2 = \int_{\mathbb T}\vv{p\rr{x}}^2 dx$.
+  \end{enumerate}
+\end{lemma}
 
 \begin{lemma}[Riemann-Lebesgue]
   Let $f\in\mathcal L^1\rr{\mathbb T}$. Then $\hat f\rr{k}\to 0$ as $k\to \pm\infty$.
@@ -158,46 +179,19 @@
   \end{enumerate}
 \end{proposition}
 
-\begin{theorem}
-  Suppose $f\in\mathcal L^1\rr{\mathbb T}$ has an absolutely convergent Fourier series. Then the
-  Fourier series $\sum_{k\in\Z} \hat f\rr{k}e^{2\pi i k x}$ of $f$ converges uniformly on
-  $\br{0,1}$ to a continuous function $g\in C\rr{\mathbb T}$ such that $\hat g\rr{k}=\hat f\rr{k}$,
-  for all $k\in\Z$.
-  \begin{proof}
-    We apply \ref{prop:weierstrass_m_test} to the sequence of functions
-    $f_k\rr{x}=\hat f\rr{k}e^{2\pi ikx}$, noting that $\vv{f_k\rr{x}}=\vv{\hat f\rr{k}}$
-    for all $x\in\mathbb T$, and hence
-    \begin{align*}
-      \sup_{x\in\br{0,1}}\vv{f_k\rr{x}}=\vv{\hat f\rr{k}}.
-    \end{align*}
-    Thus the Fourier series of $f$ converges to some continuous function $g$.
-
-    We now consider the Fourier coefficients $\hat g\rr{k}$ of $g$, given by
-    \begin{align*}
-      \hat g\rr{k}=\int_{\mathbb T} g\rr{x}e^{-2\pi ikx} dx
-      = \int_{\mathbb T} \rr{\sum_{n\in\Z} \hat f\rr{n}e^{2\pi inx}}e^{-2\pi ikx}dx.
-    \end{align*}
-    Since the series $g(x)$ converges uniformly, it follows that
-    \begin{align*}
-      \hat g\rr{k}=\sum_{n\in\Z}\hat f\rr{n}\int_{\mathbb T}e^{2\pi i\rr{n-k}x}dx.
-    \end{align*}
-    Applying the orthogonality relations, we obtain $\hat g\rr{k}=\hat f\rr{k}$.
-  \end{proof}
-\end{theorem}
-
-\begin{theorem}
-  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ be two functions such that, for all $k\in\Z$,
-  \begin{align*}
-    \hat f\rr{k}=\hat g\rr{k}.
-  \end{align*}
+\begin{lemma}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ be two functions such that, for all $k\in\Z$, $\hat f\rr{k}=\hat g\rr{k}$.
   Then at all points of continuity of $f-g$ we have $f\rr{x}=g\rr{x}$.
-\end{theorem}
+\end{lemma}
 
 \begin{theorem}
-  Suppose $f\in\mathcal L^1\rr{\mathbb T}$ has an absolutely convergent Fourier series.
-  Then the Fourier series $\sum_{k\in\Z} \hat f\rr{k}e^{2\pi ikx}$ of $f$ converges uniformly
-  on $\br{0,1}$ to a continuous function $g\in C\rr{\mathbb T}$. Furthermore, $g\rr{x}=f\rr{x}$
-  whenever $f$ is continuous at $x\in\br{0,1}$.
+  Suppose $f\in\mathcal L^1\rr{\mathbb T}$ has an absolutely convergent Fourier
+  series. Then the Fourier series of $f$ converges uniformly on $\br{0,1}$ to a
+  continuous function $g\in C\rr{\mathbb T}$ such that
+  \begin{itemize}
+    \item for all $k\in\Z$, $\hat g\rr{k}=\hat f\rr{k}$;
+    \item for all $x\in\br{0,1}$ at which $f$ is continuous, $g(x)=f(x)$.
+  \end{itemize}
 \end{theorem}
 
 \begin{proposition}
@@ -205,23 +199,6 @@
   \begin{align*}
     \hat{f^{\rr{n}}}\rr{k}=\rr{2\pi ik}^n \hat f\rr{k}
   \end{align*}
-  \begin{proof}
-    By induction. Note the base case $n=0$ is vacuous. Assume the result holds for some
-    $n\geq 0$ and $f\in C^{n+1}\rr{\mathbb T}$. Letting $g=f^{\rr{n}}$, it follows that
-    $g\in C\rr{\mathbb T}$ and, using integration by parts,
-    \begin{align*}
-      \hat{\rr{g'}} = \int_0^1 g'\rr{x}e^{-2\pi ikx}dx
-      = \left. g\rr{x}e^{-2\pi ikx}\right\rvert_0^1 - \int_0^1 g\rr{x}\frac{d}{dx}\rr{e^{-2\pi ikx}}dx.
-    \end{align*}
-    Due to periodicity,
-    \begin{align*}
-      \hat{\rr{g'}}\rr{k}= g\rr{1}-g\rr{0}+\rr{2\pi ikx}\int_0^1 g\rr{x}e^{-2\pi ikx}dx=\rr{2\pi ikx}\hat g\rr{k}.
-    \end{align*}
-    Thus
-    \begin{align*}
-      \hat{\rr{f^{\rr{n}}}}\rr{k}=\rr{2\pi ik}^n\hat f\rr{k}.
-    \end{align*}
-  \end{proof}
 \end{proposition}
 
 \begin{corollary}
@@ -266,7 +243,90 @@
   uniformly to $f$.
 \end{proposition}
 
-\section{Dirchlet}\label{sec:pointwise_convergence}
+\begin{proposition}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$. Then, for all $k\in\Z$,
+  \begin{align*}
+    \widehat{f*g}(k) = \hat f(k)\hat g(k).
+  \end{align*}
+  In particular,
+  \begin{align*}
+    \int_{\mathbb T}f*g = \rr{\int_{\mathbb T} f}\rr{\int_{\mathbb T}g}.
+  \end{align*}
+\end{proposition}
+
+\begin{theorem}
+  Let $f\in\mathcal L^2(\mathbb T)$. Then
+  \begin{align*}
+    \lim_{N\to\infty}\int_{\mathbb T}\vv{S_N f(x)-f(x)}^2 dx = 0.
+  \end{align*}
+  Further we have the \emph{Riesz-Fischer identity},
+  \begin{align*}
+    \sum_{k\in\Z} \vv{\hat f(k)}^2 = \int_{\mathbb T} \vv{f(x)}^2dx.
+  \end{align*}
+\end{theorem}
+
+\begin{corollary}[Parseval]
+  Let $f,g\in\mathcal L^2\rr{\mathbb T}$. Then
+  \begin{align*}
+    \int_{\mathbb T}f\bar g = \sum_{k\in\Z} \hat f(k)\overline{\hat g(k)}.
+  \end{align*}
+\end{corollary}
+
+\subsection{Pointwise convergence}
+
+\begin{theorem}[Katznelson]
+  For any set of measure zero $E\subseteq\br{0,1}$, there exists an $f\in C\rr{\mathbb T}$
+  whose Fourier series diverges at every point in $E$.
+\end{theorem}
+
+\begin{theorem}[Carleson]
+  For $f\in C\rr{\mathbb T}$, there exists a set $E\subseteq\br{0,1}$ of measure zero
+  such that, for all $x\in \br{0,1}\setminus E$,
+  \begin{align*}
+    \sum_{k=0}^\infty \hat f\rr{k}e^{2\pi i k x} = f\rr{x}.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  There exists a function $f\in C(\mathbb T)$ such that
+  $\hat f$ diverges at $0$.
+  \begin{proof}
+    Define
+    \begin{align*}
+      F_N(x) = \sum_{k=-N,k\neq 0}^N \frac{\exp\rr{2\pi ikx}}{k},\hs
+      f_n(x) = F_N(x)\exp\rr{2\pi i2Nx}.
+    \end{align*}
+    Now let $\rr{N_k}_{k\in\N}$ be the rapidly increasing sequence
+    of integers given by $N_k = 3^{2^k}$ and choose
+    \begin{align*}
+      f(x) = \sum_{k=1}^\infty \frac{1}{k^2} f_{N_k}(x).
+    \end{align*}
+  \end{proof}
+\end{theorem}
+
+\begin{definition}
+  Let $f:\R\to\C$ and $x\in\R$. Then $f$ is \emph{Lipschitz at $x$} if there is a
+  constant $C>0$ such that, for all $t\in\R$,
+  \begin{align*}
+    \vv{f\rr{x-t}-f\rr{t}}\leq C\vv{t}.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  If $f\in\mathcal L^1\rr{\mathbb T}$ and $f$ is Lipschitz at $x\in\br{0,1}$,
+  then the Fourier series of $f$ converges at $x$.
+\end{theorem}
+
+\begin{theorem}
+  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ and $I\subseteq\R$ an open interval.
+  If $f\rr{x}=g\rr{x}$ for all $x\in I$, then
+  \begin{align*}
+    S_N f\rr{x}-S_N g\rr{x}\to 0 \text{ as } N\to\infty
+  \end{align*}
+  for all $x\in I$.
+\end{theorem}
+
+\subsection{Uniform convergence}
 
 \begin{definition}
   Let $N\geq 1$ and $x\in\R$. Then the \emph{$N$th Dirichlet kernel at $x$} is
@@ -274,26 +334,6 @@
     D_N\rr{x}=\sum_{k=-N}^N e^{2\pi ikx}.
   \end{align*}
 \end{definition}
-
-\begin{definition}
-  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ such that at least one of them is bounded. The
-  convolution $f * g$ of $f$ and $g$ is
-  \begin{align*}
-    f*g\rr{x}=\int_{\mathbb T} f\rr{x-t}g\rr{t}dt.
-  \end{align*}
-\end{definition}
-
-\begin{proposition}
-  If $f\in\mathcal L^1\rr{\mathbb T}$ and $g\in\mathcal P\rr{\mathbb T}$ then
-  $f*g\in\mathcal P\rr{\mathbb T}$ and, for all $k\in\Z$,
-  \begin{align*}
-    \hat{f*g}\rr{k}=\hat f\rr{k}\hat g\rr{k}
-  \end{align*}
-  In particular,
-  \begin{align*}
-    \int_{\mathbb T} f * g = \rr{\int_{\mathbb T} f}\rr{\int_{\mathbb T} g}.
-  \end{align*}
-\end{proposition}
 
 \begin{lemma}
   For all $N\geq 1$ and $x\in\R$,
@@ -307,28 +347,14 @@
 \end{lemma}
 
 \begin{definition}
-  Let $f:\R\to\C$ and $x\in\R$. Then $f$ is \emph{Lipschitz at $x$} if there is a
-  constant $C>0$ such that, for all $t\in\R$,
-  \begin{align*}
-    \vv{f\rr{x-t}-f\rr{t}}\leq C\vv{t}.
-  \end{align*}
+  For $f\in\mathcal C\rr{\mathbb T}$, the \emph{$n$th Cesaro mean of $f$ at
+  $x$} is given by $\sigma_N f\rr{x} = \frac{1}{N+1} \sum_{n=0}^N S_n f\rr{x}$.
 \end{definition}
 
 \begin{theorem}
-  Suppose that $f\in\mathcal L^1\rr{\mathbb T}$ and that $f$ is Lipschitz at $x\in\br{0,1}$.
-  Then $s_N f\rr{x}\to f\rr{x}$ as $N\to\infty$.
+  For $f\in C\rr{\mathbb T}$, the sequence of Cesaro means $\rr{\sigma_n f}_{n\geq 1}$
+  converges uniformly to $f$ on $\br{0,1}$.
 \end{theorem}
-
-\begin{theorem}
-  Let $f,g\in\mathcal L^1\rr{\mathbb T}$ and $I\subseteq\R$ an open interval.
-  If $f\rr{x}=g\rr{x}$ for all $x\in I$, then
-  \begin{align*}
-    S_N f\rr{x}-S_N g\rr{x}\to 0 \text{ as } N\to\infty
-  \end{align*}
-  for all $x\in I$.
-\end{theorem}
-
-\section{Fej\'er}
 
 \begin{definition}
   We say that a sequence $\rr{K_N}_{N\in\N}$ with each $K_N\in\mathcal L^1\rr{\mathbb T}$
@@ -362,19 +388,6 @@
 \end{theorem}
 
 \begin{definition}
-  Let $\rr{a_n}_{n\in\N}$ be a sequence of complex numbers. Its \emph{$N$th Ces\`aro mean}
-  is
-  \begin{align*}
-    \sigma_N = \frac{1}{N}\sum_{n=1}^N a_n.
-  \end{align*}
-\end{definition}
-
-\begin{proposition}
-  Let $\rr{a_n}_{n\in\N}$ be a sequence of complex numbers. If $a_n\to a$ as $n\to\infty$
-  then $\sigma_N\to a$ as $N\to \infty$.
-\end{proposition}
-
-\begin{definition}
   Let $N\geq 1$ and $x\in\R$. Then the \emph{$N$th Fej\'er kernel at $x$} is
   \begin{align*}
     F_N\rr{x}=\frac{1}{N+1}\sum_{n=0}^{N} D_n\rr{x}.
@@ -391,68 +404,6 @@
   uniformly.
 \end{corollary}
 
-\begin{corollary}
-  The class of trigonometric polynomials $\mathcal P\rr{\mathbb T}$ is dense in the spaces
-  \begin{enumerate}
-    \item $C(\mathbb T)$ wrt $\vabs{-}_{\infty}$;
-    \item for $p=1,2$, $\mathcal L^p(\mathbb T)$ wrt $\vabs{-}_{p}$.
-  \end{enumerate}
-\end{corollary}
-
-\begin{corollary}[Weierstrass approximation theorem]
-  The class of polynomials is dense in $C\rr{[0,1]}$ wrt $\vabs{-}_{\infty}$.
-\end{corollary}
-
-\begin{theorem}
-  Let $f\in\mathcal L^2(\mathbb T)$. Then
-  \begin{align*}
-    \lim_{N\to\infty}\int_{\mathbb T}\vv{S_N f(x)-f(x)}^2 dx = 0.
-  \end{align*}
-  Further we have the \emph{Riesz-Fischer identity},
-  \begin{align*}
-    \sum_{k\in\Z} \vv{\hat f(k)}^2 = \int_{\mathbb T} \vv{f(x)}^2dx.
-  \end{align*}
-\end{theorem}
-
-\begin{corollary}[Parseval]
-  Let $f,g\in\mathcal L^2\rr{\mathbb T}$. Then
-  \begin{align*}
-    \int_{\mathbb T}f\bar g = \sum_{k\in\Z} \hat f(k)\overline{\hat g(k)}.
-  \end{align*}
-\end{corollary}
-
-\section{Convolution}
-
-\begin{lemma}
-  Let $f\in\mathcal L^1\rr{\mathbb T}$. Then, for $1\leq p<\infty$,
-  \begin{align*}
-    \lim_{h\to 0}\rr{\int_{\mathbb T} \vv{f\rr{x+h}-f\rr{x}}^p dx}^{1/p} = 0.
-  \end{align*}
-\end{lemma}
-
-\begin{proposition}
-  Let $f,g\in\mathcal L^1\rr{\mathbb T}$. If $f$ is bounded then $f*g$
-  is uniformly continuous on $\R$.
-\end{proposition}
-
-\begin{theorem}[Young's inequality]
-  Let $f\in\mathcal L^1\rr{\mathbb T}$ and $g\in\mathcal L^p\rr{\mathbb T}$ for $1\leq p<\infty$.
-  Then $f*g\in L^p\rr{\mathbb T}$ and
-  \begin{align*}
-    \vabs{f*g}_{L^p\rr{\mathbb T}} \leq \vabs{f}_{L^1\rr{\mathbb T}}\vabs{g}_{L^p\rr{\mathbb T}}.
-  \end{align*}
-\end{theorem}
-
-\begin{proposition}
-  Let $f,g\in\mathcal L^1\rr{\mathbb T}$. Then, for all $k\in\Z$,
-  \begin{align*}
-    \widehat{f*g}(k) = \hat f(k)\hat g(k).
-  \end{align*}
-  In particular,
-  \begin{align*}
-    \int_{\mathbb T}f*g = \rr{\int_{\mathbb T} f}\rr{\int_{\mathbb T}g}.
-  \end{align*}
-\end{proposition}
 
 \begin{definition}
   Let $f\in\mathcal L^1\rr{\mathbb T}$ and $0<r<1$. Then the \emph{Abel mean at $x$}
@@ -475,8 +426,28 @@
 
 \begin{theorem}
   If $f\in\mathcal L^1\rr{\mathbb T}$ is continuous at $x\in\br{0,1}$ then $A_r f(x)\to f(x)$
-  as $r\to 1^-$. Moreoever, if $f\in C\rr{\mathbb T}$ then $A_r f\to f$ uniformly as
+  as $r\to 1^-$. Moreover, if $f\in C\rr{\mathbb T}$ then $A_r f\to f$ uniformly as
   $r\to 1^-$.
+\end{theorem}
+
+\subsection{Applications}
+
+\begin{definition}
+  The \emph{length} of a simple, closed $C^1$ curve
+  given by a parametrisation $\gamma : \bb{0,1}\to\R^2$ is
+  defined by
+  \begin{align*}
+    \text{Length}(\Gamma) = \int_0^1 \vv{\gamma'(t)} dt.
+  \end{align*}
+\end{definition}
+
+\begin{theorem}
+  Let $R_\Gamma\subseteq\R^2$ be the region inclosed by a simple,
+  closed, piecewise $C^1$ curve $\Gamma\subseteq\R^2$. Then
+  \begin{align*}
+    \text{Area}(R_\Gamma) \leq \text{Length}(\Gamma)^2 / 4\pi.
+  \end{align*}
+  Furthermore, equality holds if and only if $\Gamma$ is a circle.
 \end{theorem}
 
 \begin{definition}
@@ -500,6 +471,165 @@
         \lim_{N\to\infty} \frac{1}{N}\sum_{n=1}^{N} \exp\rr{2\pi ikx_n}=0.
       \end{align*}
   \end{enumerate}
+\end{theorem}
+
+\section{Fourier transform}
+
+\begin{definition}
+  The \emph{Fourier transform} of a function $f:\R\to\C$ in
+  $\mathcal L^1(\R)$ is given by
+  \begin{align*}
+    \mathcal Ff(\xi) = \int_{\R} f(x) \exp\rr{-2\pi i\xi x} dx.
+  \end{align*}
+\end{definition}
+
+\subsection{Properties}
+
+\begin{theorem}
+  For $f,g\in\mathcal L^1\rr{\R}$,
+  \begin{itemize}
+    \item For all $a,b\in\C$,
+      $\mathcal F(af + bf)(\xi) = a\mathcal F(f)(\xi) + b\mathcal F(g)(\xi)$.
+    \item For all $h\in\R$, $\mathcal F(x\mapsto f(x-h))(\xi) = \exp\rr{-2\pi i\xi
+      h}\mathcal Ff(\xi)$.
+    \item For all $t>\R$,
+      $\mathcal F(x\mapsto\inv tf(\inv tx)) = \mathcal Ff(t\xi)$.
+    \item $\mathcal F(x\mapsto f(-x))(\xi) = \mathcal Ff(-\xi)$.
+    \item For all $h\in\R$, $\mathcal F(x\mapsto\exp\rr{2\pi ihx}f(x))(\xi) = (\mathcal Ff)(\xi - h)$.
+  \end{itemize}
+\end{theorem}
+
+\begin{example}
+  $\mathcal F(\chi_{\bb{-1,1}})\not\in\mathcal L^1\rr{\R}$.
+\end{example}
+
+\begin{theorem}
+  If $f\in\mathcal L^1\rr{\R}$, then $\mathcal Ff$ is continuous
+  and $Ff(\xi)\to 0$.
+\end{theorem}
+
+\begin{proposition}
+  Let $f\in\mathcal L^1\rr{\R}$.
+  \begin{itemize}
+    \item If $f'\in\mathcal L^1\rr{\R}$, then $\mathcal F(f')(\xi) = (2\pi i\xi)\mathcal Ff(\xi)$.
+    \item If $xf\in\mathcal L^1\rr{\R}$, then $\mathcal Ff$ is
+      differentiable and
+      \begin{align*}
+        (\mathcal Ff)'(\xi) = \mathcal F(x\mapsto-2\pi ixf(x))(\xi).
+      \end{align*}
+  \end{itemize}
+\end{proposition}
+
+\note{capture 9.6}
+
+\begin{lemma}
+  Let $f,g\in\mathcal L^1\rr{\R}$. Then
+  \begin{itemize}
+    \item $(\mathcal Ff*\mathcal Fg)=\mathcal F(f*g)$;
+    \item $\int_\R f(\mathcal Fg) = \int_\R (\mathcal F f) g$
+  \end{itemize}
+\end{lemma}
+
+\subsection{Kernels}
+
+\begin{proposition}
+  Let $G(x)=\exp\rr{-\pi x^2}$. Then $\mathcal FG(\xi)=G(\xi)$.
+\end{proposition}
+
+\begin{definition}
+  A family $\rr{K_t}_{t>0}\subseteq\mathcal L^1(\R)$
+  is an \emph{approximate identity} if
+  \begin{enumerate}
+    \item for all $t>0$, $\int_{\R} K_t = 1$;
+    \item there exists $B\geq 1$ such that, for all $t>0$, $\int_{\R}\vv{K_t}\leq B$;
+    \item for all $\delta>0$,
+      \begin{align*}
+        \lim_{t\to 0^+}\int_{\delta\leq\vv{x}}\vv{K_t\rr{x}} dx = 0.
+      \end{align*}
+  \end{enumerate}
+\end{definition}
+
+\begin{example}
+  Consider a function $K\in\mathcal L^1(\R)$ with $\int_\R K = 1$.
+  For example,
+  \begin{itemize}
+    \item the \emph{Gaussian} $G(x)=\exp\rr{-\pi x^2}$;
+    \item the \emph{Fej\'er kernel} $F(x)=\sin^2(\pi x)/\pi^2x^2$;
+    \item the \emph{Poisson kernel} $P(x)=1/\pi(1+x^2)$.
+  \end{itemize}
+  Then the family $\rr{K_t}_{t>0}$ given by
+  $K_t(x) = \inv t K(\inv t x)$ is an approximate identity.
+\end{example}
+
+\begin{theorem}
+  Let $\rr{K_t}_{t>0}$ be an approximate identity.  \begin{itemize}
+    \item  If $f\in\mathcal L^{\infty}\rr{\R}$ is continuous at $x$,
+      then $K_t * f(x) \to f(x)$.
+    \item  If $f\in\mathcal L^{\infty}\rr{\R}$ is continuous,
+      then $\vabs{K_t * f - f}_\infty \to 0$.
+    \item  If $f\in\mathcal L^p\rr{\R}$ for $1\leq p<\infty$,
+      then $\vabs{K_t * f - f}_p \to 0$.
+  \end{itemize}
+\end{theorem}
+
+\subsection{Inversion}
+
+\begin{lemma}
+  If $f\in\mathcal L^1\rr{\R}$, then, for all $x\in\R$ and $t>0$,
+  \begin{align*}
+    G_t * f(x) = \int_\R \mathcal F(G_t * f)(\xi)\exp\rr{2\pi ix\xi} d\xi
+    = \int_\R \mathcal F(G_t)(\xi)\mathcal Ff(\xi)\exp\rr{2\pi ix\xi} d\xi.
+  \end{align*}
+\end{lemma}
+
+\begin{theorem}
+  Let $f,g\in\mathcal L^1\rr{\R}$ such that $\mathcal Ff=\mathcal Fg$.
+  If $f-g$ is continuous at $x\in\R$, then $f(x)=g(x)$.
+\end{theorem}
+
+\begin{theorem}
+  Let $f\in\mathcal L^1\rr{\R}$ such that $\mathcal Ff\in\mathcal L^1\rr{\R}$. If $f$ is continuous at $x\in\R$, then
+  \begin{align*}
+    f(x) = \int_\R \mathcal Ff(\xi)\exp\rr{2\pi ix\xi} d\xi.
+  \end{align*}
+\end{theorem}
+
+\begin{corollary}
+  Let $\mathcal B(\R) = \cc{f:\R\to\C : f,\mathcal Ff\in\mathcal L^1\rr{\R}\cap C(\R)}$. Then $\mathcal F$ is a bijection of $\mathcal B(\R)$ and
+  its inverse is
+  \begin{align*}
+    (\inv{\mathcal F}f)(x) = \int_\R g(\xi)\exp\rr{2\pi ix\xi} d\xi.
+  \end{align*}
+\end{corollary}
+
+\subsection{Plancharel}
+
+\begin{theorem}[Plancherel]
+  Suppose that $f\in\mathcal L^1\rr{\R}\cap\mathcal L^{2}\rr{\R}$. Then
+  $\mathcal F f\in\mathcal L^{2}\rr{\R}$ and
+  \begin{align*}
+    \int_\R \vv{\mathcal Ff}^2 = \int_\R \vv{f}^2.
+  \end{align*}
+\end{theorem}
+
+\begin{theorem}
+  Let $f\in\mathcal L^1\rr{\R}\cap\mathcal L^{2}\rr{\R}$ and, for all
+  $R>0$, define
+  \begin{align*}
+    S_R f(x) = \int_{-R}^R \mathcal F f(\xi)\exp\rr{2\pi i x\xi}d\xi.
+  \end{align*}
+  Then, for all $R>0$,
+  \begin{itemize}
+    \item $S_R f\in\mathcal L^2\rr{\R}$ and
+      \begin{align*}
+        \int_\R \vv{S_R f}^2 = \int_{\vv{\xi}\leq R} \vv{\mathcal F f(\xi)}^2
+        d\xi \leq \int_\R \vv{f}^2;
+      \end{align*}
+    \item $S_R f-f\in\mathcal L^{2}\rr{\R}$ and, as $R\to\infty$,
+      \begin{align*}
+        \int_\R \vv{S_r f - f}^2 = \int_{\vv{\xi}\geq R} \vv{\mathcal F f(\xi)}^2 \to 0.
+      \end{align*}
+  \end{itemize}
 \end{theorem}
 
 \end{document}
