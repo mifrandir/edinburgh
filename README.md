@@ -1,6 +1,6 @@
-# University Notes
+# University notes
 
-Anything related to my time at the University of Edinburgh.
+Notes and assessments for my BSc Hons in Computer Science and Mathematics at the University of Edinburgh. I started in September 2019.
 
 ## Courses
 
