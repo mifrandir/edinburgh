@@ -64,12 +64,10 @@ SEM1     | INF    | RA        | Randomised Algorithms                           
 SEM1     | INF    | IQC       | Introduction to Quantum Computation                 | Petros Wallden                     |      |       |  5
 SEM1     | MATH   | GTP       | General Topology                                    | Clark Barwick                      | 100  | A1    |  5
 SEM1     | MATH   | LINA      | Linear Analysis                                     | Pieter Blue                        |      |       |  5
-SEM2     | INF    | CQI       | Categories and Quantum Informatics                  | Chris Heunen                       |      |       |  5
-SEM2     | MATH   | AG        | Algebraic Geometry                                  | Pavel Safronov                     |      |       |  5
-SEM2     | MATH   | IAGT      | Interactions in Algebra, Geometry, and Topology     | Clark Barwick                      |      |       |  5
-SEM2     | MATH   | FOURIER   | Fourier Analysis                                    | Jonathan Hickman                   |      |       |  5
-SEM1     | MATH   | GRP       | Group Theory                                        | Agata Smoktunowicz                 | -    | -     |  0
-SEM2     | MATH   | GALOIS    | Galois Theory                                       | Tom Leinster                       | -    | -     |  0
+SEM2     | INF    | CQI       | Categories and Quantum Informatics                  | Chris Heunen                       |   -  | P     |  5
+SEM2     | MATH   | AG        | Algebraic Geometry                                  | Pavel Safronov                     |  73  | A3    |  5
+SEM2     | MATH   | IAGT      | Interactions in Algebra, Geometry, and Topology     | Clark Barwick                      | 100  | A1    |  5
+SEM2     | MATH   | FOURIER   | Fourier Analysis                                    | Jonathan Hickman                   |   -  | P     |  5
 
 Total credits sought: 120
 
